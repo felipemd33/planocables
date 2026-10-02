@@ -684,9 +684,25 @@ def hop_to_chord(pts, H):
     return [pts[0], pts[-1]] if is_hop(pts, H) else pts
 
 
+def _una_letra(a, b):
+    """a y b difieren en una sola letra (cambiada, de mas, de menos) o en dos letras vecinas cambiadas de lugar"""
+    if a == b or abs(len(a) - len(b)) > 1:
+        return False
+    if len(a) == len(b):
+        d = [i for i in range(len(a)) if a[i] != b[i]]
+        return len(d) == 1 or (len(d) == 2 and d[1] == d[0] + 1 and a[d[0]] == b[d[1]] and a[d[1]] == b[d[0]])
+    if len(a) > len(b):
+        a, b = b, a
+    return any(b[:i] + b[i + 1:] == a for i in range(len(b)))
+
+
 def norm_color(c):
     k = c.strip().lower().replace(' ', '')
-    return COLORES.get(k, c.strip().capitalize())
+    if k in COLORES:
+        return COLORES[k]
+    # error de tipeo del plano ('Balck' = Black): el color conocido que difiere en una letra, si hay uno solo
+    cand = {v for n, v in COLORES.items() if len(n) >= 4 and len(k) >= 4 and _una_letra(k, n)}
+    return cand.pop() if len(cand) == 1 else c.strip().capitalize()
 
 
 def label_anchor(ang, bb):

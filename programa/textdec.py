@@ -235,6 +235,14 @@ class Decoder:
             out.append((line, chars, base, Hl, labs))
         return out
 
+    def lee_entero(self, block, H):
+        """el bloque se lee ENTERO con el diccionario a la altura H (a 0 o 90 grados), sin OCR"""
+        for a in (0, 90):
+            ls = self.lines_for(block, H, a)
+            if ls and all(l is not None and not l.startswith('\x00') for line in ls for l in line[4]):
+                return True
+        return False
+
     def decode_block(self, block, H):
         x0, y0, x1, y1 = bbox([pt for p in block for pt in p])
         pref = [0, 90] if (x1 - x0) >= (y1 - y0) else [90, 0]
@@ -353,7 +361,14 @@ def page_text(strokes, decoder, skip_layers=()):
                 groups.append((gs, Hb))
         lay = []
         for g, Hg in groups:
-            for r in decoder.decode_block(g, Hg):
+            rs = decoder.decode_block(g, Hg)
+            if Hg > 1.1 * H and any(r['src'] != 'dict' for r in rs) and decoder.lee_entero(g, H):
+                # grupo 'alto' solo por un parentesis ('2)' de 'NC(12)': el ')' mide 1,5 veces el digito): a la altura
+                # de la capa se lee entero con el diccionario -> esa lectura (si no, el giro a 90 + OCR leia '2')
+                alt = decoder.decode_block(g, H)
+                if alt and all(r['src'] == 'dict' for r in alt):
+                    rs = alt
+            for r in rs:
                 r['layer'] = layer
                 lay.append(r)
         out += merge_lines(lay)

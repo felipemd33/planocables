@@ -10,7 +10,7 @@ from textdec import Decoder, page_text, UNROT
 from wires import WireGraph, assign, NUM_RE, LABEL_RE, norm_color
 
 SKIP_TEXT_LAYERS = ('COMPONENT', 'RIEL', 'TABLERO', 'CABLECANAL', 'Envolvente', 'Zona Segura', 'WATERMARK')
-SHREF_RE = re.compile(r'\(\s*Sh\s*(\d+)[A-Z]?\s*[:;.]\s*([A-F]\d)\s*\)', re.I)   # (Sh15A:D2): la letra de subhoja no cuenta, como en instructivo
+SHREF_RE = re.compile(r'\(\s*Sh\s*:?\s*(\d+)[A-Z]?\s*[:;.]\s*([A-F]\d)(?:\s*/\s*[A-F]\d)*\s*\)', re.I)   # (Sh15A:D2): la letra de subhoja no cuenta, como en instructivo; (Sh15:B2/D2/E2): varias zonas
 NOTE_RE = re.compile(r'not\s+indicated\s+will\s+be\s+(\w+)\s+([\d.,]+)\s*mm', re.I)
 NOTE_ES_RE = re.compile(r'no\s+indicad\w*\s+(?:ser[aá]n?|son)\s+(\w+)\s+(?:de\s+)?([\d.,]+)\s*mm', re.I)
 TAG_RE = re.compile(r'(?!\d+V(?:DC|AC|CC)?$)\d{2}[A-Z][A-Z0-9]{1,7}')   # referencia de componente/bornera: 62XDO, 13XC1, 43DIB1...
@@ -42,7 +42,7 @@ def page_meta(lines, pw, ph, k=1.0, strokes=None):
     if pag:
         pag.sort(key=lambda l: (l['bbox'][1] - l['bbox'][0]))   # la del cajetin: abajo a la derecha
         p = pag[0]['bbox']
-        cand = [l for l in lines if re.fullmatch(r'\d{1,4}', l['text'].replace(' ', '')) and l['bbox'][3] < p[1] + 1 * k
+        cand = [l for l in lines if re.fullmatch(r'\d{1,4}[A-Z]?', l['text'].replace(' ', '')) and l['bbox'][3] < p[1] + 1 * k
                 and l['bbox'][3] > p[1] - 45 * k and l['bbox'][2] > p[0] - 10 * k and l['bbox'][0] < p[2] + 15 * k]
         if cand:
             # el numero grande puede venir en trozos ('1' + '4'): unir los del mismo renglon
@@ -54,7 +54,7 @@ def page_meta(lines, pw, ph, k=1.0, strokes=None):
         # (debajo de 'CONT:' / a su derecha va la hoja siguiente)
         cont.sort(key=lambda l: (l['bbox'][1] - l['bbox'][0]))
         p = cont[0]['bbox']; pag = cont
-        cand = [l for l in lines if re.fullmatch(r'\d{1,4}', l['text'].replace(' ', '')) and l['bbox'][1] > p[3] - 1 * k
+        cand = [l for l in lines if re.fullmatch(r'\d{1,4}[A-Z]?', l['text'].replace(' ', '')) and l['bbox'][1] > p[3] - 1 * k
                 and l['bbox'][1] < p[3] + 30 * k and l['bbox'][2] > p[0] - 10 * k and l['bbox'][0] < p[2] + 15 * k]
         if cand:
             bot = min(l['bbox'][1] for l in cand)

@@ -188,7 +188,21 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   - en la auditoría, clic en un cable = chequeado y translúcido;
   - mangas con `2,5mm²`;
   - el tramo punteado de un cable de 3 puntas va al costado del cable actual donde comparten canaleta.
-- **Corrección del TPT: DIAGNOSTICADA, FALTA CORREGIR.** El usuario la dejó para después.
+- **Corrección del TPT: HECHA (2026-10-02).** Contra `pendiente/tpt_diagnostico/verdad_tpt.json`: 96/98 cables iguales; los 2
+  restantes son la convención de pines de barrera (`43DIB1 1 ABAJO`), sin confirmar. Nueva base: `pruebas/bases/base_tpt_corregido.json`.
+  - Reglas nuevas del lector:
+    - recuadro del módulo de relé de 5u a 20u, y `61KR.3`;
+    - hojas con letra (43A/61B);
+    - ALTERNATIVAS: se cablea una, la que nombra la lista de materiales, o la primera (`ins['alternativas']`);
+    - cables de N puntas = N-1 tramos reales;
+    - `tag_de_columna`;
+    - polos F/N de interruptores Q sin número;
+    - salidas a CAMPO por la línea de trazo y punto: estación 'CAMPO', sin confirmar con el usuario;
+    - EMPALME en ramas sin número;
+    - rótulos `V+`, `NC(12)`.
+  - Falta: el topográfico del TPT (layout sin el riel 1 izquierdo ni el riel 2 intrínseco, 11XP sin detectar → muchos
+    pendientes); 'Puntas' del listado (1313/1314 = 6); 1204 con un 'Rojo 35' falso; mostrar las alternativas en la interfaz.
+- (Historia) La corrección del TPT se había diagnosticado y pausado antes; el diagnóstico sigue en `pendiente/tpt_diagnostico/`.
   - En `pendiente/tpt_diagnostico/` están:
     - `LEEME.md`: cada error con la verdad del funcional, la causa en el código y el arreglo propuesto;
     - `diagnosticos.json`: 3 diagnósticos con 6, 22 y 7 casos;
