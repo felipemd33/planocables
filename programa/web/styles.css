@@ -142,6 +142,8 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 /* instructivo de cableado */
 .ins-empty { max-width: 820px; margin: 14px 0; }
 .ins-empty .drop { margin-top: 12px; padding: 30px; }
+.ins-empty .ins-eplan { margin: 12px 0 4px; }
+.ins-empty .ins-eplan p { margin: 6px 0; }
 .ins-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0 6px; }
 .ins-save { color: var(--ok); min-height: 18px; margin-bottom: 8px; }
 #insComps { margin-bottom: 14px; } #insComps .tablewrap { max-height: 360px; }
@@ -419,3 +421,17 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .ins-mapeo > summary:hover { color: var(--text, inherit); }
 .ins-mapeo ul { margin: 6px 0 6px 18px; padding: 0; max-height: 220px; overflow: auto; }
 .ins-mapeo li { margin: 1px 0; }
+
+/* ---- lista WPC ---- */
+.wpc-modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:900;display:grid;place-items:center}
+.wpc-modal[hidden]{display:none}
+.wpc-box{background:var(--surface);color:inherit;width:min(1100px,96vw);height:90vh;border-radius:10px;display:flex;flex-direction:column;padding:12px 14px;gap:8px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.wpc-h,.wpc-cfg,.wpc-exp{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.wpc-h h2{margin:0;font-size:17px}
+.wpc-t{overflow:auto;flex:1;border:1px solid rgba(128,128,128,.3);border-radius:6px}
+.wpc-t table{border-collapse:collapse;width:100%;font-size:13px}
+.wpc-t th{position:sticky;top:0;background:var(--surface);text-align:left;padding:4px 6px;border-bottom:1px solid rgba(128,128,128,.4);z-index:1}
+.wpc-t td{padding:2px 6px;border-bottom:1px solid rgba(128,128,128,.15)}
+.wpc-g td{font-weight:700;background:rgba(31,95,191,.08);padding-top:6px}
+.wpc-corte td{border-top:3px solid #1f5fbf}
+.wpc-fuera{opacity:.4}

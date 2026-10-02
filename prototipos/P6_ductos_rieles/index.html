@@ -1,0 +1,76 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Corte de ductos y rieles</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#f4f5f7;color:#222}
+header{background:#1f3a5f;color:#fff;padding:12px 20px}h1{margin:0;font-size:20px}
+main{padding:16px 20px;display:grid;grid-template-columns:minmax(300px,1fr) minmax(380px,1fr);gap:16px}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:8px;padding:14px;box-shadow:0 1px 3px #0002}
+.barra{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+input[type=number]{width:70px;font-size:16px;padding:4px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left}
+th{background:#eef1f5}td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.sel{background:#fff3c4}td input{width:65px}
+.tot{font-weight:bold;font-size:18px;color:#1f3a5f}
+svg{width:100%;background:#fafafa;border:1px solid #ddd}
+.duct{fill:#9aa;stroke:#455;stroke-width:.5;opacity:.75}.duct.ex{fill:#6af}.riel{fill:#c9a227;stroke:#875;stroke-width:.5}
+.duct.sel,.riel.sel{fill:#e33;opacity:1}
+#msg{color:#a00}button{font-size:15px;padding:6px 12px;cursor:pointer}
+@media print{header,.barra input[type=file],button,#plano{display:none}main{display:block}}
+</style></head><body>
+<header><h1>Lista de corte: ductos y rieles DIN</h1></header>
+<main>
+<section class="card">
+ <div class="barra">
+  <input type="file" id="pdf" accept=".pdf">
+  <label>Cantidad de tableros: <input type="number" id="cant" value="1" min="1"></label>
+  <button onclick="print()">🖨 Imprimir</button>
+ </div>
+ <div id="msg"></div><div id="info"></div>
+ <h3>Para cortar (agrupado)</h3><div id="resumen"></div>
+ <h3>Detalle por pieza</h3><div id="detalle"></div>
+</section>
+<section class="card" id="plano"><h3>Topográfico</h3><svg id="svg"></svg>
+ <p style="font-size:13px">Gris = ducto · Azul = ducto intrínseco · Amarillo = riel. Pasá el mouse por una fila para verla. Podés corregir el largo en el detalle.</p></section>
+</main>
+<script>
+let D=null;
+const $=id=>document.getElementById(id);
+$('pdf').onchange=async e=>{
+  const f=e.target.files[0]; if(!f)return;
+  $('msg').textContent='Leyendo el plano…'; const fd=new FormData(); fd.append('pdf',f);
+  const r=await fetch('/leer',{method:'POST',body:fd}); const j=await r.json();
+  if(j.error){$('msg').textContent='⚠ '+j.error;return}
+  $('msg').textContent=''; D=j; D.piezas=[
+    ...j.rieles.map(x=>({id:'r'+x.n,tipo:'Riel DIN 35 mm',med:'',largo:x.largo,b:x.b,cls:'riel'})),
+    ...j.ductos.map(x=>({id:'d'+x.n,tipo:x.intrinseco?'Ducto intrínseco (azul)':'Ducto',med:x.ancho+' mm de ancho',largo:x.largo,b:x.b,cls:'duct'+(x.intrinseco?' ex':''),dir:x.horizontal?'horizontal':'vertical'}))];
+  dibujar(); tablas();
+};
+$('cant').oninput=()=>D&&tablas();
+function tablas(){
+  const n=Math.max(1,+$('cant').value||1);
+  $('info').innerHTML=`<b>${D.archivo}</b> · hoja ${D.pagina} · escala ${D.escala} mm/pt · placa ${Math.round((D.placa[2]-D.placa[0])*D.escala)} × ${Math.round((D.placa[3]-D.placa[1])*D.escala)} mm`;
+  const g={};
+  D.piezas.forEach(p=>{const k=p.tipo+'|'+p.med+'|'+p.largo;(g[k]=g[k]||{...p,c:0,ids:[]}).c++;g[k].ids.push(p.id)});
+  const filas=Object.values(g).sort((a,b)=>a.tipo.localeCompare(b.tipo)||b.largo-a.largo);
+  const tot={};D.piezas.forEach(p=>{const k=p.tipo+(p.med?' '+p.med:'');tot[k]=(tot[k]||0)+p.largo*n});
+  $('resumen').innerHTML=`<table><tr><th>Material</th><th>Largo (mm)</th><th>Por tablero</th><th>Total a cortar (×${n})</th></tr>`+
+    filas.map(f=>`<tr data-ids="${f.ids}"><td>${f.tipo}${f.med?' · '+f.med:''}</td><td class="n">${f.largo}</td><td class="n">${f.c}</td><td class="n tot">${f.c*n}</td></tr>`).join('')+
+    `</table><p>Metros de material:</p><table>`+Object.entries(tot).map(([k,v])=>`<tr><td>${k}</td><td class="n">${(v/1000).toFixed(2)} m</td></tr>`).join('')+'</table>';
+  $('detalle').innerHTML=`<table><tr><th>#</th><th>Material</th><th>Sentido</th><th>Largo (mm)</th></tr>`+
+    D.piezas.map((p,i)=>`<tr data-ids="${p.id}"><td>${p.id.toUpperCase()}</td><td>${p.tipo}${p.med?' · '+p.med:''}</td><td>${p.dir||'horizontal'}</td><td><input type="number" step="5" value="${p.largo}" onchange="D.piezas[${i}].largo=+this.value;tablas()"></td></tr>`).join('')+'</table>';
+  document.querySelectorAll('tr[data-ids]').forEach(tr=>{
+    tr.onmouseenter=()=>marcar(tr.dataset.ids.split(','),tr); tr.onmouseleave=()=>marcar([],tr)});
+}
+function marcar(ids,tr){document.querySelectorAll('.sel').forEach(e=>e.classList.remove('sel'));
+  if(ids.length){tr.classList.add('sel');ids.forEach(i=>{const e=$('s_'+i);e&&e.classList.add('sel')})}}
+function dibujar(){
+  const [x0,y0,x1,y1]=D.placa,H=D.size[1],m=10;
+  const s=$('svg'); s.setAttribute('viewBox',`${x0-m} ${H-y1-m} ${x1-x0+2*m} ${y1-y0+2*m}`);
+  let h=`<rect x="${x0}" y="${H-y1}" width="${x1-x0}" height="${y1-y0}" fill="#fff" stroke="#333"/>`;
+  for(const p of D.piezas){const b=p.b;
+    h+=`<rect id="s_${p.id}" class="${p.cls}" x="${b[0]}" y="${H-b[3]}" width="${b[2]-b[0]}" height="${b[3]-b[1]}"/>`+
+       `<text x="${(b[0]+b[2])/2}" y="${H-(b[1]+b[3])/2+3}" font-size="8" text-anchor="middle">${p.id.toUpperCase()}</text>`}
+  s.innerHTML=h;
+}
+</script></body></html>

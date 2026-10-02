@@ -1,0 +1,2714 @@
+{
+ "documento": "ZPL-76884",
+ "revision": "1",
+ "producto": "mSafe2+ PAE (EPLAN)",
+ "pagina_bandejas": 8,
+ "escala_mm_por_pt": 1.41111,
+ "fuente": "2 - Resultados/76884 mSafe2+ PAE/mapeo (conexiones.json, puntos_*.json + correcciones_*.json, bandejas.json), verificado por agentes el 2026-10-02",
+ "exportado": "2026-10-02 16:36",
+ "unidades": "x, y, r en pt de la hoja de bandejas (pagina PDF 8), origen abajo a la izquierda",
+ "clave": "<designacion EPLAN tal cual en la lista de conexiones>#<numero de cable> (\"#s/n\" si el renglon no tiene numero)",
+ "estaciones_tag": {
+  "12F2": "E8",
+  "BH": "E8",
+  "BH_01_ZV": "E8",
+  "BH-01-M": "E8",
+  "PT001": "E8",
+  "LS001A": "E8",
+  "X1": "E8"
+ },
+ "canaletas_intrinsecas": [
+  [
+   786.01,
+   334.81,
+   814.36,
+   568.66
+  ],
+  [
+   814.36,
+   434.02,
+   913.57,
+   462.37
+  ],
+  [
+   786.01,
+   292.29,
+   913.57,
+   334.81
+  ]
+ ],
+ "avisos": [
+  "Doble piso PTT 2,5-2MT (15XR, 32XEX, 41XEX, 42XC, 81XCM): impar en la boca del extremo, par en la interior (convención del taller). Confirmar en el primer tablero.",
+  "42KS1 (PSR 2963802), filas de abajo: 43-44-13-14 en la fila interior y 33-34-23-24 en la exterior (rótulo del aparato). Confirmar mirando el relé.",
+  "42KS1 y 11MS1: EPLAN no exporta 12 pines; salen del esquema (hojas 42 y 11).",
+  "61KR1 a 61KR4: la hoja 8 rotula solo \"-61KR\"; se supuso KR1 a KR4 de izquierda a derecha.",
+  "41XEX: la 4.ª pieza lleva 9-10 y la 5.ª 7-8 (hoja 8 y pág. 38); se mapeó por número.",
+  "11SK1: L / PE / N de izquierda a derecha (símbolo); con la norma china podría ser N / PE / L. Confirmar con el toma real.",
+  "15DIB3: las hojas 15 y 41 dicen que va sin barrera (bornes cuchilla); se mapeó sobre la barrera dibujada.",
+  "Barreras GS85xx: el enchufe [1 2] no está dibujado; va detrás del [3 4], arriba (confianza media).",
+  "61XDIO: el texto usa el lado FÍSICO (cátodo ARRIBA, ánodo ABAJO). ¿Lado físico o del funcional?",
+  "12XPS 10 y 11 (2135, 2136): los dos tramos de cada cable van juntos en la boca de abajo, con terminal doble.",
+  "Tierra del gabinete a 11XPVAC 3.1 y R1 120 Ω en 81XCM 7/8: están en el esquema pero no en la lista de conexiones.",
+  "Zona hidráulica (12F2, BH, BH_01_ZV, BH-01-M, PT001, LS001A) y empalmes X1 del sensor de nivel: se cablean en E8."
+ ],
+ "puntas": {
+  "-11PS1:TB2:1#1161": {
+   "texto": "11PS1 TB2 1 (-V)",
+   "x": 637.26,
+   "y": 696.41,
+   "r": 1.52,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "MEAN WELL NDR-240-24, TB2 pin 1 = -V: primer tornillo desde la izquierda de la fila de 4 circulos (r 1.52, cada uno entre triangulos) de arriba (y=696.41). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por arriba.",
+   "zona": "riel1"
+  },
+  "-11PS1:TB1:1#s/n": {
+   "texto": "11PS1 TB1 1 (FG)",
+   "x": 642.49,
+   "y": 619.48,
+   "r": 1.81,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 1 = FG: primer tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "zona": "riel1"
+  },
+  "-11PS1:TB2:3#1160": {
+   "texto": "11PS1 TB2 3 (+V)",
+   "x": 646.25,
+   "y": 696.41,
+   "r": 1.52,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "MEAN WELL NDR-240-24, TB2 pin 3 = +V: tercer tornillo desde la izquierda de la fila de 4 circulos (r 1.52, cada uno entre triangulos) de arriba (y=696.41). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por arriba.",
+   "zona": "riel1"
+  },
+  "-11PS1:TB1:2#1186": {
+   "texto": "11PS1 TB1 2 (N)",
+   "x": 648.07,
+   "y": 619.48,
+   "r": 1.81,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 2 = N: segundo tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "zona": "riel1"
+  },
+  "-11PS1:TB1:3#1185": {
+   "texto": "11PS1 TB1 3 (L)",
+   "x": 653.48,
+   "y": 619.48,
+   "r": 1.81,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 3 = L: tercer tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "zona": "riel1"
+  },
+  "-11PS2:TB2:1#1171": {
+   "texto": "11PS2 TB2 1 (-V)",
+   "x": 681.9,
+   "y": 696.41,
+   "r": 1.52,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "MEAN WELL NDR-240-24, TB2 pin 1 = -V: primer tornillo desde la izquierda de la fila de 4 circulos (r 1.52, cada uno entre triangulos) de arriba (y=696.41). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por arriba.",
+   "zona": "riel1"
+  },
+  "-11PS2:TB1:1#s/n": {
+   "texto": "11PS2 TB1 1 (FG)",
+   "x": 687.14,
+   "y": 619.48,
+   "r": 1.81,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 1 = FG: primer tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "zona": "riel1"
+  },
+  "-11PS2:TB2:3#1170": {
+   "texto": "11PS2 TB2 3 (+V)",
+   "x": 690.9,
+   "y": 696.41,
+   "r": 1.52,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "MEAN WELL NDR-240-24, TB2 pin 3 = +V: tercer tornillo desde la izquierda de la fila de 4 circulos (r 1.52, cada uno entre triangulos) de arriba (y=696.41). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por arriba.",
+   "zona": "riel1"
+  },
+  "-11PS2:TB1:2#1184": {
+   "texto": "11PS2 TB1 2 (N)",
+   "x": 692.72,
+   "y": 619.48,
+   "r": 1.81,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 2 = N: segundo tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "zona": "riel1"
+  },
+  "-11PS2:TB1:3#1183": {
+   "texto": "11PS2 TB1 3 (L)",
+   "x": 698.12,
+   "y": 619.48,
+   "r": 1.81,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 3 = L: tercer tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "zona": "riel1"
+  },
+  "-13PS1:-Vo#1312": {
+   "texto": "13PS1 -Vo",
+   "x": 716.895,
+   "y": 698.895,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 1: abertura cuadrada 1 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. EPLAN distingue los dos -Vo como '-Vo' y '(-Vo)' (hoja 13: +Vo, -Vo, (+Vo), (-Vo)); regla del n-esimo pin del 66817: '-Vo' = 1er tornillo -Vo (pin 1), '(-Vo)' = 2do (pin 2). Mismo potencial.",
+   "zona": "riel1"
+  },
+  "-13PS1:(-Vo)#1235": {
+   "texto": "13PS1 (-Vo)",
+   "x": 720.495,
+   "y": 698.895,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 2: abertura cuadrada 2 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. EPLAN distingue los dos -Vo como '-Vo' y '(-Vo)' (hoja 13: +Vo, -Vo, (+Vo), (-Vo)); regla del n-esimo pin del 66817: '-Vo' = 1er tornillo -Vo (pin 1), '(-Vo)' = 2do (pin 2). Mismo potencial.",
+   "zona": "riel1"
+  },
+  "-13PS1:PE#s/n": {
+   "texto": "13PS1 PE",
+   "x": 719.86,
+   "y": 619.69,
+   "r": 1.52,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL DDR-120A-24, TB1 (entrada, abajo a la derecha) pin 1 = PE: hexagono 1 de 3 desde la izquierda (y=619.69). Hoja de datos DDR-120: TB1 1 FG, 2 -Vin, 3 +Vin (fotos 75286/66817). Hoja 13: simbolo +Vin -Vin PE.",
+   "zona": "riel1"
+  },
+  "-13PS1:+Vo#1310": {
+   "texto": "13PS1 +Vo",
+   "x": 723.77,
+   "y": 698.895,
+   "r": 1.42,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 3: abertura cuadrada 3 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. +Vo = pin 3 (el primer +Vo; el 4 queda libre).",
+   "zona": "riel1"
+  },
+  "-13PS1:-Vin#1234": {
+   "texto": "13PS1 -Vin",
+   "x": 723.54,
+   "y": 619.69,
+   "r": 1.52,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL DDR-120A-24, TB1 (entrada, abajo a la derecha) pin 2 = -Vin: hexagono 2 de 3 desde la izquierda (y=619.69). Hoja de datos DDR-120: TB1 1 FG, 2 -Vin, 3 +Vin (fotos 75286/66817). Hoja 13: simbolo +Vin -Vin PE.",
+   "zona": "riel1"
+  },
+  "-13PS1:+Vin#1373": {
+   "texto": "13PS1 +Vin",
+   "x": 727.23,
+   "y": 619.69,
+   "r": 1.52,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "MEAN WELL DDR-120A-24, TB1 (entrada, abajo a la derecha) pin 3 = +Vin: hexagono 3 de 3 desde la izquierda (y=619.69). Hoja de datos DDR-120: TB1 1 FG, 2 -Vin, 3 +Vin (fotos 75286/66817). Hoja 13: simbolo +Vin -Vin PE.",
+   "zona": "riel1"
+  },
+  "-11F1:1#1160": {
+   "texto": "11F1 ARRIBA",
+   "x": 747.57,
+   "y": 682.88,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=747.57 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-11F1:2#1162": {
+   "texto": "11F1 ABAJO",
+   "x": 747.57,
+   "y": 635.4,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=747.57 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-11F2:1#1170": {
+   "texto": "11F2 ARRIBA",
+   "x": 759.97,
+   "y": 682.88,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=759.97 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-11F2:2#1172": {
+   "texto": "11F2 ABAJO",
+   "x": 759.97,
+   "y": 635.4,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=759.97 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-12F3:1#1201": {
+   "texto": "12F3 ARRIBA",
+   "x": 775.56,
+   "y": 690.05,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Portafusible Schneider DF141 (14x51 aM 32 A, 26.5 mm), borne 1: tornillo de arriba (hexagono con cruz, r 2.5, y=690.05). Marcado 1 arriba / 2 abajo (hoja 12).",
+   "zona": "riel1"
+  },
+  "-12F3:2#1202": {
+   "texto": "12F3 ABAJO",
+   "x": 775.56,
+   "y": 627.41,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Portafusible Schneider DF141 (14x51 aM 32 A, 26.5 mm), borne 2: tornillo de abajo (hexagono con cruz, r 2.5, y=627.41). Marcado 1 arriba / 2 abajo (hoja 12).",
+   "zona": "riel1"
+  },
+  "-13F4:1#1230": {
+   "texto": "13F4 ARRIBA",
+   "x": 790.98,
+   "y": 682.88,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=790.98 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-13F4:2#1301": {
+   "texto": "13F4 ABAJO",
+   "x": 790.98,
+   "y": 635.4,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=790.98 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-13F5:1#1232": {
+   "texto": "13F5 ARRIBA",
+   "x": 803.38,
+   "y": 682.88,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=803.38 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-13F5:2#1302": {
+   "texto": "13F5 ABAJO",
+   "x": 803.38,
+   "y": 635.4,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=803.38 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-13F6:1#1310": {
+   "texto": "13F6 ARRIBA",
+   "x": 815.78,
+   "y": 682.88,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Portafusible Schneider DF101 (10x38 gG 6 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=815.78 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-13F6:2#1311": {
+   "texto": "13F6 ABAJO",
+   "x": 815.78,
+   "y": 635.4,
+   "r": 2.13,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Portafusible Schneider DF101 (10x38 gG 6 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=815.78 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "zona": "riel1"
+  },
+  "-42KS1:A1#1385": {
+   "texto": "42KS1 A1",
+   "x": 831.4,
+   "y": 687.1,
+   "r": 1.42,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne A1: enchufe de arriba TRASERO (fila exterior): A1 S34 S33 S11, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=687.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "zona": "riel1"
+  },
+  "-42KS1:S12#4213": {
+   "texto": "42KS1 S12",
+   "x": 831.4,
+   "y": 680.58,
+   "r": 1.42,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne S12: enchufe de arriba DELANTERO (fila interior): S12 51 52 A2, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=680.58). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "zona": "riel1"
+  },
+  "-42KS1#1396": {
+   "texto": "42KS1 43",
+   "x": 831.4,
+   "y": 634.23,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 43: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 43 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:43#1396": {
+   "texto": "42KS1 43",
+   "x": 831.4,
+   "y": 634.23,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 43: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 43 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1#1395": {
+   "texto": "42KS1 33",
+   "x": 831.4,
+   "y": 627.1,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 33: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 33 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:33#1395": {
+   "texto": "42KS1 33",
+   "x": 831.4,
+   "y": 627.1,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 33: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 33 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:S34#4221": {
+   "texto": "42KS1 S34",
+   "x": 834.95,
+   "y": 687.1,
+   "r": 1.42,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne S34: enchufe de arriba TRASERO (fila exterior): A1 S34 S33 S11, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=687.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "zona": "riel1"
+  },
+  "-42KS1#4296": {
+   "texto": "42KS1 44",
+   "x": 834.95,
+   "y": 634.23,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 44: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 44 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:44#4296": {
+   "texto": "42KS1 44",
+   "x": 834.95,
+   "y": 634.23,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 44: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 44 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1#4295": {
+   "texto": "42KS1 34",
+   "x": 834.95,
+   "y": 627.1,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 34: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 34 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:34#4295": {
+   "texto": "42KS1 34",
+   "x": 834.95,
+   "y": 627.1,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 34: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 34 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:S33#4221": {
+   "texto": "42KS1 S33",
+   "x": 838.49,
+   "y": 687.1,
+   "r": 1.42,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne S33: enchufe de arriba TRASERO (fila exterior): A1 S34 S33 S11, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=687.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "zona": "riel1"
+  },
+  "-42KS1#2114": {
+   "texto": "42KS1 13",
+   "x": 838.49,
+   "y": 634.23,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 13: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 13 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:13#2114": {
+   "texto": "42KS1 13",
+   "x": 838.49,
+   "y": 634.23,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 13: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 13 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1#1394": {
+   "texto": "42KS1 23",
+   "x": 838.49,
+   "y": 627.1,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 23: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 23 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:23#1394": {
+   "texto": "42KS1 23",
+   "x": 838.49,
+   "y": 627.1,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 23: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 23 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:S11#4211": {
+   "texto": "42KS1 S11",
+   "x": 842.03,
+   "y": 687.1,
+   "r": 1.42,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne S11: enchufe de arriba TRASERO (fila exterior): A1 S34 S33 S11, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=687.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "zona": "riel1"
+  },
+  "-42KS1:A2#1386": {
+   "texto": "42KS1 A2",
+   "x": 842.03,
+   "y": 680.58,
+   "r": 1.42,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne A2: enchufe de arriba DELANTERO (fila interior): S12 51 52 A2, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=680.58). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "zona": "riel1"
+  },
+  "-42KS1#2115": {
+   "texto": "42KS1 14",
+   "x": 842.03,
+   "y": 634.23,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 14: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 14 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:14#2115": {
+   "texto": "42KS1 14",
+   "x": 842.03,
+   "y": 634.23,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 14: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 14 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1#4294": {
+   "texto": "42KS1 24",
+   "x": 842.03,
+   "y": 627.1,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 24: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 24 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KS1:24#4294": {
+   "texto": "42KS1 24",
+   "x": 842.03,
+   "y": 627.1,
+   "r": 1.42,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 24: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 24 por el esquema hoja 42.",
+   "zona": "riel1"
+  },
+  "-42KR1:11#4231": {
+   "texto": "42KR1 11",
+   "x": 853.63,
+   "y": 686.29,
+   "r": 1.45,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-24DC/21, modulo 1 a la derecha de la etiqueta -42KR (columna x=853.63): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.29). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo.",
+   "zona": "riel1"
+  },
+  "-42KR1:14#4212": {
+   "texto": "42KR1 14",
+   "x": 853.63,
+   "y": 679.91,
+   "r": 1.45,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-24DC/21, modulo 1 a la derecha de la etiqueta -42KR (columna x=853.63): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.91). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo.",
+   "zona": "riel1"
+  },
+  "-42KR1:A1#4232": {
+   "texto": "42KR1 A1",
+   "x": 853.63,
+   "y": 634.57,
+   "r": 1.45,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-24DC/21, modulo 1 a la derecha de la etiqueta -42KR (columna x=853.63): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.57). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo.",
+   "zona": "riel1"
+  },
+  "-42KR1:A2#4233": {
+   "texto": "42KR1 A2",
+   "x": 853.63,
+   "y": 628.21,
+   "r": 1.45,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-24DC/21, modulo 1 a la derecha de la etiqueta -42KR (columna x=853.63): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.21). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo.",
+   "zona": "riel1"
+  },
+  "-61KR1:11#1363": {
+   "texto": "61KR1 11",
+   "x": 864.645,
+   "y": 686.31,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR1:14#6141": {
+   "texto": "61KR1 14",
+   "x": 864.645,
+   "y": 679.84,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR1:A1+#2150": {
+   "texto": "61KR1 A1",
+   "x": 864.645,
+   "y": 634.48,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR1:A2-#2151": {
+   "texto": "61KR1 A2",
+   "x": 864.645,
+   "y": 628.16,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR2:11#4294": {
+   "texto": "61KR2 11",
+   "x": 868.97,
+   "y": 686.31,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR2:14#6142": {
+   "texto": "61KR2 14",
+   "x": 868.97,
+   "y": 679.84,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR2:A1+#2152": {
+   "texto": "61KR2 A1",
+   "x": 868.97,
+   "y": 634.48,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR2:A2-#2153": {
+   "texto": "61KR2 A2",
+   "x": 868.97,
+   "y": 628.16,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR3:11#4295": {
+   "texto": "61KR3 11",
+   "x": 873.295,
+   "y": 686.31,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR3:14#6143": {
+   "texto": "61KR3 14",
+   "x": 873.295,
+   "y": 679.84,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR3:A1+#2154": {
+   "texto": "61KR3 A1",
+   "x": 873.295,
+   "y": 634.48,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR3:A2-#2155": {
+   "texto": "61KR3 A2",
+   "x": 873.295,
+   "y": 628.16,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR4:11#4296": {
+   "texto": "61KR4 11",
+   "x": 877.625,
+   "y": 686.31,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR4:14#6144": {
+   "texto": "61KR4 14",
+   "x": 877.625,
+   "y": 679.84,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR4:A1+#2156": {
+   "texto": "61KR4 A1",
+   "x": 877.625,
+   "y": 634.48,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-61KR4:A2-#2157": {
+   "texto": "61KR4 A2",
+   "x": 877.625,
+   "y": 628.16,
+   "r": 1.45,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "zona": "riel1"
+  },
+  "-32XAI:1#2142": {
+   "texto": "32XAI 1 ARRIBA",
+   "x": 888.77,
+   "y": 691.72,
+   "r": 2.06,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PTTB 4-HESI (5X20) portafusible de doble piso, unica pieza de 32XAI (x=888.77): nivel 1 (paso directo, piso de abajo) = boca del EXTREMO de arriba (circulo r 2.06, y=691.72). EPLAN no da punto ('-32XAI:1'): el lado sale de la hoja 32 (simbolo vertical: 2142 arriba). Piso: referencia 75286 (31XAI, mismo articulo; foto: 2142 en la boca de mas arriba) y 66817.",
+   "zona": "riel1"
+  },
+  "-32XAI:F1#1350": {
+   "texto": "32XAI F1 ARRIBA",
+   "x": 888.77,
+   "y": 672.76,
+   "r": 2.06,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PTTB 4-HESI (5X20) portafusible de doble piso, unica pieza de 32XAI (x=888.77): nivel F1 (con fusible 100 mA, piso de arriba) = boca INTERIOR de arriba (circulo r 2.06, y=672.76). EPLAN no da punto ('-32XAI:F1'): el lado sale de la hoja 32 (simbolo vertical: 1350 arriba). Piso: referencia 75286 (31XAI, mismo articulo; foto: 2142 en la boca de mas arriba) y 66817.",
+   "zona": "riel1"
+  },
+  "-32XAI:F1#3221": {
+   "texto": "32XAI F1 ABAJO",
+   "x": 888.77,
+   "y": 641.8,
+   "r": 2.06,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Phoenix PTTB 4-HESI (5X20) portafusible de doble piso, unica pieza de 32XAI (x=888.77): nivel F1 (con fusible 100 mA, piso de arriba) = boca INTERIOR de abajo (circulo r 2.06, y=641.8). EPLAN no da punto ('-32XAI:F1'): el lado sale de la hoja 32 (simbolo vertical: 3221 abajo). Piso: referencia 75286 (31XAI, mismo articulo; foto: 2142 en la boca de mas arriba) y 66817.",
+   "zona": "riel1"
+  },
+  "-32XAI:1#3222": {
+   "texto": "32XAI 1 ABAJO",
+   "x": 888.77,
+   "y": 629.44,
+   "r": 2.06,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Phoenix PTTB 4-HESI (5X20) portafusible de doble piso, unica pieza de 32XAI (x=888.77): nivel 1 (paso directo, piso de abajo) = boca del EXTREMO de abajo (circulo r 2.06, y=629.44). EPLAN no da punto ('-32XAI:1'): el lado sale de la hoja 32 (simbolo vertical: 3222 abajo). Piso: referencia 75286 (31XAI, mismo articulo; foto: 2142 en la boca de mas arriba) y 66817.",
+   "zona": "riel1"
+  },
+  "-XPE:1:1#s/n": {
+   "texto": "XPE 1.1",
+   "x": 900.13,
+   "y": 677.86,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Phoenix PT 2,5-QUATTRO-PE (verde), pieza 1 de 3 a la derecha de la etiqueta -XPE (numero '1' dibujado debajo, x=900.13); punto 1 = ARRIBA extremo (boca push-in r 1.70, y=677.86). Hojas 11 y 13: simbolo horizontal 1..4 de izquierda a derecha; regla QUATTRO del taller (1 y 2 arriba, 1 extremo; 3 y 4 abajo, 4 extremo).",
+   "zona": "riel1"
+  },
+  "-XPE:1:4#s/n": {
+   "texto": "XPE 1.4",
+   "x": 900.13,
+   "y": 636.99,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Phoenix PT 2,5-QUATTRO-PE (verde), pieza 1 de 3 a la derecha de la etiqueta -XPE (numero '1' dibujado debajo, x=900.13); punto 4 = ABAJO extremo (boca push-in r 1.70, y=636.99). Hojas 11 y 13: simbolo horizontal 1..4 de izquierda a derecha; regla QUATTRO del taller (1 y 2 arriba, 1 extremo; 3 y 4 abajo, 4 extremo).",
+   "zona": "riel1"
+  },
+  "-XPE:2:4#s/n": {
+   "texto": "XPE 2.4",
+   "x": 903.77,
+   "y": 636.99,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Phoenix PT 2,5-QUATTRO-PE (verde), pieza 2 de 3 a la derecha de la etiqueta -XPE (numero '2' dibujado debajo, x=903.77); punto 4 = ABAJO extremo (boca push-in r 1.70, y=636.99). Hojas 11 y 13: simbolo horizontal 1..4 de izquierda a derecha; regla QUATTRO del taller (1 y 2 arriba, 1 extremo; 3 y 4 abajo, 4 extremo).",
+   "zona": "riel1"
+  },
+  "-12XP:1:1#1231": {
+   "texto": "12XP 1.1",
+   "x": 625.54,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-12XP:1:2#1235": {
+   "texto": "12XP 1.2",
+   "x": 625.54,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-12XP:1:3#1234": {
+   "texto": "12XP 1.3",
+   "x": 625.54,
+   "y": 499.43,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-12XP:1:4#1254": {
+   "texto": "12XP 1.4",
+   "x": 625.54,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-12XP:2:3#1264": {
+   "texto": "12XP 2.3",
+   "x": 631.31,
+   "y": 499.43,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-12XP:2:4#1268": {
+   "texto": "12XP 2.4",
+   "x": 631.31,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X12V:1:1#1303": {
+   "texto": "13X12V 1.1",
+   "x": 651.16,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X12V:1:2#1353": {
+   "texto": "13X12V 1.2",
+   "x": 651.16,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X12V:1:3#1363": {
+   "texto": "13X12V 1.3",
+   "x": 651.16,
+   "y": 499.43,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X12V:1:4#1373": {
+   "texto": "13X12V 1.4",
+   "x": 651.16,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X12V:2:1#1304": {
+   "texto": "13X12V 2.1",
+   "x": 656.93,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X12V:2:2#1394": {
+   "texto": "13X12V 2.2",
+   "x": 656.93,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X12V:2:3#1395": {
+   "texto": "13X12V 2.3",
+   "x": 656.93,
+   "y": 499.43,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X12V:2:4#1396": {
+   "texto": "13X12V 2.4",
+   "x": 656.93,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:1:1#1391": {
+   "texto": "13X24V 1.1",
+   "x": 671.0,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:1:4#1311": {
+   "texto": "13X24V 1.4",
+   "x": 671.0,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:2:1#1350": {
+   "texto": "13X24V 2.1",
+   "x": 676.77,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:2:2#1339": {
+   "texto": "13X24V 2.2",
+   "x": 676.77,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:2:3#1385": {
+   "texto": "13X24V 2.3",
+   "x": 676.77,
+   "y": 499.43,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:2:4#1370": {
+   "texto": "13X24V 2.4",
+   "x": 676.77,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:3:1#1312": {
+   "texto": "13X24V 3.1",
+   "x": 684.11,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:3:4#1392": {
+   "texto": "13X24V 3.4",
+   "x": 684.11,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:4:1#1361": {
+   "texto": "13X24V 4.1",
+   "x": 689.88,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:4:2#1386": {
+   "texto": "13X24V 4.2",
+   "x": 689.88,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-13X24V:4:3#1340": {
+   "texto": "13X24V 4.3",
+   "x": 689.88,
+   "y": 499.43,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:1:1#6141": {
+   "texto": "61XDO 1.1",
+   "x": 703.95,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:1:2#6171": {
+   "texto": "61XDO 1.2",
+   "x": 703.95,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:1:4#6151": {
+   "texto": "61XDO 1.4",
+   "x": 703.95,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:2:1#6142": {
+   "texto": "61XDO 2.1",
+   "x": 709.73,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:2:2#6172": {
+   "texto": "61XDO 2.2",
+   "x": 709.73,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:2:4#6152": {
+   "texto": "61XDO 2.4",
+   "x": 709.73,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:3:1#6143": {
+   "texto": "61XDO 3.1",
+   "x": 715.5,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:3:2#6173": {
+   "texto": "61XDO 3.2",
+   "x": 715.5,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:3:4#6153": {
+   "texto": "61XDO 3.4",
+   "x": 715.5,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:4:1#6144": {
+   "texto": "61XDO 4.1",
+   "x": 721.28,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:4:2#6174": {
+   "texto": "61XDO 4.2",
+   "x": 721.28,
+   "y": 530.31,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDO:4:4#6154": {
+   "texto": "61XDO 4.4",
+   "x": 721.28,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61X0V:1:1#1268": {
+   "texto": "61X0V 1.1",
+   "x": 735.35,
+   "y": 541.93,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934), puente FBS 2-8 BU. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61X0V:1:4#6162": {
+   "texto": "61X0V 1.4",
+   "x": 735.35,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934), puente FBS 2-8 BU. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61X0V:2:3#6163": {
+   "texto": "61X0V 2.3",
+   "x": 741.12,
+   "y": 499.43,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934), puente FBS 2-8 BU. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61X0V:2:4#6164": {
+   "texto": "61X0V 2.4",
+   "x": 741.12,
+   "y": 487.81,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934), puente FBS 2-8 BU. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "zona": "riel2"
+  },
+  "-61XDIO:1#6171": {
+   "texto": "61XDIO 1 ARRIBA",
+   "x": 754.2,
+   "y": 528.88,
+   "r": 1.6,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 1 (numero \"1\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. CATODO: boca de ARRIBA. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:1 en los dos extremos): el lado sale del cable.",
+   "zona": "riel2"
+  },
+  "-61XDIO:1#1264": {
+   "texto": "61XDIO 1 ABAJO",
+   "x": 754.2,
+   "y": 502.45,
+   "r": 1.6,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 1 (numero \"1\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. ANODO (lado del puente): boca de ABAJO. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:1 en los dos extremos): el lado sale del cable.",
+   "zona": "riel2"
+  },
+  "-61XDIO:2#6172": {
+   "texto": "61XDIO 2 ARRIBA",
+   "x": 757.85,
+   "y": 528.88,
+   "r": 1.6,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 2 (numero \"2\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. CATODO: boca de ARRIBA. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:2 en los dos extremos): el lado sale del cable.",
+   "zona": "riel2"
+  },
+  "-61XDIO:3#6173": {
+   "texto": "61XDIO 3 ARRIBA",
+   "x": 761.5,
+   "y": 528.88,
+   "r": 1.6,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 3 (numero \"3\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. CATODO: boca de ARRIBA. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:3 en los dos extremos): el lado sale del cable.",
+   "zona": "riel2"
+  },
+  "-61XDIO:4#6174": {
+   "texto": "61XDIO 4 ARRIBA",
+   "x": 765.14,
+   "y": 528.88,
+   "r": 1.6,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 4 (numero \"4\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. CATODO: boca de ARRIBA. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:4 en los dos extremos): el lado sale del cable.",
+   "zona": "riel2"
+  },
+  "-15AIB1:1#1370": {
+   "texto": "15AIB1 1",
+   "x": 825.56,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero, NO dibujado: queda detras del [3 4 5] con el tornillo a la misma altura (vista lateral del manual; regla del 75286/66817 y catalogo GS8536-EX); 2 bornes a paso 5,0 mm centrados en la carcasa: x = tornillo del medio - 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1370 en este borne (cadena de alimentacion de las barreras, filas 60, 61 de la lista): puntera doble.",
+   "zona": "riel2"
+  },
+  "-15AIB1:2#1361": {
+   "texto": "15AIB1 2",
+   "x": 829.1,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, NO dibujado: detras del [3 4 5], misma altura; x = tornillo del medio + 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1361 en este borne (cadena de alimentacion de las barreras, filas 72, 73 de la lista): puntera doble.",
+   "zona": "riel2"
+  },
+  "-15AIB1:3#2139": {
+   "texto": "15AIB1 3",
+   "x": 823.79,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe [3 4 5] (OUT1), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15AIB1:4#2140": {
+   "texto": "15AIB1 4",
+   "x": 827.33,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe [3 4 5] (OUT1), fila exterior de arriba, tornillo del medio. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15AIB1:6#2105": {
+   "texto": "15AIB1 6",
+   "x": 823.79,
+   "y": 544.8,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe delantero [6 7 8] (OUT2), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15AIB1:7#2106": {
+   "texto": "15AIB1 7",
+   "x": 827.33,
+   "y": 544.8,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe [6 7 8] (OUT2), fila interior de arriba, tornillo del medio. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15AIB1:9#3202": {
+   "texto": "15AIB1 9",
+   "x": 823.79,
+   "y": 486.23,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe IS [9 10 11] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15AIB1:10#3203": {
+   "texto": "15AIB1 10",
+   "x": 827.33,
+   "y": 486.23,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe IS [9 10 11] (IN1), fila interior de abajo, tornillo del medio. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15AIB1:12#3205": {
+   "texto": "15AIB1 12",
+   "x": 823.79,
+   "y": 479.86,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe IS [12 13 14] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15AIB1:13#3206": {
+   "texto": "15AIB1 13",
+   "x": 827.33,
+   "y": 479.86,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe IS [12 13 14] (IN2), fila exterior de abajo, tornillo del medio. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB1:1#1370": {
+   "texto": "15DIB1 1",
+   "x": 836.26,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1370 en este borne (cadena de alimentacion de las barreras, filas 61, 62 de la lista): puntera doble.",
+   "zona": "riel2"
+  },
+  "-15DIB1:2#1361": {
+   "texto": "15DIB1 2",
+   "x": 839.8,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1361 en este borne (cadena de alimentacion de las barreras, filas 73, 74 de la lista): puntera doble.",
+   "zona": "riel2"
+  },
+  "-15DIB1:3#2118": {
+   "texto": "15DIB1 3",
+   "x": 836.26,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2, rele), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB1:4#2119": {
+   "texto": "15DIB1 4",
+   "x": 839.8,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2), fila exterior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB1:5#2116": {
+   "texto": "15DIB1 5",
+   "x": 836.26,
+   "y": 544.8,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe delantero [5 6] (OUT1, rele), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB1:6#2117": {
+   "texto": "15DIB1 6",
+   "x": 839.8,
+   "y": 544.8,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [5 6] (OUT1), fila interior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB1:7#4116": {
+   "texto": "15DIB1 7",
+   "x": 836.26,
+   "y": 486.23,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB1:8#4117": {
+   "texto": "15DIB1 8",
+   "x": 839.8,
+   "y": 486.23,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB1:9#4118": {
+   "texto": "15DIB1 9",
+   "x": 836.26,
+   "y": 479.86,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB1:10#4119": {
+   "texto": "15DIB1 10",
+   "x": 839.8,
+   "y": 479.86,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB2:1#1370": {
+   "texto": "15DIB2 1",
+   "x": 845.12,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1370 en este borne (cadena de alimentacion de las barreras, filas 62, 63 de la lista): puntera doble.",
+   "zona": "riel2"
+  },
+  "-15DIB2:2#1361": {
+   "texto": "15DIB2 2",
+   "x": 848.66,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1361 en este borne (cadena de alimentacion de las barreras, filas 74, 75 de la lista): puntera doble.",
+   "zona": "riel2"
+  },
+  "-15DIB2:3#2122": {
+   "texto": "15DIB2 3",
+   "x": 845.12,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2, rele), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB2:4#2123": {
+   "texto": "15DIB2 4",
+   "x": 848.66,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2), fila exterior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB2:5#2120": {
+   "texto": "15DIB2 5",
+   "x": 845.12,
+   "y": 544.8,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe delantero [5 6] (OUT1, rele), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB2:6#2121": {
+   "texto": "15DIB2 6",
+   "x": 848.66,
+   "y": 544.8,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [5 6] (OUT1), fila interior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB2:7#4120": {
+   "texto": "15DIB2 7",
+   "x": 845.12,
+   "y": 486.23,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB2:8#4121": {
+   "texto": "15DIB2 8",
+   "x": 848.66,
+   "y": 486.23,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB2:9#4122": {
+   "texto": "15DIB2 9",
+   "x": 845.12,
+   "y": 479.86,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB2:10#4123": {
+   "texto": "15DIB2 10",
+   "x": 848.66,
+   "y": 479.86,
+   "r": 1.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "zona": "riel2"
+  },
+  "-15DIB3:1#1370": {
+   "texto": "15DIB3 1",
+   "x": 853.98,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:2#1361": {
+   "texto": "15DIB3 2",
+   "x": 857.52,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:3#2126": {
+   "texto": "15DIB3 3",
+   "x": 853.98,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2, rele), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:4#2127": {
+   "texto": "15DIB3 4",
+   "x": 857.52,
+   "y": 551.17,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2), fila exterior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:5#2124": {
+   "texto": "15DIB3 5",
+   "x": 853.98,
+   "y": 544.8,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe delantero [5 6] (OUT1, rele), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:6#2125": {
+   "texto": "15DIB3 6",
+   "x": 857.52,
+   "y": 544.8,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ARRIBA",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [5 6] (OUT1), fila interior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:7#4124": {
+   "texto": "15DIB3 7",
+   "x": 853.98,
+   "y": 486.23,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:8#4125": {
+   "texto": "15DIB3 8",
+   "x": 857.52,
+   "y": 486.23,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:9#4126": {
+   "texto": "15DIB3 9",
+   "x": 853.98,
+   "y": 479.86,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-15DIB3:10#4127": {
+   "texto": "15DIB3 10",
+   "x": 857.52,
+   "y": 479.86,
+   "r": 1.4,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "zona": "riel2"
+  },
+  "-11XPVAC:1:1#1101": {
+   "texto": "11XPVAC 1 ARRIBA",
+   "x": 354.32,
+   "y": 398.6,
+   "r": 2.58,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 1 de 11XPVAC (numero 1). Punto :1 = boca de arriba (octogono de 5.2 x 5.5 pt, centro del envolvente). Hoja 11: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-11XPVAC:2:1#1102": {
+   "texto": "11XPVAC 2 ARRIBA",
+   "x": 360.1,
+   "y": 398.6,
+   "r": 2.58,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 2 de 11XPVAC (numero 2). Punto :1 = boca de arriba (octogono de 5.2 x 5.5 pt, centro del envolvente). Hoja 11: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-11XPVAC:3:4#s/n": {
+   "texto": "11XPVAC 3.4",
+   "x": 366.41,
+   "y": 363.61,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 2,5-QUATTRO-PE (verde) (verde, PE), pieza 3 de 11XPVAC (numero 3). Punto 4 = ABAJO extremo (convencion N.p del taller: 1 y 2 arriba, 1 el extremo; 3 y 4 abajo, 4 el extremo). Aro r 1.7 pt. Hoja 11: simbolo horizontal, el 4 es el de la derecha (= ABAJO por la regla horizontal) y de ahi sale la tierra al 11SK1.",
+   "zona": "riel3_lateral"
+  },
+  "-11SK1:PE#s/n": {
+   "texto": "11SK1 PE ABAJO",
+   "x": 215.02,
+   "y": 362.5,
+   "r": 1.62,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "zona": "riel3_lateral"
+  },
+  "-11SK1:L#1181": {
+   "texto": "11SK1 L ABAJO",
+   "x": 208.29,
+   "y": 362.5,
+   "r": 1.62,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "zona": "riel3_lateral"
+  },
+  "-11X220V:1:4#1181": {
+   "texto": "11X220V 1.4",
+   "x": 379.36,
+   "y": 356.2,
+   "r": 2.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 1 de 11X220V (numero 1). Punto 4 = ABAJO extremo (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "riel3_lateral"
+  },
+  "-11Q2:2#1158": {
+   "texto": "11Q2 F ABAJO",
+   "x": 262.53,
+   "y": 358.69,
+   "r": 2.21,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Termomagnetica Schneider EZ9F34210 2P 10 A. Borne 2 = tornillo inferior del polo izquierdo (hexagono con cruz, r 2.21). Marcado Schneider 2P: 1-2 polo izquierdo, 3-4 polo derecho, impares arriba. Hoja 11: 1 marron (fase) y 3 celeste (neutro).",
+   "zona": "riel3_lateral",
+   "corregido": "Ajuste fino (0,13 pt, sin cambio de borne): el tornillo hexagonal de abajo de 11Q2 tiene envolvente 356.14-361.24 en y (centro 358.69), igual que el centro de su cruz y que los tornillos de abajo de 11Q1 (y 358,69); el punto estaba en y 358.56."
+  },
+  "-11X220V:1:3#1158": {
+   "texto": "11X220V 1.3",
+   "x": 379.36,
+   "y": 367.83,
+   "r": 2.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 1 de 11X220V (numero 1). Punto 3 = ABAJO interior (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "riel3_lateral"
+  },
+  "-11Q1:2#1156": {
+   "texto": "11Q1 F ABAJO",
+   "x": 249.88,
+   "y": 358.69,
+   "r": 2.55,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Diferencial 2P (lista: EZ9F36225 \"ACTI9 IID 2P 25A 30MA AC RCCB\"). Tornillo inferior del polo derecho (circulo r 2.55 con cruz). Polo de neutro a la IZQUIERDA: ficha Schneider \"neutral position: left\" tanto del Easy9 EZ9R36225 como del Acti9 iID A9R11225, y 75286 (foto, N impresa a la izquierda). OJO: el esquema (hoja 11) dibuja 1 a la izquierda y N a la derecha; el lado fisico manda. EPLAN: 1/2 = fase, N/N' = neutro.",
+   "zona": "riel3_lateral"
+  },
+  "-11Q2:1#1156": {
+   "texto": "11Q2 F ARRIBA",
+   "x": 262.53,
+   "y": 408.17,
+   "r": 2.21,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Termomagnetica Schneider EZ9F34210 2P 10 A. Borne 1 = tornillo superior del polo izquierdo (hexagono con cruz, r 2.21). Marcado Schneider 2P: 1-2 polo izquierdo, 3-4 polo derecho, impares arriba. Hoja 11: 1 marron (fase) y 3 celeste (neutro).",
+   "zona": "riel3_lateral"
+  },
+  "-11Q1:1#1154": {
+   "texto": "11Q1 F ARRIBA",
+   "x": 249.88,
+   "y": 408.15,
+   "r": 2.55,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Diferencial 2P (lista: EZ9F36225 \"ACTI9 IID 2P 25A 30MA AC RCCB\"). Tornillo superior del polo derecho (circulo r 2.55 con cruz). Polo de neutro a la IZQUIERDA: ficha Schneider \"neutral position: left\" tanto del Easy9 EZ9R36225 como del Acti9 iID A9R11225, y 75286 (foto, N impresa a la izquierda). OJO: el esquema (hoja 11) dibuja 1 a la izquierda y N a la derecha; el lado fisico manda. EPLAN: 1/2 = fase, N/N' = neutro.",
+   "zona": "riel3_lateral"
+  },
+  "-11Q1:N'#1157": {
+   "texto": "11Q1 N ABAJO",
+   "x": 237.26,
+   "y": 358.69,
+   "r": 2.55,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Diferencial 2P (lista: EZ9F36225 \"ACTI9 IID 2P 25A 30MA AC RCCB\"). Tornillo inferior del polo izquierdo (circulo r 2.55 con cruz). Polo de neutro a la IZQUIERDA: ficha Schneider \"neutral position: left\" tanto del Easy9 EZ9R36225 como del Acti9 iID A9R11225, y 75286 (foto, N impresa a la izquierda). OJO: el esquema (hoja 11) dibuja 1 a la izquierda y N a la derecha; el lado fisico manda. EPLAN: 1/2 = fase, N/N' = neutro.",
+   "zona": "riel3_lateral"
+  },
+  "-11Q2:3#1157": {
+   "texto": "11Q2 N ARRIBA",
+   "x": 275.07,
+   "y": 408.17,
+   "r": 2.21,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Termomagnetica Schneider EZ9F34210 2P 10 A. Borne 3 = tornillo superior del polo derecho (hexagono con cruz, r 2.21). Marcado Schneider 2P: 1-2 polo izquierdo, 3-4 polo derecho, impares arriba. Hoja 11: 1 marron (fase) y 3 celeste (neutro).",
+   "zona": "riel3_lateral"
+  },
+  "-11Q1:N#1155": {
+   "texto": "11Q1 N ARRIBA",
+   "x": 237.26,
+   "y": 408.15,
+   "r": 2.55,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "Diferencial 2P (lista: EZ9F36225 \"ACTI9 IID 2P 25A 30MA AC RCCB\"). Tornillo superior del polo izquierdo (circulo r 2.55 con cruz). Polo de neutro a la IZQUIERDA: ficha Schneider \"neutral position: left\" tanto del Easy9 EZ9R36225 como del Acti9 iID A9R11225, y 75286 (foto, N impresa a la izquierda). OJO: el esquema (hoja 11) dibuja 1 a la izquierda y N a la derecha; el lado fisico manda. EPLAN: 1/2 = fase, N/N' = neutro.",
+   "zona": "riel3_lateral"
+  },
+  "-11SK1:N#1182": {
+   "texto": "11SK1 N ABAJO",
+   "x": 221.75,
+   "y": 362.5,
+   "r": 1.62,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "zona": "riel3_lateral"
+  },
+  "-11X220V:2:4#1182": {
+   "texto": "11X220V 2.4",
+   "x": 385.13,
+   "y": 356.2,
+   "r": 2.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 2 de 11X220V (numero 2). Punto 4 = ABAJO extremo (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "riel3_lateral"
+  },
+  "-11Q2:4#1159": {
+   "texto": "11Q2 N ABAJO",
+   "x": 275.07,
+   "y": 358.69,
+   "r": 2.21,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "Termomagnetica Schneider EZ9F34210 2P 10 A. Borne 4 = tornillo inferior del polo derecho (hexagono con cruz, r 2.21). Marcado Schneider 2P: 1-2 polo izquierdo, 3-4 polo derecho, impares arriba. Hoja 11: 1 marron (fase) y 3 celeste (neutro).",
+   "zona": "riel3_lateral",
+   "corregido": "Ajuste fino (0,13 pt, sin cambio de borne): el tornillo hexagonal de abajo de 11Q2 tiene envolvente 356.14-361.24 en y (centro 358.69), igual que el centro de su cruz y que los tornillos de abajo de 11Q1 (y 358,69); el punto estaba en y 358.56."
+  },
+  "-11X220V:2:3#1159": {
+   "texto": "11X220V 2.3",
+   "x": 385.13,
+   "y": 367.83,
+   "r": 2.4,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 2 de 11X220V (numero 2). Punto 3 = ABAJO interior (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "riel3_lateral"
+  },
+  "-11X220V:2:2#1184": {
+   "texto": "11X220V 2.2",
+   "x": 385.13,
+   "y": 398.71,
+   "r": 2.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 2 de 11X220V (numero 2). Punto 2 = ARRIBA interior (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "riel3_lateral"
+  },
+  "-11X220V:2:1#1186": {
+   "texto": "11X220V 2.1",
+   "x": 385.13,
+   "y": 410.33,
+   "r": 2.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 2 de 11X220V (numero 2). Punto 1 = ARRIBA extremo (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "riel3_lateral"
+  },
+  "-11X220V:1:2#1183": {
+   "texto": "11X220V 1.2",
+   "x": 379.36,
+   "y": 398.71,
+   "r": 2.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 1 de 11X220V (numero 1). Punto 2 = ARRIBA interior (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "riel3_lateral"
+  },
+  "-11X220V:1:1#1185": {
+   "texto": "11X220V 1.1",
+   "x": 379.36,
+   "y": 410.33,
+   "r": 2.4,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 1 de 11X220V (numero 1). Punto 1 = ARRIBA extremo (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:4:2#1161": {
+   "texto": "12XPS 4 ABAJO",
+   "x": 247.97,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 4 de 12XPS (numero 4). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:3:2#1162": {
+   "texto": "12XPS 3 ABAJO",
+   "x": 242.2,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 3 de 12XPS (numero 3). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-15XR:2:1#1171": {
+   "texto": "15XR 2 ARRIBA",
+   "x": 689.95,
+   "y": 402.41,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 1 de 15XR (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 15 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-15XR:1:2#1172": {
+   "texto": "15XR 1 ARRIBA",
+   "x": 689.95,
+   "y": 413.66,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 1 de 15XR (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 15 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:6:2#1206": {
+   "texto": "12XPS 6 ABAJO",
+   "x": 259.52,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 6 de 12XPS (numero 6). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:+Pan#1221": {
+   "texto": "12PS1 +Pan",
+   "x": 246.32,
+   "y": 578.41,
+   "r": 1.8,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:3:1#1221": {
+   "texto": "12XPS 3 ARRIBA",
+   "x": 242.2,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 3 de 12XPS (numero 3). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:-Pan#1222": {
+   "texto": "12PS1 -Pan",
+   "x": 253.32,
+   "y": 578.41,
+   "r": 1.8,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:4:1#1222": {
+   "texto": "12XPS 4 ARRIBA",
+   "x": 247.97,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 4 de 12XPS (numero 4). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:5:2#1201": {
+   "texto": "12XPS 5 ABAJO",
+   "x": 253.75,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 5 de 12XPS (numero 5). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:+Bat#1223": {
+   "texto": "12PS1 +Bat",
+   "x": 260.32,
+   "y": 578.41,
+   "r": 1.8,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:5:1#1223": {
+   "texto": "12XPS 5 ARRIBA",
+   "x": 253.75,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 5 de 12XPS (numero 5). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:-Bat#1224": {
+   "texto": "12PS1 -Bat",
+   "x": 267.32,
+   "y": 578.41,
+   "r": 1.8,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:6:1#1224": {
+   "texto": "12XPS 6 ARRIBA",
+   "x": 259.52,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 6 de 12XPS (numero 6). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:7:2#1232": {
+   "texto": "12XPS 7 ABAJO",
+   "x": 265.3,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 7 de 12XPS (numero 7). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. 12XPS 7 y 8 llevan el puente enchufable FBS 2-8 (rojo) en el canal central: no ocupa boca.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:8:2#1230": {
+   "texto": "12XPS 8 ABAJO",
+   "x": 271.07,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 8 de 12XPS (numero 8). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. 12XPS 7 y 8 llevan el puente enchufable FBS 2-8 (rojo) en el canal central: no ocupa boca.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:+Car#1225": {
+   "texto": "12PS1 +Car",
+   "x": 274.32,
+   "y": 578.41,
+   "r": 1.8,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:8:1#1225": {
+   "texto": "12XPS 8 ARRIBA",
+   "x": 271.07,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 8 de 12XPS (numero 8). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. 12XPS 7 y 8 llevan el puente enchufable FBS 2-8 (rojo) en el canal central: no ocupa boca.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:9:2#1231": {
+   "texto": "12XPS 9 ABAJO",
+   "x": 276.85,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 9 de 12XPS (numero 9). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:-Car#1226": {
+   "texto": "12PS1 -Car",
+   "x": 281.32,
+   "y": 578.41,
+   "r": 1.8,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:9:1#1226": {
+   "texto": "12XPS 9 ARRIBA",
+   "x": 276.85,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 9 de 12XPS (numero 9). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:A#s/n": {
+   "texto": "12PS1 A",
+   "x": 291.82,
+   "y": 578.41,
+   "r": 3.0,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). puerto RS-485 estanco (el cable 0,32 mm2 A/B/GND/VCC sale del conector): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:10:1#s/n": {
+   "texto": "12XPS 10 ARRIBA",
+   "x": 282.63,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 10 de 12XPS (numero 10). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:B#s/n": {
+   "texto": "12PS1 B",
+   "x": 291.82,
+   "y": 578.41,
+   "r": 3.0,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). puerto RS-485 estanco (el cable 0,32 mm2 A/B/GND/VCC sale del conector): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:11:1#s/n": {
+   "texto": "12XPS 11 ARRIBA",
+   "x": 288.4,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 11 de 12XPS (numero 11). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:GND#s/n": {
+   "texto": "12PS1 GND",
+   "x": 291.82,
+   "y": 578.41,
+   "r": 3.0,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). puerto RS-485 estanco (el cable 0,32 mm2 A/B/GND/VCC sale del conector): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:12:1#s/n": {
+   "texto": "12XPS 12 ARRIBA",
+   "x": 294.18,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 12 de 12XPS (numero 12). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-12PS1:VCC#s/n": {
+   "texto": "12PS1 VCC",
+   "x": 291.82,
+   "y": 578.41,
+   "r": 3.0,
+   "conf": "media",
+   "lado": "ABAJO",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). puerto RS-485 estanco (el cable 0,32 mm2 A/B/GND/VCC sale del conector): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:13:1#s/n": {
+   "texto": "12XPS 13 ARRIBA",
+   "x": 299.95,
+   "y": 547.53,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 13 de 12XPS (numero 13). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "riel3_lateral"
+  },
+  "-42XC:F1#1391": {
+   "texto": "42XC F1 ARRIBA",
+   "x": 706.47,
+   "y": 400.05,
+   "r": 2.06,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTTB 4-HESI (5X20), pieza 1 de 42XC (F1 debajo en la pag 8). EPLAN no da punto (-42XC:F1). F1: nivel del fusible = piso de arriba = boca INTERIOR. Lado ARRIBA: en la hoja 42 el cable de la bandeja entra por arriba (el presostato PS1 de campo va abajo). Piso: hoja de datos Phoenix 3211886 (2do nivel con fusible) y 31XAI del 75286 (mismo articulo, fotos: el borne 1 entra por la boca del extremo). Aro r 2.1 pt.",
+   "zona": "riel3_lateral"
+  },
+  "-42XC:1#1392": {
+   "texto": "42XC 1 ARRIBA",
+   "x": 706.47,
+   "y": 419.01,
+   "r": 2.06,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTTB 4-HESI (5X20), pieza 1 de 42XC (F1 debajo en la pag 8). EPLAN no da punto (-42XC:1). 1: paso directo = piso de abajo = boca del EXTREMO. Lado ARRIBA: en la hoja 42 el cable de la bandeja entra por arriba (el presostato PS1 de campo va abajo). Piso: hoja de datos Phoenix 3211886 (2do nivel con fusible) y 31XAI del 75286 (mismo articulo, fotos: el borne 1 entra por la boca del extremo). Aro r 2.1 pt.",
+   "zona": "riel3_lateral"
+  },
+  "-15XR:1:3#s/n": {
+   "texto": "15XR 1 ABAJO",
+   "x": 689.95,
+   "y": 355.55,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT, pieza 1 de 15XR (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 15 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :3 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-15XR:2:4#s/n": {
+   "texto": "15XR 2 ABAJO",
+   "x": 689.95,
+   "y": 366.94,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT, pieza 1 de 15XR (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 15 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :4 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-15XR:3:4#s/n": {
+   "texto": "15XR 3.4",
+   "x": 694.17,
+   "y": 364.26,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 2,5-QUATTRO-PE (verde) (verde, PE), pieza 2 de 15XR (numero 3). Punto 4 = ABAJO extremo (convencion N.p del taller: 1 y 2 arriba, 1 el extremo; 3 y 4 abajo, 4 el extremo). Aro r 1.7 pt. En la hoja 15 el simbolo esta espejado (punto 4 a la izquierda); como los 4 puntos son PE y el cable es de campo (entra por abajo), se deja 4 = ABAJO extremo.",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:10#2135": {
+   "texto": "12XPS 10 ABAJO",
+   "x": 282.63,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 10 de 12XPS (numero 10). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. EPLAN escribe -12XPS:10 sin punto. El punto :1 (ARRIBA) lo ocupa el RS-485 de 12PS1 y en la hoja 81 la union en T del cable sale del lado derecho del borne (= ABAJO, regla horizontal): las dos puntas del cable van juntas en la boca de ABAJO, con TERMINAL DOBLE. Cable de 3 puntas: en este borne entran 2 tramos con el mismo numero (-21PCB01:35, -81XCM:7:2): TERMINAL DOBLE.",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:7:2#2135": {
+   "texto": "81XCM 7 ARRIBA",
+   "x": 736.59,
+   "y": 413.66,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 4 de 81XCM (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2135 de 3 puntas (-21PCB01:35, -12XPS:10, -81XCM:7:2); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "riel3_lateral"
+  },
+  "-12XPS:11#2136": {
+   "texto": "12XPS 11 ABAJO",
+   "x": 288.4,
+   "y": 516.65,
+   "r": 2.5,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 11 de 12XPS (numero 11). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. EPLAN escribe -12XPS:11 sin punto. El punto :1 (ARRIBA) lo ocupa el RS-485 de 12PS1 y en la hoja 81 la union en T del cable sale del lado derecho del borne (= ABAJO, regla horizontal): las dos puntas del cable van juntas en la boca de ABAJO, con TERMINAL DOBLE. Cable de 3 puntas: en este borne entran 2 tramos con el mismo numero (-21PCB01:36, -81XCM:8:1): TERMINAL DOBLE.",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:8:1#2136": {
+   "texto": "81XCM 8 ARRIBA",
+   "x": 736.59,
+   "y": 402.41,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 4 de 81XCM (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2136 de 3 puntas (-21PCB01:36, -12XPS:11, -81XCM:8:1); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "riel3_lateral"
+  },
+  "-32XEX:1:2#s/n": {
+   "texto": "32XEX 1 ABAJO",
+   "x": 823.04,
+   "y": 355.43,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 32XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-32XEX:1:3#3202": {
+   "texto": "32XEX 1 ARRIBA",
+   "x": 823.04,
+   "y": 413.54,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 32XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-32XEX:2:1#s/n": {
+   "texto": "32XEX 2 ABAJO",
+   "x": 823.04,
+   "y": 366.82,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 32XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-32XEX:2:4#3203": {
+   "texto": "32XEX 2 ARRIBA",
+   "x": 823.04,
+   "y": 402.29,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 32XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-32XEX:5:4#s/n": {
+   "texto": "32XEX 5.4",
+   "x": 830.91,
+   "y": 364.14,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PT 2,5-QUATTRO-PE (verde) (verde, PE), pieza 3 de 32XEX (numero 5). Punto 4 = ABAJO extremo (convencion N.p del taller: 1 y 2 arriba, 1 el extremo; 3 y 4 abajo, 4 el extremo). Aro r 1.7 pt. En la hoja 32 el simbolo esta espejado (punto 4 a la izquierda); como los 4 puntos son PE y el cable es de campo (entra por abajo), se deja 4 = ABAJO extremo.",
+   "zona": "riel3_lateral"
+  },
+  "-32XEX:3:3#3205": {
+   "texto": "32XEX 3 ARRIBA",
+   "x": 826.69,
+   "y": 413.54,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 32XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-32XEX:4:4#3206": {
+   "texto": "32XEX 4 ARRIBA",
+   "x": 826.69,
+   "y": 402.29,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 32XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:2:1#s/n": {
+   "texto": "41XEX 2 ABAJO",
+   "x": 842.85,
+   "y": 366.82,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 41XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:1:2#s/n": {
+   "texto": "41XEX 1 ABAJO",
+   "x": 842.85,
+   "y": 355.43,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 41XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:1:3#4116": {
+   "texto": "41XEX 1 ARRIBA",
+   "x": 842.85,
+   "y": 413.54,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 41XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:2:4#4117": {
+   "texto": "41XEX 2 ARRIBA",
+   "x": 842.85,
+   "y": 402.29,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 41XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:4:1#s/n": {
+   "texto": "41XEX 4 ABAJO",
+   "x": 846.5,
+   "y": 366.82,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 41XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:3:2#s/n": {
+   "texto": "41XEX 3 ABAJO",
+   "x": 846.5,
+   "y": 355.43,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 41XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:3:3#4118": {
+   "texto": "41XEX 3 ARRIBA",
+   "x": 846.5,
+   "y": 413.54,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 41XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:4:4#4119": {
+   "texto": "41XEX 4 ARRIBA",
+   "x": 846.5,
+   "y": 402.29,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 41XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:6:1#s/n": {
+   "texto": "41XEX 6 ABAJO",
+   "x": 850.15,
+   "y": 366.82,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 3 de 41XEX (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 6 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:5:2#s/n": {
+   "texto": "41XEX 5 ABAJO",
+   "x": 850.15,
+   "y": 355.43,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 3 de 41XEX (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 5 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:5:3#4120": {
+   "texto": "41XEX 5 ARRIBA",
+   "x": 850.15,
+   "y": 413.54,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 3 de 41XEX (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 5 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:6:4#4121": {
+   "texto": "41XEX 6 ARRIBA",
+   "x": 850.15,
+   "y": 402.29,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 3 de 41XEX (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 6 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:8:1#s/n": {
+   "texto": "41XEX 8 ABAJO",
+   "x": 857.45,
+   "y": 366.82,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:7:2#s/n": {
+   "texto": "41XEX 7 ABAJO",
+   "x": 857.45,
+   "y": 355.43,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:7:3#4122": {
+   "texto": "41XEX 7 ARRIBA",
+   "x": 857.45,
+   "y": 413.54,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:8:4#4123": {
+   "texto": "41XEX 8 ARRIBA",
+   "x": 857.45,
+   "y": 402.29,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:10:1#s/n": {
+   "texto": "41XEX 10 ABAJO",
+   "x": 853.8,
+   "y": 366.82,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 10 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:9:2#s/n": {
+   "texto": "41XEX 9 ABAJO",
+   "x": 853.8,
+   "y": 355.43,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 9 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:9:3#4124": {
+   "texto": "41XEX 9 ARRIBA",
+   "x": 853.8,
+   "y": 413.54,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 9 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:10:4#4125": {
+   "texto": "41XEX 10 ARRIBA",
+   "x": 853.8,
+   "y": 402.29,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 10 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:12:1#s/n": {
+   "texto": "41XEX 12 ABAJO",
+   "x": 861.1,
+   "y": 366.82,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 6 de 41XEX (la que tiene el numero 11 debajo en la pag 8; lleva los bornes 11 y 12). Borne 12 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:11:2#s/n": {
+   "texto": "41XEX 11 ABAJO",
+   "x": 861.1,
+   "y": 355.43,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ABAJO",
+   "como": "PTT 2,5-2MT BU, pieza 6 de 41XEX (la que tiene el numero 11 debajo en la pag 8; lleva los bornes 11 y 12). Borne 11 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:11:3#4126": {
+   "texto": "41XEX 11 ARRIBA",
+   "x": 861.1,
+   "y": 413.54,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 6 de 41XEX (la que tiene el numero 11 debajo en la pag 8; lleva los bornes 11 y 12). Borne 11 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-41XEX:12:4#4127": {
+   "texto": "41XEX 12 ARRIBA",
+   "x": 861.1,
+   "y": 402.29,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT BU, pieza 6 de 41XEX (la que tiene el numero 11 debajo en la pag 8; lleva los bornes 11 y 12). Borne 12 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-42XC:3:3#4231": {
+   "texto": "42XC 3 ARRIBA",
+   "x": 711.04,
+   "y": 413.66,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 2 de 42XC (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 42 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-42XC:4:4#4213": {
+   "texto": "42XC 4 ARRIBA",
+   "x": 711.04,
+   "y": 402.41,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 2 de 42XC (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 42 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-42XC:5:3#4232": {
+   "texto": "42XC 5 ARRIBA",
+   "x": 714.69,
+   "y": 413.66,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 3 de 42XC (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 5 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 42 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-42XC:6:4#4233": {
+   "texto": "42XC 6 ARRIBA",
+   "x": 714.69,
+   "y": 402.41,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 3 de 42XC (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 6 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 42 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:9:2#s/n": {
+   "texto": "81XCM 9 ARRIBA",
+   "x": 740.23,
+   "y": 413.66,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 5 de 81XCM (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 9 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:6:1#2133": {
+   "texto": "81XCM 6 ARRIBA",
+   "x": 732.94,
+   "y": 402.41,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 3 de 81XCM (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 6 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2133 de 3 puntas (-21PCB01:33, -81XCM:6:1, -81XCM:2:1); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:2:1#2133": {
+   "texto": "81XCM 2 ARRIBA",
+   "x": 725.64,
+   "y": 402.41,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 1 de 81XCM (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2133 de 3 puntas (-21PCB01:33, -81XCM:6:1, -81XCM:2:1); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:5:2#2132": {
+   "texto": "81XCM 5 ARRIBA",
+   "x": 732.94,
+   "y": 413.66,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 3 de 81XCM (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 5 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2132 de 3 puntas (-21PCB01:32, -81XCM:5:2, -81XCM:1:2); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:1:2#2132": {
+   "texto": "81XCM 1 ARRIBA",
+   "x": 725.64,
+   "y": 413.66,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 1 de 81XCM (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2132 de 3 puntas (-21PCB01:32, -81XCM:5:2, -81XCM:1:2); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:4:1#s/n": {
+   "texto": "81XCM 4 ARRIBA",
+   "x": 729.29,
+   "y": 402.41,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 2 de 81XCM (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  },
+  "-81XCM:3:2#s/n": {
+   "texto": "81XCM 3 ARRIBA",
+   "x": 729.29,
+   "y": 413.66,
+   "r": 1.7,
+   "conf": "alta",
+   "lado": "ARRIBA",
+   "como": "PTT 2,5-2MT, pieza 2 de 81XCM (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "riel3_lateral"
+  }
+ },
+ "textos": {
+  "-11MS1#1101": "11MS1 1/L1",
+  "-11MS1#1102": "11MS1 3/L2",
+  "-11MS1#1154": "11MS1 2/T1",
+  "-11MS1#1155": "11MS1 4/T2"
+ }
+}

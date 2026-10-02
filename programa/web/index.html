@@ -25,7 +25,8 @@
     <div class="hero">
       <h1>Arrastra aquí el plano eléctrico</h1>
       <p class="muted">PDF exportado desde AutoCAD. Se genera un PDF donde <kbd>Ctrl</kbd>+<kbd>F</kbd> encuentra los números de cable
-        y un listado con número, color y sección de cada cable. Un plano de 19 hojas tarda alrededor de un minuto.</p>
+        y un listado con número, color y sección de cada cable. Un plano de 19 hojas tarda alrededor de un minuto.
+        Un plano de <b>EPLAN</b> (con su lista de conexiones) se lee en segundos y arma el instructivo solo, con la hoja de bandejas del mismo PDF.</p>
     </div>
     <label class="drop" id="drop" tabindex="0">
       <input type="file" id="fileInput" accept="application/pdf,.pdf" hidden>
@@ -111,6 +112,11 @@
         <p class="muted">Cargá el <b>plano topográfico</b> de este tablero (PDF). Con él la herramienta ordena la aparamenta de la bandeja
           (riel por riel, de arriba a la izquierda; primero la parte de arriba de los aparatos y después la de abajo) y arma cada paso con
           el <b>origen y destino</b> de los cables, con su <b>ruteo por los cablecanales</b> y el largo estimado. Lo que va fuera de la bandeja queda como <b>LI</b>.</p>
+        <div class="ins-eplan" id="insEplan" hidden>
+          <p>Este plano es de <b>EPLAN</b>: el mismo PDF trae la hoja de bandejas, no hace falta otro topográfico.</p>
+          <button class="btn primary" id="insMismo">Usar las bandejas de este mismo PDF</button>
+          <p class="muted small">O cargá otro topográfico abajo.</p>
+        </div>
         <div class="drop" id="insDrop" tabindex="0">
           <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 30l10-10 10 10M24 20v20M10 38h28" /></svg>
           <span class="drop-t">Soltá el topográfico o <u>elegí el archivo</u></span>
@@ -127,6 +133,7 @@
           <label class="small ins-est" title="Estación donde se cablea esta bandeja">Estación <input id="insEstacion" type="text" size="4" autocomplete="off" aria-label="Estación"></label>
           <button class="btn sm" id="insBtnComps">Componentes y orden</button>
           <button class="btn sm" id="insPrint">🖨 Imprimir / PDF</button>
+          <button class="btn sm" id="insWpc" title="Lista de cables en orden de cableado y .csv para el centro de cableado WPC">📋 Lista WPC</button>
           <button class="btn sm" id="insJson" title="Para importarlo después a nuestra app">⭳ JSON</button>
           <button class="btn ghost sm" id="insCopy">Copiar texto</button>
           <span class="grow"></span>
@@ -274,5 +281,6 @@
 <script src="/static/app.js"></script>
 <script src="/static/instructivo.js"></script>
 <script src="/static/auditoria.js"></script>
+<script src="/static/wpc.js"></script>
 </body>
 </html>

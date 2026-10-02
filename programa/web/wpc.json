@@ -1,0 +1,15 @@
+{
+  "_nota": "Parámetros de la lista para el centro de cableado WPC. Largos en mm. Los colores son los códigos de la planilla de WPC (hoja Mapping_parameter).",
+  "margen_bandeja": 100,
+  "extra_LI": 1500,
+  "extra_LD": 400,
+  "largo_pendiente": 2000,
+  "largo_sin_ruta": 1000,
+  "redondeo": 50,
+  "fijos": { "pelado_origen": 10, "proceso_origen": 1, "proceso_destino": 1, "crimpado_origen": 8, "dimension_origen": 10, "crimpado_destino": 8 },
+  "colores": {
+    "Negro": "BK", "Rojo": "RD", "Blanco": "WH", "Marrón": "BN", "Azul": "BU", "Gris": "GY", "Verde": "GN",
+    "Amarillo": "YE", "Verde-Amarillo": "GNYE", "Naranja": "OG", "Violeta": "VT", "Celeste": "HBL", "Rosa": "PK"
+  },
+  "codigos": ["BK", "BN", "RD", "OG", "YE", "GN", "BU", "BW", "HBL", "VT", "GY", "WH", "PK", "GD", "TQ", "SR", "GNYE", "GNGY", "RW", "DB"]
+}

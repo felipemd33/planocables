@@ -87,7 +87,12 @@ def run_job(jid, pdf_path, opts):
             res = process(pdf_path, log=log, use_ocr=opts.get('ocr', True))
             base = os.path.splitext(os.path.basename(pdf_path))[0]
             d = os.path.dirname(pdf_path)
-            if opts.get('pdf', True):
+            es_eplan = bool(getattr(res, 'eplan', False))
+            j['eplan'] = es_eplan
+            if es_eplan:
+                # plano de EPLAN: el PDF ya trae el texto (se busca con Ctrl+F tal cual), no hace falta un PDF buscable
+                j['pdf'] = j['archivo']
+            elif opts.get('pdf', True):
                 log('Generando PDF buscable…'); j['progreso'] = 0.88
                 from ocr_raster import page_items
                 write_searchable_pdf(res, os.path.join(d, base + ' - BUSCABLE.pdf'),
@@ -96,6 +101,9 @@ def run_job(jid, pdf_path, opts):
             if opts.get('excel', True):
                 log('Generando Excel…'); j['progreso'] = 0.95
                 write_excel(res, os.path.join(d, base + ' - LISTADO DE CABLES.xlsx'))
+                if es_eplan:
+                    import eplan
+                    eplan.excel_extra(res, os.path.join(d, base + ' - LISTADO DE CABLES.xlsx'))
                 j['excel'] = base + ' - LISTADO DE CABLES.xlsx'
             with open(os.path.join(d, 'resultado.json'), 'w', encoding='utf-8') as f:
                 json.dump(result_json(res, j['nombre'], opts), f, ensure_ascii=False)
@@ -108,6 +116,32 @@ def run_job(jid, pdf_path, opts):
         j['estado'] = 'error'; j['error'] = str(e); j['log'].append(traceback.format_exc())
     finally:
         save_state(jid)
+    # plano de EPLAN: el mismo PDF trae la hoja de bandejas; se arma el instructivo solo (si todavia no hay uno)
+    if j.get('estado') == 'terminado' and j.get('eplan'):
+        try:
+            P = ins_paths(jid)
+            if not os.path.exists(P['json']) and (INS.get(jid) or {}).get('estado') not in ('procesando', 'en cola'):
+                usar_mismo_pdf(jid)
+        except Exception:
+            import traceback
+            j['log'].append('No se pudo armar el instructivo: ' + traceback.format_exc()); save_state(jid)
+
+
+def usar_mismo_pdf(jid):
+    """el PDF del plano (EPLAN) se usa tambien como topografico del trabajo y se arma el instructivo"""
+    P = ins_paths(jid); s = load_state(jid) or {}
+    src = os.path.join(P['dir'], s['archivo'])
+    if not os.path.exists(P['topo']) or os.path.getsize(P['topo']) != os.path.getsize(src):
+        shutil.copyfile(src, P['topo'] + '.tmp'); os.replace(P['topo'] + '.tmp', P['topo'])
+        if os.path.exists(P['layout']):
+            os.remove(P['layout'])
+    nombre = (s.get('nombre') or s['archivo']) + ' (hoja de bandejas)'
+    if jid in JOBS:
+        JOBS[jid]['topo_nombre'] = nombre; save_state(jid)
+    else:
+        s['topo_nombre'] = nombre; write_json(os.path.join(P['dir'], 'estado.json'), s)
+    INS[jid] = dict(estado='en cola', mensaje='En cola…', progreso=0.0)
+    threading.Thread(target=gen_instructivo, args=(jid, None, True), daemon=True).start()
 
 
 @app.before_request
@@ -362,8 +396,12 @@ def gen_instructivo(jid, overrides=None, relayout=False):
             # 3) en build mandan los ajustados a mano en el visor (bornes_usuario)
             st.update(mensaje='Ubicando cada borne en el topográfico…', progreso=0.7)
             try:
-                import bornes as mapeo_bornes
-                mapeo = mapeo_bornes.aplicar_al_layout(res, lay, P['dir'], P['topo'])
+                if getattr(res, 'eplan', False) and lay.get('eplan'):   # EPLAN con sus bandejas: mapeo verificado del producto (dato)
+                    import eplan
+                    mapeo = eplan.aplicar_puntos(res, lay, P['dir'])
+                else:
+                    import bornes as mapeo_bornes
+                    mapeo = mapeo_bornes.aplicar_al_layout(res, lay, P['dir'], P['topo'])
             except Exception as e:      # el mapeo nunca frena el instructivo: se arma como sin mapeo
                 import traceback
                 mapeo = dict(error=f'{type(e).__name__}: {e}', detalle=traceback.format_exc(), avisos=[f'el mapeo automatico de bornes fallo ({e})'],
@@ -401,6 +439,7 @@ def gen_instructivo(jid, overrides=None, relayout=False):
             ins['estacion'] = lay['estacion']
             ins['estacion_auto'] = lay['estacion_auto']
             ins['auditoria'] = old.get('auditoria') or {}
+            ins['wpc'] = old.get('wpc') or {}     # lista WPC: largos y colores a mano, cortes de etapa, excluidos
             # conservar las fotos de la version anterior (paso identificado por su primer cable)
             prev = {}
             for p_ in old.get('pasos', []):
@@ -458,6 +497,18 @@ def subir_topografico(jid):
     return jsonify(ok=True)
 
 
+@app.post('/api/trabajo/<jid>/topografico/mismo')
+def topografico_mismo(jid):
+    """plano de EPLAN: usar las bandejas del mismo PDF como topografico"""
+    ins_paths(jid); s = load_state(jid) or {}
+    if not s.get('archivo'):
+        abort(404)
+    if (INS.get(jid) or {}).get('estado') in ('procesando', 'en cola'):
+        return jsonify(error='Ya se está generando'), 409
+    usar_mismo_pdf(jid)
+    return jsonify(ok=True)
+
+
 @app.post('/api/trabajo/<jid>/instructivo/regenerar')
 def regenerar_instructivo(jid):
     P = ins_paths(jid)
@@ -476,6 +527,7 @@ def estado_instructivo(jid):
     P = ins_paths(jid)
     st = {k: v for k, v in (INS.get(jid) or {}).items() if k != 'detalle'}
     st['hay_topo'] = os.path.exists(P['topo']); st['hay_instructivo'] = os.path.exists(P['json'])
+    st['eplan'] = bool((load_state(jid) or {}).get('eplan'))
     return jsonify(st)
 
 

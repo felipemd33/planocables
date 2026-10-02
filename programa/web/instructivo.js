@@ -63,6 +63,7 @@ const Ins = (() => {
     if (['procesando', 'en cola'].includes(st.estado)) return progress();
     if (st.hay_instructivo) { if (!D) D = await api(`/api/trabajo/${job}/instructivo`); return render(); }
     show('insEmpty');
+    $('#insEplan').hidden = !st.eplan;      // plano de EPLAN: las bandejas vienen en el mismo PDF
     if (st.estado === 'error') toast('No se pudo generar el instructivo: ' + (st.error || ''), 6000);
   }
   function show(id) { for (const k of ['insEmpty', 'insProg', 'insMain']) $('#' + k).hidden = k !== id; }
@@ -72,6 +73,10 @@ const Ins = (() => {
     if (!f || !/\.pdf$/i.test(f.name)) return toast('Elegí el plano topográfico en PDF');
     const fd = new FormData(); fd.append('plano', f);
     try { await api(`/api/trabajo/${job}/topografico`, { method: 'POST', body: fd }); D = null; progress(); }
+    catch (e) { toast(e.message, 5000); }
+  }
+  async function usarMismo() {
+    try { await api(`/api/trabajo/${job}/topografico/mismo`, { method: 'POST' }); D = null; progress(); }
     catch (e) { toast(e.message, 5000); }
   }
   async function progress() {
@@ -291,10 +296,12 @@ const Ins = (() => {
     if (mp.hidden) { mp.innerHTML = ''; return; }
     const n = m.n_puntos || {}, tot = (n.alta || 0) + (n.media || 0) + (n.baja || 0);
     const partes = [`alta ${n.alta || 0}`, `media ${n.media || 0}`].concat(n.baja ? [`sin ubicar ${n.baja}`] : []);
-    mp.innerHTML = `<summary>Mapeo automático de bornes: ${m.error ? 'no se pudo calcular' : `${tot} puntos (${partes.join(', ')})`}${m.manuales ? ` · ${m.manuales} con punto manual del trabajo` : ''} · ver avisos (${av.length})</summary>
+    const verif = m.materiales === 'mapeo verificado del producto';
+    mp.innerHTML = `<summary>${esc(m.titulo || 'Mapeo automático de bornes')}: ${m.error ? 'no se pudo calcular' : `${tot} puntos (${partes.join(', ')})`}${m.manuales ? ` · ${m.manuales} con punto manual del trabajo` : ''} · ver avisos (${av.length})</summary>
       <ul>${av.map(a => `<li>${esc(a)}</li>`).join('')}</ul>
-      <div class="muted">alta = el borne se vio en el dibujo · media = medida del catálogo o regla de corrección: confirmalo en el visor (marca «a confirmar») ·
-        ${m.de_cache ? 'resultado guardado (no cambió nada desde el último cálculo)' : `calculado en ${esc(m.segundos ?? '?')} s`}</div>`;
+      <div class="muted">${verif ? 'puntos del mapeo verificado del producto · media = punto con una duda anotada: confirmalo en el visor (marca «a confirmar»)'
+        : `alta = el borne se vio en el dibujo · media = medida del catálogo o regla de corrección: confirmalo en el visor (marca «a confirmar») ·
+        ${m.de_cache ? 'resultado guardado (no cambió nada desde el último cálculo)' : `calculado en ${esc(m.segundos ?? '?')} s`}`}</div>`;
   }
   function renderComps() {
     const filas = Math.max(3, ...D.componentes.map(c => c.fila || 0));
@@ -625,12 +632,14 @@ const Ins = (() => {
     $('#insApply').addEventListener('click', applyComps);
     $('#insPrint').addEventListener('click', imprimir);
     $('#insJson').addEventListener('click', descargarJSON);
+    $('#insWpc').addEventListener('click', () => D && Wpc.abrir(D, dirty));
     $('#insCopy').addEventListener('click', async () => { try { await navigator.clipboard.writeText(textoPlano()); toast('Instructivo copiado como texto'); } catch (e) { toast('No se pudo copiar'); } });
     $('#insRegen').addEventListener('click', () => {
       if (!confirm('¿Volver a armar el instructivo desde los planos? Se conservan las marcas de cableado, los puntos ajustados, las estaciones y la auditoría; se pierden los textos editados a mano.')) return;
       regenerar({});
     });
     $('#insNewTopo').addEventListener('click', () => $('#insTopoFile').click());
+    $('#insMismo').addEventListener('click', usarMismo);
     $('#insCablear').addEventListener('click', () => openViewer(null));
     // visor
     $('#cvClose').addEventListener('click', closeViewer);

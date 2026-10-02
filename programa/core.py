@@ -108,6 +108,9 @@ class Result:
 
 
 def process(pdf_path, log=print, use_ocr=True, pages=None):
+    import eplan
+    if eplan.es_eplan(pdf_path):      # plano de EPLAN (texto real + lista de conexiones): otro lector, misma interfaz
+        return eplan.process(pdf_path, log=log, use_ocr=use_ocr, pages=pages)
     t0 = time.time()
     reader = pypdf.PdfReader(pdf_path)
     names = layer_names(reader)

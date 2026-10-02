@@ -1,0 +1,8135 @@
+{
+ "lineas": [
+  {
+   "num": "1161",
+   "cable": "N2.5MM",
+   "origen": "11PS1 TB2 1 (-V)",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1160",
+   "cable": "R2.5MM",
+   "origen": "11PS1 TB2 3 (+V)",
+   "destino": "11F1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1171",
+   "cable": "N2.5MM",
+   "origen": "11PS2 TB2 1 (-V)",
+   "destino": "15XR 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1170",
+   "cable": "R2.5MM",
+   "origen": "11PS2 TB2 3 (+V)",
+   "destino": "11F2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1312",
+   "cable": "N1MM",
+   "origen": "13PS1 -Vo",
+   "destino": "13X24V 3.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1235",
+   "cable": "N1MM",
+   "origen": "13PS1 (-Vo)",
+   "destino": "12XP 1.2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1310",
+   "cable": "R1MM",
+   "origen": "13PS1 +Vo",
+   "destino": "13F6 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1201",
+   "cable": "R6MM",
+   "origen": "12F3 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1230",
+   "cable": "R6MM",
+   "origen": "13F4 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1232",
+   "cable": "R6MM",
+   "origen": "13F5 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1385",
+   "cable": "R1MM",
+   "origen": "42KS1 A1",
+   "destino": "13X24V 2.3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4221",
+   "cable": "N0.75MM",
+   "origen": "42KS1 S34",
+   "destino": "42KS1 S33",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4211",
+   "cable": "N0.75MM",
+   "origen": "42KS1 S11",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4213",
+   "cable": "N0.75MM",
+   "origen": "42KS1 S12",
+   "destino": "42XC 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1386",
+   "cable": "N1MM",
+   "origen": "42KS1 A2",
+   "destino": "13X24V 4.2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4231",
+   "cable": "N0.75MM",
+   "origen": "42KR1 11",
+   "destino": "42XC 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1363",
+   "cable": "R1MM",
+   "origen": "61KR1 11",
+   "destino": "13X12V 1.3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4294",
+   "cable": "R1MM",
+   "origen": "61KR2 11",
+   "destino": "42KS1 24",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4295",
+   "cable": "R1MM",
+   "origen": "61KR3 11",
+   "destino": "42KS1 34",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4296",
+   "cable": "R1MM",
+   "origen": "61KR4 11",
+   "destino": "42KS1 44",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4212",
+   "cable": "N0.75MM",
+   "origen": "42KR1 14",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6141",
+   "cable": "R1MM",
+   "origen": "61KR1 14",
+   "destino": "61XDO 1.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6142",
+   "cable": "R1MM",
+   "origen": "61KR2 14",
+   "destino": "61XDO 2.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6143",
+   "cable": "R1MM",
+   "origen": "61KR3 14",
+   "destino": "61XDO 3.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6144",
+   "cable": "R1MM",
+   "origen": "61KR4 14",
+   "destino": "61XDO 4.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2142",
+   "cable": "N0.75MM",
+   "origen": "32XAI 1 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1350",
+   "cable": "R1MM",
+   "origen": "32XAI F1 ARRIBA",
+   "destino": "13X24V 2.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "⏚13PS1",
+   "cable": "VA2.5MM",
+   "origen": "XPE 1.1",
+   "destino": "13PS1 PE",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "⏚11PS1",
+   "cable": "VA2.5MM",
+   "origen": "11PS1 TB1 1 (FG)",
+   "destino": "XPE 1.4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1186",
+   "cable": "C2.5MM",
+   "origen": "11PS1 TB1 2 (N)",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1185",
+   "cable": "M2.5MM",
+   "origen": "11PS1 TB1 3 (L)",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "⏚11PS2",
+   "cable": "VA2.5MM",
+   "origen": "11PS2 TB1 1 (FG)",
+   "destino": "XPE 2.4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1184",
+   "cable": "C2.5MM",
+   "origen": "11PS2 TB1 2 (N)",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1183",
+   "cable": "M2.5MM",
+   "origen": "11PS2 TB1 3 (L)",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1234",
+   "cable": "N2.5MM",
+   "origen": "13PS1 -Vin",
+   "destino": "12XP 1.3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1373",
+   "cable": "R2.5MM",
+   "origen": "13PS1 +Vin",
+   "destino": "13X12V 1.4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1162",
+   "cable": "R2.5MM",
+   "origen": "11F1 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1172",
+   "cable": "R2.5MM",
+   "origen": "11F2 ABAJO",
+   "destino": "15XR 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1202",
+   "cable": "R6MM",
+   "origen": "12F3 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1301",
+   "cable": "R6MM",
+   "origen": "13F4 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1302",
+   "cable": "R6MM",
+   "origen": "13F5 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1311",
+   "cable": "R1MM",
+   "origen": "13F6 ABAJO",
+   "destino": "13X24V 1.4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1395",
+   "cable": "R1MM",
+   "origen": "42KS1 33",
+   "destino": "13X12V 2.3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1394",
+   "cable": "R1MM",
+   "origen": "42KS1 23",
+   "destino": "13X12V 2.2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1396",
+   "cable": "R1MM",
+   "origen": "42KS1 43",
+   "destino": "13X12V 2.4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2114",
+   "cable": "N0.75MM",
+   "origen": "42KS1 13",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2115",
+   "cable": "N0.75MM",
+   "origen": "42KS1 14",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4233",
+   "cable": "N0.75MM",
+   "origen": "42KR1 A2",
+   "destino": "42XC 6 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2151",
+   "cable": "N0.75MM",
+   "origen": "61KR1 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2153",
+   "cable": "N0.75MM",
+   "origen": "61KR2 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2155",
+   "cable": "N0.75MM",
+   "origen": "61KR3 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2157",
+   "cable": "N0.75MM",
+   "origen": "61KR4 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4232",
+   "cable": "N0.75MM",
+   "origen": "42KR1 A1",
+   "destino": "42XC 5 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2150",
+   "cable": "N0.75MM",
+   "origen": "61KR1 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2152",
+   "cable": "N0.75MM",
+   "origen": "61KR2 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2154",
+   "cable": "N0.75MM",
+   "origen": "61KR3 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2156",
+   "cable": "N0.75MM",
+   "origen": "61KR4 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1231",
+   "cable": "N6MM",
+   "origen": "12XP 1.1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1303",
+   "cable": "R6MM",
+   "origen": "13X12V 1.1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1304",
+   "cable": "R6MM",
+   "origen": "13X12V 2.1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1353",
+   "cable": "R1MM",
+   "origen": "13X12V 1.2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1391",
+   "cable": "R1MM",
+   "origen": "13X24V 1.1",
+   "destino": "42XC F1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1361",
+   "cable": "N1MM",
+   "origen": "13X24V 4.1",
+   "destino": "15AIB1 2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1361",
+   "cable": "N1MM",
+   "origen": "15AIB1 2",
+   "destino": "15DIB1 2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1361",
+   "cable": "N1MM",
+   "origen": "15DIB1 2",
+   "destino": "15DIB2 2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1361",
+   "cable": "N1MM",
+   "origen": "15DIB2 2",
+   "destino": "15DIB3 2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6171",
+   "cable": "R1MM",
+   "origen": "61XDO 1.2",
+   "destino": "61XDIO 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6172",
+   "cable": "R1MM",
+   "origen": "61XDO 2.2",
+   "destino": "61XDIO 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6173",
+   "cable": "R1MM",
+   "origen": "61XDO 3.2",
+   "destino": "61XDIO 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6174",
+   "cable": "R1MM",
+   "origen": "61XDO 4.2",
+   "destino": "61XDIO 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1268",
+   "cable": "N1MM",
+   "origen": "61X0V 1.1",
+   "destino": "12XP 2.4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1254",
+   "cable": "N1MM",
+   "origen": "12XP 1.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1264",
+   "cable": "N1MM",
+   "origen": "12XP 2.3",
+   "destino": "61XDIO 1 ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1370",
+   "cable": "R1MM",
+   "origen": "13X24V 2.4",
+   "destino": "15AIB1 1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1370",
+   "cable": "R1MM",
+   "origen": "15AIB1 1",
+   "destino": "15DIB1 1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1370",
+   "cable": "R1MM",
+   "origen": "15DIB1 1",
+   "destino": "15DIB2 1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1370",
+   "cable": "R1MM",
+   "origen": "15DIB2 1",
+   "destino": "15DIB3 1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1392",
+   "cable": "N1MM",
+   "origen": "13X24V 3.4",
+   "destino": "42XC 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6152",
+   "cable": "R1MM",
+   "origen": "61XDO 2.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6153",
+   "cable": "R1MM",
+   "origen": "61XDO 3.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6154",
+   "cable": "R1MM",
+   "origen": "61XDO 4.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6162",
+   "cable": "N1MM",
+   "origen": "61X0V 1.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6164",
+   "cable": "N1MM",
+   "origen": "61X0V 2.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6163",
+   "cable": "N1MM",
+   "origen": "61X0V 2.3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2139",
+   "cable": "N0.75MM",
+   "origen": "15AIB1 3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2140",
+   "cable": "N0.75MM",
+   "origen": "15AIB1 4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2118",
+   "cable": "N0.75MM",
+   "origen": "15DIB1 3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2119",
+   "cable": "N0.75MM",
+   "origen": "15DIB1 4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2122",
+   "cable": "N0.75MM",
+   "origen": "15DIB2 3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2123",
+   "cable": "N0.75MM",
+   "origen": "15DIB2 4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2126",
+   "cable": "N0.75MM",
+   "origen": "15DIB3 3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2127",
+   "cable": "N0.75MM",
+   "origen": "15DIB3 4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2105",
+   "cable": "N0.75MM",
+   "origen": "15AIB1 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2106",
+   "cable": "N0.75MM",
+   "origen": "15AIB1 7",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2116",
+   "cable": "N0.75MM",
+   "origen": "15DIB1 5",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2117",
+   "cable": "N0.75MM",
+   "origen": "15DIB1 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2120",
+   "cable": "N0.75MM",
+   "origen": "15DIB2 5",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2121",
+   "cable": "N0.75MM",
+   "origen": "15DIB2 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2124",
+   "cable": "N0.75MM",
+   "origen": "15DIB3 5",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2125",
+   "cable": "N0.75MM",
+   "origen": "15DIB3 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3205",
+   "cable": "A0.75MM",
+   "origen": "15AIB1 12",
+   "destino": "32XEX 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3206",
+   "cable": "A0.75MM",
+   "origen": "15AIB1 13",
+   "destino": "32XEX 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4118",
+   "cable": "A0.75MM",
+   "origen": "15DIB1 9",
+   "destino": "41XEX 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4119",
+   "cable": "A0.75MM",
+   "origen": "15DIB1 10",
+   "destino": "41XEX 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4122",
+   "cable": "A0.75MM",
+   "origen": "15DIB2 9",
+   "destino": "41XEX 7 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4123",
+   "cable": "A0.75MM",
+   "origen": "15DIB2 10",
+   "destino": "41XEX 8 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4126",
+   "cable": "A0.75MM",
+   "origen": "15DIB3 9",
+   "destino": "41XEX 11 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4127",
+   "cable": "A0.75MM",
+   "origen": "15DIB3 10",
+   "destino": "41XEX 12 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3202",
+   "cable": "A0.75MM",
+   "origen": "15AIB1 9",
+   "destino": "32XEX 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3203",
+   "cable": "A0.75MM",
+   "origen": "15AIB1 10",
+   "destino": "32XEX 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4116",
+   "cable": "A0.75MM",
+   "origen": "15DIB1 7",
+   "destino": "41XEX 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4117",
+   "cable": "A0.75MM",
+   "origen": "15DIB1 8",
+   "destino": "41XEX 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4120",
+   "cable": "A0.75MM",
+   "origen": "15DIB2 7",
+   "destino": "41XEX 5 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4121",
+   "cable": "A0.75MM",
+   "origen": "15DIB2 8",
+   "destino": "41XEX 6 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4124",
+   "cable": "A0.75MM",
+   "origen": "15DIB3 7",
+   "destino": "41XEX 9 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4125",
+   "cable": "A0.75MM",
+   "origen": "15DIB3 8",
+   "destino": "41XEX 10 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2132",
+   "cable": "A0.32MM",
+   "origen": "81XCM 1 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2132",
+   "cable": "A0.32MM",
+   "origen": "81XCM 5 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "MALLA 21PCB01 34 (2)",
+   "cable": "MALLA",
+   "origen": "81XCM 3 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2135",
+   "cable": "A0.32MM",
+   "origen": "81XCM 7 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "⏚81XCM",
+   "cable": "VA",
+   "origen": "81XCM 9 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2133",
+   "cable": "B0.32MM",
+   "origen": "81XCM 2 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2133",
+   "cable": "B0.32MM",
+   "origen": "81XCM 6 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "MALLA 21PCB01 34",
+   "cable": "MALLA",
+   "origen": "81XCM 4 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2136",
+   "cable": "B0.32MM",
+   "origen": "81XCM 8 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n ROTORK 1",
+   "cable": "?",
+   "origen": "15XR 1 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n ROTORK PE",
+   "cable": "?",
+   "origen": "15XR 3.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n ROTORK 2",
+   "cable": "?",
+   "origen": "15XR 2 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n PIT01F x1",
+   "cable": "?",
+   "origen": "32XEX 1 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "⏚32XEX",
+   "cable": "VA",
+   "origen": "32XEX 5.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n PIT01F x2",
+   "cable": "?",
+   "origen": "32XEX 2 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_1_ZSO 13",
+   "cable": "?",
+   "origen": "41XEX 1 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_1_ZSC 13",
+   "cable": "?",
+   "origen": "41XEX 3 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_2_ZSO 13",
+   "cable": "?",
+   "origen": "41XEX 5 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_3_ZSO 13",
+   "cable": "?",
+   "origen": "41XEX 9 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_2_ZSC 13",
+   "cable": "?",
+   "origen": "41XEX 7 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_3_ZSC 13",
+   "cable": "?",
+   "origen": "41XEX 11 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_1_ZSO 14",
+   "cable": "?",
+   "origen": "41XEX 2 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_1_ZSC 14",
+   "cable": "?",
+   "origen": "41XEX 4 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_2_ZSO 14",
+   "cable": "?",
+   "origen": "41XEX 6 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_3_ZSO 14",
+   "cable": "?",
+   "origen": "41XEX 10 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_2_ZSC 14",
+   "cable": "?",
+   "origen": "41XEX 8 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "s/n IP_3_ZSC 14",
+   "cable": "?",
+   "origen": "41XEX 12 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  }
+ ],
+ "pendientes": [
+  {
+   "num": "1101",
+   "a": "11MS1 1/L1",
+   "b": "11XPVAC 1 ARRIBA"
+  },
+  {
+   "num": "1102",
+   "a": "11MS1 3/L2",
+   "b": "11XPVAC 2 ARRIBA"
+  },
+  {
+   "num": "1154",
+   "a": "11MS1 2/T1",
+   "b": "11Q1 F ARRIBA"
+  },
+  {
+   "num": "1155",
+   "a": "11MS1 4/T2",
+   "b": "11Q1 N ARRIBA"
+  },
+  {
+   "num": "1156",
+   "a": "11Q1 F ABAJO",
+   "b": "11Q2 F ARRIBA"
+  },
+  {
+   "num": "1157",
+   "a": "11Q1 N ABAJO",
+   "b": "11Q2 N ARRIBA"
+  },
+  {
+   "num": "1158",
+   "a": "11Q2 F ABAJO",
+   "b": "11X220V 1.3"
+  },
+  {
+   "num": "1159",
+   "a": "11Q2 N ABAJO",
+   "b": "11X220V 2.3"
+  },
+  {
+   "num": "1181",
+   "a": "11SK1 L ABAJO",
+   "b": "11X220V 1.4"
+  },
+  {
+   "num": "1182",
+   "a": "11SK1 N ABAJO",
+   "b": "11X220V 2.4"
+  },
+  {
+   "num": "1206",
+   "a": "12PB1 -",
+   "b": "12XPS 6 ABAJO"
+  },
+  {
+   "num": "1221",
+   "a": "12PS1 +Pan",
+   "b": "12XPS 3 ARRIBA"
+  },
+  {
+   "num": "1222",
+   "a": "12PS1 -Pan",
+   "b": "12XPS 4 ARRIBA"
+  },
+  {
+   "num": "1223",
+   "a": "12PS1 +Bat",
+   "b": "12XPS 5 ARRIBA"
+  },
+  {
+   "num": "1224",
+   "a": "12PS1 -Bat",
+   "b": "12XPS 6 ARRIBA"
+  },
+  {
+   "num": "1225",
+   "a": "12PS1 +Car",
+   "b": "12XPS 8 ARRIBA"
+  },
+  {
+   "num": "1226",
+   "a": "12PS1 -Car",
+   "b": "12XPS 9 ARRIBA"
+  },
+  {
+   "num": "2128",
+   "a": "21PCB01 28",
+   "b": "42DS 12"
+  },
+  {
+   "num": "2129",
+   "a": "21PCB01 29",
+   "b": "42DS 11"
+  },
+  {
+   "num": "2130",
+   "a": "21PCB01 30",
+   "b": "42DB1 11"
+  },
+  {
+   "num": "2131",
+   "a": "21PCB01 31",
+   "b": "42DB1 12"
+  },
+  {
+   "num": "2135",
+   "a": "12XPS 10 ABAJO",
+   "b": "21PCB01 35"
+  },
+  {
+   "num": "2136",
+   "a": "12XPS 11 ABAJO",
+   "b": "21PCB01 36"
+  },
+  {
+   "num": "MALLA 21PCB01 37",
+   "a": "21PCB01 37",
+   "b": "LI"
+  },
+  {
+   "num": "s/n 12PS1 A",
+   "a": "12PS1 A",
+   "b": "12XPS 10 ARRIBA"
+  },
+  {
+   "num": "s/n 12PS1 B",
+   "a": "12PS1 B",
+   "b": "12XPS 11 ARRIBA"
+  },
+  {
+   "num": "s/n 12PS1 GND",
+   "a": "12PS1 GND",
+   "b": "12XPS 12 ARRIBA"
+  },
+  {
+   "num": "s/n 12PS1 VCC",
+   "a": "12PS1 VCC",
+   "b": "12XPS 13 ARRIBA"
+  },
+  {
+   "num": "s/n ROTORK 27",
+   "a": "R2 x1",
+   "b": "ROTORK 27"
+  },
+  {
+   "num": "s/n ROTORK 28",
+   "a": "R2 x2",
+   "b": "ROTORK 28"
+  },
+  {
+   "num": "⏚11SK1",
+   "a": "11SK1 PE ABAJO",
+   "b": "11XPVAC 3.4"
+  }
+ ],
+ "sueltos": [],
+ "otra_estacion": [
+  {
+   "num": "3222",
+   "origen": "32XAI 1 ABAJO",
+   "destino": "LI"
+  },
+  {
+   "num": "3221",
+   "origen": "32XAI F1 ABAJO",
+   "destino": "LI"
+  },
+  {
+   "num": "1339",
+   "origen": "13X24V 2.2",
+   "destino": "LI"
+  },
+  {
+   "num": "1340",
+   "origen": "13X24V 4.3",
+   "destino": "LI"
+  },
+  {
+   "num": "6151",
+   "origen": "61XDO 1.4",
+   "destino": "LI"
+  },
+  {
+   "num": "1208",
+   "origen": "BH-01-M 1",
+   "destino": "BH_01_ZV 2"
+  },
+  {
+   "num": "1209",
+   "origen": "12F2 2",
+   "destino": "BH_01_ZV 1"
+  },
+  {
+   "num": "1211",
+   "origen": "12F2 1",
+   "destino": "12PB1 (+)"
+  },
+  {
+   "num": "1218",
+   "origen": "12PB1 (-)",
+   "destino": "BH-01-M 2"
+  },
+  {
+   "num": "1218",
+   "origen": "BH-01-M 2",
+   "destino": "BH_01_ZV A2"
+  },
+  {
+   "num": "2166",
+   "origen": "21PCB01 66",
+   "destino": "X1 1"
+  },
+  {
+   "num": "2167",
+   "origen": "21PCB01 67",
+   "destino": "X1 1"
+  },
+  {
+   "num": "s/n LS001A 1",
+   "origen": "LS001A 1",
+   "destino": "X1 2"
+  },
+  {
+   "num": "s/n LS001A 2",
+   "origen": "LS001A 2",
+   "destino": "X1 2"
+  },
+  {
+   "num": "s/n LS001A 3",
+   "origen": "LS001A 3",
+   "destino": "X1 2"
+  },
+  {
+   "num": "s/n LS001A 4",
+   "origen": "LS001A 4",
+   "destino": "X1 2"
+  }
+ ],
+ "extremos": {
+  "1101": [
+   "11MS1 1/L1",
+   "11XPVAC 1 ARRIBA"
+  ],
+  "1102": [
+   "11MS1 3/L2",
+   "11XPVAC 2 ARRIBA"
+  ],
+  "⏚11SK1": [
+   "11SK1 PE ABAJO",
+   "11XPVAC 3.4"
+  ],
+  "1181": [
+   "11SK1 L ABAJO",
+   "11X220V 1.4"
+  ],
+  "1158": [
+   "11Q2 F ABAJO",
+   "11X220V 1.3"
+  ],
+  "1156": [
+   "11Q1 F ABAJO",
+   "11Q2 F ARRIBA"
+  ],
+  "1154": [
+   "11MS1 2/T1",
+   "11Q1 F ARRIBA"
+  ],
+  "1157": [
+   "11Q1 N ABAJO",
+   "11Q2 N ARRIBA"
+  ],
+  "1155": [
+   "11MS1 4/T2",
+   "11Q1 N ARRIBA"
+  ],
+  "1182": [
+   "11SK1 N ABAJO",
+   "11X220V 2.4"
+  ],
+  "1159": [
+   "11Q2 N ABAJO",
+   "11X220V 2.3"
+  ],
+  "1184": [
+   "11PS2 TB1 2 (N)",
+   "11X220V 2.2"
+  ],
+  "1186": [
+   "11PS1 TB1 2 (N)",
+   "11X220V 2.1"
+  ],
+  "1183": [
+   "11PS2 TB1 3 (L)",
+   "11X220V 1.2"
+  ],
+  "1185": [
+   "11PS1 TB1 3 (L)",
+   "11X220V 1.1"
+  ],
+  "1161": [
+   "11PS1 TB2 1 (-V)",
+   "12XPS 4 ABAJO"
+  ],
+  "⏚11PS1": [
+   "11PS1 TB1 1 (FG)",
+   "XPE 1.4"
+  ],
+  "1162": [
+   "11F1 ABAJO",
+   "12XPS 3 ABAJO"
+  ],
+  "1160": [
+   "11F1 ARRIBA",
+   "11PS1 TB2 3 (+V)"
+  ],
+  "1171": [
+   "11PS2 TB2 1 (-V)",
+   "15XR 2 ARRIBA"
+  ],
+  "⏚11PS2": [
+   "11PS2 TB1 1 (FG)",
+   "XPE 2.4"
+  ],
+  "1172": [
+   "11F2 ABAJO",
+   "15XR 1 ARRIBA"
+  ],
+  "1170": [
+   "11F2 ARRIBA",
+   "11PS2 TB2 3 (+V)"
+  ],
+  "1208": [
+   "BH-01-M 1",
+   "BH_01_ZV 2"
+  ],
+  "1209": [
+   "12F2 2",
+   "BH_01_ZV 1"
+  ],
+  "1211": [
+   "12F2 1",
+   "12PB1 (+)"
+  ],
+  "1218": [
+   "12PB1 (-)",
+   "BH-01-M 2",
+   "BH_01_ZV A2"
+  ],
+  "1206": [
+   "12PB1 -",
+   "12XPS 6 ABAJO"
+  ],
+  "1202": [
+   "12F3 ABAJO",
+   "12PB1 +"
+  ],
+  "1221": [
+   "12PS1 +Pan",
+   "12XPS 3 ARRIBA"
+  ],
+  "1222": [
+   "12PS1 -Pan",
+   "12XPS 4 ARRIBA"
+  ],
+  "1201": [
+   "12F3 ARRIBA",
+   "12XPS 5 ABAJO"
+  ],
+  "1223": [
+   "12PS1 +Bat",
+   "12XPS 5 ARRIBA"
+  ],
+  "1224": [
+   "12PS1 -Bat",
+   "12XPS 6 ARRIBA"
+  ],
+  "1232": [
+   "12XPS 7 ABAJO",
+   "13F5 ARRIBA"
+  ],
+  "1230": [
+   "12XPS 8 ABAJO",
+   "13F4 ARRIBA"
+  ],
+  "1225": [
+   "12PS1 +Car",
+   "12XPS 8 ARRIBA"
+  ],
+  "1231": [
+   "12XP 1.1",
+   "12XPS 9 ABAJO"
+  ],
+  "1226": [
+   "12PS1 -Car",
+   "12XPS 9 ARRIBA"
+  ],
+  "1254": [
+   "12XP 1.4",
+   "21PCB01 49"
+  ],
+  "1234": [
+   "12XP 1.3",
+   "13PS1 -Vin"
+  ],
+  "1235": [
+   "12XP 1.2",
+   "13PS1 (-Vo)"
+  ],
+  "1268": [
+   "12XP 2.4",
+   "61X0V 1.1"
+  ],
+  "1264": [
+   "12XP 2.3",
+   "61XDIO 1 ABAJO"
+  ],
+  "s/n 12PS1 A": [
+   "12PS1 A",
+   "12XPS 10 ARRIBA"
+  ],
+  "s/n 12PS1 B": [
+   "12PS1 B",
+   "12XPS 11 ARRIBA"
+  ],
+  "s/n 12PS1 GND": [
+   "12PS1 GND",
+   "12XPS 12 ARRIBA"
+  ],
+  "s/n 12PS1 VCC": [
+   "12PS1 VCC",
+   "12XPS 13 ARRIBA"
+  ],
+  "1303": [
+   "13MS1 2/T1",
+   "13X12V 1.1"
+  ],
+  "1301": [
+   "13F4 ABAJO",
+   "13MS1 1/L1"
+  ],
+  "1304": [
+   "13MS1 4/T2",
+   "13X12V 2.1"
+  ],
+  "1302": [
+   "13F5 ABAJO",
+   "13MS1 3/L2"
+  ],
+  "1373": [
+   "13PS1 +Vin",
+   "13X12V 1.4"
+  ],
+  "1350": [
+   "13X24V 2.1",
+   "32XAI F1 ARRIBA"
+  ],
+  "1391": [
+   "13X24V 1.1",
+   "42XC F1 ARRIBA"
+  ],
+  "1339": [
+   "13X24V 2.2",
+   "X1 1"
+  ],
+  "1385": [
+   "13X24V 2.3",
+   "42KS1 A1"
+  ],
+  "⏚13PS1": [
+   "13PS1 PE",
+   "XPE 1.1"
+  ],
+  "1370": [
+   "13X24V 2.4",
+   "15AIB1 1",
+   "15DIB1 1",
+   "15DIB2 1",
+   "15DIB3 1"
+  ],
+  "1311": [
+   "13F6 ABAJO",
+   "13X24V 1.4"
+  ],
+  "1310": [
+   "13F6 ARRIBA",
+   "13PS1 +Vo"
+  ],
+  "1363": [
+   "13X12V 1.3",
+   "61KR1 11"
+  ],
+  "1353": [
+   "13X12V 1.2",
+   "21PCB01 48"
+  ],
+  "1312": [
+   "13PS1 -Vo",
+   "13X24V 3.1"
+  ],
+  "1396": [
+   "13X12V 2.4",
+   "42KS1 43"
+  ],
+  "1395": [
+   "13X12V 2.3",
+   "42KS1 33"
+  ],
+  "1394": [
+   "13X12V 2.2",
+   "42KS1 23"
+  ],
+  "1361": [
+   "13X24V 4.1",
+   "15AIB1 2",
+   "15DIB1 2",
+   "15DIB2 2",
+   "15DIB3 2"
+  ],
+  "1386": [
+   "13X24V 4.2",
+   "42KS1 A2"
+  ],
+  "1340": [
+   "13X24V 4.3",
+   "X1 1"
+  ],
+  "1392": [
+   "13X24V 3.4",
+   "42XC 1 ARRIBA"
+  ],
+  "s/n ROTORK 1": [
+   "15XR 1 ABAJO",
+   "ROTORK 1"
+  ],
+  "s/n ROTORK 2": [
+   "15XR 2 ABAJO",
+   "ROTORK 2"
+  ],
+  "s/n ROTORK PE": [
+   "15XR 3.4",
+   "ROTORK PE"
+  ],
+  "2139": [
+   "15AIB1 3",
+   "21PCB01 39"
+  ],
+  "2140": [
+   "15AIB1 4",
+   "21PCB01 40"
+  ],
+  "2105": [
+   "15AIB1 6",
+   "21PCB01 5"
+  ],
+  "2142": [
+   "21PCB01 42",
+   "32XAI 1 ARRIBA"
+  ],
+  "2106": [
+   "15AIB1 7",
+   "21PCB01 6"
+  ],
+  "2150": [
+   "21PCB01 50",
+   "61KR1 A1"
+  ],
+  "2114": [
+   "21PCB01 14",
+   "42KS1 13"
+  ],
+  "2151": [
+   "21PCB01 51",
+   "61KR1 A2"
+  ],
+  "2115": [
+   "21PCB01 15",
+   "42KS1 14"
+  ],
+  "2152": [
+   "21PCB01 52",
+   "61KR2 A1"
+  ],
+  "2116": [
+   "15DIB1 5",
+   "21PCB01 16"
+  ],
+  "2153": [
+   "21PCB01 53",
+   "61KR2 A2"
+  ],
+  "2117": [
+   "15DIB1 6",
+   "21PCB01 17"
+  ],
+  "2118": [
+   "15DIB1 3",
+   "21PCB01 18"
+  ],
+  "2119": [
+   "15DIB1 4",
+   "21PCB01 19"
+  ],
+  "2120": [
+   "15DIB2 5",
+   "21PCB01 20"
+  ],
+  "2121": [
+   "15DIB2 6",
+   "21PCB01 21"
+  ],
+  "2122": [
+   "15DIB2 3",
+   "21PCB01 22"
+  ],
+  "2154": [
+   "21PCB01 54",
+   "61KR3 A1"
+  ],
+  "2123": [
+   "15DIB2 4",
+   "21PCB01 23"
+  ],
+  "2155": [
+   "21PCB01 55",
+   "61KR3 A2"
+  ],
+  "2124": [
+   "15DIB3 5",
+   "21PCB01 24"
+  ],
+  "2156": [
+   "21PCB01 56",
+   "61KR4 A1"
+  ],
+  "2125": [
+   "15DIB3 6",
+   "21PCB01 25"
+  ],
+  "2157": [
+   "21PCB01 57",
+   "61KR4 A2"
+  ],
+  "2126": [
+   "15DIB3 3",
+   "21PCB01 26"
+  ],
+  "2127": [
+   "15DIB3 4",
+   "21PCB01 27"
+  ],
+  "2128": [
+   "21PCB01 28",
+   "42DS 12"
+  ],
+  "2129": [
+   "21PCB01 29",
+   "42DS 11"
+  ],
+  "2130": [
+   "21PCB01 30",
+   "42DB1 11"
+  ],
+  "2131": [
+   "21PCB01 31",
+   "42DB1 12"
+  ],
+  "2166": [
+   "21PCB01 66",
+   "X1 1"
+  ],
+  "2135": [
+   "12XPS 10 ABAJO",
+   "21PCB01 35",
+   "81XCM 7 ARRIBA"
+  ],
+  "2167": [
+   "21PCB01 67",
+   "X1 1"
+  ],
+  "2136": [
+   "12XPS 11 ABAJO",
+   "21PCB01 36",
+   "81XCM 8 ARRIBA"
+  ],
+  "MALLA 21PCB01 37": [
+   "21PCB01 37",
+   "LI"
+  ],
+  "s/n PIT01F x1": [
+   "32XEX 1 ABAJO",
+   "PIT01F x1"
+  ],
+  "3202": [
+   "15AIB1 9",
+   "32XEX 1 ARRIBA"
+  ],
+  "s/n PIT01F x2": [
+   "32XEX 2 ABAJO",
+   "PIT01F x2"
+  ],
+  "3203": [
+   "15AIB1 10",
+   "32XEX 2 ARRIBA"
+  ],
+  "⏚32XEX": [
+   "32XEX 5.4",
+   "LI"
+  ],
+  "3205": [
+   "15AIB1 12",
+   "32XEX 3 ARRIBA"
+  ],
+  "3206": [
+   "15AIB1 13",
+   "32XEX 4 ARRIBA"
+  ],
+  "3221": [
+   "32XAI F1 ABAJO",
+   "PT001 x1"
+  ],
+  "3222": [
+   "32XAI 1 ABAJO",
+   "PT001 x2"
+  ],
+  "s/n IP_1_ZSO 14": [
+   "41XEX 2 ABAJO",
+   "IP_1_ZSO 14"
+  ],
+  "s/n IP_1_ZSO 13": [
+   "41XEX 1 ABAJO",
+   "IP_1_ZSO 13"
+  ],
+  "4116": [
+   "15DIB1 7",
+   "41XEX 1 ARRIBA"
+  ],
+  "4117": [
+   "15DIB1 8",
+   "41XEX 2 ARRIBA"
+  ],
+  "s/n IP_1_ZSC 14": [
+   "41XEX 4 ABAJO",
+   "IP_1_ZSC 14"
+  ],
+  "s/n IP_1_ZSC 13": [
+   "41XEX 3 ABAJO",
+   "IP_1_ZSC 13"
+  ],
+  "4118": [
+   "15DIB1 9",
+   "41XEX 3 ARRIBA"
+  ],
+  "4119": [
+   "15DIB1 10",
+   "41XEX 4 ARRIBA"
+  ],
+  "s/n IP_2_ZSO 14": [
+   "41XEX 6 ABAJO",
+   "IP_2_ZSO 14"
+  ],
+  "s/n IP_2_ZSO 13": [
+   "41XEX 5 ABAJO",
+   "IP_2_ZSO 13"
+  ],
+  "4120": [
+   "15DIB2 7",
+   "41XEX 5 ARRIBA"
+  ],
+  "4121": [
+   "15DIB2 8",
+   "41XEX 6 ARRIBA"
+  ],
+  "s/n IP_2_ZSC 14": [
+   "41XEX 8 ABAJO",
+   "IP_2_ZSC 14"
+  ],
+  "s/n IP_2_ZSC 13": [
+   "41XEX 7 ABAJO",
+   "IP_2_ZSC 13"
+  ],
+  "4122": [
+   "15DIB2 9",
+   "41XEX 7 ARRIBA"
+  ],
+  "4123": [
+   "15DIB2 10",
+   "41XEX 8 ARRIBA"
+  ],
+  "s/n IP_3_ZSO 14": [
+   "41XEX 10 ABAJO",
+   "IP_3_ZSO 14"
+  ],
+  "s/n IP_3_ZSO 13": [
+   "41XEX 9 ABAJO",
+   "IP_3_ZSO 13"
+  ],
+  "4124": [
+   "15DIB3 7",
+   "41XEX 9 ARRIBA"
+  ],
+  "4125": [
+   "15DIB3 8",
+   "41XEX 10 ARRIBA"
+  ],
+  "s/n IP_3_ZSC 14": [
+   "41XEX 12 ABAJO",
+   "IP_3_ZSC 14"
+  ],
+  "s/n IP_3_ZSC 13": [
+   "41XEX 11 ABAJO",
+   "IP_3_ZSC 13"
+  ],
+  "4126": [
+   "15DIB3 9",
+   "41XEX 11 ARRIBA"
+  ],
+  "4127": [
+   "15DIB3 10",
+   "41XEX 12 ARRIBA"
+  ],
+  "s/n LS001A 1": [
+   "LS001A 1",
+   "X1 2"
+  ],
+  "s/n LS001A 2": [
+   "LS001A 2",
+   "X1 2"
+  ],
+  "s/n LS001A 3": [
+   "LS001A 3",
+   "X1 2"
+  ],
+  "s/n LS001A 4": [
+   "LS001A 4",
+   "X1 2"
+  ],
+  "4221": [
+   "42KS1 S33",
+   "42KS1 S34"
+  ],
+  "4212": [
+   "42DB1 2",
+   "42KR1 14"
+  ],
+  "4231": [
+   "42KR1 11",
+   "42XC 3 ARRIBA"
+  ],
+  "4211": [
+   "42DB1 1",
+   "42KS1 S11"
+  ],
+  "4213": [
+   "42KS1 S12",
+   "42XC 4 ARRIBA"
+  ],
+  "4232": [
+   "42KR1 A1",
+   "42XC 5 ARRIBA"
+  ],
+  "4233": [
+   "42KR1 A2",
+   "42XC 6 ARRIBA"
+  ],
+  "4294": [
+   "42KS1 24",
+   "61KR2 11"
+  ],
+  "4295": [
+   "42KS1 34",
+   "61KR3 11"
+  ],
+  "4296": [
+   "42KS1 44",
+   "61KR4 11"
+  ],
+  "6174": [
+   "61XDIO 4 ARRIBA",
+   "61XDO 4.2"
+  ],
+  "6173": [
+   "61XDIO 3 ARRIBA",
+   "61XDO 3.2"
+  ],
+  "6172": [
+   "61XDIO 2 ARRIBA",
+   "61XDO 2.2"
+  ],
+  "6171": [
+   "61XDIO 1 ARRIBA",
+   "61XDO 1.2"
+  ],
+  "6151": [
+   "61XDO 1.4",
+   "BH_01_ZV A1"
+  ],
+  "6141": [
+   "61KR1 14",
+   "61XDO 1.1"
+  ],
+  "6162": [
+   "61X0V 1.4",
+   "SP_1 x2"
+  ],
+  "6163": [
+   "61X0V 2.3",
+   "SP_2 x2"
+  ],
+  "6164": [
+   "61X0V 2.4",
+   "SP_3 x2"
+  ],
+  "6152": [
+   "61XDO 2.4",
+   "SP_1 x1"
+  ],
+  "6142": [
+   "61KR2 14",
+   "61XDO 2.1"
+  ],
+  "6153": [
+   "61XDO 3.4",
+   "SP_2 x1"
+  ],
+  "6143": [
+   "61KR3 14",
+   "61XDO 3.1"
+  ],
+  "6154": [
+   "61XDO 4.4",
+   "SP_3 x1"
+  ],
+  "6144": [
+   "61KR4 14",
+   "61XDO 4.1"
+  ],
+  "⏚81XCM": [
+   "81XCM 9 ARRIBA",
+   "LI"
+  ],
+  "2133": [
+   "21PCB01 33",
+   "81XCM 2 ARRIBA",
+   "81XCM 6 ARRIBA"
+  ],
+  "2132": [
+   "21PCB01 32",
+   "81XCM 1 ARRIBA",
+   "81XCM 5 ARRIBA"
+  ],
+  "MALLA 21PCB01 34": [
+   "21PCB01 34",
+   "81XCM 4 ARRIBA"
+  ],
+  "MALLA 21PCB01 34 (2)": [
+   "21PCB01 34",
+   "81XCM 3 ARRIBA"
+  ],
+  "s/n ROTORK 28": [
+   "R2 x2",
+   "ROTORK 28"
+  ],
+  "s/n ROTORK 27": [
+   "R2 x1",
+   "ROTORK 27"
+  ]
+ },
+ "layout": {
+  "pag": 8,
+  "region": [
+   573.42,
+   129.29,
+   1094.28,
+   745.83
+  ],
+  "filas": [
+   657.25,
+   515.5,
+   384.49
+  ],
+  "escala": 1.4111,
+  "ductos": 8,
+  "comp": {
+   "11F1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 747.2,
+    "leido": "-11F1"
+   },
+   "11F2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 759.6,
+    "leido": "-11F2"
+   },
+   "11PS1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 647.0,
+    "leido": "-11PS1"
+   },
+   "11PS2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 691.6,
+    "leido": "-11PS2"
+   },
+   "11Q1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 245.2,
+    "leido": "-11Q1"
+   },
+   "11Q2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 270.5,
+    "leido": "-11Q2"
+   },
+   "11SK1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 212.7,
+    "leido": "-11SK1"
+   },
+   "11X220V": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 373.4,
+    "leido": "-11X220V"
+   },
+   "11XPVAC": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 348.3,
+    "leido": "-11XPVAC"
+   },
+   "12F2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1045.1,
+    "leido": "-12F2"
+   },
+   "12F3": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 774.2,
+    "leido": "-12F3"
+   },
+   "12PS1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 267.6,
+    "leido": "-12PS1"
+   },
+   "12XP": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 619.6,
+    "leido": "-12XP"
+   },
+   "12XPS": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 224.6,
+    "leido": "-12XPS"
+   },
+   "13F4": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 790.6,
+    "leido": "-13F4"
+   },
+   "13F5": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 803.0,
+    "leido": "-13F5"
+   },
+   "13F6": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 815.4,
+    "leido": "-13F6"
+   },
+   "13PS1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 723.5,
+    "leido": "-13PS1"
+   },
+   "13X12V": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 645.2,
+    "leido": "-13X12V"
+   },
+   "13X24V": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 665.1,
+    "leido": "-13X24V"
+   },
+   "15AIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 825.6,
+    "leido": "-15AIB1"
+   },
+   "15DIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 838.1,
+    "leido": "-15DIB1"
+   },
+   "15DIB2": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 846.9,
+    "leido": "-15DIB2"
+   },
+   "15DIB3": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 855.8,
+    "leido": "-15DIB3"
+   },
+   "15XR": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 685.0,
+    "leido": "-15XR"
+   },
+   "32XAI": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 883.4,
+    "leido": "-32XAI"
+   },
+   "32XEX": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 818.1,
+    "leido": "-32XEX"
+   },
+   "41XEX": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 837.9,
+    "leido": "-41XEX"
+   },
+   "42KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 848.7,
+    "leido": "-42KR"
+   },
+   "42KS1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 836.7,
+    "leido": "-42KS1"
+   },
+   "42XC": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 701.1,
+    "leido": "-42XC"
+   },
+   "61KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 859.8,
+    "leido": "-61KR"
+   },
+   "61X0V": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 729.4,
+    "leido": "-61X0V"
+   },
+   "61XDIO": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 749.3,
+    "leido": "-61XDIO"
+   },
+   "61XDO": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 698.0,
+    "leido": "-61XDO"
+   },
+   "81XCM": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 720.6,
+    "leido": "-81XCM"
+   },
+   "BH_01_ZV": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1091.8,
+    "leido": "-BH_01_ZV"
+   },
+   "LS001A": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1056.7,
+    "leido": "-LS001A"
+   },
+   "PT001": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1074.4,
+    "leido": "-PT001"
+   },
+   "XPE": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 895.1,
+    "leido": "-XPE"
+   },
+   "BH": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "leido": ""
+   },
+   "BH-01-M": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "leido": ""
+   },
+   "X1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "leido": ""
+   }
+  }
+ },
+ "cables": [
+  "1101",
+  "1102",
+  "1154",
+  "1155",
+  "1156",
+  "1157",
+  "1158",
+  "1159",
+  "1160",
+  "1161",
+  "1162",
+  "1170",
+  "1171",
+  "1172",
+  "1181",
+  "1182",
+  "1183",
+  "1184",
+  "1185",
+  "1186",
+  "1201",
+  "1202",
+  "1206",
+  "1208",
+  "1209",
+  "1211",
+  "1218",
+  "1221",
+  "1222",
+  "1223",
+  "1224",
+  "1225",
+  "1226",
+  "1230",
+  "1231",
+  "1232",
+  "1234",
+  "1235",
+  "1254",
+  "1264",
+  "1268",
+  "1301",
+  "1302",
+  "1303",
+  "1304",
+  "1310",
+  "1311",
+  "1312",
+  "1339",
+  "1340",
+  "1350",
+  "1353",
+  "1361",
+  "1363",
+  "1370",
+  "1373",
+  "1385",
+  "1386",
+  "1391",
+  "1392",
+  "1394",
+  "1395",
+  "1396",
+  "2105",
+  "2106",
+  "2114",
+  "2115",
+  "2116",
+  "2117",
+  "2118",
+  "2119",
+  "2120",
+  "2121",
+  "2122",
+  "2123",
+  "2124",
+  "2125",
+  "2126",
+  "2127",
+  "2128",
+  "2129",
+  "2130",
+  "2131",
+  "2132",
+  "2133",
+  "2135",
+  "2136",
+  "2139",
+  "2140",
+  "2142",
+  "2150",
+  "2151",
+  "2152",
+  "2153",
+  "2154",
+  "2155",
+  "2156",
+  "2157",
+  "2166",
+  "2167",
+  "3202",
+  "3203",
+  "3205",
+  "3206",
+  "3221",
+  "3222",
+  "4116",
+  "4117",
+  "4118",
+  "4119",
+  "4120",
+  "4121",
+  "4122",
+  "4123",
+  "4124",
+  "4125",
+  "4126",
+  "4127",
+  "4211",
+  "4212",
+  "4213",
+  "4221",
+  "4231",
+  "4232",
+  "4233",
+  "4294",
+  "4295",
+  "4296",
+  "6141",
+  "6142",
+  "6143",
+  "6144",
+  "6151",
+  "6152",
+  "6153",
+  "6154",
+  "6162",
+  "6163",
+  "6164",
+  "6171",
+  "6172",
+  "6173",
+  "6174"
+ ],
+ "n_detalle": 331,
+ "segundos": 5.0,
+ "puntas": [
+  {
+   "num": "1161",
+   "origen": "11PS1 TB2 1 (-V)",
+   "destino": "LI",
+   "marca_o": [
+    637.26,
+    696.41,
+    1.52
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     637.3,
+     696.4
+    ],
+    [
+     637.3,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1160",
+   "origen": "11PS1 TB2 3 (+V)",
+   "destino": "11F1 ARRIBA",
+   "marca_o": [
+    646.25,
+    696.41,
+    1.52
+   ],
+   "marca_d": [
+    747.57,
+    682.88,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     646.2,
+     696.4
+    ],
+    [
+     646.2,
+     731.7
+    ],
+    [
+     747.6,
+     731.7
+    ],
+    [
+     747.6,
+     682.9
+    ]
+   ]
+  },
+  {
+   "num": "1171",
+   "origen": "11PS2 TB2 1 (-V)",
+   "destino": "15XR 2 ARRIBA",
+   "marca_o": [
+    681.9,
+    696.41,
+    1.52
+   ],
+   "marca_d": [
+    689.95,
+    402.41,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     681.9,
+     696.4
+    ],
+    [
+     681.9,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     690.0,
+     448.2
+    ],
+    [
+     690.0,
+     402.4
+    ]
+   ]
+  },
+  {
+   "num": "1170",
+   "origen": "11PS2 TB2 3 (+V)",
+   "destino": "11F2 ARRIBA",
+   "marca_o": [
+    690.9,
+    696.41,
+    1.52
+   ],
+   "marca_d": [
+    759.97,
+    682.88,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     690.9,
+     696.4
+    ],
+    [
+     690.9,
+     731.7
+    ],
+    [
+     760.0,
+     731.7
+    ],
+    [
+     760.0,
+     682.9
+    ]
+   ]
+  },
+  {
+   "num": "1312",
+   "origen": "13PS1 -Vo",
+   "destino": "13X24V 3.1",
+   "marca_o": [
+    716.89,
+    698.89,
+    1.42
+   ],
+   "marca_d": [
+    684.11,
+    541.93,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 1: abertura cuadrada 1 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. EPLAN distingue los dos -Vo como '-Vo' y '(-Vo)' (hoja 13: +Vo, -Vo, (+Vo), (-Vo)); regla del n-esimo pin del 66817: '-Vo' = 1er tornillo -Vo (pin 1), '(-Vo)' = 2do (pin 2). Mismo potencial.",
+   "nota_d": null,
+   "ruta": [
+    [
+     716.9,
+     698.9
+    ],
+    [
+     716.9,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     684.1,
+     582.8
+    ],
+    [
+     684.1,
+     541.9
+    ]
+   ]
+  },
+  {
+   "num": "1235",
+   "origen": "13PS1 (-Vo)",
+   "destino": "12XP 1.2",
+   "marca_o": [
+    720.5,
+    698.89,
+    1.42
+   ],
+   "marca_d": [
+    625.54,
+    530.31,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 2: abertura cuadrada 2 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. EPLAN distingue los dos -Vo como '-Vo' y '(-Vo)' (hoja 13: +Vo, -Vo, (+Vo), (-Vo)); regla del n-esimo pin del 66817: '-Vo' = 1er tornillo -Vo (pin 1), '(-Vo)' = 2do (pin 2). Mismo potencial.",
+   "nota_d": null,
+   "ruta": [
+    [
+     720.5,
+     698.9
+    ],
+    [
+     720.5,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     625.5,
+     582.8
+    ],
+    [
+     625.5,
+     530.3
+    ]
+   ]
+  },
+  {
+   "num": "1310",
+   "origen": "13PS1 +Vo",
+   "destino": "13F6 ARRIBA",
+   "marca_o": [
+    723.77,
+    698.89,
+    1.42
+   ],
+   "marca_d": [
+    815.78,
+    682.88,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     723.8,
+     698.9
+    ],
+    [
+     723.8,
+     731.7
+    ],
+    [
+     815.8,
+     731.7
+    ],
+    [
+     815.8,
+     682.9
+    ]
+   ]
+  },
+  {
+   "num": "1201",
+   "origen": "12F3 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    775.56,
+    690.05,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     775.6,
+     690.0
+    ],
+    [
+     775.6,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1230",
+   "origen": "13F4 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    790.98,
+    682.88,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     791.0,
+     682.9
+    ],
+    [
+     791.0,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1232",
+   "origen": "13F5 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    803.38,
+    682.88,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     803.4,
+     682.9
+    ],
+    [
+     803.4,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1385",
+   "origen": "42KS1 A1",
+   "destino": "13X24V 2.3",
+   "marca_o": [
+    831.4,
+    687.1,
+    1.42
+   ],
+   "marca_d": [
+    676.77,
+    499.43,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     831.4,
+     687.1
+    ],
+    [
+     831.4,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     676.8,
+     448.2
+    ],
+    [
+     676.8,
+     499.4
+    ]
+   ]
+  },
+  {
+   "num": "4221",
+   "origen": "42KS1 S34",
+   "destino": "42KS1 S33",
+   "marca_o": [
+    834.95,
+    687.1,
+    1.42
+   ],
+   "marca_d": [
+    838.49,
+    687.1,
+    1.42
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     835.0,
+     687.1
+    ],
+    [
+     835.0,
+     731.7
+    ],
+    [
+     838.5,
+     731.7
+    ],
+    [
+     838.5,
+     687.1
+    ]
+   ]
+  },
+  {
+   "num": "4211",
+   "origen": "42KS1 S11",
+   "destino": "LI",
+   "marca_o": [
+    842.03,
+    687.1,
+    1.42
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     842.0,
+     687.1
+    ],
+    [
+     842.0,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "4213",
+   "origen": "42KS1 S12",
+   "destino": "42XC 4 ARRIBA",
+   "marca_o": [
+    831.4,
+    680.58,
+    1.42
+   ],
+   "marca_d": [
+    711.04,
+    402.41,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     831.4,
+     680.6
+    ],
+    [
+     831.4,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     711.0,
+     448.2
+    ],
+    [
+     711.0,
+     402.4
+    ]
+   ]
+  },
+  {
+   "num": "1386",
+   "origen": "42KS1 A2",
+   "destino": "13X24V 4.2",
+   "marca_o": [
+    842.03,
+    680.58,
+    1.42
+   ],
+   "marca_d": [
+    689.88,
+    530.31,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     842.0,
+     680.6
+    ],
+    [
+     842.0,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     689.9,
+     582.8
+    ],
+    [
+     689.9,
+     530.3
+    ]
+   ]
+  },
+  {
+   "num": "4231",
+   "origen": "42KR1 11",
+   "destino": "42XC 3 ARRIBA",
+   "marca_o": [
+    853.63,
+    686.29,
+    1.45
+   ],
+   "marca_d": [
+    711.04,
+    413.66,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     853.6,
+     686.3
+    ],
+    [
+     853.6,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     711.0,
+     448.2
+    ],
+    [
+     711.0,
+     413.7
+    ]
+   ]
+  },
+  {
+   "num": "1363",
+   "origen": "61KR1 11",
+   "destino": "13X12V 1.3",
+   "marca_o": [
+    864.64,
+    686.31,
+    1.45
+   ],
+   "marca_d": [
+    651.16,
+    499.43,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orde",
+   "nota_d": null,
+   "ruta": [
+    [
+     864.6,
+     686.3
+    ],
+    [
+     864.6,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     651.2,
+     448.2
+    ],
+    [
+     651.2,
+     499.4
+    ]
+   ]
+  },
+  {
+   "num": "4294",
+   "origen": "61KR2 11",
+   "destino": "42KS1 24",
+   "marca_o": [
+    868.97,
+    686.31,
+    1.45
+   ],
+   "marca_d": [
+    842.03,
+    627.1,
+    1.42
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden",
+   "nota_d": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 24: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo).",
+   "ruta": [
+    [
+     869.0,
+     686.3
+    ],
+    [
+     869.0,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     842.0,
+     582.8
+    ],
+    [
+     842.0,
+     627.1
+    ]
+   ]
+  },
+  {
+   "num": "4295",
+   "origen": "61KR3 11",
+   "destino": "42KS1 34",
+   "marca_o": [
+    873.29,
+    686.31,
+    1.45
+   ],
+   "marca_d": [
+    834.95,
+    627.1,
+    1.42
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orde",
+   "nota_d": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 34: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo).",
+   "ruta": [
+    [
+     873.3,
+     686.3
+    ],
+    [
+     873.3,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     835.0,
+     582.8
+    ],
+    [
+     835.0,
+     627.1
+    ]
+   ]
+  },
+  {
+   "num": "4296",
+   "origen": "61KR4 11",
+   "destino": "42KS1 44",
+   "marca_o": [
+    877.62,
+    686.31,
+    1.45
+   ],
+   "marca_d": [
+    834.95,
+    634.23,
+    1.42
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orde",
+   "nota_d": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 44: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abaj",
+   "ruta": [
+    [
+     877.6,
+     686.3
+    ],
+    [
+     877.6,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     835.0,
+     582.8
+    ],
+    [
+     835.0,
+     634.2
+    ]
+   ]
+  },
+  {
+   "num": "4212",
+   "origen": "42KR1 14",
+   "destino": "LI",
+   "marca_o": [
+    853.63,
+    679.91,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     853.6,
+     679.9
+    ],
+    [
+     853.6,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "6141",
+   "origen": "61KR1 14",
+   "destino": "61XDO 1.1",
+   "marca_o": [
+    864.64,
+    679.84,
+    1.45
+   ],
+   "marca_d": [
+    703.95,
+    541.93,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izqu",
+   "nota_d": null,
+   "ruta": [
+    [
+     864.6,
+     679.8
+    ],
+    [
+     864.6,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     704.0,
+     582.8
+    ],
+    [
+     704.0,
+     541.9
+    ]
+   ]
+  },
+  {
+   "num": "6142",
+   "origen": "61KR2 14",
+   "destino": "61XDO 2.1",
+   "marca_o": [
+    868.97,
+    679.84,
+    1.45
+   ],
+   "marca_d": [
+    709.73,
+    541.93,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izqui",
+   "nota_d": null,
+   "ruta": [
+    [
+     869.0,
+     679.8
+    ],
+    [
+     869.0,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     709.7,
+     582.8
+    ],
+    [
+     709.7,
+     541.9
+    ]
+   ]
+  },
+  {
+   "num": "6143",
+   "origen": "61KR3 14",
+   "destino": "61XDO 3.1",
+   "marca_o": [
+    873.29,
+    679.84,
+    1.45
+   ],
+   "marca_d": [
+    715.5,
+    541.93,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izqu",
+   "nota_d": null,
+   "ruta": [
+    [
+     873.3,
+     679.8
+    ],
+    [
+     873.3,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     715.5,
+     582.8
+    ],
+    [
+     715.5,
+     541.9
+    ]
+   ]
+  },
+  {
+   "num": "6144",
+   "origen": "61KR4 14",
+   "destino": "61XDO 4.1",
+   "marca_o": [
+    877.62,
+    679.84,
+    1.45
+   ],
+   "marca_d": [
+    721.28,
+    541.93,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izqu",
+   "nota_d": null,
+   "ruta": [
+    [
+     877.6,
+     679.8
+    ],
+    [
+     877.6,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     721.3,
+     582.8
+    ],
+    [
+     721.3,
+     541.9
+    ]
+   ]
+  },
+  {
+   "num": "2142",
+   "origen": "32XAI 1 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    888.77,
+    691.72,
+    2.06
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     888.8,
+     691.7
+    ],
+    [
+     888.8,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1350",
+   "origen": "32XAI F1 ARRIBA",
+   "destino": "13X24V 2.1",
+   "marca_o": [
+    888.77,
+    672.76,
+    2.06
+   ],
+   "marca_d": [
+    676.77,
+    541.93,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     888.8,
+     672.8
+    ],
+    [
+     888.8,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     676.8,
+     582.8
+    ],
+    [
+     676.8,
+     541.9
+    ]
+   ]
+  },
+  {
+   "num": "⏚13PS1",
+   "origen": "XPE 1.1",
+   "destino": "13PS1 PE",
+   "marca_o": [
+    900.13,
+    677.86,
+    1.7
+   ],
+   "marca_d": [
+    719.86,
+    619.69,
+    1.52
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     900.1,
+     677.9
+    ],
+    [
+     900.1,
+     731.7
+    ],
+    [
+     601.8,
+     731.7
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     719.9,
+     582.8
+    ],
+    [
+     719.9,
+     619.7
+    ]
+   ]
+  },
+  {
+   "num": "⏚11PS1",
+   "origen": "11PS1 TB1 1 (FG)",
+   "destino": "XPE 1.4",
+   "marca_o": [
+    642.49,
+    619.48,
+    1.81
+   ],
+   "marca_d": [
+    900.13,
+    636.99,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     642.5,
+     619.5
+    ],
+    [
+     642.5,
+     582.8
+    ],
+    [
+     900.1,
+     582.8
+    ],
+    [
+     900.1,
+     637.0
+    ]
+   ]
+  },
+  {
+   "num": "1186",
+   "origen": "11PS1 TB1 2 (N)",
+   "destino": "LI",
+   "marca_o": [
+    648.07,
+    619.48,
+    1.81
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     648.1,
+     619.5
+    ],
+    [
+     648.1,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1185",
+   "origen": "11PS1 TB1 3 (L)",
+   "destino": "LI",
+   "marca_o": [
+    653.48,
+    619.48,
+    1.81
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     653.5,
+     619.5
+    ],
+    [
+     653.5,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     575.7,
+     448.2
+    ]
+   ]
+  },
+  {
+   "num": "⏚11PS2",
+   "origen": "11PS2 TB1 1 (FG)",
+   "destino": "XPE 2.4",
+   "marca_o": [
+    687.14,
+    619.48,
+    1.81
+   ],
+   "marca_d": [
+    903.77,
+    636.99,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     687.1,
+     619.5
+    ],
+    [
+     687.1,
+     582.8
+    ],
+    [
+     903.8,
+     582.8
+    ],
+    [
+     903.8,
+     637.0
+    ]
+   ]
+  },
+  {
+   "num": "1184",
+   "origen": "11PS2 TB1 2 (N)",
+   "destino": "LI",
+   "marca_o": [
+    692.72,
+    619.48,
+    1.81
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     692.7,
+     619.5
+    ],
+    [
+     692.7,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1183",
+   "origen": "11PS2 TB1 3 (L)",
+   "destino": "LI",
+   "marca_o": [
+    698.12,
+    619.48,
+    1.81
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     698.1,
+     619.5
+    ],
+    [
+     698.1,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     575.7,
+     448.2
+    ]
+   ]
+  },
+  {
+   "num": "1234",
+   "origen": "13PS1 -Vin",
+   "destino": "12XP 1.3",
+   "marca_o": [
+    723.54,
+    619.69,
+    1.52
+   ],
+   "marca_d": [
+    625.54,
+    499.43,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     723.5,
+     619.7
+    ],
+    [
+     723.5,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     625.5,
+     448.2
+    ],
+    [
+     625.5,
+     499.4
+    ]
+   ]
+  },
+  {
+   "num": "1373",
+   "origen": "13PS1 +Vin",
+   "destino": "13X12V 1.4",
+   "marca_o": [
+    727.23,
+    619.69,
+    1.52
+   ],
+   "marca_d": [
+    651.16,
+    487.81,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     727.2,
+     619.7
+    ],
+    [
+     727.2,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     651.2,
+     448.2
+    ],
+    [
+     651.2,
+     487.8
+    ]
+   ]
+  },
+  {
+   "num": "1162",
+   "origen": "11F1 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    747.57,
+    635.4,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     747.6,
+     635.4
+    ],
+    [
+     747.6,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1172",
+   "origen": "11F2 ABAJO",
+   "destino": "15XR 1 ARRIBA",
+   "marca_o": [
+    759.97,
+    635.4,
+    2.13
+   ],
+   "marca_d": [
+    689.95,
+    413.66,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     760.0,
+     635.4
+    ],
+    [
+     760.0,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     690.0,
+     448.2
+    ],
+    [
+     690.0,
+     413.7
+    ]
+   ]
+  },
+  {
+   "num": "1202",
+   "origen": "12F3 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    775.56,
+    627.41,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     775.6,
+     627.4
+    ],
+    [
+     775.6,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1301",
+   "origen": "13F4 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    790.98,
+    635.4,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     791.0,
+     635.4
+    ],
+    [
+     791.0,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1302",
+   "origen": "13F5 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    803.38,
+    635.4,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     803.4,
+     635.4
+    ],
+    [
+     803.4,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1311",
+   "origen": "13F6 ABAJO",
+   "destino": "13X24V 1.4",
+   "marca_o": [
+    815.78,
+    635.4,
+    2.13
+   ],
+   "marca_d": [
+    671.0,
+    487.81,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     815.8,
+     635.4
+    ],
+    [
+     815.8,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     671.0,
+     448.2
+    ],
+    [
+     671.0,
+     487.8
+    ]
+   ]
+  },
+  {
+   "num": "1395",
+   "origen": "42KS1 33",
+   "destino": "13X12V 2.3",
+   "marca_o": [
+    831.4,
+    627.1,
+    1.42
+   ],
+   "marca_d": [
+    656.93,
+    499.43,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 33: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). ",
+   "nota_d": null,
+   "ruta": [
+    [
+     831.4,
+     627.1
+    ],
+    [
+     831.4,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     656.9,
+     448.2
+    ],
+    [
+     656.9,
+     499.4
+    ]
+   ]
+  },
+  {
+   "num": "1394",
+   "origen": "42KS1 23",
+   "destino": "13X12V 2.2",
+   "marca_o": [
+    838.49,
+    627.1,
+    1.42
+   ],
+   "marca_d": [
+    656.93,
+    530.31,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 23: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo).",
+   "nota_d": null,
+   "ruta": [
+    [
+     838.5,
+     627.1
+    ],
+    [
+     838.5,
+     582.8
+    ],
+    [
+     656.9,
+     582.8
+    ],
+    [
+     656.9,
+     530.3
+    ]
+   ]
+  },
+  {
+   "num": "1396",
+   "origen": "42KS1 43",
+   "destino": "13X12V 2.4",
+   "marca_o": [
+    831.4,
+    634.23,
+    1.42
+   ],
+   "marca_d": [
+    656.93,
+    487.81,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 43: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo",
+   "nota_d": null,
+   "ruta": [
+    [
+     831.4,
+     634.2
+    ],
+    [
+     831.4,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     656.9,
+     448.2
+    ],
+    [
+     656.9,
+     487.8
+    ]
+   ]
+  },
+  {
+   "num": "2114",
+   "origen": "42KS1 13",
+   "destino": "LI",
+   "marca_o": [
+    838.49,
+    634.23,
+    1.42
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 13: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abaj",
+   "nota_d": null,
+   "ruta": [
+    [
+     838.5,
+     634.2
+    ],
+    [
+     838.5,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2115",
+   "origen": "42KS1 14",
+   "destino": "LI",
+   "marca_o": [
+    842.03,
+    634.23,
+    1.42
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 14: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abaj",
+   "nota_d": null,
+   "ruta": [
+    [
+     842.0,
+     634.2
+    ],
+    [
+     842.0,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "4233",
+   "origen": "42KR1 A2",
+   "destino": "42XC 6 ARRIBA",
+   "marca_o": [
+    853.63,
+    628.21,
+    1.45
+   ],
+   "marca_d": [
+    714.69,
+    402.41,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     853.6,
+     628.2
+    ],
+    [
+     854.0,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     714.7,
+     448.2
+    ],
+    [
+     714.7,
+     402.4
+    ]
+   ]
+  },
+  {
+   "num": "2151",
+   "origen": "61KR1 A2",
+   "destino": "LI",
+   "marca_o": [
+    864.64,
+    628.16,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a ",
+   "nota_d": null,
+   "ruta": [
+    [
+     864.6,
+     628.2
+    ],
+    [
+     864.6,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2153",
+   "origen": "61KR2 A2",
+   "destino": "LI",
+   "marca_o": [
+    868.97,
+    628.16,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a d",
+   "nota_d": null,
+   "ruta": [
+    [
+     869.0,
+     628.2
+    ],
+    [
+     869.0,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2155",
+   "origen": "61KR3 A2",
+   "destino": "LI",
+   "marca_o": [
+    873.29,
+    628.16,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a ",
+   "nota_d": null,
+   "ruta": [
+    [
+     873.3,
+     628.2
+    ],
+    [
+     873.3,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2157",
+   "origen": "61KR4 A2",
+   "destino": "LI",
+   "marca_o": [
+    877.62,
+    628.16,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a ",
+   "nota_d": null,
+   "ruta": [
+    [
+     877.6,
+     628.2
+    ],
+    [
+     877.6,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "4232",
+   "origen": "42KR1 A1",
+   "destino": "42XC 5 ARRIBA",
+   "marca_o": [
+    853.63,
+    634.57,
+    1.45
+   ],
+   "marca_d": [
+    714.69,
+    413.66,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     853.6,
+     634.6
+    ],
+    [
+     854.0,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     714.7,
+     448.2
+    ],
+    [
+     714.7,
+     413.7
+    ]
+   ]
+  },
+  {
+   "num": "2150",
+   "origen": "61KR1 A1",
+   "destino": "LI",
+   "marca_o": [
+    864.64,
+    634.48,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 ",
+   "nota_d": null,
+   "ruta": [
+    [
+     864.6,
+     634.5
+    ],
+    [
+     864.6,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2152",
+   "origen": "61KR2 A1",
+   "destino": "LI",
+   "marca_o": [
+    868.97,
+    634.48,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 d",
+   "nota_d": null,
+   "ruta": [
+    [
+     869.0,
+     634.5
+    ],
+    [
+     869.0,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2154",
+   "origen": "61KR3 A1",
+   "destino": "LI",
+   "marca_o": [
+    873.29,
+    634.48,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 ",
+   "nota_d": null,
+   "ruta": [
+    [
+     873.3,
+     634.5
+    ],
+    [
+     873.3,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2156",
+   "origen": "61KR4 A1",
+   "destino": "LI",
+   "marca_o": [
+    877.62,
+    634.48,
+    1.45
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 ",
+   "nota_d": null,
+   "ruta": [
+    [
+     877.6,
+     634.5
+    ],
+    [
+     877.6,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1231",
+   "origen": "12XP 1.1",
+   "destino": "LI",
+   "marca_o": [
+    625.54,
+    541.93,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     625.5,
+     541.9
+    ],
+    [
+     625.5,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1303",
+   "origen": "13X12V 1.1",
+   "destino": "LI",
+   "marca_o": [
+    651.16,
+    541.93,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     651.2,
+     541.9
+    ],
+    [
+     651.2,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1304",
+   "origen": "13X12V 2.1",
+   "destino": "LI",
+   "marca_o": [
+    656.93,
+    541.93,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     656.9,
+     541.9
+    ],
+    [
+     656.9,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1353",
+   "origen": "13X12V 1.2",
+   "destino": "LI",
+   "marca_o": [
+    651.16,
+    530.31,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     651.2,
+     530.3
+    ],
+    [
+     651.2,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1391",
+   "origen": "13X24V 1.1",
+   "destino": "42XC F1 ARRIBA",
+   "marca_o": [
+    671.0,
+    541.93,
+    2.5
+   ],
+   "marca_d": [
+    706.47,
+    400.05,
+    2.06
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     671.0,
+     541.9
+    ],
+    [
+     671.0,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     706.5,
+     448.2
+    ],
+    [
+     706.5,
+     400.1
+    ]
+   ]
+  },
+  {
+   "num": "1361",
+   "origen": "13X24V 4.1",
+   "destino": "15AIB1 2",
+   "marca_o": [
+    689.88,
+    541.93,
+    2.5
+   ],
+   "marca_d": [
+    829.1,
+    551.17,
+    1.4
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, NO dibujado: detras del [3 4 5], misma altura; x = tornillo del medio + 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 cond",
+   "ruta": [
+    [
+     689.9,
+     541.9
+    ],
+    [
+     689.9,
+     582.8
+    ],
+    [
+     829.1,
+     582.8
+    ],
+    [
+     829.1,
+     551.2
+    ]
+   ]
+  },
+  {
+   "num": "1361",
+   "origen": "15AIB1 2",
+   "destino": "15DIB1 2",
+   "marca_o": [
+    829.1,
+    551.17,
+    1.4
+   ],
+   "marca_d": [
+    839.8,
+    551.17,
+    1.4
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, NO dibujado: detras del [3 4 5], misma altura; x = tornillo del medio + 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 cond",
+   "nota_d": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores ",
+   "ruta": [
+    [
+     829.1,
+     551.2
+    ],
+    [
+     829.1,
+     582.8
+    ],
+    [
+     839.8,
+     582.8
+    ],
+    [
+     839.8,
+     551.2
+    ]
+   ]
+  },
+  {
+   "num": "1361",
+   "origen": "15DIB1 2",
+   "destino": "15DIB2 2",
+   "marca_o": [
+    839.8,
+    551.17,
+    1.4
+   ],
+   "marca_d": [
+    848.66,
+    551.17,
+    1.4
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores ",
+   "nota_d": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores ",
+   "ruta": [
+    [
+     839.8,
+     551.2
+    ],
+    [
+     839.8,
+     582.8
+    ],
+    [
+     848.7,
+     582.8
+    ],
+    [
+     848.7,
+     551.2
+    ]
+   ]
+  },
+  {
+   "num": "1361",
+   "origen": "15DIB2 2",
+   "destino": "15DIB3 2",
+   "marca_o": [
+    848.66,
+    551.17,
+    1.4
+   ],
+   "marca_d": [
+    857.52,
+    551.17,
+    1.4
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores ",
+   "nota_d": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 4",
+   "ruta": [
+    [
+     848.7,
+     551.2
+    ],
+    [
+     848.7,
+     582.8
+    ],
+    [
+     857.5,
+     582.8
+    ],
+    [
+     857.5,
+     551.2
+    ]
+   ]
+  },
+  {
+   "num": "6171",
+   "origen": "61XDO 1.2",
+   "destino": "61XDIO 1 ARRIBA",
+   "marca_o": [
+    703.95,
+    530.31,
+    2.5
+   ],
+   "marca_d": [
+    754.2,
+    528.88,
+    1.6
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     704.0,
+     530.3
+    ],
+    [
+     704.0,
+     582.8
+    ],
+    [
+     754.2,
+     582.8
+    ],
+    [
+     754.2,
+     528.9
+    ]
+   ]
+  },
+  {
+   "num": "6172",
+   "origen": "61XDO 2.2",
+   "destino": "61XDIO 2 ARRIBA",
+   "marca_o": [
+    709.73,
+    530.31,
+    2.5
+   ],
+   "marca_d": [
+    757.85,
+    528.88,
+    1.6
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     709.7,
+     530.3
+    ],
+    [
+     709.7,
+     582.8
+    ],
+    [
+     757.9,
+     582.8
+    ],
+    [
+     757.9,
+     528.9
+    ]
+   ]
+  },
+  {
+   "num": "6173",
+   "origen": "61XDO 3.2",
+   "destino": "61XDIO 3 ARRIBA",
+   "marca_o": [
+    715.5,
+    530.31,
+    2.5
+   ],
+   "marca_d": [
+    761.5,
+    528.88,
+    1.6
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     715.5,
+     530.3
+    ],
+    [
+     715.5,
+     582.8
+    ],
+    [
+     761.5,
+     582.8
+    ],
+    [
+     761.5,
+     528.9
+    ]
+   ]
+  },
+  {
+   "num": "6174",
+   "origen": "61XDO 4.2",
+   "destino": "61XDIO 4 ARRIBA",
+   "marca_o": [
+    721.28,
+    530.31,
+    2.5
+   ],
+   "marca_d": [
+    765.14,
+    528.88,
+    1.6
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     721.3,
+     530.3
+    ],
+    [
+     721.3,
+     582.8
+    ],
+    [
+     765.1,
+     582.8
+    ],
+    [
+     765.1,
+     528.9
+    ]
+   ]
+  },
+  {
+   "num": "1268",
+   "origen": "61X0V 1.1",
+   "destino": "12XP 2.4",
+   "marca_o": [
+    735.35,
+    541.93,
+    2.5
+   ],
+   "marca_d": [
+    631.31,
+    487.81,
+    2.5
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     735.4,
+     541.9
+    ],
+    [
+     735.4,
+     582.8
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     631.3,
+     448.2
+    ],
+    [
+     631.3,
+     487.8
+    ]
+   ]
+  },
+  {
+   "num": "1254",
+   "origen": "12XP 1.4",
+   "destino": "LI",
+   "marca_o": [
+    625.54,
+    487.81,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     625.5,
+     487.8
+    ],
+    [
+     625.5,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "1264",
+   "origen": "12XP 2.3",
+   "destino": "61XDIO 1 ABAJO",
+   "marca_o": [
+    631.31,
+    499.43,
+    2.5
+   ],
+   "marca_d": [
+    754.2,
+    502.45,
+    1.6
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     631.3,
+     499.4
+    ],
+    [
+     631.3,
+     448.2
+    ],
+    [
+     754.2,
+     448.2
+    ],
+    [
+     754.2,
+     502.4
+    ]
+   ]
+  },
+  {
+   "num": "1370",
+   "origen": "13X24V 2.4",
+   "destino": "15AIB1 1",
+   "marca_o": [
+    676.77,
+    487.81,
+    2.5
+   ],
+   "marca_d": [
+    825.56,
+    551.17,
+    1.4
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero, NO dibujado: queda detras del [3 4 5] con el tornillo a la misma altura (vista lateral del manual; regla del 75286/66817 y catalogo GS8536-EX); 2 bornes a paso 5,0 mm centrados en la carcasa: x = tornillo del medio - 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551",
+   "ruta": [
+    [
+     676.8,
+     487.8
+    ],
+    [
+     676.8,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     825.6,
+     582.8
+    ],
+    [
+     825.6,
+     551.2
+    ]
+   ]
+  },
+  {
+   "num": "1370",
+   "origen": "15AIB1 1",
+   "destino": "15DIB1 1",
+   "marca_o": [
+    825.56,
+    551.17,
+    1.4
+   ],
+   "marca_d": [
+    836.26,
+    551.17,
+    1.4
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero, NO dibujado: queda detras del [3 4 5] con el tornillo a la misma altura (vista lateral del manual; regla del 75286/66817 y catalogo GS8536-EX); 2 bornes a paso 5,0 mm centrados en la carcasa: x = tornillo del medio - 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551",
+   "nota_d": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (l",
+   "ruta": [
+    [
+     825.6,
+     551.2
+    ],
+    [
+     825.6,
+     582.8
+    ],
+    [
+     836.3,
+     582.8
+    ],
+    [
+     836.3,
+     551.2
+    ]
+   ]
+  },
+  {
+   "num": "1370",
+   "origen": "15DIB1 1",
+   "destino": "15DIB2 1",
+   "marca_o": [
+    836.26,
+    551.17,
+    1.4
+   ],
+   "marca_d": [
+    845.12,
+    551.17,
+    1.4
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (l",
+   "nota_d": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (l",
+   "ruta": [
+    [
+     836.3,
+     551.2
+    ],
+    [
+     836.3,
+     582.8
+    ],
+    [
+     845.1,
+     582.8
+    ],
+    [
+     845.1,
+     551.2
+    ]
+   ]
+  },
+  {
+   "num": "1370",
+   "origen": "15DIB2 1",
+   "destino": "15DIB3 1",
+   "marca_o": [
+    845.12,
+    551.17,
+    1.4
+   ],
+   "marca_d": [
+    853.98,
+    551.17,
+    1.4
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (l",
+   "nota_d": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (l",
+   "ruta": [
+    [
+     845.1,
+     551.2
+    ],
+    [
+     845.1,
+     582.8
+    ],
+    [
+     854.0,
+     582.8
+    ],
+    [
+     854.0,
+     551.2
+    ]
+   ]
+  },
+  {
+   "num": "1392",
+   "origen": "13X24V 3.4",
+   "destino": "42XC 1 ARRIBA",
+   "marca_o": [
+    684.11,
+    487.81,
+    2.5
+   ],
+   "marca_d": [
+    706.47,
+    419.01,
+    2.06
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     684.1,
+     487.8
+    ],
+    [
+     684.1,
+     448.2
+    ],
+    [
+     706.5,
+     448.2
+    ],
+    [
+     706.5,
+     419.0
+    ]
+   ]
+  },
+  {
+   "num": "6152",
+   "origen": "61XDO 2.4",
+   "destino": "LI",
+   "marca_o": [
+    709.73,
+    487.81,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     709.7,
+     487.8
+    ],
+    [
+     709.7,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "6153",
+   "origen": "61XDO 3.4",
+   "destino": "LI",
+   "marca_o": [
+    715.5,
+    487.81,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     715.5,
+     487.8
+    ],
+    [
+     715.5,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "6154",
+   "origen": "61XDO 4.4",
+   "destino": "LI",
+   "marca_o": [
+    721.28,
+    487.81,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     721.3,
+     487.8
+    ],
+    [
+     721.3,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "6162",
+   "origen": "61X0V 1.4",
+   "destino": "LI",
+   "marca_o": [
+    735.35,
+    487.81,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     735.4,
+     487.8
+    ],
+    [
+     735.4,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "6164",
+   "origen": "61X0V 2.4",
+   "destino": "LI",
+   "marca_o": [
+    741.12,
+    487.81,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     741.1,
+     487.8
+    ],
+    [
+     741.1,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "6163",
+   "origen": "61X0V 2.3",
+   "destino": "LI",
+   "marca_o": [
+    741.12,
+    499.43,
+    2.5
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     741.1,
+     499.4
+    ],
+    [
+     741.1,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2139",
+   "origen": "15AIB1 3",
+   "destino": "LI",
+   "marca_o": [
+    823.79,
+    551.17,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     823.8,
+     551.2
+    ],
+    [
+     823.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2140",
+   "origen": "15AIB1 4",
+   "destino": "LI",
+   "marca_o": [
+    827.33,
+    551.17,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     827.3,
+     551.2
+    ],
+    [
+     827.3,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2118",
+   "origen": "15DIB1 3",
+   "destino": "LI",
+   "marca_o": [
+    836.26,
+    551.17,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     836.3,
+     551.2
+    ],
+    [
+     836.3,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2119",
+   "origen": "15DIB1 4",
+   "destino": "LI",
+   "marca_o": [
+    839.8,
+    551.17,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     839.8,
+     551.2
+    ],
+    [
+     839.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2122",
+   "origen": "15DIB2 3",
+   "destino": "LI",
+   "marca_o": [
+    845.12,
+    551.17,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     845.1,
+     551.2
+    ],
+    [
+     845.1,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2123",
+   "origen": "15DIB2 4",
+   "destino": "LI",
+   "marca_o": [
+    848.66,
+    551.17,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     848.7,
+     551.2
+    ],
+    [
+     848.7,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2126",
+   "origen": "15DIB3 3",
+   "destino": "LI",
+   "marca_o": [
+    853.98,
+    551.17,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2, rele), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda pre",
+   "nota_d": null,
+   "ruta": [
+    [
+     854.0,
+     551.2
+    ],
+    [
+     854.0,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2127",
+   "origen": "15DIB3 4",
+   "destino": "LI",
+   "marca_o": [
+    857.52,
+    551.17,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2), fila exterior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera",
+   "nota_d": null,
+   "ruta": [
+    [
+     857.5,
+     551.2
+    ],
+    [
+     857.5,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2105",
+   "origen": "15AIB1 6",
+   "destino": "LI",
+   "marca_o": [
+    823.79,
+    544.8,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     823.8,
+     544.8
+    ],
+    [
+     823.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2106",
+   "origen": "15AIB1 7",
+   "destino": "LI",
+   "marca_o": [
+    827.33,
+    544.8,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     827.3,
+     544.8
+    ],
+    [
+     827.3,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2116",
+   "origen": "15DIB1 5",
+   "destino": "LI",
+   "marca_o": [
+    836.26,
+    544.8,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     836.3,
+     544.8
+    ],
+    [
+     836.3,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2117",
+   "origen": "15DIB1 6",
+   "destino": "LI",
+   "marca_o": [
+    839.8,
+    544.8,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     839.8,
+     544.8
+    ],
+    [
+     839.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2120",
+   "origen": "15DIB2 5",
+   "destino": "LI",
+   "marca_o": [
+    845.12,
+    544.8,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     845.1,
+     544.8
+    ],
+    [
+     845.1,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2121",
+   "origen": "15DIB2 6",
+   "destino": "LI",
+   "marca_o": [
+    848.66,
+    544.8,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     848.7,
+     544.8
+    ],
+    [
+     848.7,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2124",
+   "origen": "15DIB3 5",
+   "destino": "LI",
+   "marca_o": [
+    853.98,
+    544.8,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe delantero [5 6] (OUT1, rele), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3",
+   "nota_d": null,
+   "ruta": [
+    [
+     854.0,
+     544.8
+    ],
+    [
+     854.0,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2125",
+   "origen": "15DIB3 6",
+   "destino": "LI",
+   "marca_o": [
+    857.52,
+    544.8,
+    1.4
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [5 6] (OUT1), fila interior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera",
+   "nota_d": null,
+   "ruta": [
+    [
+     857.5,
+     544.8
+    ],
+    [
+     857.5,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "3205",
+   "origen": "15AIB1 12",
+   "destino": "32XEX 3 ARRIBA",
+   "marca_o": [
+    823.79,
+    479.86,
+    1.4
+   ],
+   "marca_d": [
+    826.69,
+    413.54,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     823.8,
+     479.9
+    ],
+    [
+     823.8,
+     448.2
+    ],
+    [
+     826.7,
+     448.2
+    ],
+    [
+     826.7,
+     413.5
+    ]
+   ]
+  },
+  {
+   "num": "3206",
+   "origen": "15AIB1 13",
+   "destino": "32XEX 4 ARRIBA",
+   "marca_o": [
+    827.33,
+    479.86,
+    1.4
+   ],
+   "marca_d": [
+    826.69,
+    402.29,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     827.3,
+     479.9
+    ],
+    [
+     827.3,
+     448.2
+    ],
+    [
+     826.7,
+     448.2
+    ],
+    [
+     826.7,
+     402.3
+    ]
+   ]
+  },
+  {
+   "num": "4118",
+   "origen": "15DIB1 9",
+   "destino": "41XEX 3 ARRIBA",
+   "marca_o": [
+    836.26,
+    479.86,
+    1.4
+   ],
+   "marca_d": [
+    846.5,
+    413.54,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     836.3,
+     479.9
+    ],
+    [
+     836.3,
+     448.2
+    ],
+    [
+     846.5,
+     448.2
+    ],
+    [
+     846.5,
+     413.5
+    ]
+   ]
+  },
+  {
+   "num": "4119",
+   "origen": "15DIB1 10",
+   "destino": "41XEX 4 ARRIBA",
+   "marca_o": [
+    839.8,
+    479.86,
+    1.4
+   ],
+   "marca_d": [
+    846.5,
+    402.29,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     839.8,
+     479.9
+    ],
+    [
+     839.8,
+     448.2
+    ],
+    [
+     846.5,
+     448.2
+    ],
+    [
+     846.5,
+     402.3
+    ]
+   ]
+  },
+  {
+   "num": "4122",
+   "origen": "15DIB2 9",
+   "destino": "41XEX 7 ARRIBA",
+   "marca_o": [
+    845.12,
+    479.86,
+    1.4
+   ],
+   "marca_d": [
+    857.45,
+    413.54,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     845.1,
+     479.9
+    ],
+    [
+     845.1,
+     448.2
+    ],
+    [
+     857.5,
+     448.2
+    ],
+    [
+     857.5,
+     413.5
+    ]
+   ]
+  },
+  {
+   "num": "4123",
+   "origen": "15DIB2 10",
+   "destino": "41XEX 8 ARRIBA",
+   "marca_o": [
+    848.66,
+    479.86,
+    1.4
+   ],
+   "marca_d": [
+    857.45,
+    402.29,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     848.7,
+     479.9
+    ],
+    [
+     848.7,
+     448.2
+    ],
+    [
+     857.5,
+     448.2
+    ],
+    [
+     857.5,
+     402.3
+    ]
+   ]
+  },
+  {
+   "num": "4126",
+   "origen": "15DIB3 9",
+   "destino": "41XEX 11 ARRIBA",
+   "marca_o": [
+    853.98,
+    479.86,
+    1.4
+   ],
+   "marca_d": [
+    861.1,
+    413.54,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda previst",
+   "nota_d": null,
+   "ruta": [
+    [
+     854.0,
+     479.9
+    ],
+    [
+     854.0,
+     448.2
+    ],
+    [
+     861.1,
+     448.2
+    ],
+    [
+     861.1,
+     413.5
+    ]
+   ]
+  },
+  {
+   "num": "4127",
+   "origen": "15DIB3 10",
+   "destino": "41XEX 12 ARRIBA",
+   "marca_o": [
+    857.52,
+    479.86,
+    1.4
+   ],
+   "marca_d": [
+    861.1,
+    402.29,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barre",
+   "nota_d": null,
+   "ruta": [
+    [
+     857.5,
+     479.9
+    ],
+    [
+     857.5,
+     448.2
+    ],
+    [
+     861.1,
+     448.2
+    ],
+    [
+     861.1,
+     402.3
+    ]
+   ]
+  },
+  {
+   "num": "3202",
+   "origen": "15AIB1 9",
+   "destino": "32XEX 1 ARRIBA",
+   "marca_o": [
+    823.79,
+    486.23,
+    1.4
+   ],
+   "marca_d": [
+    823.04,
+    413.54,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     823.8,
+     486.2
+    ],
+    [
+     823.8,
+     448.2
+    ],
+    [
+     823.0,
+     448.2
+    ],
+    [
+     823.0,
+     413.5
+    ]
+   ]
+  },
+  {
+   "num": "3203",
+   "origen": "15AIB1 10",
+   "destino": "32XEX 2 ARRIBA",
+   "marca_o": [
+    827.33,
+    486.23,
+    1.4
+   ],
+   "marca_d": [
+    823.04,
+    402.29,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     827.3,
+     486.2
+    ],
+    [
+     827.3,
+     448.2
+    ],
+    [
+     823.0,
+     448.2
+    ],
+    [
+     823.0,
+     402.3
+    ]
+   ]
+  },
+  {
+   "num": "4116",
+   "origen": "15DIB1 7",
+   "destino": "41XEX 1 ARRIBA",
+   "marca_o": [
+    836.26,
+    486.23,
+    1.4
+   ],
+   "marca_d": [
+    842.85,
+    413.54,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     836.3,
+     486.2
+    ],
+    [
+     836.3,
+     448.2
+    ],
+    [
+     842.9,
+     448.2
+    ],
+    [
+     842.9,
+     413.5
+    ]
+   ]
+  },
+  {
+   "num": "4117",
+   "origen": "15DIB1 8",
+   "destino": "41XEX 2 ARRIBA",
+   "marca_o": [
+    839.8,
+    486.23,
+    1.4
+   ],
+   "marca_d": [
+    842.85,
+    402.29,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     839.8,
+     486.2
+    ],
+    [
+     839.8,
+     448.2
+    ],
+    [
+     842.9,
+     448.2
+    ],
+    [
+     842.9,
+     402.3
+    ]
+   ]
+  },
+  {
+   "num": "4120",
+   "origen": "15DIB2 7",
+   "destino": "41XEX 5 ARRIBA",
+   "marca_o": [
+    845.12,
+    486.23,
+    1.4
+   ],
+   "marca_d": [
+    850.15,
+    413.54,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     845.1,
+     486.2
+    ],
+    [
+     845.1,
+     448.2
+    ],
+    [
+     850.1,
+     448.2
+    ],
+    [
+     850.1,
+     413.5
+    ]
+   ]
+  },
+  {
+   "num": "4121",
+   "origen": "15DIB2 8",
+   "destino": "41XEX 6 ARRIBA",
+   "marca_o": [
+    848.66,
+    486.23,
+    1.4
+   ],
+   "marca_d": [
+    850.15,
+    402.29,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     848.7,
+     486.2
+    ],
+    [
+     848.7,
+     448.2
+    ],
+    [
+     850.1,
+     448.2
+    ],
+    [
+     850.1,
+     402.3
+    ]
+   ]
+  },
+  {
+   "num": "4124",
+   "origen": "15DIB3 7",
+   "destino": "41XEX 9 ARRIBA",
+   "marca_o": [
+    853.98,
+    486.23,
+    1.4
+   ],
+   "marca_d": [
+    853.8,
+    413.54,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15",
+   "nota_d": null,
+   "ruta": [
+    [
+     854.0,
+     486.2
+    ],
+    [
+     854.0,
+     448.2
+    ],
+    [
+     853.8,
+     413.5
+    ]
+   ]
+  },
+  {
+   "num": "4125",
+   "origen": "15DIB3 8",
+   "destino": "41XEX 10 ARRIBA",
+   "marca_o": [
+    857.52,
+    486.23,
+    1.4
+   ],
+   "marca_d": [
+    853.8,
+    402.29,
+    1.7
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "alta",
+   "nota_o": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrer",
+   "nota_d": null,
+   "ruta": [
+    [
+     857.5,
+     486.2
+    ],
+    [
+     857.5,
+     448.2
+    ],
+    [
+     854.0,
+     448.2
+    ],
+    [
+     853.8,
+     402.3
+    ]
+   ]
+  },
+  {
+   "num": "2132",
+   "origen": "81XCM 1 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    725.64,
+    413.66,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     725.6,
+     413.7
+    ],
+    [
+     725.6,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2132",
+   "origen": "81XCM 5 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    732.94,
+    413.66,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     732.9,
+     413.7
+    ],
+    [
+     732.9,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "MALLA 21PCB01 34 (2)",
+   "origen": "81XCM 3 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    729.29,
+    413.66,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     729.3,
+     413.7
+    ],
+    [
+     729.3,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2135",
+   "origen": "81XCM 7 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    736.59,
+    413.66,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     736.6,
+     413.7
+    ],
+    [
+     736.6,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "⏚81XCM",
+   "origen": "81XCM 9 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    740.23,
+    413.66,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     740.2,
+     413.7
+    ],
+    [
+     740.2,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2133",
+   "origen": "81XCM 2 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    725.64,
+    402.41,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     725.6,
+     402.4
+    ],
+    [
+     725.6,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2133",
+   "origen": "81XCM 6 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    732.94,
+    402.41,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     732.9,
+     402.4
+    ],
+    [
+     732.9,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "MALLA 21PCB01 34",
+   "origen": "81XCM 4 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    729.29,
+    402.41,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     729.3,
+     402.4
+    ],
+    [
+     729.3,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "2136",
+   "origen": "81XCM 8 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    736.59,
+    402.41,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     736.6,
+     402.4
+    ],
+    [
+     736.6,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n ROTORK 1",
+   "origen": "15XR 1 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    689.95,
+    355.55,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     690.0,
+     355.6
+    ],
+    [
+     690.0,
+     313.6
+    ],
+    [
+     601.8,
+     313.6
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n ROTORK PE",
+   "origen": "15XR 3.4",
+   "destino": "LI",
+   "marca_o": [
+    694.17,
+    364.26,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     694.2,
+     364.3
+    ],
+    [
+     694.2,
+     313.6
+    ],
+    [
+     601.8,
+     313.6
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n ROTORK 2",
+   "origen": "15XR 2 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    689.95,
+    366.94,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     690.0,
+     366.9
+    ],
+    [
+     690.0,
+     313.6
+    ],
+    [
+     601.8,
+     313.6
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n PIT01F x1",
+   "origen": "32XEX 1 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    823.04,
+    355.43,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     823.0,
+     355.4
+    ],
+    [
+     823.0,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "⏚32XEX",
+   "origen": "32XEX 5.4",
+   "destino": "LI",
+   "marca_o": [
+    830.91,
+    364.14,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     830.9,
+     364.1
+    ],
+    [
+     830.9,
+     313.6
+    ],
+    [
+     601.8,
+     313.6
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n PIT01F x2",
+   "origen": "32XEX 2 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    823.04,
+    366.82,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     823.0,
+     366.8
+    ],
+    [
+     823.0,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_1_ZSO 13",
+   "origen": "41XEX 1 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    842.85,
+    355.43,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     842.9,
+     355.4
+    ],
+    [
+     842.9,
+     313.6
+    ],
+    [
+     601.8,
+     313.6
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_1_ZSC 13",
+   "origen": "41XEX 3 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    846.5,
+    355.43,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     846.5,
+     355.4
+    ],
+    [
+     846.5,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_2_ZSO 13",
+   "origen": "41XEX 5 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    850.15,
+    355.43,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     850.1,
+     355.4
+    ],
+    [
+     850.1,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_3_ZSO 13",
+   "origen": "41XEX 9 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    853.8,
+    355.43,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     853.8,
+     355.4
+    ],
+    [
+     853.8,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_2_ZSC 13",
+   "origen": "41XEX 7 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    857.45,
+    355.43,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     857.5,
+     355.4
+    ],
+    [
+     857.5,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_3_ZSC 13",
+   "origen": "41XEX 11 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    861.1,
+    355.43,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     861.1,
+     355.4
+    ],
+    [
+     861.1,
+     313.6
+    ],
+    [
+     601.8,
+     313.6
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_1_ZSO 14",
+   "origen": "41XEX 2 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    842.85,
+    366.82,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     842.9,
+     366.8
+    ],
+    [
+     842.9,
+     313.6
+    ],
+    [
+     601.8,
+     313.6
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_1_ZSC 14",
+   "origen": "41XEX 4 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    846.5,
+    366.82,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     846.5,
+     366.8
+    ],
+    [
+     846.5,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_2_ZSO 14",
+   "origen": "41XEX 6 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    850.15,
+    366.82,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     850.1,
+     366.8
+    ],
+    [
+     850.1,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     448.2
+    ],
+    [
+     601.8,
+     448.2
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_3_ZSO 14",
+   "origen": "41XEX 10 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    853.8,
+    366.82,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     853.8,
+     366.8
+    ],
+    [
+     853.8,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_2_ZSC 14",
+   "origen": "41XEX 8 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    857.45,
+    366.82,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     857.5,
+     366.8
+    ],
+    [
+     857.5,
+     313.6
+    ],
+    [
+     800.2,
+     313.6
+    ],
+    [
+     800.2,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  },
+  {
+   "num": "s/n IP_3_ZSC 14",
+   "origen": "41XEX 12 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    861.1,
+    366.82,
+    1.7
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     861.1,
+     366.8
+    ],
+    [
+     861.1,
+     313.6
+    ],
+    [
+     601.8,
+     313.6
+    ],
+    [
+     601.8,
+     582.8
+    ],
+    [
+     575.7,
+     582.8
+    ]
+   ]
+  }
+ ],
+ "mapeo": {
+  "version": "eplan-1",
+  "titulo": "Mapeo verificado ZPL-76884 rev 1",
+  "modelos": {},
+  "avisos": [
+   "Doble piso PTT 2,5-2MT (15XR, 32XEX, 41XEX, 42XC, 81XCM): impar en la boca del extremo, par en la interior (convención del taller). Confirmar en el primer tablero.",
+   "42KS1 (PSR 2963802), filas de abajo: 43-44-13-14 en la fila interior y 33-34-23-24 en la exterior (rótulo del aparato). Confirmar mirando el relé.",
+   "42KS1 y 11MS1: EPLAN no exporta 12 pines; salen del esquema (hojas 42 y 11).",
+   "61KR1 a 61KR4: la hoja 8 rotula solo \"-61KR\"; se supuso KR1 a KR4 de izquierda a derecha.",
+   "41XEX: la 4.ª pieza lleva 9-10 y la 5.ª 7-8 (hoja 8 y pág. 38); se mapeó por número.",
+   "11SK1: L / PE / N de izquierda a derecha (símbolo); con la norma china podría ser N / PE / L. Confirmar con el toma real.",
+   "15DIB3: las hojas 15 y 41 dicen que va sin barrera (bornes cuchilla); se mapeó sobre la barrera dibujada.",
+   "Barreras GS85xx: el enchufe [1 2] no está dibujado; va detrás del [3 4], arriba (confianza media).",
+   "61XDIO: el texto usa el lado FÍSICO (cátodo ARRIBA, ánodo ABAJO). ¿Lado físico o del funcional?",
+   "12XPS 10 y 11 (2135, 2136): los dos tramos de cada cable van juntos en la boca de abajo, con terminal doble.",
+   "Tierra del gabinete a 11XPVAC 3.1 y R1 120 Ω en 81XCM 7/8: están en el esquema pero no en la lista de conexiones.",
+   "Zona hidráulica (12F2, BH, BH_01_ZV, BH-01-M, PT001, LS001A) y empalmes X1 del sensor de nivel: se cablean en E8."
+  ],
+  "segundos": 0,
+  "de_cache": false,
+  "error": null,
+  "materiales": "mapeo verificado del producto",
+  "n_puntos": {
+   "alta": 164,
+   "media": 42,
+   "baja": 0
+  },
+  "usados": 206,
+  "manuales": 0
+ },
+ "renombrar_auto": {},
+ "tiempos": {
+  "funcional": 2.0,
+  "mapeo": 0.01,
+  "total": 5.0
+ }
+}

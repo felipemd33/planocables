@@ -589,6 +589,8 @@ def fmt_terminal(e):
         return '?'
     if e.get('fuera'):
         return 'LI'
+    if e.get('texto'):            # punta de EPLAN: el texto del taller ya viene armado (mapeo verificado o regla general)
+        return e['texto']
     tag, b = e.get('tag') or '?', e.get('borne') or ''
     if is_terminal_block(e.get('tag_base')):
         if e.get('punto'):
@@ -649,6 +651,9 @@ def unidad(res, pg, cable_nums):
 
 def conductors(res):
     """para cada numero de cable: lista de conductores (extremo A, extremo B)"""
+    pre = getattr(res, 'conductores', None)
+    if pre is not None:           # plano de EPLAN: los conductores salen de la lista de conexiones (eplan.process)
+        return {num: dict(c, pares=list(c['pares']), bornes=list(c['bornes'])) for num, c in pre.items()}
     cable_nums = {d['num'] for d in res.detail}
     by_num = collections.defaultdict(list)          # num -> [(pg, route)]
     for pg in res.pages:
@@ -864,6 +869,15 @@ def build(res, lay, max_lineas=7):
     bornes_conf = lay.get('bornes_conf') or {}      # clave de 'bornes' -> 'alta' | 'media' (mapeo automatico)
     bornes_nota = lay.get('bornes_nota') or {}      # clave -> por que (puntos 'media' del mapeo)
     estaciones = lay.get('estaciones') or {}
+    # aparatos que se cablean en otra estacion (ej. la zona hidraulica en E8): del topografico o del mapeo verificado
+    est_tag = {t: c['estacion'] for t, c in (lay.get('comp') or {}).items() if c.get('estacion')}
+    est_tag.update(lay.get('estaciones_tag') or {})
+    def est_par(*es):
+        for e in es:
+            t = (e or {}).get('tag_base')
+            if t and t in est_tag:
+                return est_tag[t]
+        return None
     filas = lay.get('filas') or []
     kr = (lay.get('perfil_riel_pt') or 24.8) / 24.8      # 1.0 en el topografico 75441 (A1); se escala en otros planos
     def lateral(e):
@@ -992,10 +1006,13 @@ def build(res, lay, max_lineas=7):
             # derivacion (3+ puntas): el borne donde se hace la union es comun a varios tramos; la seccion de cada
             # tramo es la de la etiqueta mas cerca de su otra punta (la parte del dibujo que es solo de ese tramo)
             propia = eb if grado[a] > 1 and grado[b] == 1 else ea if grado[b] > 1 and grado[a] == 1 else None
-            desc_de = (lambda o, d: cable_desc(res, num, propia) if propia else cable_desc(res, num, o, d))
+            pdesc = (c.get('desc_par') or {}).get((a, b))     # EPLAN: color y seccion de ese renglon de la lista de conexiones
+            desc_de = (lambda o, d: pdesc) if pdesc else (lambda o, d: cable_desc(res, num, propia) if propia else cable_desc(res, num, o, d))
             if not ta and not tb:
                 desc, col, sec = desc_de(ea, eb)
                 pendientes.append(dict(num=num, cable=desc, color=col, secc=sec, a=fmt_terminal(ea), b=fmt_terminal(eb)))
+                if est_par(ea, eb):
+                    pendientes[-1]['_est'] = est_par(ea, eb)
                 continue
             if ta and tb:
                 o, d = (ea, eb) if key(ea, num) <= key(eb, num) else (eb, ea)
@@ -1009,6 +1026,8 @@ def build(res, lay, max_lineas=7):
                                fila=bandeja(o)['fila'], zona=zona(o.get('tag_base')), lado='arriba' if lado(o, num) == 0 else 'abajo',
                                orden=key(o, num), puente=len(c['pares']) > 1,
                                hojas=sorted({ea.get('hoja'), eb.get('hoja')} - {None}, key=natk)))
+            if est_par(ea, eb):
+                lineas[-1]['_est'] = est_par(ea, eb)
     # ---- correcciones de la verificacion contra el funcional (correcciones.json del trabajo): conductores que el
     # programa no lee solo (tierras sin numero, mallas a trazos), pendientes mal armados
     def sintetico(txt):
@@ -1098,6 +1117,8 @@ def build(res, lay, max_lineas=7):
         # 220 VAC (marron y blanco de potencia) salen a LI por la salida de abajo; el resto por la de arriba
         abajo = l['color'] in ('Marrón', 'Blanco') and sec >= 1.0
         ex = l['color'] == 'Azul'                        # intrinsecamente seguro: canaletas azules
+        if o.get('eplan') and (not l['color'] or d.get('fuera') or d.get('ubicacion')):
+            ex = None       # EPLAN: cable de campo (+Campo, sin color o sin otro extremo) o malla: va por la canaleta mas cercana
         ruta = route_line(net, po[:2], so, None if to_li else pd[:2], sd, ex, to_li, abajo, lado_li='der' if l['destino'] == 'LD' else 'izq')
         if ruta:
             l['ruta'] = ruta
@@ -1121,22 +1142,26 @@ def build(res, lay, max_lineas=7):
     # Marcados a mano por cable, o por regla de seccion (los de 35 mm2 van en E8). Marcado con esta misma estacion = se queda.
     propia = lay.get('estacion') or 'E6'
     auto = lay.get('estacion_auto') or {}
-    def estacion_de(num, secc):
+    def estacion_de(num, secc, por_tag=None):
         e = estaciones.get(num)
         if e:
             return None if e == propia else e
+        if por_tag and por_tag != propia:            # una punta en un aparato de otra estacion
+            return por_tag
         try:
             sv = float(str(secc or 0).replace(',', '.'))
         except ValueError:
             sv = 0
         return auto.get('estacion', 'E8') if auto.get('seccion_min') and sv >= float(auto['seccion_min']) else None
-    otra = [dict(l, estacion=estacion_de(l['num'], l['secc'])) for l in lineas if estacion_de(l['num'], l['secc'])]
-    lineas = [l for l in lineas if not estacion_de(l['num'], l['secc'])]
+    otra = [dict(l, estacion=estacion_de(l['num'], l['secc'], l.get('_est'))) for l in lineas if estacion_de(l['num'], l['secc'], l.get('_est'))]
+    lineas = [l for l in lineas if not estacion_de(l['num'], l['secc'], l.get('_est'))]
     for x in pendientes:
-        if estacion_de(x['num'], x.get('secc')):
+        if estacion_de(x['num'], x.get('secc'), x.get('_est')):
             otra.append(dict(num=x['num'], cable=x.get('cable', ''), color=x.get('color', ''), secc=x.get('secc', ''),
-                             origen=x['a'], destino=x['b'], estacion=estacion_de(x['num'], x.get('secc')), pendiente=True))
-    pendientes = [x for x in pendientes if not estacion_de(x['num'], x.get('secc'))]
+                             origen=x['a'], destino=x['b'], estacion=estacion_de(x['num'], x.get('secc'), x.get('_est')), pendiente=True))
+    pendientes = [x for x in pendientes if not estacion_de(x['num'], x.get('secc'), x.get('_est'))]
+    for l in lineas + otra + pendientes:
+        l.pop('_est', None)
     for l in otra:
         l.pop('orden', None)
     # pasos: cambia de paso al cambiar de riel o de lado, o al llenarse (sin partir un componente)

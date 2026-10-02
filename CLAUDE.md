@@ -18,6 +18,8 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/instructivo.py` | Puntas (`describe_end`), conductores (`conductors`), textos (`fmt_terminal`) e instructivo (`build`): orden, pasos, pendientes LI↔LI y estaciones. Además `usos_bandeja` y `materiales_funcional`. |
 | `programa/topo.py`, `ruteo.py` | Topográfico (página de la bandeja, rieles, canaletas, escala, componentes) y ruteo por canaletas (Dijkstra). |
 | `programa/bornes/` | Mapeo automático del **punto exacto de cada borne**: `motor.py` + `catalogo.json` (modelos en mm) + `primitivas.py`. Ver `programa/bornes/LEEME.md`. |
+| `programa/eplan.py` | Planos de **EPLAN** (PDF con texto real): `es_eplan`, `process` (lista de conexiones → conductores y listado, misma interfaz que `core.process`), `layout` (hoja de bandejas: rieles, canaletas, placas, etiquetas → mismo formato que `topo.layout`) y `aplicar_puntos` (mapeo verificado). `core.process` y `topo.layout` derivan solos a este módulo. |
+| `programa/mapeos_verificados/` | **Dato** por producto EPLAN: `<documento>_rev<revisión>.json` con el punto exacto y el texto del taller de cada punta (`'<designación EPLAN>#<cable>'`), la zona hidráulica (E8) y las canaletas de intrínsecos. Se elige por el documento y la revisión del rótulo. Se arma con `2 - Resultados/76884 mSafe2+ PAE/mapeo/exportar_al_programa.py`. |
 | `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`. |
 | `1 - Planos/` | Planos originales. `Catalogo (referencia)/`: 8 productos con su orden de montaje SAP. `Producto nuevo/`: mSafe2+ PAE (EPLAN). |
 | `2 - Resultados/` | Salidas. `76884 mSafe2+ PAE/`: mapeo verificado del producto EPLAN (ver abajo). |
@@ -75,12 +77,16 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
 ```
 python pruebas/volcar_trabajo.py "3 - Historial web/ac0f0949510a" salida_75287.json --sin-cache     # 75287
 python pruebas/volcar_trabajo.py pruebas/trabajos/66817 salida_66817.json --sin-cache --relayout     # 66817
+python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-cache --relayout     # PAE (EPLAN)
 ```
 
 - **75287** (mSafe2AC, tablero 75286): verificado por el taller. Líneas, pendientes, sueltos, otra estación y extremos
   tienen que dar **IGUAL** a `pruebas/bases/base_75287.json`.
 - **66817** (mSafe NC): tiene que dar como `pruebas/bases/base_66817.json`: 75/75 puntas exactas y 104/104 bornes contra
   `prototipos/_referencia_66817/bornes_referencia.json` (`python pruebas/evaluar_bornes.py <puntos.json> --ref ...`).
+- **PAE** (ZPL-76884, EPLAN): `pruebas/trabajos/76884` usa el PDF original de `1 - Planos/Producto nuevo/` (no lo copia).
+  Tiene que dar como `pruebas/bases/base_76884.json`: 143 líneas E6, 31 pendientes, 16 en otra estación (E8), 0 sueltos,
+  igual al Excel del mapeo verificado.
 - **TPT** (72715, `3 - Historial web/e548b195eb2a`): `pruebas/bases/base_tpt.json` es el estado ANTES de corregir el
   lector (con errores).
 - `--sin-cache` no escribe nada en el trabajo.
@@ -106,6 +112,15 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/66817 salida_66817.json --sin-
     - Excel: `Mapeo de cables mSafe2+ PAE (ZPL-76884).xlsx`.
     - JSON: `mapeo/conexiones.json`, `aparatos.json`, `bandejas.json`, `puntos_*.json` (+ `correcciones_*.json`).
   - Las dudas a confirmar están en la hoja "Dudas a confirmar" del Excel.
+  - **Cargado en el programa (2026-10-02):** se sube el PDF como plano eléctrico y sale el listado, el Excel (con la hoja
+    "Lista de conexiones (EPLAN)") y el instructivo E6 solo, con la hoja 8 del mismo PDF como topográfico (botón «Usar las
+    bandejas de este mismo PDF» si hace falta). Da 143 líneas E6, 31 pendientes LI↔LI, 16 en E8, 0 sueltos: igual que el
+    Excel del mapeo, con cada punta en el punto verificado y ruta por las canaletas.
+  - Lo general (sirve para otros EPLAN): lista de conexiones leída por contenido (número, destino 1/2, color, sección),
+    renglones sin número con nombre propio (`⏚11PS1`, `MALLA 21PCB01 34`, `s/n ROTORK 1`), `-61KR1 -61KR1` = unión interna
+    (no es cable), rieles DIN por el patrón de líneas del perfil, canaletas = franjas vacías de ancho normalizado, placas,
+    etiquetas `-TAG`, lo que está en la placa principal fuera de rieles y canaletas → E8, canaletas de intrínsecos de la
+    vista a color de las bandejas (coincide con el mapeo). Sin mapeo verificado: texto general y punto aproximado, con aviso.
 
 ## Fuentes de verdad fuera de este repositorio (solo en la PC del taller, disco G:)
 
@@ -117,11 +132,12 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/66817 salida_66817.json --sin-
 ## Pendientes
 
 - **Corrección del lector del funcional con el TPT** (2026-10-02): ver "Estado".
-- **Cargar el producto EPLAN en el programa:**
-  - lector de la lista de conexiones de EPLAN → conductores → `build`;
-  - layout desde la hoja de bandejas;
-  - puntos desde el mapeo verificado.
-  Así se puede ver en el visor de cablear.
+- **EPLAN (PAE), para confirmar con el usuario:**
+  - el neutro es **celeste**: la regla de ruteo «marrón y blanco salen a LI por abajo» separa L (marrón, abajo) de N
+    (celeste, arriba); ¿sumar celeste a la regla?;
+  - los cables de campo (ROTORK, PIT01F, IP_x) y las mallas salen en E6 como «→ LI» (regla del usuario: campo = LI),
+    sin color ni sección (EPLAN no los da);
+  - las dudas del mapeo verificado (hoja «Dudas a confirmar» del Excel) salen como avisos en el instructivo.
 - **Arreglos del mapeo automático que quedaron a medias** (`pendiente/arreglos_mapeo_parciales/`, sin verificar):
   - diferencial/termomagnética sin lista → confianza media;
   - relé único sin módulo no se renombra;

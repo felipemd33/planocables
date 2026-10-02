@@ -15,8 +15,11 @@ t0 = time.time()
 est = json.load(open(os.path.join(JOB, 'estado.json'), encoding='utf-8'))
 res = process(os.path.join(JOB, est['archivo']), log=lambda m: None)
 t_func = time.time() - t0
+TOPO = os.path.join(JOB, 'topografico.pdf')
+if not os.path.exists(TOPO) and getattr(res, 'eplan', False):
+    TOPO = os.path.join(JOB, est['archivo'])        # EPLAN: la hoja de bandejas viene en el mismo PDF
 if '--relayout' in sys.argv or not os.path.exists(os.path.join(JOB, 'layout.json')):
-    lay = topo.layout(os.path.join(JOB, 'topografico.pdf'), known_tags(res), log=lambda m: None)
+    lay = topo.layout(TOPO, known_tags(res), log=lambda m: None)
 else:
     lay = json.load(open(os.path.join(JOB, 'layout.json'), encoding='utf-8'))
 ij = os.path.join(JOB, 'instructivo.json')
@@ -45,9 +48,12 @@ if '--sin-mapeo' in sys.argv:
         lay['renombrar'] = bd.get('renombrar') or {}
     if corr:
         lay['bornes'] = dict(lay.get('bornes') or {}); lay['bornes'].update(corr.get('bornes') or {})
+elif getattr(res, 'eplan', False) and lay.get('eplan'):   # plano de EPLAN: puntos del mapeo verificado (como web.gen_instructivo)
+    import eplan
+    mapeo = eplan.aplicar_puntos(res, lay, JOB)
 else:
     import bornes as mapeo_bornes
-    mapeo = mapeo_bornes.aplicar_al_layout(res, lay, JOB, os.path.join(JOB, 'topografico.pdf'), cache='--sin-cache' not in sys.argv)
+    mapeo = mapeo_bornes.aplicar_al_layout(res, lay, JOB, TOPO, cache='--sin-cache' not in sys.argv)
 t_mapeo = time.time() - t1
 if corr:
     for k in ('agregar', 'pendientes_agregar', 'pendientes_texto', 'pendientes_quitar', 'sueltos_quitar', 'accesorios'):

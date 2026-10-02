@@ -203,6 +203,9 @@ def snap_escala(mm_pt, tol=0.05):
 
 
 def layout(pdf_path, known_tags, log=print, dec=None):
+    import eplan
+    if eplan.es_eplan(pdf_path):      # PDF de EPLAN: la hoja de bandejas del mismo plano
+        return eplan.layout(pdf_path, known_tags, log=log)
     reader = pypdf.PdfReader(pdf_path); names = layer_names(reader)
     dec = dec or Decoder()
     best = None; cotas = []
