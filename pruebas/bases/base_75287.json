@@ -1,0 +1,1752 @@
+{
+ "lineas": [
+  {
+   "num": "1110",
+   "cable": "N2.5MM",
+   "origen": "11PS1 1 (-)",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1111",
+   "cable": "R2.5MM",
+   "origen": "11PS1 3 (+)",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1105",
+   "cable": "B2.5MM",
+   "origen": "11Q1 N ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1104",
+   "cable": "M2.5MM",
+   "origen": "11Q1 F ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1106",
+   "cable": "M2.5MM",
+   "origen": "11Q2 F ARRIBA",
+   "destino": "11Q1 F ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1107",
+   "cable": "B2.5MM",
+   "origen": "11Q2 N ARRIBA",
+   "destino": "11Q1 N ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1201",
+   "cable": "R4MM",
+   "origen": "12F1 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1206",
+   "cable": "R4MM",
+   "origen": "13F3 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2142",
+   "cable": "N0.75MM",
+   "origen": "31XAI 1 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1324",
+   "cable": "R1MM",
+   "origen": "31XAI F1 ARRIBA",
+   "destino": "13X24 1.2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1311",
+   "cable": "N1MM",
+   "origen": "13PS3 -Vo",
+   "destino": "13X24 2.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1323",
+   "cable": "N1MM",
+   "origen": "13PS3 -Vo",
+   "destino": "13XC1 4.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1310",
+   "cable": "R1MM",
+   "origen": "13PS3 +Vo",
+   "destino": "13X24 1.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2118",
+   "cable": "N0.75MM",
+   "origen": "43KR1 11",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4318",
+   "cable": "N0.75MM",
+   "origen": "43KR2 11",
+   "destino": "43XCS 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2122",
+   "cable": "N0.75MM",
+   "origen": "43KR3 11",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4358",
+   "cable": "N0.75MM",
+   "origen": "43KR4 11",
+   "destino": "43XCS 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2168",
+   "cable": "N0.75MM",
+   "origen": "46KR1 11",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2114",
+   "cable": "N0.75MM",
+   "origen": "46KR2 11",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1308",
+   "cable": "R1MM",
+   "origen": "62KR1 11",
+   "destino": "13XC1 2.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2119",
+   "cable": "N0.75MM",
+   "origen": "43KR1 14",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4319",
+   "cable": "N0.75MM",
+   "origen": "43KR2 14",
+   "destino": "43XCS 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2123",
+   "cable": "N0.75MM",
+   "origen": "43KR3 14",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4359",
+   "cable": "N0.75MM",
+   "origen": "43KR4 14",
+   "destino": "43XCS 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2169",
+   "cable": "N0.75MM",
+   "origen": "46KR1 14",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2115",
+   "cable": "N0.75MM",
+   "origen": "46KR2 14",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6201",
+   "cable": "R1MM",
+   "origen": "62KR1 14",
+   "destino": "62XDO 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6201",
+   "cable": "R1MM",
+   "origen": "62XDIO 1 ARRIBA",
+   "destino": "62XDO 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6203",
+   "cable": "R1MM",
+   "origen": "62KR2 14",
+   "destino": "62XDO 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6203",
+   "cable": "R1MM",
+   "origen": "62XDIO 2 ARRIBA",
+   "destino": "62XDO 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6206",
+   "cable": "R1MM",
+   "origen": "62KR3 14",
+   "destino": "62XDO 5 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6206",
+   "cable": "R1MM",
+   "origen": "62XDIO 3 ARRIBA",
+   "destino": "62XDO 5 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "⏚TOMA",
+   "cable": "VA1MM",
+   "origen": "XPE 1 ARRIBA",
+   "destino": "11SK1 PE ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "⏚13PS3",
+   "cable": "VA1MM",
+   "origen": "XPE 2 ARRIBA",
+   "destino": "13PS3 ⏚",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1109",
+   "cable": "B2.5MM",
+   "origen": "11PS1 N-2",
+   "destino": "11Q2 N ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1109",
+   "cable": "B1MM",
+   "origen": "11Q2 N ABAJO",
+   "destino": "11SK1 N ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1108",
+   "cable": "M2.5MM",
+   "origen": "11PS1 L-3",
+   "destino": "11Q2 F ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1108",
+   "cable": "M1MM",
+   "origen": "11Q2 F ABAJO",
+   "destino": "11SK1 L ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1202",
+   "cable": "R4MM",
+   "origen": "12F1 ABAJO",
+   "destino": "12XP 1.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1301",
+   "cable": "R2.5MM",
+   "origen": "13F3 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1305",
+   "cable": "N1MM",
+   "origen": "13PS3 -Vin",
+   "destino": "13XC1 3.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1304",
+   "cable": "R1MM",
+   "origen": "13PS3 +Vin",
+   "destino": "13XC1 1.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1328",
+   "cable": "N0.75MM",
+   "origen": "43KR1 A2",
+   "destino": "13XC1 4.2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4669",
+   "cable": "N0.75MM",
+   "origen": "46KR1 A2",
+   "destino": "46XC 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4615",
+   "cable": "N0.75MM",
+   "origen": "46KR2 A2",
+   "destino": "46XC 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2151",
+   "cable": "N0.75MM",
+   "origen": "62KR1 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2153",
+   "cable": "N0.75MM",
+   "origen": "62KR2 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2155",
+   "cable": "N0.75MM",
+   "origen": "62KR3 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4329",
+   "cable": "R0.75MM",
+   "origen": "43KR1 A1",
+   "destino": "43DIB1 4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4329",
+   "cable": "R0.75MM",
+   "origen": "43KR2 A1",
+   "destino": "43DIB1 4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4369",
+   "cable": "R0.75MM",
+   "origen": "43KR3 A1",
+   "destino": "43DIB2 4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4369",
+   "cable": "R0.75MM",
+   "origen": "43KR4 A1",
+   "destino": "43DIB2 4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4668",
+   "cable": "R0.75MM",
+   "origen": "46KR1 A1",
+   "destino": "46XC 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4614",
+   "cable": "R0.75MM",
+   "origen": "46KR2 A1",
+   "destino": "46XC 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2150",
+   "cable": "N0.75MM",
+   "origen": "62KR1 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2152",
+   "cable": "N0.75MM",
+   "origen": "62KR2 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2154",
+   "cable": "N0.75MM",
+   "origen": "62KR3 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "⏚11PS1",
+   "cable": "VA2.5MM",
+   "origen": "XPE 1 ABAJO",
+   "destino": "11PS1 ⏚-1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1205",
+   "cable": "N4MM",
+   "origen": "12XP 2.1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1318",
+   "cable": "R0.75MM",
+   "origen": "13XC1 2.2",
+   "destino": "43DIB1 3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1321",
+   "cable": "N2.5MM",
+   "origen": "13XC1 3.2",
+   "destino": "62XDO 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1217",
+   "cable": "R4MM",
+   "origen": "12XP 1.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1218",
+   "cable": "N4MM",
+   "origen": "12XP 2.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1303",
+   "cable": "R2.5MM",
+   "origen": "13XC1 1.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1306",
+   "cable": "R1MM",
+   "origen": "13XC1 2.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1203",
+   "cable": "N4MM",
+   "origen": "13XC1 3.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1315",
+   "cable": "N1MM",
+   "origen": "13XC1 4.4",
+   "destino": "62XDIO 3 ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1319",
+   "cable": "R0.75MM",
+   "origen": "13XC1 2.3",
+   "destino": "43DIB2 3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1307",
+   "cable": "N1MM",
+   "origen": "13XC1 3.3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1312",
+   "cable": "R1MM",
+   "origen": "13X24 1.4",
+   "destino": "31AIB1 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1312",
+   "cable": "R1MM",
+   "origen": "31AIB1 1 ARRIBA",
+   "destino": "43DIB1 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1312",
+   "cable": "R1MM",
+   "origen": "43DIB1 1 ARRIBA",
+   "destino": "43DIB2 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1313",
+   "cable": "N1MM",
+   "origen": "13X24 2.4",
+   "destino": "31AIB1 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1313",
+   "cable": "N1MM",
+   "origen": "31AIB1 2 ARRIBA",
+   "destino": "43DIB1 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1313",
+   "cable": "N1MM",
+   "origen": "43DIB1 2 ARRIBA",
+   "destino": "43DIB2 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6202",
+   "cable": "R1MM",
+   "origen": "62XDO 1 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6204",
+   "cable": "R1MM",
+   "origen": "62XDO 3 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6207",
+   "cable": "R1MM",
+   "origen": "62XDO 5 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6205",
+   "cable": "N1MM",
+   "origen": "62XDO 4 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6208",
+   "cable": "N1MM",
+   "origen": "62XDO 6 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2139",
+   "cable": "N0.75MM",
+   "origen": "31AIB1 3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2140",
+   "cable": "N0.75MM",
+   "origen": "31AIB1 4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2105",
+   "cable": "N0.75MM",
+   "origen": "31AIB1 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2106",
+   "cable": "N0.75MM",
+   "origen": "31AIB1 7",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2116",
+   "cable": "N0.75MM",
+   "origen": "43DIB1 5",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2117",
+   "cable": "N0.75MM",
+   "origen": "43DIB1 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2120",
+   "cable": "N0.75MM",
+   "origen": "43DIB2 5",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2121",
+   "cable": "N0.75MM",
+   "origen": "43DIB2 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3138",
+   "cable": "A0.75MM",
+   "origen": "31AIB1 12",
+   "destino": "31XEX 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3139",
+   "cable": "A0.75MM",
+   "origen": "31AIB1 13",
+   "destino": "31XEX 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4301",
+   "cable": "A0.75MM",
+   "origen": "43DIB1 9",
+   "destino": "43XDI 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4302",
+   "cable": "A0.75MM",
+   "origen": "43DIB1 10",
+   "destino": "43XDI 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4341",
+   "cable": "A0.75MM",
+   "origen": "43DIB2 9",
+   "destino": "43XDI 5 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4342",
+   "cable": "A0.75MM",
+   "origen": "43DIB2 10",
+   "destino": "43XDI 6 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3104",
+   "cable": "A0.75MM",
+   "origen": "31AIB1 9",
+   "destino": "31XEX 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3105",
+   "cable": "A0.75MM",
+   "origen": "31AIB1 10",
+   "destino": "31XEX 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4303",
+   "cable": "A0.75MM",
+   "origen": "43DIB1 7",
+   "destino": "43XDI 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4304",
+   "cable": "A0.75MM",
+   "origen": "43DIB1 8",
+   "destino": "43XDI 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4343",
+   "cable": "A0.75MM",
+   "origen": "43DIB2 7",
+   "destino": "43XDI 7 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4344",
+   "cable": "A0.75MM",
+   "origen": "43DIB2 8",
+   "destino": "43XDI 8 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2132",
+   "cable": "B0.32MM",
+   "origen": "81XCM 1 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2132",
+   "cable": "B0.32MM",
+   "origen": "81XCM 5 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2134",
+   "cable": "MALLA",
+   "origen": "81XCM 3 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2134",
+   "cable": "MALLA",
+   "origen": "81XCM 7 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2164",
+   "cable": "N0.75MM",
+   "origen": "81XCM 9 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2135",
+   "cable": "B0.32MM",
+   "origen": "81XCM 11 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2137",
+   "cable": "MALLA",
+   "origen": "81XCM 13 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2133",
+   "cable": "A0.32MM",
+   "origen": "81XCM 2 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2133",
+   "cable": "A0.32MM",
+   "origen": "81XCM 6 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2165",
+   "cable": "N0.75MM",
+   "origen": "81XCM 10 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2136",
+   "cable": "A0.32MM",
+   "origen": "81XCM 12 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  }
+ ],
+ "pendientes": [
+  {
+   "num": "1101",
+   "a": "11XP 1 ABAJO",
+   "b": "11MS1 ABAJO"
+  },
+  {
+   "num": "1102",
+   "a": "11XP 2 ABAJO",
+   "b": "11MS1 ABAJO"
+  },
+  {
+   "num": "1103",
+   "a": "11XP 3 ABAJO",
+   "b": "TIERRA GABINETE (conexión interior)"
+  },
+  {
+   "num": "2128",
+   "a": "41DS 1",
+   "b": "21PCB01 28"
+  },
+  {
+   "num": "2129",
+   "a": "41DS 2",
+   "b": "21PCB01 29"
+  },
+  {
+   "num": "2130",
+   "a": "46DB1 1",
+   "b": "21PCB01 30"
+  },
+  {
+   "num": "2131",
+   "a": "46DB1 2",
+   "b": "21PCB01 31"
+  },
+  {
+   "num": "2135",
+   "a": "21PCB01 35",
+   "b": "12XPS 7 ABAJO"
+  },
+  {
+   "num": "2136",
+   "a": "21PCB01 36",
+   "b": "12XPS 8 ABAJO"
+  },
+  {
+   "num": "2137",
+   "a": "21PCB01 37",
+   "b": "malla del tramo 12XPS–81XCM (empalme junto a 12XPS)"
+  }
+ ],
+ "sueltos": [],
+ "otra_estacion": [
+  {
+   "num": "3142",
+   "origen": "31XAI 1 ABAJO",
+   "destino": "LI"
+  },
+  {
+   "num": "3141",
+   "origen": "31XAI F1 ABAJO",
+   "destino": "LI"
+  },
+  {
+   "num": "1204",
+   "origen": "12F2",
+   "destino": "LI"
+  },
+  {
+   "num": "1215",
+   "origen": "12F2",
+   "destino": "LI"
+  },
+  {
+   "num": "1216",
+   "origen": "12PB1 -",
+   "destino": "BH-01-M"
+  }
+ ],
+ "extremos": {
+  "1103": [
+   "11XP 3 ABAJO",
+   "?"
+  ],
+  "1110": [
+   "11PS1 1 (-)",
+   "12XPS 2 ABAJO"
+  ],
+  "1111": [
+   "11PS1 3 (+)",
+   "12XPS 1 ABAJO"
+  ],
+  "1108": [
+   "11PS1 L-3",
+   "11Q2 F ABAJO",
+   "11SK1 L ARRIBA"
+  ],
+  "1109": [
+   "11PS1 N-2",
+   "11Q2 N ABAJO",
+   "11SK1 N ABAJO"
+  ],
+  "1102": [
+   "11MS1 ABAJO",
+   "11XP 2 ABAJO"
+  ],
+  "1101": [
+   "11MS1 ABAJO",
+   "11XP 1 ABAJO"
+  ],
+  "1104": [
+   "11MS1 ARRIBA",
+   "11Q1 F ARRIBA"
+  ],
+  "1105": [
+   "11MS1 ARRIBA",
+   "11Q1 N ARRIBA"
+  ],
+  "1106": [
+   "11Q1 F ABAJO",
+   "11Q2 F ARRIBA"
+  ],
+  "1107": [
+   "11Q1 N ABAJO",
+   "11Q2 N ARRIBA"
+  ],
+  "1216": [
+   "12PB1 -",
+   "BH-01-M"
+  ],
+  "1218": [
+   "12PB1 -",
+   "12XP 2.4"
+  ],
+  "1204": [
+   "12F2",
+   "BH-01-ZV"
+  ],
+  "1215": [
+   "12F2",
+   "12PB1 +"
+  ],
+  "1217": [
+   "12PB1 +",
+   "12XP 1.4"
+  ],
+  "1206": [
+   "12PS2 5",
+   "13F3 ARRIBA"
+  ],
+  "1203": [
+   "12PS2 6",
+   "13XC1 3.4"
+  ],
+  "1202": [
+   "12F1 ABAJO",
+   "12XP 1.1"
+  ],
+  "1205": [
+   "12PS2 4",
+   "12XP 2.1"
+  ],
+  "1201": [
+   "12F1 ARRIBA",
+   "12XPS 3 ABAJO"
+  ],
+  "2136": [
+   "21PCB01 36",
+   "46DB1 ABAJO",
+   "81XCM 12 ARRIBA",
+   "? 8 ABAJO"
+  ],
+  "2135": [
+   "21PCB01 35",
+   "46DB1 ABAJO",
+   "81XCM 11 ARRIBA",
+   "? 7 ABAJO"
+  ],
+  "1323": [
+   "13PS3 -Vo",
+   "13XC1 4.1"
+  ],
+  "1313": [
+   "13X24 2.4",
+   "31AIB1 2 ABAJO",
+   "43DIB1 2 ABAJO",
+   "43DIB2 2 ABAJO"
+  ],
+  "1311": [
+   "13PS3 -Vo",
+   "13X24 2.1"
+  ],
+  "1312": [
+   "13X24 1.4",
+   "31AIB1 1 ABAJO",
+   "43DIB1 1 ABAJO",
+   "43DIB2 1 ABAJO"
+  ],
+  "1310": [
+   "13PS3 +Vo",
+   "13X24 1.1"
+  ],
+  "1315": [
+   "13XC1 4.4",
+   "62XDIO 3 ARRIBA"
+  ],
+  "1324": [
+   "13X24 1.2",
+   "31XAI F1 ARRIBA"
+  ],
+  "1306": [
+   "13XC1 2.4",
+   "21PCB01",
+   "21PCB01 48"
+  ],
+  "1307": [
+   "13XC1 3.3",
+   "21PCB01",
+   "21PCB01 49"
+  ],
+  "1303": [
+   "13SH1 ABAJO",
+   "13XC1 1.4"
+  ],
+  "1301": [
+   "13F3 ABAJO",
+   "13SH1 ARRIBA"
+  ],
+  "1319": [
+   "13XC1 2.3",
+   "43DIB2 3"
+  ],
+  "1318": [
+   "13XC1 2.2",
+   "43DIB1 3"
+  ],
+  "1328": [
+   "13XC1 4.2",
+   "43KR2 A2"
+  ],
+  "1305": [
+   "13PS3 -Vin",
+   "13XC1 3.1"
+  ],
+  "1321": [
+   "13XC1 3.2",
+   "62XDO 2 ARRIBA"
+  ],
+  "1304": [
+   "13PS3 +Vin",
+   "13XC1 1.1"
+  ],
+  "1308": [
+   "13XC1 2.1",
+   "62KR1 11"
+  ],
+  "2137": [
+   "46DB1 ABAJO"
+  ],
+  "2169": [
+   "21PCB01",
+   "21PCB01 69",
+   "46KR1 14"
+  ],
+  "2168": [
+   "21PCB01",
+   "21PCB01 68",
+   "46KR1 11"
+  ],
+  "2134": [
+   "46DB1 ABAJO"
+  ],
+  "2133": [
+   "21PCB01 33",
+   "46DB1 ABAJO",
+   "81XCM 2 ARRIBA",
+   "81XCM 6 ARRIBA"
+  ],
+  "2165": [
+   "21PCB01",
+   "21PCB01 65",
+   "81XCM 10 ARRIBA"
+  ],
+  "2132": [
+   "21PCB01 32",
+   "46DB1 ABAJO",
+   "81XCM 1 ARRIBA",
+   "81XCM 5 ARRIBA"
+  ],
+  "2164": [
+   "21PCB01",
+   "21PCB01 64",
+   "81XCM 9 ARRIBA"
+  ],
+  "2131": [
+   "21PCB01 31",
+   "46DB1 2",
+   "46DB1 ABAJO"
+  ],
+  "2130": [
+   "21PCB01 30",
+   "46DB1 1",
+   "46DB1 ABAJO"
+  ],
+  "2129": [
+   "21PCB01 29",
+   "41DS",
+   "46DB1 ABAJO"
+  ],
+  "2128": [
+   "21PCB01 28",
+   "41DS",
+   "46DB1 ABAJO"
+  ],
+  "2121": [
+   "21PCB01 23",
+   "43DIB2 6",
+   "46DB1 ABAJO"
+  ],
+  "2155": [
+   "21PCB01",
+   "21PCB01 55",
+   "62KR3 A2"
+  ],
+  "2120": [
+   "21PCB01",
+   "21PCB01 22",
+   "43DIB2 5"
+  ],
+  "2154": [
+   "21PCB01",
+   "21PCB01 54",
+   "62KR3 A1"
+  ],
+  "2123": [
+   "21PCB01",
+   "21PCB01 21",
+   "43KR3 14"
+  ],
+  "2122": [
+   "21PCB01",
+   "21PCB01 20",
+   "43KR3 11"
+  ],
+  "2117": [
+   "21PCB01",
+   "21PCB01 19",
+   "43DIB1 6"
+  ],
+  "2116": [
+   "21PCB01",
+   "21PCB01 18",
+   "43DIB1 5"
+  ],
+  "2119": [
+   "21PCB01",
+   "21PCB01 17",
+   "43KR1 14"
+  ],
+  "2118": [
+   "21PCB01",
+   "21PCB01 16",
+   "43KR1 11"
+  ],
+  "2153": [
+   "21PCB01",
+   "21PCB01 53",
+   "62KR2 A2"
+  ],
+  "2152": [
+   "21PCB01",
+   "21PCB01 52",
+   "62KR2 A1"
+  ],
+  "2115": [
+   "21PCB01 15",
+   "46KR2 14"
+  ],
+  "2151": [
+   "21PCB01",
+   "21PCB01 51",
+   "62KR1 A2"
+  ],
+  "2114": [
+   "21PCB01 14",
+   "46KR2 11"
+  ],
+  "2150": [
+   "21PCB01",
+   "21PCB01 50",
+   "62KR1 A1"
+  ],
+  "2106": [
+   "21PCB01",
+   "21PCB01 6",
+   "31AIB1 7"
+  ],
+  "2105": [
+   "21PCB01",
+   "21PCB01 5",
+   "31AIB1 6"
+  ],
+  "2142": [
+   "21PCB01",
+   "21PCB01 42",
+   "31XAI 1 ARRIBA"
+  ],
+  "2140": [
+   "21PCB01",
+   "21PCB01 40",
+   "31AIB1 4"
+  ],
+  "2139": [
+   "21PCB01",
+   "21PCB01 39",
+   "31AIB1 3"
+  ],
+  "3142": [
+   "31XAI 1 ABAJO",
+   "PT 001 2"
+  ],
+  "3141": [
+   "31XAI F1 ABAJO",
+   "PT 001 1"
+  ],
+  "3139": [
+   "31AIB1 13",
+   "31XEX 4 ARRIBA"
+  ],
+  "3138": [
+   "31AIB1 12",
+   "31XEX 3 ARRIBA"
+  ],
+  "3105": [
+   "31AIB1 10",
+   "31XEX 2 ARRIBA"
+  ],
+  "3104": [
+   "31AIB1 9",
+   "31XEX 1 ARRIBA"
+  ],
+  "4358": [
+   "43KR4 11",
+   "43XCS 4 ARRIBA"
+  ],
+  "4359": [
+   "43KR4 14",
+   "43XCS 3 ARRIBA"
+  ],
+  "4369": [
+   "43DIB2 4",
+   "43KR3 A1",
+   "43KR4 A1"
+  ],
+  "4342": [
+   "43DIB2 10",
+   "43XDI 6 ARRIBA"
+  ],
+  "4341": [
+   "43DIB2 9",
+   "43XDI 5 ARRIBA"
+  ],
+  "4344": [
+   "43DIB2 8",
+   "43XDI 8 ARRIBA"
+  ],
+  "4343": [
+   "43DIB2 7",
+   "43XDI 7 ARRIBA"
+  ],
+  "4318": [
+   "43KR2 11",
+   "43XCS 2 ARRIBA"
+  ],
+  "4319": [
+   "43KR2 14",
+   "43XCS 1 ARRIBA"
+  ],
+  "4329": [
+   "43DIB1 4",
+   "43KR1 A1",
+   "43KR2 A1"
+  ],
+  "4302": [
+   "43DIB1 10",
+   "43XDI 2 ARRIBA"
+  ],
+  "4301": [
+   "43DIB1 9",
+   "43XDI 1 ARRIBA"
+  ],
+  "4304": [
+   "43DIB1 8",
+   "43XDI 4 ARRIBA"
+  ],
+  "4303": [
+   "43DIB1 7",
+   "43XDI 3 ARRIBA"
+  ],
+  "4615": [
+   "46KR A2",
+   "46XC 4 ARRIBA"
+  ],
+  "4614": [
+   "46KR2 A1",
+   "46XC 3 ARRIBA"
+  ],
+  "4669": [
+   "46KR A2",
+   "46XC 2 ARRIBA"
+  ],
+  "4668": [
+   "46KR1 A1",
+   "46XC 1 ARRIBA"
+  ],
+  "6206": [
+   "62KR3 14",
+   "62XDIO 3 ABAJO",
+   "62XDO 5 ARRIBA"
+  ],
+  "6208": [
+   "62XDO 6 ABAJO",
+   "?"
+  ],
+  "6207": [
+   "62XDO 5 ABAJO",
+   "?"
+  ],
+  "6203": [
+   "62KR2 14",
+   "62XDIO 2 ABAJO",
+   "62XDO 3 ARRIBA"
+  ],
+  "6205": [
+   "62XDO 4 ABAJO",
+   "?"
+  ],
+  "6204": [
+   "62XDO 3 ABAJO",
+   "?"
+  ],
+  "6201": [
+   "62KR1 14",
+   "62XDIO 1 ABAJO",
+   "62XDO 1 ARRIBA"
+  ],
+  "6202": [
+   "62XDO 1 ABAJO",
+   "BH-01-ZV"
+  ]
+ },
+ "layout": {
+  "pag": 8,
+  "region": [
+   520.1,
+   177.1,
+   1045.4,
+   759.3
+  ],
+  "filas": [
+   674.8,
+   530.5,
+   402.8
+  ],
+  "escala": 1.4086,
+  "ductos": 8,
+  "comp": {
+   "12PB1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 598.2,
+    "leido": "12PB1"
+   },
+   "12F2": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 602.4,
+    "leido": "12F2"
+   },
+   "11MS1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 237.9,
+    "leido": "11MS1"
+   },
+   "11PS1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 619.7,
+    "leido": "11PS1"
+   },
+   "11Q1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 655.6,
+    "leido": "11Q1"
+   },
+   "11Q2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 680.5,
+    "leido": "11Q2"
+   },
+   "12PS2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 245.7,
+    "leido": "12PS2"
+   },
+   "11SK1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 748.1,
+    "leido": "11SK1"
+   },
+   "13PS3": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 823.0,
+    "leido": "13PS3"
+   },
+   "62KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 877.0,
+    "leido": "62KR"
+   },
+   "46KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 861.3,
+    "leido": "46KR"
+   },
+   "43KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 836.9,
+    "leido": "43KR"
+   },
+   "43DIB2": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 808.9,
+    "leido": "43DIB2"
+   },
+   "43DIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 799.9,
+    "leido": "43DIB1"
+   },
+   "43XDI": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 798.1,
+    "leido": "43XDI"
+   },
+   "31XAI": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 795.7,
+    "leido": "6311XDA0"
+   },
+   "31AIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 789.4,
+    "leido": "31AIB1"
+   },
+   "13F3": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 785.8,
+    "leido": "3F3"
+   },
+   "31XEX": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 778.9,
+    "leido": "31XEX"
+   },
+   "12F1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 773.4,
+    "leido": "2F1"
+   },
+   "81XCM": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 703.6,
+    "leido": "81XCM"
+   },
+   "46XC": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 688.7,
+    "leido": "46XC"
+   },
+   "62XDO": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 683.9,
+    "leido": "62XD0"
+   },
+   "43XCS": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 673.7,
+    "leido": "43XCS"
+   },
+   "62XDIO": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 664.4,
+    "leido": "62XDIO"
+   },
+   "13X24": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 642.7,
+    "leido": "3X24"
+   },
+   "13XC1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 609.2,
+    "leido": "3XC1"
+   },
+   "12XP": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 587.4,
+    "leido": "1132XP1"
+   },
+   "12XPS": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 229.1,
+    "leido": "2XPS"
+   },
+   "XPE": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 897.5,
+    "leido": "XPE"
+   }
+  }
+ },
+ "cables": [
+  "1101",
+  "1102",
+  "1103",
+  "1104",
+  "1105",
+  "1106",
+  "1107",
+  "1108",
+  "1109",
+  "1110",
+  "1111",
+  "1201",
+  "1202",
+  "1203",
+  "1204",
+  "1205",
+  "1206",
+  "1215",
+  "1216",
+  "1217",
+  "1218",
+  "1301",
+  "1303",
+  "1304",
+  "1305",
+  "1306",
+  "1307",
+  "1308",
+  "1310",
+  "1311",
+  "1312",
+  "1313",
+  "1315",
+  "1318",
+  "1319",
+  "1321",
+  "1323",
+  "1324",
+  "1328",
+  "2105",
+  "2106",
+  "2114",
+  "2115",
+  "2116",
+  "2117",
+  "2118",
+  "2119",
+  "2120",
+  "2121",
+  "2122",
+  "2123",
+  "2128",
+  "2129",
+  "2130",
+  "2131",
+  "2132",
+  "2133",
+  "2134",
+  "2135",
+  "2136",
+  "2137",
+  "2139",
+  "2140",
+  "2142",
+  "2150",
+  "2151",
+  "2152",
+  "2153",
+  "2154",
+  "2155",
+  "2164",
+  "2165",
+  "2168",
+  "2169",
+  "3104",
+  "3105",
+  "3138",
+  "3139",
+  "3141",
+  "3142",
+  "4301",
+  "4302",
+  "4303",
+  "4304",
+  "4318",
+  "4319",
+  "4329",
+  "4341",
+  "4342",
+  "4343",
+  "4344",
+  "4358",
+  "4359",
+  "4369",
+  "4614",
+  "4615",
+  "4668",
+  "4669",
+  "6201",
+  "6202",
+  "6203",
+  "6204",
+  "6205",
+  "6206",
+  "6207",
+  "6208"
+ ],
+ "n_detalle": 300,
+ "segundos": 23.6
+}

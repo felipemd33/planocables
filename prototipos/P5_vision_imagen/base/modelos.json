@@ -1,0 +1,145 @@
+{
+ "descripcion": "Base de bornes del prototipo P5 (vision por imagen). Cada modelo dice: que estructura tiene (como se agrupan sus bocas), con que plantilla(s) de imagen se buscan sus bocas, el paso y tamano del aparato en mm (para armar la zona de busqueda) y el MAPA DE NOMBRES (como se pasa del texto del instructivo a una boca concreta). Las plantillas estan en plantillas.json / plantillas/*.png (las arma hacer_base.py desde recortes.json).",
+ "unidades": "mm reales del aparato; se pasan a pt con la escala del plano (escala_mm_por_pt de usos_por_componente.json)",
+ "umbral_ncc": 0.6,
+ "modelos": {
+  "PT 6-QUATTRO": {
+   "fabricante": "PHOENIX CONTACT", "codigo": "3212934", "alias": ["PT 6 QUATTRO", "PT 6-QUATTRO", "QUATTRO"],
+   "estructura": "bornera", "zona": {"tipo": "derecha", "alto_mm": 90.5}, "paso_mm": 8.2,
+   "plantillas": ["boca_quattro"], "variantes": ["normal", "espejo_v"], "escalas": [1.0],
+   "bocas_por_lado": 2, "descartar_color": "verde", "r_pt": 2.8,
+   "nombres": {"formato": "N.p", "explicacion": "pieza N; p1 arriba extrema, p2 arriba interior, p3 abajo interior, p4 abajo extrema",
+               "puntos": {"1": ["arriba", 0], "2": ["arriba", 1], "3": ["abajo", 1], "4": ["abajo", 0]}},
+   "fuente": "Hoja de datos Phoenix 3212934 (8,2 x 90,5 mm, 4 conexiones push-in, 1 nivel); regla 2 del taller"
+  },
+  "PTT 2,5-2MT": {
+   "fabricante": "PHOENIX CONTACT", "codigo": "3210258 (gris) / 3210265 (BU azul)", "alias": ["PTT 2,5-2MT", "PTT 2,5-2 MT", "PTT 2,5-2 MT BU", "PTT 2,5-2MT BU", "2,5-2 secc"],
+   "estructura": "bornera", "zona": {"tipo": "derecha", "alto_mm": 92.4}, "paso_mm": 5.2,
+   "plantillas": ["boca_octogono_u"], "variantes": ["normal", "espejo_v"], "escalas": [1.0],
+   "bocas_por_lado": 2, "descartar_color": "verde", "r_pt": 1.3,
+   "nombres": {"formato": "N LADO", "explicacion": "pieza ceil(N/2); N impar = boca extrema (piso de abajo), N par = boca interior (piso de arriba); LADO = ARRIBA/ABAJO del texto",
+               "pieza": "mitad", "orden_impar": 0, "orden_par": 1},
+   "fuente": "Hoja de datos Phoenix 3210258 / 3210265 (2 pisos, 5,2 x 92,4 mm); regla 3 del taller"
+  },
+  "PTT 2,5": {
+   "fabricante": "PHOENIX CONTACT", "codigo": "3210172", "alias": ["PTT 2,5"],
+   "estructura": "bornera", "zona": {"tipo": "derecha", "alto_mm": 88}, "paso_mm": 6.1,
+   "plantillas": ["boca_octogono_cuadro"], "variantes": ["normal", "espejo_v"], "escalas": [1.0],
+   "bocas_por_lado": 2, "descartar_color": "verde", "r_pt": 2.0,
+   "nombres": {"formato": "N LADO", "explicacion": "igual que PTT 2,5-2MT: pieza ceil(N/2), impar extrema, par interior",
+               "pieza": "mitad", "orden_impar": 0, "orden_par": 1},
+   "fuente": "Hoja de datos Phoenix PTT 2,5 (doble piso push-in). En la biblioteca Batfer se dibuja con paso 6,1 mm (el real es 5,2 mm)."
+  },
+  "PT 2,5-DIO/L-R": {
+   "fabricante": "PHOENIX CONTACT", "codigo": "3210224", "alias": ["PT 2,5-DIO", "PT 2,5-DIO/L-R", "DIO/L-R"],
+   "estructura": "bornera", "zona": {"tipo": "derecha", "alto_mm": 70}, "paso_mm": 5.2,
+   "plantillas": ["boca_octogono_u"], "variantes": ["normal", "espejo_v"], "escalas": [1.0],
+   "bocas_por_lado": 1, "descartar_color": "verde", "r_pt": 1.3,
+   "nombres": {"formato": "N LADO", "explicacion": "pieza N (una boca por lado). El ARRIBA/ABAJO del texto es el del funcional: ARRIBA = anodo = lado donde esta dibujado el puente FBS; ABAJO = catodo = el otro lado",
+               "pieza": "N", "lado_por_puente": {"ARRIBA": "lado_puente", "ABAJO": "lado_opuesto"}},
+   "fuente": "Hoja de datos Phoenix 3210224 (borne L - puente - anodo >| catodo - borne R); regla 7 del taller"
+  },
+  "PTTB 4-HESI (5X20)": {
+   "fabricante": "PHOENIX CONTACT", "codigo": "3211886", "alias": ["HESI", "BORNE FUSIBLE"],
+   "estructura": "bornera", "zona": {"tipo": "derecha", "alto_mm": 102.9}, "paso_mm": 6.2,
+   "plantillas": ["boca_hesi"], "variantes": ["normal", "espejo_v"], "escalas": [1.0],
+   "bocas_por_lado": 2, "descartar_color": "verde", "r_pt": 2.0,
+   "nombres": {"formato": "nombre LADO", "explicacion": "borne fusible de doble piso: 'k' = piso de abajo (paso directo) = boca extrema de la pieza k; 'Fk' = piso de arriba (fusible) = boca interior de la pieza k",
+               "pieza": "N", "prefijos": {"": 0, "F": 1}},
+   "fuente": "Hoja de datos Phoenix 3211886 (6,2 x 102,9 mm, 2do nivel con fusible); foto 12.35.37(1)"
+  },
+  "RIF-0-RPT-DC/21": {
+   "fabricante": "PHOENIX CONTACT", "codigo": "2903370 (24DC) / 2900958 (12DC)", "alias": ["RIF-0-RPT", "RIF-0-RPT-12DC/21", "RIF-0-RPT-24DC/21", "RIF-0"],
+   "estructura": "rele", "zona": {"tipo": "derecha", "alto_mm": 93}, "paso_mm": 6.2,
+   "plantillas": ["celda_rif0"], "variantes": ["normal", "giro180"], "escalas": [1.0],
+   "celdas": {"contactos": ["11", "14", "12"], "bobina": ["A2", "A1"]}, "r_pt": 1.45,
+   "nombres": {"formato": "TAGm BORNE", "explicacion": "modulo m contado desde la etiqueta; lado con 3 celdas = contactos (desde el extremo: 11, 14, 12), lado con 2 = bobina (desde el extremo: A2, A1). Si el texto no trae el modulo, se toma el modulo cuyos otros cables tienen el numero mas cercano"},
+   "fuente": "Hoja de datos Phoenix 2903370 (6,2 x 93 mm); orden fisico de los numeros moldeados en la carcasa (fotos 1.2, 1.3, 1.6, 1.7); regla 4 del taller"
+  },
+  "EZ9R36225": {
+   "fabricante": "SCHNEIDER", "codigo": "EZ9R36225 (diferencial Easy9 2P 25A 30mA)", "alias": ["EZ9R", "Disyuntor diferencial", "diferencial"],
+   "estructura": "modular", "zona": {"tipo": "centrada", "ancho_mm": 36, "alto_mm": 85},
+   "plantillas": ["tornillo_modular"], "variantes": ["normal"], "escalas": [1.0], "r_pt": 2.5,
+   "polos": ["N", "F"],
+   "nombres": {"formato": "POLO LADO", "explicacion": "2 polos de izquierda a derecha N, F (la N viene impresa a la izquierda); ARRIBA = tornillo de arriba"},
+   "fuente": "se.com EZ9R36225; fotos 12.35.34 y 1.4"
+  },
+  "EZ9F34210": {
+   "fabricante": "SCHNEIDER", "codigo": "EZ9F34210 (termomagnetica Easy9 2P C10)", "alias": ["EZ9F", "Interruptor termomagnetico", "termomagnetico", "S202"],
+   "estructura": "modular", "zona": {"tipo": "centrada", "ancho_mm": 36, "alto_mm": 85},
+   "plantillas": ["tornillo_modular"], "variantes": ["normal"], "escalas": [1.0], "r_pt": 2.5,
+   "polos": ["F", "N"],
+   "nombres": {"formato": "POLO LADO", "explicacion": "2 polos de izquierda a derecha F, N (colores de cable en las fotos: marron a la izquierda, blanco a la derecha)"},
+   "fuente": "se.com EZ9F34210; fotos 12.35.34 y 1.4 (en el tablero hay un ABB S202 C10, misma convencion)"
+  },
+  "DF101": {
+   "fabricante": "SCHNEIDER", "codigo": "DF101 (portafusible 10x38 1P)", "alias": ["DF101", "Base de fusible"],
+   "estructura": "modular", "zona": {"tipo": "centrada", "ancho_mm": 17.5, "alto_mm": 81},
+   "plantillas": ["tornillo_df101"], "variantes": ["normal"], "escalas": [1.0], "r_pt": 1.9,
+   "polos": [""],
+   "nombres": {"formato": "LADO", "explicacion": "un solo polo: ARRIBA = tornillo de arriba (entrada), ABAJO = tornillo de abajo (salida)"},
+   "fuente": "se.com DF101; fotos 12.35.37(1), 12.35.36(2)"
+  },
+  "NDR-240-24": {
+   "fabricante": "MEAN WELL", "codigo": "NDR-240-24 (vale igual para NDR-120-24)", "alias": ["NDR-240", "NDR-120", "NDR"],
+   "estructura": "fuente", "zona": {"tipo": "centrada", "ancho_mm": 63, "alto_mm": 125.2},
+   "plantillas": ["tornillo_meanwell"], "variantes": ["normal"], "escalas": [0.9, 0.95, 1.0, 1.05, 1.1], "r_pt": 2.2,
+   "umbral_relativo_escaneo": 0.7,
+   "filas": [{"nombre": "TB2", "posicion": "arriba", "pines": ["-V", "-V", "+V", "+V"]},
+             {"nombre": "TB1", "posicion": "abajo", "pines": ["FG", "N", "L"]}],
+   "nombres": {"formato": "pin", "explicacion": "'1 (-)' -> pin 1 de la fila que tiene '-V'; 'L-3' -> pin 3 de la fila que tiene 'L'; si solo trae nombre ('+Vo') se toma el pin con ese nombre; si hay dos cables con el mismo nombre, se reparten de izquierda a derecha por numero de cable"},
+   "fuente": "meanwell.com NDR-240-SPEC.PDF (Terminal Pin No. Assignment TB1/TB2); fotos 1.0 y 1.4"
+  },
+  "DDR-120A-24": {
+   "fabricante": "MEAN WELL", "codigo": "DDR-120A-24 (conversor DC/DC)", "alias": ["DDR-120", "DDR"],
+   "estructura": "fuente", "zona": {"tipo": "centrada", "ancho_mm": 32, "alto_mm": 125.2},
+   "plantillas": ["tornillo_meanwell"], "variantes": ["normal"], "escalas": [0.6, 0.65, 0.7, 0.75], "r_pt": 1.5,
+   "umbral_relativo_escaneo": 0.7,
+   "filas": [{"nombre": "TB2", "posicion": "arriba", "pines": ["-Vo", "-Vo", "+Vo", "+Vo"]},
+             {"nombre": "TB1", "posicion": "abajo", "pines": ["FG", "-Vin", "+Vin"]}],
+   "nombres": {"formato": "pin", "explicacion": "igual que NDR"},
+   "fuente": "meanwell.com DDR-120-SPEC.PDF (tablas TB1/TB2); fotos 1.1 y 1.5. Los tornillos de su bornera son mas chicos que los de la NDR: se busca la misma plantilla achicada (0,6 a 0,75)"
+  },
+  "GS8512-EX.22": {
+   "fabricante": "CHENZHU", "codigo": "GS8512-EX.22 (barrera entrada digital 2/2, salida rele)", "alias": ["GS8512", "GS8512-EX"],
+   "estructura": "barrera", "zona": {"tipo": "centrada", "ancho_mm": 12.5, "alto_mm": 115},
+   "plantillas": ["tornillo_barrera"], "variantes": ["normal", "giro180"], "escalas": [1.0], "r_pt": 1.4,
+   "enchufes": [
+    {"lado": "arriba", "bornes": [1, 2], "dy_mm": 0.0, "nota": "enchufe exterior dibujado (alimentacion)"},
+    {"lado": "arriba", "bornes": [3, 4], "dy_mm": 0.0, "nota": "enchufe del medio: tornillo a la misma altura que 1-2 (vista lateral del manual CZ.GS8512-EX.11(S)E-5.0)"},
+    {"lado": "arriba", "bornes": [5, 6], "dy_mm": 8.85, "nota": "enchufe delantero: una fila hacia adentro, 8,85 mm (vista lateral del manual)"},
+    {"lado": "abajo", "bornes": [9, 10], "dy_mm": 0.0, "nota": "enchufe exterior dibujado (IN2)"},
+    {"lado": "abajo", "bornes": [7, 8], "dy_mm": 8.7, "nota": "enchufe interior (IN1): una fila hacia adentro (vista frontal de la hoja de datos, 0,0773 del alto)"}],
+   "nombres": {"formato": "N", "explicacion": "el numero es el impreso en el enchufe; el ARRIBA/ABAJO del texto NO se usa (sale del dibujo del funcional, regla 7). En cada enchufe el numero menor va a la izquierda"},
+   "fuente": "Manual CZ.GS8512-EX.11(S)E-5.0 y catalogo CHENZHU GS8500-EX 2023 pag. 11; fotos 3.0-3.3, 12.35.42, 12.35.43"
+  },
+  "GS8536-EX": {
+   "fabricante": "CHENZHU", "codigo": "GS8536-EX (barrera entrada analogica 2/2)", "alias": ["GS8536"],
+   "estructura": "barrera", "zona": {"tipo": "centrada", "ancho_mm": 17.5, "alto_mm": 115},
+   "plantillas": ["tornillo_barrera"], "variantes": ["normal", "giro180"], "escalas": [1.0], "r_pt": 1.4,
+   "enchufes": [
+    {"lado": "arriba", "bornes": [1, 2], "dy_mm": 0.0, "nota": "enchufe exterior dibujado (alimentacion)"},
+    {"lado": "arriba", "bornes": [3, 4, 5], "dy_mm": 0.0, "nota": "3 tornillos centrados con el paso dibujado"},
+    {"lado": "arriba", "bornes": [6, 7, 8], "dy_mm": 8.85},
+    {"lado": "abajo", "bornes": [12, 13, 14], "dy_mm": 0.0},
+    {"lado": "abajo", "bornes": [9, 10, 11], "dy_mm": 8.7}],
+   "nombres": {"formato": "N", "explicacion": "igual que GS8512"},
+   "fuente": "Catalogo CHENZHU GS8500-EX 2023 pag. 23; etiqueta del aparato en fotos 12.35.42/43"
+  },
+  "TOMA IRAM VIVION": {
+   "fabricante": "VIVION", "codigo": "toma IRAM 10A de riel DIN", "alias": ["Toma corriente", "VIVION", "IRAM"],
+   "estructura": "aparato", "zona": {"tipo": "centrada", "ancho_mm": 45, "alto_mm": 85},
+   "plantillas": ["aparato_toma_iram"], "variantes": ["normal"], "escalas": [1.0], "r_pt": 1.2,
+   "nombres": {"formato": "BORNE", "explicacion": "N, PE y L van los tres ABAJO (regla 6 del taller: se cambio el modelo del toma), aunque el texto diga 'L ARRIBA'"},
+   "fuente": "foto 'WhatsApp 2026-09-25 15.54.54' (N / PE / L impresos, cables saliendo por abajo)"
+  },
+  "MEGA": {
+   "fabricante": "-", "codigo": "Base para fusible tipo MEGA (2 esparragos)", "alias": ["MEGA"],
+   "estructura": "esparragos", "zona": {"tipo": "centrada", "ancho_mm": 90, "alto_mm": 35},
+   "plantillas": ["esparrago_mega"], "variantes": ["normal", "espejo_h"], "escalas": [1.0], "r_pt": 5.0,
+   "lados": {"ABAJO": 0, "ARRIBA": 1},
+   "nombres": {"formato": "LADO", "explicacion": "base horizontal: ABAJO = esparrago izquierdo (lado bateria), ARRIBA = esparrago derecho (lado carga). Es la convencion del funcional de este tipo de tablero; confianza media"},
+   "fuente": "Hoja 12 del funcional + cable de 35 mm2 dibujado en el topografico"
+  }
+ }
+}

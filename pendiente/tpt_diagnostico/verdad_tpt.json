@@ -1,0 +1,1913 @@
+{
+ "plano": "72715 rev 8 (funcional) + 72887 rev 7 (topografico)",
+ "criterio": "Puntas en el formato del instructivo del taller. Para 43DIB1 vale la ALTERNATIVA 1 (CHENZHU GS8512-EX.22, la de la lista de materiales hoja 09); las alternativas 2 y 3 (hojas 43B/43C y la hoja 15) estan en la nota. 61A y 61B son dos unidades hidraulicas alternativas: el cableado es el mismo salvo 6103 (solo 61B). ubic: BANDEJA = bandeja posterior (hoja 05 del topografico: riel 1 de 200 + 265 mm con canaleta vertical en el medio, y riel 2 de 130 mm de la zona intrinseca). Pines repetidos (+ - + - de 11PS1, 12PS2 y 13PS3) se escriben igual; cual de los dos va en la nota. 61XDIO: lado fisico (catodo ARRIBA), regla pendiente de confirmar.",
+ "sin_numero": [
+  "hoja 11: 11XP 3 ABAJO -> borne principal de puesta a tierra (1), verde 2,5",
+  "hoja 11: tierra de 11PS1 -> tierra, verde 2,5",
+  "hoja 11/43: borne principal de puesta a tierra (1) -> GND (Sh43:C4) -> borne principal (2) PE 1, verde 2,5 (PE 1-2 con puente FBS)",
+  "hoja 43A/B/C: puente 43XDIB 1 ABAJO - 43XDIB 3 ABAJO (union con diagonal)",
+  "hoja 14: tierra del display (puerta), verde 1",
+  "hojas 32/33/81: mallas de los cables apantallados (32XAI, 33XAI, 81XCM 5, PCB 34 / MOXA GND a trazos)",
+  "puentes enchufables (no son cables): FBS 2-6 rojo 61KR1 11-61KR2 11; FBS 2-5 azul 61XDIO 1-2 (anodos); 16XC impares y pares; 13XC1 3-3"
+ ],
+ "cables": {
+  "1101": {
+   "puntas": [
+    "CAMPO L (red 220 VAC)",
+    "11XP 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "CAMPO L (red 220 VAC)",
+     "11XP 1 ARRIBA"
+    ]
+   ],
+   "hoja": "11",
+   "cable": "(sin etiqueta: nota del plano negro 0,75)",
+   "ubic": {
+    "CAMPO L (red 220 VAC)": "campo",
+    "11XP 1 ARRIBA": "LD"
+   },
+   "nota": "Cable de campo (a la izquierda de la linea de trazos): llega la fase L de la red. En el tablero solo tiene la punta 11XP 1 ARRIBA; no se cablea en el taller."
+  },
+  "1102": {
+   "puntas": [
+    "CAMPO N (red 220 VAC)",
+    "11XP 2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "CAMPO N (red 220 VAC)",
+     "11XP 2 ARRIBA"
+    ]
+   ],
+   "hoja": "11",
+   "cable": "(sin etiqueta: nota del plano negro 0,75)",
+   "ubic": {
+    "CAMPO N (red 220 VAC)": "campo",
+    "11XP 2 ARRIBA": "LD"
+   },
+   "nota": "Cable de campo: neutro de la red. Solo la punta 11XP 2 ARRIBA en el tablero."
+  },
+  "1103": {
+   "puntas": [
+    "CAMPO PE (tierra de la red)",
+    "11XP 3 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "CAMPO PE (tierra de la red)",
+     "11XP 3 ARRIBA"
+    ]
+   ],
+   "hoja": "11",
+   "cable": "(sin etiqueta: nota del plano negro 0,75)",
+   "ubic": {
+    "CAMPO PE (tierra de la red)": "campo",
+    "11XP 3 ARRIBA": "LD"
+   },
+   "nota": "Cable de campo: tierra de la red. 11XP 3 es borne de tierra. Del lado ABAJO sale un verde 2,5 SIN numero al borne principal de puesta a tierra (1)."
+  },
+  "1104": {
+   "puntas": [
+    "11XP 1 ABAJO",
+    "11Q1 F ARRIBA"
+   ],
+   "tramos": [
+    [
+     "11XP 1 ABAJO",
+     "11Q1 F ARRIBA"
+    ]
+   ],
+   "hoja": "11",
+   "cable": "M2.5MM",
+   "ubic": {
+    "11XP 1 ABAJO": "LD",
+    "11Q1 F ARRIBA": "BANDEJA riel 1 izq"
+   },
+   "nota": "11Q1 polo 1 (fase L, el de la izquierda). El simbolo de 11Q1 no trae numeros de borne: F/N sale del polo. 11Q1 esta en la bandeja (riel 1, tramo izquierdo) y 11XP en el lateral derecho: linea 11Q1 F ARRIBA -> LD."
+  },
+  "1105": {
+   "puntas": [
+    "11XP 2 ABAJO",
+    "11Q1 N ARRIBA"
+   ],
+   "tramos": [
+    [
+     "11XP 2 ABAJO",
+     "11Q1 N ARRIBA"
+    ]
+   ],
+   "hoja": "11",
+   "cable": "B2.5MM",
+   "ubic": {
+    "11XP 2 ABAJO": "LD",
+    "11Q1 N ARRIBA": "BANDEJA riel 1 izq"
+   },
+   "nota": "11Q1 polo 2 (neutro, el de la derecha). Linea 11Q1 N ARRIBA -> LD."
+  },
+  "1106": {
+   "puntas": [
+    "11Q1 F ABAJO",
+    "11PS1 L"
+   ],
+   "tramos": [
+    [
+     "11Q1 F ABAJO",
+     "11PS1 L"
+    ]
+   ],
+   "hoja": "11",
+   "cable": "M2.5MM",
+   "ubic": {
+    "11Q1 F ABAJO": "BANDEJA riel 1 izq",
+    "11PS1 L": "BANDEJA riel 1 izq"
+   },
+   "nota": "Las dos puntas en la bandeja (riel 1 izquierdo): linea."
+  },
+  "1107": {
+   "puntas": [
+    "11Q1 N ABAJO",
+    "11PS1 N"
+   ],
+   "tramos": [
+    [
+     "11Q1 N ABAJO",
+     "11PS1 N"
+    ]
+   ],
+   "hoja": "11",
+   "cable": "B2.5MM",
+   "ubic": {
+    "11Q1 N ABAJO": "BANDEJA riel 1 izq",
+    "11PS1 N": "BANDEJA riel 1 izq"
+   },
+   "nota": "Las dos puntas en la bandeja (riel 1 izquierdo): linea."
+  },
+  "1108": {
+   "puntas": [
+    "11PS1 +",
+    "12PS2 +"
+   ],
+   "tramos": [
+    [
+     "11PS1 +",
+     "12PS2 +"
+    ]
+   ],
+   "hoja": "11, 12",
+   "cable": "R2.5MM",
+   "ubic": {
+    "11PS1 +": "BANDEJA riel 1 izq",
+    "12PS2 +": "LI (lateral izquierdo)"
+   },
+   "nota": "11PS1: el SEGUNDO \"+\" de la salida (bornes + - + -); 12PS2: el PRIMER \"+\" (entrada del panel solar). 12PS2 en el lateral izquierdo: linea 11PS1 + -> LI."
+  },
+  "1109": {
+   "puntas": [
+    "11PS1 -",
+    "12PS2 -"
+   ],
+   "tramos": [
+    [
+     "11PS1 -",
+     "12PS2 -"
+    ]
+   ],
+   "hoja": "11, 12",
+   "cable": "N2.5MM",
+   "ubic": {
+    "11PS1 -": "BANDEJA riel 1 izq",
+    "12PS2 -": "LI (lateral izquierdo)"
+   },
+   "nota": "11PS1: el SEGUNDO \"-\"; 12PS2: el PRIMER \"-\" (panel solar). Linea 11PS1 - -> LI."
+  },
+  "1201": {
+   "puntas": [
+    "12PS2 +",
+    "12F1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "12PS2 +",
+     "12F1 ARRIBA"
+    ]
+   ],
+   "hoja": "12",
+   "cable": "R4MM",
+   "ubic": {
+    "12PS2 +": "LI (lateral izquierdo)",
+    "12F1 ARRIBA": "BANDEJA riel 1 der"
+   },
+   "nota": "12PS2: el SEGUNDO \"+\" (bateria). Linea 12F1 ARRIBA -> LI."
+  },
+  "1202": {
+   "puntas": [
+    "12PS2 -",
+    "12XP 2.1"
+   ],
+   "tramos": [
+    [
+     "12PS2 -",
+     "12XP 2.1"
+    ]
+   ],
+   "hoja": "12",
+   "cable": "N4MM",
+   "ubic": {
+    "12PS2 -": "LI (lateral izquierdo)",
+    "12XP 2.1": "BANDEJA riel 1 der"
+   },
+   "nota": "12PS2: el SEGUNDO \"-\" (bateria). Linea 12XP 2.1 -> LI."
+  },
+  "1203": {
+   "puntas": [
+    "12F1 ABAJO",
+    "12XP 1.1"
+   ],
+   "tramos": [
+    [
+     "12F1 ABAJO",
+     "12XP 1.1"
+    ]
+   ],
+   "hoja": "12",
+   "cable": "R4MM",
+   "ubic": {
+    "12F1 ABAJO": "BANDEJA riel 1 der",
+    "12XP 1.1": "BANDEJA riel 1 der"
+   },
+   "nota": ""
+  },
+  "1204": {
+   "puntas": [
+    "12XP 1.4",
+    "12PB1 +"
+   ],
+   "tramos": [
+    [
+     "12XP 1.4",
+     "12PB1 +"
+    ]
+   ],
+   "hoja": "12",
+   "cable": "R4MM",
+   "ubic": {
+    "12XP 1.4": "BANDEJA riel 1 der",
+    "12PB1 +": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "Rojo 4 hasta el polo + de la bateria. La diagonal junto a 12PB1 + es donde llega tambien 1205 (rojo 35, otro numero)."
+  },
+  "1205": {
+   "puntas": [
+    "12PB1 +",
+    "BH-01-ZV"
+   ],
+   "tramos": [
+    [
+     "12PB1 +",
+     "BH-01-ZV"
+    ]
+   ],
+   "hoja": "12",
+   "cable": "R35MM",
+   "ubic": {
+    "12PB1 +": "LI (fondo / zona hidraulica)",
+    "BH-01-ZV": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "35 mm2: se cablea en E8 (contacto de potencia del arrancador trombetta)."
+  },
+  "1206": {
+   "puntas": [
+    "12XP 2.4",
+    "12PB1 -",
+    "BH-01-M"
+   ],
+   "tramos": [
+    [
+     "12XP 2.4",
+     "12PB1 -"
+    ],
+    [
+     "12PB1 -",
+     "BH-01-M"
+    ]
+   ],
+   "hoja": "12",
+   "cable": "N4MM / N35MM",
+   "ubic": {
+    "12XP 2.4": "BANDEJA riel 1 der",
+    "12PB1 -": "LI (fondo / zona hidraulica)",
+    "BH-01-M": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "3 puntas REAL: negro 4 de 12XP 2.4 al polo - de la bateria (union con diagonal junto a 12PB1 -) y negro 35 de 12PB1 - a la masa del motor BH-01-M. El tramo de 35 mm2 va en E8."
+  },
+  "1207": {
+   "puntas": [
+    "12XP 1.2",
+    "13F2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "12XP 1.2",
+     "13F2 ARRIBA"
+    ]
+   ],
+   "hoja": "12, 13",
+   "cable": "R2.5MM",
+   "ubic": {
+    "12XP 1.2": "BANDEJA riel 1 der",
+    "13F2 ARRIBA": "BANDEJA riel 1 der"
+   },
+   "nota": ""
+  },
+  "1208": {
+   "puntas": [
+    "12XP 2.3",
+    "13XC1 3.1"
+   ],
+   "tramos": [
+    [
+     "12XP 2.3",
+     "13XC1 3.1"
+    ]
+   ],
+   "hoja": "12, 13",
+   "cable": "N2.5MM",
+   "ubic": {
+    "12XP 2.3": "BANDEJA riel 1 der",
+    "13XC1 3.1": "BANDEJA riel 1 der"
+   },
+   "nota": ""
+  },
+  "1301": {
+   "puntas": [
+    "13F2 ABAJO",
+    "13XC1 1.1"
+   ],
+   "tramos": [
+    [
+     "13F2 ABAJO",
+     "13XC1 1.1"
+    ]
+   ],
+   "hoja": "13",
+   "cable": "R2.5MM",
+   "ubic": {
+    "13F2 ABAJO": "BANDEJA riel 1 der",
+    "13XC1 1.1": "BANDEJA riel 1 der"
+   },
+   "nota": ""
+  },
+  "1302": {
+   "puntas": [
+    "13XC1 1.4",
+    "13SH1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "13XC1 1.4",
+     "13SH1 ARRIBA"
+    ]
+   ],
+   "hoja": "13",
+   "cable": "R2.5MM",
+   "ubic": {
+    "13XC1 1.4": "BANDEJA riel 1 der",
+    "13SH1 ARRIBA": "LI (puerta)"
+   },
+   "nota": "13SH1 (ON/OFF) en la puerta: linea 13XC1 1.4 -> LI."
+  },
+  "1303": {
+   "puntas": [
+    "13SH1 ABAJO",
+    "13XC1 2.4"
+   ],
+   "tramos": [
+    [
+     "13SH1 ABAJO",
+     "13XC1 2.4"
+    ]
+   ],
+   "hoja": "13",
+   "cable": "R2.5MM",
+   "ubic": {
+    "13SH1 ABAJO": "LI (puerta)",
+    "13XC1 2.4": "BANDEJA riel 1 der"
+   },
+   "nota": "Linea 13XC1 2.4 -> LI."
+  },
+  "1304": {
+   "puntas": [
+    "13XC1 2.1",
+    "13PS3 +Vin"
+   ],
+   "tramos": [
+    [
+     "13XC1 2.1",
+     "13PS3 +Vin"
+    ]
+   ],
+   "hoja": "13",
+   "cable": "R2.5MM",
+   "ubic": {
+    "13XC1 2.1": "BANDEJA riel 1 der",
+    "13PS3 +Vin": "BANDEJA riel 1 izq"
+   },
+   "nota": "13PS3 esta en la bandeja (riel 1 izquierdo): linea 13XC1 2.1 -> 13PS3 +Vin (hoy sale -> LI)."
+  },
+  "1305": {
+   "puntas": [
+    "13XC1 2.2",
+    "61KR1 11"
+   ],
+   "tramos": [
+    [
+     "13XC1 2.2",
+     "61KR1 11"
+    ]
+   ],
+   "hoja": "13, 61A/61B",
+   "cable": "R1MM",
+   "ubic": {
+    "13XC1 2.2": "BANDEJA riel 1 der",
+    "61KR1 11": "BANDEJA riel 1 der"
+   },
+   "nota": "2 puntas. 61KR1 11 (C) esta puenteado con 61KR2 11 por un puente enchufable FBS 2-6 rojo (no es cable)."
+  },
+  "1306": {
+   "puntas": [
+    "13XC1 2.3",
+    "21PCB01 48"
+   ],
+   "tramos": [
+    [
+     "13XC1 2.3",
+     "21PCB01 48"
+    ]
+   ],
+   "hoja": "13, 14, 21",
+   "cable": "R1MM",
+   "ubic": {
+    "13XC1 2.3": "BANDEJA riel 1 der",
+    "21PCB01 48": "LI (puerta)"
+   },
+   "nota": "Linea 13XC1 2.3 -> LI (placa en la puerta)."
+  },
+  "1307": {
+   "puntas": [
+    "13XC1 3.4",
+    "21PCB01 49"
+   ],
+   "tramos": [
+    [
+     "13XC1 3.4",
+     "21PCB01 49"
+    ]
+   ],
+   "hoja": "13, 14, 21",
+   "cable": "N1MM",
+   "ubic": {
+    "13XC1 3.4": "BANDEJA riel 1 der",
+    "21PCB01 49": "LI (puerta)"
+   },
+   "nota": "Linea 13XC1 3.4 -> LI."
+  },
+  "1308": {
+   "puntas": [
+    "13XC1 3.7",
+    "61XDIO 2 ABAJO"
+   ],
+   "tramos": [
+    [
+     "13XC1 3.7",
+     "61XDIO 2 ABAJO"
+    ]
+   ],
+   "hoja": "13, 61A/61B",
+   "cable": "N1MM",
+   "ubic": {
+    "13XC1 3.7": "BANDEJA riel 1 der",
+    "61XDIO 2 ABAJO": "BANDEJA riel 1 der"
+   },
+   "nota": "13XC1 3.7 = segunda bornera 3 (gemela), tercer circulo. 61XDIO 2: llega al ANODO (izquierda del dibujo = ARRIBA en el funcional); se escribe el lado fisico (catodo arriba) = ABAJO, regla pendiente de confirmar con el taller."
+  },
+  "1309": {
+   "puntas": [
+    "13XC1 3.2",
+    "13PS3 -Vin"
+   ],
+   "tramos": [
+    [
+     "13XC1 3.2",
+     "13PS3 -Vin"
+    ]
+   ],
+   "hoja": "13",
+   "cable": "N2.5MM",
+   "ubic": {
+    "13XC1 3.2": "BANDEJA riel 1 der",
+    "13PS3 -Vin": "BANDEJA riel 1 izq"
+   },
+   "nota": "Linea 13XC1 3.2 -> 13PS3 -Vin (hoy sale -> LI)."
+  },
+  "1310": {
+   "puntas": [
+    "13XC1 3.8",
+    "XM1 2 ARRIBA",
+    "XM1 4 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "13XC1 3.8",
+     "XM1 2 ARRIBA"
+    ],
+    [
+     "XM1 2 ARRIBA",
+     "XM1 4 ARRIBA"
+    ]
+   ],
+   "hoja": "13, 61A/61B",
+   "cable": "N1MM",
+   "ubic": {
+    "13XC1 3.8": "BANDEJA riel 1 der",
+    "XM1 2 ARRIBA": "BANDEJA riel 1 der",
+    "XM1 4 ARRIBA": "BANDEJA riel 1 der"
+   },
+   "nota": "3 puntas REAL: el -0V baja de la flecha (Sh13:D5) a XM1 2 y el tramo que va a XM1 4 se une con una DIAGONAL que apunta a XM1 2: terminal doble en XM1 2 ARRIBA. El programa lo tiene bien."
+  },
+  "1311": {
+   "puntas": [
+    "13PS3 +Vo",
+    "13XC2 1.1"
+   ],
+   "tramos": [
+    [
+     "13PS3 +Vo",
+     "13XC2 1.1"
+    ]
+   ],
+   "hoja": "13",
+   "cable": "R1MM",
+   "ubic": {
+    "13PS3 +Vo": "BANDEJA riel 1 izq",
+    "13XC2 1.1": "LD"
+   },
+   "nota": "13PS3: el SEGUNDO \"+Vo\" (bornes +Vo -Vo +Vo -Vo). Linea 13PS3 +Vo -> LD."
+  },
+  "1312": {
+   "puntas": [
+    "13PS3 -Vo",
+    "13XC2 2.1"
+   ],
+   "tramos": [
+    [
+     "13PS3 -Vo",
+     "13XC2 2.1"
+    ]
+   ],
+   "hoja": "13",
+   "cable": "N1MM",
+   "ubic": {
+    "13PS3 -Vo": "BANDEJA riel 1 izq",
+    "13XC2 2.1": "LD"
+   },
+   "nota": "13PS3: el SEGUNDO \"-Vo\". Linea 13PS3 -Vo -> LD."
+  },
+  "1313": {
+   "puntas": [
+    "13PS3 +Vo",
+    "43DIB1 1"
+   ],
+   "tramos": [
+    [
+     "13PS3 +Vo",
+     "43DIB1 1"
+    ]
+   ],
+   "hoja": "13, 15",
+   "cable": "R1MM",
+   "ubic": {
+    "13PS3 +Vo": "BANDEJA riel 1 izq",
+    "43DIB1 1": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "13PS3: el PRIMER \"+Vo\". 43DIB1 pin 1 (+24V) en la ALTERNATIVA 1 (CHENZHU GS8512-EX.22, la de la lista de materiales hoja 09). Alternativa 2 (Bei Jing PHD-22TF-2727): pin 9; alternativa 3 (P+F KFD2-SR2-Ex2.W): pin 14. Son 3 dibujos alternativos de la hoja 15, no 3 puntas. Ambas puntas en la bandeja: linea 13PS3 +Vo -> 43DIB1 1."
+  },
+  "1314": {
+   "puntas": [
+    "13PS3 -Vo",
+    "43DIB1 2"
+   ],
+   "tramos": [
+    [
+     "13PS3 -Vo",
+     "43DIB1 2"
+    ]
+   ],
+   "hoja": "13, 15",
+   "cable": "N1MM",
+   "ubic": {
+    "13PS3 -Vo": "BANDEJA riel 1 izq",
+    "43DIB1 2": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "13PS3: el PRIMER \"-Vo\". Alternativa 1: pin 2 (alt 2: 10, alt 3: 15)."
+  },
+  "1315": {
+   "puntas": [
+    "13XC2 1.4",
+    "33MX01 V+"
+   ],
+   "tramos": [
+    [
+     "13XC2 1.4",
+     "33MX01 V+"
+    ]
+   ],
+   "hoja": "13, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "13XC2 1.4": "LD",
+    "33MX01 V+": "BANDEJA riel 1 izq"
+   },
+   "nota": "Borne \"V+\" (Supply) del MOXA. Linea 33MX01 V+ -> LD."
+  },
+  "1316": {
+   "puntas": [
+    "13XC2 2.4",
+    "33MX01 V-"
+   ],
+   "tramos": [
+    [
+     "13XC2 2.4",
+     "33MX01 V-"
+    ]
+   ],
+   "hoja": "13, 33",
+   "cable": "N1MM",
+   "ubic": {
+    "13XC2 2.4": "LD",
+    "33MX01 V-": "BANDEJA riel 1 izq"
+   },
+   "nota": "Borne \"V-\" (Supply) del MOXA. Linea 33MX01 V- -> LD."
+  },
+  "1317": {
+   "puntas": [
+    "13XC2 1.3",
+    "16XC 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "13XC2 1.3",
+     "16XC 1 ARRIBA"
+    ]
+   ],
+   "hoja": "13, 16",
+   "cable": "R1MM",
+   "ubic": {
+    "13XC2 1.3": "LD",
+    "16XC 1 ARRIBA": "LD"
+   },
+   "nota": "Las dos puntas en el lateral derecho: pendiente (LD <-> LD)."
+  },
+  "1318": {
+   "puntas": [
+    "13XC2 2.3",
+    "16XC 2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "13XC2 2.3",
+     "16XC 2 ARRIBA"
+    ]
+   ],
+   "hoja": "13, 16",
+   "cable": "N1MM",
+   "ubic": {
+    "13XC2 2.3": "LD",
+    "16XC 2 ARRIBA": "LD"
+   },
+   "nota": "Pendiente (LD <-> LD)."
+  },
+  "1319": {
+   "puntas": [
+    "13XC1 3.3",
+    "13XC2 2.2"
+   ],
+   "tramos": [
+    [
+     "13XC1 3.3",
+     "13XC2 2.2"
+    ]
+   ],
+   "hoja": "13",
+   "cable": "N1MM",
+   "ubic": {
+    "13XC1 3.3": "BANDEJA riel 1 der",
+    "13XC2 2.2": "LD"
+   },
+   "nota": "Flecha a la misma hoja (Sh13:C8 / Sh13:B5). Linea 13XC1 3.3 -> LD."
+  },
+  "1601": {
+   "puntas": [
+    "16XC 1 ABAJO",
+    "33XAI F1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 1 ABAJO",
+     "33XAI F1 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 1 ABAJO": "LD",
+    "33XAI F1 ARRIBA": "LD"
+   },
+   "nota": "+24V al borne fusible F1 de 33XAI (lado izquierdo del dibujo = ARRIBA). Pendiente (LD <-> LD)."
+  },
+  "1602": {
+   "puntas": [
+    "16XC 2 ABAJO",
+    "33MX01 2"
+   ],
+   "tramos": [
+    [
+     "16XC 2 ABAJO",
+     "33MX01 2"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "16XC 2 ABAJO": "LD",
+    "33MX01 2": "BANDEJA riel 1 izq"
+   },
+   "nota": "-0V al pin 2 (AI-) del MOXA. En la hoja 33 la etiqueta dice \"(Balck/0,75mm2)\" (error de tipeo del plano = negro). 33MX01 en la bandeja: linea 33MX01 2 -> LD."
+  },
+  "1603": {
+   "puntas": [
+    "16XC 3 ARRIBA",
+    "33XAI F2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 3 ARRIBA",
+     "33XAI F2 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 3 ARRIBA": "LD",
+    "33XAI F2 ARRIBA": "LD"
+   },
+   "nota": "+24V al borne fusible F2 de 33XAI (lado izquierdo del dibujo = ARRIBA). Pendiente (LD <-> LD)."
+  },
+  "1604": {
+   "puntas": [
+    "16XC 4 ARRIBA",
+    "33MX01 4"
+   ],
+   "tramos": [
+    [
+     "16XC 4 ARRIBA",
+     "33MX01 4"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "16XC 4 ARRIBA": "LD",
+    "33MX01 4": "BANDEJA riel 1 izq"
+   },
+   "nota": "-0V al pin 4 (AI-) del MOXA. En la hoja 33 la etiqueta dice \"(Balck/0,75mm2)\" (error de tipeo del plano = negro). 33MX01 en la bandeja: linea 33MX01 4 -> LD."
+  },
+  "1605": {
+   "puntas": [
+    "16XC 3 ABAJO",
+    "33XAI F3 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 3 ABAJO",
+     "33XAI F3 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 3 ABAJO": "LD",
+    "33XAI F3 ARRIBA": "LD"
+   },
+   "nota": "+24V al borne fusible F3 de 33XAI (lado izquierdo del dibujo = ARRIBA). Pendiente (LD <-> LD)."
+  },
+  "1606": {
+   "puntas": [
+    "16XC 4 ABAJO",
+    "33MX01 6"
+   ],
+   "tramos": [
+    [
+     "16XC 4 ABAJO",
+     "33MX01 6"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "16XC 4 ABAJO": "LD",
+    "33MX01 6": "BANDEJA riel 1 izq"
+   },
+   "nota": "-0V al pin 6 (AI-) del MOXA. En la hoja 33 la etiqueta dice \"(Balck/0,75mm2)\" (error de tipeo del plano = negro). 33MX01 en la bandeja: linea 33MX01 6 -> LD."
+  },
+  "1607": {
+   "puntas": [
+    "16XC 5 ARRIBA",
+    "33XAI F4 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 5 ARRIBA",
+     "33XAI F4 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 5 ARRIBA": "LD",
+    "33XAI F4 ARRIBA": "LD"
+   },
+   "nota": "+24V al borne fusible F4 de 33XAI (lado izquierdo del dibujo = ARRIBA). Pendiente (LD <-> LD)."
+  },
+  "1608": {
+   "puntas": [
+    "16XC 6 ARRIBA",
+    "33MX01 8"
+   ],
+   "tramos": [
+    [
+     "16XC 6 ARRIBA",
+     "33MX01 8"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "16XC 6 ARRIBA": "LD",
+    "33MX01 8": "BANDEJA riel 1 izq"
+   },
+   "nota": "-0V al pin 8 (AI-) del MOXA. En la hoja 33 la etiqueta dice \"(Balck/0,75mm2)\" (error de tipeo del plano = negro). 33MX01 en la bandeja: linea 33MX01 8 -> LD."
+  },
+  "1609": {
+   "puntas": [
+    "16XC 5 ABAJO",
+    "33XAI F5 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 5 ABAJO",
+     "33XAI F5 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 5 ABAJO": "LD",
+    "33XAI F5 ARRIBA": "LD"
+   },
+   "nota": "+24V al borne fusible F5 de 33XAI (lado izquierdo del dibujo = ARRIBA). Pendiente (LD <-> LD)."
+  },
+  "1610": {
+   "puntas": [
+    "16XC 6 ABAJO",
+    "33MX01 10"
+   ],
+   "tramos": [
+    [
+     "16XC 6 ABAJO",
+     "33MX01 10"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "16XC 6 ABAJO": "LD",
+    "33MX01 10": "BANDEJA riel 1 izq"
+   },
+   "nota": "-0V al pin 10 (AI-) del MOXA. En la hoja 33 la etiqueta dice \"(Balck/0,75mm2)\" (error de tipeo del plano = negro). 33MX01 en la bandeja: linea 33MX01 10 -> LD."
+  },
+  "1611": {
+   "puntas": [
+    "16XC 7 ARRIBA",
+    "33XAI F6 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 7 ARRIBA",
+     "33XAI F6 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 7 ARRIBA": "LD",
+    "33XAI F6 ARRIBA": "LD"
+   },
+   "nota": "+24V al borne fusible F6 de 33XAI (lado izquierdo del dibujo = ARRIBA). Pendiente (LD <-> LD)."
+  },
+  "1612": {
+   "puntas": [
+    "16XC 8 ARRIBA",
+    "33MX01 12"
+   ],
+   "tramos": [
+    [
+     "16XC 8 ARRIBA",
+     "33MX01 12"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "16XC 8 ARRIBA": "LD",
+    "33MX01 12": "BANDEJA riel 1 izq"
+   },
+   "nota": "-0V al pin 12 (AI-) del MOXA. En la hoja 33 la etiqueta dice \"(Balck/0,75mm2)\" (error de tipeo del plano = negro). 33MX01 en la bandeja: linea 33MX01 12 -> LD."
+  },
+  "1613": {
+   "puntas": [
+    "16XC 7 ABAJO",
+    "33XAI F7 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 7 ABAJO",
+     "33XAI F7 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 7 ABAJO": "LD",
+    "33XAI F7 ARRIBA": "LD"
+   },
+   "nota": "+24V al borne fusible F7 de 33XAI (lado izquierdo del dibujo = ARRIBA). Pendiente (LD <-> LD)."
+  },
+  "1614": {
+   "puntas": [
+    "16XC 8 ABAJO",
+    "33MX01 14"
+   ],
+   "tramos": [
+    [
+     "16XC 8 ABAJO",
+     "33MX01 14"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "16XC 8 ABAJO": "LD",
+    "33MX01 14": "BANDEJA riel 1 izq"
+   },
+   "nota": "-0V al pin 14 (AI-) del MOXA. En la hoja 33 la etiqueta dice \"(Balck/0,75mm2)\" (error de tipeo del plano = negro). 33MX01 en la bandeja: linea 33MX01 14 -> LD."
+  },
+  "1615": {
+   "puntas": [
+    "16XC 9 ARRIBA",
+    "33XAI F8 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 9 ARRIBA",
+     "33XAI F8 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 9 ARRIBA": "LD",
+    "33XAI F8 ARRIBA": "LD"
+   },
+   "nota": "+24V al borne fusible F8 de 33XAI (lado izquierdo del dibujo = ARRIBA). Pendiente (LD <-> LD)."
+  },
+  "1616": {
+   "puntas": [
+    "16XC 10 ARRIBA",
+    "33MX01 16"
+   ],
+   "tramos": [
+    [
+     "16XC 10 ARRIBA",
+     "33MX01 16"
+    ]
+   ],
+   "hoja": "16, 33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "16XC 10 ARRIBA": "LD",
+    "33MX01 16": "BANDEJA riel 1 izq"
+   },
+   "nota": "-0V al pin 16 (AI-) del MOXA. En la hoja 33 la etiqueta dice \"(Balck/0,75mm2)\" (error de tipeo del plano = negro). 33MX01 en la bandeja: linea 33MX01 16 -> LD."
+  },
+  "1617": {
+   "puntas": [
+    "16XC 9 ABAJO",
+    "31XAI F1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 9 ABAJO",
+     "31XAI F1 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 31",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 9 ABAJO": "LD",
+    "31XAI F1 ARRIBA": "BANDEJA riel 1 der"
+   },
+   "nota": "Linea 31XAI F1 ARRIBA -> LD."
+  },
+  "1619": {
+   "puntas": [
+    "16XC 11 ARRIBA",
+    "32XAI F1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "16XC 11 ARRIBA",
+     "32XAI F1 ARRIBA"
+    ]
+   ],
+   "hoja": "16, 32",
+   "cable": "R1MM",
+   "ubic": {
+    "16XC 11 ARRIBA": "LD",
+    "32XAI F1 ARRIBA": "LD"
+   },
+   "nota": "Pendiente (LD <-> LD)."
+  },
+  "2105": {
+   "puntas": [
+    "21PCB01 5",
+    "32XAI 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "21PCB01 5",
+     "32XAI 1 ARRIBA"
+    ]
+   ],
+   "hoja": "21, 32",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 5": "LI (puerta)",
+    "32XAI 1 ARRIBA": "LD"
+   },
+   "nota": "La pista de la hoja 21 dice \"32XAI:2\" pero el dibujo de la hoja 32 lo lleva al borne 1 (pista desactualizada del plano). Pendiente (puerta <-> LD)."
+  },
+  "2111": {
+   "puntas": [
+    "12XP 1.3",
+    "21PCB01 11"
+   ],
+   "tramos": [
+    [
+     "12XP 1.3",
+     "21PCB01 11"
+    ]
+   ],
+   "hoja": "12, 21, 31",
+   "cable": "N0.75MM",
+   "ubic": {
+    "12XP 1.3": "BANDEJA riel 1 der",
+    "21PCB01 11": "LI (puerta)"
+   },
+   "nota": "2 puntas (medicion de bateria; el plano lo dibuja negro aunque es +12V). La pista de la hoja 21 dice \"12XP2:1\" (desactualizada). Linea 12XP 1.3 -> LI."
+  },
+  "2112": {
+   "puntas": [
+    "12XP 2.2",
+    "21PCB01 12"
+   ],
+   "tramos": [
+    [
+     "12XP 2.2",
+     "21PCB01 12"
+    ]
+   ],
+   "hoja": "12, 21, 31",
+   "cable": "N0.75MM",
+   "ubic": {
+    "12XP 2.2": "BANDEJA riel 1 der",
+    "21PCB01 12": "LI (puerta)"
+   },
+   "nota": "2 puntas. Pista hoja 21 \"12XP1:2\" (desactualizada). Linea 12XP 2.2 -> LI."
+  },
+  "2114": {
+   "puntas": [
+    "21PCB01 14",
+    "43KR1 11"
+   ],
+   "tramos": [
+    [
+     "21PCB01 14",
+     "43KR1 11"
+    ]
+   ],
+   "hoja": "21, 43A/43B/43C",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 14": "LI (puerta)",
+    "43KR1 11": "BANDEJA riel 1 der"
+   },
+   "nota": "Contacto C(11) del modulo 1 de 43KR. Linea 43KR1 11 -> LI."
+  },
+  "2115": {
+   "puntas": [
+    "21PCB01 15",
+    "43KR1 12"
+   ],
+   "tramos": [
+    [
+     "21PCB01 15",
+     "43KR1 12"
+    ]
+   ],
+   "hoja": "21, 43A/43B/43C",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 15": "LI (puerta)",
+    "43KR1 12": "BANDEJA riel 1 der"
+   },
+   "nota": "Contacto NC(12). Pista hoja 21 \"43KR1:NC(12)\". Linea 43KR1 12 -> LI (una sola)."
+  },
+  "2116": {
+   "puntas": [
+    "21PCB01 16",
+    "43DIB1 3"
+   ],
+   "tramos": [
+    [
+     "21PCB01 16",
+     "43DIB1 3"
+    ]
+   ],
+   "hoja": "21, 43A",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 16": "LI (puerta)",
+    "43DIB1 3": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "Alternativa 1 (CHENZHU, lista de materiales): pin 3. Alt 2 (hoja 43B): pin 5; alt 3 (hoja 43C): pin 7. 43DIB1 en la bandeja (riel 2): linea 43DIB1 3 -> LI."
+  },
+  "2117": {
+   "puntas": [
+    "21PCB01 17",
+    "43DIB1 4"
+   ],
+   "tramos": [
+    [
+     "21PCB01 17",
+     "43DIB1 4"
+    ]
+   ],
+   "hoja": "21, 43A",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 17": "LI (puerta)",
+    "43DIB1 4": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "Alternativa 1 (CHENZHU, lista de materiales): pin 4. Alt 2 (hoja 43B): pin 6; alt 3 (hoja 43C): pin 8. 43DIB1 en la bandeja (riel 2): linea 43DIB1 4 -> LI."
+  },
+  "2118": {
+   "puntas": [
+    "21PCB01 18",
+    "43DIB1 5"
+   ],
+   "tramos": [
+    [
+     "21PCB01 18",
+     "43DIB1 5"
+    ]
+   ],
+   "hoja": "21, 43A",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 18": "LI (puerta)",
+    "43DIB1 5": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "Alternativa 1 (CHENZHU, lista de materiales): pin 5. Alt 2 (hoja 43B): pin 7; alt 3 (hoja 43C): pin 10. 43DIB1 en la bandeja (riel 2): linea 43DIB1 5 -> LI."
+  },
+  "2119": {
+   "puntas": [
+    "21PCB01 19",
+    "43DIB1 6"
+   ],
+   "tramos": [
+    [
+     "21PCB01 19",
+     "43DIB1 6"
+    ]
+   ],
+   "hoja": "21, 43A",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 19": "LI (puerta)",
+    "43DIB1 6": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "Alternativa 1 (CHENZHU, lista de materiales): pin 6. Alt 2 (hoja 43B): pin 8; alt 3 (hoja 43C): pin 11. 43DIB1 en la bandeja (riel 2): linea 43DIB1 6 -> LI."
+  },
+  "2142": {
+   "puntas": [
+    "21PCB01 42",
+    "31XAI 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "21PCB01 42",
+     "31XAI 1 ARRIBA"
+    ]
+   ],
+   "hoja": "21, 31",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 42": "LI (puerta)",
+    "31XAI 1 ARRIBA": "BANDEJA riel 1 der"
+   },
+   "nota": "La pista de la hoja 21 dice \"31XAI:2\"; el dibujo de la hoja 31: borne 1. Linea 31XAI 1 ARRIBA -> LI."
+  },
+  "2150": {
+   "puntas": [
+    "21PCB01 50",
+    "61KR1 A1"
+   ],
+   "tramos": [
+    [
+     "21PCB01 50",
+     "61KR1 A1"
+    ]
+   ],
+   "hoja": "21, 61A/61B",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 50": "LI (puerta)",
+    "61KR1 A1": "BANDEJA riel 1 der"
+   },
+   "nota": "Modulo 1 de 61KR (recuadro \"1\" del funcional y pista \"61KR1:A1\" de la hoja 21). Linea 61KR1 A1 -> LI."
+  },
+  "2151": {
+   "puntas": [
+    "21PCB01 51",
+    "61KR1 A2"
+   ],
+   "tramos": [
+    [
+     "21PCB01 51",
+     "61KR1 A2"
+    ]
+   ],
+   "hoja": "21, 61A/61B",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 51": "LI (puerta)",
+    "61KR1 A2": "BANDEJA riel 1 der"
+   },
+   "nota": "Modulo 1 de 61KR (recuadro \"1\" del funcional y pista \"61KR1:A2\" de la hoja 21). Linea 61KR1 A2 -> LI."
+  },
+  "2152": {
+   "puntas": [
+    "21PCB01 52",
+    "61KR2 A1"
+   ],
+   "tramos": [
+    [
+     "21PCB01 52",
+     "61KR2 A1"
+    ]
+   ],
+   "hoja": "21, 61A/61B",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 52": "LI (puerta)",
+    "61KR2 A1": "BANDEJA riel 1 der"
+   },
+   "nota": "Modulo 2 de 61KR (recuadro \"2\" del funcional y pista \"61KR2:A1\" de la hoja 21). Linea 61KR2 A1 -> LI."
+  },
+  "2153": {
+   "puntas": [
+    "21PCB01 53",
+    "61KR2 A2"
+   ],
+   "tramos": [
+    [
+     "21PCB01 53",
+     "61KR2 A2"
+    ]
+   ],
+   "hoja": "21, 61A/61B",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 53": "LI (puerta)",
+    "61KR2 A2": "BANDEJA riel 1 der"
+   },
+   "nota": "Modulo 2 de 61KR (recuadro \"2\" del funcional y pista \"61KR2:A2\" de la hoja 21). Linea 61KR2 A2 -> LI."
+  },
+  "2154": {
+   "puntas": [
+    "21PCB01 54",
+    "61KR3 A1"
+   ],
+   "tramos": [
+    [
+     "21PCB01 54",
+     "61KR3 A1"
+    ]
+   ],
+   "hoja": "21, 61A/61B",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 54": "LI (puerta)",
+    "61KR3 A1": "BANDEJA riel 1 der"
+   },
+   "nota": "Modulo 3 de 61KR (recuadro \"3\" del funcional y pista \"61KR3:A1\" de la hoja 21). Linea 61KR3 A1 -> LI."
+  },
+  "2155": {
+   "puntas": [
+    "21PCB01 55",
+    "61KR3 A2"
+   ],
+   "tramos": [
+    [
+     "21PCB01 55",
+     "61KR3 A2"
+    ]
+   ],
+   "hoja": "21, 61A/61B",
+   "cable": "N0.75MM",
+   "ubic": {
+    "21PCB01 55": "LI (puerta)",
+    "61KR3 A2": "BANDEJA riel 1 der"
+   },
+   "nota": "Modulo 3 de 61KR (recuadro \"3\" del funcional y pista \"61KR3:A2\" de la hoja 21). Linea 61KR3 A2 -> LI."
+  },
+  "3101": {
+   "puntas": [
+    "31XAI F1 ABAJO",
+    "PT 001 1"
+   ],
+   "tramos": [
+    [
+     "31XAI F1 ABAJO",
+     "PT 001 1"
+    ]
+   ],
+   "hoja": "31",
+   "cable": "N0.75MM",
+   "ubic": {
+    "31XAI F1 ABAJO": "BANDEJA riel 1 der",
+    "PT 001 1": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "Linea 31XAI F1 ABAJO -> LI (transmisor PT001 en la zona hidraulica)."
+  },
+  "3102": {
+   "puntas": [
+    "31XAI 1 ABAJO",
+    "PT 001 2"
+   ],
+   "tramos": [
+    [
+     "31XAI 1 ABAJO",
+     "PT 001 2"
+    ]
+   ],
+   "hoja": "31",
+   "cable": "N0.75MM",
+   "ubic": {
+    "31XAI 1 ABAJO": "BANDEJA riel 1 der",
+    "PT 001 2": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "Linea 31XAI 1 ABAJO -> LI."
+  },
+  "3301": {
+   "puntas": [
+    "33MX01 1",
+    "33XAI 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "33MX01 1",
+     "33XAI 1 ARRIBA"
+    ]
+   ],
+   "hoja": "33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "33MX01 1": "BANDEJA riel 1 izq",
+    "33XAI 1 ARRIBA": "LD"
+   },
+   "nota": "AI+ del MOXA (pin 1) al borne 1 de 33XAI (el de abajo de cada par F1/1). Linea 33MX01 1 -> LD."
+  },
+  "3303": {
+   "puntas": [
+    "33MX01 3",
+    "33XAI 2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "33MX01 3",
+     "33XAI 2 ARRIBA"
+    ]
+   ],
+   "hoja": "33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "33MX01 3": "BANDEJA riel 1 izq",
+    "33XAI 2 ARRIBA": "LD"
+   },
+   "nota": "AI+ del MOXA (pin 3) al borne 2 de 33XAI (el de abajo de cada par F2/2). Linea 33MX01 3 -> LD."
+  },
+  "3305": {
+   "puntas": [
+    "33MX01 5",
+    "33XAI 3 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "33MX01 5",
+     "33XAI 3 ARRIBA"
+    ]
+   ],
+   "hoja": "33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "33MX01 5": "BANDEJA riel 1 izq",
+    "33XAI 3 ARRIBA": "LD"
+   },
+   "nota": "AI+ del MOXA (pin 5) al borne 3 de 33XAI (el de abajo de cada par F3/3). Linea 33MX01 5 -> LD."
+  },
+  "3307": {
+   "puntas": [
+    "33MX01 7",
+    "33XAI 4 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "33MX01 7",
+     "33XAI 4 ARRIBA"
+    ]
+   ],
+   "hoja": "33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "33MX01 7": "BANDEJA riel 1 izq",
+    "33XAI 4 ARRIBA": "LD"
+   },
+   "nota": "AI+ del MOXA (pin 7) al borne 4 de 33XAI (el de abajo de cada par F4/4). Linea 33MX01 7 -> LD."
+  },
+  "3309": {
+   "puntas": [
+    "33MX01 9",
+    "33XAI 5 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "33MX01 9",
+     "33XAI 5 ARRIBA"
+    ]
+   ],
+   "hoja": "33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "33MX01 9": "BANDEJA riel 1 izq",
+    "33XAI 5 ARRIBA": "LD"
+   },
+   "nota": "AI+ del MOXA (pin 9) al borne 5 de 33XAI (el de abajo de cada par F5/5). Linea 33MX01 9 -> LD."
+  },
+  "3311": {
+   "puntas": [
+    "33MX01 11",
+    "33XAI 6 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "33MX01 11",
+     "33XAI 6 ARRIBA"
+    ]
+   ],
+   "hoja": "33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "33MX01 11": "BANDEJA riel 1 izq",
+    "33XAI 6 ARRIBA": "LD"
+   },
+   "nota": "AI+ del MOXA (pin 11) al borne 6 de 33XAI (el de abajo de cada par F6/6). Linea 33MX01 11 -> LD."
+  },
+  "3313": {
+   "puntas": [
+    "33MX01 13",
+    "33XAI 7 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "33MX01 13",
+     "33XAI 7 ARRIBA"
+    ]
+   ],
+   "hoja": "33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "33MX01 13": "BANDEJA riel 1 izq",
+    "33XAI 7 ARRIBA": "LD"
+   },
+   "nota": "AI+ del MOXA (pin 13) al borne 7 de 33XAI (el de abajo de cada par F7/7). Linea 33MX01 13 -> LD."
+  },
+  "3315": {
+   "puntas": [
+    "33MX01 15",
+    "33XAI 8 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "33MX01 15",
+     "33XAI 8 ARRIBA"
+    ]
+   ],
+   "hoja": "33",
+   "cable": "N0.75MM",
+   "ubic": {
+    "33MX01 15": "BANDEJA riel 1 izq",
+    "33XAI 8 ARRIBA": "LD"
+   },
+   "nota": "AI+ del MOXA (pin 15) al borne 8 de 33XAI (el de abajo de cada par F8/8). Linea 33MX01 15 -> LD."
+  },
+  "4301": {
+   "puntas": [
+    "43DIB1 9",
+    "43XDIB 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "43DIB1 9",
+     "43XDIB 1 ARRIBA"
+    ]
+   ],
+   "hoja": "43A",
+   "cable": "A0.75MM",
+   "ubic": {
+    "43DIB1 9": "BANDEJA riel 2 (intrinseco)",
+    "43XDIB 1 ARRIBA": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "Alternativa 1: 43DIB1 pin 9 (alt 2: 3, alt 3: 1). 2 puntas, NO 3. Ambas en la bandeja (riel 2): linea. Del lado ABAJO de 43XDIB sale el cable de campo a la valvula VSS (sin numero); 43XDIB 1 ABAJO y 3 ABAJO van unidos por un puente SIN numero."
+  },
+  "4302": {
+   "puntas": [
+    "43DIB1 10",
+    "43XDIB 2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "43DIB1 10",
+     "43XDIB 2 ARRIBA"
+    ]
+   ],
+   "hoja": "43A",
+   "cable": "A0.75MM",
+   "ubic": {
+    "43DIB1 10": "BANDEJA riel 2 (intrinseco)",
+    "43XDIB 2 ARRIBA": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "Alternativa 1: 43DIB1 pin 10 (alt 2: 4, alt 3: 3). 2 puntas, NO 3. Ambas en la bandeja (riel 2): linea. Del lado ABAJO de 43XDIB sale el cable de campo a la valvula VSS (sin numero); 43XDIB 1 ABAJO y 3 ABAJO van unidos por un puente SIN numero."
+  },
+  "4303": {
+   "puntas": [
+    "43DIB1 7",
+    "43XDIB 3 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "43DIB1 7",
+     "43XDIB 3 ARRIBA"
+    ]
+   ],
+   "hoja": "43A",
+   "cable": "A0.75MM",
+   "ubic": {
+    "43DIB1 7": "BANDEJA riel 2 (intrinseco)",
+    "43XDIB 3 ARRIBA": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "Alternativa 1: 43DIB1 pin 7 (alt 2: 1, alt 3: 4). 2 puntas, NO 3. Ambas en la bandeja (riel 2): linea. Del lado ABAJO de 43XDIB sale el cable de campo a la valvula VSS (sin numero); 43XDIB 1 ABAJO y 3 ABAJO van unidos por un puente SIN numero."
+  },
+  "4304": {
+   "puntas": [
+    "43DIB1 8",
+    "43XDIB 4 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "43DIB1 8",
+     "43XDIB 4 ARRIBA"
+    ]
+   ],
+   "hoja": "43A",
+   "cable": "A0.75MM",
+   "ubic": {
+    "43DIB1 8": "BANDEJA riel 2 (intrinseco)",
+    "43XDIB 4 ARRIBA": "BANDEJA riel 2 (intrinseco)"
+   },
+   "nota": "Alternativa 1: 43DIB1 pin 8 (alt 2: 2, alt 3: 6). 2 puntas, NO 3. Ambas en la bandeja (riel 2): linea. Del lado ABAJO de 43XDIB sale el cable de campo a la valvula VSS (sin numero); 43XDIB 1 ABAJO y 3 ABAJO van unidos por un puente SIN numero."
+  },
+  "4305": {
+   "puntas": [
+    "43KR1 A1",
+    "43XDI 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "43KR1 A1",
+     "43XDI 1 ARRIBA"
+    ]
+   ],
+   "hoja": "43A/43B/43C",
+   "cable": "R1MM",
+   "ubic": {
+    "43KR1 A1": "BANDEJA riel 1 der",
+    "43XDI 1 ARRIBA": "LD"
+   },
+   "nota": "Linea 43KR1 A1 -> LD."
+  },
+  "4306": {
+   "puntas": [
+    "43KR1 A2",
+    "43XDI 2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "43KR1 A2",
+     "43XDI 2 ARRIBA"
+    ]
+   ],
+   "hoja": "43A/43B/43C",
+   "cable": "N1MM",
+   "ubic": {
+    "43KR1 A2": "BANDEJA riel 1 der",
+    "43XDI 2 ARRIBA": "LD"
+   },
+   "nota": "Linea 43KR1 A2 -> LD."
+  },
+  "6101": {
+   "puntas": [
+    "61KR1 14",
+    "XM1 1 ARRIBA",
+    "61XDIO 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "61KR1 14",
+     "XM1 1 ARRIBA"
+    ],
+    [
+     "61XDIO 1 ARRIBA",
+     "XM1 1 ARRIBA"
+    ]
+   ],
+   "hoja": "61A/61B",
+   "cable": "R1MM",
+   "ubic": {
+    "61KR1 14": "BANDEJA riel 1 der",
+    "XM1 1 ARRIBA": "BANDEJA riel 1 der",
+    "61XDIO 1 ARRIBA": "BANDEJA riel 1 der"
+   },
+   "nota": "3 puntas REAL: el diodo 61XDIO 1 (catodo) se une con DIAGONAL que apunta a XM1 1: terminal doble en XM1 1 ARRIBA. 61XDIO: lado fisico (catodo arriba), regla pendiente de confirmar."
+  },
+  "6102": {
+   "puntas": [
+    "XM1 1 ABAJO",
+    "BH-01-ZV"
+   ],
+   "tramos": [
+    [
+     "XM1 1 ABAJO",
+     "BH-01-ZV"
+    ]
+   ],
+   "hoja": "61A/61B",
+   "cable": "R1MM",
+   "ubic": {
+    "XM1 1 ABAJO": "BANDEJA riel 1 der",
+    "BH-01-ZV": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "Bobina del arrancador trombetta BH-01-ZV. Linea XM1 1 ABAJO -> LI."
+  },
+  "6103": {
+   "puntas": [
+    "XM1 2 ABAJO",
+    "BH-01-ZV"
+   ],
+   "tramos": [
+    [
+     "XM1 2 ABAJO",
+     "BH-01-ZV"
+    ]
+   ],
+   "hoja": "61B",
+   "cable": "N1MM",
+   "ubic": {
+    "XM1 2 ABAJO": "BANDEJA riel 1 der",
+    "BH-01-ZV": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "SOLO en la alternativa 2 (hoja 61B, unidad hidraulica SENSOR OIL): retorno de la bobina BH-01-ZV / masa. En la alternativa 1 (61A, VIBO) no existe. La lista de materiales dice BREVINI: confirmar cual se monta."
+  },
+  "6104": {
+   "puntas": [
+    "61KR2 14",
+    "XM1 3 ARRIBA",
+    "61XDIO 2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "61KR2 14",
+     "XM1 3 ARRIBA"
+    ],
+    [
+     "61XDIO 2 ARRIBA",
+     "XM1 3 ARRIBA"
+    ]
+   ],
+   "hoja": "61A/61B",
+   "cable": "R1MM",
+   "ubic": {
+    "61KR2 14": "BANDEJA riel 1 der",
+    "XM1 3 ARRIBA": "BANDEJA riel 1 der",
+    "61XDIO 2 ARRIBA": "BANDEJA riel 1 der"
+   },
+   "nota": "3 puntas REAL, desde el modulo 2 (NO 61KR1): 61KR2 14 -> XM1 3 ARRIBA y el diodo 61XDIO 2 (catodo) unido con DIAGONAL hacia XM1 3."
+  },
+  "6201": {
+   "puntas": [
+    "XM1 3 ABAJO",
+    "ZY"
+   ],
+   "tramos": [
+    [
+     "XM1 3 ABAJO",
+     "ZY"
+    ]
+   ],
+   "hoja": "61A/61B",
+   "cable": "R1MM",
+   "ubic": {
+    "XM1 3 ABAJO": "BANDEJA riel 1 der",
+    "ZY": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "Bobina de la valvula solenoide ZY (N/O) (zona hidraulica). Linea XM1 3 ABAJO -> LI."
+  },
+  "6202": {
+   "puntas": [
+    "XM1 4 ABAJO",
+    "ZY"
+   ],
+   "tramos": [
+    [
+     "XM1 4 ABAJO",
+     "ZY"
+    ]
+   ],
+   "hoja": "61A/61B",
+   "cable": "N1MM",
+   "ubic": {
+    "XM1 4 ABAJO": "BANDEJA riel 1 der",
+    "ZY": "LI (fondo / zona hidraulica)"
+   },
+   "nota": "Otro borne de la bobina ZY. Linea XM1 4 ABAJO -> LI."
+  },
+  "8101": {
+   "puntas": [
+    "61KR3 11",
+    "81XCM 3 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "61KR3 11",
+     "81XCM 3 ARRIBA"
+    ]
+   ],
+   "hoja": "81",
+   "cable": "N1MM",
+   "ubic": {
+    "61KR3 11": "BANDEJA riel 1 der",
+    "81XCM 3 ARRIBA": "LD"
+   },
+   "nota": "Contacto C(11) de 61KR3 (en la hoja 81 rotulado \"61KR.3 (Sh:61:E4)\"; en la hoja 61 \"Feedback Position (81:C5)\"). 61KR3 en la bandeja: linea 61KR3 11 -> LD."
+  },
+  "8102": {
+   "puntas": [
+    "61KR3 12",
+    "81XCM 4 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "61KR3 12",
+     "81XCM 4 ARRIBA"
+    ]
+   ],
+   "hoja": "81",
+   "cable": "N1MM",
+   "ubic": {
+    "61KR3 12": "BANDEJA riel 1 der",
+    "81XCM 4 ARRIBA": "LD"
+   },
+   "nota": "Contacto NC(12) de 61KR3. Linea 61KR3 12 -> LD."
+  },
+  "8103": {
+   "puntas": [
+    "21PCB01 35",
+    "81XCM 1 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "21PCB01 35",
+     "81XCM 1 ARRIBA"
+    ]
+   ],
+   "hoja": "21, 81",
+   "cable": "N1MM",
+   "ubic": {
+    "21PCB01 35": "LI (puerta)",
+    "81XCM 1 ARRIBA": "LD"
+   },
+   "nota": "Par 1 apantallado (RS-485 A, puerto 1). La malla va a 81XCM 5 (sin numero). Pendiente (puerta <-> LD)."
+  },
+  "8104": {
+   "puntas": [
+    "21PCB01 36",
+    "81XCM 2 ARRIBA"
+   ],
+   "tramos": [
+    [
+     "21PCB01 36",
+     "81XCM 2 ARRIBA"
+    ]
+   ],
+   "hoja": "21, 81",
+   "cable": "B1MM",
+   "ubic": {
+    "21PCB01 36": "LI (puerta)",
+    "81XCM 2 ARRIBA": "LD"
+   },
+   "nota": "RS-485 B, puerto 1. Pendiente."
+  },
+  "8105": {
+   "puntas": [
+    "21PCB01 32",
+    "EMPALME 12PS2 RS485 A",
+    "33MX01 D1+"
+   ],
+   "tramos": [
+    [
+     "21PCB01 32",
+     "EMPALME 12PS2 RS485 A"
+    ],
+    [
+     "33MX01 D1+",
+     "EMPALME 12PS2 RS485 A"
+    ]
+   ],
+   "hoja": "21, 81",
+   "cable": "N1MM",
+   "ubic": {
+    "21PCB01 32": "LI (puerta)",
+    "EMPALME 12PS2 RS485 A": "LI (empalme con el cable RS-485 de 12PS2)",
+    "33MX01 D1+": "BANDEJA riel 1 izq"
+   },
+   "nota": "3 puntas: de la placa (RS-485 A puerto 2) y del MOXA D1+; la DIAGONAL del tramo del MOXA apunta al EMPALME (cuadradito negro) con el cable CC-RS485-RS485 de 12PS2 (blanco 0,3 mm2, PIN 2 = A)."
+  },
+  "8106": {
+   "puntas": [
+    "21PCB01 33",
+    "EMPALME 12PS2 RS485 B",
+    "33MX01 D1-"
+   ],
+   "tramos": [
+    [
+     "21PCB01 33",
+     "EMPALME 12PS2 RS485 B"
+    ],
+    [
+     "33MX01 D1-",
+     "EMPALME 12PS2 RS485 B"
+    ]
+   ],
+   "hoja": "21, 81",
+   "cable": "B1MM",
+   "ubic": {
+    "21PCB01 33": "LI (puerta)",
+    "EMPALME 12PS2 RS485 B": "LI (empalme con el cable RS-485 de 12PS2)",
+    "33MX01 D1-": "BANDEJA riel 1 izq"
+   },
+   "nota": "3 puntas: placa 33 (RS-485 B) y MOXA D1-, unidos en el EMPALME con el amarillo 0,3 mm2 (PIN 3 = B) del cable RS-485 de 12PS2."
+  }
+ }
+}

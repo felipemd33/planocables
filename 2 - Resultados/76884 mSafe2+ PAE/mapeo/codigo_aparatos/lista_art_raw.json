@@ -1,0 +1,1192 @@
+[
+ {
+  "page": 40,
+  "tag": "-31 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "1"
+ },
+ {
+  "page": 40,
+  "tag": "-12 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Enchufe redondo negro para orificio Ø22",
+  "tipo": "ZB5SZ3 | AB2000273",
+  "fab": "Schneider Electric | AB200 | 0273",
+  "art": "SE.ZB5SZ3",
+  "pos": "2"
+ },
+ {
+  "page": 40,
+  "tag": "-22 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "3"
+ },
+ {
+  "page": 40,
+  "tag": "-24 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "4"
+ },
+ {
+  "page": 40,
+  "tag": "-28 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "5"
+ },
+ {
+  "page": 40,
+  "tag": "-29 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "6"
+ },
+ {
+  "page": 40,
+  "tag": "-30 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "7"
+ },
+ {
+  "page": 40,
+  "tag": "-31 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "8"
+ },
+ {
+  "page": 40,
+  "tag": "-15AIB1 | &CLIENTE/32.2C",
+  "cant": "1",
+  "desig": "Barrera de seguridad intrínseca | 2 Entradas analógicas",
+  "tipo": "GS8536-EX | AB2000134",
+  "fab": "CHENZHU | AB200 | 0134",
+  "art": "CZ.GS8536-EX | Barrera de Seguridad",
+  "pos": "9"
+ },
+ {
+  "page": 40,
+  "tag": "-BH-01-M | &CLIENTE/12.2E",
+  "cant": "1",
+  "desig": "UNIDAD HIDRAULICA",
+  "tipo": "UNIDAD HIDRAULICA | UNIDAD HIDRAULICA",
+  "fab": "DIGITO | UNID | AD HI",
+  "art": "g | DIG.UNIDAD HIDRAULICA R2 | Motor Unidad Hidráulica",
+  "pos": "10"
+ },
+ {
+  "page": 40,
+  "tag": "-BH-01-M | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Unidad hidráulica completa",
+  "tipo": "",
+  "fab": "Vibo",
+  "art": "VIBO",
+  "pos": "11"
+ },
+ {
+  "page": 40,
+  "tag": "-BH_01_ZV | &CLIENTE/61.2E",
+  "cant": "1",
+  "desig": "Contactor de bomba 12 VDC",
+  "tipo": "684-1261-212-17 | 684-1261-212-17",
+  "fab": "Trombetta | 684-1 | 261-2",
+  "art": "TROM.684-1261-212-17 | Contactor de Motor",
+  "pos": "12"
+ },
+ {
+  "page": 40,
+  "tag": "-42DB1 | &CLIENTE/42.3C",
+  "cant": "1",
+  "desig": "Parada de emergencia Ø22 - cabeza seta Ø40 - girar para desenclavar 1NC",
+  "tipo": "XB4BS8442 | AB2000051",
+  "fab": "Schneider Electric | AB200 | 0051",
+  "art": "SE.XB4BS8442 | Pulsador",
+  "pos": "13"
+ },
+ {
+  "page": 40,
+  "tag": "-42DB1 | &CLIENTE/42.3C",
+  "cant": "1",
+  "desig": "Protección para seta Ø 40 y unidades Ø 22 mm - amarillo",
+  "tipo": "ZBZ1605 | AB2000050",
+  "fab": "Schneider Electric | AB200 | 0050",
+  "art": "SE.ZBZ1605 | =",
+  "pos": "14"
+ },
+ {
+  "page": 40,
+  "tag": "-42DB1 | &CLIENTE/42.3C",
+  "cant": "1",
+  "desig": "Contacto 1NC para XB4",
+  "tipo": "ZBE102 | AB2000405",
+  "fab": "AB200 | 0405 | Schneider Electric",
+  "art": "SE.ZBE102 | =",
+  "pos": "15"
+ },
+ {
+  "page": 40,
+  "tag": "-15DIB1 | &CLIENTE/41.2C",
+  "cant": "1",
+  "desig": "Barrera de seguridad intrínseca | 2 Entradas digitales",
+  "tipo": "GS8512-EX.22 | AB2000135",
+  "fab": "CHENZHU | AB200 | 0135",
+  "art": "CZ.GS8512-EX.22 | Barrera de Seguridad",
+  "pos": "16"
+ },
+ {
+  "page": 40,
+  "tag": "-15DIB2 | &CLIENTE/41.4C",
+  "cant": "1",
+  "desig": "Barrera de seguridad intrínseca | 2 Entradas digitales",
+  "tipo": "GS8512-EX.22 | AB2000135",
+  "fab": "CHENZHU | AB200 | 0135",
+  "art": "CZ.GS8512-EX.22 | =",
+  "pos": "17"
+ },
+ {
+  "page": 40,
+  "tag": "-15DIB3 | &CLIENTE/41.6C",
+  "cant": "1",
+  "desig": "Barrera de seguridad intrínseca | 2 Entradas digitales",
+  "tipo": "GS8512-EX.22 | AB2000135",
+  "fab": "CHENZHU | AB200 | 0135",
+  "art": "CZ.GS8512-EX.22 | =",
+  "pos": "18"
+ },
+ {
+  "page": 40,
+  "tag": "-42DS | &CLIENTE/42.1C",
+  "cant": "1",
+  "desig": "Final de carrera metálico 1NAC",
+  "tipo": "HL-5200 | AB2000022",
+  "fab": "AB200 | 0022 | OMRON | Corporation",
+  "art": "HL-5200 | Sensor de Puerta",
+  "pos": "19"
+ },
+ {
+  "page": 41,
+  "tag": "-11F1 | &CLIENTE/11.6D",
+  "cant": "1",
+  "desig": "TeSys portafusibles - 1 P 32A",
+  "tipo": "DF101 | AB12029121",
+  "fab": "Schneider Electric | AB120 | 29121",
+  "art": "SE.DF101 | Protección",
+  "pos": "20"
+ },
+ {
+  "page": 41,
+  "tag": "-11F1 | &CLIENTE/11.6D",
+  "cant": "1",
+  "desig": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o | indicación",
+  "tipo": "DF2CN10 | AB2000219",
+  "fab": "AB200 | 0219 | Schneider Electric",
+  "art": "SE.DF2CN10 | =",
+  "pos": "21"
+ },
+ {
+  "page": 41,
+  "tag": "-11F2 | &CLIENTE/11.7D",
+  "cant": "1",
+  "desig": "TeSys portafusibles - 1 P 32A",
+  "tipo": "DF101 | AB12029121",
+  "fab": "AB120 | 29121 | Schneider Electric",
+  "art": "SE.DF101 | Protección",
+  "pos": "22"
+ },
+ {
+  "page": 41,
+  "tag": "-11F2 | &CLIENTE/11.7D",
+  "cant": "1",
+  "desig": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o | indicación",
+  "tipo": "DF2CN10 | AB2000219",
+  "fab": "Schneider Electric | AB200 | 0219",
+  "art": "SE.DF2CN10 | =",
+  "pos": "23"
+ },
+ {
+  "page": 41,
+  "tag": "-12F2 | &CLIENTE/12.2D",
+  "cant": "1",
+  "desig": "Portafusible MEGA con protección",
+  "tipo": "FUSE MEGA HOLDER | AB2000441",
+  "fab": "Littelfuse | AB200 | 0441",
+  "art": "FUSE MEGA HOLDER | Protección Motor de",
+  "pos": "24"
+ },
+ {
+  "page": 41,
+  "tag": "-12F2 | &CLIENTE/12.2D",
+  "cant": "1",
+  "desig": "FUSIBLE-MEGA",
+  "tipo": "FUSIBLE MEGA 150A | AB2000435",
+  "fab": "Littelfuse | AB200 | 0435",
+  "art": "FUSIBLE MEGA 150A | =",
+  "pos": "25"
+ },
+ {
+  "page": 41,
+  "tag": "-12F3 | &CLIENTE/12.5C",
+  "cant": "1",
+  "desig": "TeSys portafusibles - 1 P 50A",
+  "tipo": "DF141 | DF141",
+  "fab": "Schneider ElectricDF141",
+  "art": "SE.DF141 | Protección",
+  "pos": "26"
+ },
+ {
+  "page": 41,
+  "tag": "-12F3 | &CLIENTE/12.5C",
+  "cant": "1",
+  "desig": "TeSys fusible-seccionador - cartucho de fusible de 14 x 51 mm - Am 32 A - w / o | indicación",
+  "tipo": "DF2EA32 | DF2EA32",
+  "fab": "Schneider Electric | DF2E | A32",
+  "art": "SE.DF2EA32 | =",
+  "pos": "27"
+ },
+ {
+  "page": 41,
+  "tag": "-13F4 | &CLIENTE/13.1B",
+  "cant": "1",
+  "desig": "TeSys portafusibles - 1 P 32A",
+  "tipo": "DF101 | AB12029121",
+  "fab": "Schneider Electric | AB120 | 29121",
+  "art": "SE.DF101 | Protección",
+  "pos": "28"
+ },
+ {
+  "page": 41,
+  "tag": "-13F4 | &CLIENTE/13.1B",
+  "cant": "1",
+  "desig": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o | indicación",
+  "tipo": "DF2CN10 | AB2000219",
+  "fab": "Schneider Electric | AB200 | 0219",
+  "art": "SE.DF2CN10 | =",
+  "pos": "29"
+ },
+ {
+  "page": 41,
+  "tag": "-13F5 | &CLIENTE/13.2B",
+  "cant": "1",
+  "desig": "TeSys portafusibles - 1 P 32A",
+  "tipo": "DF101 | AB12029121",
+  "fab": "Schneider Electric | AB120 | 29121",
+  "art": "SE.DF101 | Protección",
+  "pos": "30"
+ },
+ {
+  "page": 41,
+  "tag": "-13F5 | &CLIENTE/13.2B",
+  "cant": "1",
+  "desig": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o | indicación",
+  "tipo": "DF2CN10 | AB2000219",
+  "fab": "Schneider Electric | AB200 | 0219",
+  "art": "SE.DF2CN10 | =",
+  "pos": "31"
+ },
+ {
+  "page": 41,
+  "tag": "-13F6 | &CLIENTE/13.5D",
+  "cant": "1",
+  "desig": "TeSys portafusibles - 1 P 32A",
+  "tipo": "DF101 | AB12029121",
+  "fab": "AB120 | 29121 | Schneider Electric",
+  "art": "SE.DF101 | Protección",
+  "pos": "32"
+ },
+ {
+  "page": 41,
+  "tag": "-13F6 | &CLIENTE/13.5D",
+  "cant": "1",
+  "desig": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 6 A - w / o | indicación",
+  "tipo": "DF2CN06 | DF2CN06",
+  "fab": "DF2C | N06 | Schneider Electric",
+  "art": "SE.DF2CN06 | =",
+  "pos": "33"
+ },
+ {
+  "page": 41,
+  "tag": "-42KR | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "AB120 | 2844 | Phoenix Contact",
+  "art": "PXC.0800886",
+  "pos": "34"
+ },
+ {
+  "page": 41,
+  "tag": "-42KR1 | &CLIENTE/42.6D",
+  "cant": "1",
+  "desig": "Relé de todo o nada básico | Módulo de relés",
+  "tipo": "RIF-0-RPT-24DC/21 | AB2000064",
+  "fab": "AB200 | 0064 | Phoenix Contact",
+  "art": "PXC.2903370",
+  "pos": "35"
+ },
+ {
+  "page": 41,
+  "tag": "-61KR | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "AB120 | 2844 | Phoenix Contact",
+  "art": "PXC.0800886",
+  "pos": "36"
+ },
+ {
+  "page": 41,
+  "tag": "-61KR1 | &CLIENTE/61.1A",
+  "cant": "1",
+  "desig": "Relé de todo o nada básico | Módulo de relés",
+  "tipo": "RIF-0-RPT-12DC/21 | AB2000063",
+  "fab": "AB200 | 0063 | Phoenix Contact",
+  "art": "PXC.2903371 | Relé",
+  "pos": "37"
+ },
+ {
+  "page": 41,
+  "tag": "-61KR2 | &CLIENTE/61.3A",
+  "cant": "1",
+  "desig": "Relé de todo o nada básico | Módulo de relés",
+  "tipo": "RIF-0-RPT-12DC/21 | AB2000063",
+  "fab": "AB200 | 0063 | Phoenix Contact",
+  "art": "PXC.2903371 | Relé",
+  "pos": "38"
+ },
+ {
+  "page": 42,
+  "tag": "-61KR3 | &CLIENTE/61.5A",
+  "cant": "1",
+  "desig": "Relé de todo o nada básico | Módulo de relés",
+  "tipo": "RIF-0-RPT-12DC/21 | AB2000063",
+  "fab": "AB200 | 0063 | Phoenix Contact",
+  "art": "PXC.2903371 | Relé",
+  "pos": "39"
+ },
+ {
+  "page": 42,
+  "tag": "-61KR4 | &CLIENTE/61.6A",
+  "cant": "1",
+  "desig": "Relé de todo o nada básico | Módulo de relés",
+  "tipo": "RIF-0-RPT-12DC/21 | AB2000063",
+  "fab": "AB200 | 0063 | Phoenix Contact",
+  "art": "PXC.2903371 | Relé",
+  "pos": "40"
+ },
+ {
+  "page": 42,
+  "tag": "-42KS1 | &CLIENTE/42.4B",
+  "cant": "1",
+  "desig": "Relé de seguridad",
+  "tipo": "PSR-SCP- 24UC/ESA2/4X1/1X2/B | AB2000444",
+  "fab": "AB200 | 0444 | Phoenix Contact",
+  "art": "PXC.2963802 | Relé de Seguridad",
+  "pos": "41"
+ },
+ {
+  "page": 42,
+  "tag": "-LS001A | &CLIENTE/42.2D",
+  "cant": "1",
+  "desig": "SENSOR DE NIVEL CAPACITIVO",
+  "tipo": "XKC-Y28-NO | AB2000505",
+  "fab": "AB200 | 0505 | XKC",
+  "art": "g | XKC-Y28-NO | Sensor de",
+  "pos": "42"
+ },
+ {
+  "page": 42,
+  "tag": "-M1 | (mSafe.S1)",
+  "cant": "1",
+  "desig": "UNIDAD HIDRAULICA",
+  "tipo": "UNIDAD HIDRAULICA | UNIDAD HIDRAULICA",
+  "fab": "UNID | AD HI | DIGITO",
+  "art": "DIG.UNIDAD HIDRAULICA R2",
+  "pos": "43"
+ },
+ {
+  "page": 42,
+  "tag": "-11MS1 | &CLIENTE/11.4C",
+  "cant": "1",
+  "desig": "TeSys VARIO Interruptor seccionador en la puerta",
+  "tipo": "VBF1 | AB20000331",
+  "fab": "AB200 | 00331 | Schneider Electric",
+  "art": "SE.VBF1 | Llave de Corte",
+  "pos": "44"
+ },
+ {
+  "page": 42,
+  "tag": "-13MS1 | &CLIENTE/13.1C",
+  "cant": "1",
+  "desig": "TeSys VARIO Interruptor seccionador en la puerta",
+  "tipo": "VBF1 | AB20000331",
+  "fab": "AB200 | 00331 | Schneider Electric",
+  "art": "SE.VBF1 | =",
+  "pos": "45"
+ },
+ {
+  "page": 42,
+  "tag": "-12PB1 | &CLIENTE/12.4D",
+  "cant": "1",
+  "desig": "Batería de 12V",
+  "tipo": "ODX-AGM34M | AB139844",
+  "fab": "AB139 | 844 | ODYSSEY",
+  "art": "ODY.ODX-AGM34M | Batería de Potencia",
+  "pos": "46"
+ },
+ {
+  "page": 42,
+  "tag": "-21PCB01 | &CLIENTE/21.1B",
+  "cant": "1",
+  "desig": "E2.5 DI/DO/AI | PLACA E2.5",
+  "tipo": "PCB-E2-5 | L03-60591-01",
+  "fab": "DIGITO | L03-6 | 0591-",
+  "art": "PLACA_E2.5 | Unidad de Control",
+  "pos": "47"
+ },
+ {
+  "page": 42,
+  "tag": "-11PS1 | &CLIENTE/11.6C",
+  "cant": "1",
+  "desig": "Fuente de alimentación 110/220VAC - 24/28VDC",
+  "tipo": "NDR-240-24 | AB1202653",
+  "fab": "MEAN WELL | AB120 | 2653",
+  "art": "MWP.NDR-240-24 | Fuente 24VDC",
+  "pos": "48"
+ },
+ {
+  "page": 42,
+  "tag": "-11PS2 | &CLIENTE/11.7C",
+  "cant": "1",
+  "desig": "Fuente de alimentación 110/220VAC - 24/28VDC",
+  "tipo": "NDR-240-24 | AB1202653",
+  "fab": "MEAN WELL | AB120 | 2653",
+  "art": "MWP.NDR-240-24 | =",
+  "pos": "49"
+ },
+ {
+  "page": 42,
+  "tag": "-12PS1 | &CLIENTE/12.4A",
+  "cant": "1",
+  "desig": "Regulador de carga MPPT",
+  "tipo": "EPE.TRACER7810BP | AB20000291",
+  "fab": "EPEVER | AB200 | 00291",
+  "art": "TRACER7810BP | Regulador de carga",
+  "pos": "50"
+ },
+ {
+  "page": 42,
+  "tag": "-13PS1 | &CLIENTE/13.4C",
+  "cant": "1",
+  "desig": "Elevador de tensión 12-24VDC",
+  "tipo": "MWP.DDR-120A-24 | AB139867",
+  "fab": "MEAN WELL | AB139 | 867",
+  "art": "gg | MW.DDR-120A-24 | Elevador 12/24VDC",
+  "pos": "51"
+ },
+ {
+  "page": 42,
+  "tag": "-PT001 | &CLIENTE/32.5D",
+  "cant": "1",
+  "desig": "Transmisor de presión | Conector: 1 DIN",
+  "tipo": "PT-250-SEG14-A-ZVG/VE | AB2000144",
+  "fab": "ifm electronic | AB200 | 0144",
+  "art": "IFM.PT-250-SEG14-A-ZVG/VE | Transmisor de Presión",
+  "pos": "52"
+ },
+ {
+  "page": 42,
+  "tag": "-11Q1 | &CLIENTE/11.4C",
+  "cant": "1",
+  "desig": "ACTI9 IID 2P 25A 30MA AC RCCB",
+  "tipo": "EZ9F36225 | AB1203305",
+  "fab": "Schneider Electric | AB120 | 3305",
+  "art": "SE.EZ9F36225 | Proteccion Diferencial 110/220V",
+  "pos": "53"
+ },
+ {
+  "page": 42,
+  "tag": "-11Q2 | &CLIENTE/11.4D",
+  "cant": "1",
+  "desig": "TERMOMAGNÉTICA 2x10A",
+  "tipo": "EZ9F34210 | AB12026561",
+  "fab": "Schneider Electric | AB120 | 26561",
+  "art": "SE.EZ9F34210 | Protección 110/220V",
+  "pos": "54"
+ },
+ {
+  "page": 42,
+  "tag": "-11SK1 | &CLIENTE/11.4E",
+  "cant": "1",
+  "desig": "Enchufe de zócalo para caja de distribución | Toma de corriente",
+  "tipo": "EO-I/UT | 0804087",
+  "fab": "Phoenix Contact | 08040 | 87",
+  "art": "PXC.0804087 | Tomacorriente",
+  "pos": "55"
+ },
+ {
+  "page": 42,
+  "tag": "-SP_1 | &CLIENTE/61.4E",
+  "cant": "1",
+  "desig": "VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC",
+  "tipo": "VALV.SOLENOIDE 3/2 NC POPPET 30 | W 12VDC",
+  "fab": "DIGITO | AB200 | 0408",
+  "art": "DIG.DLEHM-3A/WP-X 12DC | Solenoide Válvula 1",
+  "pos": "56"
+ },
+ {
+  "page": 42,
+  "tag": "-SP_2 | &CLIENTE/61.6E",
+  "cant": "1",
+  "desig": "VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC",
+  "tipo": "VALV.SOLENOIDE 3/2 NC POPPET 30 | W 12VDC",
+  "fab": "DIGITO | AB200 | 0408",
+  "art": "DIG.DLEHM-3A/WP-X 12DC | Solenoide Válvula 2",
+  "pos": "57"
+ },
+ {
+  "page": 43,
+  "tag": "-SP_3 | &CLIENTE/61.7E",
+  "cant": "1",
+  "desig": "VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC",
+  "tipo": "VALV.SOLENOIDE 3/2 NC POPPET 30 | W 12VDC",
+  "fab": "DIGITO | AB200 | 0408",
+  "art": "DIG.DLEHM-3A/WP-X 12DC | Solenoide Válvula 3",
+  "pos": "58"
+ },
+ {
+  "page": 43,
+  "tag": "-11X220V | (mSafe.S1); | &CLIENTE/11.5E",
+  "cant": "2",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "59"
+ },
+ {
+  "page": 43,
+  "tag": "-11X220V | &CLIENTE/11.5E",
+  "cant": "2",
+  "desig": "Bloque de terminales de paso | Borne de paso",
+  "tipo": "PT 6-QUATTRO | AB2000369",
+  "fab": "Phoenix Contact | AB200 | 0369",
+  "art": "PXC.3212934",
+  "pos": "60"
+ },
+ {
+  "page": 43,
+  "tag": "-11X220V | &CLIENTE/11.5E",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PT 6-QUATTRO | AB2000370",
+  "fab": "Phoenix Contact | AB200 | 0370",
+  "art": "PXC.3212963",
+  "pos": "61"
+ },
+ {
+  "page": 43,
+  "tag": "-13X12V | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "62"
+ },
+ {
+  "page": 43,
+  "tag": "-13X12V | &CLIENTE/13.5A",
+  "cant": "2",
+  "desig": "Bloque de terminales de paso | Borne de paso",
+  "tipo": "PT 6-QUATTRO | AB2000369",
+  "fab": "Phoenix Contact | AB200 | 0369",
+  "art": "PXC.3212934",
+  "pos": "63"
+ },
+ {
+  "page": 43,
+  "tag": "-13X12V | &CLIENTE/13.5A",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PT 6-QUATTRO | AB2000370",
+  "fab": "Phoenix Contact | AB200 | 0370",
+  "art": "PXC.3212963",
+  "pos": "64"
+ },
+ {
+  "page": 43,
+  "tag": "-13X24V | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "65"
+ },
+ {
+  "page": 43,
+  "tag": "-13X24V | &CLIENTE/13.4E; | &CLIENTE/13.5E",
+  "cant": "4",
+  "desig": "Bloque de terminales de paso | Borne de paso",
+  "tipo": "PT 6-QUATTRO | AB2000369",
+  "fab": "Phoenix Contact | AB200 | 0369",
+  "art": "PXC.3212934",
+  "pos": "66"
+ },
+ {
+  "page": 43,
+  "tag": "-13X24V | &CLIENTE/13.4E",
+  "cant": "1",
+  "desig": "Puente | Puente enchufable",
+  "tipo": "FBS 2-8 | AB20003702",
+  "fab": "Phoenix Contact | AB200 | 03702",
+  "art": "PXC.3030284",
+  "pos": "67"
+ },
+ {
+  "page": 43,
+  "tag": "-13X24V | &CLIENTE/13.4E; | &CLIENTE/13.5E",
+  "cant": "2",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PT 6-QUATTRO | AB2000370",
+  "fab": "Phoenix Contact | AB200 | 0370",
+  "art": "PXC.3212963",
+  "pos": "68"
+ },
+ {
+  "page": 43,
+  "tag": "-13X24V | &CLIENTE/13.5E",
+  "cant": "1",
+  "desig": "Puente | Puente enchufable",
+  "tipo": "FBS 2-8 BU | AB20003703",
+  "fab": "Phoenix Contact | AB200 | 03703",
+  "art": "PXC.3032567",
+  "pos": "69"
+ },
+ {
+  "page": 43,
+  "tag": "-61X0V | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "70"
+ },
+ {
+  "page": 43,
+  "tag": "-61X0V | &CLIENTE/61.2E; | &CLIENTE/61.3E",
+  "cant": "2",
+  "desig": "Bloque de terminales de paso | Borne de paso",
+  "tipo": "PT 6-QUATTRO | AB2000369",
+  "fab": "Phoenix Contact | AB200 | 0369",
+  "art": "PXC.3212934",
+  "pos": "71"
+ },
+ {
+  "page": 43,
+  "tag": "-61X0V | &CLIENTE/61.2E",
+  "cant": "1",
+  "desig": "Puente | Puente enchufable",
+  "tipo": "FBS 2-8 BU | AB20003703",
+  "fab": "Phoenix Contact | AB200 | 03703",
+  "art": "PXC.3032567",
+  "pos": "72"
+ },
+ {
+  "page": 43,
+  "tag": "-61X0V | &CLIENTE/61.3E",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PT 6-QUATTRO | AB2000370",
+  "fab": "Phoenix Contact | AB200 | 0370",
+  "art": "PXC.3212963",
+  "pos": "73"
+ },
+ {
+  "page": 43,
+  "tag": "-32XAI | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "74"
+ },
+ {
+  "page": 44,
+  "tag": "-32XAI | &CLIENTE/32.5C",
+  "cant": "1",
+  "desig": "Borna con portafusible | Borne de carril para fusible",
+  "tipo": "PTTB 4-HESI (5X20) | AB2000436",
+  "fab": "Phoenix Contact | AB200 | 0436",
+  "art": "PXC.3211886 | Fusible 100mA",
+  "pos": "75"
+ },
+ {
+  "page": 44,
+  "tag": "-32XAI | &CLIENTE/32.5C",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PTT 2,5-2MT-0,8 | AB2000069",
+  "fab": "Phoenix Contact | AB200 | 0069",
+  "art": "PXC.3210300 | =",
+  "pos": "76"
+ },
+ {
+  "page": 44,
+  "tag": "-42XC | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "77"
+ },
+ {
+  "page": 44,
+  "tag": "-42XC | &CLIENTE/42.5D",
+  "cant": "1",
+  "desig": "Borna con portafusible | Borne de carril para fusible",
+  "tipo": "PTTB 4-HESI (5X20) | AB2000436",
+  "fab": "Phoenix Contact | AB200 | 0436",
+  "art": "PXC.3211886 | Fusible 100mA",
+  "pos": "78"
+ },
+ {
+  "page": 44,
+  "tag": "-42XC | &CLIENTE/42.5D; | &CLIENTE/42.6D",
+  "cant": "2",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PTT 2,5-2MT-0,8 | AB2000069",
+  "fab": "Phoenix Contact | AB200 | 0069",
+  "art": "PXC.3210300 | =",
+  "pos": "79"
+ },
+ {
+  "page": 44,
+  "tag": "-42XC | &CLIENTE/42.5D; | &CLIENTE/42.6D",
+  "cant": "2",
+  "desig": "Bornas de carril de desconexiÃ³n y prueba | Borna interrumpible por cuchilla",
+  "tipo": "PTT 2,5-2MT | AB2000067",
+  "fab": "Phoenix Contact | AB200 | 0067",
+  "art": "PXC.3210258",
+  "pos": "80"
+ },
+ {
+  "page": 44,
+  "tag": "-81XCM | (mSafe.S1); | &CLIENTE/81.5E",
+  "cant": "2",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "81"
+ },
+ {
+  "page": 44,
+  "tag": "-81XCM | &CLIENTE/81.5C; | &CLIENTE/81.5E",
+  "cant": "5",
+  "desig": "Bornas de carril de desconexiÃ³n y prueba | Borna interrumpible por cuchilla",
+  "tipo": "PTT 2,5-2MT | 3210258",
+  "fab": "Phoenix Contact | 32102 | 58",
+  "art": "PXC.3210258",
+  "pos": "82"
+ },
+ {
+  "page": 44,
+  "tag": "-81XCM | &CLIENTE/81.5E",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PTT 2,5-2MT-0,8 | AB2000069",
+  "fab": "Phoenix Contact | AB200 | 0069",
+  "art": "PXC.3210300",
+  "pos": "83"
+ },
+ {
+  "page": 44,
+  "tag": "-61XDIO | (mSafe.S1); | &CLIENTE/61.2D",
+  "cant": "2",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "84"
+ },
+ {
+  "page": 44,
+  "tag": "-61XDIO | &CLIENTE/61.2C; | &CLIENTE/61.2D",
+  "cant": "4",
+  "desig": "Borne para componentes",
+  "tipo": "PT 2,5-DIO/L-R | AB2000080",
+  "fab": "Phoenix Contact | AB200 | 0080",
+  "art": "PXC.3210224",
+  "pos": "85"
+ },
+ {
+  "page": 44,
+  "tag": "-61XDIO | &CLIENTE/61.2C",
+  "cant": "1",
+  "desig": "Puente | Puente enchufable",
+  "tipo": "FBS 4-5 BU | AB20003705",
+  "fab": "Phoenix Contact | AB200 | 03705",
+  "art": "PXC.3036893",
+  "pos": "86"
+ },
+ {
+  "page": 44,
+  "tag": "-61XDIO | &CLIENTE/61.2D",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-ST 2,5 | AB2000081",
+  "fab": "Phoenix Contact | AB200 | 0081",
+  "art": "PXC.3030417",
+  "pos": "87"
+ },
+ {
+  "page": 44,
+  "tag": "-61XDO | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "88"
+ },
+ {
+  "page": 44,
+  "tag": "-61XDO | &CLIENTE/61.2C; | &CLIENTE/61.4C; | &CLIENTE/61.6D; | &CLIENTE/61.7D",
+  "cant": "4",
+  "desig": "Bloque de terminales de paso | Borne de paso",
+  "tipo": "PT 6-QUATTRO | AB2000369",
+  "fab": "Phoenix Contact | AB200 | 0369",
+  "art": "PXC.3212934",
+  "pos": "89"
+ },
+ {
+  "page": 44,
+  "tag": "-61XDO | &CLIENTE/61.7D",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PT 6-QUATTRO | AB2000370",
+  "fab": "Phoenix Contact | AB200 | 0370",
+  "art": "PXC.3212963",
+  "pos": "90"
+ },
+ {
+  "page": 45,
+  "tag": "-32XEX | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "91"
+ },
+ {
+  "page": 45,
+  "tag": "-32XEX | &CLIENTE/32.2D; | &CLIENTE/32.3D",
+  "cant": "2",
+  "desig": "Bornas de carril de desconexión y prueba | Borna interrumpible por cuchilla",
+  "tipo": "PTT 2,5-2MT BU | AB2000068",
+  "fab": "Phoenix Contact | AB200 | 0068",
+  "art": "PXC.3210265",
+  "pos": "92"
+ },
+ {
+  "page": 45,
+  "tag": "-32XEX | &CLIENTE/32.3D",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PTT 2,5-2MT-0,8 | AB2000069",
+  "fab": "Phoenix Contact | AB200 | 0069",
+  "art": "PXC.3210300",
+  "pos": "93"
+ },
+ {
+  "page": 45,
+  "tag": "-32XEX | &CLIENTE/32.3E",
+  "cant": "1",
+  "desig": "Bloque de terminales de tierra | Borna de tierra",
+  "tipo": "PT 2,5-QUATTRO-PE | AB20003691",
+  "fab": "Phoenix Contact | AB200 | 03691",
+  "art": "PXC.3209594",
+  "pos": "94"
+ },
+ {
+  "page": 45,
+  "tag": "-32XEX | &CLIENTE/32.3E",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-ST 2,5-QUATTRO GN | AB20003701",
+  "fab": "Phoenix Contact | AB200 | 03701",
+  "art": "PXC.3032059",
+  "pos": "95"
+ },
+ {
+  "page": 45,
+  "tag": "-41XEX | (mSafe.S1); | &CLIENTE/41.6D",
+  "cant": "2",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "96"
+ },
+ {
+  "page": 45,
+  "tag": "-41XEX | &CLIENTE/41.2D; | &CLIENTE/41.4D; | &CLIENTE/41.6D",
+  "cant": "6",
+  "desig": "Bornas de carril de desconexión y prueba | Borna interrumpible por cuchilla",
+  "tipo": "PTT 2,5-2MT BU | AB2000068",
+  "fab": "Phoenix Contact | AB200 | 0068",
+  "art": "PXC.3210265",
+  "pos": "97"
+ },
+ {
+  "page": 45,
+  "tag": "-41XEX | &CLIENTE/41.6D",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PTT 2,5-2MT-0,8 | AB2000069",
+  "fab": "Phoenix Contact | AB200 | 0069",
+  "art": "PXC.3210300",
+  "pos": "98"
+ },
+ {
+  "page": 45,
+  "tag": "-12XP | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "99"
+ },
+ {
+  "page": 45,
+  "tag": "-12XP | &CLIENTE/12.6B; | &CLIENTE/12.7B",
+  "cant": "3",
+  "desig": "Bloque de terminales de paso | Borne de paso",
+  "tipo": "PT 6-QUATTRO | AB2000369",
+  "fab": "Phoenix Contact | AB200 | 0369",
+  "art": "PXC.3212934",
+  "pos": "100"
+ },
+ {
+  "page": 45,
+  "tag": "-12XP | &CLIENTE/12.6B",
+  "cant": "1",
+  "desig": "Puente | Puente enchufable",
+  "tipo": "FBS 3-8 BU | AB20003704",
+  "fab": "Phoenix Contact | AB200 | 03704",
+  "art": "PXC.3032570",
+  "pos": "101"
+ },
+ {
+  "page": 45,
+  "tag": "-12XP | &CLIENTE/12.7B",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PT 6-QUATTRO | AB2000370",
+  "fab": "Phoenix Contact | AB200 | 0370",
+  "art": "PXC.3212963",
+  "pos": "102"
+ },
+ {
+  "page": 45,
+  "tag": "-XPE | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "103"
+ },
+ {
+  "page": 45,
+  "tag": "-XPE | &CLIENTE/11.6B; | &CLIENTE/11.7B; | &CLIENTE/11.8A",
+  "cant": "3",
+  "desig": "Bloque de terminales de tierra | Borna de tierra",
+  "tipo": "PT 2,5-QUATTRO-PE | AB20003691",
+  "fab": "Phoenix Contact | AB200 | 03691",
+  "art": "PXC.3209594",
+  "pos": "104"
+ },
+ {
+  "page": 45,
+  "tag": "-XPE | &CLIENTE/11.8A",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-ST 2,5-QUATTRO GN | AB20003701",
+  "fab": "Phoenix Contact | AB200 | 03701",
+  "art": "PXC.3032059",
+  "pos": "105"
+ },
+ {
+  "page": 45,
+  "tag": "-12XPS | (mSafe.S1); | &CLIENTE/127B",
+  "cant": "2",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "106"
+ },
+ {
+  "page": 46,
+  "tag": "-12XPS | &CLIENTE/12.4B; | &CLIENTE/12.5B; | &CLIENTE/12.6B; | &CLIENTE/12.7B",
+  "cant": "13",
+  "desig": "Borne de paso",
+  "tipo": "PT 6 | AB2000381",
+  "fab": "Phoenix Contact | AB200 | 0381",
+  "art": "PXC.3211813",
+  "pos": "107"
+ },
+ {
+  "page": 46,
+  "tag": "-12XPS | &CLIENTE/12.5B",
+  "cant": "1",
+  "desig": "Puente | Puente enchufable",
+  "tipo": "FBS 2-8 | AB20003702",
+  "fab": "Phoenix Contact | AB200 | 03702",
+  "art": "PXC.3030284",
+  "pos": "108"
+ },
+ {
+  "page": 46,
+  "tag": "-12XPS | &CLIENTE/12.7B",
+  "cant": "1",
+  "desig": "Tapa final",
+  "tipo": "D-PT 6 | AB2000379",
+  "fab": "Phoenix Contact | AB200 | 0379",
+  "art": "PXC.3212044",
+  "pos": "109"
+ },
+ {
+  "page": 46,
+  "tag": "-11XPVAC | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "110"
+ },
+ {
+  "page": 46,
+  "tag": "-11XPVAC | &CLIENTE/11.2B; | &CLIENTE/11.3B",
+  "cant": "2",
+  "desig": "Borne de paso",
+  "tipo": "PT 6 | AB2000381",
+  "fab": "Phoenix Contact | AB200 | 0381",
+  "art": "PXC.3211813 | TOMA DE TIERRA EN SKID",
+  "pos": "111"
+ },
+ {
+  "page": 46,
+  "tag": "-11XPVAC | &CLIENTE/11.3B",
+  "cant": "1",
+  "desig": "Tapa final",
+  "tipo": "D-PT 6 | AB2000379",
+  "fab": "Phoenix Contact | AB200 | 0379",
+  "art": "PXC.3212044 | ALIMENTACIÓN",
+  "pos": "112"
+ },
+ {
+  "page": 46,
+  "tag": "-11XPVAC | &CLIENTE/11.3E",
+  "cant": "1",
+  "desig": "Bloque de terminales de tierra | Borna de tierra",
+  "tipo": "PT 2,5-QUATTRO-PE | AB20003691",
+  "fab": "Phoenix Contact | AB200 | 03691",
+  "art": "PXC.3209594",
+  "pos": "113"
+ },
+ {
+  "page": 46,
+  "tag": "-11XPVAC | &CLIENTE/11.3E",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-ST 2,5-QUATTRO GN | AB20003701",
+  "fab": "Phoenix Contact | AB200 | 03701",
+  "art": "PXC.3032059",
+  "pos": "114"
+ },
+ {
+  "page": 46,
+  "tag": "-15XR | (mSafe.S1)",
+  "cant": "1",
+  "desig": "Plaquita tope para borna | Soporte final",
+  "tipo": "E/NS 35 N | AB1202844",
+  "fab": "Phoenix Contact | AB120 | 2844",
+  "art": "PXC.0800886",
+  "pos": "115"
+ },
+ {
+  "page": 46,
+  "tag": "-15XR | &CLIENTE/15.2D",
+  "cant": "1",
+  "desig": "Bornas de carril de desconexiÃ³n y prueba | Borna interrumpible por cuchilla",
+  "tipo": "PTT 2,5-2MT | 3210258",
+  "fab": "Phoenix Contact | 32102 | 58",
+  "art": "PXC.3210258",
+  "pos": "116"
+ },
+ {
+  "page": 46,
+  "tag": "-15XR | &CLIENTE/15.2D",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-PTT 2,5-2MT-0,8 | AB2000069",
+  "fab": "Phoenix Contact | AB200 | 0069",
+  "art": "PXC.3210300",
+  "pos": "117"
+ },
+ {
+  "page": 46,
+  "tag": "-15XR | &CLIENTE/15.2D",
+  "cant": "1",
+  "desig": "Bloque de terminales de tierra | Borna de tierra",
+  "tipo": "PT 2,5-QUATTRO-PE | AB20003691",
+  "fab": "Phoenix Contact | AB200 | 03691",
+  "art": "PXC.3209594",
+  "pos": "118"
+ },
+ {
+  "page": 46,
+  "tag": "-15XR | &CLIENTE/15.2D",
+  "cant": "1",
+  "desig": "Placa final e intermedia para borna | Tapa final",
+  "tipo": "D-ST 2,5-QUATTRO GN | AB20003701",
+  "fab": "Phoenix Contact | AB200 | 03701",
+  "art": "PXC.3032059",
+  "pos": "119"
+ }
+]

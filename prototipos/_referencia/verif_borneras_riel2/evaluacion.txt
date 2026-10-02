@@ -1,0 +1,120 @@
+Salida: verif_borneras_riel2/salida_ref_riel2.json
+Tiempo: (no informado)
+BIEN (<= 1.5 pt ~ 2 mm): 35/140 = 25.0 %   |   con punto: 35/140   |   error mediano: 0.0 pt
+
+familia            bien  con punto  total  err medio pt
+barreras              0          0     20          None
+borneras_riel2       35         35     35           0.0
+borneras_riel3        0          0     26          None
+fuentes               0          0     10          None
+protecciones          0          0     18          None
+reles                 0          0     31          None
+
+Fallas (sin punto o a mas de 1.5 pt):
+  fuentes         11PS1 1 (-)            1110       SIN PUNTO
+  fuentes         11PS1 3 (+)            1111       SIN PUNTO
+  fuentes         11PS1 L-3              1108       SIN PUNTO
+  fuentes         11PS1 N-2              1109       SIN PUNTO
+  fuentes         13PS3 +Vin             1304       SIN PUNTO
+  fuentes         13PS3 +Vo              1310       SIN PUNTO
+  fuentes         13PS3 -Vo              1323       SIN PUNTO
+  fuentes         13PS3 -Vo              1311       SIN PUNTO
+  fuentes         11SK1 L ARRIBA         1108       SIN PUNTO
+  fuentes         11SK1 N ABAJO          1109       SIN PUNTO
+  protecciones    11Q1 N ARRIBA          1105       SIN PUNTO
+  protecciones    11Q1 F ARRIBA          1104       SIN PUNTO
+  protecciones    11Q1 N ABAJO           1107       SIN PUNTO
+  protecciones    11Q1 F ABAJO           1106       SIN PUNTO
+  protecciones    11Q2 F ARRIBA          1106       SIN PUNTO
+  protecciones    11Q2 N ARRIBA          1107       SIN PUNTO
+  protecciones    11Q2 F ABAJO           1108       SIN PUNTO
+  protecciones    11Q2 N ABAJO           1109       SIN PUNTO
+  protecciones    12F1 ARRIBA            1201       SIN PUNTO
+  protecciones    12F1 ABAJO             1202       SIN PUNTO
+  protecciones    13F3 ARRIBA            1206       SIN PUNTO
+  protecciones    13F3 ABAJO             1301       SIN PUNTO
+  protecciones    31XAI 1 ARRIBA         2142       SIN PUNTO
+  protecciones    31XAI F1 ARRIBA        1324       SIN PUNTO
+  protecciones    31XAI F1 ABAJO         3141       SIN PUNTO
+  protecciones    31XAI 1 ABAJO          3142       SIN PUNTO
+  protecciones    12F2 ARRIBA            1204       SIN PUNTO
+  protecciones    12F2                   1215       SIN PUNTO
+  reles           43KR1 11               2118       SIN PUNTO
+  reles           43KR1 14               2119       SIN PUNTO
+  reles           43KR1 A1               4329       SIN PUNTO
+  reles           43KR2 11               4318       SIN PUNTO
+  reles           43KR2 14               4319       SIN PUNTO
+  reles           43KR2 A1               4329       SIN PUNTO
+  reles           43KR2 A2               1328       SIN PUNTO
+  reles           43KR3 11               2122       SIN PUNTO
+  reles           43KR3 14               2123       SIN PUNTO
+  reles           43KR3 A1               4369       SIN PUNTO
+  reles           43KR4 11               4358       SIN PUNTO
+  reles           43KR4 14               4359       SIN PUNTO
+  reles           43KR4 A1               4369       SIN PUNTO
+  reles           46KR A2                4615       SIN PUNTO
+  reles           46KR A2                4669       SIN PUNTO
+  reles           46KR1 11               2168       SIN PUNTO
+  reles           46KR1 14               2169       SIN PUNTO
+  reles           46KR1 A1               4668       SIN PUNTO
+  reles           46KR2 11               2114       SIN PUNTO
+  reles           46KR2 14               2115       SIN PUNTO
+  reles           46KR2 A1               4614       SIN PUNTO
+  reles           62KR1 11               1308       SIN PUNTO
+  reles           62KR1 14               6201       SIN PUNTO
+  reles           62KR1 A1               2150       SIN PUNTO
+  reles           62KR1 A2               2151       SIN PUNTO
+  reles           62KR2 14               6203       SIN PUNTO
+  reles           62KR2 A1               2152       SIN PUNTO
+  reles           62KR2 A2               2153       SIN PUNTO
+  reles           62KR3 14               6206       SIN PUNTO
+  reles           62KR3 A1               2154       SIN PUNTO
+  reles           62KR3 A2               2155       SIN PUNTO
+  borneras_riel3  43XCS 1 ARRIBA         4319       SIN PUNTO
+  borneras_riel3  43XCS 2 ARRIBA         4318       SIN PUNTO
+  borneras_riel3  43XCS 3 ARRIBA         4359       SIN PUNTO
+  borneras_riel3  43XCS 4 ARRIBA         4358       SIN PUNTO
+  borneras_riel3  46XC 1 ARRIBA          4668       SIN PUNTO
+  borneras_riel3  46XC 2 ARRIBA          4669       SIN PUNTO
+  borneras_riel3  46XC 3 ARRIBA          4614       SIN PUNTO
+  borneras_riel3  46XC 4 ARRIBA          4615       SIN PUNTO
+  borneras_riel3  81XCM 1 ARRIBA         2132       SIN PUNTO
+  borneras_riel3  81XCM 11 ARRIBA        2135       SIN PUNTO
+  borneras_riel3  81XCM 12 ARRIBA        2136       SIN PUNTO
+  borneras_riel3  81XCM 2 ARRIBA         2133       SIN PUNTO
+  borneras_riel3  81XCM 5 ARRIBA         2132       SIN PUNTO
+  borneras_riel3  81XCM 6 ARRIBA         2133       SIN PUNTO
+  borneras_riel3  31XEX 1 ARRIBA         3104       SIN PUNTO
+  borneras_riel3  31XEX 2 ARRIBA         3105       SIN PUNTO
+  borneras_riel3  31XEX 3 ARRIBA         3138       SIN PUNTO
+  borneras_riel3  31XEX 4 ARRIBA         3139       SIN PUNTO
+  borneras_riel3  43XDI 1 ARRIBA         4301       SIN PUNTO
+  borneras_riel3  43XDI 2 ARRIBA         4302       SIN PUNTO
+  borneras_riel3  43XDI 3 ARRIBA         4303       SIN PUNTO
+  borneras_riel3  43XDI 4 ARRIBA         4304       SIN PUNTO
+  borneras_riel3  43XDI 5 ARRIBA         4341       SIN PUNTO
+  borneras_riel3  43XDI 6 ARRIBA         4342       SIN PUNTO
+  borneras_riel3  43XDI 7 ARRIBA         4343       SIN PUNTO
+  borneras_riel3  43XDI 8 ARRIBA         4344       SIN PUNTO
+  barreras        31AIB1 1 ABAJO         1312       SIN PUNTO
+  barreras        31AIB1 2 ABAJO         1313       SIN PUNTO
+  barreras        43DIB1 1 ABAJO         1312       SIN PUNTO
+  barreras        43DIB1 2 ABAJO         1313       SIN PUNTO
+  barreras        43DIB1 3               1318       SIN PUNTO
+  barreras        43DIB1 5               2116       SIN PUNTO
+  barreras        43DIB1 6               2117       SIN PUNTO
+  barreras        43DIB1 7               4303       SIN PUNTO
+  barreras        43DIB1 8               4304       SIN PUNTO
+  barreras        43DIB1 9               4301       SIN PUNTO
+  barreras        43DIB1 10              4302       SIN PUNTO
+  barreras        43DIB2 1 ABAJO         1312       SIN PUNTO
+  barreras        43DIB2 2 ABAJO         1313       SIN PUNTO
+  barreras        43DIB2 3               1319       SIN PUNTO
+  barreras        43DIB2 5               2120       SIN PUNTO
+  barreras        43DIB2 6               2121       SIN PUNTO
+  barreras        43DIB2 7               4343       SIN PUNTO
+  barreras        43DIB2 8               4344       SIN PUNTO
+  barreras        43DIB2 9               4341       SIN PUNTO
+  barreras        43DIB2 10              4342       SIN PUNTO
+
+No evaluados (referencia dudosa): 31XAI 1 ARRIBA ['3141'], 31XAI 2 ARRIBA ['3142'], 12F2 ['1204'], 12F2 ['1216'], 62XDO ARRIBA ['6202']

@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+
+# archivos temporales y de bloqueo de Office / Windows
+~$*
+*.tmp
+*.tmp.png
+Thumbs.db
+desktop.ini

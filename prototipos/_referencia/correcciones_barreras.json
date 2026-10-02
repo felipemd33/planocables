@@ -1,0 +1,116 @@
+{
+ "familia": "barreras",
+ "correcciones": [
+  {
+   "texto": "43DIB1 3",
+   "cable": "1318",
+   "x": 798.2,
+   "y": 567.05,
+   "confianza": "media",
+   "motivo": "GS8512-EX.22: el borne 3 esta en el enchufe verde del medio [3 4], que es el mas exterior arriba y tiene el tornillo a la MISMA altura que el enchufe de alimentacion [1 2] (que queda detras, inclinado). Vista lateral acotada del manual CZ.GS8512-EX.11(S)E-5.0: cruces de tornillo [1 2] y=193.25, [3 4] y=192.72 pt (diferencia 0.38 mm); la foto del fabricante (GS8547) muestra la tapa del lugar [3 4] y el [2 1] inclinado sobresaliendo lo mismo; en la foto 3.0 (sin el enchufe [5 6]) las punteras rojas de 1312/1313 asoman detras del [3 4] solo por perspectiva. La vista frontal del manual (3 filas parejas) es esquematica. Punto = tornillo izquierdo de la fila exterior dibujada. El punto de la referencia (y=560.22) cae sobre el enchufe delantero [5 6]. Foto 3.0: 1318 en el 3 de 43DIB1."
+  },
+  {
+   "texto": "43DIB2 3",
+   "cable": "1319",
+   "x": 807.15,
+   "y": 567.05,
+   "confianza": "media",
+   "motivo": "GS8512-EX.22: el borne 3 esta en el enchufe verde del medio [3 4], que es el mas exterior arriba y tiene el tornillo a la MISMA altura que el enchufe de alimentacion [1 2] (que queda detras, inclinado). Vista lateral acotada del manual CZ.GS8512-EX.11(S)E-5.0: cruces de tornillo [1 2] y=193.25, [3 4] y=192.72 pt (diferencia 0.38 mm); la foto del fabricante (GS8547) muestra la tapa del lugar [3 4] y el [2 1] inclinado sobresaliendo lo mismo; en la foto 3.0 (sin el enchufe [5 6]) las punteras rojas de 1312/1313 asoman detras del [3 4] solo por perspectiva. La vista frontal del manual (3 filas parejas) es esquematica. Punto = tornillo izquierdo de la fila exterior dibujada. El punto de la referencia (y=560.22) cae sobre el enchufe delantero [5 6]. Foto 3.0: 131(9) en el 3 de 43DIB2."
+  },
+  {
+   "texto": "43DIB1 5",
+   "cable": "2116",
+   "x": 798.2,
+   "y": 560.77,
+   "confianza": "media",
+   "motivo": "GS8512-EX.22: el enchufe delantero [5 6] (pegado a la etiqueta del aparato, fotos 3.1 y 12.35.42) esta UNA fila hacia adentro de la fila exterior dibujada, no dos: en la vista lateral acotada del manual su tornillo esta 8.85 mm mas adentro que el de [3 4] (= 6.28 pt del topografico), y = 567.05 - 6.28. El punto de la referencia (y=553.58) queda 13.5 pt adentro, sobre la tapa de la etiqueta, donde no hay bornes. Borne 5 = tornillo izquierdo del enchufe (foto 3.1: 2116 en el 5). Anclando en el borde de la carcasa en vez del tornillo dibujado daria y=561.8 (1 pt de diferencia, dentro de tolerancia)."
+  },
+  {
+   "texto": "43DIB1 6",
+   "cable": "2117",
+   "x": 801.75,
+   "y": 560.77,
+   "confianza": "media",
+   "motivo": "GS8512-EX.22: el enchufe delantero [5 6] (pegado a la etiqueta del aparato, fotos 3.1 y 12.35.42) esta UNA fila hacia adentro de la fila exterior dibujada, no dos: en la vista lateral acotada del manual su tornillo esta 8.85 mm mas adentro que el de [3 4] (= 6.28 pt del topografico), y = 567.05 - 6.28. El punto de la referencia (y=553.58) queda 13.5 pt adentro, sobre la tapa de la etiqueta, donde no hay bornes. Borne 6 = tornillo derecho del enchufe (foto 3.1: 2117 en el 6). Anclando en el borde de la carcasa en vez del tornillo dibujado daria y=561.8 (1 pt de diferencia, dentro de tolerancia)."
+  },
+  {
+   "texto": "43DIB2 5",
+   "cable": "2120",
+   "x": 807.15,
+   "y": 560.77,
+   "confianza": "media",
+   "motivo": "GS8512-EX.22: el enchufe delantero [5 6] (pegado a la etiqueta del aparato, fotos 3.1 y 12.35.42) esta UNA fila hacia adentro de la fila exterior dibujada, no dos: en la vista lateral acotada del manual su tornillo esta 8.85 mm mas adentro que el de [3 4] (= 6.28 pt del topografico), y = 567.05 - 6.28. El punto de la referencia (y=553.58) queda 13.5 pt adentro, sobre la tapa de la etiqueta, donde no hay bornes. Borne 5 = tornillo izquierdo del enchufe (foto 3.1: 2120 en el 5). Anclando en el borde de la carcasa en vez del tornillo dibujado daria y=561.8 (1 pt de diferencia, dentro de tolerancia)."
+  },
+  {
+   "texto": "43DIB2 6",
+   "cable": "2121",
+   "x": 810.7,
+   "y": 560.77,
+   "confianza": "media",
+   "motivo": "GS8512-EX.22: el enchufe delantero [5 6] (pegado a la etiqueta del aparato, fotos 3.1 y 12.35.42) esta UNA fila hacia adentro de la fila exterior dibujada, no dos: en la vista lateral acotada del manual su tornillo esta 8.85 mm mas adentro que el de [3 4] (= 6.28 pt del topografico), y = 567.05 - 6.28. El punto de la referencia (y=553.58) queda 13.5 pt adentro, sobre la tapa de la etiqueta, donde no hay bornes. Borne 6 = tornillo derecho del enchufe (foto 3.1: 2121 en el 6). Anclando en el borde de la carcasa en vez del tornillo dibujado daria y=561.8 (1 pt de diferencia, dentro de tolerancia)."
+  }
+ ],
+ "verificacion": "Verificados los 20 puntos de 31AIB1, 43DIB1 y 43DIB2 con geometria propia (page_strokes: aros de tornillo completos arriba en x 790.63/801.75/810.70 y abajo en 787.29/798.27/807.22, carcasas x 782.76-795.54-804.48-813.43, borde superior 566.5 e inferior 496.22 = 99.0 mm como la cota del manual), vista lateral acotada del manual GS8512-EX, fotos 3.0-3.3, 12.35.42/43 y foto del fabricante, y hojas 15, 31 y 43 del funcional. Regla del tag: cada barrera tiene su etiqueta sobre su propia carcasa y todos sus puntos caen dentro de ella; no hay piezas del vecino. 14 puntos bien (1, 2, 7, 8, 9, 10 de cada barrera; dif <= 0.1 pt). 6 corregidos (3, 5, 6 de 43DIB1/43DIB2): la referencia uso las fracciones de la vista frontal esquematica (3 filas parejas); la vista lateral acotada da [1 2] y [3 4] a la misma altura (fila exterior dibujada) y [5 6] 6.28 pt mas adentro. Script: verif_barreras/verificar_v2.py; imagen: verif_barreras/control_verif_v2.png.",
+ "bornes_cableados_sin_uso_en_instructivo": [
+  {
+   "texto": "43DIB1 4",
+   "cable": "4329",
+   "x": 801.75,
+   "y": 567.05
+  },
+  {
+   "texto": "43DIB2 4",
+   "cable": "4369",
+   "x": 810.7,
+   "y": 567.05
+  },
+  {
+   "texto": "31AIB1 3",
+   "cable": "2139",
+   "x": 785.6,
+   "y": 567.05
+  },
+  {
+   "texto": "31AIB1 4",
+   "cable": "2140",
+   "x": 789.15,
+   "y": 567.05
+  },
+  {
+   "texto": "31AIB1 6",
+   "cable": "2105",
+   "x": 785.6,
+   "y": 560.77
+  },
+  {
+   "texto": "31AIB1 7",
+   "cable": "2106",
+   "x": 789.15,
+   "y": 560.77
+  },
+  {
+   "texto": "31AIB1 9",
+   "cable": "3104",
+   "x": 785.6,
+   "y": 501.94
+  },
+  {
+   "texto": "31AIB1 10",
+   "cable": "3105",
+   "x": 789.15,
+   "y": 501.94
+  },
+  {
+   "texto": "31AIB1 12",
+   "cable": "3138",
+   "x": 785.6,
+   "y": 495.67
+  },
+  {
+   "texto": "31AIB1 13",
+   "cable": "3139",
+   "x": 789.15,
+   "y": 495.67
+  }
+ ]
+}

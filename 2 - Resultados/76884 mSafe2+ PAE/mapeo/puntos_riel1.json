@@ -1,0 +1,1349 @@
+{
+ "_meta": {
+  "documento": "ZPL-76884 Rev 1 - mSafe2+ PAE (EPLAN), pagina PDF 8 'Detalle bandejas'",
+  "zona": "BANDEJA PRINCIPAL, riel 1 (U10, eje y=657.25): 11PS1, 11PS2, 13PS1, 11F1, 11F2, 12F3, 13F4, 13F5, 13F6, 42KS1, 42KR1, 61KR1-61KR4, 32XAI, XPE",
+  "unidades": "x, y = centro de la boca push-in o del tornillo en pt de la pagina 8 (1192.04 x 851.39), origen abajo-izquierda; r = radio de la boca en pt",
+  "fuente_conexiones": "conexiones.json (lista de conexiones pags 47-50); un punto por (designacion, cable)",
+  "otro_zona": "riel1 = el otro extremo tambien es de este riel; bandeja = otro riel de la bandeja principal; LI = fuera de la bandeja principal (lateral izquierda, puerta, bateria); E8 = zona hidraulica (se cablea en E8)",
+  "n_puntos": 69,
+  "control": "control_riel1.png"
+ },
+ "puntos": [
+  {
+   "d": "-11PS1:TB2:1",
+   "cables": [
+    "1161"
+   ],
+   "tag": "11PS1",
+   "texto_taller": "11PS1 TB2 1 (-V)",
+   "x": 637.26,
+   "y": 696.41,
+   "r": 1.52,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB2 pin 1 = -V: primer tornillo desde la izquierda de la fila de 4 circulos (r 1.52, cada uno entre triangulos) de arriba (y=696.41). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por arriba.",
+   "otro_extremo": "-12XPS:4:2",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 2.5,
+   "fila_lista": 16
+  },
+  {
+   "d": "-11PS1:TB1:1",
+   "cables": [
+    "sin numero Verde/amarillo 2,5"
+   ],
+   "tag": "11PS1",
+   "texto_taller": "11PS1 TB1 1 (FG)",
+   "x": 642.49,
+   "y": 619.48,
+   "r": 1.81,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 1 = FG: primer tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "otro_extremo": "-XPE:1:4",
+   "otro_zona": "riel1",
+   "color": "Verde/amarillo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 17
+  },
+  {
+   "d": "-11PS1:TB2:3",
+   "cables": [
+    "1160"
+   ],
+   "tag": "11PS1",
+   "texto_taller": "11PS1 TB2 3 (+V)",
+   "x": 646.25,
+   "y": 696.41,
+   "r": 1.52,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB2 pin 3 = +V: tercer tornillo desde la izquierda de la fila de 4 circulos (r 1.52, cada uno entre triangulos) de arriba (y=696.41). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por arriba.",
+   "otro_extremo": "-11F1:1",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 19
+  },
+  {
+   "d": "-11PS1:TB1:2",
+   "cables": [
+    "1186"
+   ],
+   "tag": "11PS1",
+   "texto_taller": "11PS1 TB1 2 (N)",
+   "x": 648.07,
+   "y": 619.48,
+   "r": 1.81,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 2 = N: segundo tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "otro_extremo": "-11X220V:2:1",
+   "otro_zona": "LI",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "fila_lista": 13
+  },
+  {
+   "d": "-11PS1:TB1:3",
+   "cables": [
+    "1185"
+   ],
+   "tag": "11PS1",
+   "texto_taller": "11PS1 TB1 3 (L)",
+   "x": 653.48,
+   "y": 619.48,
+   "r": 1.81,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 3 = L: tercer tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "otro_extremo": "-11X220V:1:1",
+   "otro_zona": "LI",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "fila_lista": 15
+  },
+  {
+   "d": "-11PS2:TB2:1",
+   "cables": [
+    "1171"
+   ],
+   "tag": "11PS2",
+   "texto_taller": "11PS2 TB2 1 (-V)",
+   "x": 681.9,
+   "y": 696.41,
+   "r": 1.52,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB2 pin 1 = -V: primer tornillo desde la izquierda de la fila de 4 circulos (r 1.52, cada uno entre triangulos) de arriba (y=696.41). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por arriba.",
+   "otro_extremo": "-15XR:2:1",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 2.5,
+   "fila_lista": 20
+  },
+  {
+   "d": "-11PS2:TB1:1",
+   "cables": [
+    "sin numero Verde/amarillo 2,5"
+   ],
+   "tag": "11PS2",
+   "texto_taller": "11PS2 TB1 1 (FG)",
+   "x": 687.14,
+   "y": 619.48,
+   "r": 1.81,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 1 = FG: primer tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "otro_extremo": "-XPE:2:4",
+   "otro_zona": "riel1",
+   "color": "Verde/amarillo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 21
+  },
+  {
+   "d": "-11PS2:TB2:3",
+   "cables": [
+    "1170"
+   ],
+   "tag": "11PS2",
+   "texto_taller": "11PS2 TB2 3 (+V)",
+   "x": 690.9,
+   "y": 696.41,
+   "r": 1.52,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB2 pin 3 = +V: tercer tornillo desde la izquierda de la fila de 4 circulos (r 1.52, cada uno entre triangulos) de arriba (y=696.41). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por arriba.",
+   "otro_extremo": "-11F2:1",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 23
+  },
+  {
+   "d": "-11PS2:TB1:2",
+   "cables": [
+    "1184"
+   ],
+   "tag": "11PS2",
+   "texto_taller": "11PS2 TB1 2 (N)",
+   "x": 692.72,
+   "y": 619.48,
+   "r": 1.81,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 2 = N: segundo tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "otro_extremo": "-11X220V:2:2",
+   "otro_zona": "LI",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "fila_lista": 12
+  },
+  {
+   "d": "-11PS2:TB1:3",
+   "cables": [
+    "1183"
+   ],
+   "tag": "11PS2",
+   "texto_taller": "11PS2 TB1 3 (L)",
+   "x": 698.12,
+   "y": 619.48,
+   "r": 1.81,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL NDR-240-24, TB1 pin 3 = L: tercer tornillo desde la izquierda de la fila de 3 circulos (r 1.81) de abajo (y=619.48). Hoja 11: simbolo TB1 1 FG / 2 N / 3 L y TB2 1 -V / 2 -V / 3 +V / 4 +V; hoja de datos NDR-240 y referencia 75286 (fotos: '-V -V +V +V' arriba, 'FG N L' abajo). Cable sale por abajo.",
+   "otro_extremo": "-11X220V:1:2",
+   "otro_zona": "LI",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "fila_lista": 14
+  },
+  {
+   "d": "-13PS1:-Vo",
+   "cables": [
+    "1312"
+   ],
+   "tag": "13PS1",
+   "texto_taller": "13PS1 -Vo",
+   "x": 716.895,
+   "y": 698.895,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 1: abertura cuadrada 1 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. EPLAN distingue los dos -Vo como '-Vo' y '(-Vo)' (hoja 13: +Vo, -Vo, (+Vo), (-Vo)); regla del n-esimo pin del 66817: '-Vo' = 1er tornillo -Vo (pin 1), '(-Vo)' = 2do (pin 2). Mismo potencial.",
+   "otro_extremo": "-13X24V:3:1",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "fila_lista": 68
+  },
+  {
+   "d": "-13PS1:(-Vo)",
+   "cables": [
+    "1235"
+   ],
+   "tag": "13PS1",
+   "texto_taller": "13PS1 (-Vo)",
+   "x": 720.495,
+   "y": 698.895,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 2: abertura cuadrada 2 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. EPLAN distingue los dos -Vo como '-Vo' y '(-Vo)' (hoja 13: +Vo, -Vo, (+Vo), (-Vo)); regla del n-esimo pin del 66817: '-Vo' = 1er tornillo -Vo (pin 1), '(-Vo)' = 2do (pin 2). Mismo potencial.",
+   "otro_extremo": "-12XP:1:2",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "fila_lista": 43
+  },
+  {
+   "d": "-13PS1:PE",
+   "cables": [
+    "sin numero Verde/amarillo 2,5"
+   ],
+   "tag": "13PS1",
+   "texto_taller": "13PS1 PE",
+   "x": 719.86,
+   "y": 619.69,
+   "r": 1.52,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL DDR-120A-24, TB1 (entrada, abajo a la derecha) pin 1 = PE: hexagono 1 de 3 desde la izquierda (y=619.69). Hoja de datos DDR-120: TB1 1 FG, 2 -Vin, 3 +Vin (fotos 75286/66817). Hoja 13: simbolo +Vin -Vin PE.",
+   "otro_extremo": "-XPE:1:1",
+   "otro_zona": "riel1",
+   "color": "Verde/amarillo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 59
+  },
+  {
+   "d": "-13PS1:+Vo",
+   "cables": [
+    "1310"
+   ],
+   "tag": "13PS1",
+   "texto_taller": "13PS1 +Vo",
+   "x": 723.77,
+   "y": 698.895,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 3: abertura cuadrada 3 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. +Vo = pin 3 (el primer +Vo; el 4 queda libre).",
+   "otro_extremo": "-13F6:1",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 65
+  },
+  {
+   "d": "-13PS1:-Vin",
+   "cables": [
+    "1234"
+   ],
+   "tag": "13PS1",
+   "texto_taller": "13PS1 -Vin",
+   "x": 723.54,
+   "y": 619.69,
+   "r": 1.52,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL DDR-120A-24, TB1 (entrada, abajo a la derecha) pin 2 = -Vin: hexagono 2 de 3 desde la izquierda (y=619.69). Hoja de datos DDR-120: TB1 1 FG, 2 -Vin, 3 +Vin (fotos 75286/66817). Hoja 13: simbolo +Vin -Vin PE.",
+   "otro_extremo": "-12XP:1:3",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 2.5,
+   "fila_lista": 42
+  },
+  {
+   "d": "-13PS1:+Vin",
+   "cables": [
+    "1373"
+   ],
+   "tag": "13PS1",
+   "texto_taller": "13PS1 +Vin",
+   "x": 727.23,
+   "y": 619.69,
+   "r": 1.52,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "MEAN WELL DDR-120A-24, TB1 (entrada, abajo a la derecha) pin 3 = +Vin: hexagono 3 de 3 desde la izquierda (y=619.69). Hoja de datos DDR-120: TB1 1 FG, 2 -Vin, 3 +Vin (fotos 75286/66817). Hoja 13: simbolo +Vin -Vin PE.",
+   "otro_extremo": "-13X12V:1:4",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 54
+  },
+  {
+   "d": "-11F1:1",
+   "cables": [
+    "1160"
+   ],
+   "tag": "11F1",
+   "texto_taller": "11F1 ARRIBA",
+   "x": 747.57,
+   "y": 682.88,
+   "r": 2.13,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=747.57 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-11PS1:TB2:3",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 19
+  },
+  {
+   "d": "-11F1:2",
+   "cables": [
+    "1162"
+   ],
+   "tag": "11F1",
+   "texto_taller": "11F1 ABAJO",
+   "x": 747.57,
+   "y": 635.4,
+   "r": 2.13,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=747.57 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-12XPS:3:2",
+   "otro_zona": "LI",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 18
+  },
+  {
+   "d": "-11F2:1",
+   "cables": [
+    "1170"
+   ],
+   "tag": "11F2",
+   "texto_taller": "11F2 ARRIBA",
+   "x": 759.97,
+   "y": 682.88,
+   "r": 2.13,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=759.97 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-11PS2:TB2:3",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 23
+  },
+  {
+   "d": "-11F2:2",
+   "cables": [
+    "1172"
+   ],
+   "tag": "11F2",
+   "texto_taller": "11F2 ABAJO",
+   "x": 759.97,
+   "y": 635.4,
+   "r": 2.13,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=759.97 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-15XR:1:2",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 22
+  },
+  {
+   "d": "-12F3:1",
+   "cables": [
+    "1201"
+   ],
+   "tag": "12F3",
+   "texto_taller": "12F3 ARRIBA",
+   "x": 775.56,
+   "y": 690.05,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF141 (14x51 aM 32 A, 26.5 mm), borne 1: tornillo de arriba (hexagono con cruz, r 2.5, y=690.05). Marcado 1 arriba / 2 abajo (hoja 12).",
+   "otro_extremo": "-12XPS:5:2",
+   "otro_zona": "LI",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "fila_lista": 33
+  },
+  {
+   "d": "-12F3:2",
+   "cables": [
+    "1202"
+   ],
+   "tag": "12F3",
+   "texto_taller": "12F3 ABAJO",
+   "x": 775.56,
+   "y": 627.41,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF141 (14x51 aM 32 A, 26.5 mm), borne 2: tornillo de abajo (hexagono con cruz, r 2.5, y=627.41). Marcado 1 arriba / 2 abajo (hoja 12).",
+   "otro_extremo": "-12PB1:+",
+   "otro_zona": "LI",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "fila_lista": 30
+  },
+  {
+   "d": "-13F4:1",
+   "cables": [
+    "1230"
+   ],
+   "tag": "13F4",
+   "texto_taller": "13F4 ARRIBA",
+   "x": 790.98,
+   "y": 682.88,
+   "r": 2.13,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=790.98 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-12XPS:8:2",
+   "otro_zona": "LI",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "fila_lista": 37
+  },
+  {
+   "d": "-13F4:2",
+   "cables": [
+    "1301"
+   ],
+   "tag": "13F4",
+   "texto_taller": "13F4 ABAJO",
+   "x": 790.98,
+   "y": 635.4,
+   "r": 2.13,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=790.98 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-13MS1:1/L1",
+   "otro_zona": "LI",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "fila_lista": 51
+  },
+  {
+   "d": "-13F5:1",
+   "cables": [
+    "1232"
+   ],
+   "tag": "13F5",
+   "texto_taller": "13F5 ARRIBA",
+   "x": 803.38,
+   "y": 682.88,
+   "r": 2.13,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=803.38 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-12XPS:7:2",
+   "otro_zona": "LI",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "fila_lista": 36
+  },
+  {
+   "d": "-13F5:2",
+   "cables": [
+    "1302"
+   ],
+   "tag": "13F5",
+   "texto_taller": "13F5 ABAJO",
+   "x": 803.38,
+   "y": 635.4,
+   "r": 2.13,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 10 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=803.38 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-13MS1:3/L2",
+   "otro_zona": "LI",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "fila_lista": 53
+  },
+  {
+   "d": "-13F6:1",
+   "cables": [
+    "1310"
+   ],
+   "tag": "13F6",
+   "texto_taller": "13F6 ARRIBA",
+   "x": 815.78,
+   "y": 682.88,
+   "r": 2.13,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 6 A), borne 1: tornillo de arriba (hexagono con cruz, r 2.13, y=682.88) en la columna x=815.78 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-13PS1:+Vo",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 65
+  },
+  {
+   "d": "-13F6:2",
+   "cables": [
+    "1311"
+   ],
+   "tag": "13F6",
+   "texto_taller": "13F6 ABAJO",
+   "x": 815.78,
+   "y": 635.4,
+   "r": 2.13,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Portafusible Schneider DF101 (10x38 gG 6 A), borne 2: tornillo de abajo (hexagono con cruz, r 2.13, y=635.4) en la columna x=815.78 bajo la etiqueta. Marcado TeSys DF 1 arriba / 2 abajo; esquema dibuja 1 arriba.",
+   "otro_extremo": "-13X24V:1:4",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 64
+  },
+  {
+   "d": "-42KS1:A1",
+   "cables": [
+    "1385"
+   ],
+   "tag": "42KS1",
+   "texto_taller": "42KS1 A1",
+   "x": 831.4,
+   "y": 687.1,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne A1: enchufe de arriba TRASERO (fila exterior): A1 S34 S33 S11, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=687.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "otro_extremo": "-13X24V:2:3",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 58
+  },
+  {
+   "d": "-42KS1:S12",
+   "cables": [
+    "4213"
+   ],
+   "tag": "42KS1",
+   "texto_taller": "42KS1 S12",
+   "x": 831.4,
+   "y": 680.58,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne S12: enchufe de arriba DELANTERO (fila interior): S12 51 52 A2, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=680.58). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "otro_extremo": "-42XC:4:4",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 161
+  },
+  {
+   "d": "-42KS1",
+   "cables": [
+    "1396"
+   ],
+   "d_usada": "-42KS1:43",
+   "tag": "42KS1",
+   "texto_taller": "42KS1 43",
+   "x": 831.4,
+   "y": 634.23,
+   "r": 1.42,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 43: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 43 por el esquema hoja 42.",
+   "otro_extremo": "-13X12V:2:4",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 69
+  },
+  {
+   "d": "-42KS1",
+   "cables": [
+    "1395"
+   ],
+   "d_usada": "-42KS1:33",
+   "tag": "42KS1",
+   "texto_taller": "42KS1 33",
+   "x": 831.4,
+   "y": 627.1,
+   "r": 1.42,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 33: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 33 por el esquema hoja 42.",
+   "otro_extremo": "-13X12V:2:3",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 70
+  },
+  {
+   "d": "-42KS1:S34",
+   "cables": [
+    "4221"
+   ],
+   "tag": "42KS1",
+   "texto_taller": "42KS1 S34",
+   "x": 834.95,
+   "y": 687.1,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne S34: enchufe de arriba TRASERO (fila exterior): A1 S34 S33 S11, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=687.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "otro_extremo": "-42KS1:S33",
+   "otro_zona": "riel1",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 157
+  },
+  {
+   "d": "-42KS1",
+   "cables": [
+    "4296"
+   ],
+   "d_usada": "-42KS1:44",
+   "tag": "42KS1",
+   "texto_taller": "42KS1 44",
+   "x": 834.95,
+   "y": 634.23,
+   "r": 1.42,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 44: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 44 por el esquema hoja 42.",
+   "otro_extremo": "-61KR4:11",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 166
+  },
+  {
+   "d": "-42KS1",
+   "cables": [
+    "4295"
+   ],
+   "d_usada": "-42KS1:34",
+   "tag": "42KS1",
+   "texto_taller": "42KS1 34",
+   "x": 834.95,
+   "y": 627.1,
+   "r": 1.42,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 34: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 34 por el esquema hoja 42.",
+   "otro_extremo": "-61KR3:11",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 165
+  },
+  {
+   "d": "-42KS1:S33",
+   "cables": [
+    "4221"
+   ],
+   "tag": "42KS1",
+   "texto_taller": "42KS1 S33",
+   "x": 838.49,
+   "y": 687.1,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne S33: enchufe de arriba TRASERO (fila exterior): A1 S34 S33 S11, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=687.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "otro_extremo": "-42KS1:S34",
+   "otro_zona": "riel1",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 157
+  },
+  {
+   "d": "-42KS1",
+   "cables": [
+    "2114"
+   ],
+   "d_usada": "-42KS1:13",
+   "tag": "42KS1",
+   "texto_taller": "42KS1 13",
+   "x": 838.49,
+   "y": 634.23,
+   "r": 1.42,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 13: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 13 por el esquema hoja 42.",
+   "otro_extremo": "-21PCB01:14",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 88
+  },
+  {
+   "d": "-42KS1",
+   "cables": [
+    "1394"
+   ],
+   "d_usada": "-42KS1:23",
+   "tag": "42KS1",
+   "texto_taller": "42KS1 23",
+   "x": 838.49,
+   "y": 627.1,
+   "r": 1.42,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 23: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 23 por el esquema hoja 42.",
+   "otro_extremo": "-13X12V:2:2",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 71
+  },
+  {
+   "d": "-42KS1:S11",
+   "cables": [
+    "4211"
+   ],
+   "tag": "42KS1",
+   "texto_taller": "42KS1 S11",
+   "x": 842.03,
+   "y": 687.1,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne S11: enchufe de arriba TRASERO (fila exterior): A1 S34 S33 S11, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=687.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "otro_extremo": "-42DB1:1",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 160
+  },
+  {
+   "d": "-42KS1:A2",
+   "cables": [
+    "1386"
+   ],
+   "tag": "42KS1",
+   "texto_taller": "42KS1 A2",
+   "x": 842.03,
+   "y": 680.58,
+   "r": 1.42,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne A2: enchufe de arriba DELANTERO (fila interior): S12 51 52 A2, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=680.58). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja).",
+   "otro_extremo": "-13X24V:4:2",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "fila_lista": 76
+  },
+  {
+   "d": "-42KS1",
+   "cables": [
+    "2115"
+   ],
+   "d_usada": "-42KS1:14",
+   "tag": "42KS1",
+   "texto_taller": "42KS1 14",
+   "x": 842.03,
+   "y": 634.23,
+   "r": 1.42,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 14: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 14 por el esquema hoja 42.",
+   "otro_extremo": "-21PCB01:15",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 90
+  },
+  {
+   "d": "-42KS1",
+   "cables": [
+    "4294"
+   ],
+   "d_usada": "-42KS1:24",
+   "tag": "42KS1",
+   "texto_taller": "42KS1 24",
+   "x": 842.03,
+   "y": 627.1,
+   "r": 1.42,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 24: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). Los 13..44 estan TODOS abajo (no 13/23/33/43 arriba como en el esquema de caja). Que la fila 43 44 13 14 sea la interior y 33 34 23 24 la exterior sale de leer el rotulo como mapa (fila de arriba del rotulo = enchufe de mas arriba, igual que arriba); A CONFIRMAR en el aparato. EPLAN no da el pin ('-42KS1'): pin 24 por el esquema hoja 42.",
+   "otro_extremo": "-61KR2:11",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 164
+  },
+  {
+   "d": "-42KR1:11",
+   "cables": [
+    "4231"
+   ],
+   "tag": "42KR1",
+   "texto_taller": "42KR1 11",
+   "x": 853.63,
+   "y": 686.29,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Rele Phoenix RIF-0-RPT-24DC/21, modulo 1 a la derecha de la etiqueta -42KR (columna x=853.63): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.29). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo.",
+   "otro_extremo": "-42XC:3:3",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 159
+  },
+  {
+   "d": "-42KR1:14",
+   "cables": [
+    "4212"
+   ],
+   "tag": "42KR1",
+   "texto_taller": "42KR1 14",
+   "x": 853.63,
+   "y": 679.91,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Rele Phoenix RIF-0-RPT-24DC/21, modulo 1 a la derecha de la etiqueta -42KR (columna x=853.63): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.91). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo.",
+   "otro_extremo": "-42DB1:2",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 158
+  },
+  {
+   "d": "-42KR1:A1",
+   "cables": [
+    "4232"
+   ],
+   "tag": "42KR1",
+   "texto_taller": "42KR1 A1",
+   "x": 853.63,
+   "y": 634.57,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Rele Phoenix RIF-0-RPT-24DC/21, modulo 1 a la derecha de la etiqueta -42KR (columna x=853.63): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.57). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo.",
+   "otro_extremo": "-42XC:5:3",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 162
+  },
+  {
+   "d": "-42KR1:A2",
+   "cables": [
+    "4233"
+   ],
+   "tag": "42KR1",
+   "texto_taller": "42KR1 A2",
+   "x": 853.63,
+   "y": 628.21,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Rele Phoenix RIF-0-RPT-24DC/21, modulo 1 a la derecha de la etiqueta -42KR (columna x=853.63): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.21). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo.",
+   "otro_extremo": "-42XC:6:4",
+   "otro_zona": "bandeja",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 163
+  },
+  {
+   "d": "-61KR1:11",
+   "cables": [
+    "1363"
+   ],
+   "tag": "61KR1",
+   "texto_taller": "61KR1 11",
+   "x": 864.645,
+   "y": 686.31,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-13X12V:1:3",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 66
+  },
+  {
+   "d": "-61KR1:14",
+   "cables": [
+    "6141"
+   ],
+   "tag": "61KR1",
+   "texto_taller": "61KR1 14",
+   "x": 864.645,
+   "y": 679.84,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-61XDO:1:1",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 173
+  },
+  {
+   "d": "-61KR1:A1+",
+   "cables": [
+    "2150"
+   ],
+   "tag": "61KR1",
+   "texto_taller": "61KR1 A1",
+   "x": 864.645,
+   "y": 634.48,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-21PCB01:50",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 87
+  },
+  {
+   "d": "-61KR1:A2-",
+   "cables": [
+    "2151"
+   ],
+   "tag": "61KR1",
+   "texto_taller": "61KR1 A2",
+   "x": 864.645,
+   "y": 628.16,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-21PCB01:51",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 89
+  },
+  {
+   "d": "-61KR2:11",
+   "cables": [
+    "4294"
+   ],
+   "tag": "61KR2",
+   "texto_taller": "61KR2 11",
+   "x": 868.97,
+   "y": 686.31,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-42KS1",
+   "otro_extremo_pin_esquema": "-42KS1:24",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 164
+  },
+  {
+   "d": "-61KR2:14",
+   "cables": [
+    "6142"
+   ],
+   "tag": "61KR2",
+   "texto_taller": "61KR2 14",
+   "x": 868.97,
+   "y": 679.84,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-61XDO:2:1",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 179
+  },
+  {
+   "d": "-61KR2:A1+",
+   "cables": [
+    "2152"
+   ],
+   "tag": "61KR2",
+   "texto_taller": "61KR2 A1",
+   "x": 868.97,
+   "y": 634.48,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-21PCB01:52",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 91
+  },
+  {
+   "d": "-61KR2:A2-",
+   "cables": [
+    "2153"
+   ],
+   "tag": "61KR2",
+   "texto_taller": "61KR2 A2",
+   "x": 868.97,
+   "y": 628.16,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-21PCB01:53",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 93
+  },
+  {
+   "d": "-61KR3:11",
+   "cables": [
+    "4295"
+   ],
+   "tag": "61KR3",
+   "texto_taller": "61KR3 11",
+   "x": 873.295,
+   "y": 686.31,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-42KS1",
+   "otro_extremo_pin_esquema": "-42KS1:34",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 165
+  },
+  {
+   "d": "-61KR3:14",
+   "cables": [
+    "6143"
+   ],
+   "tag": "61KR3",
+   "texto_taller": "61KR3 14",
+   "x": 873.295,
+   "y": 679.84,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-61XDO:3:1",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 182
+  },
+  {
+   "d": "-61KR3:A1+",
+   "cables": [
+    "2154"
+   ],
+   "tag": "61KR3",
+   "texto_taller": "61KR3 A1",
+   "x": 873.295,
+   "y": 634.48,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-21PCB01:54",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 100
+  },
+  {
+   "d": "-61KR3:A2-",
+   "cables": [
+    "2155"
+   ],
+   "tag": "61KR3",
+   "texto_taller": "61KR3 A2",
+   "x": 873.295,
+   "y": 628.16,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-21PCB01:55",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 102
+  },
+  {
+   "d": "-61KR4:11",
+   "cables": [
+    "4296"
+   ],
+   "tag": "61KR4",
+   "texto_taller": "61KR4 11",
+   "x": 877.625,
+   "y": 686.31,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-42KS1",
+   "otro_extremo_pin_esquema": "-42KS1:44",
+   "otro_zona": "riel1",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 166
+  },
+  {
+   "d": "-61KR4:14",
+   "cables": [
+    "6144"
+   ],
+   "tag": "61KR4",
+   "texto_taller": "61KR4 14",
+   "x": 877.625,
+   "y": 679.84,
+   "r": 1.45,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-61XDO:4:1",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 185
+  },
+  {
+   "d": "-61KR4:A1+",
+   "cables": [
+    "2156"
+   ],
+   "tag": "61KR4",
+   "texto_taller": "61KR4 A1",
+   "x": 877.625,
+   "y": 634.48,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-21PCB01:56",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 104
+  },
+  {
+   "d": "-61KR4:A2-",
+   "cables": [
+    "2157"
+   ],
+   "tag": "61KR4",
+   "texto_taller": "61KR4 A2",
+   "x": 877.625,
+   "y": 628.16,
+   "r": 1.45,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 solo rotula '-61KR' sobre el tope.",
+   "otro_extremo": "-21PCB01:57",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 106
+  },
+  {
+   "d": "-32XAI:1",
+   "cables": [
+    "2142"
+   ],
+   "tag": "32XAI",
+   "texto_taller": "32XAI 1 ARRIBA",
+   "x": 888.77,
+   "y": 691.72,
+   "r": 2.06,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PTTB 4-HESI (5X20) portafusible de doble piso, unica pieza de 32XAI (x=888.77): nivel 1 (paso directo, piso de abajo) = boca del EXTREMO de arriba (circulo r 2.06, y=691.72). EPLAN no da punto ('-32XAI:1'): el lado sale de la hoja 32 (simbolo vertical: 2142 arriba). Piso: referencia 75286 (31XAI, mismo articulo; foto: 2142 en la boca de mas arriba) y 66817.",
+   "otro_extremo": "-21PCB01:42",
+   "otro_zona": "LI",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 85
+  },
+  {
+   "d": "-32XAI:F1",
+   "cables": [
+    "1350"
+   ],
+   "tag": "32XAI",
+   "texto_taller": "32XAI F1 ARRIBA",
+   "x": 888.77,
+   "y": 672.76,
+   "r": 2.06,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PTTB 4-HESI (5X20) portafusible de doble piso, unica pieza de 32XAI (x=888.77): nivel F1 (con fusible 100 mA, piso de arriba) = boca INTERIOR de arriba (circulo r 2.06, y=672.76). EPLAN no da punto ('-32XAI:F1'): el lado sale de la hoja 32 (simbolo vertical: 1350 arriba). Piso: referencia 75286 (31XAI, mismo articulo; foto: 2142 en la boca de mas arriba) y 66817.",
+   "otro_extremo": "-13X24V:2:1",
+   "otro_zona": "bandeja",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "fila_lista": 55
+  },
+  {
+   "d": "-32XAI:F1",
+   "cables": [
+    "3221"
+   ],
+   "tag": "32XAI",
+   "texto_taller": "32XAI F1 ABAJO",
+   "x": 888.77,
+   "y": 641.8,
+   "r": 2.06,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Phoenix PTTB 4-HESI (5X20) portafusible de doble piso, unica pieza de 32XAI (x=888.77): nivel F1 (con fusible 100 mA, piso de arriba) = boca INTERIOR de abajo (circulo r 2.06, y=641.8). EPLAN no da punto ('-32XAI:F1'): el lado sale de la hoja 32 (simbolo vertical: 3221 abajo). Piso: referencia 75286 (31XAI, mismo articulo; foto: 2142 en la boca de mas arriba) y 66817.",
+   "otro_extremo": "-PT001:x1",
+   "otro_zona": "E8",
+   "color": "Rojo",
+   "seccion_mm2": 0.75,
+   "fila_lista": 127
+  },
+  {
+   "d": "-32XAI:1",
+   "cables": [
+    "3222"
+   ],
+   "tag": "32XAI",
+   "texto_taller": "32XAI 1 ABAJO",
+   "x": 888.77,
+   "y": 629.44,
+   "r": 2.06,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Phoenix PTTB 4-HESI (5X20) portafusible de doble piso, unica pieza de 32XAI (x=888.77): nivel 1 (paso directo, piso de abajo) = boca del EXTREMO de abajo (circulo r 2.06, y=629.44). EPLAN no da punto ('-32XAI:1'): el lado sale de la hoja 32 (simbolo vertical: 3222 abajo). Piso: referencia 75286 (31XAI, mismo articulo; foto: 2142 en la boca de mas arriba) y 66817.",
+   "otro_extremo": "-PT001:x2",
+   "otro_zona": "E8",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "fila_lista": 128
+  },
+  {
+   "d": "-XPE:1:1",
+   "cables": [
+    "sin numero Verde/amarillo 2,5"
+   ],
+   "tag": "XPE",
+   "texto_taller": "XPE 1.1",
+   "x": 900.13,
+   "y": 677.86,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Phoenix PT 2,5-QUATTRO-PE (verde), pieza 1 de 3 a la derecha de la etiqueta -XPE (numero '1' dibujado debajo, x=900.13); punto 1 = ARRIBA extremo (boca push-in r 1.70, y=677.86). Hojas 11 y 13: simbolo horizontal 1..4 de izquierda a derecha; regla QUATTRO del taller (1 y 2 arriba, 1 extremo; 3 y 4 abajo, 4 extremo).",
+   "otro_extremo": "-13PS1:PE",
+   "otro_zona": "riel1",
+   "color": "Verde/amarillo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 59
+  },
+  {
+   "d": "-XPE:1:4",
+   "cables": [
+    "sin numero Verde/amarillo 2,5"
+   ],
+   "tag": "XPE",
+   "texto_taller": "XPE 1.4",
+   "x": 900.13,
+   "y": 636.99,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Phoenix PT 2,5-QUATTRO-PE (verde), pieza 1 de 3 a la derecha de la etiqueta -XPE (numero '1' dibujado debajo, x=900.13); punto 4 = ABAJO extremo (boca push-in r 1.70, y=636.99). Hojas 11 y 13: simbolo horizontal 1..4 de izquierda a derecha; regla QUATTRO del taller (1 y 2 arriba, 1 extremo; 3 y 4 abajo, 4 extremo).",
+   "otro_extremo": "-11PS1:TB1:1",
+   "otro_zona": "riel1",
+   "color": "Verde/amarillo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 17
+  },
+  {
+   "d": "-XPE:2:4",
+   "cables": [
+    "sin numero Verde/amarillo 2,5"
+   ],
+   "tag": "XPE",
+   "texto_taller": "XPE 2.4",
+   "x": 903.77,
+   "y": 636.99,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Phoenix PT 2,5-QUATTRO-PE (verde), pieza 2 de 3 a la derecha de la etiqueta -XPE (numero '2' dibujado debajo, x=903.77); punto 4 = ABAJO extremo (boca push-in r 1.70, y=636.99). Hojas 11 y 13: simbolo horizontal 1..4 de izquierda a derecha; regla QUATTRO del taller (1 y 2 arriba, 1 extremo; 3 y 4 abajo, 4 extremo).",
+   "otro_extremo": "-11PS2:TB1:1",
+   "otro_zona": "riel1",
+   "color": "Verde/amarillo",
+   "seccion_mm2": 2.5,
+   "fila_lista": 21
+  }
+ ],
+ "dudas": [
+  "42KS1 (Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, 2963802): la disposicion fisica NO es la del esquema de caja (13 23 33 43 arriba / 14 24 34 44 abajo) que usa aparatos.json. Fotos del aparato real (enchufes rotulados y rotulo frontal de la carcasa): ARRIBA enchufe trasero (fila exterior, y=687.10) A1 S34 S33 S11 y enchufe delantero (fila interior, y=680.58) S12 51 52 A2; ABAJO los 8 contactos de habilitacion: rotulo 43|44|13|14 sobre 33|34|23|24. Tome 43 44 13 14 = fila interior (y=634.23) y 33 34 23 24 = fila exterior (y=627.10) leyendo el rotulo como mapa (igual que arriba, donde la fila de arriba del rotulo es el enchufe de mas arriba). Si en el aparato es al reves, se intercambian las dos filas de abajo (1394/1395/4294/4295 <-> 2114/2115/1396/4296). Por eso esos 8 puntos van con confianza media. Habria que corregir puntos_eplan de aparatos.json. Fotos: https://industrialpartsrus.com/phoenix-contact-psr-scp-24uc-esa2-4x1-1x2-b-safety-relay-250v-ac-24v-ac-dc/ y https://sigmasurplus.com/phoenix-contact-psr-scp-24uc-esa2-4x1-1x2-b-relay/ (rotulo 'PSR-SCP- 24UC/ESA2/4X1/1X2/B Ord.No. 2963802' en el costado).",
+  "42KS1: 8 filas de la lista dicen solo '-42KS1' (2114, 2115, 1394, 1395, 1396, 4294, 4295, 4296); el pin sale del esquema hoja 42 (13, 14, 23, 33, 43, 24, 34, 44). En cada punto queda 'd' tal cual y 'd_usada' con el pin.",
+  "4221 (Negro 0,75) es un puente S33-S34 del mismo 42KS1: los dos tornillos son vecinos en el enchufe trasero de arriba (x 834.95 y 838.49). Va como cable corto (2 puntos).",
+  "61KR1..61KR4: la hoja 8 solo rotula '-61KR' sobre el tope; el orden de los modulos de izquierda a derecha (61KR1 el primero) es supuesto, como en el 75286 y el 66817. Confianza media en los 20 puntos de 61KR; dentro de cada modulo la boca (11/14/12 arriba, A1/A2 abajo) es segura.",
+  "Las filas '-61KRn -61KRn' de la lista (sin numero ni color) son los puentes internos del zocalo RIF-0 (segundo punto de A2- y de 11 del simbolo, hoja 61): no son cables y no tienen punto.",
+  "13PS1 -Vo y (-Vo): el plano (hoja 13) llama a los dos tornillos -Vo de TB2 '-Vo' y '(-Vo)'. Se uso la regla del n-esimo pin (66817): 1312 (-Vo, a 13X24V 3.1) en el pin 1 y 1235 ((-Vo), a 12XP 1.2) en el pin 2. Son el mismo potencial; confianza media.",
+  "32XAI (PTTB 4-HESI): EPLAN no da el punto ('-32XAI:F1' y '-32XAI:1' en las dos puntas). Lado por la hoja 32 (cable del tablero arriba, PT001 abajo); piso por la referencia 75286 (31XAI, mismo articulo, foto con 2142 en la boca de mas arriba): 1 = bocas del extremo, F1 = bocas interiores.",
+  "3221 y 3222 (32XAI F1 ABAJO y 1 ABAJO) van a PT001 x1/x2 en la zona hidraulica: se mapea la punta de 32XAI y el otro extremo es E8 (campo otro_zona).",
+  "1202 (Rojo 6 mm2, 12F3 ABAJO -> 12PB1 (+), bateria): 12PB1 no esta en el topografico (piso del gabinete). Lo deje como 'LI'; confirmar si este cable se hace en E8 como los de 35 mm2.",
+  "XPE: la tierra de 13PS1 (PE abajo, en TB1) llega a XPE 1.1 (ARRIBA extremo) segun la lista y el simbolo de la hoja 13; las de 11PS1/11PS2 (FG abajo) a XPE 1.4 y 2.4 (ABAJO extremo). Los 4 puntos de cada pieza son PE; si el taller prefiere entrar 13PS1 por abajo (1.3/1.4) es solo cambiar el punto.",
+  "11PS1/11PS2 TB2 pins 2 (-V) y 4 (+V) y 13PS1 (+Vo) quedan libres (la lista usa siempre el primer tornillo de cada polaridad).",
+  "Radios r: tornillos de fuentes 1.52 (TB2 NDR) / 1.81 (TB1 NDR) / 1.42-1.52 (DDR), portafusibles 2.13 (DF101) y 2.5 (DF141), 42KS1 1.42, RIF-0 1.45, PTTB 2.06, QUATTRO-PE 1.70 (medidos en el dibujo)."
+ ]
+}

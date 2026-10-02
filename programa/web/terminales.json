@@ -1,0 +1,7 @@
+{
+  "descripcion": "Terminales (punteras) que lleva cada punta de cable, según la sección. 'pino' = terminal simple; 'doble' = terminal doble (en un cable de 3 puntas, en el borne donde se unen los dos tramos). El valor es el color de la pollera. Para agregar una sección: \"1.5\": \"negro\" (sección con punto). Los colores se dibujan con la tabla 'colores'.",
+  "pino": { "0.5": "blanco", "0.75": "celeste", "1": "rojo", "2.5": "azul", "4": "naranja", "6": "verde" },
+  "doble": { "1": "rojo", "2.5": "gris" },
+  "colores": { "blanco": "#ffffff", "celeste": "#5ec8f2", "rojo": "#e53935", "azul": "#1e46c8", "naranja": "#fb8c00", "verde": "#2e9d3a",
+               "gris": "#9aa0a6", "negro": "#222222", "amarillo": "#fdd835", "violeta": "#8e44ad", "marron": "#8d5524" }
+}

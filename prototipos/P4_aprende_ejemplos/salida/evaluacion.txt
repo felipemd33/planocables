@@ -1,0 +1,13 @@
+Salida: salida/bornes.json
+Tiempo: 13.51 s
+BIEN (<= 1.5 pt ~ 2 mm): 140/140 = 100.0 %   |   con punto: 140/140   |   error mediano: 0.0 pt
+
+familia            bien  con punto  total  err medio pt
+barreras             20         20     20          0.02
+borneras_riel2       35         35     35           0.0
+borneras_riel3       26         26     26          0.03
+fuentes              10         10     10           0.0
+protecciones         18         18     18           0.0
+reles                31         31     31           0.0
+
+No evaluados (referencia dudosa): 31XAI 1 ARRIBA ['3141'], 31XAI 2 ARRIBA ['3142'], 12F2 ['1204'], 12F2 ['1216'], 62XDO ARRIBA ['6202']

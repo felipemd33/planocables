@@ -1,0 +1,2902 @@
+{
+ "metodo": "P3_dimensiones_mm",
+ "topografico": "../_referencia/topografico.pdf",
+ "pagina_pdf": 8,
+ "escala_mm_por_pt": 1.4086,
+ "escala_riel_din": 1.413,
+ "segundos": 16.9,
+ "puntos": [
+  {
+   "texto": "11PS1 L-3",
+   "cables": [
+    "1108"
+   ],
+   "x": 628.08,
+   "y": 635.7,
+   "r": 2.24,
+   "confianza": "media",
+   "componente": "11PS1",
+   "modelo": "NDR-240-24",
+   "pieza": 1,
+   "borne_modelo": "TB1-3",
+   "lado_fisico": "ABAJO",
+   "como": "borne TB1-3 por nombre (lado del texto); modelo NDR-240-24 (por medidas), borne a 41.07 / 116.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11PS1 N-2",
+   "cables": [
+    "1109"
+   ],
+   "x": 622.8,
+   "y": 635.7,
+   "r": 2.24,
+   "confianza": "media",
+   "componente": "11PS1",
+   "modelo": "NDR-240-24",
+   "pieza": 1,
+   "borne_modelo": "TB1-2",
+   "lado_fisico": "ABAJO",
+   "como": "borne TB1-2 por nombre (lado del texto); modelo NDR-240-24 (por medidas), borne a 33.64 / 116.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11PS1 1 (-)",
+   "cables": [
+    "1110"
+   ],
+   "x": 612.96,
+   "y": 712.45,
+   "r": 2.02,
+   "confianza": "media",
+   "componente": "11PS1",
+   "modelo": "NDR-240-24",
+   "pieza": 1,
+   "borne_modelo": "TB2-1",
+   "lado_fisico": "ARRIBA",
+   "como": "borne TB2-1 por nombre (lado del texto); modelo NDR-240-24 (por medidas), borne a 19.78 / 8.69 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11PS1 3 (+)",
+   "cables": [
+    "1111"
+   ],
+   "x": 621.71,
+   "y": 712.45,
+   "r": 2.02,
+   "confianza": "media",
+   "componente": "11PS1",
+   "modelo": "NDR-240-24",
+   "pieza": 1,
+   "borne_modelo": "TB2-3",
+   "lado_fisico": "ARRIBA",
+   "como": "borne TB2-3 por nombre (lado del texto); modelo NDR-240-24 (por medidas), borne a 32.11 / 8.69 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11SK1 L ARRIBA",
+   "cables": [
+    "1108"
+   ],
+   "x": 753.62,
+   "y": 651.47,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "11SK1",
+   "modelo": "TOMA-IRAM-VIVION",
+   "pieza": 1,
+   "borne_modelo": "L",
+   "lado_fisico": "ABAJO",
+   "como": "borne L por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo TOMA-IRAM-VIVION (lista de materiales), borne a 22.97 / 66.42 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11SK1 N ABAJO",
+   "cables": [
+    "1109"
+   ],
+   "x": 744.12,
+   "y": 651.47,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "11SK1",
+   "modelo": "TOMA-IRAM-VIVION",
+   "pieza": 1,
+   "borne_modelo": "N",
+   "lado_fisico": "ABAJO",
+   "como": "borne N por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo TOMA-IRAM-VIVION (lista de materiales), borne a 9.59 / 66.42 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11Q2 F ARRIBA",
+   "cables": [
+    "1106"
+   ],
+   "x": 674.51,
+   "y": 700.51,
+   "r": 2.48,
+   "confianza": "alta",
+   "componente": "11Q2",
+   "modelo": "EZ9F34210",
+   "pieza": 1,
+   "borne_modelo": "F ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "borne F ARRIBA por nombre+lado; modelo EZ9F34210 (lista de materiales), borne a 8.49 / 8.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11Q2 N ARRIBA",
+   "cables": [
+    "1107"
+   ],
+   "x": 686.93,
+   "y": 700.51,
+   "r": 2.48,
+   "confianza": "alta",
+   "componente": "11Q2",
+   "modelo": "EZ9F34210",
+   "pieza": 1,
+   "borne_modelo": "N ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "borne N ARRIBA por nombre+lado; modelo EZ9F34210 (lista de materiales), borne a 25.99 / 8.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11Q2 F ABAJO",
+   "cables": [
+    "1108"
+   ],
+   "x": 674.51,
+   "y": 651.53,
+   "r": 2.48,
+   "confianza": "alta",
+   "componente": "11Q2",
+   "modelo": "EZ9F34210",
+   "pieza": 1,
+   "borne_modelo": "F ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "borne F ABAJO por nombre+lado; modelo EZ9F34210 (lista de materiales), borne a 8.49 / 77.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11Q2 N ABAJO",
+   "cables": [
+    "1109"
+   ],
+   "x": 686.93,
+   "y": 651.53,
+   "r": 2.48,
+   "confianza": "alta",
+   "componente": "11Q2",
+   "modelo": "EZ9F34210",
+   "pieza": 1,
+   "borne_modelo": "N ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "borne N ABAJO por nombre+lado; modelo EZ9F34210 (lista de materiales), borne a 25.99 / 77.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11Q1 F ARRIBA",
+   "cables": [
+    "1104"
+   ],
+   "x": 662.09,
+   "y": 700.51,
+   "r": 2.48,
+   "confianza": "alta",
+   "componente": "11Q1",
+   "modelo": "EZ9R36225",
+   "pieza": 1,
+   "borne_modelo": "F ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "borne F ARRIBA por nombre+lado; modelo EZ9R36225 (lista de materiales), borne a 25.99 / 8.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11Q1 N ARRIBA",
+   "cables": [
+    "1105"
+   ],
+   "x": 649.66,
+   "y": 700.51,
+   "r": 2.48,
+   "confianza": "alta",
+   "componente": "11Q1",
+   "modelo": "EZ9R36225",
+   "pieza": 1,
+   "borne_modelo": "N ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "borne N ARRIBA por nombre+lado; modelo EZ9R36225 (lista de materiales), borne a 8.49 / 8.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11Q1 F ABAJO",
+   "cables": [
+    "1106"
+   ],
+   "x": 662.09,
+   "y": 651.53,
+   "r": 2.48,
+   "confianza": "alta",
+   "componente": "11Q1",
+   "modelo": "EZ9R36225",
+   "pieza": 1,
+   "borne_modelo": "F ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "borne F ABAJO por nombre+lado; modelo EZ9R36225 (lista de materiales), borne a 25.99 / 77.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "11Q1 N ABAJO",
+   "cables": [
+    "1107"
+   ],
+   "x": 649.66,
+   "y": 651.53,
+   "r": 2.48,
+   "confianza": "alta",
+   "componente": "11Q1",
+   "modelo": "EZ9R36225",
+   "pieza": 1,
+   "borne_modelo": "N ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "borne N ABAJO por nombre+lado; modelo EZ9R36225 (lista de materiales), borne a 8.49 / 77.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1204"
+   ],
+   "x": 624.37,
+   "y": 304.92,
+   "r": 2.84,
+   "confianza": "alta",
+   "componente": "12F2",
+   "modelo": "MEGA-BASE",
+   "pieza": 1,
+   "borne_modelo": "E2",
+   "lado_fisico": "DERECHA",
+   "como": "borne E2 por solo lado; modelo MEGA-BASE (lista de materiales), borne a 73.33 / 11.97 mm del borde izq. / sup."
+  },
+  {
+   "texto": "12F2 ARRIBA",
+   "cables": [
+    "1204"
+   ],
+   "x": 624.37,
+   "y": 304.92,
+   "r": 2.84,
+   "confianza": "alta",
+   "componente": "12F2",
+   "modelo": "MEGA-BASE",
+   "pieza": 1,
+   "borne_modelo": "E2",
+   "lado_fisico": "DERECHA",
+   "como": "borne E2 por solo lado; modelo MEGA-BASE (lista de materiales), borne a 73.33 / 11.97 mm del borde izq. / sup."
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1215"
+   ],
+   "x": 580.47,
+   "y": 304.92,
+   "r": 2.84,
+   "confianza": "media",
+   "componente": "12F2",
+   "modelo": "MEGA-BASE",
+   "pieza": 1,
+   "borne_modelo": "E1",
+   "lado_fisico": "IZQUIERDA",
+   "como": "borne E1 por solo lado; modelo MEGA-BASE (lista de materiales), borne a 11.48 / 11.97 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 1 E1 de 12F2 recibe 2 cables distintos (1215, 1216): revisar el instructivo"
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1216"
+   ],
+   "x": 580.47,
+   "y": 304.92,
+   "r": 2.84,
+   "confianza": "media",
+   "componente": "12F2",
+   "modelo": "MEGA-BASE",
+   "pieza": 1,
+   "borne_modelo": "E1",
+   "lado_fisico": "IZQUIERDA",
+   "como": "borne E1 por solo lado; modelo MEGA-BASE (lista de materiales), borne a 11.48 / 11.97 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 1 E1 de 12F2 recibe 2 cables distintos (1215, 1216): revisar el instructivo"
+  },
+  {
+   "texto": "12XP 1.1",
+   "cables": [
+    "1202"
+   ],
+   "x": 593.99,
+   "y": 558.75,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "12XP",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 1,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1, punto 1; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 7.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "12XP 2.1",
+   "cables": [
+    "1205"
+   ],
+   "x": 601.33,
+   "y": 558.75,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "12XP",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 2,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2, punto 1; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 7.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "12XP 1.4",
+   "cables": [
+    "1217"
+   ],
+   "x": 593.99,
+   "y": 504.53,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "12XP",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 1,
+   "borne_modelo": "4",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 1, punto 4; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 83.45 mm del borde izq. / sup."
+  },
+  {
+   "texto": "12XP 2.4",
+   "cables": [
+    "1218"
+   ],
+   "x": 601.33,
+   "y": 504.53,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "12XP",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 2,
+   "borne_modelo": "4",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 2, punto 4; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 83.45 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13F3 ARRIBA",
+   "cables": [
+    "1206"
+   ],
+   "x": 785.96,
+   "y": 697.31,
+   "r": 1.92,
+   "confianza": "alta",
+   "componente": "13F3",
+   "modelo": "DF101",
+   "pieza": 1,
+   "borne_modelo": "ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "borne ARRIBA por solo lado; modelo DF101 (lista de materiales), borne a 8.75 / 11.19 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13F3 ABAJO",
+   "cables": [
+    "1301"
+   ],
+   "x": 785.96,
+   "y": 654.58,
+   "r": 1.92,
+   "confianza": "alta",
+   "componente": "13F3",
+   "modelo": "DF101",
+   "pieza": 1,
+   "borne_modelo": "ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "borne ABAJO por solo lado; modelo DF101 (lista de materiales), borne a 8.75 / 71.38 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 3.4",
+   "cables": [
+    "1203"
+   ],
+   "x": 628.91,
+   "y": 504.53,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 3,
+   "borne_modelo": "4",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 3, punto 4; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 83.45 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 1.4",
+   "cables": [
+    "1303"
+   ],
+   "x": 615.78,
+   "y": 504.53,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 1,
+   "borne_modelo": "4",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 1, punto 4; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 83.45 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 1.1",
+   "cables": [
+    "1304"
+   ],
+   "x": 615.78,
+   "y": 558.75,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 1,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1, punto 1; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 7.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 3.1",
+   "cables": [
+    "1305"
+   ],
+   "x": 628.91,
+   "y": 558.75,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 3,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3, punto 1; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 7.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 2.4",
+   "cables": [
+    "1306"
+   ],
+   "x": 621.56,
+   "y": 504.53,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 2,
+   "borne_modelo": "4",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 2, punto 4; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 83.45 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 3.3",
+   "cables": [
+    "1307"
+   ],
+   "x": 628.91,
+   "y": 516.17,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 3,
+   "borne_modelo": "3",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 3, punto 3; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 67.05 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 2.1",
+   "cables": [
+    "1308"
+   ],
+   "x": 621.56,
+   "y": 558.75,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 2,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2, punto 1; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 7.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 4.4",
+   "cables": [
+    "1315"
+   ],
+   "x": 634.7,
+   "y": 504.53,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 4,
+   "borne_modelo": "4",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 4, punto 4; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 83.45 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 2.2",
+   "cables": [
+    "1318"
+   ],
+   "x": 621.56,
+   "y": 547.11,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 2,
+   "borne_modelo": "2",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2, punto 2; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 23.47 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 2.3",
+   "cables": [
+    "1319"
+   ],
+   "x": 621.56,
+   "y": 516.17,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 2,
+   "borne_modelo": "3",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 2, punto 3; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 67.05 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 3.2",
+   "cables": [
+    "1321"
+   ],
+   "x": 628.91,
+   "y": 547.11,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 3,
+   "borne_modelo": "2",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3, punto 2; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 23.47 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 4.1",
+   "cables": [
+    "1323"
+   ],
+   "x": 634.7,
+   "y": 558.75,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 4,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 4, punto 1; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 7.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13XC1 4.2",
+   "cables": [
+    "1328"
+   ],
+   "x": 634.7,
+   "y": 547.11,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13XC1",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 4,
+   "borne_modelo": "2",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 4, punto 2; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 23.47 mm del borde izq. / sup."
+  },
+  {
+   "texto": "12F1 ARRIBA",
+   "cables": [
+    "1201"
+   ],
+   "x": 773.53,
+   "y": 697.31,
+   "r": 1.92,
+   "confianza": "alta",
+   "componente": "12F1",
+   "modelo": "DF101",
+   "pieza": 1,
+   "borne_modelo": "ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "borne ARRIBA por solo lado; modelo DF101 (lista de materiales), borne a 8.75 / 11.19 mm del borde izq. / sup."
+  },
+  {
+   "texto": "12F1 ABAJO",
+   "cables": [
+    "1202"
+   ],
+   "x": 773.53,
+   "y": 654.58,
+   "r": 1.92,
+   "confianza": "alta",
+   "componente": "12F1",
+   "modelo": "DF101",
+   "pieza": 1,
+   "borne_modelo": "ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "borne ABAJO por solo lado; modelo DF101 (lista de materiales), borne a 8.75 / 71.38 mm del borde izq. / sup."
+  },
+  {
+   "texto": "81XCM 1 ARRIBA",
+   "cables": [
+    "2132"
+   ],
+   "x": 713.59,
+   "y": 433.3,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "81XCM",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 1,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(1/2)), impar: boca del extremo; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "81XCM 5 ARRIBA",
+   "cables": [
+    "2132"
+   ],
+   "x": 720.87,
+   "y": 433.28,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "81XCM",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 3,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3 (= ceil(5/2)), impar: boca del extremo; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "81XCM 2 ARRIBA",
+   "cables": [
+    "2133"
+   ],
+   "x": 713.57,
+   "y": 422.03,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "81XCM",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 1,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(2/2)), par: boca interior; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "81XCM 6 ARRIBA",
+   "cables": [
+    "2133"
+   ],
+   "x": 720.85,
+   "y": 422.02,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "81XCM",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 3,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3 (= ceil(6/2)), par: boca interior; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "81XCM 11 ARRIBA",
+   "cables": [
+    "2135"
+   ],
+   "x": 731.84,
+   "y": 433.26,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "81XCM",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 6,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 6 (= ceil(11/2)), impar: boca del extremo; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "81XCM 12 ARRIBA",
+   "cables": [
+    "2136"
+   ],
+   "x": 731.81,
+   "y": 421.99,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "81XCM",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 6,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 6 (= ceil(12/2)), par: boca interior; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13PS3 +Vin",
+   "cables": [
+    "1304"
+   ],
+   "x": 825.89,
+   "y": 639.86,
+   "r": 1.53,
+   "confianza": "media",
+   "componente": "13PS3",
+   "modelo": "DDR-120A-24",
+   "pieza": 1,
+   "borne_modelo": "TB1-3",
+   "lado_fisico": "ABAJO",
+   "como": "borne TB1-3 por nombre (lado del texto); modelo DDR-120A-24 (por medidas), borne a 21.53 / 115.54 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13PS3 -Vin",
+   "cables": [
+    "1305"
+   ],
+   "x": 822.19,
+   "y": 639.86,
+   "r": 1.53,
+   "confianza": "media",
+   "componente": "13PS3",
+   "modelo": "DDR-120A-24",
+   "pieza": 1,
+   "borne_modelo": "TB1-2",
+   "lado_fisico": "ABAJO",
+   "como": "borne TB1-2 por nombre (lado del texto); modelo DDR-120A-24 (por medidas), borne a 16.32 / 115.54 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13PS3 +Vo",
+   "cables": [
+    "1310"
+   ],
+   "x": 822.99,
+   "y": 715.43,
+   "r": 1.54,
+   "confianza": "media",
+   "componente": "13PS3",
+   "modelo": "DDR-120A-24",
+   "pieza": 1,
+   "borne_modelo": "TB2-3",
+   "lado_fisico": "ARRIBA",
+   "como": "borne TB2-3 por nombre (lado del texto); 2 bornes con ese nombre, se reparten de izquierda a derecha por numero de cable (1 de 2); modelo DDR-120A-24 (por medidas), borne a 17.44 / 9.10 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13PS3 -Vo",
+   "cables": [
+    "1311"
+   ],
+   "x": 815.54,
+   "y": 715.43,
+   "r": 1.54,
+   "confianza": "media",
+   "componente": "13PS3",
+   "modelo": "DDR-120A-24",
+   "pieza": 1,
+   "borne_modelo": "TB2-1",
+   "lado_fisico": "ARRIBA",
+   "como": "borne TB2-1 por nombre (lado del texto); 2 bornes con ese nombre, se reparten de izquierda a derecha por numero de cable (1 de 2); modelo DDR-120A-24 (por medidas), borne a 6.94 / 9.10 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13PS3 -Vo",
+   "cables": [
+    "1323"
+   ],
+   "x": 819.23,
+   "y": 715.43,
+   "r": 1.54,
+   "confianza": "media",
+   "componente": "13PS3",
+   "modelo": "DDR-120A-24",
+   "pieza": 1,
+   "borne_modelo": "TB2-2",
+   "lado_fisico": "ARRIBA",
+   "como": "borne TB2-2 por nombre (lado del texto); 2 bornes con ese nombre, se reparten de izquierda a derecha por numero de cable (2 de 2); modelo DDR-120A-24 (por medidas), borne a 12.14 / 9.10 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13X24 1.1",
+   "cables": [
+    "1310"
+   ],
+   "x": 649.14,
+   "y": 558.75,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13X24",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 1,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1, punto 1; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 7.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13X24 2.1",
+   "cables": [
+    "1311"
+   ],
+   "x": 656.49,
+   "y": 558.75,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13X24",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 2,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2, punto 1; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 7.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13X24 1.4",
+   "cables": [
+    "1312"
+   ],
+   "x": 649.14,
+   "y": 504.53,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13X24",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 1,
+   "borne_modelo": "4",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 1, punto 4; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 83.45 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13X24 2.4",
+   "cables": [
+    "1313"
+   ],
+   "x": 656.49,
+   "y": 504.53,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13X24",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 2,
+   "borne_modelo": "4",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 2, punto 4; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 83.45 mm del borde izq. / sup."
+  },
+  {
+   "texto": "13X24 1.2",
+   "cables": [
+    "1324"
+   ],
+   "x": 649.14,
+   "y": 547.11,
+   "r": 1.77,
+   "confianza": "alta",
+   "componente": "13X24",
+   "modelo": "PT6-QUATTRO-3212934",
+   "pieza": 1,
+   "borne_modelo": "2",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1, punto 2; modelo PT6-QUATTRO-3212934 (lista de materiales), borne a 4.10 / 23.47 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31AIB1 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 787.08,
+   "y": 567.05,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "31AIB1",
+   "modelo": "GS8536-EX",
+   "pieza": 1,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 1 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8536-EX (lista de materiales), borne a 6.09 / -0.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31AIB1 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 790.63,
+   "y": 567.05,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "31AIB1",
+   "modelo": "GS8536-EX",
+   "pieza": 1,
+   "borne_modelo": "2",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 2 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8536-EX (lista de materiales), borne a 11.09 / -0.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 798.2,
+   "y": 567.07,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 1 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.75 / -0.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 801.75,
+   "y": 567.07,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "2",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 2 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 8.75 / -0.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 3",
+   "cables": [
+    "1318"
+   ],
+   "x": 798.2,
+   "y": 567.07,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "3",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 3 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.75 / -0.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 5",
+   "cables": [
+    "2116"
+   ],
+   "x": 798.2,
+   "y": 560.79,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "5",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 5 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.75 / 8.05 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 6",
+   "cables": [
+    "2117"
+   ],
+   "x": 801.75,
+   "y": 560.79,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "6",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 6 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 8.75 / 8.05 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 9",
+   "cables": [
+    "4301"
+   ],
+   "x": 798.27,
+   "y": 495.65,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "9",
+   "lado_fisico": "ABAJO",
+   "como": "borne 9 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.85 / 99.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 10",
+   "cables": [
+    "4302"
+   ],
+   "x": 801.82,
+   "y": 495.65,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "10",
+   "lado_fisico": "ABAJO",
+   "como": "borne 10 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 8.85 / 99.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 7",
+   "cables": [
+    "4303"
+   ],
+   "x": 798.27,
+   "y": 501.82,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "7",
+   "lado_fisico": "ABAJO",
+   "como": "borne 7 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.85 / 91.11 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB1 8",
+   "cables": [
+    "4304"
+   ],
+   "x": 801.82,
+   "y": 501.82,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "8",
+   "lado_fisico": "ABAJO",
+   "como": "borne 8 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 8.85 / 91.11 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 807.15,
+   "y": 567.07,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "1",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 1 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.75 / -0.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 810.7,
+   "y": 567.07,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "2",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 2 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 8.75 / -0.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 3",
+   "cables": [
+    "1319"
+   ],
+   "x": 807.15,
+   "y": 567.07,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "3",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 3 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.75 / -0.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 5",
+   "cables": [
+    "2120"
+   ],
+   "x": 807.15,
+   "y": 560.79,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "5",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 5 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.75 / 8.05 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 6",
+   "cables": [
+    "2121"
+   ],
+   "x": 810.7,
+   "y": 560.79,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "6",
+   "lado_fisico": "ARRIBA",
+   "como": "borne 6 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 8.75 / 8.05 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 9",
+   "cables": [
+    "4341"
+   ],
+   "x": 807.22,
+   "y": 495.65,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "9",
+   "lado_fisico": "ABAJO",
+   "como": "borne 9 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.85 / 99.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 10",
+   "cables": [
+    "4342"
+   ],
+   "x": 810.77,
+   "y": 495.65,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "10",
+   "lado_fisico": "ABAJO",
+   "como": "borne 10 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 8.85 / 99.80 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 7",
+   "cables": [
+    "4343"
+   ],
+   "x": 807.22,
+   "y": 501.82,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "7",
+   "lado_fisico": "ABAJO",
+   "como": "borne 7 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 3.85 / 91.11 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43DIB2 8",
+   "cables": [
+    "4344"
+   ],
+   "x": 810.77,
+   "y": 501.82,
+   "r": 1.14,
+   "confianza": "alta",
+   "componente": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "pieza": 1,
+   "borne_modelo": "8",
+   "lado_fisico": "ABAJO",
+   "como": "borne 8 por nombre (el lado del texto no se usa en este modelo); el ARRIBA/ABAJO del texto no se usa en este modelo; modelo GS8512-EX.22 (lista de materiales), borne a 8.85 / 91.11 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDIO 3 ARRIBA",
+   "cables": [
+    "1315"
+   ],
+   "x": 677.31,
+   "y": 517.79,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "62XDIO",
+   "modelo": "PT2,5-DIO/L-R-3210224",
+   "pieza": 3,
+   "borne_modelo": "anodo",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 3, anodo (texto ARRIBA); modelo PT2,5-DIO/L-R-3210224 (lista de materiales), borne a 2.77 / 43.03 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 3 anodo de 62XDIO recibe 2 cables distintos (1315, 6203): revisar el instructivo"
+  },
+  {
+   "texto": "62XDIO 1 ABAJO",
+   "cables": [
+    "6201"
+   ],
+   "x": 669.98,
+   "y": 544.32,
+   "r": 1.42,
+   "confianza": "alta",
+   "componente": "62XDIO",
+   "modelo": "PT2,5-DIO/L-R-3210224",
+   "pieza": 1,
+   "borne_modelo": "catodo",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1, catodo (texto ABAJO); modelo PT2,5-DIO/L-R-3210224 (lista de materiales), borne a 2.77 / 5.66 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDIO 2 ABAJO",
+   "cables": [
+    "6203"
+   ],
+   "x": 673.65,
+   "y": 544.32,
+   "r": 1.42,
+   "confianza": "alta",
+   "componente": "62XDIO",
+   "modelo": "PT2,5-DIO/L-R-3210224",
+   "pieza": 2,
+   "borne_modelo": "catodo",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2, catodo (texto ABAJO); modelo PT2,5-DIO/L-R-3210224 (lista de materiales), borne a 2.77 / 5.66 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDIO 3 ARRIBA",
+   "cables": [
+    "6203"
+   ],
+   "x": 677.31,
+   "y": 517.79,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "62XDIO",
+   "modelo": "PT2,5-DIO/L-R-3210224",
+   "pieza": 3,
+   "borne_modelo": "anodo",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 3, anodo (texto ARRIBA); modelo PT2,5-DIO/L-R-3210224 (lista de materiales), borne a 2.77 / 43.03 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 3 anodo de 62XDIO recibe 2 cables distintos (1315, 6203): revisar el instructivo"
+  },
+  {
+   "texto": "62XDIO 3 ABAJO",
+   "cables": [
+    "6204"
+   ],
+   "x": 677.31,
+   "y": 544.32,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "62XDIO",
+   "modelo": "PT2,5-DIO/L-R-3210224",
+   "pieza": 3,
+   "borne_modelo": "catodo",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3, catodo (texto ABAJO); modelo PT2,5-DIO/L-R-3210224 (lista de materiales), borne a 2.77 / 5.66 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 3 catodo de 62XDIO recibe 2 cables distintos (6204, 6206): revisar el instructivo"
+  },
+  {
+   "texto": "62XDIO 4 ABAJO",
+   "cables": [
+    "6205"
+   ],
+   "x": 694.2,
+   "y": 516.02,
+   "r": 1.56,
+   "confianza": "baja",
+   "componente": "62XDO",
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "pieza": 2,
+   "borne_modelo": "par_ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 2 (= ceil(4/2)), par: boca interior; 62XDIO tiene 3 piezas y no existe el borne 4: se toma en la bornera vecina 62XDO; modelo PTT2,5-BLOQUE-BATFER (lista de materiales), borne a 3.26 / 57.90 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDIO 3 ABAJO",
+   "cables": [
+    "6206"
+   ],
+   "x": 677.31,
+   "y": 544.32,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "62XDIO",
+   "modelo": "PT2,5-DIO/L-R-3210224",
+   "pieza": 3,
+   "borne_modelo": "catodo",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3, catodo (texto ABAJO); modelo PT2,5-DIO/L-R-3210224 (lista de materiales), borne a 2.77 / 5.66 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 3 catodo de 62XDIO recibe 2 cables distintos (6204, 6206): revisar el instructivo"
+  },
+  {
+   "texto": "62XDIO 5 ARRIBA",
+   "cables": [
+    "6206"
+   ],
+   "x": 698.57,
+   "y": 551.73,
+   "r": 1.56,
+   "confianza": "baja",
+   "componente": "62XDO",
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "pieza": 3,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3 (= ceil(5/2)), impar: boca del extremo; 62XDIO tiene 3 piezas y no existe el borne 5: se toma en la bornera vecina 62XDO; modelo PTT2,5-BLOQUE-BATFER (lista de materiales), borne a 3.26 / 7.60 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDIO 5 ABAJO",
+   "cables": [
+    "6207"
+   ],
+   "x": 698.57,
+   "y": 507.93,
+   "r": 1.56,
+   "confianza": "baja",
+   "componente": "62XDO",
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "pieza": 3,
+   "borne_modelo": "impar_ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 3 (= ceil(5/2)), impar: boca del extremo; 62XDIO tiene 3 piezas y no existe el borne 5: se toma en la bornera vecina 62XDO; modelo PTT2,5-BLOQUE-BATFER (lista de materiales), borne a 3.26 / 69.30 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDIO 6 ABAJO",
+   "cables": [
+    "6208"
+   ],
+   "x": 698.57,
+   "y": 516.02,
+   "r": 1.56,
+   "confianza": "baja",
+   "componente": "62XDO",
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "pieza": 3,
+   "borne_modelo": "par_ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 3 (= ceil(6/2)), par: boca interior; 62XDIO tiene 3 piezas y no existe el borne 6: se toma en la bornera vecina 62XDO; modelo PTT2,5-BLOQUE-BATFER (lista de materiales), borne a 3.26 / 57.90 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31XAI F1 ARRIBA",
+   "cables": [
+    "1324"
+   ],
+   "x": 801.48,
+   "y": 686.59,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "31XAI",
+   "modelo": "PTTB4-HESI-3211886",
+   "pieza": 1,
+   "borne_modelo": "int_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1, nivel del fusible: boca interior; modelo PTTB4-HESI-3211886 (por medidas), borne a 3.18 / 33.52 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "2142"
+   ],
+   "x": 801.48,
+   "y": 705.09,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "31XAI",
+   "modelo": "PTTB4-HESI-3211886",
+   "pieza": 1,
+   "borne_modelo": "ext_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1, paso directo: boca del extremo; modelo PTTB4-HESI-3211886 (por medidas), borne a 3.18 / 7.46 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 1 ext_ARRIBA de 31XAI recibe 2 cables distintos (2142, 3141): revisar el instructivo"
+  },
+  {
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "3141"
+   ],
+   "x": 801.48,
+   "y": 705.09,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "31XAI",
+   "modelo": "PTTB4-HESI-3211886",
+   "pieza": 1,
+   "borne_modelo": "ext_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1, paso directo: boca del extremo; modelo PTTB4-HESI-3211886 (por medidas), borne a 3.18 / 7.46 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 1 ext_ARRIBA de 31XAI recibe 2 cables distintos (2142, 3141): revisar el instructivo"
+  },
+  {
+   "texto": "31XAI F1 ABAJO",
+   "cables": [
+    "3141"
+   ],
+   "x": 801.48,
+   "y": 655.19,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "31XAI",
+   "modelo": "PTTB4-HESI-3211886",
+   "pieza": 1,
+   "borne_modelo": "int_ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 1, nivel del fusible: boca interior; modelo PTTB4-HESI-3211886 (por medidas), borne a 3.18 / 77.75 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31XAI 1 ABAJO",
+   "cables": [
+    "3142"
+   ],
+   "x": 801.48,
+   "y": 643.25,
+   "r": 1.42,
+   "confianza": "media",
+   "componente": "31XAI",
+   "modelo": "PTTB4-HESI-3211886",
+   "pieza": 1,
+   "borne_modelo": "ext_ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 1, paso directo: boca del extremo; modelo PTTB4-HESI-3211886 (por medidas), borne a 3.18 / 94.56 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31XAI 2 ARRIBA",
+   "cables": [
+    "3142"
+   ],
+   "x": 795.7,
+   "y": 675.3,
+   "r": 1.0,
+   "confianza": "baja",
+   "componente": "31XAI",
+   "modelo": "PTTB4-HESI-3211886",
+   "como": "31XAI tiene 1 piezas: no existe el borne 2; no se pudo resolver el borne: punto en la etiqueta"
+  },
+  {
+   "texto": "43KR2 A2",
+   "cables": [
+    "1328"
+   ],
+   "x": 846.93,
+   "y": 646.44,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 2,
+   "borne_modelo": "A2",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 2, borne A2; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 86.83 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR1 11",
+   "cables": [
+    "2118"
+   ],
+   "x": 842.6,
+   "y": 704.63,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 1,
+   "borne_modelo": "11",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 1, borne 11; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 4.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR1 14",
+   "cables": [
+    "2119"
+   ],
+   "x": 842.6,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 1,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 1, borne 14; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR3 11",
+   "cables": [
+    "2122"
+   ],
+   "x": 851.26,
+   "y": 704.63,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 3,
+   "borne_modelo": "11",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 3, borne 11; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 4.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR3 14",
+   "cables": [
+    "2123"
+   ],
+   "x": 851.26,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 3,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 3, borne 14; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR2 11",
+   "cables": [
+    "4318"
+   ],
+   "x": 846.93,
+   "y": 704.63,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 2,
+   "borne_modelo": "11",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 2, borne 11; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 4.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR2 14",
+   "cables": [
+    "4319"
+   ],
+   "x": 846.93,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 2,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 2, borne 14; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR1 A1",
+   "cables": [
+    "4329"
+   ],
+   "x": 842.6,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 1,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 1, borne A1; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR2 A1",
+   "cables": [
+    "4329"
+   ],
+   "x": 846.93,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 2,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 2, borne A1; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR4 11",
+   "cables": [
+    "4358"
+   ],
+   "x": 855.59,
+   "y": 704.63,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 4,
+   "borne_modelo": "11",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 4, borne 11; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 4.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR4 14",
+   "cables": [
+    "4359"
+   ],
+   "x": 855.59,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 4,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 4, borne 14; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR3 A1",
+   "cables": [
+    "4369"
+   ],
+   "x": 851.26,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 3,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 3, borne A1; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43KR4 A1",
+   "cables": [
+    "4369"
+   ],
+   "x": 855.59,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "43KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 4,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 4, borne A1; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDO 2 ARRIBA",
+   "cables": [
+    "1321"
+   ],
+   "x": 689.82,
+   "y": 543.64,
+   "r": 1.56,
+   "confianza": "alta",
+   "componente": "62XDO",
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "pieza": 1,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(2/2)), par: boca interior; modelo PTT2,5-BLOQUE-BATFER (lista de materiales), borne a 3.26 / 19.00 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDO 1 ARRIBA",
+   "cables": [
+    "6201"
+   ],
+   "x": 689.82,
+   "y": 551.73,
+   "r": 1.56,
+   "confianza": "media",
+   "componente": "62XDO",
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "pieza": 1,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(1/2)), impar: boca del extremo; modelo PTT2,5-BLOQUE-BATFER (lista de materiales), borne a 3.26 / 7.60 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 1 impar_ARRIBA de 62XDO recibe 2 cables distintos (6201, 6202): revisar el instructivo"
+  },
+  {
+   "texto": "62XDO 1 ABAJO",
+   "cables": [
+    "6202"
+   ],
+   "x": 689.82,
+   "y": 507.93,
+   "r": 1.56,
+   "confianza": "alta",
+   "componente": "62XDO",
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "pieza": 1,
+   "borne_modelo": "impar_ABAJO",
+   "lado_fisico": "ABAJO",
+   "como": "pieza 1 (= ceil(1/2)), impar: boca del extremo; modelo PTT2,5-BLOQUE-BATFER (lista de materiales), borne a 3.26 / 69.30 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62XDO ARRIBA",
+   "cables": [
+    "6202"
+   ],
+   "x": 689.82,
+   "y": 551.73,
+   "r": 1.56,
+   "confianza": "baja",
+   "componente": "62XDO",
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "pieza": 1,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(1/2)), impar: boca del extremo; el texto no trae numero de borne: se usa el 1; modelo PTT2,5-BLOQUE-BATFER (lista de materiales), borne a 3.26 / 7.60 mm del borde izq. / sup.",
+   "revisar": "la boca pieza 1 impar_ARRIBA de 62XDO recibe 2 cables distintos (6201, 6202): revisar el instructivo"
+  },
+  {
+   "texto": "62KR1 11",
+   "cables": [
+    "1308"
+   ],
+   "x": 882.78,
+   "y": 704.63,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 1,
+   "borne_modelo": "11",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 1, borne 11; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 4.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR1 A1",
+   "cables": [
+    "2150"
+   ],
+   "x": 882.78,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 1,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 1, borne A1; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR1 A2",
+   "cables": [
+    "2151"
+   ],
+   "x": 882.78,
+   "y": 646.44,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 1,
+   "borne_modelo": "A2",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 1, borne A2; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 86.83 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR2 A1",
+   "cables": [
+    "2152"
+   ],
+   "x": 887.11,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 2,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 2, borne A1; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR2 A2",
+   "cables": [
+    "2153"
+   ],
+   "x": 887.11,
+   "y": 646.44,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 2,
+   "borne_modelo": "A2",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 2, borne A2; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 86.83 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR3 A1",
+   "cables": [
+    "2154"
+   ],
+   "x": 891.45,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 3,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 3, borne A1; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR3 A2",
+   "cables": [
+    "2155"
+   ],
+   "x": 891.45,
+   "y": 646.45,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 3,
+   "borne_modelo": "A2",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 3, borne A2; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 86.83 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR1 14",
+   "cables": [
+    "6201"
+   ],
+   "x": 882.78,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 1,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 1, borne 14; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR2 14",
+   "cables": [
+    "6203"
+   ],
+   "x": 887.11,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 2,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 2, borne 14; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "62KR3 14",
+   "cables": [
+    "6206"
+   ],
+   "x": 891.45,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "62KR",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "pieza": 3,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 3, borne 14; modelo RIF-0-RPT-12DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46KR2 11",
+   "cables": [
+    "2114"
+   ],
+   "x": 871.35,
+   "y": 704.63,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "46KR",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "pieza": 2,
+   "borne_modelo": "11",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 2, borne 11; modelo RIF-0-RPT-24DC/21 (lista de materiales), borne a 3.05 / 4.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46KR2 14",
+   "cables": [
+    "2115"
+   ],
+   "x": 871.35,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "46KR",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "pieza": 2,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 2, borne 14; modelo RIF-0-RPT-24DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46KR1 11",
+   "cables": [
+    "2168"
+   ],
+   "x": 867.02,
+   "y": 704.63,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "46KR",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "pieza": 1,
+   "borne_modelo": "11",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 1, borne 11; modelo RIF-0-RPT-24DC/21 (lista de materiales), borne a 3.05 / 4.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46KR1 14",
+   "cables": [
+    "2169"
+   ],
+   "x": 867.02,
+   "y": 698.24,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "46KR",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "pieza": 1,
+   "borne_modelo": "14",
+   "lado_fisico": "ARRIBA",
+   "como": "modulo 1, borne 14; modelo RIF-0-RPT-24DC/21 (lista de materiales), borne a 3.05 / 13.87 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46KR2 A1",
+   "cables": [
+    "4614"
+   ],
+   "x": 871.35,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "46KR",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "pieza": 2,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 2, borne A1; modelo RIF-0-RPT-24DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46KR A2",
+   "cables": [
+    "4615"
+   ],
+   "x": 871.35,
+   "y": 646.44,
+   "r": 1.43,
+   "confianza": "baja",
+   "componente": "46KR",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "pieza": 2,
+   "borne_modelo": "A2",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 2, borne A2; el texto no dice el modulo: se toma el 2 (cable de numero mas cercano); modelo RIF-0-RPT-24DC/21 (lista de materiales), borne a 3.05 / 86.83 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46KR1 A1",
+   "cables": [
+    "4668"
+   ],
+   "x": 867.02,
+   "y": 652.83,
+   "r": 1.43,
+   "confianza": "alta",
+   "componente": "46KR",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "pieza": 1,
+   "borne_modelo": "A1",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 1, borne A1; modelo RIF-0-RPT-24DC/21 (lista de materiales), borne a 3.05 / 77.84 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46KR A2",
+   "cables": [
+    "4669"
+   ],
+   "x": 867.02,
+   "y": 646.44,
+   "r": 1.43,
+   "confianza": "baja",
+   "componente": "46KR",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "pieza": 1,
+   "borne_modelo": "A2",
+   "lado_fisico": "ABAJO",
+   "como": "modulo 1, borne A2; el texto no dice el modulo: se toma el 1 (cable de numero mas cercano); modelo RIF-0-RPT-24DC/21 (lista de materiales), borne a 3.05 / 86.83 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31XEX 1 ARRIBA",
+   "cables": [
+    "3104"
+   ],
+   "x": 789.13,
+   "y": 433.13,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "31XEX",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 1,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(1/2)), impar: boca del extremo; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31XEX 2 ARRIBA",
+   "cables": [
+    "3105"
+   ],
+   "x": 789.11,
+   "y": 421.86,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "31XEX",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 1,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(2/2)), par: boca interior; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31XEX 3 ARRIBA",
+   "cables": [
+    "3138"
+   ],
+   "x": 792.79,
+   "y": 433.13,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "31XEX",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 2,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2 (= ceil(3/2)), impar: boca del extremo; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "31XEX 4 ARRIBA",
+   "cables": [
+    "3139"
+   ],
+   "x": 792.76,
+   "y": 421.86,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "31XEX",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 2,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2 (= ceil(4/2)), par: boca interior; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XCS 2 ARRIBA",
+   "cables": [
+    "4318"
+   ],
+   "x": 679.25,
+   "y": 421.52,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "43XCS",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 1,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(2/2)), par: boca interior; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XCS 1 ARRIBA",
+   "cables": [
+    "4319"
+   ],
+   "x": 679.27,
+   "y": 432.78,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "43XCS",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 1,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(1/2)), impar: boca del extremo; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XCS 4 ARRIBA",
+   "cables": [
+    "4358"
+   ],
+   "x": 682.9,
+   "y": 421.51,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "43XCS",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 2,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2 (= ceil(4/2)), par: boca interior; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XCS 3 ARRIBA",
+   "cables": [
+    "4359"
+   ],
+   "x": 682.92,
+   "y": 432.77,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "43XCS",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 2,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2 (= ceil(3/2)), impar: boca del extremo; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XDI 1 ARRIBA",
+   "cables": [
+    "4301"
+   ],
+   "x": 804.0,
+   "y": 433.13,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "43XDI",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 1,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(1/2)), impar: boca del extremo; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XDI 2 ARRIBA",
+   "cables": [
+    "4302"
+   ],
+   "x": 803.98,
+   "y": 421.86,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "43XDI",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 1,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(2/2)), par: boca interior; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XDI 3 ARRIBA",
+   "cables": [
+    "4303"
+   ],
+   "x": 807.66,
+   "y": 433.13,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "43XDI",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 2,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2 (= ceil(3/2)), impar: boca del extremo; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XDI 4 ARRIBA",
+   "cables": [
+    "4304"
+   ],
+   "x": 807.64,
+   "y": 421.86,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "43XDI",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 2,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2 (= ceil(4/2)), par: boca interior; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XDI 5 ARRIBA",
+   "cables": [
+    "4341"
+   ],
+   "x": 811.32,
+   "y": 433.13,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "43XDI",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 3,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3 (= ceil(5/2)), impar: boca del extremo; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XDI 6 ARRIBA",
+   "cables": [
+    "4342"
+   ],
+   "x": 811.29,
+   "y": 421.86,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "43XDI",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 3,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 3 (= ceil(6/2)), par: boca interior; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XDI 7 ARRIBA",
+   "cables": [
+    "4343"
+   ],
+   "x": 814.97,
+   "y": 433.13,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "43XDI",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 4,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 4 (= ceil(7/2)), impar: boca del extremo; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "43XDI 8 ARRIBA",
+   "cables": [
+    "4344"
+   ],
+   "x": 814.95,
+   "y": 421.86,
+   "r": 1.06,
+   "confianza": "alta",
+   "componente": "43XDI",
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "pieza": 4,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 4 (= ceil(8/2)), par: boca interior; modelo PTT2,5-2MT-BU-3210265 (lista de materiales), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46XC 3 ARRIBA",
+   "cables": [
+    "4614"
+   ],
+   "x": 697.9,
+   "y": 432.8,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "46XC",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 2,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2 (= ceil(3/2)), impar: boca del extremo; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46XC 4 ARRIBA",
+   "cables": [
+    "4615"
+   ],
+   "x": 697.88,
+   "y": 421.54,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "46XC",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 2,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 2 (= ceil(4/2)), par: boca interior; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46XC 1 ARRIBA",
+   "cables": [
+    "4668"
+   ],
+   "x": 694.25,
+   "y": 432.78,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "46XC",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 1,
+   "borne_modelo": "impar_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(1/2)), impar: boca del extremo; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.82 / 5.07 mm del borde izq. / sup."
+  },
+  {
+   "texto": "46XC 2 ARRIBA",
+   "cables": [
+    "4669"
+   ],
+   "x": 694.23,
+   "y": 421.52,
+   "r": 1.06,
+   "confianza": "media",
+   "componente": "46XC",
+   "modelo": "PTT2,5-2MT-3210258",
+   "pieza": 1,
+   "borne_modelo": "par_ARRIBA",
+   "lado_fisico": "ARRIBA",
+   "como": "pieza 1 (= ceil(2/2)), par: boca interior; modelo PTT2,5-2MT-3210258 (por medidas), borne a 2.79 / 20.94 mm del borde izq. / sup."
+  }
+ ],
+ "componentes": {
+  "11PS1": {
+   "modelo": "NDR-240-24",
+   "origen": "medidas",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 598.92,
+     "x1": 643.64,
+     "y0": 629.68,
+     "y1": 718.62
+    }
+   ]
+  },
+  "11SK1": {
+   "modelo": "TOMA-IRAM-VIVION",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 737.31,
+     "x1": 760.15,
+     "y0": 649.78,
+     "y1": 698.62
+    }
+   ]
+  },
+  "11Q2": {
+   "modelo": "EZ9F34210",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 668.48,
+     "x1": 693.33,
+     "y0": 645.85,
+     "y1": 706.19
+    }
+   ]
+  },
+  "11Q1": {
+   "modelo": "EZ9R36225",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 643.64,
+     "x1": 668.48,
+     "y0": 645.85,
+     "y1": 706.19
+    }
+   ]
+  },
+  "12F2": {
+   "modelo": "MEGA-BASE",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": null,
+   "cuerpos": [
+    {
+     "x0": 572.32,
+     "x1": 632.55,
+     "y0": 296.38,
+     "y1": 313.42
+    }
+   ]
+  },
+  "12XP": {
+   "modelo": "PT6-QUATTRO-3212934",
+   "origen": "lista",
+   "piezas": 2,
+   "espejo": false,
+   "riel_y": 530.58,
+   "cuerpos": [
+    {
+     "x0": 591.08,
+     "x1": 596.86,
+     "y0": 499.51,
+     "y1": 563.77
+    },
+    {
+     "x0": 598.42,
+     "x1": 604.21,
+     "y0": 499.51,
+     "y1": 563.77
+    }
+   ]
+  },
+  "13F3": {
+   "modelo": "DF101",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 779.75,
+     "x1": 792.15,
+     "y0": 645.62,
+     "y1": 705.26
+    }
+   ]
+  },
+  "13XC1": {
+   "modelo": "PT6-QUATTRO-3212934",
+   "origen": "lista",
+   "piezas": 4,
+   "espejo": false,
+   "riel_y": 530.58,
+   "cuerpos": [
+    {
+     "x0": 612.87,
+     "x1": 618.65,
+     "y0": 499.51,
+     "y1": 563.77
+    },
+    {
+     "x0": 618.65,
+     "x1": 624.44,
+     "y0": 499.51,
+     "y1": 563.77
+    },
+    {
+     "x0": 626.0,
+     "x1": 631.79,
+     "y0": 499.51,
+     "y1": 563.77
+    },
+    {
+     "x0": 631.79,
+     "x1": 637.57,
+     "y0": 499.51,
+     "y1": 563.77
+    }
+   ]
+  },
+  "12F1": {
+   "modelo": "DF101",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 767.32,
+     "x1": 779.75,
+     "y0": 645.62,
+     "y1": 705.26
+    }
+   ]
+  },
+  "81XCM": {
+   "modelo": "PTT2,5-2MT-3210258",
+   "origen": "medidas",
+   "piezas": 7,
+   "espejo": false,
+   "riel_y": 402.79,
+   "cuerpos": [
+    {
+     "x0": 711.59,
+     "x1": 715.21,
+     "y0": 371.3,
+     "y1": 436.9
+    },
+    {
+     "x0": 715.21,
+     "x1": 718.86,
+     "y0": 371.3,
+     "y1": 436.89
+    },
+    {
+     "x0": 718.86,
+     "x1": 722.52,
+     "y0": 371.29,
+     "y1": 436.88
+    },
+    {
+     "x0": 722.52,
+     "x1": 726.18,
+     "y0": 371.28,
+     "y1": 436.88
+    },
+    {
+     "x0": 726.18,
+     "x1": 729.83,
+     "y0": 371.27,
+     "y1": 436.87
+    },
+    {
+     "x0": 729.83,
+     "x1": 733.49,
+     "y0": 371.26,
+     "y1": 436.86
+    },
+    {
+     "x0": 733.49,
+     "x1": 737.14,
+     "y0": 371.26,
+     "y1": 436.85
+    }
+   ]
+  },
+  "13PS3": {
+   "modelo": "DDR-120A-24",
+   "origen": "medidas",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 810.61,
+     "x1": 833.34,
+     "y0": 633.0,
+     "y1": 721.89
+    }
+   ]
+  },
+  "13X24": {
+   "modelo": "PT6-QUATTRO-3212934",
+   "origen": "lista",
+   "piezas": 2,
+   "espejo": false,
+   "riel_y": 530.58,
+   "cuerpos": [
+    {
+     "x0": 646.23,
+     "x1": 652.02,
+     "y0": 499.51,
+     "y1": 563.77
+    },
+    {
+     "x0": 653.58,
+     "x1": 659.37,
+     "y0": 499.51,
+     "y1": 563.77
+    }
+   ]
+  },
+  "31AIB1": {
+   "modelo": "GS8536-EX",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 530.58,
+   "cuerpos": [
+    {
+     "x0": 782.76,
+     "x1": 795.54,
+     "y0": 496.22,
+     "y1": 566.48
+    }
+   ]
+  },
+  "43DIB1": {
+   "modelo": "GS8512-EX.22",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 530.58,
+   "cuerpos": [
+    {
+     "x0": 795.54,
+     "x1": 804.48,
+     "y0": 496.22,
+     "y1": 566.5
+    }
+   ]
+  },
+  "43DIB2": {
+   "modelo": "GS8512-EX.22",
+   "origen": "lista",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 530.58,
+   "cuerpos": [
+    {
+     "x0": 804.48,
+     "x1": 813.43,
+     "y0": 496.22,
+     "y1": 566.5
+    }
+   ]
+  },
+  "62XDIO": {
+   "modelo": "PT2,5-DIO/L-R-3210224",
+   "origen": "lista",
+   "piezas": 3,
+   "espejo": false,
+   "riel_y": 530.58,
+   "cuerpos": [
+    {
+     "x0": 668.01,
+     "x1": 671.68,
+     "y0": 513.83,
+     "y1": 548.33
+    },
+    {
+     "x0": 671.68,
+     "x1": 675.34,
+     "y0": 513.83,
+     "y1": 548.33
+    },
+    {
+     "x0": 675.34,
+     "x1": 679.0,
+     "y0": 513.83,
+     "y1": 548.33
+    }
+   ]
+  },
+  "31XAI": {
+   "modelo": "PTTB4-HESI-3211886",
+   "origen": "medidas",
+   "piezas": 1,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 799.22,
+     "x1": 803.51,
+     "y0": 638.05,
+     "y1": 710.38
+    }
+   ]
+  },
+  "43KR": {
+   "modelo": "RIF-0-RPT-12DC/21",
+   "origen": "lista",
+   "piezas": 4,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 840.44,
+     "x1": 844.77,
+     "y0": 642.98,
+     "y1": 708.09
+    },
+    {
+     "x0": 844.77,
+     "x1": 849.1,
+     "y0": 642.98,
+     "y1": 708.09
+    },
+    {
+     "x0": 849.1,
+     "x1": 853.43,
+     "y0": 642.98,
+     "y1": 708.09
+    },
+    {
+     "x0": 853.43,
+     "x1": 857.76,
+     "y0": 642.98,
+     "y1": 708.09
+    }
+   ]
+  },
+  "62XDO": {
+   "modelo": "PTT2,5-BLOQUE-BATFER",
+   "origen": "lista",
+   "piezas": 3,
+   "espejo": false,
+   "riel_y": 530.58,
+   "cuerpos": [
+    {
+     "x0": 687.51,
+     "x1": 691.89,
+     "y0": 502.54,
+     "y1": 557.13
+    },
+    {
+     "x0": 691.89,
+     "x1": 696.25,
+     "y0": 502.54,
+     "y1": 557.13
+    },
+    {
+     "x0": 696.25,
+     "x1": 700.62,
+     "y0": 502.54,
+     "y1": 557.13
+    }
+   ]
+  },
+  "62KR": {
+   "modelo": "RIF-0-RPT-12DC/21",
+   "origen": "lista",
+   "piezas": 3,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 880.62,
+     "x1": 884.95,
+     "y0": 642.98,
+     "y1": 708.09
+    },
+    {
+     "x0": 884.95,
+     "x1": 889.28,
+     "y0": 642.98,
+     "y1": 708.09
+    },
+    {
+     "x0": 889.28,
+     "x1": 893.61,
+     "y0": 642.98,
+     "y1": 708.09
+    }
+   ]
+  },
+  "46KR": {
+   "modelo": "RIF-0-RPT-24DC/21",
+   "origen": "lista",
+   "piezas": 2,
+   "espejo": false,
+   "riel_y": 674.83,
+   "cuerpos": [
+    {
+     "x0": 864.86,
+     "x1": 869.19,
+     "y0": 642.98,
+     "y1": 708.09
+    },
+    {
+     "x0": 869.19,
+     "x1": 873.52,
+     "y0": 642.98,
+     "y1": 708.09
+    }
+   ]
+  },
+  "31XEX": {
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "origen": "lista",
+   "piezas": 2,
+   "espejo": false,
+   "riel_y": 402.79,
+   "cuerpos": [
+    {
+     "x0": 787.13,
+     "x1": 790.78,
+     "y0": 371.13,
+     "y1": 436.73
+    },
+    {
+     "x0": 790.78,
+     "x1": 794.44,
+     "y0": 371.13,
+     "y1": 436.73
+    }
+   ]
+  },
+  "43XCS": {
+   "modelo": "PTT2,5-2MT-3210258",
+   "origen": "medidas",
+   "piezas": 2,
+   "espejo": false,
+   "riel_y": 402.79,
+   "cuerpos": [
+    {
+     "x0": 677.27,
+     "x1": 680.92,
+     "y0": 370.79,
+     "y1": 436.38
+    },
+    {
+     "x0": 680.92,
+     "x1": 684.56,
+     "y0": 370.78,
+     "y1": 436.37
+    }
+   ]
+  },
+  "43XDI": {
+   "modelo": "PTT2,5-2MT-BU-3210265",
+   "origen": "lista",
+   "piezas": 4,
+   "espejo": false,
+   "riel_y": 402.79,
+   "cuerpos": [
+    {
+     "x0": 802.0,
+     "x1": 805.66,
+     "y0": 371.13,
+     "y1": 436.73
+    },
+    {
+     "x0": 805.66,
+     "x1": 809.31,
+     "y0": 371.13,
+     "y1": 436.73
+    },
+    {
+     "x0": 809.31,
+     "x1": 812.97,
+     "y0": 371.13,
+     "y1": 436.73
+    },
+    {
+     "x0": 812.97,
+     "x1": 816.63,
+     "y0": 371.13,
+     "y1": 436.73
+    }
+   ]
+  },
+  "46XC": {
+   "modelo": "PTT2,5-2MT-3210258",
+   "origen": "medidas",
+   "piezas": 2,
+   "espejo": false,
+   "riel_y": 402.79,
+   "cuerpos": [
+    {
+     "x0": 692.25,
+     "x1": 695.89,
+     "y0": 370.79,
+     "y1": 436.38
+    },
+    {
+     "x0": 695.89,
+     "x1": 699.54,
+     "y0": 370.81,
+     "y1": 436.4
+    }
+   ]
+  }
+ },
+ "avisos": [
+  "11PS1: la lista de materiales dice NDR-120-24, pero el cuerpo dibujado no tiene esas medidas",
+  "11PS1: modelo elegido por las medidas del cuerpo: NDR-240-24",
+  "81XCM: modelo elegido por las medidas del cuerpo: PTT2,5-2MT-3210258 (empata con PTT2,5-2MT-BU-3210265)",
+  "13PS3: modelo elegido por las medidas del cuerpo: DDR-120A-24",
+  "31XAI: la lista de materiales dice PTT2,5-2MT-3210258, pero el cuerpo dibujado no tiene esas medidas",
+  "31XAI: modelo elegido por las medidas del cuerpo: PTTB4-HESI-3211886",
+  "43XCS: modelo elegido por las medidas del cuerpo: PTT2,5-2MT-3210258 (empata con PTT2,5-2MT-BU-3210265)",
+  "46XC: modelo elegido por las medidas del cuerpo: PTT2,5-2MT-3210258 (empata con PTT2,5-2MT-BU-3210265)"
+ ]
+}

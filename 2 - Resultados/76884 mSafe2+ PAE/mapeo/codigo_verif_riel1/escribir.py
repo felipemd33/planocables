@@ -1,0 +1,32 @@
+import json
+out={
+ "zona":"BANDEJA PRINCIPAL riel 1 (U10): 11PS1, 11PS2, 13PS1, 11F1, 11F2, 12F3, 13F4, 13F5, 13F6, 42KS1, 42KR1, 61KR1-61KR4, 32XAI, XPE",
+ "archivo_verificado":"puntos_riel1.json (69 puntos)",
+ "correcciones":[],
+ "verificacion":(
+  "Revise los 69 puntos uno por uno con geometria propia, sin usar el codigo de riel1 (codigo_verif_riel1/medir.py y medicion.json). "
+  "Use cuatro metodos. Circulos (NDR, RIF-0, PTTB, QUATTRO-PE): ajuste de circulo sobre los segmentos del arco. Hexagonos y octogonos (DF101, DF141, DDR TB1, 42KS1): centro del poligono cerrado. Cuadrados (DDR TB2): bordes 715.48/718.31, 719.08/721.91 y 722.35/725.19, con y de 697.48 a 700.31. "
+  "Todos los puntos caen en el centro de una boca o de un tornillo real. La diferencia maxima es 0,08 pt (12F3 ARRIBA, entre el hexagono y el contorno exterior). "
+  "COBERTURA: conexiones.json tiene 69 puntas con tag del riel 1. Las 8 filas '-61KRn -> -61KRn' son la conexion interna rele-base y no son cables. Las 69 estan mapeadas, sin sobrantes, con el mismo otro extremo, color y seccion de la fila de la lista. "
+  "ASIGNACION: NDR-240. Color en la lista: TB2:1 negro y TB2:3 rojo; TB1:2 celeste y TB1:3 marron. Coincide con -V -V +V +V arriba y FG N L abajo, de izquierda a derecha (referencia 75286 con fotos). "
+  "DDR-120A-24. TB2 son los 4 cuadrados de arriba y TB1 los 3 hexagonos de abajo a la derecha, con PE -Vin +Vin (referencias 66817 y 75286). "
+  "DF101/DF141. Borne 1 arriba y 2 abajo; las columnas coinciden con las etiquetas (0,34 a 0,38 pt en x; en 12F3 el tornillo esta en el centro del cuerpo de 766.17 a 784.95, a 1,4 pt de la etiqueta). "
+  "42KS1. En la hoja 42 (pag 18) confirme los pines que faltan en la lista: 2114 en 13, 1394 en 23, 1395 en 33, 1396 en 43, 2115 en 14, 4294 en 24, 4295 en 34 y 4296 en 44. "
+  "Las fotos del 2963802 real (industrialpartsrus, 3 vistas) muestran el enchufe trasero 'A1 S34 S33 S11' y el delantero 'S12 51 52 A2'. El rotulo frontal dice 'A1|S34|S33|S11 / S12|51|52|A2' arriba y '43|44|13|14 / 33|34|23|24' abajo. Coincide con el punto de cada uno de los 16 tornillos (4221, puente S34-S33, en dos tornillos vecinos de la fila exterior de arriba). "
+  "RIF-0. Arriba 11 (extremo) y 14; abajo A1 junto al LED y A2 en el extremo. Las etiquetas 42KR y 61KR estan sobre el tope; los modulos estan a su derecha (x de 864.645 a 877.625, centro de cada modulo de 4.33 pt). "
+  "32XAI (PTTB 4-HESI). En la hoja 32 (pag 16), 1350 y 2142 entran arriba y 3221 y 3222 salen abajo. En el plano de hileras (pag 39), F1 es el piso de arriba y 1 el de abajo. En la 3D de la pag 39, la palanca del fusible esta en la boca interior de arriba. Por eso F1 va en las bocas interiores y 1 en las del extremo, como el 31XAI del 75286 con foto. "
+  "XPE (PT 2,5-QUATTRO-PE, 3 piezas a la derecha del tope, numeros '1 2 3' en el dibujo): 1:1 ARRIBA extremo, 1:4 y 2:4 ABAJO extremo. "
+  "TEXTOS: siguen las convenciones. Fuentes: '11PS1 TB2 1 (-V)', '11PS1 TB1 1 (FG)' y, en el DDR, el nombre del plano ('13PS1 +Vin'). Fusibles: '11F1 ARRIBA'. Reles: modulo y contacto ('61KR1 A1', '42KS1 43'). Doble piso: '32XAI F1 ARRIBA'. QUATTRO: 'XPE 1.4'. "
+  "Imagen: verif_riel1.png (cruz roja = punto del tecnico, circulo verde = centro medido)."),
+ "dudas":[
+  "42KS1, filas de abajo (8 puntos: 1394, 1395, 1396, 2114, 2115, 4294, 4295, 4296). Ninguna foto muestra el rotulo de los enchufes de abajo. La asignacion sale del rotulo frontal '43|44|13|14 / 33|34|23|24', con 43 44 13 14 en la fila interior (y 634.23) y 33 34 23 24 en la exterior (y 627.10). Lo apoyan las dos lecturas razonables: leer el rotulo como mapa (igual que arriba, donde la fila 1 del rotulo es el enchufe de mas arriba) y tomar la fila del rotulo mas cercana al centro como el enchufe delantero. Si en el aparato fuera al reves, se intercambian las dos filas de abajo. Confirmar en el tablero; la confianza media del tecnico es correcta.",
+  "42KS1, orientacion. El dibujo 2D de EPLAN es simetrico (2 enchufes de 4 arriba y 2 abajo; la vista color de la pag 27 es un bloque amarillo liso), asi que no muestra si el rele va al derecho. Se supone montado al derecho: rotulo legible y LEDs en la mitad de arriba, como en las fotos.",
+  "61KR1 a 61KR4: el orden de izquierda a derecha es supuesto. La hoja 8, la vista color de la pag 27 y el texto de la pagina solo dicen '-61KR'. Confianza media, de acuerdo con el tecnico. Dentro de cada modulo la boca es segura.",
+  "13PS1 -Vo y (-Vo): en la hoja 13 el simbolo dibuja +Vo, -Vo, (+Vo), (-Vo) de izquierda a derecha, que no es el orden fisico (-Vo -Vo +Vo +Vo). No hay como saber cual -Vo es el tornillo 1. Los dos son el mismo potencial; se uso la regla del n-esimo pin del 66817 (1312 en el pin 1, 1235 en el pin 2). El texto '13PS1 (-Vo)' copia el parentesis de EPLAN. Si el taller prefiere '13PS1 -Vo' en los dos, o 'TB2 2', es solo texto. Segun la memoria, el formato de nombres de bornes de fuentes sigue pendiente con el usuario.",
+  "1202 (rojo 6 mm2, 12F3 ABAJO -> 12PB1 +, bateria en el piso del gabinete) quedo con otro_zona 'LI'. Segun la memoria, los cables de bateria de 35 mm2 se hacen en E8. Confirmar si este tambien va a E8, igual que 3221/3222 a PT001. No cambia el punto.",
+  "XPE 1.1 (tierra de 13PS1): la lista dice -XPE:1:1 (ARRIBA extremo), aunque el PE de 13PS1 sale por abajo (TB1). Se respeta el funcional. Los 4 puntos de la pieza son PE, asi que si el taller prefiere entrar por abajo es solo cambiar el punto.",
+  "Radios (solo afectan el tamano de la marca, no el centro): 32XAI r 2.06 y XPE r 1.70. El contorno exterior de la boca mide 2.17 y 1.83 pt; no lo corregi."
+ ]
+}
+json.dump(out,open(r'C:/Buscar Termos en plano/2 - Resultados/76884 mSafe2+ PAE/mapeo/correcciones_riel1.json','w',encoding='utf-8'),ensure_ascii=False,indent=1)
+print('ok')

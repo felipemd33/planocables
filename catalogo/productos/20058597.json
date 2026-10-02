@@ -1,0 +1,3249 @@
+{
+ "carpeta": "20058597 - mSafe1 PP - 12un",
+ "orden": "20058597",
+ "codigo_producto": "76244-1",
+ "descripcion": "CONTROLADOR HID. ELECT. MSAFE1 PP",
+ "cant_orden": 12,
+ "lista_materiales_sap": "00114174",
+ "observaciones_orden": "E211",
+ "planos": {
+  "funcional": "76425 FUNCTIONAL DIAGRAM MSAFE.pdf",
+  "topografico": "76426 TOPOGRAFICO PANEL MSAFE.pdf",
+  "otros": [
+   "20058597.pdf (orden de montaje SAP, 9 hojas)"
+  ],
+  "documentos_citados_en_la_orden": [
+   {
+    "clase_doc": "ZPL",
+    "numero": "76425",
+    "descripcion": "FUNCTIONAL DIAGRAM MSAFE",
+    "rev": "00"
+   },
+   {
+    "clase_doc": "ZPL",
+    "numero": "76426",
+    "descripcion": "TOPOGRAFICO PANEL MSAFE",
+    "rev": "00"
+   },
+   {
+    "clase_doc": "ZEI",
+    "numero": "11-1146",
+    "descripcion": "FAT MSAFE3PP",
+    "rev": "00"
+   },
+   {
+    "clase_doc": "ZOM",
+    "numero": "M-1092",
+    "descripcion": "MANUAL OPERACION, INSTAL, Y MANT.",
+    "rev": "00"
+   }
+  ],
+  "nota": "Funcional 76425 ZPL rev 0 \"DIAGRAMA ELECTRICO mSafe PP\" (21 hojas: 00, 01, 02-04 topografico propio, 09 lista de materiales, 10 simbologia, 11-15, 21, 31-33, 41, 43, 46, 62, 81); su caratula dice proyecto mSafe3 PP y codigo 76222-1 (CJ. CONTROLADOR mSafe PP). Topografico 76426 ZPL rev 0 \"Structure and Arrangement-mSafe1AC\" (9 hojas; 07 = vista detallada de componentes montados, 04 = vista posterior de puerta), proyecto mSafe1 PP, codigo 76222-1, cliente PLUSPETROL. La orden es del producto 76244-1 (CONTROLADOR HID. ELECT. MSAFE1 PP), no del 76222-1."
+ },
+ "componentes_sap": [
+  {
+   "pos": "0010",
+   "codigo": "76381-1",
+   "descripcion": "CJ. SISTEMA ELECTRICO MSAFE1 AC PP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "conjunto",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0010",
+   "codigo": "AB1203303",
+   "descripcion": "DISYUNTOR DIFERENCIAL 25A 30mA",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0010",
+   "codigo": "AB2000440",
+   "descripcion": "UNIDAD HIDRAULICA 12VDC-8L-1,8 l/m 3kpsi",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0010",
+   "codigo": "66336-1",
+   "descripcion": "GABINETE 800x940x400 C/CONTRATAP BATFER",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0020",
+   "codigo": "AB1202656",
+   "descripcion": "INTERRUPTOR TERMOMAGNETICO 2 X 10A",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0020",
+   "codigo": "76382-1",
+   "descripcion": "CJ. HIDRAULICO MSAFE1 AC PP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "conjunto",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0020",
+   "codigo": "66031-1",
+   "descripcion": "SOPORTE BOMBA HIDRÁULICA BREVINI mSand",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0020",
+   "codigo": "AB2000049",
+   "descripcion": "TAPON GOMA DIAM=12MM",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0030",
+   "codigo": "AB1202653",
+   "descripcion": "FUENTE SWITCHING 110/220VAC - 24VCC 10A",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0030",
+   "codigo": "AB2000310",
+   "descripcion": "FILTRO AIRE 1/2\" BSP 10µm 450 l/min",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0030",
+   "codigo": "75396-1",
+   "descripcion": "CJ. GABINETE MSAFE MULTIPLE",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "conjunto",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0030",
+   "codigo": "E0550105",
+   "descripcion": "ARANDELA GROWER 3/8\" AISI 316",
+   "cantidad": 96.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 8.0
+  },
+  {
+   "pos": "0040",
+   "codigo": "AB139867",
+   "descripcion": "ELEVADOR 12V-24VCC MEAN WELL DDR-120A-24",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0040",
+   "codigo": "E2131272",
+   "descripcion": "TORNILLO CAB.HEXAGONAL 3/8\"x5/8\" INOX.",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0040",
+   "codigo": "E1480005",
+   "descripcion": "TUERCA HEXAGONAL 3/8-16UN-2B AISI 316",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0050",
+   "codigo": "AB2000062",
+   "descripcion": "MODULO TOMA CORRIENTE IRAM",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0050",
+   "codigo": "E0550105",
+   "descripcion": "ARANDELA GROWER 3/8\" AISI 316",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0050",
+   "codigo": "E1510005",
+   "descripcion": "ARANDELA PLANA 3/8\" AISI 316",
+   "cantidad": 96.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 8.0
+  },
+  {
+   "pos": "0060",
+   "codigo": "AB2000061",
+   "descripcion": "SOPORTE MODULO TOMA CORRIENTE P/RIEL DIN",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0060",
+   "codigo": "E1510005",
+   "descripcion": "ARANDELA PLANA 3/8\" AISI 316",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0060",
+   "codigo": "E2130256",
+   "descripcion": "TOR.CAB.EXA. 3/8\"-16UNCx2\"-AISI 316",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0070",
+   "codigo": "AB1202912",
+   "descripcion": "PORTAFUSIBLE 1X32A, 10x38mm - P/RIEL DIN",
+   "cantidad": 36.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0070",
+   "codigo": "E2131271",
+   "descripcion": "TORNILLO CAB.HEXAGONAL M6 X 1 X 20",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0070",
+   "codigo": "E2131271",
+   "descripcion": "TORNILLO CAB.HEXAGONAL M6 X 1 X 20",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0080",
+   "codigo": "AB1202959",
+   "descripcion": "FUSIBLE 20A - 10x38mm",
+   "cantidad": 36.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0080",
+   "codigo": "AB2000221",
+   "descripcion": "GOMA PASACABLE TIPO RAR",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0080",
+   "codigo": "65940-1",
+   "descripcion": "CONJ. SOPORTE P-BATERIAS mSand-E2",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "conjunto",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0090",
+   "codigo": "AB2000219",
+   "descripcion": "FUSIBLE 10A - 10x38mm",
+   "cantidad": 60.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0090",
+   "codigo": "E1483001",
+   "descripcion": "TUERCA REMACHABLE M6 - ZINCADA",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0100",
+   "codigo": "69112-1",
+   "descripcion": "SOPORTE FUSIBLES DE REPUESTO - IMP 3D",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0100",
+   "codigo": "AB2000447",
+   "descripcion": "MANG.R2 3/8\"L0.4M 3/4\"UNF-1/4\"BSP C/MANG",
+   "cantidad": 24.0,
+   "unidad": null,
+   "clase": "otro",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0110",
+   "codigo": "AB2000144",
+   "descripcion": "TRANS.ELEC.PRESION 0-250 BAR 1/4\"M BSP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0110",
+   "codigo": "75587-1",
+   "descripcion": "MANIFOLD DE CONEXIÓN mSafe2/3 AC",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0120",
+   "codigo": "E2130267",
+   "descripcion": "ARANDELA METAL CON GOMA 04 1/4 BSP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0120",
+   "codigo": "BB1CC16000",
+   "descripcion": "CODO 90º 1/4\"NPT-MX1/4\" NPT-H S5000 316",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0120",
+   "codigo": "76239-1",
+   "descripcion": "PROTECCION 220V - mSAFE3 PP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0130",
+   "codigo": "AB2000050",
+   "descripcion": "PROTECCION P/PULS.EMERG.TIPO HONGO Ø22",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0130",
+   "codigo": "AB0130035",
+   "descripcion": "ADAPTADOR 1/4\"NPT H-1/4\"BSP M-ADN2-2-316",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0130",
+   "codigo": "76242-1",
+   "descripcion": "PROTECCION 220V + BONERAS - mSAFE3 PP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0140",
+   "codigo": "AB2000051",
+   "descripcion": "PULSADOR HONGO 22 ROJO C/RETENCION 1/4 G",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0140",
+   "codigo": "AB2000142",
+   "descripcion": "MANÓM. 1/4\"NPT 0-4000PSI CONEX. INFERIOR",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0140",
+   "codigo": "76243-1",
+   "descripcion": "PORTA DOCUMENTOS GAB. - mSAFE3 PP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0150",
+   "codigo": "AB2000033",
+   "descripcion": "SECCIONADOR PARO EMERGENCIA P/PUERTA 20A",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0150",
+   "codigo": "AB138111",
+   "descripcion": "ACUMULADOR HD DE MEMBRANA 0.7Ltrs.210BAR",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0150",
+   "codigo": "76254-1",
+   "descripcion": "PROTECCION TRASERA PARA PLACA E2.5",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0160",
+   "codigo": "51228-1",
+   "descripcion": "FRENTE DE ALUMINIO CONT. ELECTRONICO E2",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0160",
+   "codigo": "75028-1",
+   "descripcion": "MANIFOLD 3 EST. CETOP 3 PUERTO \"A\"",
+   "cantidad": 12.0,
+   "unidad": null,
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0160",
+   "codigo": "76411-1",
+   "descripcion": "SEPARADOR 145MM AISI 1010/20 ZINC.",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0170",
+   "codigo": "AB2000152",
+   "descripcion": "VALV. DE RETENCION 20 L/MIN CV08-P-05",
+   "cantidad": 36.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0170",
+   "codigo": "E0120204",
+   "descripcion": "TOR.CAB.CIL.ALLEN M4X0,7X15MM AISI304",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0180",
+   "codigo": "AB1202835",
+   "descripcion": "TIRA CABLE CANAL B.040 H40 GRIS RANURADO",
+   "cantidad": 18.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.5,
+   "nota": "descripcion partida entre hojas de la orden (se unio el texto que quedo al principio de la hoja siguiente)"
+  },
+  {
+   "pos": "0180",
+   "codigo": "AB2000408",
+   "descripcion": "VALV.SOLENOIDE POPPET 30W 12VDC",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0180",
+   "codigo": "E0510018",
+   "descripcion": "ARANDELA PLANA M4 - AISI 316",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0190",
+   "codigo": "BN00E10000",
+   "descripcion": "TAPON PARA RACOR 3/8 AISI 316 ABAC",
+   "cantidad": 36.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0190",
+   "codigo": "E0550113",
+   "descripcion": "ARANDELA GROWER M4 - AISI 316",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0200",
+   "codigo": "AB1202858",
+   "descripcion": "RIEL DIN SIMETRICO 35MM C/SLOTS 1M",
+   "cantidad": 24.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0200",
+   "codigo": "ABB001ZZZ",
+   "descripcion": "TAPON PARA RACOR 1/2 AISI 316 ABAC",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0210",
+   "codigo": "L03-60591-01",
+   "descripcion": "PCB ARMADO E3.5",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0210",
+   "codigo": "BF8HF00000",
+   "descripcion": "ADAPTADOR 3/4 UNF C/ORING M x 1/2\" NPT H",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0220",
+   "codigo": "AB2000070",
+   "descripcion": "PILAS CR2032",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0220",
+   "codigo": "B2M6T61A",
+   "descripcion": "RECTO 1/2\"NPT-M x 1/2\"TUBO MWP 6700 PSI",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0230",
+   "codigo": "E0512004",
+   "descripcion": "ARANDELA PLANA NILON 5/32\"-7/16\"",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0230",
+   "codigo": "B2U11T51A",
+   "descripcion": "RECTO 9/16 UNF-M x 3/8\"TUBO MWP 3000 PSI",
+   "cantidad": 36.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0240",
+   "codigo": "72321-1",
+   "descripcion": "SEPARADOR DELRIN DIAM INT:6.5MM//L:18MM",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0240",
+   "codigo": "BN8H000000",
+   "descripcion": "TAPON CABEZA HEXAGONAL 3/4\"UNF C/ORING",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0250",
+   "codigo": "E2131265",
+   "descripcion": "TUERCA HEXAGONAL 1/8\" ZINC",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0250",
+   "codigo": "E2131261",
+   "descripcion": "ARANDELA GROWER M8 AISI 304",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0260",
+   "codigo": "E2131266",
+   "descripcion": "ARANDELA GROWER 1/8\" ZINC",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0260",
+   "codigo": "E2131262",
+   "descripcion": "TORN. CAB.HEX M8x1.25x16mm - AISI 316",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0270",
+   "codigo": "E2131268",
+   "descripcion": "TORNILLO C/FRESADA ZINCADO 1/8\" X 1-1/2\"",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0270",
+   "codigo": "AB500269",
+   "descripcion": "TAPA CIEGA CETOP 3 CON ORINGS",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0280",
+   "codigo": "AB2000022",
+   "descripcion": "FINAL DE CARRERA NAC METALICO",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0280",
+   "codigo": "E2131276",
+   "descripcion": "TORNILLO ALLEN C/CABEZA M5 x 0,8 x 50mm",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0290",
+   "codigo": "73087-1",
+   "descripcion": "SOPORTE DOOR SWITCH OMRON",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0290",
+   "codigo": "BN6C020000",
+   "descripcion": "TAPÓN CAB. CIL. ALLEN 1/4\" BSPP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0300",
+   "codigo": "E2131273",
+   "descripcion": "TORNILLO CAB. ALLEN M5x40 mm",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0300",
+   "codigo": "J0012025",
+   "descripcion": "ORING 2-025 NITRILO 70 Sh A",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0310",
+   "codigo": "E2131298",
+   "descripcion": "TUERCA HEXAG. M5 C/AUTOFR.",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0310",
+   "codigo": "E2130267",
+   "descripcion": "ARANDELA METAL CON GOMA 04 1/4 BSP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0320",
+   "codigo": "E1510002",
+   "descripcion": "ARANDELA PLANA M6 AISI 316",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0320",
+   "codigo": "J0022015",
+   "descripcion": "ORING 2-015 NITRILO 90 Sh A",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0330",
+   "codigo": "AB2000063",
+   "descripcion": "BORNE RELÉ 12Vcc-1NO+C+NC(ZÓCALO+PAST)",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0340",
+   "codigo": "AB2000134",
+   "descripcion": "BARRERA SEG. INTRINSECA 4-20mA CHENZU",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0350",
+   "codigo": "AB2000135",
+   "descripcion": "BARRERA SEGURIDAD INTRINSECA DI CHENZU",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0360",
+   "codigo": "AB2000315",
+   "descripcion": "BORNE DE PASO DOBLE PISO PUENTEABLE PUSH",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0370",
+   "codigo": "AB2000314",
+   "descripcion": "TAPA FINAL D-PTTB 2,5",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0380",
+   "codigo": "AB2000492",
+   "descripcion": "BORNE DE TIERRA PT 4-PE",
+   "cantidad": 144.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 12.0
+  },
+  {
+   "pos": "0390",
+   "codigo": "AB160584",
+   "descripcion": "TAPA BORNE DE PASO PUSH-IN D-ST 4",
+   "cantidad": 72.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 6.0
+  },
+  {
+   "pos": "0400",
+   "codigo": "AB160583",
+   "descripcion": "BORNE DE PASO PUSH-IN PT 4",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0410",
+   "codigo": "AB2000369",
+   "descripcion": "BORNE DE PASO PT 6-QUATTRO",
+   "cantidad": 132.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 11.0
+  },
+  {
+   "pos": "0420",
+   "codigo": "AB2000370",
+   "descripcion": "TAPA FINAL D-PT 6-QUATTRO",
+   "cantidad": 84.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 7.0
+  },
+  {
+   "pos": "0430",
+   "codigo": "AB2000080",
+   "descripcion": "BORNE CON DIODO INTEGRADO",
+   "cantidad": 24.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0440",
+   "codigo": "AB2000081",
+   "descripcion": "TAPA PARA BORNE CON DIODO INTEGRADO",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0450",
+   "codigo": "AB2000068",
+   "descripcion": "BORNE DOBLE PISO AZUL CON CUCHILLA",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0480",
+   "codigo": "AB1202844",
+   "descripcion": "EXTREMO ZOLODA EKN1",
+   "cantidad": 348.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 29.0
+  },
+  {
+   "pos": "0490",
+   "codigo": "71787-1",
+   "descripcion": "SOPORTE PARA TRACER 5210BP",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0500",
+   "codigo": "E2131295",
+   "descripcion": "TORNILLO CABEZA HEXAGONAL M6 X 1/2\"",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0510",
+   "codigo": "AB2000029",
+   "descripcion": "MPPT TRACER5210BP - Cargador solar",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0520",
+   "codigo": "AB2000454",
+   "descripcion": "CABLE COM. MPPT TRACER 5210BP L: 0,2m",
+   "cantidad": 12.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0530",
+   "codigo": "G0000138",
+   "descripcion": "CABLE MULTIPAR 2x2x18AWG MALLADO",
+   "cantidad": 48.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0540",
+   "codigo": "G0000161",
+   "descripcion": "CABLE UNIPOLAR S=6mm²-VERDE-AMARILLO",
+   "cantidad": 12.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0550",
+   "codigo": "E0550105",
+   "descripcion": "ARANDELA GROWER 3/8\" AISI 316",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0560",
+   "codigo": "E1510005",
+   "descripcion": "ARANDELA PLANA 3/8\" AISI 316",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0570",
+   "codigo": "E2131264",
+   "descripcion": "TOR.CAB.HEXA. 3/8\" x3/4\"-AISI 316",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0580",
+   "codigo": "G0000023",
+   "descripcion": "CABLE UNIPOLAR S=2,5mm²-VERDE-AMARILLO",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0590",
+   "codigo": "G0000197",
+   "descripcion": "CABLE UNIPOLAR S=1mm²-VERDE-AMARILLO",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0600",
+   "codigo": "G0000015",
+   "descripcion": "CABLE UNIPOLAR S=1.00mm^2 COLOR ROJO",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0610",
+   "codigo": "G0000016",
+   "descripcion": "CABLE UNIPOLAR S=1.00mm^2 COLOR NEGRO",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0620",
+   "codigo": "G0000057",
+   "descripcion": "CABLE UNIPOLAR S=2.50mm^2 COLOR MARRON",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0630",
+   "codigo": "G0000198",
+   "descripcion": "CABLE UNIPOLAR S=2,50mm^2 COLOR BLANCO",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0640",
+   "codigo": "G0000044",
+   "descripcion": "CABLE UNIPOLAR S=2,5mm²-ROJO",
+   "cantidad": 24.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0650",
+   "codigo": "G0000045",
+   "descripcion": "CABLE UNIPOLAR S=2,5mm²-NEGRO",
+   "cantidad": 24.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0660",
+   "codigo": "G0000019",
+   "descripcion": "CABLE UNIPOLAR S=4mm^2 COLOR ROJO",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0670",
+   "codigo": "G0000020",
+   "descripcion": "CABLE UNIPOLAR S=4mm^2 COLOR NEGRO",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0680",
+   "codigo": "G0000100",
+   "descripcion": "CABLE UNIPOLAR S=1,00mm^2 COLOR MARRON",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0690",
+   "codigo": "G0000199",
+   "descripcion": "CABLE UNIPOLAR S=1,00mm^2 COLOR BLANCO",
+   "cantidad": 36.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0700",
+   "codigo": "AB2000079",
+   "descripcion": "SELECTORA ARO METALICO D22 2POS 1NA 10A",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0710",
+   "codigo": "G0000028",
+   "descripcion": "CABLE UNIPOLAR S=35mm^2 COLOR NEGRO",
+   "cantidad": 60.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0720",
+   "codigo": "G0000113",
+   "descripcion": "TERM. OJAL 8mm CAB. 35mm²",
+   "cantidad": 48.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0730",
+   "codigo": "AB2000013",
+   "descripcion": "CUBRE TERMINAL NEGRO 35MM",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0740",
+   "codigo": "AB2000012",
+   "descripcion": "CUBRE TERMINAL ROJO 35MM",
+   "cantidad": 36.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0750",
+   "codigo": "AB2000387",
+   "descripcion": "CONECTORES DE BATERIA ROJO",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0760",
+   "codigo": "AB2000388",
+   "descripcion": "CONECTORES DE BATERIA NEGRO",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0770",
+   "codigo": "AB2000389",
+   "descripcion": "CUBRE BORNE BATERIA PLASTICO ROJO",
+   "cantidad": 12.0,
+   "unidad": null,
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0780",
+   "codigo": "AB2000390",
+   "descripcion": "CUBRE BORNE BATERIA PLASTICO NEGRO",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0790",
+   "codigo": "76384-1",
+   "descripcion": "ETIQUETA CONEXION A CAMPO 76244-1",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0800",
+   "codigo": "AB2000435",
+   "descripcion": "FUSIBLE MEGA 150A",
+   "cantidad": 12.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0810",
+   "codigo": "AB2000441",
+   "descripcion": "SOPORTE PARA FUSIBLE MEGA TAPA ACRILICA",
+   "cantidad": 12.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0820",
+   "codigo": "AB2000444",
+   "descripcion": "RELÉ DE SEGURIDAD SIL 3 - 4NA 1NC",
+   "cantidad": 12.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0830",
+   "codigo": "AB2000044",
+   "descripcion": "I/O MODULO 8AI 4-20MA A MODBUS RTU ODOT",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0840",
+   "codigo": "AB2000445",
+   "descripcion": "MÓDULO EXEMYS EGW1-110-1-IA3-MB-HT",
+   "cantidad": 12.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0850",
+   "codigo": "69028-1",
+   "descripcion": "FRENTE POLICARB. AUTOAD. MMI",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0860",
+   "codigo": "AB2000494",
+   "descripcion": "RESISTENCIA 250 OHM 1/2 W 1%",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0870",
+   "codigo": "AB2000072",
+   "descripcion": "RESISTENCIA 120 OHM 1W 5%",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0890",
+   "codigo": "AB2000236",
+   "descripcion": "PERFIL ALUMINIO \"L\" 60mm x 25mm x 1000mm",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0900",
+   "codigo": "AB2000273",
+   "descripcion": "TAPON CIEGO D22MM P/CUBRIR ORIFICIOS",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0910",
+   "codigo": "AB160581",
+   "descripcion": "PRENSACABLE METÁLICO M16 SS304",
+   "cantidad": 240.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 20.0
+  },
+  {
+   "pos": "0920",
+   "codigo": "AB2000150",
+   "descripcion": "PRENSACABLE METÁLICO M25 SS304",
+   "cantidad": 12.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0930",
+   "codigo": "AB2000432",
+   "descripcion": "TAPÓN DE GOMA PARA PRENSA M16",
+   "cantidad": 240.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 20.0
+  },
+  {
+   "pos": "0940",
+   "codigo": "AB2000512",
+   "descripcion": "BORNE DOBLE PISO SECCIONABLE WEIDMULLER",
+   "cantidad": 252.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 21.0
+  },
+  {
+   "pos": "0950",
+   "codigo": "AB2000515",
+   "descripcion": "TAPA PARA BORNE DOBLE PISO WEIDMULLER",
+   "cantidad": 72.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 6.0
+  }
+ ],
+ "lista_funcional": [
+  {
+   "tag": "11XP",
+   "descripcion": "Bornes de alimentación",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "renglon": "11XP | Bornes de alimentación | PHOENIX CONTACT | PT 6"
+  },
+  {
+   "tag": "11MS1",
+   "descripcion": "Interruptor Seccionador",
+   "marca": "SCHNEIDER",
+   "modelo": "VBF1",
+   "renglon": "11MS1 | Interruptor Seccionador | SCHNEIDER | VBF1"
+  },
+  {
+   "tag": "11PS1",
+   "descripcion": "Fuente de alimentación 110-240 Vac a 24 VDC",
+   "marca": "MEAN WELL",
+   "modelo": "NDR-120-24",
+   "renglon": "11PS1 | Fuente de alimentación 110-240 Vac a 24 VDC | MEAN WELL | NDR-120-24"
+  },
+  {
+   "tag": "11Q1",
+   "descripcion": "Disyuntor diferencial 25A - 30mA",
+   "marca": "SCHNEIDER",
+   "modelo": "EZ9R36225",
+   "renglon": "11Q1 | Disyuntor diferencial 25A - 30mA | SCHNEIDER | EZ9R36225"
+  },
+  {
+   "tag": "11Q2",
+   "descripcion": "Interruptor termomagnético 2x10A curva C",
+   "marca": "SCHNEIDER",
+   "modelo": "EZ9F34210",
+   "renglon": "11Q2 | Interruptor termomagnético 2x10A curva C | SCHNEIDER | EZ9F34210"
+  },
+  {
+   "tag": "11SK1",
+   "descripcion": "Toma corriente IRAM",
+   "marca": "VIVION",
+   "modelo": "-",
+   "renglon": "11SK1 | Toma corriente IRAM | VIVION | -"
+  },
+  {
+   "tag": "BH-01-ZV",
+   "descripcion": "Contactor de bomba de 12 VDC",
+   "marca": "TROMBETTA",
+   "modelo": "684-1261-212-17",
+   "renglon": "BH-01-ZV | Contactor de bomba de 12 VDC | TROMBETTA | 684-1261-212-17"
+  },
+  {
+   "tag": "12XPS",
+   "descripcion": "Bornes de cargador de Batería",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "renglon": "12XPS | Bornes de cargador de Batería | PHOENIX CONTACT | PT 6"
+  },
+  {
+   "tag": "12PS2",
+   "descripcion": "Cargador de Baterías",
+   "marca": "EPEVER",
+   "modelo": "MPPT TRACER5210BP",
+   "renglon": "12PS2 | Cargador de Baterías | EPEVER | MPPT TRACER5210BP"
+  },
+  {
+   "tag": "12XP",
+   "descripcion": "Bornes de distribución de voltaje de 12VDC",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6 QUATTRO",
+   "renglon": "12XP | Bornes de distribución de voltaje de 12VDC | PHOENIX CONTACT | PT 6 QUATTRO"
+  },
+  {
+   "tag": "12F1",
+   "descripcion": "Base de fusible para alimentación de batería",
+   "marca": "SCHNEIDER",
+   "modelo": "DF101 10x38",
+   "renglon": "12F1 | Base de fusible para alimentación de batería | SCHNEIDER | DF101 10x38"
+  },
+  {
+   "tag": "-",
+   "descripcion": "Fusible cerámico cilindrico 20A 10x38mm gL",
+   "marca": "-",
+   "modelo": "-",
+   "renglon": "- | Fusible cerámico cilindrico 20A 10x38mm gL | - | -"
+  },
+  {
+   "tag": "12F2",
+   "descripcion": "Base para fusible tipo MEGA",
+   "marca": "MEGA",
+   "modelo": "-",
+   "renglon": "12F2 | Base para fusible tipo MEGA | MEGA | -"
+  },
+  {
+   "tag": "-",
+   "descripcion": "Fusible tipo MEGA 150A",
+   "marca": "-",
+   "modelo": "-",
+   "renglon": "- | Fusible tipo MEGA 150A | - | -"
+  },
+  {
+   "tag": "13XC1",
+   "descripcion": "Distribución de voltaje de control 12VDC",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6 QUATTRO",
+   "renglon": "13XC1 | Distribución de voltaje de control 12VDC | PHOENIX CONTACT | PT 6 QUATTRO"
+  },
+  {
+   "tag": "13PS2",
+   "descripcion": "Conversor 12/24VDC",
+   "marca": "MEAN WELL",
+   "modelo": "DDR-120A-24",
+   "renglon": "13PS2 | Conversor 12/24VDC | MEAN WELL | DDR-120A-24"
+  },
+  {
+   "tag": "13F3",
+   "descripcion": "Base de fusible para alimentacion 12VDC",
+   "marca": "SCHNEIDER",
+   "modelo": "DF101 10x38",
+   "renglon": "13F3 | Base de fusible para alimentacion 12VDC | SCHNEIDER | DF101 10x38"
+  },
+  {
+   "tag": "-",
+   "descripcion": "Fusible cerámico cilindrico 10A 10x38mm gL",
+   "marca": "-",
+   "modelo": "-",
+   "renglon": "- | Fusible cerámico cilindrico 10A 10x38mm gL | - | -"
+  },
+  {
+   "tag": "13F4",
+   "descripcion": "Base de fusible para alimentacion 12VDC",
+   "marca": "SCHNEIDER",
+   "modelo": "DF101 10x38",
+   "renglon": "13F4 | Base de fusible para alimentacion 12VDC | SCHNEIDER | DF101 10x38"
+  },
+  {
+   "tag": "-",
+   "descripcion": "Fusible cerámico cilindrico 10A 10x38mm gL",
+   "marca": "-",
+   "modelo": "-",
+   "renglon": "- | Fusible cerámico cilindrico 10A 10x38mm gL | - | -"
+  },
+  {
+   "tag": "13X24",
+   "descripcion": "Distribución de voltaje de control 24VDC",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6 QUATTRO",
+   "renglon": "13X24 | Distribución de voltaje de control 24VDC | PHOENIX CONTACT | PT 6 QUATTRO"
+  },
+  {
+   "tag": "21PCB01",
+   "descripcion": "Placa Electrónica de Control Principal",
+   "marca": "MMA",
+   "modelo": "L03-60591-01",
+   "renglon": "21PCB01 | Placa Electrónica de Control Principal | MMA | L03-60591-01"
+  },
+  {
+   "tag": "31XAI",
+   "descripcion": "Bornes de entradas analógicas internas",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2MT",
+   "renglon": "31XAI | Bornes de entradas analógicas internas | PHOENIX CONTACT | PTT 2,5-2MT"
+  },
+  {
+   "tag": "PT-001",
+   "descripcion": "Transmisor de presión de la bomba hidráulica",
+   "marca": "NOSHOK",
+   "modelo": "PT20-250bar-1-1-10-8",
+   "renglon": "PT-001 | Transmisor de presión de la bomba hidráulica | NOSHOK | PT20-250bar-1-1-10-8"
+  },
+  {
+   "tag": "32XAI",
+   "descripcion": "Bornes de entradas analógicas externas",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2 MT",
+   "renglon": "32XAI | Bornes de entradas analógicas externas | PHOENIX CONTACT | PTT 2,5-2 MT"
+  },
+  {
+   "tag": "32ODT",
+   "descripcion": "Módulo 4-20 mA a MODBUS RTU",
+   "marca": "ODOT",
+   "modelo": "B32-MR-3B-00",
+   "renglon": "32ODT | Módulo 4-20 mA a MODBUS RTU | ODOT | B32-MR-3B-00"
+  },
+  {
+   "tag": "33XAI",
+   "descripcion": "Bornes de entradas analógicas externas",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2 MT BU",
+   "renglon": "33XAI | Bornes de entradas analógicas externas | PHOENIX CONTACT | PTT 2,5-2 MT BU"
+  },
+  {
+   "tag": "33EXM",
+   "descripcion": "Módulo conversor HART a MODBUS",
+   "marca": "EXEMYS",
+   "modelo": "EGW1-MB-HT",
+   "renglon": "33EXM | Módulo conversor HART a MODBUS | EXEMYS | EGW1-MB-HT"
+  },
+  {
+   "tag": "33AIB1",
+   "descripcion": "Entrada Analógica - Barrera Seg. Intrínseca",
+   "marca": "CHENZHU",
+   "modelo": "GS8536-EX",
+   "renglon": "33AIB1 | Entrada Analógica - Barrera Seg. Intrínseca | CHENZHU | GS8536-EX"
+  },
+  {
+   "tag": "41DS",
+   "descripcion": "Interruptor limite de puerta",
+   "marca": "OMRON",
+   "modelo": "HL-5200",
+   "renglon": "41DS | Interruptor limite de puerta | OMRON | HL-5200"
+  },
+  {
+   "tag": "43XDI",
+   "descripcion": "Bornes de entradas digitales",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2 MT BU",
+   "renglon": "43XDI | Bornes de entradas digitales | PHOENIX CONTACT | PTT 2,5-2 MT BU"
+  },
+  {
+   "tag": "43DIB1...3",
+   "descripcion": "Entrada Digital - Barrera Seg. Intrínseca",
+   "marca": "CHENZHU",
+   "modelo": "GS8512-EX.22",
+   "renglon": "43DIB1...3 | Entrada Digital - Barrera Seg. Intrínseca | CHENZHU | GS8512-EX.22"
+  },
+  {
+   "tag": "46KR",
+   "descripcion": "Relé de seguridad SIL 3 24VDC",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PSR-SCP- 24UC/ESA2/4X1/1X2/B",
+   "renglon": "46KR | Relé de seguridad SIL 3 24VDC | PHOENIX CONTACT | PSR-SCP- 24UC/ESA2/4X1/1X2/B"
+  },
+  {
+   "tag": "46DB1",
+   "descripcion": "Botón de paro de emergencia.",
+   "marca": "SCHNEIDER",
+   "modelo": "ZBE-101",
+   "renglon": "46DB1 | Botón de paro de emergencia. | SCHNEIDER | ZBE-101"
+  },
+  {
+   "tag": "46XC",
+   "descripcion": "Bornes de comando externo 24 VDC",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2 MT",
+   "renglon": "46XC | Bornes de comando externo 24 VDC | PHOENIX CONTACT | PTT 2,5-2 MT"
+  },
+  {
+   "tag": "62KR",
+   "descripcion": "Borne relé 12VDC",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "renglon": "62KR | Borne relé 12VDC | PHOENIX CONTACT | RIF-0-RPT-12DC/21"
+  },
+  {
+   "tag": "62XDO",
+   "descripcion": "Bornes de comandos",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5",
+   "renglon": "62XDO | Bornes de comandos | PHOENIX CONTACT | PTT 2,5"
+  },
+  {
+   "tag": "62XDIO",
+   "descripcion": "Bornes diodo antiparalelo de supresion",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 2,5-DIO/L-R",
+   "renglon": "62XDIO | Bornes diodo antiparalelo de supresion | PHOENIX CONTACT | PT 2,5-DIO/L-R"
+  },
+  {
+   "tag": "SP-1...3",
+   "descripcion": "Válvula solenoide",
+   "marca": "-",
+   "modelo": "-",
+   "renglon": "SP-1...3 | Válvula solenoide | - | -"
+  },
+  {
+   "tag": "81XCM",
+   "descripcion": "Borne de comunicación",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2MT",
+   "renglon": "81XCM | Borne de comunicación | PHOENIX CONTACT | PTT 2,5-2MT"
+  },
+  {
+   "tag": "BORNES DE TIERRA",
+   "descripcion": "Borne doble de tierra",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 2,5-QUATTRO-PE",
+   "renglon": "BORNES DE TIERRA | Borne doble de tierra | PHOENIX CONTACT | PT 2,5-QUATTRO-PE"
+  }
+ ],
+ "lista_funcional_cruda": [
+  "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8",
+  "TAG | DESCRIPTION | BRAND | MODEL | CODE",
+  "11XP | Bornes de alimentación | PHOENIX CONTACT | PT 6",
+  "A | 11MS1 | Interruptor Seccionador | SCHNEIDER | VBF1 | A",
+  "11PS1 | Fuente de | alimentación 110-240 Vac a 24 VDC | MEAN WELL | NDR-120-24",
+  "11Q1 | Disyuntor diferencial 25A | 30mA | SCHNEIDER | EZ9R36225",
+  "11Q2 | Interruptor termomagnético 2x10A curva C | SCHNEIDER | EZ9F34210",
+  "11SK1 | Toma corriente IRAM | VIVION",
+  "BH-01-ZV | Contactor de bomba de 12 VDC | TROMBETTA | 684-1261-212-17",
+  "12XPS | Bornes de cargador de Batería | PHOENIX CONTACT | PT 6",
+  "12PS2 | Cargador de Baterías | EPEVER | MPPT TRACER5210BP",
+  "12XP | Bornes de distribución de voltaje de 12VDC | PHOENIX CONTACT | PT 6 QUATTRO",
+  "12F1 | Base de fusible para alimentación de batería | SCHNEIDER | DF101 | 10x38",
+  "Fusible cerámico cilindrico 20A 10x38mm | gL",
+  "12F2 | Base para fusible tipo MEGA | MEGA",
+  "B | B",
+  "13XC1 | Distribución de voltaje de control 12VDC | PHOENIX CONTACT | PT 6 QUATTRO",
+  "13PS2 | Conversor 12/24VDC | MEAN WELL | DDR-120A-24",
+  "13F3 | Base de fusible para alimentacion 12VDC | SCHNEIDER | DF101 | 10x38",
+  "Fusible cerámico cilindrico 10A 10x38mm | gL",
+  "13F4 | Base de fusible para alimentacion 12VDC | SCHNEIDER | DF101 | 10x38",
+  "Fusible cerámico cilindrico 10A 10x38mm | gL",
+  "13X24 | Distribución | de voltaje de control | 24VDC | PHOENIX CONTACT | PT 6 QUATTRO",
+  "21PCB01 | Placa Electrónica de Control | Principal | MMA | L03-60591-01",
+  "31XAI | Bornes de entradas analógicas internas | PHOENIX CONTACT | PTT 2,5-2MT",
+  "PT-001 | Transmisor de presión | de la bomba hidráulica | NOSHOK | PT20-250bar-1 | -1-1 | 0-8",
+  "32XAI | Bornes de entradas analógicas externas | PHOENIX CONTACT | PTT 2,5-2 MT",
+  "32ODT | Módulo 4-20 mA a MODBUS RTU | ODOT | B32-MR-3B-00",
+  "C | C",
+  "33XAI | Bornes de entradas analógicas externas | PHOENIX CONTACT | PTT 2,5-2 MT BU",
+  "33EXM | Módulo conversor HART a MODBUS | EXEMYS | EGW1-MB-HT",
+  "33AIB1 | Entrada Analógica | Barrera Seg. Intrínseca | CHENZHU | GS8536-EX",
+  "41DS | Interruptor limite de puerta | OMRON | HL-5200",
+  "43XDI | Bornes de entradas digitales | PHOENIX CONTACT | PTT 2,5-2 MT BU",
+  "43DIB1...3 | Entrada Digital | Barrera Seg. Intrínseca | CHENZHU | GS8512-EX.22",
+  "46KR | Relé de seguridad SIL 3 24VDC | PHOENIX CONTACT | PSR-SCP- 24UC/ESA2/4X1 | /1 | X2/B",
+  "46DB1 | Botón de paro de emergencia. | SCHNEIDER | ZBE-101",
+  "46XC | Bornes de comando externo 24 VDC | PHOENIX CONTACT | PTT 2,5-2 MT",
+  "62KR | Borne relé 12VDC | PHOENIX CONTACT | RIF-0-RPT | -1 | 2DC/21",
+  "62XDO | Bornes de comandos | PHOENIX CONTACT | PTT 2,5",
+  "62XDIO | Bornes diodo antiparalelo de supresion | PHOENIX CONTACT | PT 2,5-DIO/L-R",
+  "D | SP-1...3 | Válvula solenoide | D",
+  "81XCM | Borne de comunicación | PHOENIX CONTACT | PTT 2,5-2MT",
+  "BORNES DE TIERRA | Borne doble de tierra | PHOENIX CONTACT | PT 2,5-QUATTRO-PE",
+  "E | E",
+  "1 | 1 | 1 | PROJECT: | CJ. CONTROLADOR mSafe PP | DOC NUMBER: | 76425 ZPL | GRAL REV: | 0",
+  "F | F",
+  "1 | 1 | 1 | CODE: | 76222-1 | 0 | TITLE: | PAG: | REV:",
+  "DIAGRAMA ELÉCTRICO | mSafe PP",
+  "l | 1 | 1 | CLIENT: | 0",
+  "0 | Lista de materiales. | 09 | 0",
+  "0 | For Manufacturing | 24/09/25 | LM | MD | MPV",
+  "REV | DESCRIPTION | DATE | PROJ. | DW. | APR. | CONT: | 10"
+ ],
+ "tags": [
+  {
+   "tag": "11XP",
+   "hoja": [
+    "11"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6 (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB160583",
+    "AB2000492"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "lateral (el plano la titula VISTA DERECHA) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false,
+   "nota": "SAP no trae PT 6: el unico borne de paso de 1 piso que no es QUATTRO es AB160583 PT 4 (2 por unidad = 11XP 1 y 2); el 3 es tierra (AB2000492 PT 4-PE). Asociacion por cantidad."
+  },
+  {
+   "tag": "11MS1",
+   "hoja": [
+    "11"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "SCHNEIDER VBF1 (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000033"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "lateral (el plano la titula VISTA DERECHA) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "SECCIONADOR PARO EMERGENCIA P/PUERTA 20A; se acciona desde afuera del panel (nota hoja 11)."
+  },
+  {
+   "tag": "11PS1",
+   "hoja": [
+    "11"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "MEAN WELL NDR-120-24 (lista de materiales (hoja 09)); el simbolo de la hoja 11 dice MEAN WELL NDR-240-24, 10A",
+   "codigo_sap": [
+    "AB1202653"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "Discrepancia en el funcional: lista NDR-120-24 / simbolo NDR-240-24. SAP dice 24VCC 10A, que corresponde a NDR-240-24."
+  },
+  {
+   "tag": "11Q1",
+   "hoja": [
+    "11"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "SCHNEIDER EZ9R36225 (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB1203303"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true
+  },
+  {
+   "tag": "11Q2",
+   "hoja": [
+    "11"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "SCHNEIDER EZ9F34210 (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB1202656"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true
+  },
+  {
+   "tag": "11SK1",
+   "hoja": [
+    "11"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "VIVION toma IRAM (lista de materiales (hoja 09), sin modelo)",
+   "codigo_sap": [
+    "AB2000062",
+    "AB2000061"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "AB2000061 es el soporte para riel DIN."
+  },
+  {
+   "tag": "XPE",
+   "hoja": [
+    "11",
+    "13",
+    "15"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 2,5-QUATTRO-PE (lista de materiales (hoja 09), renglon BORNES DE TIERRA)",
+   "codigo_sap": [
+    "AB2000492"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "SAP trae BORNE DE TIERRA PT 4-PE (12 por unidad), no PT 2,5-QUATTRO-PE. En la lista figura como \"BORNES DE TIERRA\"; en los esquemas el tag es XPE."
+  },
+  {
+   "tag": "BH-01-ZV",
+   "hoja": [
+    "12",
+    "62"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "TROMBETTA 684-1261-212-17 (lista de materiales (hoja 09) y texto en hojas 12 y 62)",
+   "codigo_sap": null,
+   "ubicacion": "tablero (junto a la unidad hidraulica)",
+   "en_topografico": "fondo, fuera del riel - hoja 07 (pag. 8 del PDF) (dibujado junto al motor BH-01-M, SIN etiqueta)",
+   "etiqueta_leida_por_core": false,
+   "nota": "No hay renglon SAP propio; probablemente viene con la UNIDAD HIDRAULICA AB2000440 (no confirmado). En el topografico se ve dibujado junto al motor, sin etiqueta."
+  },
+  {
+   "tag": "BH-01-M",
+   "hoja": [
+    "12",
+    "21",
+    "62"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "UNIDAD HIDRAULICA - VIBO 12 VDC 2600 r/min 1,6 kW (texto hoja 12)",
+   "codigo_sap": [
+    "AB2000440"
+   ],
+   "ubicacion": "tablero (unidad hidraulica sobre la bandeja)",
+   "en_topografico": "fondo, fuera del riel - hoja 07 (pag. 8 del PDF) (unidad hidraulica, derecha)",
+   "etiqueta_leida_por_core": true,
+   "otros_textos": [
+    "BH-01"
+   ],
+   "nota": "En la hoja 12 el motor es BH-01-M; en las hojas 21/62 y en el topografico del funcional figura tambien BH-01."
+  },
+  {
+   "tag": "12XPS",
+   "hoja": [
+    "12",
+    "81"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6 (lista de materiales (hoja 09))",
+   "codigo_sap": null,
+   "ubicacion": "tablero",
+   "en_topografico": "lateral (el plano la titula VISTA DERECHA) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false,
+   "nota": "Sin renglon SAP identificable: no hay PT 6 en la orden y los PT 4 (2 por unidad) ya los usa 11XP. 12XPS tiene 10 bornes (1-10). Revisar."
+  },
+  {
+   "tag": "12PS2",
+   "hoja": [
+    "12",
+    "81"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "EPEVER MPPT TRACER5210BP (lista de materiales (hoja 09) y simbolo hoja 12)",
+   "codigo_sap": [
+    "AB2000029",
+    "AB2000454",
+    "71787-1"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "lateral (el plano la titula VISTA DERECHA) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "otros_textos": [
+    "12PS1"
+   ],
+   "nota": "En la hoja 81 el mismo cargador figura como 12PS1 (error del funcional). AB2000454 cable de comunicacion, 71787-1 soporte."
+  },
+  {
+   "tag": "12XP",
+   "hoja": [
+    "12"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6 QUATTRO (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000369",
+    "AB2000370"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 2 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false,
+   "nota": "PT 6-QUATTRO: 11 por unidad = 12XP (2) + 13XC1 (5) + 13X24 (4)."
+  },
+  {
+   "tag": "12F1",
+   "hoja": [
+    "12"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "SCHNEIDER DF101 10x38 + fusible 20A gL (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB1202912",
+    "AB1202959"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false
+  },
+  {
+   "tag": "12F2",
+   "hoja": [
+    "12"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "Base para fusible tipo MEGA + fusible MEGA 150A (lista de materiales (hoja 09), sin modelo)",
+   "codigo_sap": [
+    "AB2000441",
+    "AB2000435"
+   ],
+   "ubicacion": "tablero (fuera del riel)",
+   "en_topografico": "fondo, fuera del riel - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true
+  },
+  {
+   "tag": "12PB1",
+   "hoja": [
+    "12"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "Bateria 12VDC 68Ah 850CCA tipo AGM (texto hoja 12)",
+   "codigo_sap": null,
+   "ubicacion": "tablero (sobre soporte de baterias)",
+   "en_topografico": "fondo, fuera del riel - hoja 07 (pag. 8 del PDF) (abajo, soporte de bateria)",
+   "etiqueta_leida_por_core": true,
+   "nota": "La bateria no esta en la orden SAP (si los conectores AB2000387/388 y cubre bornes AB2000389/390). No esta en la lista de materiales."
+  },
+  {
+   "tag": "13XC1",
+   "hoja": [
+    "13",
+    "21"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6 QUATTRO (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000369",
+    "AB2000370"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 2 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false
+  },
+  {
+   "tag": "13PS2",
+   "hoja": [
+    "13"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "MEAN WELL DDR-120A-24 (lista de materiales (hoja 09) y simbolo hoja 13)",
+   "codigo_sap": [
+    "AB139867"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF) (etiqueta 13PS3)",
+   "etiqueta_leida_por_core": true,
+   "otros_textos": [
+    "13PS3"
+   ],
+   "nota": "La lista dice 13PS2; el simbolo de la hoja 13 y los topograficos dicen 13PS3."
+  },
+  {
+   "tag": "13F3",
+   "hoja": [
+    "13"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "SCHNEIDER DF101 10x38 + fusible 10A gL (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB1202912",
+    "AB2000219"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false
+  },
+  {
+   "tag": "13F4",
+   "hoja": [
+    "13"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "SCHNEIDER DF101 10x38 + fusible 10A gL (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB1202912",
+    "AB2000219"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false
+  },
+  {
+   "tag": "13SH1",
+   "hoja": [
+    "13"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "selectora OFF / ON (simbolo hoja 13, sin marca ni modelo; no esta en la lista)",
+   "codigo_sap": [
+    "AB2000079"
+   ],
+   "ubicacion": "puerta",
+   "en_topografico": "puerta (vista posterior puerta) - hoja 04",
+   "etiqueta_leida_por_core": true,
+   "nota": "Asociado por familia: unica selectora de la orden (SELECTORA ARO METALICO D22 2POS 1NA 10A)."
+  },
+  {
+   "tag": "13X24",
+   "hoja": [
+    "13"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6 QUATTRO (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000369",
+    "AB2000370"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 2 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false
+  },
+  {
+   "tag": "21PCB01",
+   "hoja": [
+    "14",
+    "21",
+    "31",
+    "32",
+    "33",
+    "41",
+    "43",
+    "46",
+    "62",
+    "81"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "MMA L03-60591-01 (lista de materiales (hoja 09)), placa electronica E2.5",
+   "codigo_sap": [
+    "L03-60591-01",
+    "AB2000070",
+    "76254-1",
+    "51228-1"
+   ],
+   "ubicacion": "puerta",
+   "en_topografico": "puerta - hoja 04: la placa esta dibujada (con el rotulo 76254-1 PROTECTOR PLACA E2.5) pero SIN la etiqueta 21PCB01",
+   "etiqueta_leida_por_core": false,
+   "nota": "SAP: PCB ARMADO E3.5 (mismo codigo L03-60591-01). En el topografico 76426 la placa esta dibujada en la puerta con el rotulo 76254-1 PROTECTOR PLACA E2.5, sin el tag."
+  },
+  {
+   "tag": "31XAI",
+   "hoja": [
+    "21",
+    "31"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "PHOENIX CONTACT PTT 2,5-2MT (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000512",
+    "AB2000515"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 3 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": false,
+   "nota": "SAP compra BORNE DOBLE PISO SECCIONABLE WEIDMULLER (21 por unidad = 31XAI 9 + 32XAI 4 + 46XC 1 + 81XCM 7): reemplaza al PTT 2,5-2MT de la lista. Asociacion por cantidad."
+  },
+  {
+   "tag": "PT-001",
+   "hoja": [
+    "31"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "NOSHOK PT20-250bar-1-1-10-8 (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000144"
+   ],
+   "ubicacion": "campo / sistema hidraulico",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "otros_textos": [
+    "PT 001"
+   ],
+   "nota": "En la hoja 31 figura como \"PT 001\"; esta del lado CAMPO del esquema pero lo provee la orden (TRANS.ELEC.PRESION 0-250 BAR)."
+  },
+  {
+   "tag": "32XAI",
+   "hoja": [
+    "21",
+    "32"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PTT 2,5-2 MT (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000512",
+    "AB2000515"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 3 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "ver 31XAI (Weidmuller en SAP)."
+  },
+  {
+   "tag": "32ODT",
+   "hoja": [
+    "15",
+    "31",
+    "81"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "ODOT B32-MR-3B-00 (lista de materiales (hoja 09) y simbolos hojas 13/15/31/81; hojas 31 y 81 agregan BN-8011 BT3238)",
+   "codigo_sap": [
+    "AB2000044"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "otros_textos": [
+    "31ODT"
+   ],
+   "nota": "En la hoja 81 figura como 31ODT (error del funcional)."
+  },
+  {
+   "tag": "33XAI",
+   "hoja": [
+    "33"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PTT 2,5-2 MT BU (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000068"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 3 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "BORNE DOBLE PISO AZUL CON CUCHILLA: 4 por unidad = 33XAI (2) + 43XDI (2)."
+  },
+  {
+   "tag": "33EXM",
+   "hoja": [
+    "15",
+    "33",
+    "81"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "EXEMYS EGW1-MB-HT (lista de materiales (hoja 09)); simbolos hojas 13/15/33/81: EGW1-110-1-IA3-MB-HT",
+   "codigo_sap": [
+    "AB2000445"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true
+  },
+  {
+   "tag": "33AIB1",
+   "hoja": [
+    "15",
+    "21",
+    "33"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "CHENZHU GS8536-EX (lista de materiales (hoja 09) y simbolos hojas 15/33)",
+   "codigo_sap": [
+    "AB2000134"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 2 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true
+  },
+  {
+   "tag": "R1",
+   "hoja": [
+    "33"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "resistencia 250 ohm (texto R1: 250 ohm en la hoja 33, leido en la imagen; el lector de trazos no lo reconoce)",
+   "codigo_sap": [
+    "AB2000494"
+   ],
+   "ubicacion": "tablero (en la barrera 33AIB1, bornes 6-7)",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false
+  },
+  {
+   "tag": "41DS",
+   "hoja": [
+    "21",
+    "41"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03"
+   ],
+   "modelo_segun_funcional": "OMRON HL-5200 (lista de materiales (hoja 09) y simbolo hoja 41)",
+   "codigo_sap": [
+    "AB2000022",
+    "73087-1"
+   ],
+   "ubicacion": "gabinete (sensor de puerta)",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "SAP: FINAL DE CARRERA NAC METALICO + SOPORTE DOOR SWITCH OMRON."
+  },
+  {
+   "tag": "43XDI",
+   "hoja": [
+    "43"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PTT 2,5-2 MT BU (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000068"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 3 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true
+  },
+  {
+   "tag": "43DIB1",
+   "hoja": [
+    "15",
+    "21",
+    "43"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "CHENZHU GS8512-EX.22 (lista de materiales (hoja 09) como 43DIB1...3 y simbolos hojas 15/43)",
+   "codigo_sap": [
+    "AB2000135"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 2 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "La lista dice 43DIB1...3 (version mSafe3); este producto tiene una sola barrera digital (SAP 1 por unidad, esquema solo 43DIB1)."
+  },
+  {
+   "tag": "46KR",
+   "hoja": [
+    "13",
+    "21",
+    "46"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PSR-SCP- 24UC/ESA2/4X1/1X2/B (lista de materiales (hoja 09) y simbolo hoja 46)",
+   "codigo_sap": [
+    "AB2000444"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 1 (arriba) - hoja 07 (pag. 8 del PDF) (etiqueta 46KR1)",
+   "etiqueta_leida_por_core": true,
+   "otros_textos": [
+    "46KR-1",
+    "46KR1"
+   ],
+   "nota": "Rele de seguridad SIL 3 4NA 1NC. En el topografico figura como 46KR1; en las hojas 13/46 \"Relé 46KR-1\"."
+  },
+  {
+   "tag": "46DB1",
+   "hoja": [
+    "21",
+    "46"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": "SCHNEIDER ZBE-101 (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000051",
+    "AB2000050"
+   ],
+   "ubicacion": "puerta",
+   "en_topografico": "puerta (vista posterior puerta) - hoja 04",
+   "etiqueta_leida_por_core": true,
+   "nota": "ZBE-101 es el bloque de contacto; SAP: PULSADOR HONGO 22 ROJO C/RETENCION + PROTECCION P/PULS.EMERG."
+  },
+  {
+   "tag": "46XC",
+   "hoja": [
+    "46"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PTT 2,5-2 MT (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000512",
+    "AB2000515"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 3 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "ver 31XAI (Weidmuller en SAP)."
+  },
+  {
+   "tag": "62KR",
+   "hoja": [
+    "13",
+    "21",
+    "46",
+    "62"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT RIF-0-RPT-12DC/21 (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000063"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 2 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "otros_textos": [
+    "62KR-1",
+    "62KR-2"
+   ],
+   "nota": "Son dos reles: 62KR-1 (arranque motor BH-01) y 62KR-2 (solenoide SP-1). SAP: 2 por unidad."
+  },
+  {
+   "tag": "62XDO",
+   "hoja": [
+    "62"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PTT 2,5 (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000315",
+    "AB2000314"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 2 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "otros_textos": [
+    "62XD0"
+   ],
+   "nota": "BORNE DE PASO DOBLE PISO PUENTEABLE PUSH (2 por unidad) + TAPA FINAL D-PTTB 2,5."
+  },
+  {
+   "tag": "62XDIO",
+   "hoja": [
+    "62"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 2,5-DIO/L-R (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000080",
+    "AB2000081"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 2 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "otros_textos": [
+    "62XDI0"
+   ]
+  },
+  {
+   "tag": "SP-1",
+   "hoja": [
+    "62"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "valvula solenoide 12VDC 30W (texto hoja 62; la lista dice SP-1...3 sin marca)",
+   "codigo_sap": [
+    "AB2000408"
+   ],
+   "ubicacion": "tablero (sistema hidraulico sobre la bandeja)",
+   "en_topografico": "fondo, fuera del riel - hoja 07 (pag. 8 del PDF) (abajo, bloque hidraulico)",
+   "etiqueta_leida_por_core": true,
+   "nota": "SAP: VALV.SOLENOIDE POPPET 30W 12VDC (1 por unidad)."
+  },
+  {
+   "tag": "81XCM",
+   "hoja": [
+    "21",
+    "62",
+    "81"
+   ],
+   "en_lista_funcional": true,
+   "en_topografico_del_funcional": [
+    "03",
+    "04"
+   ],
+   "modelo_segun_funcional": "PHOENIX CONTACT PTT 2,5-2MT (lista de materiales (hoja 09))",
+   "codigo_sap": [
+    "AB2000512",
+    "AB2000515"
+   ],
+   "ubicacion": "tablero",
+   "en_topografico": "fondo, riel 3 - hoja 07 (pag. 8 del PDF)",
+   "etiqueta_leida_por_core": true,
+   "nota": "ver 31XAI (Weidmuller en SAP). Entre 81XCM 11 y 12 va la resistencia de terminacion de 120 ohm (AB2000072, sin tag)."
+  },
+  {
+   "tag": "PIT 01J",
+   "hoja": [
+    "31"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor temperatura de linea 4-20 mA (hoja 31)"
+  },
+  {
+   "tag": "PIT 01I",
+   "hoja": [
+    "32"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor presion cabeza de pozo (hoja 32)"
+  },
+  {
+   "tag": "PIT 01B",
+   "hoja": [
+    "32"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor presion anular B (hoja 32)"
+  },
+  {
+   "tag": "PIT 01C",
+   "hoja": [
+    "32"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor presion anular C (hoja 32)"
+  },
+  {
+   "tag": "PIT 01A",
+   "hoja": [
+    "32"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor temperatura pre-choke (hoja 32)"
+  },
+  {
+   "tag": "PIT 01H",
+   "hoja": [
+    "33"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor presion PTC HART (hoja 33)"
+  },
+  {
+   "tag": "PIT 01D",
+   "hoja": [
+    "33"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor presion de linea (hoja 33)"
+  },
+  {
+   "tag": "IP-1-ZSO",
+   "hoja": [
+    "43"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor de posicion abierta VSM, reed switch (hojas 21, 43)"
+  },
+  {
+   "tag": "IP-1-ZSC",
+   "hoja": [
+    "43"
+   ],
+   "en_lista_funcional": false,
+   "en_topografico_del_funcional": [],
+   "modelo_segun_funcional": null,
+   "codigo_sap": null,
+   "ubicacion": "campo",
+   "en_topografico": null,
+   "etiqueta_leida_por_core": false,
+   "nota": "instrumento de campo (fuera del tablero, no lo provee la orden): sensor de posicion cerrada VSM, reed switch (hoja 43)"
+  }
+ ],
+ "aparatos": [
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 4",
+   "descripcion": "Borne de paso push-in PT 4 (la lista del funcional pide PT 6)",
+   "codigos_sap": [
+    "AB160583",
+    "AB160584"
+   ],
+   "tags": [
+    "11XP"
+   ],
+   "cantidad": 2.0,
+   "cantidad_por_codigo": {
+    "AB160583": 2.0,
+    "AB160584": 6.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: lateral (VISTA DERECHA), 11XP con 2 bornes push-in + 1 de tierra, bajo la proteccion acrilica 220V",
+   "nota": "PT 4 / PT 6 no estan en el catalogo de bornes. Asociacion 11XP <-> AB160583 por cantidad (2 por unidad). AB160584 tapa D-ST 4."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "descripcion": "Bornes de cargador de bateria (segun lista del funcional)",
+   "codigos_sap": [],
+   "tags": [
+    "12XPS"
+   ],
+   "cantidad": null,
+   "cantidad_por_codigo": {},
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: lateral (VISTA DERECHA), 10 bornes push-in de 1 piso",
+   "nota": "Ningun renglon de la orden SAP coincide (no hay PT 6 y los PT 4 alcanzan solo para 11XP). Revisar con produccion."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 4-PE",
+   "descripcion": "Borne de tierra (la lista del funcional pide PT 2,5-QUATTRO-PE)",
+   "codigos_sap": [
+    "AB2000492"
+   ],
+   "tags": [
+    "XPE",
+    "11XP"
+   ],
+   "cantidad": 12.0,
+   "cantidad_por_codigo": {
+    "AB2000492": 12.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1 (XPE, 4 bornes) y piezas PE entre los bornes de 11XP, 31XAI, 32XAI y 33XAI",
+   "nota": "SAP 12 por unidad = XPE 4 + 11XP 1 + PE de 31XAI 4 + 32XAI 2 + 33XAI 1 (contados en las hojas 11, 31, 32, 33). Ni PT 4-PE ni PT 2,5-QUATTRO-PE estan en el catalogo de bornes."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6-QUATTRO",
+   "descripcion": "Borne de paso PT 6-QUATTRO",
+   "codigos_sap": [
+    "AB2000369",
+    "AB2000370"
+   ],
+   "tags": [
+    "12XP",
+    "13XC1",
+    "13X24"
+   ],
+   "cantidad": 11.0,
+   "cantidad_por_codigo": {
+    "AB2000369": 11.0,
+    "AB2000370": 7.0
+   },
+   "en_catalogo_bornes": "PT6-QUATTRO",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 2, bocas push-in arriba y abajo",
+   "nota": "SAP 11 por unidad = 12XP 2 + 13XC1 5 + 13X24 4. AB2000370 es la tapa final."
+  },
+  {
+   "marca": "WEIDMULLER",
+   "modelo": null,
+   "descripcion": "Borne doble piso seccionable (la lista del funcional pide PHOENIX PTT 2,5-2MT)",
+   "codigos_sap": [
+    "AB2000512",
+    "AB2000515"
+   ],
+   "tags": [
+    "31XAI",
+    "32XAI",
+    "46XC",
+    "81XCM"
+   ],
+   "cantidad": 21.0,
+   "cantidad_por_codigo": {
+    "AB2000512": 21.0,
+    "AB2000515": 6.0
+   },
+   "en_catalogo_bornes": "PTT2.5-2MT",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 3, bornes de doble piso con bocas arriba y abajo (dibujados como los PTT de Phoenix)",
+   "nota": "en_catalogo_bornes sale del modelo de la lista (PTT 2,5-2MT). La orden compra Weidmuller sin modelo: si la geometria real difiere habra que agregar el modelo Weidmuller al catalogo. SAP 21 por unidad = 9 + 4 + 1 + 7."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2MT BU",
+   "descripcion": "Borne doble piso azul con cuchilla",
+   "codigos_sap": [
+    "AB2000068"
+   ],
+   "tags": [
+    "33XAI",
+    "43XDI"
+   ],
+   "cantidad": 4.0,
+   "cantidad_por_codigo": {
+    "AB2000068": 4.0
+   },
+   "en_catalogo_bornes": "PTT2.5-2MT-BU",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 3 (derecha), doble piso",
+   "nota": "SAP 4 por unidad = 33XAI 2 + 43XDI 2. La descripcion SAP no dice marca; modelo de la lista."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5",
+   "descripcion": "Borne de paso doble piso puenteable push-in",
+   "codigos_sap": [
+    "AB2000315",
+    "AB2000314"
+   ],
+   "tags": [
+    "62XDO"
+   ],
+   "cantidad": 2.0,
+   "cantidad_por_codigo": {
+    "AB2000315": 2.0,
+    "AB2000314": 1.0
+   },
+   "en_catalogo_bornes": "PTT2.5",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 2",
+   "nota": "AB2000314 TAPA FINAL D-PTTB 2,5."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 2,5-DIO/L-R",
+   "descripcion": "Borne con diodo integrado",
+   "codigos_sap": [
+    "AB2000080",
+    "AB2000081"
+   ],
+   "tags": [
+    "62XDIO"
+   ],
+   "cantidad": 2.0,
+   "cantidad_por_codigo": {
+    "AB2000080": 2.0,
+    "AB2000081": 1.0
+   },
+   "en_catalogo_bornes": "PT2.5-DIO",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 2",
+   "nota": "AB2000081 tapa."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "descripcion": "Borne rele 12 Vcc 1NA+C+NC (zocalo + pastilla)",
+   "codigos_sap": [
+    "AB2000063"
+   ],
+   "tags": [
+    "62KR"
+   ],
+   "cantidad": 2.0,
+   "cantidad_por_codigo": {
+    "AB2000063": 2.0
+   },
+   "en_catalogo_bornes": "RIF-0-RPT",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 2, dos reles con bocas push-in arriba y abajo",
+   "nota": "Dos reles (62KR-1 y 62KR-2), una sola etiqueta 62KR en el topografico."
+  },
+  {
+   "marca": "SCHNEIDER",
+   "modelo": "VBF1",
+   "descripcion": "Seccionador paro de emergencia para puerta 20 A",
+   "codigos_sap": [
+    "AB2000033"
+   ],
+   "tags": [
+    "11MS1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000033": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: lateral (VISTA DERECHA), cuerpo con fijaciones sin bornes dibujados, bajo la proteccion acrilica",
+   "nota": "no esta en el catalogo de bornes."
+  },
+  {
+   "marca": "MEAN WELL",
+   "modelo": "NDR-240-24",
+   "descripcion": "Fuente 110-240 VAC a 24 VDC 10 A",
+   "codigos_sap": [
+    "AB1202653"
+   ],
+   "tags": [
+    "11PS1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB1202653": 1.0
+   },
+   "en_catalogo_bornes": "MEANWELL-NDR",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1, borneras TB2 (4 tornillos, arriba) y TB1 (3 tornillos, abajo), tapada por acrilico",
+   "nota": "Modelo segun simbolo hoja 11 y SAP (10 A); la lista del funcional dice NDR-120-24. Las dos son MEANWELL-NDR."
+  },
+  {
+   "marca": "SCHNEIDER",
+   "modelo": "EZ9R36225",
+   "descripcion": "Disyuntor diferencial 2P 25 A 30 mA",
+   "codigos_sap": [
+    "AB1203303"
+   ],
+   "tags": [
+    "11Q1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB1203303": 1.0
+   },
+   "en_catalogo_bornes": "EASY9-RCCB-2P",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1, tornillos arriba y abajo"
+  },
+  {
+   "marca": "SCHNEIDER",
+   "modelo": "EZ9F34210",
+   "descripcion": "Interruptor termomagnetico 2 x 10 A curva C",
+   "codigos_sap": [
+    "AB1202656"
+   ],
+   "tags": [
+    "11Q2"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB1202656": 1.0
+   },
+   "en_catalogo_bornes": "MCB-2P",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1, tornillos arriba y abajo"
+  },
+  {
+   "marca": "VIVION",
+   "modelo": null,
+   "descripcion": "Modulo toma corriente IRAM para riel DIN",
+   "codigos_sap": [
+    "AB2000062",
+    "AB2000061"
+   ],
+   "tags": [
+    "11SK1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000062": 1.0,
+    "AB2000061": 1.0
+   },
+   "en_catalogo_bornes": "TOMA-IRAM-DIN",
+   "como_se_dibuja": "bloque simbolico: fondo riel 1, frente de la toma sin tornillos (texto 220VAC)",
+   "nota": "AB2000061 soporte para riel DIN."
+  },
+  {
+   "marca": "SCHNEIDER",
+   "modelo": "DF101",
+   "descripcion": "Portafusible 1 x 32 A 10x38 para riel DIN",
+   "codigos_sap": [
+    "AB1202912"
+   ],
+   "tags": [
+    "12F1",
+    "13F3",
+    "13F4"
+   ],
+   "cantidad": 3.0,
+   "cantidad_por_codigo": {
+    "AB1202912": 3.0
+   },
+   "en_catalogo_bornes": "DF101",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1, un tornillo arriba y uno abajo",
+   "nota": "SAP 3 por unidad."
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Fusibles ceramicos 10x38 gL (20 A para 12F1, 10 A para 13F3/13F4)",
+   "codigos_sap": [
+    "AB1202959",
+    "AB2000219"
+   ],
+   "tags": [
+    "12F1",
+    "13F3",
+    "13F4"
+   ],
+   "cantidad": 3.0,
+   "cantidad_por_codigo": {
+    "AB1202959": 3.0,
+    "AB2000219": 5.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "van dentro del portafusible (no tienen bornes propios)",
+   "nota": "SAP: 3 de 20 A y 5 de 10 A por unidad; los sobrantes quedan de repuesto (soporte 69112-1)."
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Base para fusible tipo MEGA con tapa acrilica + fusible MEGA 150 A",
+   "codigos_sap": [
+    "AB2000441",
+    "AB2000435"
+   ],
+   "tags": [
+    "12F2"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000441": 1.0,
+    "AB2000435": 1.0
+   },
+   "en_catalogo_bornes": "MEGA-BASE",
+   "como_se_dibuja": "bloque con bornes visibles: fondo, fuera del riel, horizontal, dos esparragos"
+  },
+  {
+   "marca": "TROMBETTA",
+   "modelo": "684-1261-212-17",
+   "descripcion": "Contactor de bomba 12 VDC",
+   "codigos_sap": [],
+   "tags": [
+    "BH-01-ZV"
+   ],
+   "cantidad": null,
+   "cantidad_por_codigo": {},
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: fondo, junto al motor de la unidad hidraulica, con esparragos; sin etiqueta en el topografico",
+   "nota": "Sin renglon SAP; posiblemente incluido en la unidad hidraulica AB2000440."
+  },
+  {
+   "marca": "VIBO",
+   "modelo": null,
+   "descripcion": "Unidad hidraulica 12 VDC 8 L 1,8 l/min 3 kpsi (motor BH-01-M 1,6 kW)",
+   "codigos_sap": [
+    "AB2000440"
+   ],
+   "tags": [
+    "BH-01-M"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000440": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: fondo, unidad hidraulica completa con etiqueta BH-01-M; no se dibujan bornes",
+   "nota": "Marca VIBO segun texto de las hojas 12/62 y dibujo del topografico."
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Bateria 12 VDC 68 Ah 850 CCA AGM",
+   "codigos_sap": [],
+   "tags": [
+    "12PB1"
+   ],
+   "cantidad": null,
+   "cantidad_por_codigo": {},
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: fondo abajo, caja sin bornes dibujados",
+   "nota": "No esta en la orden SAP ni en la lista del funcional."
+  },
+  {
+   "marca": "EPEVER",
+   "modelo": "TRACER5210BP",
+   "descripcion": "Cargador de bateria MPPT",
+   "codigos_sap": [
+    "AB2000029",
+    "AB2000454"
+   ],
+   "tags": [
+    "12PS2"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000029": 1.0,
+    "AB2000454": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: lateral (VISTA DERECHA), cuerpo con disipador, sin bornes dibujados",
+   "nota": "AB2000454 cable de comunicacion 0,2 m."
+  },
+  {
+   "marca": "MEAN WELL",
+   "modelo": "DDR-120A-24",
+   "descripcion": "Conversor 12/24 VDC",
+   "codigos_sap": [
+    "AB139867"
+   ],
+   "tags": [
+    "13PS2"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB139867": 1.0
+   },
+   "en_catalogo_bornes": "MEANWELL-DDR",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1, bornera TB2 arriba (3 tornillos) y 1 2 3 abajo",
+   "nota": "Etiqueta 13PS3 en el topografico (13PS2 en la lista)."
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Selectora aro metalico D22 2 posiciones 1NA 10 A",
+   "codigos_sap": [
+    "AB2000079"
+   ],
+   "tags": [
+    "13SH1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000079": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: puerta (vista posterior), bloque de contacto con tornillos",
+   "nota": "Asociacion por familia (unica selectora de la orden)."
+  },
+  {
+   "marca": "MMA",
+   "modelo": "L03-60591-01",
+   "descripcion": "Placa electronica de control E2.5 (SAP: PCB ARMADO E3.5)",
+   "codigos_sap": [
+    "L03-60591-01"
+   ],
+   "tags": [
+    "21PCB01"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "L03-60591-01": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: puerta, placa con sus borneras dibujadas bajo el protector 76254-1; sin etiqueta 21PCB01",
+   "nota": "Lleva pila CR2032 (AB2000070)."
+  },
+  {
+   "marca": "NOSHOK",
+   "modelo": "PT20-250bar-1-1-10-8",
+   "descripcion": "Transmisor de presion 0-250 bar 4-20 mA",
+   "codigos_sap": [
+    "AB2000144"
+   ],
+   "tags": [
+    "PT-001"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000144": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en el topografico",
+   "nota": "Va en el sistema hidraulico (lado CAMPO del esquema)."
+  },
+  {
+   "marca": "ODOT",
+   "modelo": "B32-MR-3B-00",
+   "descripcion": "Modulo 8 AI 4-20 mA a Modbus RTU",
+   "codigos_sap": [
+    "AB2000044"
+   ],
+   "tags": [
+    "32ODT"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000044": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1, dos columnas de bornes en el frente",
+   "nota": "Simbolos hoja 31/81 agregan BN-8011 BT3238."
+  },
+  {
+   "marca": "EXEMYS",
+   "modelo": "EGW1-110-1-IA3-MB-HT",
+   "descripcion": "Modulo conversor HART a Modbus",
+   "codigos_sap": [
+    "AB2000445"
+   ],
+   "tags": [
+    "33EXM"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000445": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1, borneras enchufables arriba y abajo (filas de rectangulos, sin numeros)",
+   "nota": "La lista del funcional abrevia EGW1-MB-HT."
+  },
+  {
+   "marca": "CHENZHU",
+   "modelo": "GS8536-EX",
+   "descripcion": "Barrera de seguridad intrinseca entrada analogica 4-20 mA",
+   "codigos_sap": [
+    "AB2000134"
+   ],
+   "tags": [
+    "33AIB1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000134": 1.0
+   },
+   "en_catalogo_bornes": "GS8536-EX",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 2 (derecha), enchufes arriba y abajo"
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Resistencia 250 ohm 1/2 W 1%",
+   "codigos_sap": [
+    "AB2000494"
+   ],
+   "tags": [
+    "R1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000494": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en el topografico",
+   "nota": "Va en la barrera 33AIB1 (hoja 33)."
+  },
+  {
+   "marca": "OMRON",
+   "modelo": "HL-5200",
+   "descripcion": "Interruptor limite de puerta (final de carrera NA metalico)",
+   "codigos_sap": [
+    "AB2000022",
+    "73087-1"
+   ],
+   "tags": [
+    "41DS"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000022": 1.0,
+    "73087-1": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en el topografico",
+   "nota": "73087-1 SOPORTE DOOR SWITCH OMRON (mecanico)."
+  },
+  {
+   "marca": "CHENZHU",
+   "modelo": "GS8512-EX.22",
+   "descripcion": "Barrera de seguridad intrinseca entrada digital",
+   "codigos_sap": [
+    "AB2000135"
+   ],
+   "tags": [
+    "43DIB1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000135": 1.0
+   },
+   "en_catalogo_bornes": "GS8512-EX",
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 2 (derecha), enchufes arriba y abajo"
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PSR-SCP- 24UC/ESA2/4X1/1X2/B",
+   "descripcion": "Rele de seguridad SIL 3 4NA 1NC",
+   "codigos_sap": [
+    "AB2000444"
+   ],
+   "tags": [
+    "46KR"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000444": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: fondo riel 1, borneras enchufables arriba y abajo (filas de rectangulos), etiqueta 46KR1",
+   "nota": "no esta en el catalogo de bornes."
+  },
+  {
+   "marca": "SCHNEIDER",
+   "modelo": "ZBE-101",
+   "descripcion": "Pulsador hongo 22 rojo con retencion (bloque de contacto ZBE-101) + proteccion",
+   "codigos_sap": [
+    "AB2000051",
+    "AB2000050"
+   ],
+   "tags": [
+    "46DB1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000051": 1.0,
+    "AB2000050": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: puerta (vista posterior), bloques de contacto con tornillos"
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Valvula solenoide poppet 30 W 12 VDC",
+   "codigos_sap": [
+    "AB2000408"
+   ],
+   "tags": [
+    "SP-1"
+   ],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000408": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: fondo abajo (sobre el bloque hidraulico), bobina sin bornes dibujados"
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Resistencia 120 ohm 1 W 5% (terminacion RS-485)",
+   "codigos_sap": [
+    "AB2000072"
+   ],
+   "tags": [],
+   "cantidad": 1.0,
+   "cantidad_por_codigo": {
+    "AB2000072": 1.0
+   },
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en el topografico",
+   "nota": "Sin tag: va entre 81XCM 11 y 12 (hoja 81)."
+  }
+ ],
+ "notas": [
+  "cantidad (componentes_sap) = cantidad de la orden, total para 12 unidades; cantidad_por_unidad = cantidad / 12. En aparatos, cantidad = por unidad del producto, del primer codigo SAP.",
+  "unidad = la columna \"Unidad\" de la orden; trae KG o vacio y parece ser la unidad del peso unitario, no de la cantidad. Para cables (G...) la cantidad parece ser en metros.",
+  "La orden es una lista explotada de varios subconjuntos (76381-1 sistema electrico, 76382-1 hidraulico, 75396-1 gabinete): los Pos se repiten y se intercalan. 0070 E2131271 figura dos veces en la orden (se dejan los dos renglones).",
+  "Descripciones partidas en dos lineas unidas; 0180 AB1202835 TIRA CABLE CANAL ... RANURADO quedo partida entre hojas de la orden y se unio.",
+  "lista_funcional: hoja 09 leida con core.process + instructivo.materiales_funcional (copia cruda en lista_funcional_cruda) y corregida contra la imagen: el lector parte celdas (PT20-250bar-1 | -1-1 | 0-8, PSR-SCP- 24UC/ESA2/4X1 | /1 | X2/B, RIF-0-RPT | -1 | 2DC/21).",
+  "El funcional es generico mSafe PP (dice mSafe3 PP): la lista pone 43DIB1...3 y SP-1...3, pero los esquemas y la orden de este mSafe1 tienen una sola barrera digital (43DIB1) y una sola solenoide (SP-1).",
+  "Discrepancias de tags dentro del funcional: 12PS2 (lista, hoja 12) = 12PS1 (hoja 81); 32ODT (lista, hojas 15/31) = 31ODT (hoja 81); 13PS2 (lista) = 13PS3 (hoja 13 y topograficos); 46KR (lista) = 46KR-1 (hojas 13/46) = 46KR1 (topografico); 62XDO/62XDIO se leen 62XD0/62XDI0 en el topografico del funcional.",
+  "Discrepancias funcional vs SAP: 11PS1 lista NDR-120-24, simbolo NDR-240-24, SAP 24VCC 10A (= NDR-240-24). Bornes grises PTT 2,5-2MT de la lista -> SAP compra BORNE DOBLE PISO SECCIONABLE WEIDMULLER (cantidades coinciden: 21 por unidad). Bornes de tierra PT 2,5-QUATTRO-PE de la lista -> SAP PT 4-PE. 11XP/12XPS PT 6 de la lista -> SAP solo trae 2 PT 4 por unidad; 12XPS (10 bornes) no tiene renglon SAP identificable.",
+  "Sin renglon SAP: BH-01-ZV (contactor TROMBETTA, probablemente parte de la unidad hidraulica AB2000440) y 12PB1 (bateria).",
+  "Asociaciones por familia/cantidad (no por modelo escrito): 13SH1 <-> AB2000079 (unica selectora), 11XP <-> AB160583 PT 4, R1 <-> AB2000494 (250 ohm).",
+  "R1: 250 ohm (hoja 33) no lo lee core.process (sale como \"00 / 0000\"); se tomo de la imagen.",
+  "en_topografico: ubicado mirando las imagenes del topografico 76426 (hoja 07 \"Vista detallada de componentes montados\" = pag. 8 del PDF, cuyo cajetin dice 06 por error; hoja 04 vista posterior de puerta). Vistas: fondo (riel 1 arriba, riel 2, riel 3, fuera de riel), lateral (el plano lo titula VISTA DERECHA) y puerta. La placa 21PCB01 no lleva su tag (esta en la puerta con el rotulo 76254-1 PROTECTOR PLACA E2.5); BH-01-ZV esta dibujado sin etiqueta; PT-001, 41DS y R1 no estan.",
+  "etiqueta_leida_por_core: si core.page_text lee el texto exacto del tag en las pag. 5 y 8 del PDF del topografico. Los rotulos verticales que empiezan con 1 se leen mal (12F1 -> \"2F1\", 13XC1 -> \"3XC1\", 12XPS -> \"2XPS\", 11XP -> \"XP\", 31XAI -> \"6311×XDA0\", 12XP+13XC1 -> \"1132XP1\"); 62XDO se lee \"62XD0\". Ojo para el mapeo automatico.",
+  "En el lateral (VISTA DERECHA) hay un bloque de 5 vias sin etiqueta al lado de 12XPS; no se pudo asociar a ningun tag.",
+  "clase: CONECTORES DE BATERIA y TERMINALES se pusieron como \"otro\" (accesorios de cableado); PORTAFUSIBLE, SOPORTE PARA FUSIBLE MEGA y MODULO TOMA CORRIENTE como \"aparato\"."
+ ]
+}

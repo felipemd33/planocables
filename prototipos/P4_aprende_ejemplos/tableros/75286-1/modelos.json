@@ -1,0 +1,31 @@
+{
+ "tablero": "75286-1",
+ "descripcion": "Modelo real de cada componente de la bandeja, revisado en la auditoria del tablero (hoja de materiales + dibujo + fotos). Corrige la lista de materiales donde esta mal: 31XAI es un borne fusible PTTB 4-HESI (la lista dice PTT 2,5-2MT), 11PS1 es NDR-240 (misma bornera que NDR-120), 13PS3 figura como 13PS2, 43XCS no figura.",
+ "modelos": {
+  "11PS1": "MEAN WELL NDR",
+  "13PS3": "MEAN WELL DDR",
+  "11SK1": "TOMA IRAM riel DIN",
+  "11Q1": "DIFERENCIAL 2P (Schneider Easy9 EZ9R)",
+  "11Q2": "TERMOMAGNETICA 2P (Schneider EZ9F / ABB S202)",
+  "12F1": "SCHNEIDER DF101 10x38",
+  "13F3": "SCHNEIDER DF101 10x38",
+  "12F2": "PORTAFUSIBLE MEGA",
+  "31XAI": "PHOENIX PTTB 4-HESI (borne fusible)",
+  "43KR": "PHOENIX RIF-0-RPT",
+  "46KR": "PHOENIX RIF-0-RPT",
+  "62KR": "PHOENIX RIF-0-RPT",
+  "12XP": "PHOENIX PT 6-QUATTRO",
+  "13XC1": "PHOENIX PT 6-QUATTRO",
+  "13X24": "PHOENIX PT 6-QUATTRO",
+  "62XDIO": "PHOENIX PT 2,5-DIO/L-R",
+  "62XDO": "PHOENIX PTT 2,5",
+  "43XCS": "PHOENIX PTT 2,5-2MT",
+  "46XC": "PHOENIX PTT 2,5-2MT",
+  "81XCM": "PHOENIX PTT 2,5-2MT",
+  "31XEX": "PHOENIX PTT 2,5-2MT BU",
+  "43XDI": "PHOENIX PTT 2,5-2MT BU",
+  "31AIB1": "CHENZHU GS8536-EX",
+  "43DIB1": "CHENZHU GS8512-EX",
+  "43DIB2": "CHENZHU GS8512-EX"
+ }
+}

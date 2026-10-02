@@ -1,0 +1,366 @@
+{
+ "puntos": [
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 1.1",
+   "cables": [
+    "1203"
+   ],
+   "x": 692.27,
+   "y": 599.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 1, boca EXTREMA de arriba (la mas lejos del riel) (centro del contorno redondeado de la boca, x=692.27 y=599.35). Funcional hoja 12 C5: 1203 llega al circulo de arriba del borne 1. Foto 'Cableado/.../10.47.35/2.2' y foto 'Cableado/WhatsApp 2026-07-20 13.05.52': 1203 rojo entra arriba del todo en la pieza marcada 1."
+  },
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 1.3",
+   "cables": [
+    "1206"
+   ],
+   "x": 692.27,
+   "y": 565.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 1, boca INTERIOR de abajo (la mas cerca del riel) (centro del contorno redondeado de la boca, x=692.27 y=565.35). Funcional hoja 12 C5: 1206 sale del 3er circulo (interior de abajo) del borne 1. Foto '.../10.47.35/2.5' y foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)': 1206 entra en la boca de abajo mas cerca del riel de la pieza 1."
+  },
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 1.4",
+   "cables": [
+    "1204"
+   ],
+   "x": 692.27,
+   "y": 556.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 1, boca EXTREMA de abajo (la mas lejos del riel) (centro del contorno redondeado de la boca, x=692.27 y=556.05). Funcional hoja 12 D5: 1204 (Rojo 4 mm2) sale del circulo de abajo del borne 1. Sin foto con la manga: en foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)' la boca extrema de abajo de la pieza 1 esta libre (cable a la bateria, se conecta despues); se decide por el funcional y la regla."
+  },
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 3.3",
+   "cables": [
+    "1215"
+   ],
+   "x": 701.51,
+   "y": 565.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 3, boca INTERIOR de abajo (la mas cerca del riel) (centro del contorno redondeado de la boca, x=701.51 y=565.35). Funcional hoja 12 C6: 1215 sale del 3er circulo (interior de abajo) del borne 3 (R1 entra por el 2do). Foto '.../10.47.35/2.5', foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)' y foto 'Cableado/WhatsApp 2026-07-20 11.31.14 (2)': 1215 entra en la boca interior de abajo de la pieza 3 (la que tapa la resistencia)."
+  },
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 3.4",
+   "cables": [
+    "1217"
+   ],
+   "x": 701.51,
+   "y": 556.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 3, boca EXTREMA de abajo (la mas lejos del riel) (centro del contorno redondeado de la boca, x=701.51 y=556.05). Funcional hoja 12 D6: 1217 (Rojo 1 mm2) sale del circulo de abajo del borne 3. Foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)' y foto 'Cableado/WhatsApp 2026-05-29 13.27.08 (1)': 1217 entra abajo del todo en la pieza 3."
+  },
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 4.1",
+   "cables": [
+    "1202"
+   ],
+   "x": 706.13,
+   "y": 599.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 4, boca EXTREMA de arriba (la mas lejos del riel) (centro del contorno redondeado de la boca, x=706.13 y=599.35). Funcional hoja 12 C6: 1202 llega al circulo de arriba del borne 4. Foto 'Cableado/WhatsApp 2026-07-20 13.05.52' y foto 'Cableado/WhatsApp 2026-05-29 13.27.12' (girada): 1202 negro entra en la boca extrema de arriba de la pieza 4."
+  },
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 4.2",
+   "cables": [
+    "1207"
+   ],
+   "x": 706.13,
+   "y": 590.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 4, boca INTERIOR de arriba (la mas cerca del riel) (centro del contorno redondeado de la boca, x=706.13 y=590.05). Funcional hoja 12 C6: 1207 sale del 2do circulo (interior de arriba) del borne 4. Foto 'Cableado/.../10.47.35/2.2', foto 'Cableado/WhatsApp 2026-07-20 13.05.52' y foto 'Cableado/WhatsApp 2026-05-29 13.27.12' (girada): 1207 negro entra en la boca interior de arriba de la pieza 4. El campo 'lado' dice ABAJO pero es ARRIBA."
+  },
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 4.3",
+   "cables": [
+    "1216"
+   ],
+   "x": 706.13,
+   "y": 565.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 4, boca INTERIOR de abajo (la mas cerca del riel) (centro del contorno redondeado de la boca, x=706.13 y=565.35). Funcional hoja 12 C6: 1216 sale del 3er circulo (interior de abajo) del borne 4. Foto '.../10.47.35/2.5', foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)' y foto 'Cableado/WhatsApp 2026-07-20 11.31.14 (2)': 1216 (dos negros en una sola manga) entra en la boca interior de abajo de la pieza 4."
+  },
+  {
+   "familia": "quattro",
+   "componente": "12XP",
+   "texto": "12XP 4.4",
+   "cables": [
+    "1205"
+   ],
+   "x": 706.13,
+   "y": 556.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix, push-in, 4 bocas). 12XP = 4 piezas a la derecha de la etiqueta, numeros 1-2-3-4 (fotos: marcadores 1, 2, [3 tapado por la resistencia R1], 4). Pieza con el numero 4, boca EXTREMA de abajo (la mas lejos del riel) (centro del contorno redondeado de la boca, x=706.13 y=556.05). Funcional hoja 12 D6: 1205 (Negro 4 mm2) sale del circulo de abajo del borne 4. Sin foto con la manga en rev 7 (en foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)' la boca esta libre: cable a la bateria); en la foto 'Cableado/WhatsApp 2026-05-29 13.27.08 (1)' (anterior a la rev 7) entra ahi un 2do 1216: manda el funcional (ver dudas)."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 1.1",
+   "cables": [
+    "1317"
+   ],
+   "x": 717.66,
+   "y": 599.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 1, boca EXTREMA de arriba (la mas lejos del riel) (centro del contorno redondeado de la boca, x=717.66 y=599.35). Funcional hoja 13 B2: 1317 llega al circulo de arriba del borne 1. Foto 'Cableado/.../10.47.35/2.2', foto 'Cableado/WhatsApp 2026-05-29 13.27.12' (girada) y foto 'Cableado/WhatsApp 2026-07-20 13.05.52': 1317 entra arriba del todo en la pieza marcada 1."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 1.4",
+   "cables": [
+    "1301"
+   ],
+   "x": 717.66,
+   "y": 556.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 1, boca EXTREMA de abajo (la mas lejos del riel) (centro del contorno redondeado de la boca, x=717.66 y=556.05). Funcional hoja 13 B2: 1301 sale del circulo de abajo del borne 1. Foto '.../10.47.35/2.5' y foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)': 1301 entra abajo del todo en la pieza 1."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 2.1",
+   "cables": [
+    "1316"
+   ],
+   "x": 723.53,
+   "y": 599.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 2 (1ra, la de la izquierda de las dos piezas con el numero 2: puntos N.1-N.4), boca EXTREMA de arriba (la mas lejos del riel) (centro del contorno redondeado de la boca, x=723.53 y=599.35). Funcional hoja 13 B2: 1316 llega al circulo de arriba del PRIMER borne 2 (el de la izquierda; el 2do borne 2 no tiene cables). Foto 'Cableado/.../10.47.35/2.2', foto 'Cableado/WhatsApp 2026-05-29 13.27.12' (girada) y foto 'Cableado/WhatsApp 2026-07-20 13.05.52': 1316 entra arriba del todo en la 1ra pieza marcada 2."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 2.2",
+   "cables": [
+    "1307"
+   ],
+   "x": 723.53,
+   "y": 590.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 2 (1ra, la de la izquierda de las dos piezas con el numero 2: puntos N.1-N.4), boca INTERIOR de arriba (la mas cerca del riel) (centro del contorno redondeado de la boca, x=723.53 y=590.05). Funcional hoja 13 B2: 1307 sale del 2do circulo (interior de arriba) del primer borne 2. Foto 'Cableado/.../10.47.35/2.2', foto 'Cableado/WhatsApp 2026-05-29 13.27.12' (girada) y foto 'Cableado/WhatsApp 2026-07-20 13.05.52': 1307 entra en la boca interior de arriba de la 1ra pieza 2. El campo 'lado' dice ABAJO pero es ARRIBA."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 2.3",
+   "cables": [
+    "1401"
+   ],
+   "x": 723.53,
+   "y": 565.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 2 (1ra, la de la izquierda de las dos piezas con el numero 2: puntos N.1-N.4), boca INTERIOR de abajo (la mas cerca del riel) (centro del contorno redondeado de la boca, x=723.53 y=565.35). Funcional hoja 13 B2: 1401 sale del 3er circulo (interior de abajo) del primer borne 2. Foto '.../10.47.35/2.5', foto 'Cableado/WhatsApp 2026-07-20 11.31.14 (2)' y foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)': 1401 entra en la boca interior de abajo de la 1ra pieza 2."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 2.4",
+   "cables": [
+    "1303"
+   ],
+   "x": 723.53,
+   "y": 556.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 2 (1ra, la de la izquierda de las dos piezas con el numero 2: puntos N.1-N.4), boca EXTREMA de abajo (la mas lejos del riel) (centro del contorno redondeado de la boca, x=723.53 y=556.05). Funcional hoja 13 B2: 1303 sale del circulo de abajo del primer borne 2. Foto '.../10.47.35/2.5' y foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)': 1303 entra abajo del todo en la 1ra pieza 2."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 3.1",
+   "cables": [
+    "1207"
+   ],
+   "x": 734.02,
+   "y": 599.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 3 (1ra, la de la izquierda de las dos piezas con el numero 3: puntos N.1-N.4), boca EXTREMA de arriba (la mas lejos del riel) (centro del contorno redondeado de la boca, x=734.02 y=599.35). Funcional hoja 13 B5: 1207 llega al circulo de arriba del PRIMER borne 3 (izquierda). Foto 'Cableado/.../10.47.35/2.2', foto 'Cableado/WhatsApp 2026-05-29 13.27.12' (girada) y foto 'Cableado/WhatsApp 2026-07-20 13.05.52': 1207 negro entra arriba del todo en la 1ra pieza marcada 3."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 3.2",
+   "cables": [
+    "1309"
+   ],
+   "x": 734.02,
+   "y": 590.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 3 (1ra, la de la izquierda de las dos piezas con el numero 3: puntos N.1-N.4), boca INTERIOR de arriba (la mas cerca del riel) (centro del contorno redondeado de la boca, x=734.02 y=590.05). Funcional hoja 13 B5: 1309 sale del 2do circulo (interior de arriba) del primer borne 3. Foto 'Cableado/.../10.47.35/2.2', foto 'Cableado/WhatsApp 2026-05-29 13.27.12' (girada) y foto 'Cableado/WhatsApp 2026-07-20 13.05.52': 1309 entra en la boca interior de arriba de la 1ra pieza 3. El campo 'lado' dice ABAJO pero es ARRIBA."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 3.3",
+   "cables": [
+    "1310"
+   ],
+   "x": 734.02,
+   "y": 565.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 3 (1ra, la de la izquierda de las dos piezas con el numero 3: puntos N.1-N.4), boca INTERIOR de abajo (la mas cerca del riel) (centro del contorno redondeado de la boca, x=734.02 y=565.35). Funcional hoja 13 B5: 1310 sale del 3er circulo (interior de abajo) del primer borne 3. Foto '.../10.47.35/2.5', foto 'Cableado/WhatsApp 2026-07-20 11.31.14 (2)' y foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)': 1310 entra en la boca interior de abajo de la 1ra pieza 3."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 3.4",
+   "cables": [
+    "1402"
+   ],
+   "x": 734.02,
+   "y": 556.05,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 3 (1ra, la de la izquierda de las dos piezas con el numero 3: puntos N.1-N.4), boca EXTREMA de abajo (la mas lejos del riel) (centro del contorno redondeado de la boca, x=734.02 y=556.05). Funcional hoja 13 B5: 1402 sale del circulo de abajo del primer borne 3. Foto '.../10.47.35/2.5' y foto 'Cableado/WhatsApp 2026-07-20 13.17.06 (1)': 1402 entra abajo del todo en la 1ra pieza 3."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 3.5",
+   "cables": [
+    "1308"
+   ],
+   "x": 738.64,
+   "y": 599.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 3 (2da, la de la derecha de las dos piezas con el numero 3: puntos N.5-N.8), boca EXTREMA de arriba (la mas lejos del riel) (centro del contorno redondeado de la boca, x=738.64 y=599.35). Funcional hoja 13 B6: 1308 llega al circulo de arriba del SEGUNDO borne 3 (derecha); regla nueva: N.5 = arriba extremo de la 2da pieza. Foto 'Cableado/.../10.47.35/2.2', foto 'Cableado/WhatsApp 2026-05-29 13.27.12' (girada) y foto 'Cableado/WhatsApp 2026-07-20 13.05.52': 1308 negro entra arriba del todo en la 2da pieza marcada 3. El campo 'parte' dice ABAJO pero es ARRIBA."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13XC1",
+   "texto": "13XC1 3.7",
+   "cables": [
+    "1302"
+   ],
+   "x": 738.64,
+   "y": 565.35,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13XC1 = 5 piezas a la derecha de la etiqueta, marcadas 1 | 2 2 (puente FBS rojo) | 3 3 (puente FBS azul), con tapas entre los grupos. Pieza con el numero 3 (2da, la de la derecha de las dos piezas con el numero 3: puntos N.5-N.8), boca INTERIOR de abajo (la mas cerca del riel) (centro del contorno redondeado de la boca, x=738.64 y=565.35). Funcional hoja 13 B6: 1302 sale del 3er circulo (interior de abajo) del SEGUNDO borne 3; regla nueva: N.7 = abajo interior de la 2da pieza. Foto '.../10.47.35/2.5', foto 'Cableado/WhatsApp 2026-07-20 11.31.14 (2)' y foto 'Cableado/WhatsApp 2026-07-20 13.05.52': 1302 entra en la boca interior de abajo de la 2da pieza 3."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13X24",
+   "texto": "13X24 1.1",
+   "cables": [
+    "1314"
+   ],
+   "x": 572.92,
+   "y": 595.45,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13X24 = 2 piezas a la derecha de la etiqueta, marcadas 1 y 2 (en el dibujo este bloque esta 3,9 pt mas abajo que 12XP/13XC1). Pieza con el numero 1, boca EXTREMA de arriba (la mas lejos del riel) (centro del contorno redondeado de la boca, x=572.92 y=595.45). Funcional hoja 13 C6: 1314 (de 13PS2 +Vo) llega al circulo de arriba del borne 1. Foto 'Cableado/AE1': 1314 rojo entra arriba del todo en la pieza marcada 1."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13X24",
+   "texto": "13X24 1.3",
+   "cables": [
+    "1320"
+   ],
+   "x": 572.92,
+   "y": 561.45,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13X24 = 2 piezas a la derecha de la etiqueta, marcadas 1 y 2 (en el dibujo este bloque esta 3,9 pt mas abajo que 12XP/13XC1). Pieza con el numero 1, boca INTERIOR de abajo (la mas cerca del riel) (centro del contorno redondeado de la boca, x=572.92 y=561.45). Funcional hoja 13 D6: 1320 sale del 3er circulo (interior de abajo) del borne 1. Foto '.../10.47.35/1.2' y foto 'Cableado/AE1': 1320 entra en la boca de abajo mas cerca del riel de la pieza 1."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13X24",
+   "texto": "13X24 1.4",
+   "cables": [
+    "1318"
+   ],
+   "x": 572.92,
+   "y": 552.15,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13X24 = 2 piezas a la derecha de la etiqueta, marcadas 1 y 2 (en el dibujo este bloque esta 3,9 pt mas abajo que 12XP/13XC1). Pieza con el numero 1, boca EXTREMA de abajo (la mas lejos del riel) (centro del contorno redondeado de la boca, x=572.92 y=552.15). Funcional hoja 13 D6: 1318 sale del circulo de abajo del borne 1. Foto '.../10.47.35/1.2' y foto 'Cableado/AE1': 1318 entra abajo del todo en la pieza 1."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13X24",
+   "texto": "13X24 2.1",
+   "cables": [
+    "1315"
+   ],
+   "x": 577.54,
+   "y": 595.45,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13X24 = 2 piezas a la derecha de la etiqueta, marcadas 1 y 2 (en el dibujo este bloque esta 3,9 pt mas abajo que 12XP/13XC1). Pieza con el numero 2, boca EXTREMA de arriba (la mas lejos del riel) (centro del contorno redondeado de la boca, x=577.54 y=595.45). Funcional hoja 13 C7: 1315 (de 13PS2 -Vo) llega al circulo de arriba del borne 2. Foto 'Cableado/AE1': 1315 negro entra arriba del todo en la pieza marcada 2."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13X24",
+   "texto": "13X24 2.3",
+   "cables": [
+    "1302"
+   ],
+   "x": 577.54,
+   "y": 561.45,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13X24 = 2 piezas a la derecha de la etiqueta, marcadas 1 y 2 (en el dibujo este bloque esta 3,9 pt mas abajo que 12XP/13XC1). Pieza con el numero 2, boca INTERIOR de abajo (la mas cerca del riel) (centro del contorno redondeado de la boca, x=577.54 y=561.45). Funcional hoja 13 D7: 1302 llega al 3er circulo (interior de abajo) del borne 2. Foto '.../10.47.35/1.2' y foto 'Cableado/AE1': 1302 negro entra en la boca de abajo mas cerca del riel de la pieza 2."
+  },
+  {
+   "familia": "quattro",
+   "componente": "13X24",
+   "texto": "13X24 2.4",
+   "cables": [
+    "1319"
+   ],
+   "x": 577.54,
+   "y": 552.15,
+   "r": 2.1,
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (Phoenix). 13X24 = 2 piezas a la derecha de la etiqueta, marcadas 1 y 2 (en el dibujo este bloque esta 3,9 pt mas abajo que 12XP/13XC1). Pieza con el numero 2, boca EXTREMA de abajo (la mas lejos del riel) (centro del contorno redondeado de la boca, x=577.54 y=552.15). Funcional hoja 13 D7: 1319 sale del circulo de abajo del borne 2. Foto '.../10.47.35/1.2' y foto 'Cableado/AE1': 1319 negro entra abajo del todo en la pieza 2."
+  }
+ ],
+ "modelos": {
+  "12XP": "Phoenix Contact PT 6-QUATTRO x4 (borne de paso push-in, 4 conexiones, 8,2 mm de ancho), con diodo D1 10 A (bocas 1.2-2.2) y resistencia R1 1 ohm 10 W (bocas 2.3-3.2) montados en las bocas interiores",
+  "13XC1": "Phoenix Contact PT 6-QUATTRO x5 (numeros 1, 2, 2, 3, 3), con tapas entre los grupos y puentes FBS (rojo en los dos 2, azul en los dos 3)",
+  "13X24": "Phoenix Contact PT 6-QUATTRO x2 (numeros 1 y 2), con tapa y tope"
+ },
+ "dudas": [
+  "12XP 1.4 (1204) y 12XP 4.4 (1205): son los cables de 4 mm2 a la bateria 12PB1 / BH-01. En las fotos de julio (rev 7) esas bocas estan libres (se conectan despues), asi que no hay foto con la manga. Se ubican por el funcional, hoja 12 (circulo de abajo de los bornes 1 y 4).",
+  "Foto vieja 'WhatsApp 2026-05-29 13.27.08 (1)', anterior a la rev 7 del 24/06/26: en la boca extrema de abajo de la pieza 4 de 12XP entra un segundo cable con manga 1216 (negro fino). En la rev 7 (funcional, hoja 12) ahi va 1205, y el 1216 de 1 mm2 a 62KR sale del mismo nodo que 4.3. En las fotos de julio, el 1216 son dos negros con una sola manga en 4.3. Manda el funcional: 4.4 = 1205.",
+  "En el JSON de usos, el campo 'parte' esta mal en '13XC1 3.5': dice ABAJO, pero es ARRIBA (boca extrema de arriba de la 2da pieza 3). El campo 'lado' esta mal en 12XP 4.2, 13XC1 2.2 y 13XC1 3.2: dice ABAJO, pero son bocas interiores de ARRIBA.",
+  "13XC1: el segundo borne 2 (3ra pieza, x=728.15) no tiene cables en este tablero, solo el puente FBS rojo. Si el mapeo automatico cuenta piezas en lugar de numeros blancos, pondria '13XC1 3.x' en esa pieza, y eso esta mal."
+ ]
+}

@@ -1,0 +1,344 @@
+{
+ "puntos": [
+  {
+   "familia": "borneras",
+   "componente": "XM1",
+   "texto": "XM1 1 ABAJO",
+   "cables": [
+    "6102"
+   ],
+   "x": 664.52,
+   "y": 551.78,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso gris (tipo PTT 2,5-2MT), 2 piezas a la derecha de la etiqueta XM1 (x 664,52 y 667,44; paso 2,92 pt = 5,2 mm). Boca = octogono con una U de 1,70 pt (3 mm); el punto es el centro de la U. Borne 1 (impar) = pieza 1, piso de abajo = boca del EXTREMO; lado ABAJO (h61 B6: 6102 a la derecha de XM1 1). Fotos 2.3, 2.4, 'WhatsApp 2026-07-20 11.31.12 (1)' y '13.17.06 (1)': 6102 entra en la boca de mas abajo (pulsador verde) de la pieza izquierda."
+  },
+  {
+   "familia": "borneras",
+   "componente": "XM1",
+   "texto": "XM1 1 ARRIBA",
+   "cables": [
+    "6101"
+   ],
+   "x": 664.52,
+   "y": 598.3,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso gris (tipo PTT 2,5-2MT), 2 piezas a la derecha de la etiqueta XM1 (x 664,52 y 667,44; paso 2,92 pt = 5,2 mm). Boca = octogono con una U de 1,70 pt (3 mm); el punto es el centro de la U. Borne 1 = pieza 1, boca del EXTREMO de arriba (h61 A6: 6101 a la izquierda de XM1 1; en horizontal izquierda = ARRIBA). Fotos 2.1 y AE2.1: 6101 entra arriba del todo (pulsador verde) en la pieza izquierda."
+  },
+  {
+   "familia": "borneras",
+   "componente": "XM1",
+   "texto": "XM1 2 ARRIBA",
+   "cables": [
+    "1310"
+   ],
+   "x": 664.52,
+   "y": 589.3,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso gris (tipo PTT 2,5-2MT), 2 piezas a la derecha de la etiqueta XM1 (x 664,52 y 667,44; paso 2,92 pt = 5,2 mm). Boca = octogono con una U de 1,70 pt (3 mm); el punto es el centro de la U. Borne 2 (par) = pieza 1, piso de arriba = boca INTERIOR de arriba (h61 B6: 1310 a la izquierda de XM1 2). Fotos 2.1, AE2.1 y 11.31.12 (1): un 1310 negro entra en la boca interior (pulsador naranja) de la pieza izquierda."
+  },
+  {
+   "familia": "borneras",
+   "componente": "XM1",
+   "texto": "XM1 3 ABAJO",
+   "cables": [
+    "6201"
+   ],
+   "x": 667.44,
+   "y": 551.78,
+   "r": 1.4,
+   "confianza": "media",
+   "como": "Borne seccionable push-in de doble piso gris (tipo PTT 2,5-2MT), 2 piezas a la derecha de la etiqueta XM1 (x 664,52 y 667,44; paso 2,92 pt = 5,2 mm). Boca = octogono con una U de 1,70 pt (3 mm); el punto es el centro de la U. Borne 3 = pieza 2, boca del EXTREMO de abajo (h61 D6: 6201 a la derecha de XM1 3, va a ZY). Es la misma boca que 6203, que sale en T de 6201 en XM1 3 derecha: no hay otra boca para '3 ABAJO'. En las fotos 6201 todavia no esta (cable de campo a ZY); la boca se confirma con 6203."
+  },
+  {
+   "familia": "borneras",
+   "componente": "XM1",
+   "texto": "XM1 3 ABAJO",
+   "cables": [
+    "6203"
+   ],
+   "x": 667.44,
+   "y": 551.78,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso gris (tipo PTT 2,5-2MT), 2 piezas a la derecha de la etiqueta XM1 (x 664,52 y 667,44; paso 2,92 pt = 5,2 mm). Boca = octogono con una U de 1,70 pt (3 mm); el punto es el centro de la U. Borne 3 = pieza 2, boca del EXTREMO de abajo (h61 D6: 6203 deriva de 6201 en XM1 3 derecha). Fotos 2.3, 2.4, 11.31.12 (1) y 13.17.06 (1): 6203 entra en la boca de mas abajo (pulsador verde) de la pieza derecha, al lado de 6102."
+  },
+  {
+   "familia": "borneras",
+   "componente": "XM1",
+   "texto": "XM1 3 ARRIBA",
+   "cables": [
+    "6103"
+   ],
+   "x": 667.44,
+   "y": 598.3,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso gris (tipo PTT 2,5-2MT), 2 piezas a la derecha de la etiqueta XM1 (x 664,52 y 667,44; paso 2,92 pt = 5,2 mm). Boca = octogono con una U de 1,70 pt (3 mm); el punto es el centro de la U. Borne 3 = pieza 2, boca del EXTREMO de arriba (h61 D6: 6103 a la izquierda de XM1 3). Fotos 2.1 y AE2.1: 6103 (rojo) entra arriba del todo en la pieza derecha."
+  },
+  {
+   "familia": "borneras",
+   "componente": "XM1",
+   "texto": "XM1 4 ABAJO",
+   "cables": [
+    "6202"
+   ],
+   "x": 667.44,
+   "y": 560.9,
+   "r": 1.4,
+   "confianza": "media",
+   "como": "Borne seccionable push-in de doble piso gris (tipo PTT 2,5-2MT), 2 piezas a la derecha de la etiqueta XM1 (x 664,52 y 667,44; paso 2,92 pt = 5,2 mm). Boca = octogono con una U de 1,70 pt (3 mm); el punto es el centro de la U. Borne 4 (par) = pieza 2, piso de arriba = boca INTERIOR de abajo (h61 D6: 6202 a la derecha de XM1 4, va a ZY). Sin foto: en las fotos esa boca esta vacia (cable de campo). El otro extremo del mismo piso (1310, interior de arriba) si se ve en las fotos."
+  },
+  {
+   "familia": "borneras",
+   "componente": "XM1",
+   "texto": "XM1 4 ARRIBA",
+   "cables": [
+    "1310"
+   ],
+   "x": 667.44,
+   "y": 589.3,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso gris (tipo PTT 2,5-2MT), 2 piezas a la derecha de la etiqueta XM1 (x 664,52 y 667,44; paso 2,92 pt = 5,2 mm). Boca = octogono con una U de 1,70 pt (3 mm); el punto es el centro de la U. Borne 4 = pieza 2, boca INTERIOR de arriba (h61 D6: 1310 a la izquierda de XM1 4). Fotos 2.1, AE2.1 y 11.31.12 (1): el segundo 1310 negro entra en la boca interior de la pieza derecha."
+  },
+  {
+   "familia": "borneras",
+   "componente": "31XAI",
+   "texto": "31XAI 1 ABAJO",
+   "cables": [
+    "3102"
+   ],
+   "x": 676.8,
+   "y": 552.46,
+   "r": 1.65,
+   "confianza": "media",
+   "como": "Borne fusible push-in de doble piso negro, fusible 5x20 de 100 mA (tipo PTTB 4-HESI; en el dibujo 4,68 x 57,8 pt = 8,3 x 102 mm). 2 piezas a la derecha de la etiqueta 31XAI (x 676,80 y 681,48): pieza 1 = F1 y 1, pieza 2 = F2 y 2 (h31). Bocas redondas de r 1,65 pt; el punto es el centro del circulo. Bocas del extremo = piso de abajo (paso directo, 1 y 2); bocas interiores = piso de arriba (fusible, F1 y F2). Borne 1 (paso directo), lado derecho del esquema (h31 B5: 3102 a PT001) = boca del EXTREMO de abajo de la pieza 1. Sin foto: es un cable de campo y la boca esta vacia en 11.31.12 (1). Sale de que 2142 (borne 1, izquierda) entra en el extremo de arriba de la misma pieza."
+  },
+  {
+   "familia": "borneras",
+   "componente": "31XAI",
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "2142"
+   ],
+   "x": 676.8,
+   "y": 601.84,
+   "r": 1.65,
+   "confianza": "alta",
+   "como": "Borne fusible push-in de doble piso negro, fusible 5x20 de 100 mA (tipo PTTB 4-HESI; en el dibujo 4,68 x 57,8 pt = 8,3 x 102 mm). 2 piezas a la derecha de la etiqueta 31XAI (x 676,80 y 681,48): pieza 1 = F1 y 1, pieza 2 = F2 y 2 (h31). Bocas redondas de r 1,65 pt; el punto es el centro del circulo. Bocas del extremo = piso de abajo (paso directo, 1 y 2); bocas interiores = piso de arriba (fusible, F1 y F2). Borne 1, lado izquierdo del esquema (h31 B4) = boca del EXTREMO de arriba de la pieza 1. Fotos AE2.1 y 'WhatsApp 2026-07-20 13.05.52': 2142 (negro) entra arriba del todo en la pieza izquierda."
+  },
+  {
+   "familia": "borneras",
+   "componente": "31XAI",
+   "texto": "31XAI 2 ARRIBA",
+   "cables": [
+    "2139"
+   ],
+   "x": 681.48,
+   "y": 601.84,
+   "r": 1.65,
+   "confianza": "alta",
+   "como": "Borne fusible push-in de doble piso negro, fusible 5x20 de 100 mA (tipo PTTB 4-HESI; en el dibujo 4,68 x 57,8 pt = 8,3 x 102 mm). 2 piezas a la derecha de la etiqueta 31XAI (x 676,80 y 681,48): pieza 1 = F1 y 1, pieza 2 = F2 y 2 (h31). Bocas redondas de r 1,65 pt; el punto es el centro del circulo. Bocas del extremo = piso de abajo (paso directo, 1 y 2); bocas interiores = piso de arriba (fusible, F1 y F2). Borne 2, lado izquierdo (h31 C4) = boca del EXTREMO de arriba de la pieza 2. Fotos AE2.1, 13.05.52 y 2026-07-24 12.43.43 (1): 2139 (negro) entra arriba del todo en la pieza derecha."
+  },
+  {
+   "familia": "borneras",
+   "componente": "31XAI",
+   "texto": "31XAI F1 ABAJO",
+   "cables": [
+    "3101"
+   ],
+   "x": 676.8,
+   "y": 562.18,
+   "r": 1.65,
+   "confianza": "media",
+   "como": "Borne fusible push-in de doble piso negro, fusible 5x20 de 100 mA (tipo PTTB 4-HESI; en el dibujo 4,68 x 57,8 pt = 8,3 x 102 mm). 2 piezas a la derecha de la etiqueta 31XAI (x 676,80 y 681,48): pieza 1 = F1 y 1, pieza 2 = F2 y 2 (h31). Bocas redondas de r 1,65 pt; el punto es el centro del circulo. Bocas del extremo = piso de abajo (paso directo, 1 y 2); bocas interiores = piso de arriba (fusible, F1 y F2). F1, salida del fusible (h31 B5: 3101 a PT001) = boca INTERIOR de abajo de la pieza 1, del mismo piso que el 1320 de la interior de arriba. Sin foto: es un cable de campo y la boca esta vacia en 11.31.12 (1)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "31XAI",
+   "texto": "31XAI F1 ARRIBA",
+   "cables": [
+    "1320"
+   ],
+   "x": 676.8,
+   "y": 586.9,
+   "r": 1.65,
+   "confianza": "alta",
+   "como": "Borne fusible push-in de doble piso negro, fusible 5x20 de 100 mA (tipo PTTB 4-HESI; en el dibujo 4,68 x 57,8 pt = 8,3 x 102 mm). 2 piezas a la derecha de la etiqueta 31XAI (x 676,80 y 681,48): pieza 1 = F1 y 1, pieza 2 = F2 y 2 (h31). Bocas redondas de r 1,65 pt; el punto es el centro del circulo. Bocas del extremo = piso de abajo (paso directo, 1 y 2); bocas interiores = piso de arriba (fusible, F1 y F2). F1, entrada del fusible (h31 B4: 1320, +24Vdc) = boca INTERIOR de arriba de la pieza 1. Fotos AE2.1 y 13.05.52: dos 1320 rojos (el que viene de 13X24 1.3 y el puente a F2) entran juntos en esa boca."
+  },
+  {
+   "familia": "borneras",
+   "componente": "31XAI",
+   "texto": "31XAI F2 ARRIBA",
+   "cables": [
+    "1320"
+   ],
+   "x": 681.48,
+   "y": 586.9,
+   "r": 1.65,
+   "confianza": "alta",
+   "como": "Borne fusible push-in de doble piso negro, fusible 5x20 de 100 mA (tipo PTTB 4-HESI; en el dibujo 4,68 x 57,8 pt = 8,3 x 102 mm). 2 piezas a la derecha de la etiqueta 31XAI (x 676,80 y 681,48): pieza 1 = F1 y 1, pieza 2 = F2 y 2 (h31). Bocas redondas de r 1,65 pt; el punto es el centro del circulo. Bocas del extremo = piso de abajo (paso directo, 1 y 2); bocas interiores = piso de arriba (fusible, F1 y F2). F2, entrada del fusible (h31 C4: 1320) = boca INTERIOR de arriba de la pieza 2. Fotos AE2.1 y 13.05.52: un 1320 rojo entra en la boca interior de la pieza derecha."
+  },
+  {
+   "familia": "borneras",
+   "componente": "61XDIO",
+   "texto": "61XDIO 1 ABAJO",
+   "cables": [
+    "6101"
+   ],
+   "x": 749.43,
+   "y": 588.7,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "PT 2,5-DIO (borne push-in con diodo, una boca en cada extremo). 2 piezas a la derecha de la etiqueta 61XDIO (x 749,43 y 752,35; paso 2,92 pt = 5,2 mm), con puente azul entre los anodos (h61: 'Plug-in bridge ... Blue'). Boca = octogono con U; el punto es el centro de la U. En el instructivo ARRIBA = anodo (izquierda del esquema) y ABAJO = catodo (derecha). Fisicamente el catodo esta ARRIBA y el anodo (lado del puente, marcado '+') ABAJO: el puente se ve bajo los marcadores, en el dibujo y en las fotos. Borne 1, catodo (h61 B5: 6101 a la derecha del diodo 1) = boca de ARRIBA de la pieza 1. Fotos AE2.1 y 13.05.52: 6101 entra arriba en la pieza marcada '1'."
+  },
+  {
+   "familia": "borneras",
+   "componente": "61XDIO",
+   "texto": "61XDIO 2 ABAJO",
+   "cables": [
+    "6103"
+   ],
+   "x": 752.35,
+   "y": 588.7,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "PT 2,5-DIO (borne push-in con diodo, una boca en cada extremo). 2 piezas a la derecha de la etiqueta 61XDIO (x 749,43 y 752,35; paso 2,92 pt = 5,2 mm), con puente azul entre los anodos (h61: 'Plug-in bridge ... Blue'). Boca = octogono con U; el punto es el centro de la U. En el instructivo ARRIBA = anodo (izquierda del esquema) y ABAJO = catodo (derecha). Fisicamente el catodo esta ARRIBA y el anodo (lado del puente, marcado '+') ABAJO: el puente se ve bajo los marcadores, en el dibujo y en las fotos. Borne 2, catodo (h61 D5: 6103 a la derecha del diodo 2) = boca de ARRIBA de la pieza 2. Foto 13.05.52: 6103 entra arriba en la pieza marcada '2'."
+  },
+  {
+   "familia": "borneras",
+   "componente": "61XDIO",
+   "texto": "61XDIO 2 ARRIBA",
+   "cables": [
+    "1308"
+   ],
+   "x": 752.35,
+   "y": 567.52,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "PT 2,5-DIO (borne push-in con diodo, una boca en cada extremo). 2 piezas a la derecha de la etiqueta 61XDIO (x 749,43 y 752,35; paso 2,92 pt = 5,2 mm), con puente azul entre los anodos (h61: 'Plug-in bridge ... Blue'). Boca = octogono con U; el punto es el centro de la U. En el instructivo ARRIBA = anodo (izquierda del esquema) y ABAJO = catodo (derecha). Fisicamente el catodo esta ARRIBA y el anodo (lado del puente, marcado '+') ABAJO: el puente se ve bajo los marcadores, en el dibujo y en las fotos. Borne 2, anodo (h61 D4: 1308, -0Vdc, a la izquierda del diodo 2) = boca de ABAJO de la pieza 2, marcada '+'. Fotos 2.5, 13.05.52 y 13.17.06 (1): 1308 (negro) entra abajo en la pieza derecha. El 'parte' del JSON dice ARRIBA, pero fisicamente es abajo (regla 7 del taller)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "32XAIB",
+   "texto": "32XAIB 1 ARRIBA",
+   "cables": [
+    "3201"
+   ],
+   "x": 545.52,
+   "y": 477.83,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso AZUL (zona intrinseca, tipo PTT 2,5-2MT BU). 2 piezas a la derecha de la etiqueta 32XAIB (x 545.52 y 548.44; paso 2,92 pt = 5,2 mm). La pieza PE verde-amarilla de 2 pisos que esta a la izquierda de 32XAIB no se cuenta, porque esta antes de la etiqueta. Boca = octogono con U de 1,70 pt; el punto es el centro de la U. Pieza k = bornes 2k-1 (extremo) y 2k (interior). Borne 1 (impar) = pieza 1, boca del EXTREMO de arriba (h32: 3201 a la izquierda del borne 1 = ARRIBA). Foto AE3.0: 3201 entra en la boca del extremo (pulsador verde) de su pieza (3201 en la izquierda, 3203 en la derecha)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "32XAIB",
+   "texto": "32XAIB 2 ARRIBA",
+   "cables": [
+    "3202"
+   ],
+   "x": 545.52,
+   "y": 468.83,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso AZUL (zona intrinseca, tipo PTT 2,5-2MT BU). 2 piezas a la derecha de la etiqueta 32XAIB (x 545.52 y 548.44; paso 2,92 pt = 5,2 mm). La pieza PE verde-amarilla de 2 pisos que esta a la izquierda de 32XAIB no se cuenta, porque esta antes de la etiqueta. Boca = octogono con U de 1,70 pt; el punto es el centro de la U. Pieza k = bornes 2k-1 (extremo) y 2k (interior). Borne 2 (par) = pieza 1, boca INTERIOR de arriba (h32: 3202 a la izquierda del borne 2 = ARRIBA). Foto AE3.1: 3202 entra en la boca interior (pulsador naranja) de su pieza (3202 en la izquierda, 3204 en la derecha)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "32XAIB",
+   "texto": "32XAIB 3 ARRIBA",
+   "cables": [
+    "3203"
+   ],
+   "x": 548.44,
+   "y": 477.83,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso AZUL (zona intrinseca, tipo PTT 2,5-2MT BU). 2 piezas a la derecha de la etiqueta 32XAIB (x 545.52 y 548.44; paso 2,92 pt = 5,2 mm). La pieza PE verde-amarilla de 2 pisos que esta a la izquierda de 32XAIB no se cuenta, porque esta antes de la etiqueta. Boca = octogono con U de 1,70 pt; el punto es el centro de la U. Pieza k = bornes 2k-1 (extremo) y 2k (interior). Borne 3 (impar) = pieza 2, boca del EXTREMO de arriba (h32: 3203 a la izquierda del borne 3 = ARRIBA). Foto AE3.0: 3203 entra en la boca del extremo (pulsador verde) de su pieza (3201 en la izquierda, 3203 en la derecha)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "32XAIB",
+   "texto": "32XAIB 4 ARRIBA",
+   "cables": [
+    "3204"
+   ],
+   "x": 548.44,
+   "y": 468.83,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso AZUL (zona intrinseca, tipo PTT 2,5-2MT BU). 2 piezas a la derecha de la etiqueta 32XAIB (x 545.52 y 548.44; paso 2,92 pt = 5,2 mm). La pieza PE verde-amarilla de 2 pisos que esta a la izquierda de 32XAIB no se cuenta, porque esta antes de la etiqueta. Boca = octogono con U de 1,70 pt; el punto es el centro de la U. Pieza k = bornes 2k-1 (extremo) y 2k (interior). Borne 4 (par) = pieza 2, boca INTERIOR de arriba (h32: 3204 a la izquierda del borne 4 = ARRIBA). Foto AE3.1: 3204 entra en la boca interior (pulsador naranja) de su pieza (3202 en la izquierda, 3204 en la derecha)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "43XDIB",
+   "texto": "43XDIB 1 ARRIBA",
+   "cables": [
+    "4301"
+   ],
+   "x": 557.48,
+   "y": 477.83,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso AZUL (zona intrinseca, tipo PTT 2,5-2MT BU). 2 piezas a la derecha de la etiqueta 43XDIB (x 557.48 y 560.40; paso 2,92 pt = 5,2 mm). La pieza PE verde-amarilla de 2 pisos que esta a la izquierda de 32XAIB no se cuenta, porque esta antes de la etiqueta. Boca = octogono con U de 1,70 pt; el punto es el centro de la U. Pieza k = bornes 2k-1 (extremo) y 2k (interior). Borne 1 (impar) = pieza 1, boca del EXTREMO de arriba (h43: 4301 a la izquierda del borne 1 = ARRIBA). Foto AE3.0: 4301 entra en la boca del extremo (pulsador verde) de su pieza (4301 en la izquierda, 4303 en la derecha)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "43XDIB",
+   "texto": "43XDIB 2 ARRIBA",
+   "cables": [
+    "4302"
+   ],
+   "x": 557.48,
+   "y": 468.83,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso AZUL (zona intrinseca, tipo PTT 2,5-2MT BU). 2 piezas a la derecha de la etiqueta 43XDIB (x 557.48 y 560.40; paso 2,92 pt = 5,2 mm). La pieza PE verde-amarilla de 2 pisos que esta a la izquierda de 32XAIB no se cuenta, porque esta antes de la etiqueta. Boca = octogono con U de 1,70 pt; el punto es el centro de la U. Pieza k = bornes 2k-1 (extremo) y 2k (interior). Borne 2 (par) = pieza 1, boca INTERIOR de arriba (h43: 4302 a la izquierda del borne 2 = ARRIBA). Foto AE3.1: 4302 entra en la boca interior (pulsador naranja) de su pieza (4302 en la izquierda, 4304 en la derecha)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "43XDIB",
+   "texto": "43XDIB 3 ARRIBA",
+   "cables": [
+    "4303"
+   ],
+   "x": 560.4,
+   "y": 477.83,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso AZUL (zona intrinseca, tipo PTT 2,5-2MT BU). 2 piezas a la derecha de la etiqueta 43XDIB (x 557.48 y 560.40; paso 2,92 pt = 5,2 mm). La pieza PE verde-amarilla de 2 pisos que esta a la izquierda de 32XAIB no se cuenta, porque esta antes de la etiqueta. Boca = octogono con U de 1,70 pt; el punto es el centro de la U. Pieza k = bornes 2k-1 (extremo) y 2k (interior). Borne 3 (impar) = pieza 2, boca del EXTREMO de arriba (h43: 4303 a la izquierda del borne 3 = ARRIBA). Foto AE3.0: 4303 entra en la boca del extremo (pulsador verde) de su pieza (4301 en la izquierda, 4303 en la derecha)."
+  },
+  {
+   "familia": "borneras",
+   "componente": "43XDIB",
+   "texto": "43XDIB 4 ARRIBA",
+   "cables": [
+    "4304"
+   ],
+   "x": 560.4,
+   "y": 468.83,
+   "r": 1.4,
+   "confianza": "alta",
+   "como": "Borne seccionable push-in de doble piso AZUL (zona intrinseca, tipo PTT 2,5-2MT BU). 2 piezas a la derecha de la etiqueta 43XDIB (x 557.48 y 560.40; paso 2,92 pt = 5,2 mm). La pieza PE verde-amarilla de 2 pisos que esta a la izquierda de 32XAIB no se cuenta, porque esta antes de la etiqueta. Boca = octogono con U de 1,70 pt; el punto es el centro de la U. Pieza k = bornes 2k-1 (extremo) y 2k (interior). Borne 4 (par) = pieza 2, boca INTERIOR de arriba (h43: 4304 a la izquierda del borne 4 = ARRIBA). Foto AE3.1: 4304 entra en la boca interior (pulsador naranja) de su pieza (4302 en la izquierda, 4304 en la derecha)."
+  }
+ ],
+ "modelos": {
+  "XM1": "Borne seccionable push-in de doble piso, gris, 2 cuchillas (tipo PHOENIX PTT 2,5-2MT; es el mismo dibujo que 43XCS/46XC/81XCM del 75286: 5,2 x 91 mm, octogono con U de 3 mm). 2 piezas: bornes 1-2 y 3-4. Extremo = piso de abajo = impar (pulsador y cuchilla verdes); interior = piso de arriba = par (naranja).",
+  "31XAI": "Borne fusible push-in de doble piso, negro, fusible 5x20 de 100 mA (tipo PHOENIX PTTB 4-HESI (5X20)). El largo dibujado (102 mm) coincide con los 102,9 mm de la hoja de datos; el ancho dibujado (8,3 mm) es mayor que sus 6,2 mm. 2 piezas: pieza 1 = F1 + 1, pieza 2 = F2 + 2. Bocas del extremo = paso directo (1, 2); bocas interiores = nivel del fusible (F1, F2).",
+  "61XDIO": "PHOENIX PT 2,5-DIO (borne push-in con diodo 1N4007, una boca por extremo, 5,2 mm). 2 piezas con puente azul entre los anodos. El catodo (instructivo 'ABAJO') esta fisicamente ARRIBA; el anodo ('ARRIBA', '+', lado del puente) esta fisicamente ABAJO.",
+  "32XAIB": "Borne seccionable push-in de doble piso AZUL (tipo PHOENIX PTT 2,5-2MT BU). 2 piezas: bornes 1-2 y 3-4. Solo se usan las bocas de arriba; las de abajo van a campo (PT003/PT002) sin numero.",
+  "43XDIB": "Borne seccionable push-in de doble piso AZUL (tipo PHOENIX PTT 2,5-2MT BU). 2 piezas: bornes 1-2 y 3-4. Solo se usan las bocas de arriba; las de abajo van a campo (valvula SSV) sin numero."
+ },
+ "dudas": [
+  "XM1 3 ABAJO tiene dos cables (6201 y 6203), y un PTT tiene una sola boca por piso en cada extremo. Los dos van en la misma boca (extremo de abajo de la pieza 2), juntos (puntera doble), igual que los dos 1320 de 31XAI F1. En las fotos solo esta 6203: 6201 (a ZY) todavia no esta conectado.",
+  "XM1 4 ABAJO (6202), 31XAI 1 ABAJO (3102) y 31XAI F1 ABAJO (3101) son cables de campo que no salen en ninguna foto. El punto sale de la estructura de doble piso: el otro extremo de cada piso si se ve en las fotos. Confianza media.",
+  "31XAI F1 ARRIBA: en la foto entran DOS 1320 en la misma boca (el que viene de 13X24 1.3 y el puente a F2). El instructivo lo pone una vez en F1 y otra en F2. Los dos puntos estan bien, pero en F1 hay dos conductores.",
+  "61XDIO: el 'parte' del JSON (ARRIBA/ABAJO) sale del dibujo del funcional y es al reves de la posicion fisica. '1 ABAJO' y '2 ABAJO' (catodos) estan arriba del riel; '2 ARRIBA' (anodo, 1308) esta abajo. Confirmado con fotos.",
+  "31XAI: el ancho dibujado de cada pieza (8,3 mm) no coincide con el PTTB 4-HESI (6,2 mm). El modelo exacto no cambia los puntos: la disposicion de las bocas (extremo = paso directo, interior = fusible) esta confirmada con fotos del lado de arriba.",
+  "Hay fotos del 2026-06-23 y el funcional es rev 7 (24/06/26, cambio del fusible de bateria). Para estos bornes no hay diferencias entre las fotos y el funcional."
+ ]
+}

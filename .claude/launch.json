@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "listado-cables-web",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["C:/Buscar Termos en plano/programa/web.py", "--no-abrir"],
+      "port": 8765
+    },
+    {
+      "name": "listado-cables-prueba",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "set PLANOCABLES_PORT=8766&& python \"C:/Buscar Termos en plano/programa/web.py\" --no-abrir"],
+      "port": 8766
+    },
+    {
+      "name": "listado-cables-prueba-py",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-c", "import os, sys, runpy; os.environ['PLANOCABLES_PORT'] = '8766'; d = r'C:/Buscar Termos en plano/programa'; sys.path.insert(0, d); sys.argv = [d + '/web.py', '--no-abrir']; runpy.run_path(d + '/web.py', run_name='__main__')"],
+      "port": 8766
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+ "zona": "BANDEJA PRINCIPAL riel 3 (15XR, 42XC, 81XCM, 32XEX, 41XEX) + BANDEJA LATERAL IZQUIERDA (12PS1, 12XPS, 11SK1, 11Q1, 11Q2, 11XPVAC, 11X220V)",
+ "archivo_verificado": "puntos_riel3_lateral.json (102 puntos + 3 extra_esquema)",
+ "correcciones": [
+  {
+   "d": "-11Q2:2",
+   "cable": "1158",
+   "x": 262.53,
+   "y": 358.69,
+   "motivo": "Ajuste fino (0,13 pt, sin cambio de borne): el tornillo hexagonal de abajo de 11Q2 tiene envolvente 356.14-361.24 en y (centro 358.69), igual que el centro de su cruz y que los tornillos de abajo de 11Q1 (y 358,69); el punto estaba en y 358.56.",
+   "texto_taller": "11Q2 F ABAJO"
+  },
+  {
+   "d": "-11Q2:4",
+   "cable": "1159",
+   "x": 275.07,
+   "y": 358.69,
+   "motivo": "Ajuste fino (0,13 pt, sin cambio de borne): el tornillo hexagonal de abajo de 11Q2 tiene envolvente 356.14-361.24 en y (centro 358.69), igual que el centro de su cruz y que los tornillos de abajo de 11Q1 (y 358,69); el punto estaba en y 358.56.",
+   "texto_taller": "11Q2 N ABAJO"
+  }
+ ],
+ "verificacion": "Revisé los 102 puntos y los 3 de extra_esquema uno por uno, con mi propia geometría (codigo_verif_riel3_lateral/geo.py, match.py y verif.py: contornos cerrados y círculos ajustados a los arcos de page_strokes de la copia de proceso). COBERTURA: conexiones.json tiene 104 puntas en la zona. Todas están mapeadas y no sobra ningún punto. Son 102 puntos porque -12XPS:10 (2135) y -12XPS:11 (2136) llevan los 2 tramos de su cable en la misma boca. GEOMETRÍA: los 95 puntos con boca o tornillo dibujado caen a <= 0,13 pt del centro del rasgo real. PTT 2,5-2MT: aros de r 1,70 en y 413,66 / 402,41 / 366,94 / 355,55 (15XR, 42XC, 81XCM) y 413,54 / 402,29 / 366,82 / 355,43 (32XEX, 41XEX). QUATTRO-PE: aros de r 1,70, y el .4 es el de abajo extremo. PT 6 y PT 6-QUATTRO: contornos de 5,00 x 5,67. PTTB: aros de r 2,06. 11Q1: tornillos de 5,10 con cruz. 11Q2: hexágonos de 4,42 x 5,10. 11SK1: tres tornillos ranurados de r 1,63. Los 7 puntos de 12PS1 no tienen boca porque el aparato no tiene bornes. PIEZAS: el número dibujado debajo de cada pieza en la pág. 8 y las hojas de hileras (págs. 32, 33, 37 y 38) dan el mismo orden: 12XPS 1-13, 11XPVAC 1, 2 y PE 3, 11X220V 1-2, 15XR 1/2 + PE 3, 42XC PTTB F1/1 + 3/4 + 5/6, 81XCM 1/2..9/10, 32XEX 1/2, 3/4 + PE 5, y 41XEX 1/2, 3/4, 5/6, 9/10, 7/8, 11/12 (la 4ª y la 5ª pieza están cambiadas en el plano y el mapeo respeta el número). LADO: en los esquemas 11, 12, 15, 32, 41, 42 y 81, los cables del tablero entran por ARRIBA (en vertical, arriba; en horizontal, a la izquierda) y los de campo por ABAJO. Coincide con el punto EPLAN de cada fila. 11X220V: en la hoja 11 el símbolo va de 1 a 4 de arriba hacia abajo (1185, 1183, 1158, 1181), igual que N.p. 12XPS 10 y 11 (hoja 81): la diagonal de la unión en T de 2135 y 2136 apunta al lado derecho del borne. Eso es ABAJO, con terminal doble. 11Q1: la hoja de datos de Acti9 iID 2P (A9R01225) dice 'Neutral position Left'. La Easy9 EZ9R36225 del 75286 se verificó con fotos y también tiene la N a la izquierda. El punto vale para cualquiera de los dos modelos que figuran en la lista. TEXTOS: respetan las convenciones. N.p en QUATTRO y QUATTRO-PE. 'N ARRIBA/ABAJO' en PT 6, PTT y PTTB, como el '31XAI F1 ARRIBA' del 75286 y el 66817. Polo F/N con el lado en 11Q1 y 11Q2. Todo ABAJO en 11SK1. CORRECCIONES: solo 2 ajustes finos de 0,13 pt en 11Q2 abajo (1158 y 1159). El resto no se pudo refutar.",
+ "dudas": [
+  "PTT 2,5-2MT (42 puntos), piso: se mapeó con la convención del taller, verificada con fotos en el 75286 y el 66817 para el mismo artículo Phoenix: el impar va en la boca del EXTREMO (piso de abajo, pulsador verde o gris en las vistas 3D de las págs. 37 y 38) y el par en la INTERIOR (pulsador naranja). EPLAN usa siempre :2/:3 para el impar y :1/:4 para el par. Si esos puntos fueran correlativos a lo largo de la pieza, EPLAN pondría el par afuera. Las dos puntas de cada número quedan en el mismo piso, así que la continuidad no cambia. Confirmar en el primer tablero de qué piso es cada marcador.",
+  "11SK1 (Phoenix EO-I/UT): Phoenix lo describe como toma tipo I 'para China'. La norma china (de frente, con la tierra arriba) pone el neutro a la izquierda y la fase a la derecha. Si los tornillos de abajo siguen ese orden, quedaría N / PE / L de izquierda a derecha, al revés de lo mapeado (L / PE / N, tomado del orden del símbolo EPLAN). En ese caso se intercambian 1181 (x 208,29) y 1182 (x 221,75). El dibujo de la pág. 8 no rotula los tornillos. Confirmar con el toma real.",
+  "41XEX: la pág. 8 y la pág. 38 tienen la 4ª pieza con 9/10 y la 5ª con 7/8, y el mapeo respeta el número. Si el taller arma la bornera en orden de 1 a 12, se corren de pieza 4122/4123 y 4124/4125 y sus 4 puntas de campo.",
+  "12PS1 (Tracer7810BP, IP67, con cables propios): los 7 puntos (6 cables de 6 mm² y el RS-485 con 4 hilos de 0,32) están sobre el borde inferior de la caja, con la x estimada. Ni la pág. 8 ni las vistas 2D/3D (págs. 24, 25 y 27) dibujan por dónde salen los cables. Confirmar en el aparato montado.",
+  "15XR 3 y 32XEX 5 (QUATTRO-PE): en las hojas 15 y 32, la tierra de campo (ROTORK PE, malla de PIT01F) llega al punto de la IZQUIERDA del símbolo horizontal. Por la regla horizontal, ese punto sería el .1 (ARRIBA extremo). La lista dice :4 y se mapeó como el .4 (ABAJO extremo). Como los 4 puntos son PE y es un cable de campo que no se cablea en E6, no cambia nada. Solo hay que elegir qué texto usar.",
+  "42XC PTTB 4-HESI: F1 (fusible) va en la boca INTERIOR y 1 (paso directo) en la del EXTREMO. Sale de la referencia 31XAI del 75286 y el 66817 (mismo artículo, con fotos). La hoja de datos Phoenix no se pudo bajar (403).",
+  "Faltan en la lista y no se cablean en E6: el campo de 42XC (presostato PS1) y el de 81XCM 7/8/9 (ROTORK 27/28/malla). R1 120R en 81XCM 7 y 8 ABAJO y la tierra del gabinete a 11XPVAC 3.1 están en extra_esquema."
+ ]
+}

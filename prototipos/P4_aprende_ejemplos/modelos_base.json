@@ -1,0 +1,610 @@
+{
+ "version": 1,
+ "descripcion": "Modelos de aparatos que usa Batfer. Cada modelo dice como se busca en el topografico (busqueda), como se traduce el texto del instructivo a un borne (regla) y que bornes tiene. Los EJEMPLOS (posiciones aprendidas) los agrega agregar_tablero.py a base_bornes.json. Este archivo NO lleva coordenadas: es la hoja de datos + las reglas del taller. 'simetria_vertical' = pares de bornes que son espejo arriba/abajo en el dibujo (sirve para deducir un borne que ningun ejemplo tiene todavia). 'disposicion' = filas de bornes de la hoja de datos, de arriba hacia abajo y de izquierda a derecha, tal como se ven de frente; solo se usa cuando la base todavia no tiene ejemplos del modelo (se buscan las filas de tornillos/bocas dibujadas y se asignan por orden). 'polaridad' = pieza con diodo: que borne esta del lado del puente dibujado. 'franja' = aparato sin tornillos dibujados: en que franja del recuadro estan los bornes y en que orden.",
+ "modelos": {
+  "PHOENIX PT 6-QUATTRO": {
+   "familia": "bornera",
+   "forma": "pt6_quattro",
+   "alias": [
+    "PT\\s*6[\\s-]*QUATTRO"
+   ],
+   "busqueda": "serie",
+   "regla": {
+    "tipo": "quattro"
+   },
+   "bornes": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "nota": "Texto 'N.p'. N = pieza contada desde la etiqueta. p: 1 = arriba extrema, 2 = arriba interior, 3 = abajo interior, 4 = abajo extrema.",
+   "simetria_vertical": {
+    "1": "4",
+    "2": "3"
+   },
+   "disposicion": [
+    [
+     "1"
+    ],
+    [
+     "2"
+    ],
+    [
+     "3"
+    ],
+    [
+     "4"
+    ]
+   ]
+  },
+  "PHOENIX PTT 2,5": {
+   "familia": "bornera",
+   "forma": "ptt25",
+   "alias": [
+    "PTT\\s*2,5(?!\\s*-)"
+   ],
+   "busqueda": "serie",
+   "regla": {
+    "tipo": "doble_piso"
+   },
+   "bornes": [
+    "ARRIBA_EXT",
+    "ARRIBA_INT",
+    "ABAJO_INT",
+    "ABAJO_EXT"
+   ],
+   "nota": "Texto 'N ARRIBA/ABAJO'. Pieza = ceil(N/2). N impar = piso de abajo = entrada extrema (EXT); N par = piso de arriba = entrada interior (INT).",
+   "simetria_vertical": {
+    "ARRIBA_EXT": "ABAJO_EXT",
+    "ARRIBA_INT": "ABAJO_INT"
+   },
+   "disposicion": [
+    [
+     "ARRIBA_EXT"
+    ],
+    [
+     "ARRIBA_INT"
+    ],
+    [
+     "ABAJO_INT"
+    ],
+    [
+     "ABAJO_EXT"
+    ]
+   ]
+  },
+  "PHOENIX PTT 2,5-2MT": {
+   "familia": "bornera",
+   "forma": "ptt25_2mt",
+   "alias": [
+    "PTT\\s*2,5\\s*-\\s*2\\s*MT(?!\\s*BU)"
+   ],
+   "busqueda": "serie",
+   "regla": {
+    "tipo": "doble_piso"
+   },
+   "bornes": [
+    "ARRIBA_EXT",
+    "ARRIBA_INT",
+    "ABAJO_INT",
+    "ABAJO_EXT"
+   ],
+   "nota": "Seccionable doble piso gris (3210258). Misma regla que PTT 2,5.",
+   "simetria_vertical": {
+    "ARRIBA_EXT": "ABAJO_EXT",
+    "ARRIBA_INT": "ABAJO_INT"
+   },
+   "disposicion": [
+    [
+     "ARRIBA_EXT"
+    ],
+    [
+     "ARRIBA_INT"
+    ],
+    [
+     "ABAJO_INT"
+    ],
+    [
+     "ABAJO_EXT"
+    ]
+   ]
+  },
+  "PHOENIX PTT 2,5-2MT BU": {
+   "familia": "bornera",
+   "forma": "ptt25_2mt",
+   "alias": [
+    "PTT\\s*2,5\\s*-\\s*2\\s*MT\\s*BU"
+   ],
+   "busqueda": "serie",
+   "regla": {
+    "tipo": "doble_piso"
+   },
+   "bornes": [
+    "ARRIBA_EXT",
+    "ARRIBA_INT",
+    "ABAJO_INT",
+    "ABAJO_EXT"
+   ],
+   "nota": "Seccionable doble piso azul (3210265). Mismo dibujo que el gris, en azul.",
+   "simetria_vertical": {
+    "ARRIBA_EXT": "ABAJO_EXT",
+    "ARRIBA_INT": "ABAJO_INT"
+   },
+   "disposicion": [
+    [
+     "ARRIBA_EXT"
+    ],
+    [
+     "ARRIBA_INT"
+    ],
+    [
+     "ABAJO_INT"
+    ],
+    [
+     "ABAJO_EXT"
+    ]
+   ]
+  },
+  "PHOENIX PT 2,5-DIO/L-R": {
+   "familia": "bornera",
+   "forma": "pt25_dio",
+   "alias": [
+    "PT\\s*2,5\\s*-\\s*DIO"
+   ],
+   "busqueda": "serie",
+   "regla": {
+    "tipo": "dio"
+   },
+   "bornes": [
+    "ARRIBA",
+    "ABAJO"
+   ],
+   "nota": "Texto 'N ARRIBA/ABAJO' = anodo/catodo del funcional (ARRIBA = borne izquierdo del simbolo = anodo, L de L-R), NO la posicion fisica. Hoja de datos 3210224: borne - 2 ranuras de puente - diodo - borne, o sea el anodo es el extremo del lado de las ranuras del puente. 'polaridad': el borne ARRIBA es la boca mas cercana al puente FBS dibujado sobre la pieza (en 75286-1 el puente esta abajo, asi que el 'ABAJO' entra arriba). Una boca por extremo (estadio, no circulo).",
+   "disposicion": [
+    [
+     "ARRIBA"
+    ],
+    [
+     "ABAJO"
+    ]
+   ],
+   "polaridad": {
+    "borne_lado_puente": "ARRIBA"
+   }
+  },
+  "PHOENIX PTTB 4-HESI (borne fusible)": {
+   "familia": "bornera",
+   "forma": "pttb_hesi",
+   "alias": [
+    "HESI",
+    "BORNE\\s+FUSIBLE"
+   ],
+   "busqueda": "serie",
+   "regla": {
+    "tipo": "tabla",
+    "tabla": {
+     "1 ARRIBA": "ARRIBA_EXT",
+     "F1 ARRIBA": "ARRIBA_INT",
+     "F1 ABAJO": "ABAJO_INT",
+     "1 ABAJO": "ABAJO_EXT"
+    }
+   },
+   "bornes": [
+    "ARRIBA_EXT",
+    "ARRIBA_INT",
+    "ABAJO_INT",
+    "ABAJO_EXT"
+   ],
+   "nota": "Doble piso con fusible. '1' = piso de abajo (paso directo, bocas extremas); 'F1' = piso de arriba (fusible, bocas interiores).",
+   "simetria_vertical": {
+    "ARRIBA_EXT": "ABAJO_EXT"
+   },
+   "disposicion": [
+    [
+     "ARRIBA_EXT"
+    ],
+    [
+     "ARRIBA_INT"
+    ],
+    [
+     "ABAJO_INT"
+    ],
+    [
+     "ABAJO_EXT"
+    ]
+   ]
+  },
+  "PHOENIX RIF-0-RPT": {
+   "familia": "rele",
+   "forma": "rif0",
+   "alias": [
+    "RIF\\s*-?\\s*0"
+   ],
+   "busqueda": "serie",
+   "regla": {
+    "tipo": "modulos"
+   },
+   "bornes": [
+    "11",
+    "14",
+    "12",
+    "A1",
+    "A2"
+   ],
+   "nota": "Texto '<tag><modulo> <borne>' (43KR2 14). Modulos numerados de izquierda a derecha desde la etiqueta. Contactos 11/14/12 de un lado y bobina A1/A2 del otro: lo dicen los ejemplos.",
+   "disposicion": [
+    [
+     "11"
+    ],
+    [
+     "14"
+    ],
+    [
+     "12"
+    ],
+    [
+     "A1"
+    ],
+    [
+     "A2"
+    ]
+   ]
+  },
+  "MEAN WELL NDR": {
+   "familia": "fuente",
+   "forma": "meanwell_ndr",
+   "alias": [
+    "NDR\\s*-"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "tabla",
+    "ignorar_lado": true,
+    "tabla": {
+     "1 (-)": "TB2.1",
+     "2 (-)": "TB2.2",
+     "3 (+)": "TB2.3",
+     "4 (+)": "TB2.4",
+     "-V": [
+      "TB2.1",
+      "TB2.2"
+     ],
+     "+V": [
+      "TB2.3",
+      "TB2.4"
+     ],
+     "FG": "TB1.1",
+     "⏚": "TB1.1",
+     "⏚ 1": "TB1.1",
+     "N-2": "TB1.2",
+     "N": "TB1.2",
+     "L-3": "TB1.3",
+     "L": "TB1.3"
+    }
+   },
+   "bornes": [
+    "TB2.1",
+    "TB2.2",
+    "TB2.3",
+    "TB2.4",
+    "TB1.1",
+    "TB1.2",
+    "TB1.3"
+   ],
+   "nota": "Hoja de datos NDR-120/240: TB2 (salida, arriba) 1,2 = -V, 3,4 = +V; TB1 (entrada, abajo) 1 = FG, 2 = N, 3 = L. Dos usos con el mismo nombre (-V) se reparten por numero de cable creciente, de izquierda a derecha.",
+   "disposicion": [
+    [
+     "TB2.1",
+     "TB2.2",
+     "TB2.3",
+     "TB2.4"
+    ],
+    [
+     "TB1.1",
+     "TB1.2",
+     "TB1.3"
+    ]
+   ]
+  },
+  "MEAN WELL DDR": {
+   "familia": "fuente",
+   "forma": "meanwell_ddr",
+   "alias": [
+    "DDR\\s*-"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "tabla",
+    "ignorar_lado": true,
+    "tabla": {
+     "-Vo": [
+      "TB2.1",
+      "TB2.2"
+     ],
+     "+Vo": [
+      "TB2.3",
+      "TB2.4"
+     ],
+     "1 (-)": "TB2.1",
+     "2 (-)": "TB2.2",
+     "3 (+)": "TB2.3",
+     "4 (+)": "TB2.4",
+     "FG": "TB1.1",
+     "⏚": "TB1.1",
+     "-Vin": "TB1.2",
+     "+Vin": "TB1.3"
+    }
+   },
+   "bornes": [
+    "TB2.1",
+    "TB2.2",
+    "TB2.3",
+    "TB2.4",
+    "TB1.1",
+    "TB1.2",
+    "TB1.3"
+   ],
+   "nota": "Hoja de datos DDR-120: TB2 (salida, arriba) 1,2 = -Vo, 3,4 = +Vo; TB1 (entrada, abajo) 1 = FG, 2 = -Vin, 3 = +Vin.",
+   "disposicion": [
+    [
+     "TB2.1",
+     "TB2.2",
+     "TB2.3",
+     "TB2.4"
+    ],
+    [
+     "TB1.1",
+     "TB1.2",
+     "TB1.3"
+    ]
+   ]
+  },
+  "DIFERENCIAL 2P (Schneider Easy9 EZ9R)": {
+   "familia": "proteccion",
+   "forma": "modular_2p",
+   "alias": [
+    "diferencial",
+    "EZ9R"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "polos",
+    "polos": [
+     "N",
+     "F"
+    ]
+   },
+   "bornes": [
+    "P1_ARRIBA",
+    "P1_ABAJO",
+    "P2_ARRIBA",
+    "P2_ABAJO"
+   ],
+   "nota": "Polos de izquierda a derecha: N, F (la N esta impresa a la izquierda). P1 = polo de la izquierda.",
+   "simetria_vertical": {
+    "P1_ARRIBA": "P1_ABAJO",
+    "P2_ARRIBA": "P2_ABAJO"
+   },
+   "disposicion": [
+    [
+     "P1_ARRIBA",
+     "P2_ARRIBA"
+    ],
+    [
+     "P1_ABAJO",
+     "P2_ABAJO"
+    ]
+   ]
+  },
+  "TERMOMAGNETICA 2P (Schneider EZ9F / ABB S202)": {
+   "familia": "proteccion",
+   "forma": "modular_2p",
+   "alias": [
+    "termomagn",
+    "EZ9F",
+    "S202"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "polos",
+    "polos": [
+     "F",
+     "N"
+    ]
+   },
+   "bornes": [
+    "P1_ARRIBA",
+    "P1_ABAJO",
+    "P2_ARRIBA",
+    "P2_ABAJO"
+   ],
+   "nota": "Polos de izquierda a derecha: F, N (colores de cables en las fotos de 75286-1).",
+   "simetria_vertical": {
+    "P1_ARRIBA": "P1_ABAJO",
+    "P2_ARRIBA": "P2_ABAJO"
+   },
+   "disposicion": [
+    [
+     "P1_ARRIBA",
+     "P2_ARRIBA"
+    ],
+    [
+     "P1_ABAJO",
+     "P2_ABAJO"
+    ]
+   ]
+  },
+  "SCHNEIDER DF101 10x38": {
+   "familia": "proteccion",
+   "forma": "modular_1p",
+   "alias": [
+    "DF101"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "polos",
+    "polos": [
+     ""
+    ]
+   },
+   "bornes": [
+    "P1_ARRIBA",
+    "P1_ABAJO"
+   ],
+   "nota": "Portafusible de 1 polo: tornillo arriba y tornillo abajo.",
+   "disposicion": [
+    [
+     "P1_ARRIBA"
+    ],
+    [
+     "P1_ABAJO"
+    ]
+   ]
+  },
+  "TOMA IRAM riel DIN": {
+   "familia": "toma",
+   "forma": "toma_iram",
+   "alias": [
+    "toma\\s*corriente",
+    "tomacorriente",
+    "IRAM"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "tabla",
+    "ignorar_lado": true,
+    "tabla": {
+     "L": "L",
+     "N": "N",
+     "PE": "PE",
+     "T": "PE"
+    }
+   },
+   "bornes": [
+    "N",
+    "PE",
+    "L"
+   ],
+   "nota": "Los tres bornes van ABAJO (N, PE, L de izquierda a derecha) aunque el funcional diga 'L ARRIBA' (se cambio el modelo del toma). El dibujo no trae tornillos: la posicion la dan los ejemplos. Sin ejemplos, 'franja' los reparte parejos en la franja dibujada del borde de abajo (estimacion, confianza baja).",
+   "franja": {
+    "lado": "abajo",
+    "orden": [
+     "N",
+     "PE",
+     "L"
+    ]
+   }
+  },
+  "PORTAFUSIBLE MEGA": {
+   "familia": "proteccion",
+   "forma": "mega",
+   "alias": [
+    "MEGA"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "tabla",
+    "tabla": {
+     "ARRIBA": "DER",
+     "ABAJO": "IZQ",
+     "|ARRIBA": "DER",
+     "|ABAJO": "IZQ"
+    }
+   },
+   "bornes": [
+    "IZQ",
+    "DER"
+   ],
+   "nota": "Dos esparragos, izquierdo y derecho. El ARRIBA/ABAJO del instructivo sale del esquema (en 75286-1 ARRIBA = contactor = derecho, ABAJO = bateria = izquierdo). Revisar en cada tablero.",
+   "disposicion": [
+    [
+     "IZQ",
+     "DER"
+    ]
+   ]
+  },
+  "CHENZHU GS8512-EX": {
+   "familia": "barrera",
+   "forma": "barrera_gs85",
+   "alias": [
+    "GS8512"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "tabla",
+    "ignorar_lado": true,
+    "tabla": {
+     "1": "1",
+     "2": "2",
+     "3": "3",
+     "4": "4",
+     "5": "5",
+     "6": "6",
+     "7": "7",
+     "8": "8",
+     "9": "9",
+     "10": "10"
+    }
+   },
+   "bornes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10"
+   ],
+   "nota": "Se ubica por NUMERO de borne; el ARRIBA/ABAJO del texto sale del simbolo del funcional y se ignora."
+  },
+  "CHENZHU GS8536-EX": {
+   "familia": "barrera",
+   "forma": "barrera_gs85",
+   "alias": [
+    "GS8536"
+   ],
+   "busqueda": "contiene",
+   "regla": {
+    "tipo": "tabla",
+    "ignorar_lado": true,
+    "tabla": {
+     "1": "1",
+     "2": "2",
+     "3": "3",
+     "4": "4",
+     "5": "5",
+     "6": "6",
+     "7": "7",
+     "8": "8",
+     "9": "9",
+     "10": "10",
+     "11": "11",
+     "12": "12",
+     "13": "13",
+     "14": "14"
+    }
+   },
+   "bornes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14"
+   ],
+   "nota": "Barrera analogica 17.5 mm, enchufes de 3 bornes. Se ubica por numero de borne."
+  }
+ }
+}

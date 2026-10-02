@@ -1,0 +1,441 @@
+{
+ "carpeta": "20059291 - TABLERO DISTRIBUCIÓN dFRAC - 2un",
+ "orden": "20059291",
+ "codigo_producto": "76610-1",
+ "descripcion": "TABLERO DE DISTRIBUCIÓN 220V - dFRAC",
+ "cant_orden": 2,
+ "lista_materiales_sap": null,
+ "observaciones_orden": null,
+ "planos": {
+  "funcional": "76611 ZPL-Rev0-DIAGRAMA ELECTRICO TABLERO DE DISTRIBUCIÓN 220V - dFRAC.pdf (76611 ZPL Rev 0, 5 hojas: 00 caratula, 01 indice, 02 lista de materiales, 11 y 12 distribucion 220VAC)",
+  "topografico": "76612 ZPL-Rev0-DIAGRAMA CONSTRUCTIVO TABLERO DE DISTRIBUCON 220V-dFRAC.pdf (76612 ZPL Rev 0, 5 hojas: 00 caratula, 01 indice, 02 vista exterior, 03 detalle de aparamenta y rieles, 04 tapa ciega - calados)",
+  "otros": [],
+  "nota": "La carpeta no trae la orden de montaje SAP (20059291.pdf); codigo de producto 76610-1 tomado del rotulo de los planos (CODE / CODIGO), cantidad 2 tomada del nombre de la carpeta."
+ },
+ "componentes_sap": [],
+ "lista_funcional": [
+  {
+   "tag": "11XP",
+   "descripcion": "BORNERAS DE DISTRIBUCIÓN DE ALIMENTACIÓN 220 VAC",
+   "codigo_sap": "AB2000381",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "11XP | BORNERAS DE DISTRIBUCIÓN DE ALIMENTACIÓN 220 VAC | AB2000381 | PHOENIX CONTACT | PT 6 | -60...+110℃"
+  },
+  {
+   "tag": "11Q1",
+   "descripcion": "INTERRUPTOR AUTOMÁTICO DE POTENCIA AC",
+   "codigo_sap": "AB2000423",
+   "marca": "ABB",
+   "modelo": "S202-C",
+   "temperatura": "-25...+55℃",
+   "renglon_leido": "11Q1 | INTERRUPTOR AUTOMÁTICO DE POTENCIA AC | AB2000423 | ABB | S202-C | -25...+55℃"
+  },
+  {
+   "tag": "11F1",
+   "descripcion": "FUSILERA PARA RIEL DIN",
+   "codigo_sap": "AB1202912",
+   "marca": "SCHNEIDER",
+   "modelo": "DF101 10x38",
+   "temperatura": "-40...+70℃",
+   "renglon_leido": "A | 11F1 | FUSILERA PARA RIEL DIN | AB1202912 | SCHNEIDER | DF101 | 10x38 | -40...+70℃ | A"
+  },
+  {
+   "tag": "11PL1",
+   "descripcion": "PILOTO LED 220 VAC",
+   "codigo_sap": "AB2000575",
+   "marca": "ABB",
+   "modelo": "CL2-523G",
+   "temperatura": "-25...+70℃",
+   "renglon_leido": "11PL1 | PILOTO LED 220 VAC | AB2000575 | ABB | CL2-523G | -25...+70℃"
+  },
+  {
+   "tag": "12Q2...4...6...8...10...12...14",
+   "descripcion": "DISPOSITIVO DE CORRIENTE RESIDUAL 30 mA",
+   "codigo_sap": "AB1203303",
+   "marca": "SIEMENS",
+   "modelo": "5SV5312-0",
+   "temperatura": "-25...+45℃",
+   "renglon_leido": "12?2...4...6...8...10...12...14 | DISPOSITIVO DE CORRIENTE RESIDUAL 30 mA | AB1203303 | SIEMENS | 5SV5312-0 | -25...+45℃"
+  },
+  {
+   "tag": "12Q3...5...7...9...11...13...15",
+   "descripcion": "INTERRUPTOR AUTOMÁTICO DE POTENCIA AC",
+   "codigo_sap": "AB2000423",
+   "marca": "ABB",
+   "modelo": "S202-C",
+   "temperatura": "-25...+55℃",
+   "renglon_leido": "12Q3...5...7...9...11...13...15 | INTERRUPTOR AUTOMÁTICO DE POTENCIA AC | AB2000423 | ABB | S202-C | -25...+55℃"
+  },
+  {
+   "tag": "12XP1..P2..P3..P4..P5..P6..P7",
+   "descripcion": "BORNERAS DE DISTRIBUCIÓN DE ALIMENTACIÓN 220 VAC",
+   "codigo_sap": "AB2000381",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "12XP1..P2..P3..P4..P5..P6..P7 | BORNERAS DE DISTRIBUCIÓN | DE ALIMENTACIÓN | 220 VAC | AB2000381 | PHOENIX CONTACT | PT 6 | -60...+110℃"
+  }
+ ],
+ "tags": [
+  {
+   "tag": "11XP",
+   "hoja": "11",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 3 (inferior), primera tira a la izquierda",
+   "nota": "3 bornes (1=L, 2=N, 3=tierra); en el topografico la 3a pieza se dibuja distinta (con simbolo de tierra), aunque la lista dice PT 6 para toda la tira"
+  },
+  {
+   "tag": "11Q1",
+   "hoja": "11",
+   "modelo_segun_funcional": "ABB S202-C (lista); en el simbolo: 32A",
+   "codigo_sap": "AB2000423",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 1 (superior), a la izquierda"
+  },
+  {
+   "tag": "11F1",
+   "hoja": "11",
+   "modelo_segun_funcional": "SCHNEIDER DF101 10x38 (lista); en el simbolo: 1A",
+   "codigo_sap": "AB1202912",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 2, a la izquierda (etiqueta vertical)"
+  },
+  {
+   "tag": "11PL1",
+   "hoja": "11",
+   "modelo_segun_funcional": "ABB CL2-523G (lista); en el simbolo: Piloto Led Verde 220Vac TABLERO ENERGIZADO",
+   "codigo_sap": "AB2000575",
+   "en_topografico": "puerta (hoja 02 VISTA FRONTAL EXTERIOR, cartel TABLERO ENERGIZADO); no esta en la bandeja"
+  },
+  {
+   "tag": "12Q2",
+   "hoja": "12",
+   "modelo_segun_funcional": "SIEMENS 5SV5312-0 (lista); en el simbolo: 25A 30mA",
+   "codigo_sap": "AB1203303",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 1 (superior)"
+  },
+  {
+   "tag": "12Q4",
+   "hoja": "12",
+   "modelo_segun_funcional": "SIEMENS 5SV5312-0 (lista); en el simbolo: 25A 30mA",
+   "codigo_sap": "AB1203303",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 1 (superior)"
+  },
+  {
+   "tag": "12Q6",
+   "hoja": "12",
+   "modelo_segun_funcional": "SIEMENS 5SV5312-0 (lista); en el simbolo: 25A 30mA",
+   "codigo_sap": "AB1203303",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 1 (superior)"
+  },
+  {
+   "tag": "12Q8",
+   "hoja": "12",
+   "modelo_segun_funcional": "SIEMENS 5SV5312-0 (lista); en el simbolo: 25A 30mA",
+   "codigo_sap": "AB1203303",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 1 (superior)"
+  },
+  {
+   "tag": "12Q10",
+   "hoja": "12",
+   "modelo_segun_funcional": "SIEMENS 5SV5312-0 (lista); en el simbolo: 25A 30mA",
+   "codigo_sap": "AB1203303",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 1 (superior)"
+  },
+  {
+   "tag": "12Q12",
+   "hoja": "12",
+   "modelo_segun_funcional": "SIEMENS 5SV5312-0 (lista); en el simbolo: 25A 30mA",
+   "codigo_sap": "AB1203303",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 1 (superior)"
+  },
+  {
+   "tag": "12Q14",
+   "hoja": "12",
+   "modelo_segun_funcional": "SIEMENS 5SV5312-0 (lista); en el simbolo: 25A 30mA",
+   "codigo_sap": "AB1203303",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 1 (superior)"
+  },
+  {
+   "tag": "12Q3",
+   "hoja": "12",
+   "modelo_segun_funcional": "ABB S202-C (lista); en el simbolo: 10A",
+   "codigo_sap": "AB2000423",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 2"
+  },
+  {
+   "tag": "12Q5",
+   "hoja": "12",
+   "modelo_segun_funcional": "ABB S202-C (lista); en el simbolo: 10A",
+   "codigo_sap": "AB2000423",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 2"
+  },
+  {
+   "tag": "12Q7",
+   "hoja": "12",
+   "modelo_segun_funcional": "ABB S202-C (lista); en el simbolo: 10A",
+   "codigo_sap": "AB2000423",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 2"
+  },
+  {
+   "tag": "12Q9",
+   "hoja": "12",
+   "modelo_segun_funcional": "ABB S202-C (lista); en el simbolo: 10A",
+   "codigo_sap": "AB2000423",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 2"
+  },
+  {
+   "tag": "12Q11",
+   "hoja": "12",
+   "modelo_segun_funcional": "ABB S202-C (lista); en el simbolo: 10A",
+   "codigo_sap": "AB2000423",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 2"
+  },
+  {
+   "tag": "12Q13",
+   "hoja": "12",
+   "modelo_segun_funcional": "ABB S202-C (lista); en el simbolo: 10A",
+   "codigo_sap": "AB2000423",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 2"
+  },
+  {
+   "tag": "12Q15",
+   "hoja": "12",
+   "modelo_segun_funcional": "ABB S202-C (lista); en el simbolo: 10A",
+   "codigo_sap": "AB2000423",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 2"
+  },
+  {
+   "tag": "12XP1",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 3 (inferior)",
+   "nota": "3 bornes (1=L, 2=N, 3=tierra)"
+  },
+  {
+   "tag": "12XP2",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 3 (inferior)",
+   "nota": "3 bornes (1=L, 2=N, 3=tierra)"
+  },
+  {
+   "tag": "12XP3",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 3 (inferior)",
+   "nota": "3 bornes (1=L, 2=N, 3=tierra)"
+  },
+  {
+   "tag": "12XP4",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 3 (inferior)",
+   "nota": "3 bornes (1=L, 2=N, 3=tierra)"
+  },
+  {
+   "tag": "12XP5",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 3 (inferior)",
+   "nota": "3 bornes (1=L, 2=N, 3=tierra)"
+  },
+  {
+   "tag": "12XP6",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 3 (inferior)",
+   "nota": "3 bornes (1=L, 2=N, 3=tierra)"
+  },
+  {
+   "tag": "12XP7",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja, hoja 03 VISTA FRONTAL DETALLE DE APARAMENTA), riel 3 (inferior)",
+   "nota": "3 bornes (1=L, 2=N, 3=tierra)"
+  }
+ ],
+ "aparatos": [
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "descripcion": "Borne de paso PT 6 (bornera de distribucion 220 VAC)",
+   "codigos_sap": [
+    "AB2000381"
+   ],
+   "tags": [
+    "11XP",
+    "12XP1",
+    "12XP2",
+    "12XP3",
+    "12XP4",
+    "12XP5",
+    "12XP6",
+    "12XP7"
+   ],
+   "cantidad": 24,
+   "cantidad_unidad": "bornes por tablero segun el funcional (8 tiras x 3 bornes); no hay orden SAP para confirmar",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: piezas de borne con entrada push-in rectangular arriba y abajo, etiqueta vertical del tag a la izquierda de cada tira de 3 (riel inferior); la 3a pieza de cada tira lleva simbolo de tierra",
+   "nota": "el catalogo solo tiene PT6-QUATTRO (4 conexiones); el PT 6 comun (2 conexiones) no esta cubierto. La 3a pieza de cada tira es la de tierra (en el topografico se ve distinta, posible PT 6-PE) pero la lista del funcional dice PT 6 / AB2000381 para todas."
+  },
+  {
+   "marca": "ABB",
+   "modelo": "S202-C",
+   "descripcion": "Interruptor automatico (termomagnetica) 2 polos",
+   "codigos_sap": [
+    "AB2000423"
+   ],
+   "tags": [
+    "11Q1",
+    "12Q3",
+    "12Q5",
+    "12Q7",
+    "12Q9",
+    "12Q11",
+    "12Q13",
+    "12Q15"
+   ],
+   "cantidad": 8,
+   "cantidad_unidad": "por tablero (tags del funcional)",
+   "en_catalogo_bornes": "MCB-2P",
+   "como_se_dibuja": "bloque con bornes visibles: 2 modulos con tornillo circular arriba y abajo de cada polo, palanca negra y etiqueta horizontal en el frente (11Q1 en riel 1; 12Q3..15 en riel 2)",
+   "nota": "calibres segun el simbolo: 11Q1 32A, 12Q3..12Q15 10A (la lista no los indica)."
+  },
+  {
+   "marca": "SIEMENS",
+   "modelo": "5SV5312-0",
+   "descripcion": "Dispositivo de corriente residual (diferencial) 2P 25A 30 mA",
+   "codigos_sap": [
+    "AB1203303"
+   ],
+   "tags": [
+    "12Q2",
+    "12Q4",
+    "12Q6",
+    "12Q8",
+    "12Q10",
+    "12Q12",
+    "12Q14"
+   ],
+   "cantidad": 7,
+   "cantidad_unidad": "por tablero (tags del funcional)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: 2 modulos con 2 tornillos circulares arriba y 2 abajo, palanca negra, etiqueta horizontal (riel 1)",
+   "nota": "ningun alias del catalogo reconoce 'DISPOSITIVO DE CORRIENTE RESIDUAL' ni '5SV5312'; por familia equivale a EASY9-RCCB-2P (diferencial 2P de 2 modulos, bornes arriba/abajo): habria que agregar alias '5SV5312'/'5SV' despues de verificar la geometria."
+  },
+  {
+   "marca": "SCHNEIDER",
+   "modelo": "DF101 (10x38)",
+   "descripcion": "Fusilera / portafusible 10x38 para riel DIN, 1 polo",
+   "codigos_sap": [
+    "AB1202912"
+   ],
+   "tags": [
+    "11F1"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero",
+   "en_catalogo_bornes": "DF101",
+   "como_se_dibuja": "bloque con bornes visibles: cuerpo angosto con tornillo de ranura arriba y abajo, etiqueta vertical (riel 2, izquierda)",
+   "nota": "fusible 1A segun el simbolo (sin codigo SAP del fusible en la lista)."
+  },
+  {
+   "marca": "ABB",
+   "modelo": "CL2-523G",
+   "descripcion": "Piloto LED verde 220 VAC (tablero energizado)",
+   "codigos_sap": [
+    "AB2000575"
+   ],
+   "tags": [
+    "11PL1"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en la bandeja: va en la puerta (vista frontal exterior, circulo con cartel 11PL1)",
+   "nota": "bornes X1/X2 en el funcional."
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Borne principal de puesta a tierra (barra de tierra)",
+   "codigos_sap": [],
+   "tags": [],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: barra vertical con 15 tornillos (circulo con cruz) a la derecha del riel inferior, sin tag",
+   "nota": "figura en el funcional (hoja 11, 'BORNE PRINCIPAL DE PUESTA A TIERRA (1)', cables 1106 y 1111..1117) y en el topografico, pero no en la lista de materiales; sin modelo ni codigo SAP."
+  }
+ ],
+ "notas": [
+  "Sin orden de montaje SAP en la carpeta: componentes_sap = []. orden 20059291 y cantidad 2 salen del nombre de la carpeta; codigo_producto 76610-1 y descripcion salen del rotulo del funcional/constructivo (no se pudo confirmar el N° Material de SAP).",
+  "Lista de materiales del funcional (hoja 02) leida con materiales_funcional y verificada contra el render: el lector leyo '12?2...' por '12Q2...4...6...8...10...12...14' (corregido) y 'A | 11F1 | ...' trae la letra de fila del marco (descartada).",
+  "Tags leidos en las hojas 11 y 12 del funcional: 11XP, 11Q1, 11F1, 11PL1, 12Q2..12Q15, 12XP1..12XP7. El lector tambien devuelve '12Q1' (es 12Q14 cortado) y repite 12Q6/12Q10 (rotulo duplicado junto al diferencial en el dibujo).",
+  "Calibres solo en el simbolo del funcional: 11Q1 32A, 11F1 1A, 12Q2..14 25A 30mA, 12Q3..15 10A.",
+  "Topografico (hoja 03): riel 1 = 11Q1 + 12Q2..12Q14 (diferenciales); riel 2 = 11F1 + 12Q3..12Q15; riel 3 = 11XP + 12XP1..12XP7 (3 bornes cada una) y barra de tierra vertical a la derecha. 11PL1 en la puerta. core.process no lee las etiquetas verticales del constructivo (11XP, 12XPn, 11F1); se confirmaron mirando el render.",
+  "Fuera de la lista: peines '10-Pin Plug-in bar (60A)' que alimentan los diferenciales (hoja 12), prensacables M25 SS304 x8 (tabla de la hoja 04 del constructivo, cod. SAP escrito 'AB20001501', 10 caracteres: posible error de tipeo) y rejillas Finder en ambos laterales (hoja 02 del constructivo; el funcional no tiene ventilador ni tag de ellas). No se cargan como aparatos.",
+  "Alias del catalogo: S202-C -> MCB-2P (alias 'S202'), DF101 -> DF101. PT 6, 5SV5312-0 y CL2-523G no estan cubiertos."
+ ],
+ "lectura_topografico": {
+  "nota": "tags que core.process leyo como texto en cada pagina del constructivo 76612 (las etiquetas verticales 11XP, 12XP1..7 y 11F1 no se leen; se vieron en el render)",
+  "paginas": [
+   {
+    "pagina_pdf": 1,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 2,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 3,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": [
+     "11PL1"
+    ]
+   },
+   {
+    "pagina_pdf": 4,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": [
+     "12Q3",
+     "12Q5",
+     "12Q7",
+     "12Q9",
+     "12Q11",
+     "12Q13",
+     "12Q15",
+     "11Q1",
+     "12Q2",
+     "12Q4",
+     "12Q6",
+     "12Q8",
+     "12Q10",
+     "12Q14"
+    ]
+   },
+   {
+    "pagina_pdf": 5,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   }
+  ]
+ }
+}

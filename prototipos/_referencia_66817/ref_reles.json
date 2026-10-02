@@ -1,0 +1,275 @@
+{
+ "puntos": [
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 15",
+   "cables": [
+    "6104"
+   ],
+   "x": 532.94,
+   "y": 561.5,
+   "r": 1.42,
+   "confianza": "alta",
+   "como": "Temporizador Finder 80.01.0.240.0000 (17,5 mm, bornes a tornillo). Centro del tornillo (circulo r 1.42 pt, capa 01) de la fila de abajo, tornillo izquierdo (15). El dibujo es la vista frontal de la hoja de datos Finder IB8001, sin girar: arriba A1 y A2, con B1 debajo a la izquierda; abajo 15 y 18, con 16 debajo a la derecha; clip abajo. Funcional hoja 62: 15 = 6104. Confirmado con la foto '.../10.47.35/1.1.jpeg': 6104 (doble puntera) en el 15 impreso. El programa supone ARRIBA (como si fuera un rele), pero fisicamente esta ABAJO del riel."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 18",
+   "cables": [
+    "6203"
+   ],
+   "x": 537.9,
+   "y": 561.5,
+   "r": 1.42,
+   "confianza": "alta",
+   "como": "Temporizador Finder 80.01.0.240.0000 (17,5 mm, bornes a tornillo). Centro del tornillo (circulo r 1.42 pt, capa 01) de la fila de abajo, tornillo derecho (18). El dibujo es la vista frontal de la hoja de datos Finder IB8001, sin girar: arriba A1 y A2, con B1 debajo a la izquierda; abajo 15 y 18, con 16 debajo a la derecha; clip abajo. Funcional hoja 62: 18 = 6203. Confirmado con la foto '.../10.47.35/1.1.jpeg': 6203 en el 18 impreso. El programa supone ARRIBA (como si fuera un rele), pero fisicamente esta ABAJO del riel."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 A1",
+   "cables": [
+    "6104"
+   ],
+   "x": 532.94,
+   "y": 596.31,
+   "r": 1.42,
+   "confianza": "alta",
+   "como": "Temporizador Finder 80.01.0.240.0000 (17,5 mm, bornes a tornillo). Centro del tornillo (circulo r 1.42 pt, capa 01) de la fila de arriba, tornillo izquierdo (A1). El dibujo es la vista frontal de la hoja de datos Finder IB8001, sin girar: arriba A1 y A2, con B1 debajo a la izquierda; abajo 15 y 18, con 16 debajo a la derecha; clip abajo. Funcional hoja 62: A1 = 6104. Confirmado con la foto '.../10.47.35/1.0.jpeg': 6104 (doble puntera) en A1. El programa supone ABAJO (como si fuera un rele), pero fisicamente esta ARRIBA del riel."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 A2",
+   "cables": [
+    "1216"
+   ],
+   "x": 537.9,
+   "y": 596.31,
+   "r": 1.42,
+   "confianza": "alta",
+   "como": "Temporizador Finder 80.01.0.240.0000 (17,5 mm, bornes a tornillo). Centro del tornillo (circulo r 1.42 pt, capa 01) de la fila de arriba, tornillo derecho (A2). El dibujo es la vista frontal de la hoja de datos Finder IB8001, sin girar: arriba A1 y A2, con B1 debajo a la izquierda; abajo 15 y 18, con 16 debajo a la derecha; clip abajo. Funcional hoja 62: A2 = 1216. Confirmado con la foto '.../10.47.35/1.0.jpeg': 1216 negro en A2. El programa supone ABAJO (como si fuera un rele), pero fisicamente esta ARRIBA del riel."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 B1",
+   "cables": [
+    "6104"
+   ],
+   "x": 532.94,
+   "y": 590.07,
+   "r": 1.42,
+   "confianza": "alta",
+   "como": "Temporizador Finder 80.01.0.240.0000 (17,5 mm, bornes a tornillo). Centro del tornillo (circulo r 1.42 pt, capa 01) de la segunda fila de arriba, tornillo izquierdo (B1). El dibujo es la vista frontal de la hoja de datos Finder IB8001, sin girar: arriba A1 y A2, con B1 debajo a la izquierda; abajo 15 y 18, con 16 debajo a la derecha; clip abajo. Funcional hoja 62: B1 = 6104. Confirmado con la foto '.../10.47.35/1.0.jpeg': 6104 en B1. El programa supone ARRIBA (como si fuera un rele), pero fisicamente esta ARRIBA del riel."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR1 11",
+   "cables": [
+    "1307"
+   ],
+   "x": 639.57,
+   "y": 600.05,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 1 = columna 1 a la derecha de la etiqueta 61KR (x 639.57). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado contactos (arriba del riel), boca mas externa (la mas lejos del riel) = 11 (C). Funcional hoja 61 (modulo [1]: A1 2150, A2 2151, C(11) 1307, NO(14) 6101). Confirmado con la foto 'Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/2.0.jpg' y foto 'Cableado 66817-1/WhatsApp Image 2026-07-24 at 12.43.43 (1).jpeg': 1307 baja a la fila externa del modulo 1."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR1 14",
+   "cables": [
+    "6101"
+   ],
+   "x": 639.57,
+   "y": 594.95,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 1 = columna 1 a la derecha de la etiqueta 61KR (x 639.57). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado contactos (arriba), boca del medio = 14 (NA). Funcional hoja 61 (modulo [1]: A1 2150, A2 2151, C(11) 1307, NO(14) 6101). Confirmado con la foto 'Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/2.0.jpg' y foto 'Cableado 66817-1/WhatsApp Image 2026-07-24 at 12.43.43 (1).jpeg': 6101 en la fila del medio (14) del modulo 1."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR1 A1",
+   "cables": [
+    "2150"
+   ],
+   "x": 639.57,
+   "y": 558.68,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 1 = columna 1 a la derecha de la etiqueta 61KR (x 639.57). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado bobina (abajo del riel), boca interna junto al LED = A1. Funcional hoja 61 (modulo [1]: A1 2150, A2 2151, C(11) 1307, NO(14) 6101). Confirmado con la foto '.../10.47.35/2.4.jpeg': fila A1 con 2150, 2152, 2160 (61KR1..3) y 4305 (43KR1)."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR1 A2",
+   "cables": [
+    "2151"
+   ],
+   "x": 639.57,
+   "y": 553.38,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 1 = columna 1 a la derecha de la etiqueta 61KR (x 639.57). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado bobina (abajo), boca externa (la mas lejos del riel) = A2. Funcional hoja 61 (modulo [1]: A1 2150, A2 2151, C(11) 1307, NO(14) 6101). Confirmado con la foto '.../10.47.35/2.3.jpeg': fila A2 con 2151, 2153, 2161 (61KR1..3) y 4306 (43KR1)."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR2 14",
+   "cables": [
+    "6103"
+   ],
+   "x": 643.03,
+   "y": 594.95,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 2 = columna 2 a la derecha de la etiqueta 61KR (x 643.03). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado contactos (arriba), boca del medio = 14 (NA). Funcional hoja 61 (modulo [2]: A1 2152, A2 2153, NO(14) 6103; C(11) por el puente FBS). Confirmado con la foto 'Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/2.0.jpg' y foto 'Cableado 66817-1/WhatsApp Image 2026-07-24 at 12.43.43 (1).jpeg': 6103 en la fila del medio (14) del modulo 2."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR2 A1",
+   "cables": [
+    "2152"
+   ],
+   "x": 643.03,
+   "y": 558.68,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 2 = columna 2 a la derecha de la etiqueta 61KR (x 643.03). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado bobina (abajo del riel), boca interna junto al LED = A1. Funcional hoja 61 (modulo [2]: A1 2152, A2 2153, NO(14) 6103; C(11) por el puente FBS). Confirmado con la foto '.../10.47.35/2.4.jpeg': fila A1 con 2150, 2152, 2160 (61KR1..3) y 4305 (43KR1)."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR2 A2",
+   "cables": [
+    "2153"
+   ],
+   "x": 643.03,
+   "y": 553.38,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 2 = columna 2 a la derecha de la etiqueta 61KR (x 643.03). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado bobina (abajo), boca externa (la mas lejos del riel) = A2. Funcional hoja 61 (modulo [2]: A1 2152, A2 2153, NO(14) 6103; C(11) por el puente FBS). Confirmado con la foto '.../10.47.35/2.3.jpeg': fila A2 con 2151, 2153, 2161 (61KR1..3) y 4306 (43KR1)."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR3 11",
+   "cables": [
+    "1217"
+   ],
+   "x": 646.49,
+   "y": 600.05,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 3 = columna 3 a la derecha de la etiqueta 61KR (x 646.49). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado contactos (arriba del riel), boca mas externa (la mas lejos del riel) = 11 (C). Funcional hoja 61 (modulo [3]: A1 2160, A2 2161, C(11) 1217, NC(12) 6104). Confirmado con la foto 'Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/2.0.jpg' y foto 'Cableado 66817-1/WhatsApp Image 2026-07-24 at 12.43.43 (1).jpeg': 1217 en la fila externa del modulo 3."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR3 12",
+   "cables": [
+    "6104"
+   ],
+   "x": 646.49,
+   "y": 589.75,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 3 = columna 3 a la derecha de la etiqueta 61KR (x 646.49). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado contactos (arriba), boca interna, junto al cuerpo del rele = 12 (NC). Funcional hoja 61 (modulo [3]: A1 2160, A2 2161, C(11) 1217, NC(12) 6104). Confirmado con la foto 'Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/2.0.jpg' y foto 'Cableado 66817-1/WhatsApp Image 2026-07-24 at 12.43.43 (1).jpeg': 6104 en la fila interna, con el 12 moldeado, del modulo 3. En el dibujo esta boca tiene dos circulos superpuestos (y 589.85 y 589.65): se toma el medio."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR3 A1",
+   "cables": [
+    "2160"
+   ],
+   "x": 646.49,
+   "y": 558.68,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 3 = columna 3 a la derecha de la etiqueta 61KR (x 646.49). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado bobina (abajo del riel), boca interna junto al LED = A1. Funcional hoja 61 (modulo [3]: A1 2160, A2 2161, C(11) 1217, NC(12) 6104). Confirmado con la foto '.../10.47.35/2.4.jpeg': fila A1 con 2150, 2152, 2160 (61KR1..3) y 4305 (43KR1)."
+  },
+  {
+   "familia": "reles",
+   "componente": "61KR",
+   "texto": "61KR3 A2",
+   "cables": [
+    "2161"
+   ],
+   "x": 646.49,
+   "y": 553.38,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 12 Vdc. Modulo 3 = columna 3 a la derecha de la etiqueta 61KR (x 646.49). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado bobina (abajo), boca externa (la mas lejos del riel) = A2. Funcional hoja 61 (modulo [3]: A1 2160, A2 2161, C(11) 1217, NC(12) 6104). Confirmado con la foto '.../10.47.35/2.3.jpeg': fila A2 con 2151, 2153, 2161 (61KR1..3) y 4306 (43KR1)."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR1 11",
+   "cables": [
+    "2114"
+   ],
+   "x": 655.62,
+   "y": 600.05,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 24 Vdc. Modulo 1 = columna 1 a la derecha de la etiqueta 43KR (x 655.62). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado contactos (arriba del riel), boca mas externa (la mas lejos del riel) = 11 (C). Funcional hoja 43 (modulo [1]: C(11) 2114, NC(12) 2115, A1 4305, A2 4306, bobina 24 Vdc). Confirmado con la foto '.../10.47.35/2.1.jpeg': 2114 en la fila externa; la del medio (14 moldeado) esta libre."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR1 12",
+   "cables": [
+    "2115"
+   ],
+   "x": 655.62,
+   "y": 589.75,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 24 Vdc. Modulo 1 = columna 1 a la derecha de la etiqueta 43KR (x 655.62). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado contactos (arriba), boca interna, junto al cuerpo del rele = 12 (NC). Funcional hoja 43 (modulo [1]: C(11) 2114, NC(12) 2115, A1 4305, A2 4306, bobina 24 Vdc). Confirmado con la foto '.../10.47.35/2.1.jpeg' y foto 'Cableado 66817-1/WhatsApp Image 2026-07-24 at 12.43.43 (1).jpeg': 2115 en la fila interna (12 moldeado), junto al cuerpo. En el dibujo esta boca tiene dos circulos superpuestos (y 589.85 y 589.65): se toma el medio."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR1 A1",
+   "cables": [
+    "4305"
+   ],
+   "x": 655.62,
+   "y": 558.68,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 24 Vdc. Modulo 1 = columna 1 a la derecha de la etiqueta 43KR (x 655.62). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado bobina (abajo del riel), boca interna junto al LED = A1. Funcional hoja 43 (modulo [1]: C(11) 2114, NC(12) 2115, A1 4305, A2 4306, bobina 24 Vdc). Confirmado con la foto '.../10.47.35/2.4.jpeg': fila A1 con 2150, 2152, 2160 (61KR1..3) y 4305 (43KR1)."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR1 A2",
+   "cables": [
+    "4306"
+   ],
+   "x": 655.62,
+   "y": 553.38,
+   "r": 1.21,
+   "confianza": "alta",
+   "como": "Modulo rele Phoenix RIF-0 push-in (6,1 mm), bobina 24 Vdc. Modulo 1 = columna 1 a la derecha de la etiqueta 43KR (x 655.62). Centro del circulo grande de entrada del conductor (r 1.21 pt, _IGV_Componentes): lado bobina (abajo), boca externa (la mas lejos del riel) = A2. Funcional hoja 43 (modulo [1]: C(11) 2114, NC(12) 2115, A1 4305, A2 4306, bobina 24 Vdc). Confirmado con la foto '.../10.47.35/2.3.jpeg': fila A2 con 2151, 2153, 2161 (61KR1..3) y 4306 (43KR1)."
+  }
+ ],
+ "modelos": {
+  "62KR": "Temporizador multifuncion Finder 80.01.0.240.0000 (12-240 V AC/DC, 1 inversor de 16 A, 17,5 mm, bornes a tornillo). Vista frontal segun la hoja de datos Finder IB8001 y la nota de la hoja 62 del funcional: arriba A1 (izq) y A2 (der), con B1 debajo (izq); abajo 15 (izq) y 18 (der), con 16 debajo (der). En el topografico (pag 4) esta dibujado igual, sin girar: A1 (532.94, 596.31), A2 (537.90, 596.31), B1 (532.94, 590.07), 15 (532.94, 561.50), 18 (537.90, 561.50), 16 (537.90, 555.26). La etiqueta 62KR esta sobre el propio aparato. Fotos 1.0 (arriba) y 1.1 (abajo, con 15 y 18 impresos).",
+  "61KR": "Banco de 3 modulos rele Phoenix Contact RIF-0 push-in, 1 inversor, bobina 12 Vdc (rotulo 12V en las fotos). Paso de 3.46 pt = 6,1 mm. Modulos 1..3 de izquierda a derecha, a la derecha de la etiqueta: x 639.57, 643.03, 646.49. Contactos ARRIBA del riel: 11 externa (y 600.05), 14 en el medio (y 594.95), 12 interna (y 589.75). Bobina ABAJO: A1 interna junto al LED (y 558.69), A2 externa (y 553.38). Funcional hoja 61. Fotos 2.0, 2.3, 2.4 y la del 2026-07-24 12.43.43.",
+  "43KR": "Modulo rele Phoenix Contact RIF-0 push-in, 1 inversor, bobina 24 Vdc (rotulo 24V en la foto). Un solo modulo (43KR1) en x 655.62, a la derecha de la etiqueta 43KR. Misma disposicion que 61KR: arriba 11 externa, 14 en el medio (libre) y 12 interna; abajo A1 junto al LED y A2 externa. Funcional hoja 43. Fotos 2.1, 2.3 y 2.4."
+ },
+ "dudas": [
+  "62KR (Finder 80.01): el programa le pone 'parte' como si fuera un rele: 15, 18 y B1 ARRIBA, A1 y A2 ABAJO. Eso esta al reves en A1, A2, 15 y 18; B1 si esta arriba. Fisicamente A1, A2 y B1 estan ARRIBA del riel, y 15, 18 (y 16) ABAJO. Lo dicen la hoja de datos, el dibujo y las fotos 1.0 y 1.1, y los puntos siguen lo fisico. La foto 1.1, donde se ven 1225, 6104 y 6203, es la parte de ABAJO: el 1225 entra por abajo en 12F3 (el aparato vecino), y el 6104 y el 6203 entran en los tornillos 15 y 18 del temporizador.",
+  "62KR: el 6104 entra con doble puntera en A1 (foto 1.0) y en 15 (foto 1.1), y con puntera simple en B1. Tiene 4 puntas: viene de 61KR3 12 y lleva puentes A1-15-B1. Cada uso del instructivo va a su tornillo, pero no se puede saber cual de los dos 6104 de A1 o de 15 es el que llega de 61KR3.",
+  "RIF-0, boca 12 (la fila interna de contactos): en el dibujo hay dos circulos de entrada superpuestos (y 589.85 y 589.65) en todos los modulos. Se toma el medio (589.75). Son 0.1 pt de diferencia, no importa.",
+  "Funcional hoja 61: el puente 'Plug-in bridge FBS 20-6 / Red' une C(11) de [1] y [2]. En [3] hay un punto de union, pero no le llega ninguna linea. 61KR1 11 es 1307 (+12Vdc, Sh13:B3) y 61KR3 11 es 1217 (Timer supply +12Vdc, Sh12:D6): si el puente llegara al modulo 3, esos dos quedarian unidos. Los puntos no cambian, pero conviene revisar hasta donde llega el puente."
+ ]
+}

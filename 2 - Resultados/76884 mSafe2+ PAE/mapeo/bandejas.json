@@ -1,0 +1,2792 @@
+{
+ "pagina": 8,
+ "documento": "ZPL-76884 Rev 1 - mSafe2+ PAE (EPLAN), hoja 08 \"Detalle bandejas\"",
+ "unidades": "pt de la pagina PDF 8 (1192.04 x 851.39), origen abajo-izquierda; caja/b = [x0, y0, x1, y1]",
+ "escala_mm_por_pt": 1.41111,
+ "escala_explicacion": "Escala 1:4 exacta (1 pt = 25.4/72 mm x 4 = 1.41111 mm). Se comprobo de 4 formas: (1) el perfil del riel DIN mide 24.80 pt entre sus bordes = 35.0 mm; (2) el ancho de las canaletas CD 40X80/40X40 mide 28.35 pt = 40.0 mm y el de las CD 60X80 42.52 pt = 60.0 mm; (3) los largos de la lista de articulos de la hoja 31: U4 0,42 m = 297.63 pt, U5 0,24 m = 170.07 pt, U6 0,33 m = 233.85 pt, U3 0,54 m = 382.67 pt, U19 0,33 m = 233.86 pt, U16 0,16 m = 113.38 pt; (4) las cotas de la hoja 29 (misma escala que la 8): la linea de cota de 420 mm mide 291.97 pt + 2 flechas de 2.835 pt = 297.64 pt; 330 mm -> 228.19 + 5.67 = 233.86 pt; 540 mm -> 377.01 + 5.67 = 382.68 pt.",
+ "convencion_riel": "riel 1 = el de arriba; en la principal los rieles 2 y 3 estan cortados en dos tramos por la canaleta vertical U6 (izquierdo U11/U13 de 240 mm, derecho U12/U14 de 140 mm); en la lateral el riel 2 son U18 (135 mm) y U21 (75 mm) separados por un hueco",
+ "convencion_etiquetas": "EPLAN pone la etiqueta de cada bornera (y de los grupos de reles 42KR/61KR) SOBRE EL TOPE de su izquierda, en texto vertical; la de los aparatos (fuentes, fusibles, barreras, reles de seguridad, termomagneticas) centrada sobre el cuerpo. Las piezas de una bornera son las que siguen a la derecha de su tope hasta el tope siguiente.",
+ "principal": {
+  "region": [
+   573.42,
+   129.29,
+   1094.28,
+   745.83
+  ],
+  "region_mm": [
+   735.0,
+   870.0
+  ],
+  "rieles": [
+   {
+    "id": "U10",
+    "numero": 1,
+    "tramo": "unico",
+    "y_eje": 657.25,
+    "x0": 615.94,
+    "x1": 913.57,
+    "alto_pt": 24.8,
+    "y0": 644.85,
+    "y1": 669.65,
+    "largo_mm": 420.0,
+    "largo_lista_m": 0.42,
+    "articulo": "NS 35/ 7,5 PERF 2000MM (PXC.0801733)",
+    "topes": [
+     [
+      615.94,
+      622.67
+     ],
+     [
+      734.64,
+      741.37
+     ],
+     [
+      821.98,
+      828.71
+     ],
+     [
+      844.73,
+      851.46
+     ],
+     [
+      855.78,
+      862.48
+     ],
+     [
+      879.79,
+      886.47
+     ],
+     [
+      891.45,
+      898.18
+     ]
+    ]
+   },
+   {
+    "id": "U11",
+    "numero": 2,
+    "tramo": "izquierdo",
+    "y_eje": 515.49,
+    "x0": 615.94,
+    "x1": 786.01,
+    "alto_pt": 24.81,
+    "y0": 503.08,
+    "y1": 527.89,
+    "largo_mm": 240.0,
+    "largo_lista_m": 0.24,
+    "articulo": "NS 35/ 7,5 PERF 2000MM (PXC.0801733)",
+    "topes": [
+     [
+      615.94,
+      622.67
+     ],
+     [
+      641.55,
+      648.29
+     ],
+     [
+      661.4,
+      668.13
+     ],
+     [
+      694.35,
+      701.08
+     ],
+     [
+      725.74,
+      732.48
+     ],
+     [
+      745.59,
+      752.32
+     ],
+     [
+      768.48,
+      775.21
+     ]
+    ]
+   },
+   {
+    "id": "U12",
+    "numero": 2,
+    "tramo": "derecho",
+    "y_eje": 515.51,
+    "x0": 814.36,
+    "x1": 913.57,
+    "alto_pt": 24.81,
+    "y0": 503.11,
+    "y1": 527.92,
+    "largo_mm": 140.0,
+    "largo_lista_m": 0.14,
+    "articulo": "NS 35/ 7,5 PERF 2000MM (PXC.0801733)",
+    "topes": [
+     [
+      814.36,
+      821.09
+     ],
+     [
+      860.28,
+      866.98
+     ]
+    ],
+    "nota_topes": "el tope izquierdo (814.36-821.09) se ve solo en parte (su contorno queda bajo la canaleta U6)"
+   },
+   {
+    "id": "U13",
+    "numero": 3,
+    "tramo": "izquierdo",
+    "y_eje": 384.53,
+    "x0": 615.94,
+    "x1": 786.01,
+    "alto_pt": 24.8,
+    "y0": 372.13,
+    "y1": 396.93,
+    "largo_mm": 240.0,
+    "largo_lista_m": 0.24,
+    "articulo": "NS 35/ 7,5 PERF 2000MM (PXC.0801733)",
+    "topes": [
+     [
+      681.27,
+      688.01
+     ],
+     [
+      697.43,
+      704.16
+     ],
+     [
+      716.96,
+      723.69
+     ],
+     [
+      742.5,
+      749.24
+     ]
+    ]
+   },
+   {
+    "id": "U14",
+    "numero": 3,
+    "tramo": "derecho",
+    "y_eje": 384.41,
+    "x0": 814.36,
+    "x1": 913.57,
+    "alto_pt": 24.8,
+    "y0": 372.01,
+    "y1": 396.81,
+    "largo_mm": 140.0,
+    "largo_lista_m": 0.14,
+    "articulo": "NS 35/ 7,5 PERF 2000MM (PXC.0801733)",
+    "topes": [
+     [
+      814.36,
+      821.09
+     ],
+     [
+      834.17,
+      840.9
+     ],
+     [
+      863.37,
+      870.1
+     ]
+    ],
+    "nota_topes": "el tope izquierdo (814.36-821.09) se ve solo en parte (su contorno queda bajo la canaleta U6)"
+   }
+  ],
+  "canaletas": [
+   {
+    "id": "U2",
+    "b": [
+     587.59,
+     717.48,
+     913.57,
+     745.83
+    ],
+    "horizontal": true,
+    "tipo": "comun",
+    "articulo": "CD 40X80 (PXC.3240198)",
+    "ancho_mm": 40.0,
+    "largo_mm": 460.0,
+    "largo_lista": "0,46 m TAPA / 0,42 m BASE",
+    "nota": "tapa de 460 mm desde x=587.59 (cubre la union con U3); base de 420 mm desde x=615.94"
+   },
+   {
+    "id": "U3",
+    "b": [
+     587.59,
+     334.81,
+     615.94,
+     717.48
+    ],
+    "horizontal": false,
+    "tipo": "comun",
+    "articulo": "CD 40X80 (PXC.3240198)",
+    "ancho_mm": 40.0,
+    "largo_mm": 540.0,
+    "largo_lista": "0,54 m"
+   },
+   {
+    "id": "U4",
+    "b": [
+     615.94,
+     568.66,
+     913.57,
+     597.01
+    ],
+    "horizontal": true,
+    "tipo": "comun",
+    "articulo": "CD 40X80 (PXC.3240198)",
+    "ancho_mm": 40.0,
+    "largo_mm": 420.0,
+    "largo_lista": "0,42 m"
+   },
+   {
+    "id": "U5",
+    "b": [
+     615.94,
+     434.02,
+     786.01,
+     462.37
+    ],
+    "horizontal": true,
+    "tipo": "comun",
+    "articulo": "CD 40X80 (PXC.3240198)",
+    "ancho_mm": 40.0,
+    "largo_mm": 240.0,
+    "largo_lista": "0,24 m"
+   },
+   {
+    "id": "U6",
+    "b": [
+     786.01,
+     334.81,
+     814.36,
+     568.66
+    ],
+    "horizontal": false,
+    "tipo": "intrinseca (azul)",
+    "articulo": "CD 40X80 BU (PXC.3240198 BU)",
+    "ancho_mm": 40.0,
+    "largo_mm": 330.0,
+    "largo_lista": "0,33 m"
+   },
+   {
+    "id": "U7",
+    "b": [
+     814.36,
+     434.02,
+     913.57,
+     462.37
+    ],
+    "horizontal": true,
+    "tipo": "intrinseca (azul)",
+    "articulo": "CD 40X80 BU (PXC.3240198 BU)",
+    "ancho_mm": 40.0,
+    "largo_mm": 140.0,
+    "largo_lista": "0,14 m"
+   },
+   {
+    "id": "U8",
+    "b": [
+     587.59,
+     292.29,
+     786.01,
+     334.81
+    ],
+    "horizontal": true,
+    "tipo": "comun",
+    "articulo": "CD 60X80 (PXC.3240199)",
+    "ancho_mm": 60.0,
+    "largo_mm": 280.0,
+    "largo_lista": "0,28 m"
+   },
+   {
+    "id": "U9",
+    "b": [
+     786.01,
+     292.29,
+     913.57,
+     334.81
+    ],
+    "horizontal": true,
+    "tipo": "intrinseca (azul)",
+    "articulo": "CD 60X80 BU (PXC.3240199 BU)",
+    "ancho_mm": 60.0,
+    "largo_mm": 180.0,
+    "largo_lista": "0,18 m"
+   }
+  ],
+  "aparatos": {
+   "11PS1": {
+    "x": 646.96,
+    "y": 714.58,
+    "etiqueta_bbox": [
+     644.27,
+     704.08,
+     649.65,
+     725.09
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     622.67,
+     611.64,
+     667.31,
+     702.85
+    ],
+    "caja_mm": [
+     63.0,
+     128.7
+    ],
+    "modelo": "MEAN WELL NDR-240-24 (fuente 24 VDC)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "11PS2": {
+    "x": 691.6,
+    "y": 714.71,
+    "etiqueta_bbox": [
+     688.9,
+     704.08,
+     694.29,
+     725.35
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     667.31,
+     611.64,
+     711.96,
+     702.85
+    ],
+    "caja_mm": [
+     63.0,
+     128.7
+    ],
+    "modelo": "MEAN WELL NDR-240-24 (fuente 24 VDC)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "13PS1": {
+    "x": 723.49,
+    "y": 711.97,
+    "etiqueta_bbox": [
+     720.79,
+     701.46,
+     726.19,
+     722.47
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     711.96,
+     612.88,
+     734.64,
+     701.61
+    ],
+    "caja_mm": [
+     32.0,
+     125.2
+    ],
+    "modelo": "MEAN WELL DDR-120A-24 (elevador 12/24 VDC)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "11F1": {
+    "x": 747.23,
+    "y": 707.31,
+    "etiqueta_bbox": [
+     744.63,
+     698.87,
+     749.84,
+     715.75
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     741.37,
+     625.94,
+     753.77,
+     688.55
+    ],
+    "caja_mm": [
+     17.5,
+     88.3
+    ],
+    "modelo": "Schneider DF101 + DF2CN10 (10x38 gG 10 A)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "11F2": {
+    "x": 759.59,
+    "y": 707.44,
+    "etiqueta_bbox": [
+     756.94,
+     698.87,
+     762.24,
+     716.01
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     753.77,
+     625.94,
+     766.17,
+     688.55
+    ],
+    "caja_mm": [
+     17.5,
+     88.3
+    ],
+    "modelo": "Schneider DF101 + DF2CN10 (10x38 gG 10 A)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "12F3": {
+    "x": 774.16,
+    "y": 706.17,
+    "etiqueta_bbox": [
+     771.46,
+     697.65,
+     776.86,
+     714.69
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     766.17,
+     617.63,
+     784.95,
+     696.86
+    ],
+    "caja_mm": [
+     26.5,
+     111.8
+    ],
+    "modelo": "Schneider DF141 + DF2EA32 (14x51 aM 32 A)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "13F4": {
+    "x": 790.64,
+    "y": 707.51,
+    "etiqueta_bbox": [
+     787.94,
+     698.87,
+     793.34,
+     716.14
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     784.95,
+     625.94,
+     797.18,
+     688.55
+    ],
+    "caja_mm": [
+     17.3,
+     88.3
+    ],
+    "modelo": "Schneider DF101 + DF2CN10 (10x38 gG 10 A)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "13F5": {
+    "x": 803.04,
+    "y": 707.41,
+    "etiqueta_bbox": [
+     800.34,
+     698.87,
+     805.74,
+     715.95
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     797.18,
+     625.94,
+     809.58,
+     688.55
+    ],
+    "caja_mm": [
+     17.5,
+     88.3
+    ],
+    "modelo": "Schneider DF101 + DF2CN10 (10x38 gG 10 A)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "13F6": {
+    "x": 815.44,
+    "y": 707.48,
+    "etiqueta_bbox": [
+     812.74,
+     698.87,
+     818.14,
+     716.09
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     809.58,
+     625.94,
+     821.98,
+     688.55
+    ],
+    "caja_mm": [
+     17.5,
+     88.3
+    ],
+    "modelo": "Schneider DF101 + DF2CN06 (10x38 gG 6 A)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "42KS1": {
+    "x": 836.7,
+    "y": 703.69,
+    "etiqueta_bbox": [
+     834.0,
+     693.06,
+     839.39,
+     714.33
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     828.71,
+     622.33,
+     844.73,
+     692.49
+    ],
+    "caja_mm": [
+     22.6,
+     99.0
+    ],
+    "modelo": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B (rele de seguridad)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "42KR": {
+    "x": 848.74,
+    "y": 682.65,
+    "etiqueta_bbox": [
+     846.75,
+     675.69,
+     850.72,
+     689.61
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     851.46,
+     624.75,
+     855.78,
+     689.74
+    ],
+    "caja_mm": [
+     6.1,
+     91.7
+    ],
+    "modelo": "grupo de reles Phoenix RIF-0 (etiqueta sobre el tope)",
+    "etiqueta_sobre": "el tope de la izquierda [844.73-851.46] (nombra las piezas a su derecha)",
+    "modulos": [
+     {
+      "tag": "42KR1",
+      "x0": 851.46,
+      "x1": 855.78,
+      "modelo": "RIF-0-RPT-24DC/21 (PXC.2903370)"
+     }
+    ],
+    "numeros_borne_dibujados": []
+   },
+   "61KR": {
+    "x": 859.79,
+    "y": 682.65,
+    "etiqueta_bbox": [
+     857.77,
+     675.69,
+     861.82,
+     689.61
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     862.48,
+     624.75,
+     879.79,
+     689.75
+    ],
+    "caja_mm": [
+     24.4,
+     91.7
+    ],
+    "modelo": "grupo de reles Phoenix RIF-0 (etiqueta sobre el tope)",
+    "etiqueta_sobre": "el tope de la izquierda [855.78-862.48] (nombra las piezas a su derecha)",
+    "modulos": [
+     {
+      "tag": "61KR1",
+      "x0": 862.48,
+      "x1": 866.81,
+      "modelo": "RIF-0-RPT-12DC/21 (PXC.2903371)"
+     },
+     {
+      "tag": "61KR2",
+      "x0": 866.81,
+      "x1": 871.13,
+      "modelo": "RIF-0-RPT-12DC/21 (PXC.2903371)"
+     },
+     {
+      "tag": "61KR3",
+      "x0": 871.13,
+      "x1": 875.46,
+      "modelo": "RIF-0-RPT-12DC/21 (PXC.2903371)"
+     },
+     {
+      "tag": "61KR4",
+      "x0": 875.46,
+      "x1": 879.79,
+      "modelo": "RIF-0-RPT-12DC/21 (PXC.2903371)"
+     }
+    ],
+    "nota_modulos": "orden 61KR1..61KR4 de izquierda a derecha SUPUESTO: la hoja 8 no rotula cada modulo",
+    "numeros_borne_dibujados": []
+   },
+   "32XAI": {
+    "x": 883.43,
+    "y": 685.03,
+    "etiqueta_bbox": [
+     881.4,
+     677.32,
+     885.45,
+     692.74
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     886.47,
+     624.19,
+     891.39,
+     697.12
+    ],
+    "caja_mm": [
+     6.9,
+     102.9
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [879.79-886.47] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 886.47,
+      "x1": 890.83,
+      "xc": 888.65,
+      "ancho_mm": 6.2,
+      "tipo": "PTTB 4-HESI (5X20) portafusible"
+     },
+     {
+      "x0": 890.83,
+      "x1": 891.39,
+      "xc": 891.11,
+      "ancho_mm": 0.8,
+      "tipo": "tapa D-PTT 2,5-2MT-0,8"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "F1",
+      "x": 888.8,
+      "y": 619.64,
+      "pieza": 1,
+      "pieza_tipo": "PTTB 4-HESI (5X20) portafusible"
+     }
+    ]
+   },
+   "XPE": {
+    "x": 895.14,
+    "y": 682.55,
+    "etiqueta_bbox": [
+     893.19,
+     677.32,
+     897.09,
+     687.77
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U10",
+    "riel_tramo": "unico",
+    "caja": [
+     898.18,
+     631.88,
+     910.69,
+     683.04
+    ],
+    "caja_mm": [
+     17.7,
+     72.2
+    ],
+    "modelo": "bornera de tierra Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [891.45-898.18] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 898.18,
+      "x1": 901.83,
+      "xc": 900.0,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-QUATTRO-PE (verde)"
+     },
+     {
+      "n": 2,
+      "x0": 901.83,
+      "x1": 905.48,
+      "xc": 903.65,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-QUATTRO-PE (verde)"
+     },
+     {
+      "n": 3,
+      "x0": 905.48,
+      "x1": 909.13,
+      "xc": 907.31,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-QUATTRO-PE (verde)"
+     },
+     {
+      "x0": 909.13,
+      "x1": 910.69,
+      "xc": 909.91,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-ST 2,5-QUATTRO GN"
+     }
+    ],
+    "nota": "no hay tope a la derecha: despues de la tapa sigue el riel hasta 913.57",
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 899.44,
+      "y": 624.93,
+      "pieza": 1,
+      "pieza_tipo": "PT 2,5-QUATTRO-PE (verde)"
+     },
+     {
+      "texto": "2",
+      "x": 903.05,
+      "y": 624.95,
+      "pieza": 2,
+      "pieza_tipo": "PT 2,5-QUATTRO-PE (verde)"
+     },
+     {
+      "texto": "3",
+      "x": 906.66,
+      "y": 624.92,
+      "pieza": 3,
+      "pieza_tipo": "PT 2,5-QUATTRO-PE (verde)"
+     }
+    ]
+   },
+   "12XP": {
+    "x": 619.59,
+    "y": 542.23,
+    "etiqueta_bbox": [
+     617.6,
+     535.56,
+     621.58,
+     548.89
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U11",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     622.67,
+     482.8,
+     641.55,
+     546.95
+    ],
+    "caja_mm": [
+     26.6,
+     90.5
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [615.94-622.67] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 622.67,
+      "x1": 628.45,
+      "xc": 625.56,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 2,
+      "x0": 628.45,
+      "x1": 634.22,
+      "xc": 631.34,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 3,
+      "x0": 634.22,
+      "x1": 640.0,
+      "xc": 637.11,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "x0": 640.0,
+      "x1": 641.55,
+      "xc": 640.77,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-PT 6-QUATTRO"
+     }
+    ],
+    "puentes": "FBS 3-8 BU",
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 623.93,
+      "y": 478.25,
+      "pieza": 1,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "2",
+      "x": 629.67,
+      "y": 478.27,
+      "pieza": 2,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "3",
+      "x": 635.4,
+      "y": 478.24,
+      "pieza": 3,
+      "pieza_tipo": "PT 6-QUATTRO"
+     }
+    ]
+   },
+   "13X12V": {
+    "x": 645.24,
+    "y": 545.29,
+    "etiqueta_bbox": [
+     643.22,
+     535.56,
+     647.27,
+     555.02
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U11",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     648.29,
+     482.8,
+     661.4,
+     546.95
+    ],
+    "caja_mm": [
+     18.5,
+     90.5
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [641.55-648.29] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 648.29,
+      "x1": 654.07,
+      "xc": 651.18,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 2,
+      "x0": 654.07,
+      "x1": 659.84,
+      "xc": 656.96,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "x0": 659.84,
+      "x1": 661.4,
+      "xc": 660.62,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-PT 6-QUATTRO"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 649.55,
+      "y": 478.25,
+      "pieza": 1,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "2",
+      "x": 655.28,
+      "y": 478.27,
+      "pieza": 2,
+      "pieza_tipo": "PT 6-QUATTRO"
+     }
+    ]
+   },
+   "13X24V": {
+    "x": 665.09,
+    "y": 545.29,
+    "etiqueta_bbox": [
+     663.06,
+     535.56,
+     667.11,
+     555.02
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U11",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     668.13,
+     482.8,
+     694.35,
+     546.95
+    ],
+    "caja_mm": [
+     37.0,
+     90.5
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [661.40-668.13] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 668.13,
+      "x1": 674.29,
+      "xc": 671.21,
+      "ancho_mm": 8.7,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 2,
+      "x0": 674.29,
+      "x1": 680.46,
+      "xc": 677.38,
+      "ancho_mm": 8.7,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 3,
+      "x0": 680.46,
+      "x1": 686.62,
+      "xc": 683.54,
+      "ancho_mm": 8.7,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 4,
+      "x0": 686.62,
+      "x1": 692.79,
+      "xc": 689.7,
+      "ancho_mm": 8.7,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "x0": 692.79,
+      "x1": 694.35,
+      "xc": 693.57,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-PT 6-QUATTRO"
+     }
+    ],
+    "puentes": "FBS 2-8 (1-2) y FBS 2-8 BU (3-4)",
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 669.39,
+      "y": 478.25,
+      "pieza": 1,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "2",
+      "x": 675.13,
+      "y": 478.27,
+      "pieza": 2,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "3",
+      "x": 682.42,
+      "y": 478.24,
+      "pieza": 3,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "4",
+      "x": 688.21,
+      "y": 478.24,
+      "pieza": 4,
+      "pieza_tipo": "PT 6-QUATTRO"
+     }
+    ]
+   },
+   "61XDO": {
+    "x": 698.04,
+    "y": 544.39,
+    "etiqueta_bbox": [
+     696.01,
+     535.56,
+     700.06,
+     553.23
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U11",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     701.08,
+     482.8,
+     725.74,
+     546.95
+    ],
+    "caja_mm": [
+     34.8,
+     90.5
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [694.35-701.08] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 701.08,
+      "x1": 706.86,
+      "xc": 703.97,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 2,
+      "x0": 706.86,
+      "x1": 712.63,
+      "xc": 709.75,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 3,
+      "x0": 712.63,
+      "x1": 718.4,
+      "xc": 715.51,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 4,
+      "x0": 718.4,
+      "x1": 724.18,
+      "xc": 721.29,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "x0": 724.18,
+      "x1": 725.74,
+      "xc": 724.96,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-PT 6-QUATTRO"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 702.35,
+      "y": 478.25,
+      "pieza": 1,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "2",
+      "x": 708.08,
+      "y": 478.27,
+      "pieza": 2,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "3",
+      "x": 713.81,
+      "y": 478.24,
+      "pieza": 3,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "4",
+      "x": 719.6,
+      "y": 478.24,
+      "pieza": 4,
+      "pieza_tipo": "PT 6-QUATTRO"
+     }
+    ]
+   },
+   "61X0V": {
+    "x": 729.43,
+    "y": 543.85,
+    "etiqueta_bbox": [
+     727.41,
+     535.56,
+     731.46,
+     552.14
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U11",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     732.48,
+     482.8,
+     745.59,
+     546.95
+    ],
+    "caja_mm": [
+     18.5,
+     90.5
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [725.74-732.48] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 732.48,
+      "x1": 738.25,
+      "xc": 735.37,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 2,
+      "x0": 738.25,
+      "x1": 744.03,
+      "xc": 741.14,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "x0": 744.03,
+      "x1": 745.59,
+      "xc": 744.81,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-PT 6-QUATTRO"
+     }
+    ],
+    "puentes": "FBS 2-8 BU",
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 733.74,
+      "y": 478.25,
+      "pieza": 1,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "2",
+      "x": 739.47,
+      "y": 478.27,
+      "pieza": 2,
+      "pieza_tipo": "PT 6-QUATTRO"
+     }
+    ]
+   },
+   "61XDIO": {
+    "x": 749.28,
+    "y": 545.38,
+    "etiqueta_bbox": [
+     747.25,
+     535.56,
+     751.3,
+     555.19
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U11",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     752.32,
+     498.48,
+     768.48,
+     532.92
+    ],
+    "caja_mm": [
+     22.8,
+     48.6
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [745.59-752.32] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 752.32,
+      "x1": 755.97,
+      "xc": 754.14,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-DIO/L-R"
+     },
+     {
+      "n": 2,
+      "x0": 755.97,
+      "x1": 759.62,
+      "xc": 757.8,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-DIO/L-R"
+     },
+     {
+      "n": 3,
+      "x0": 759.62,
+      "x1": 763.27,
+      "xc": 761.44,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-DIO/L-R"
+     },
+     {
+      "n": 4,
+      "x0": 763.27,
+      "x1": 766.92,
+      "xc": 765.1,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-DIO/L-R"
+     },
+     {
+      "x0": 766.92,
+      "x1": 768.48,
+      "xc": 767.7,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-ST 2,5"
+     }
+    ],
+    "puentes": "FBS 4-5 BU",
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 753.58,
+      "y": 491.53,
+      "pieza": 1,
+      "pieza_tipo": "PT 2,5-DIO/L-R"
+     },
+     {
+      "texto": "2",
+      "x": 757.19,
+      "y": 491.56,
+      "pieza": 2,
+      "pieza_tipo": "PT 2,5-DIO/L-R"
+     },
+     {
+      "texto": "3",
+      "x": 760.8,
+      "y": 491.53,
+      "pieza": 3,
+      "pieza_tipo": "PT 2,5-DIO/L-R"
+     },
+     {
+      "texto": "4",
+      "x": 764.46,
+      "y": 491.52,
+      "pieza": 4,
+      "pieza_tipo": "PT 2,5-DIO/L-R"
+     }
+    ]
+   },
+   "15AIB1": {
+    "x": 825.59,
+    "y": 569.92,
+    "etiqueta_bbox": [
+     822.93,
+     557.81,
+     828.24,
+     582.02
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U12",
+    "riel_tramo": "derecho",
+    "caja": [
+     821.13,
+     476.01,
+     833.6,
+     555.02
+    ],
+    "caja_mm": [
+     17.6,
+     111.5
+    ],
+    "modelo": "CHENZHU GS8536-EX (barrera intrinseca, 2 AI)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "15DIB1": {
+    "x": 838.1,
+    "y": 570.19,
+    "etiqueta_bbox": [
+     835.44,
+     557.81,
+     840.75,
+     582.57
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U12",
+    "riel_tramo": "derecho",
+    "caja": [
+     833.6,
+     476.01,
+     842.46,
+     555.02
+    ],
+    "caja_mm": [
+     12.5,
+     111.5
+    ],
+    "modelo": "CHENZHU GS8512-EX.22 (barrera intrinseca, 2 DI)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "15DIB2": {
+    "x": 846.91,
+    "y": 570.32,
+    "etiqueta_bbox": [
+     844.21,
+     557.81,
+     849.61,
+     582.83
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U12",
+    "riel_tramo": "derecho",
+    "caja": [
+     842.46,
+     476.01,
+     851.32,
+     555.02
+    ],
+    "caja_mm": [
+     12.5,
+     111.5
+    ],
+    "modelo": "CHENZHU GS8512-EX.22 (barrera intrinseca, 2 DI)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "15DIB3": {
+    "x": 855.77,
+    "y": 570.28,
+    "etiqueta_bbox": [
+     853.07,
+     557.81,
+     858.47,
+     582.74
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U12",
+    "riel_tramo": "derecho",
+    "caja": [
+     851.32,
+     476.01,
+     860.25,
+     555.02
+    ],
+    "caja_mm": [
+     12.6,
+     111.5
+    ],
+    "modelo": "CHENZHU GS8512-EX.22 (barrera intrinseca, 2 DI)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "15XR": {
+    "x": 685.0,
+    "y": 411.55,
+    "etiqueta_bbox": [
+     683.01,
+     404.61,
+     686.99,
+     418.49
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 3,
+    "riel_id": "U13",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     688.01,
+     351.79,
+     697.43,
+     417.27
+    ],
+    "caja_mm": [
+     13.3,
+     92.4
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [681.27-688.01] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 688.01,
+      "x1": 691.66,
+      "xc": 689.84,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT"
+     },
+     {
+      "x0": 691.66,
+      "x1": 692.22,
+      "xc": 691.94,
+      "ancho_mm": 0.8,
+      "tipo": "tapa D-PTT 2,5-2MT-0,8"
+     },
+     {
+      "n": 2,
+      "x0": 692.22,
+      "x1": 695.87,
+      "xc": 694.05,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-QUATTRO-PE (verde)"
+     },
+     {
+      "x0": 695.87,
+      "x1": 697.43,
+      "xc": 696.65,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-ST 2,5-QUATTRO GN"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 689.27,
+      "y": 347.24,
+      "pieza": 1,
+      "pieza_tipo": "PTT 2,5-2MT"
+     },
+     {
+      "texto": "3",
+      "x": 693.4,
+      "y": 352.21,
+      "pieza": 2,
+      "pieza_tipo": "PT 2,5-QUATTRO-PE (verde)"
+     }
+    ]
+   },
+   "42XC": {
+    "x": 701.12,
+    "y": 411.41,
+    "etiqueta_bbox": [
+     699.1,
+     404.61,
+     703.14,
+     418.21
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 3,
+    "riel_id": "U13",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     704.16,
+     351.47,
+     716.96,
+     424.4
+    ],
+    "caja_mm": [
+     18.1,
+     102.9
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [697.43-704.16] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 704.16,
+      "x1": 708.52,
+      "xc": 706.34,
+      "ancho_mm": 6.2,
+      "tipo": "PTTB 4-HESI (5X20) portafusible"
+     },
+     {
+      "x0": 708.52,
+      "x1": 709.09,
+      "xc": 708.81,
+      "ancho_mm": 0.8,
+      "tipo": "tapa D-PTT 2,5-2MT-0,8"
+     },
+     {
+      "n": 2,
+      "x0": 709.09,
+      "x1": 712.74,
+      "xc": 710.91,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT"
+     },
+     {
+      "n": 3,
+      "x0": 712.74,
+      "x1": 716.39,
+      "xc": 714.57,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT"
+     },
+     {
+      "x0": 716.39,
+      "x1": 716.96,
+      "xc": 716.67,
+      "ancho_mm": 0.8,
+      "tipo": "tapa D-PTT 2,5-2MT-0,8"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "F1",
+      "x": 706.5,
+      "y": 346.92,
+      "pieza": 1,
+      "pieza_tipo": "PTTB 4-HESI (5X20) portafusible"
+     },
+     {
+      "texto": "3",
+      "x": 710.27,
+      "y": 347.24,
+      "pieza": 2,
+      "pieza_tipo": "PTT 2,5-2MT"
+     },
+     {
+      "texto": "5",
+      "x": 713.96,
+      "y": 347.21,
+      "pieza": 3,
+      "pieza_tipo": "PTT 2,5-2MT"
+     }
+    ]
+   },
+   "81XCM": {
+    "x": 720.65,
+    "y": 413.29,
+    "etiqueta_bbox": [
+     718.61,
+     404.61,
+     722.68,
+     421.98
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 3,
+    "riel_id": "U13",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     723.69,
+     351.79,
+     742.5,
+     417.27
+    ],
+    "caja_mm": [
+     26.5,
+     92.4
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [716.96-723.69] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 723.69,
+      "x1": 727.34,
+      "xc": 725.52,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT"
+     },
+     {
+      "n": 2,
+      "x0": 727.34,
+      "x1": 730.99,
+      "xc": 729.16,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT"
+     },
+     {
+      "n": 3,
+      "x0": 730.99,
+      "x1": 734.63,
+      "xc": 732.81,
+      "ancho_mm": 5.1,
+      "tipo": "PTT 2,5-2MT"
+     },
+     {
+      "n": 4,
+      "x0": 734.63,
+      "x1": 738.28,
+      "xc": 736.45,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT"
+     },
+     {
+      "n": 5,
+      "x0": 738.28,
+      "x1": 741.93,
+      "xc": 740.11,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT"
+     },
+     {
+      "x0": 741.93,
+      "x1": 742.5,
+      "xc": 742.21,
+      "ancho_mm": 0.8,
+      "tipo": "tapa D-PTT 2,5-2MT-0,8"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 724.95,
+      "y": 347.24,
+      "pieza": 1,
+      "pieza_tipo": "PTT 2,5-2MT"
+     },
+     {
+      "texto": "3",
+      "x": 728.52,
+      "y": 347.24,
+      "pieza": 2,
+      "pieza_tipo": "PTT 2,5-2MT"
+     },
+     {
+      "texto": "5",
+      "x": 732.21,
+      "y": 347.21,
+      "pieza": 3,
+      "pieza_tipo": "PTT 2,5-2MT"
+     },
+     {
+      "texto": "7",
+      "x": 735.86,
+      "y": 347.24,
+      "pieza": 4,
+      "pieza_tipo": "PTT 2,5-2MT"
+     },
+     {
+      "texto": "9",
+      "x": 739.47,
+      "y": 347.24,
+      "pieza": 5,
+      "pieza_tipo": "PTT 2,5-2MT"
+     }
+    ]
+   },
+   "32XEX": {
+    "x": 818.05,
+    "y": 412.75,
+    "etiqueta_bbox": [
+     816.03,
+     404.49,
+     820.08,
+     421.02
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 3,
+    "riel_id": "U14",
+    "riel_tramo": "derecho",
+    "caja": [
+     821.09,
+     351.67,
+     834.17,
+     417.15
+    ],
+    "caja_mm": [
+     18.5,
+     92.4
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [814.36-821.09] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 821.09,
+      "x1": 824.74,
+      "xc": 822.91,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "n": 2,
+      "x0": 824.74,
+      "x1": 828.39,
+      "xc": 826.57,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "x0": 828.39,
+      "x1": 828.96,
+      "xc": 828.67,
+      "ancho_mm": 0.8,
+      "tipo": "tapa D-PTT 2,5-2MT-0,8"
+     },
+     {
+      "n": 3,
+      "x0": 828.96,
+      "x1": 832.61,
+      "xc": 830.79,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-QUATTRO-PE (verde)"
+     },
+     {
+      "x0": 832.61,
+      "x1": 834.17,
+      "xc": 833.39,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-ST 2,5-QUATTRO GN"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 822.36,
+      "y": 347.12,
+      "pieza": 1,
+      "pieza_tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "texto": "3",
+      "x": 825.92,
+      "y": 347.12,
+      "pieza": 2,
+      "pieza_tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "texto": "5",
+      "x": 830.18,
+      "y": 352.06,
+      "pieza": 3,
+      "pieza_tipo": "PT 2,5-QUATTRO-PE (verde)"
+     }
+    ]
+   },
+   "41XEX": {
+    "x": 837.86,
+    "y": 412.75,
+    "etiqueta_bbox": [
+     835.9,
+     404.49,
+     839.81,
+     421.02
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 3,
+    "riel_id": "U14",
+    "riel_tramo": "derecho",
+    "caja": [
+     840.9,
+     351.67,
+     863.37,
+     417.15
+    ],
+    "caja_mm": [
+     31.7,
+     92.4
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [834.17-840.90] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 840.9,
+      "x1": 844.55,
+      "xc": 842.72,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "n": 2,
+      "x0": 844.55,
+      "x1": 848.2,
+      "xc": 846.38,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "n": 3,
+      "x0": 848.2,
+      "x1": 851.85,
+      "xc": 850.03,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "n": 4,
+      "x0": 851.85,
+      "x1": 855.5,
+      "xc": 853.67,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "n": 5,
+      "x0": 855.5,
+      "x1": 859.15,
+      "xc": 857.33,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "n": 6,
+      "x0": 859.15,
+      "x1": 862.8,
+      "xc": 860.97,
+      "ancho_mm": 5.2,
+      "tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "x0": 862.8,
+      "x1": 863.37,
+      "xc": 863.09,
+      "ancho_mm": 0.8,
+      "tipo": "tapa D-PTT 2,5-2MT-0,8"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 842.17,
+      "y": 347.12,
+      "pieza": 1,
+      "pieza_tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "texto": "3",
+      "x": 845.73,
+      "y": 347.12,
+      "pieza": 2,
+      "pieza_tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "texto": "5",
+      "x": 849.42,
+      "y": 347.09,
+      "pieza": 3,
+      "pieza_tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "texto": "9",
+      "x": 853.03,
+      "y": 347.12,
+      "pieza": 4,
+      "pieza_tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "texto": "7",
+      "x": 856.73,
+      "y": 347.12,
+      "pieza": 5,
+      "pieza_tipo": "PTT 2,5-2MT BU"
+     },
+     {
+      "texto": "11",
+      "x": 861.62,
+      "y": 347.12,
+      "pieza": 6,
+      "pieza_tipo": "PTT 2,5-2MT BU"
+     }
+    ]
+   },
+   "12F2": {
+    "x": 1045.15,
+    "y": 729.7,
+    "etiqueta_bbox": [
+     1034.44,
+     726.39,
+     1055.86,
+     733.02
+    ],
+    "orientacion": "horizontal",
+    "riel": null,
+    "riel_id": null,
+    "montaje": "atornillado a la placa, zona hidraulica arriba",
+    "caja": [
+     955.03,
+     693.39,
+     1048.22,
+     724.57
+    ],
+    "caja_mm": [
+     131.5,
+     44.0
+    ],
+    "modelo": "Littelfuse MEGA fuse holder + fusible MEGA 150 A",
+    "etiqueta_sobre": "junto al cuerpo (aparato sin riel)",
+    "nota": "dos espárragos visibles (contornos): izq. [978.36, 703.66, 988.76, 714.30], der. [1014.50, 703.66, 1025.29, 714.30] (sin verificar como puntos de conexion)",
+    "numeros_borne_dibujados": []
+   },
+   "BH": {
+    "x": 1018.05,
+    "y": 677.19,
+    "etiqueta_bbox": [
+     1011.41,
+     673.95,
+     1024.7,
+     680.44
+    ],
+    "orientacion": "horizontal",
+    "riel": null,
+    "riel_id": null,
+    "montaje": "unidad hidraulica atornillada a la placa con soporte (x 922.43-1092.51, y 473.0-593.5)",
+    "caja": [
+     922.43,
+     277.4,
+     1093.56,
+     680.99
+    ],
+    "caja_mm": [
+     241.5,
+     569.5
+    ],
+    "modelo": "DIGITO UNIDAD HIDRAULICA R2 / Vibo (motor -M1 = -BH-01-M)",
+    "etiqueta_sobre": "junto al cuerpo (aparato sin riel)",
+    "nota": "caja = contorno de todo el conjunto (acumulador, motor, bloque con manometro, tanque [962.83, 277.40, 1088.97, 504.04]); dentro estan BH_01_ZV, PT001 y LS001A",
+    "numeros_borne_dibujados": []
+   },
+   "BH_01_ZV": {
+    "x": 1091.81,
+    "y": 621.63,
+    "etiqueta_bbox": [
+     1070.13,
+     617.68,
+     1113.49,
+     625.58
+    ],
+    "orientacion": "horizontal",
+    "riel": null,
+    "riel_id": null,
+    "montaje": "sobre la unidad hidraulica (lado derecho)",
+    "caja": [
+     1047.24,
+     574.33,
+     1095.61,
+     633.65
+    ],
+    "caja_mm": [
+     68.3,
+     83.7
+    ],
+    "modelo": "Trombetta 684-1261-212-17 (contactor de bomba 12 VDC)",
+    "etiqueta_sobre": "junto al cuerpo (aparato sin riel)",
+    "nota": "la etiqueta se sale de la placa (termina en x=1113.5); el cuerpo pasa 1.3 pt el borde derecho de la placa",
+    "numeros_borne_dibujados": []
+   },
+   "PT001": {
+    "x": 1074.44,
+    "y": 553.78,
+    "etiqueta_bbox": [
+     1071.06,
+     540.53,
+     1077.81,
+     567.03
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": null,
+    "riel_id": null,
+    "montaje": "en el bloque de la unidad hidraulica",
+    "caja": [
+     1055.31,
+     526.25,
+     1069.67,
+     540.14
+    ],
+    "caja_mm": [
+     20.3,
+     19.6
+    ],
+    "modelo": "ifm PT-250-SEG14-A-ZVG/VE (transmisor de presion, conector DIN)",
+    "etiqueta_sobre": "junto al cuerpo (aparato sin riel)",
+    "nota": "caja = racor/cuerpo que asoma a la derecha del bloque, debajo de la etiqueta; identificacion por cercania (baja confianza)",
+    "numeros_borne_dibujados": []
+   },
+   "LS001A": {
+    "x": 1056.72,
+    "y": 294.52,
+    "etiqueta_bbox": [
+     1040.81,
+     291.15,
+     1072.63,
+     297.9
+    ],
+    "orientacion": "horizontal",
+    "riel": null,
+    "riel_id": null,
+    "montaje": "en el tanque de la unidad hidraulica (abajo)",
+    "caja": [
+     1019.16,
+     289.45,
+     1036.88,
+     321.34
+    ],
+    "caja_mm": [
+     25.0,
+     45.0
+    ],
+    "modelo": "XKC-Y28-NO (sensor de nivel capacitivo)",
+    "etiqueta_sobre": "junto al cuerpo (aparato sin riel)",
+    "numeros_borne_dibujados": []
+   }
+  },
+  "zonas": {
+   "electrica": {
+    "b": [
+     587.59,
+     292.29,
+     913.57,
+     745.83
+    ],
+    "nota": "canaletas U2-U9 y rieles U10-U14"
+   },
+   "hidraulica": {
+    "b": [
+     913.57,
+     129.29,
+     1094.28,
+     745.83
+    ],
+    "nota": "unidad hidraulica BH (motor -M1/-BH-01-M), BH_01_ZV, PT001, LS001A y 12F2. En las vistas 24/26 hay una PLACA DIVISORIA entre esta zona y la electrica (no esta dibujada en la hoja 8)"
+   },
+   "margen_inferior_libre": {
+    "b": [
+     573.42,
+     129.29,
+     913.57,
+     292.29
+    ],
+    "nota": "sin aparatos (abajo esta la bateria 12PB1 en el piso del gabinete)"
+   }
+  }
+ },
+ "lateral_izquierda": {
+  "region": [
+   192.61,
+   150.02,
+   468.99,
+   725.1
+  ],
+  "region_mm": [
+   390.0,
+   811.5
+  ],
+  "rieles": [
+   {
+    "id": "U19",
+    "numero": 1,
+    "tramo": "unico",
+    "y_eje": 532.7,
+    "x0": 192.61,
+    "x1": 426.47,
+    "alto_pt": 24.8,
+    "y0": 520.3,
+    "y1": 545.1,
+    "largo_mm": 330.0,
+    "largo_lista_m": 0.33,
+    "articulo": "NS 35/ 7,5 PERF 2000MM (PXC.0801733)",
+    "topes": [
+     [
+      220.95,
+      227.69
+     ],
+     [
+      304.33,
+      311.06
+     ]
+    ]
+   },
+   {
+    "id": "U18",
+    "numero": 2,
+    "tramo": "izquierdo",
+    "y_eje": 383.88,
+    "x0": 192.61,
+    "x1": 288.28,
+    "alto_pt": 24.8,
+    "y0": 371.48,
+    "y1": 396.28,
+    "largo_mm": 135.0,
+    "largo_lista_m": 0.135,
+    "articulo": "NS 35/ 7,5 PERF 2000MM (PXC.0801733)",
+    "topes": [
+     [
+      192.34,
+      199.07
+     ],
+     [
+      281.34,
+      288.07
+     ]
+    ],
+    "nota": "x1 = x0 + 135 mm (el extremo derecho queda tapado por el tope 281.34-288.07)"
+   },
+   {
+    "id": "U21",
+    "numero": 2,
+    "tramo": "derecho",
+    "y_eje": 383.88,
+    "x0": 344.97,
+    "x1": 398.12,
+    "alto_pt": 24.8,
+    "y0": 371.48,
+    "y1": 396.28,
+    "largo_mm": 75.0,
+    "largo_lista_m": 0.075,
+    "articulo": "NS 35/ 7,5 PERF 2000MM (PXC.0801733)",
+    "topes": [
+     [
+      344.62,
+      351.35
+     ],
+     [
+      369.67,
+      376.4
+     ],
+     [
+      389.51,
+      396.24
+     ]
+    ],
+    "nota": "x0 = x1 - 75 mm (el tope 344.62-351.35 sobresale 0.35 pt)"
+   }
+  ],
+  "canaletas": [
+   {
+    "id": "U15",
+    "b": [
+     192.61,
+     440.57,
+     426.47,
+     468.92
+    ],
+    "horizontal": true,
+    "tipo": "comun",
+    "articulo": "CD 40X40 (PXC.3240189)",
+    "ancho_mm": 40.0,
+    "largo_mm": 330.0,
+    "largo_lista": "0,33 m"
+   },
+   {
+    "id": "U16",
+    "b": [
+     398.12,
+     327.19,
+     426.47,
+     440.57
+    ],
+    "horizontal": false,
+    "tipo": "comun",
+    "articulo": "CD 40X40 (PXC.3240189)",
+    "ancho_mm": 40.0,
+    "largo_mm": 160.0,
+    "largo_lista": "0,16 m"
+   },
+   {
+    "id": "U17",
+    "b": [
+     192.61,
+     298.84,
+     426.47,
+     327.19
+    ],
+    "horizontal": true,
+    "tipo": "comun",
+    "articulo": "CD 40X40 (PXC.3240189)",
+    "ancho_mm": 40.0,
+    "largo_mm": 330.0,
+    "largo_lista": "0,33 m"
+   }
+  ],
+  "aparatos": {
+   "12PS1": {
+    "x": 267.56,
+    "y": 691.61,
+    "etiqueta_bbox": [
+     257.05,
+     688.91,
+     278.06,
+     694.3
+    ],
+    "orientacion": "horizontal",
+    "riel": null,
+    "riel_id": null,
+    "montaje": "atornillado a la placa, arriba del riel 1 (U19)",
+    "caja": [
+     210.32,
+     578.41,
+     317.33,
+     687.54
+    ],
+    "caja_mm": [
+     151.0,
+     154.0
+    ],
+    "modelo": "EPEVER TRACER7810BP (regulador de carga MPPT)",
+    "etiqueta_sobre": "junto al cuerpo (aparato sin riel)",
+    "numeros_borne_dibujados": []
+   },
+   "12XPS": {
+    "x": 224.64,
+    "y": 560.89,
+    "etiqueta_bbox": [
+     222.62,
+     552.78,
+     226.66,
+     569.01
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 1,
+    "riel_id": "U19",
+    "riel_tramo": "unico",
+    "caja": [
+     227.69,
+     511.63,
+     304.33,
+     552.54
+    ],
+    "caja_mm": [
+     108.1,
+     57.7
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [220.95-227.69] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 227.69,
+      "x1": 233.47,
+      "xc": 230.58,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 2,
+      "x0": 233.47,
+      "x1": 239.24,
+      "xc": 236.36,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 3,
+      "x0": 239.24,
+      "x1": 245.02,
+      "xc": 242.13,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 4,
+      "x0": 245.02,
+      "x1": 250.79,
+      "xc": 247.91,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 5,
+      "x0": 250.79,
+      "x1": 256.57,
+      "xc": 253.68,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 6,
+      "x0": 256.57,
+      "x1": 262.34,
+      "xc": 259.45,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 7,
+      "x0": 262.34,
+      "x1": 268.12,
+      "xc": 265.23,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 8,
+      "x0": 268.12,
+      "x1": 273.89,
+      "xc": 271.0,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 9,
+      "x0": 273.89,
+      "x1": 279.67,
+      "xc": 276.78,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 10,
+      "x0": 279.67,
+      "x1": 285.44,
+      "xc": 282.56,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 11,
+      "x0": 285.44,
+      "x1": 291.22,
+      "xc": 288.33,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 12,
+      "x0": 291.22,
+      "x1": 296.99,
+      "xc": 294.11,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 13,
+      "x0": 296.99,
+      "x1": 302.77,
+      "xc": 299.88,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6"
+     },
+     {
+      "x0": 302.77,
+      "x1": 304.33,
+      "xc": 303.55,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-PT 6"
+     }
+    ],
+    "puentes": "FBS 2-8 (piezas 7-8)",
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 228.95,
+      "y": 507.09,
+      "pieza": 1,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "2",
+      "x": 234.68,
+      "y": 507.11,
+      "pieza": 2,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "3",
+      "x": 240.42,
+      "y": 507.08,
+      "pieza": 3,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "4",
+      "x": 246.2,
+      "y": 507.08,
+      "pieza": 4,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "5",
+      "x": 252.01,
+      "y": 507.05,
+      "pieza": 5,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "6",
+      "x": 257.79,
+      "y": 507.08,
+      "pieza": 6,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "7",
+      "x": 263.57,
+      "y": 507.08,
+      "pieza": 7,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "8",
+      "x": 269.32,
+      "y": 507.08,
+      "pieza": 8,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "9",
+      "x": 275.07,
+      "y": 507.09,
+      "pieza": 9,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "10",
+      "x": 282.22,
+      "y": 507.08,
+      "pieza": 10,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "11",
+      "x": 287.91,
+      "y": 507.09,
+      "pieza": 11,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "12",
+      "x": 293.77,
+      "y": 507.11,
+      "pieza": 12,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "13",
+      "x": 299.51,
+      "y": 507.08,
+      "pieza": 13,
+      "pieza_tipo": "PT 6"
+     }
+    ]
+   },
+   "11SK1": {
+    "x": 212.73,
+    "y": 428.06,
+    "etiqueta_bbox": [
+     210.05,
+     417.43,
+     215.42,
+     438.7
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U18",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     199.07,
+     357.13,
+     230.89,
+     410.29
+    ],
+    "caja_mm": [
+     44.9,
+     75.0
+    ],
+    "modelo": "Phoenix EO-I/UT (tomacorriente para riel)",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "11Q1": {
+    "x": 245.17,
+    "y": 430.09,
+    "etiqueta_bbox": [
+     241.85,
+     421.0,
+     248.49,
+     439.19
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U18",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     230.89,
+     349.82,
+     256.26,
+     417.37
+    ],
+    "caja_mm": [
+     35.8,
+     95.3
+    ],
+    "modelo": "Schneider Acti9 iID 2P 25 A 30 mA (EZ9F36225) diferencial",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "11Q2": {
+    "x": 270.54,
+    "y": 430.58,
+    "etiqueta_bbox": [
+     267.22,
+     421.35,
+     273.86,
+     439.8
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U18",
+    "riel_tramo": "izquierdo",
+    "caja": [
+     256.26,
+     350.17,
+     281.34,
+     416.66
+    ],
+    "caja_mm": [
+     35.4,
+     93.8
+    ],
+    "modelo": "Schneider EZ9F34210 termomagnetica 2x10 A",
+    "etiqueta_sobre": "el cuerpo (centrada en x)",
+    "numeros_borne_dibujados": []
+   },
+   "11XPVAC": {
+    "x": 348.31,
+    "y": 415.37,
+    "etiqueta_bbox": [
+     346.29,
+     403.96,
+     350.32,
+     426.79
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U21",
+    "riel_tramo": "derecho",
+    "caja": [
+     351.35,
+     358.51,
+     369.67,
+     409.68
+    ],
+    "caja_mm": [
+     25.9,
+     72.2
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [344.62-351.35] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 351.35,
+      "x1": 357.12,
+      "xc": 354.24,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6"
+     },
+     {
+      "n": 2,
+      "x0": 357.12,
+      "x1": 362.9,
+      "xc": 360.01,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6"
+     },
+     {
+      "x0": 362.9,
+      "x1": 364.46,
+      "xc": 363.68,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-PT 6"
+     },
+     {
+      "n": 3,
+      "x0": 364.46,
+      "x1": 368.11,
+      "xc": 366.28,
+      "ancho_mm": 5.2,
+      "tipo": "PT 2,5-QUATTRO-PE (verde)"
+     },
+     {
+      "x0": 368.11,
+      "x1": 369.67,
+      "xc": 368.89,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-ST 2,5-QUATTRO GN"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 352.61,
+      "y": 358.16,
+      "pieza": 1,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "2",
+      "x": 358.35,
+      "y": 358.19,
+      "pieza": 2,
+      "pieza_tipo": "PT 6"
+     },
+     {
+      "texto": "3",
+      "x": 365.64,
+      "y": 351.56,
+      "pieza": 3,
+      "pieza_tipo": "PT 2,5-QUATTRO-PE (verde)"
+     }
+    ]
+   },
+   "11X220V": {
+    "x": 373.36,
+    "y": 415.13,
+    "etiqueta_bbox": [
+     371.33,
+     403.96,
+     375.38,
+     426.3
+    ],
+    "orientacion": "vertical (girada 90 grados, se lee de abajo hacia arriba)",
+    "riel": 2,
+    "riel_id": "U21",
+    "riel_tramo": "derecho",
+    "caja": [
+     376.4,
+     351.19,
+     389.51,
+     415.34
+    ],
+    "caja_mm": [
+     18.5,
+     90.5
+    ],
+    "modelo": "bornera Phoenix Contact (ver piezas)",
+    "etiqueta_sobre": "el tope de la izquierda [369.67-376.40] (nombra las piezas a su derecha)",
+    "piezas": [
+     {
+      "n": 1,
+      "x0": 376.4,
+      "x1": 382.17,
+      "xc": 379.28,
+      "ancho_mm": 8.1,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "n": 2,
+      "x0": 382.17,
+      "x1": 387.95,
+      "xc": 385.06,
+      "ancho_mm": 8.2,
+      "tipo": "PT 6-QUATTRO"
+     },
+     {
+      "x0": 387.95,
+      "x1": 389.51,
+      "xc": 388.73,
+      "ancho_mm": 2.2,
+      "tipo": "tapa D-PT 6-QUATTRO"
+     }
+    ],
+    "numeros_borne_dibujados": [
+     {
+      "texto": "1",
+      "x": 377.66,
+      "y": 346.64,
+      "pieza": 1,
+      "pieza_tipo": "PT 6-QUATTRO"
+     },
+     {
+      "texto": "2",
+      "x": 383.4,
+      "y": 346.67,
+      "pieza": 2,
+      "pieza_tipo": "PT 6-QUATTRO"
+     }
+    ]
+   }
+  },
+  "otros_elementos": [
+   {
+    "que": "hueco/abertura sin etiqueta (rectangulo de esquinas redondeadas, blanco en las vistas 2D/3D)",
+    "b": [
+     289.34,
+     335.69,
+     343.2,
+     434.9
+    ],
+    "nota": "entre los rieles U18 y U21; no tiene bornes. Probable paso del cuerpo de -11MS1 (selector montado en la pared lateral exterior, se ve del lado de afuera en las hojas 6/26/28)"
+   },
+   {
+    "que": "4 separadores de la tapa transparente de la zona baja (simbolos hexagonales)",
+    "puntos": [
+     [
+      198.3,
+      338.3
+     ],
+     [
+      198.3,
+      431.0
+     ],
+     [
+      391.7,
+      338.3
+     ],
+     [
+      391.7,
+      431.0
+     ]
+    ]
+   },
+   {
+    "que": "linea doble horizontal (y 390.9-391.0) que sale de U16 hasta x=454.8 y linea doble vertical x=454.74-454.88 de y 419.3 a 719.3",
+    "b": [
+     426.47,
+     390.9,
+     454.88,
+     719.32
+    ],
+    "nota": "no es canaleta ni riel (no figura en la hoja 31); probable borde/pliegue o marco de la tapa. Sin aparatos"
+   }
+  ]
+ },
+ "ubicacion_en_gabinete": {
+  "fuentes": "hojas 6 (topografico exterior), 7 (vista 2D interior frontal), 24 (vistas 2D internas), 25 (3D), 26 (vista superior), 27 (vistas 2D bandejas a color), 28 (vistas 2D gabinete), 31 (detalle de ductos y rieles con la lista de canaletas y rieles)",
+  "bandeja_principal": "placa de FONDO del gabinete, dibujada como se ve de frente con la puerta abierta (izquierda del dibujo = lado de la bandeja lateral). La parte izquierda (x < 913.6) es la zona electrica; la derecha es la zona de la unidad hidraulica, separada por una placa divisoria perpendicular al fondo (hojas 24 \"VISTA DERECHA INTERNA DESDE PLACA DIVISORIA\" y 26).",
+  "bandeja_lateral_izquierda": "placa sobre la PARED LATERAL IZQUIERDA, dibujada como se ve desde adentro mirando hacia la pared: el borde izquierdo del dibujo (x=192.6) es el lado de la PUERTA (frente) y el derecho (x=469) es el lado del FONDO, junto al borde izquierdo de la bandeja principal (comprobado con la hoja 24 izquierda, donde la puerta queda a la izquierda, y con la vista superior de la hoja 26, donde el riel U19 llega al borde del lado de la puerta). La zona baja (entre U15 y U17) tiene una tapa transparente con 4 separadores (hoja 25).",
+  "puerta": "SI hay aparatos en la puerta (hoja 31 \"INTERIOR DE PUERTA\" y hoja 6): -21PCB01 (placa E2.5 con display, en el interior de la puerta, con la canaleta U22 CD 40X40 0,45 m y un riel debajo), -13MS1 (selector TeSys VARIO VBF1 \"ENCENDIDO/APAGADO\", al frente de la puerta) y -42DB1 (parada de emergencia XB4BS8442 + contacto ZBE102, al frente de la puerta). Ninguno esta dibujado en la hoja 8.",
+  "pared_lateral_izquierda_exterior": "-11MS1 (selector VARIO VBF1 \"ALIMENTACION / CARGA BATERIA\") en la cara exterior de la pared izquierda (hojas 6 \"VISTA LATERAL IZQUIERDA\", 28 y 26); su cuerpo probablemente entra por el hueco de la bandeja lateral entre U18 y U21.",
+  "piso_y_campo": "-12PB1 bateria 12 V 68 Ah en el piso, debajo de la zona electrica; bloque de valvulas con -SP_1, -SP_2, -SP_3 (solenoides 12 VDC) en el piso del compartimiento hidraulico (abajo a la derecha, hojas 7 y 25). -M1/-BH-01-M es el motor de la unidad hidraulica BH. -42DS (fin de carrera, sensor de puerta) no aparece en ninguna vista: ubicacion sin determinar (probable marco o placa divisoria junto a la puerta).",
+  "no_ubicados": "-12 (tapon negro ZB5SZ3 para orificio de 22 mm): no se ve en las vistas; probable orificio de reserva en la puerta o en un lateral."
+ },
+ "dudas": [
+  "Orden de los modulos 61KR1..61KR4 dentro del grupo -61KR (supuesto izquierda a derecha; la hoja 8 no rotula cada modulo). 42KR tiene un solo modulo (42KR1).",
+  "Los aparatos de la zona hidraulica (BH_01_ZV, PT001, LS001A, motor M1) estan en la placa principal pero del otro lado de la placa divisoria: decidir si en el instructivo van como destino en la bandeja o como \"campo/LI\".",
+  "La caja de PT001 es el racor que asoma a la derecha del bloque, junto a la etiqueta; no hay contorno claro del transmisor en la vista frontal (baja confianza).",
+  "El rectangulo blanco de la lateral (x 289.3-343.2) no tiene etiqueta; lo tome como hueco de la placa para el selector 11MS1 (no tiene bornes en la bandeja).",
+  "En la hoja 8 todos los trazos son negros: el tipo \"intrinseca (azul)\" de U6, U7 y U9 sale de la hoja 31 (CD ... BU) y del color azul de las hojas 7 y 27.",
+  "La pagina 30 del PDF es \"Cotas de Carteleria\"; el \"Detalle de ductos y rieles\" esta en la pagina 31."
+ ]
+}

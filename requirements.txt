@@ -1,0 +1,13 @@
+# Dependencias del programa (programa/web.py, core.py, instructivo.py, bornes/)
+# Versiones con las que funciona en la PC del taller (Python 3.14, Windows 11)
+flask>=3.1
+pypdfium2>=5.13
+pypdf>=6.19
+numpy>=2.4
+opencv-python>=5.0
+pillow>=12.3
+shapely>=2.1
+openpyxl>=3.1
+requests>=2.34
+# opcional: OCR de apoyo para fuentes que no estan en el diccionario de glifos (programa/textdec.py, ocr_raster.py)
+rapidocr

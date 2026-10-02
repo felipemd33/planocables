@@ -1,0 +1,46 @@
+{
+  "descripcion": "Correcciones del instructivo que salen de la verificacion contra el FUNCIONAL (29/09/2026, informe en la carpeta del trabajo: verificacion_funcional.md). Son cosas que el programa todavia no lee solo del plano: tierras y mallas sin numero o a trazos, pendientes mal armados, puentes y accesorios. Se aplican cada vez que se regenera el instructivo.",
+  "componentes": {
+    "XPE": { "fila": 1, "x": 897.5, "y": 675.0, "nota": "bornera de tierra (4 piezas verdes) a la derecha de 62KR" }
+  },
+  "bornes": {
+    "XPE 1 ARRIBA": [902.8, 691.3, 1.84],
+    "XPE 1 ABAJO": [902.8, 664.1, 1.84],
+    "XPE 2 ARRIBA": [907.2, 691.3, 1.84],
+    "11SK1 PE ABAJO": [748.75, 651.47, 2.2],
+    "11PS1 ⏚-1": [617.52, 635.72, 2.2],
+    "13PS3 ⏚": [818.52, 639.82, 1.53],
+    "81XCM 3 ARRIBA": [717.16, 433.28, 1.54],
+    "81XCM 7 ARRIBA": [724.48, 433.28, 1.54],
+    "81XCM 13 ARRIBA": [735.46, 433.28, 1.54]
+  },
+  "agregar": [
+    { "num": "⏚TOMA", "cable": "VA1MM", "color": "Verde-Amarillo", "secc": "1", "origen": "XPE 1 ARRIBA", "destino": "11SK1 PE ABAJO", "hoja": "11", "nota": "tierra sin número (hoja 11 C4)" },
+    { "num": "⏚13PS3", "cable": "VA1MM", "color": "Verde-Amarillo", "secc": "1", "origen": "XPE 2 ARRIBA", "destino": "13PS3 ⏚", "hoja": "13", "nota": "tierra sin número (hoja 13 B7)" },
+    { "num": "⏚11PS1", "cable": "VA2.5MM", "color": "Verde-Amarillo", "secc": "2.5", "origen": "XPE 1 ABAJO", "destino": "11PS1 ⏚-1", "hoja": "11", "nota": "tierra sin número (hoja 11 C5)" },
+    { "num": "2134", "cable": "MALLA", "color": "", "secc": "", "origen": "81XCM 3 ARRIBA", "destino": "LI", "hoja": "81", "nota": "malla del RS-485 Port #2 (a trazos); la unión es en 21PCB01 34 (puerta). Sección y color a confirmar" },
+    { "num": "2134", "cable": "MALLA", "color": "", "secc": "", "origen": "81XCM 7 ARRIBA", "destino": "LI", "hoja": "81", "nota": "malla del RS-485 Port #2 (a trazos); la unión es en 21PCB01 34 (puerta). Sección y color a confirmar" },
+    { "num": "2137", "cable": "MALLA", "color": "", "secc": "", "origen": "81XCM 13 ARRIBA", "destino": "LI", "hoja": "81", "nota": "malla del RS-485 Port #1 (a trazos). Sección y color a confirmar" }
+  ],
+  "sueltos_quitar": ["2134", "2137"],
+  "pendientes_quitar": [],
+  "pendientes_agregar": [
+    { "num": "2135", "cable": "B0.32MM", "secc": "0.32", "a": "21PCB01 35", "b": "12XPS 7 ABAJO", "nota": "tramo de la unión en 12XPS (3 puntas)" },
+    { "num": "2136", "cable": "A0.32MM", "secc": "0.32", "a": "21PCB01 36", "b": "12XPS 8 ABAJO", "nota": "tramo de la unión en 12XPS (3 puntas)" },
+    { "num": "2137", "cable": "MALLA", "secc": "", "a": "21PCB01 37", "b": "malla del tramo 12XPS–81XCM (empalme junto a 12XPS)", "nota": "malla RS-485 Port #1" }
+  ],
+  "pendientes_texto": {
+    "1103": { "a": "11XP 3 ABAJO", "b": "TIERRA GABINETE (conexión interior)" },
+    "2128": { "a": "41DS 1" },
+    "2129": { "a": "41DS 2" }
+  },
+  "accesorios": [
+    { "id": "fbs-62kr", "texto": "Puente FBS 3-6 ROJO en 62KR1 / 62KR2 / 62KR3, bornes 11 (C)", "zona": "Riel 1 · parte de arriba" },
+    { "id": "fbs-43kr", "texto": "Puente FBS 4-6 AZUL en 43KR1 … 43KR4, bornes A2", "zona": "Riel 1 · parte de abajo" },
+    { "id": "fbs-13xc1-r", "texto": "Puente FBS 2-8 ROJO en 13XC1, bornes 1-2", "zona": "Riel 2 · zona 1" },
+    { "id": "fbs-13xc1-a", "texto": "Puente FBS 2-8 AZUL en 13XC1, bornes 3-4", "zona": "Riel 2 · zona 1" },
+    { "id": "fbs-62xdo", "texto": "Puente FBS 3-5 AZUL en 62XDO 2-4-6", "zona": "Riel 2 · zona 1" },
+    { "id": "fbs-62xdio", "texto": "Puente FBS 3-5 AZUL en 62XDIO 1-2-3, del lado del ánodo (donde entra el 1315)", "zona": "Riel 2 · zona 1" },
+    { "id": "r120", "texto": "Resistencia de 120 Ω entre 81XCM 11 y 81XCM 12 ABAJO (terminación RS-485, lado campo)", "zona": "Riel 3" }
+  ]
+}

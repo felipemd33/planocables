@@ -1,0 +1,2950 @@
+{
+ "descripcion": "Bornes ubicados por vision de imagen (prototipo P5): plantillas de imagen por tipo de boca + regla del tag",
+ "metodo": "P5_vision_imagen",
+ "topografico": "C:\\Buscar Termos en plano\\prototipos\\_referencia\\topografico.pdf",
+ "pagina_pdf": 8,
+ "materiales": "C:\\Buscar Termos en plano\\prototipos\\_referencia\\lista_materiales.txt",
+ "segundos": 22.83,
+ "imagen": {
+  "resolucion_escaneo_px_por_pt": null,
+  "suavizado_px": 0.8
+ },
+ "puntos": [
+  {
+   "texto": "11PS1 1 (-)",
+   "cables": [
+    "1110"
+   ],
+   "x": 613.0,
+   "y": 712.5,
+   "r": 2.2,
+   "confianza": "alta",
+   "tag": "11PS1",
+   "tag_fisico": "11PS1",
+   "modelo": "NDR-240-24",
+   "como": "TB2 (arriba), pin 1 de 4 = -V (plantilla escala 1.00, NCC 1.00)"
+  },
+  {
+   "texto": "11PS1 3 (+)",
+   "cables": [
+    "1111"
+   ],
+   "x": 621.76,
+   "y": 712.5,
+   "r": 2.2,
+   "confianza": "alta",
+   "tag": "11PS1",
+   "tag_fisico": "11PS1",
+   "modelo": "NDR-240-24",
+   "como": "TB2 (arriba), pin 3 de 4 = +V (plantilla escala 1.00, NCC 0.93)"
+  },
+  {
+   "texto": "11PS1 L-3",
+   "cables": [
+    "1108"
+   ],
+   "x": 628.13,
+   "y": 635.77,
+   "r": 2.2,
+   "confianza": "alta",
+   "tag": "11PS1",
+   "tag_fisico": "11PS1",
+   "modelo": "NDR-240-24",
+   "como": "TB1 (abajo), pin 3 de 3 = L (plantilla escala 1.10, NCC 0.76)"
+  },
+  {
+   "texto": "11PS1 N-2",
+   "cables": [
+    "1109"
+   ],
+   "x": 622.85,
+   "y": 635.77,
+   "r": 2.2,
+   "confianza": "alta",
+   "tag": "11PS1",
+   "tag_fisico": "11PS1",
+   "modelo": "NDR-240-24",
+   "como": "TB1 (abajo), pin 2 de 3 = N (plantilla escala 1.10, NCC 0.74)"
+  },
+  {
+   "texto": "11SK1 L ARRIBA",
+   "cables": [
+    "1108"
+   ],
+   "x": 753.56,
+   "y": 651.47,
+   "r": 1.2,
+   "confianza": "media",
+   "tag": "11SK1",
+   "tag_fisico": "11SK1",
+   "modelo": "TOMA IRAM VIVION",
+   "como": "aparato entero encontrado con la plantilla aparato_toma_iram (NCC 1.00); borne L = ancla fija de la plantilla"
+  },
+  {
+   "texto": "11SK1 N ABAJO",
+   "cables": [
+    "1109"
+   ],
+   "x": 744.01,
+   "y": 651.47,
+   "r": 1.2,
+   "confianza": "media",
+   "tag": "11SK1",
+   "tag_fisico": "11SK1",
+   "modelo": "TOMA IRAM VIVION",
+   "como": "aparato entero encontrado con la plantilla aparato_toma_iram (NCC 1.00); borne N = ancla fija de la plantilla"
+  },
+  {
+   "texto": "11Q2 F ABAJO",
+   "cables": [
+    "1108"
+   ],
+   "x": 674.55,
+   "y": 651.51,
+   "r": 2.5,
+   "confianza": "alta",
+   "tag": "11Q2",
+   "tag_fisico": "11Q2",
+   "modelo": "EZ9F34210",
+   "como": "polo 1 de 2 ('F'), tornillo de abajo (NCC 0.96)"
+  },
+  {
+   "texto": "11Q2 F ARRIBA",
+   "cables": [
+    "1106"
+   ],
+   "x": 674.55,
+   "y": 700.5,
+   "r": 2.5,
+   "confianza": "alta",
+   "tag": "11Q2",
+   "tag_fisico": "11Q2",
+   "modelo": "EZ9F34210",
+   "como": "polo 1 de 2 ('F'), tornillo de arriba (NCC 0.96)"
+  },
+  {
+   "texto": "11Q2 N ABAJO",
+   "cables": [
+    "1109"
+   ],
+   "x": 686.97,
+   "y": 651.51,
+   "r": 2.5,
+   "confianza": "alta",
+   "tag": "11Q2",
+   "tag_fisico": "11Q2",
+   "modelo": "EZ9F34210",
+   "como": "polo 2 de 2 ('N'), tornillo de abajo (NCC 0.98)"
+  },
+  {
+   "texto": "11Q2 N ARRIBA",
+   "cables": [
+    "1107"
+   ],
+   "x": 686.97,
+   "y": 700.5,
+   "r": 2.5,
+   "confianza": "alta",
+   "tag": "11Q2",
+   "tag_fisico": "11Q2",
+   "modelo": "EZ9F34210",
+   "como": "polo 2 de 2 ('N'), tornillo de arriba (NCC 0.99)"
+  },
+  {
+   "texto": "11Q1 F ABAJO",
+   "cables": [
+    "1106"
+   ],
+   "x": 662.12,
+   "y": 651.51,
+   "r": 2.5,
+   "confianza": "alta",
+   "tag": "11Q1",
+   "tag_fisico": "11Q1",
+   "modelo": "EZ9R36225",
+   "como": "polo 2 de 2 ('F'), tornillo de abajo (NCC 0.99)"
+  },
+  {
+   "texto": "11Q1 F ARRIBA",
+   "cables": [
+    "1104"
+   ],
+   "x": 662.12,
+   "y": 700.5,
+   "r": 2.5,
+   "confianza": "alta",
+   "tag": "11Q1",
+   "tag_fisico": "11Q1",
+   "modelo": "EZ9R36225",
+   "como": "polo 2 de 2 ('F'), tornillo de arriba (NCC 0.99)"
+  },
+  {
+   "texto": "11Q1 N ABAJO",
+   "cables": [
+    "1107"
+   ],
+   "x": 649.7,
+   "y": 651.51,
+   "r": 2.5,
+   "confianza": "alta",
+   "tag": "11Q1",
+   "tag_fisico": "11Q1",
+   "modelo": "EZ9R36225",
+   "como": "polo 1 de 2 ('N'), tornillo de abajo (NCC 1.00)"
+  },
+  {
+   "texto": "11Q1 N ARRIBA",
+   "cables": [
+    "1105"
+   ],
+   "x": 649.7,
+   "y": 700.5,
+   "r": 2.5,
+   "confianza": "alta",
+   "tag": "11Q1",
+   "tag_fisico": "11Q1",
+   "modelo": "EZ9R36225",
+   "como": "polo 1 de 2 ('N'), tornillo de arriba (NCC 1.00)"
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1216"
+   ],
+   "x": 580.5,
+   "y": 304.9,
+   "r": 5.0,
+   "confianza": "media",
+   "tag": "12F2",
+   "tag_fisico": "12F2",
+   "modelo": "MEGA",
+   "como": "esparrago izquierdo (NCC 1.00)"
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1204"
+   ],
+   "x": 624.41,
+   "y": 304.91,
+   "r": 5.0,
+   "confianza": "media",
+   "tag": "12F2",
+   "tag_fisico": "12F2",
+   "modelo": "MEGA",
+   "como": "esparrago derecho (NCC 0.99)"
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1215"
+   ],
+   "x": 580.5,
+   "y": 304.9,
+   "r": 5.0,
+   "confianza": "media",
+   "tag": "12F2",
+   "tag_fisico": "12F2",
+   "modelo": "MEGA",
+   "como": "esparrago izquierdo (NCC 1.00)"
+  },
+  {
+   "texto": "12F2 ARRIBA",
+   "cables": [
+    "1204"
+   ],
+   "x": 624.41,
+   "y": 304.91,
+   "r": 5.0,
+   "confianza": "media",
+   "tag": "12F2",
+   "tag_fisico": "12F2",
+   "modelo": "MEGA",
+   "como": "esparrago derecho (NCC 0.99)"
+  },
+  {
+   "texto": "12XP 1.1",
+   "cables": [
+    "1202"
+   ],
+   "x": 593.75,
+   "y": 558.75,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "12XP",
+   "tag_fisico": "12XP",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_quattro, NCC 1.00)"
+  },
+  {
+   "texto": "12XP 1.4",
+   "cables": [
+    "1217"
+   ],
+   "x": 593.75,
+   "y": 504.53,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "12XP",
+   "tag_fisico": "12XP",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_quattro, NCC 0.99)"
+  },
+  {
+   "texto": "12XP 2.1",
+   "cables": [
+    "1205"
+   ],
+   "x": 601.09,
+   "y": 558.75,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "12XP",
+   "tag_fisico": "12XP",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_quattro, NCC 0.97)"
+  },
+  {
+   "texto": "12XP 2.4",
+   "cables": [
+    "1218"
+   ],
+   "x": 601.09,
+   "y": 504.53,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "12XP",
+   "tag_fisico": "12XP",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_quattro, NCC 0.96)"
+  },
+  {
+   "texto": "13F3 ABAJO",
+   "cables": [
+    "1301"
+   ],
+   "x": 785.98,
+   "y": 654.57,
+   "r": 1.9,
+   "confianza": "alta",
+   "tag": "13F3",
+   "tag_fisico": "13F3",
+   "modelo": "DF101",
+   "como": "polo 1 de 1 ('unico'), tornillo de abajo (NCC 0.97)"
+  },
+  {
+   "texto": "13F3 ARRIBA",
+   "cables": [
+    "1206"
+   ],
+   "x": 785.97,
+   "y": 697.29,
+   "r": 1.9,
+   "confianza": "alta",
+   "tag": "13F3",
+   "tag_fisico": "13F3",
+   "modelo": "DF101",
+   "como": "polo 1 de 1 ('unico'), tornillo de arriba (NCC 0.99)"
+  },
+  {
+   "texto": "13XC1 1.1",
+   "cables": [
+    "1304"
+   ],
+   "x": 615.54,
+   "y": 558.75,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 1 de 4 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_quattro, NCC 1.00)"
+  },
+  {
+   "texto": "13XC1 1.4",
+   "cables": [
+    "1303"
+   ],
+   "x": 615.54,
+   "y": 504.53,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 1 de 4 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_quattro, NCC 0.99)"
+  },
+  {
+   "texto": "13XC1 2.1",
+   "cables": [
+    "1308"
+   ],
+   "x": 621.34,
+   "y": 558.75,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 2 de 4 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_quattro, NCC 0.99)"
+  },
+  {
+   "texto": "13XC1 2.2",
+   "cables": [
+    "1318"
+   ],
+   "x": 621.34,
+   "y": 547.11,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 2 de 4 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_quattro, NCC 0.96)"
+  },
+  {
+   "texto": "13XC1 2.3",
+   "cables": [
+    "1319"
+   ],
+   "x": 621.34,
+   "y": 516.17,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 2 de 4 a la derecha de la etiqueta, abajo, boca interior (plantilla boca_quattro, NCC 0.98)"
+  },
+  {
+   "texto": "13XC1 2.4",
+   "cables": [
+    "1306"
+   ],
+   "x": 621.34,
+   "y": 504.53,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 2 de 4 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_quattro, NCC 0.98)"
+  },
+  {
+   "texto": "13XC1 3.1",
+   "cables": [
+    "1305"
+   ],
+   "x": 628.67,
+   "y": 558.75,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 3 de 4 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_quattro, NCC 0.99)"
+  },
+  {
+   "texto": "13XC1 3.2",
+   "cables": [
+    "1321"
+   ],
+   "x": 628.67,
+   "y": 547.11,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 3 de 4 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_quattro, NCC 0.96)"
+  },
+  {
+   "texto": "13XC1 3.3",
+   "cables": [
+    "1307"
+   ],
+   "x": 628.67,
+   "y": 516.17,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 3 de 4 a la derecha de la etiqueta, abajo, boca interior (plantilla boca_quattro, NCC 0.98)"
+  },
+  {
+   "texto": "13XC1 3.4",
+   "cables": [
+    "1203"
+   ],
+   "x": 628.67,
+   "y": 504.53,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 3 de 4 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_quattro, NCC 0.98)"
+  },
+  {
+   "texto": "13XC1 4.1",
+   "cables": [
+    "1323"
+   ],
+   "x": 634.46,
+   "y": 558.75,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 4 de 4 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_quattro, NCC 0.99)"
+  },
+  {
+   "texto": "13XC1 4.2",
+   "cables": [
+    "1328"
+   ],
+   "x": 634.46,
+   "y": 547.11,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 4 de 4 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_quattro, NCC 0.96)"
+  },
+  {
+   "texto": "13XC1 4.4",
+   "cables": [
+    "1315"
+   ],
+   "x": 634.46,
+   "y": 504.53,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13XC1",
+   "tag_fisico": "13XC1",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 4 de 4 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_quattro, NCC 0.98)"
+  },
+  {
+   "texto": "12F1 ABAJO",
+   "cables": [
+    "1202"
+   ],
+   "x": 773.56,
+   "y": 654.57,
+   "r": 1.9,
+   "confianza": "alta",
+   "tag": "12F1",
+   "tag_fisico": "12F1",
+   "modelo": "DF101",
+   "como": "polo 1 de 1 ('unico'), tornillo de abajo (NCC 0.99)"
+  },
+  {
+   "texto": "12F1 ARRIBA",
+   "cables": [
+    "1201"
+   ],
+   "x": 773.55,
+   "y": 697.3,
+   "r": 1.9,
+   "confianza": "alta",
+   "tag": "12F1",
+   "tag_fisico": "12F1",
+   "modelo": "DF101",
+   "como": "polo 1 de 1 ('unico'), tornillo de arriba (NCC 1.00)"
+  },
+  {
+   "texto": "81XCM 1 ARRIBA",
+   "cables": [
+    "2132"
+   ],
+   "x": 713.65,
+   "y": 433.27,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "81XCM",
+   "tag_fisico": "81XCM",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 7 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.99)"
+  },
+  {
+   "texto": "81XCM 11 ARRIBA",
+   "cables": [
+    "2135"
+   ],
+   "x": 731.93,
+   "y": 433.23,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "81XCM",
+   "tag_fisico": "81XCM",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 6 de 7 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.97)"
+  },
+  {
+   "texto": "81XCM 12 ARRIBA",
+   "cables": [
+    "2136"
+   ],
+   "x": 731.9,
+   "y": 421.96,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "81XCM",
+   "tag_fisico": "81XCM",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 6 de 7 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.95)"
+  },
+  {
+   "texto": "81XCM 2 ARRIBA",
+   "cables": [
+    "2133"
+   ],
+   "x": 713.62,
+   "y": 422.0,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "81XCM",
+   "tag_fisico": "81XCM",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 7 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.93)"
+  },
+  {
+   "texto": "81XCM 5 ARRIBA",
+   "cables": [
+    "2132"
+   ],
+   "x": 720.96,
+   "y": 433.25,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "81XCM",
+   "tag_fisico": "81XCM",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 3 de 7 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.99)"
+  },
+  {
+   "texto": "81XCM 6 ARRIBA",
+   "cables": [
+    "2133"
+   ],
+   "x": 720.93,
+   "y": 421.98,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "81XCM",
+   "tag_fisico": "81XCM",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 3 de 7 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.97)"
+  },
+  {
+   "texto": "13PS3 +Vin",
+   "cables": [
+    "1304"
+   ],
+   "x": 825.95,
+   "y": 639.85,
+   "r": 1.5,
+   "confianza": "media",
+   "tag": "13PS3",
+   "tag_fisico": "13PS3",
+   "modelo": "DDR-120A-24",
+   "como": "TB1 (abajo), pin 3 de 3 = +Vin (plantilla escala 0.75, NCC 0.69)"
+  },
+  {
+   "texto": "13PS3 +Vo",
+   "cables": [
+    "1310"
+   ],
+   "x": 823.03,
+   "y": 715.47,
+   "r": 1.5,
+   "confianza": "media",
+   "tag": "13PS3",
+   "tag_fisico": "13PS3",
+   "modelo": "DDR-120A-24",
+   "como": "TB2 (arriba), pin 3 de 4 = +Vo (plantilla escala 0.75, NCC 0.67)"
+  },
+  {
+   "texto": "13PS3 -Vin",
+   "cables": [
+    "1305"
+   ],
+   "x": 822.26,
+   "y": 639.85,
+   "r": 1.5,
+   "confianza": "media",
+   "tag": "13PS3",
+   "tag_fisico": "13PS3",
+   "modelo": "DDR-120A-24",
+   "como": "TB1 (abajo), pin 2 de 3 = -Vin (plantilla escala 0.75, NCC 0.66)"
+  },
+  {
+   "texto": "13PS3 -Vo",
+   "cables": [
+    "1323"
+   ],
+   "x": 819.28,
+   "y": 715.47,
+   "r": 1.5,
+   "confianza": "media",
+   "tag": "13PS3",
+   "tag_fisico": "13PS3",
+   "modelo": "DDR-120A-24",
+   "como": "TB2 (arriba), pin 2 de 4 = -Vo (plantilla escala 0.75, NCC 0.70); 2 cables con el mismo nombre: se reparten por numero de cable"
+  },
+  {
+   "texto": "13PS3 -Vo",
+   "cables": [
+    "1311"
+   ],
+   "x": 815.51,
+   "y": 715.47,
+   "r": 1.5,
+   "confianza": "media",
+   "tag": "13PS3",
+   "tag_fisico": "13PS3",
+   "modelo": "DDR-120A-24",
+   "como": "TB2 (arriba), pin 1 de 4 = -Vo (plantilla escala 0.75, NCC 0.71); 2 cables con el mismo nombre: se reparten por numero de cable"
+  },
+  {
+   "texto": "13X24 1.1",
+   "cables": [
+    "1310"
+   ],
+   "x": 648.91,
+   "y": 558.75,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13X24",
+   "tag_fisico": "13X24",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_quattro, NCC 0.97)"
+  },
+  {
+   "texto": "13X24 1.2",
+   "cables": [
+    "1324"
+   ],
+   "x": 648.91,
+   "y": 547.11,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13X24",
+   "tag_fisico": "13X24",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_quattro, NCC 0.92)"
+  },
+  {
+   "texto": "13X24 1.4",
+   "cables": [
+    "1312"
+   ],
+   "x": 648.91,
+   "y": 504.53,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13X24",
+   "tag_fisico": "13X24",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_quattro, NCC 0.96)"
+  },
+  {
+   "texto": "13X24 2.1",
+   "cables": [
+    "1311"
+   ],
+   "x": 656.26,
+   "y": 558.75,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13X24",
+   "tag_fisico": "13X24",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_quattro, NCC 1.00)"
+  },
+  {
+   "texto": "13X24 2.4",
+   "cables": [
+    "1313"
+   ],
+   "x": 656.26,
+   "y": 504.53,
+   "r": 2.8,
+   "confianza": "alta",
+   "tag": "13X24",
+   "tag_fisico": "13X24",
+   "modelo": "PT 6-QUATTRO",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_quattro, NCC 0.99)"
+  },
+  {
+   "texto": "31AIB1 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 787.1,
+   "y": 567.05,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "31AIB1",
+   "tag_fisico": "31AIB1",
+   "modelo": "GS8536-EX",
+   "como": "enchufe [1, 2] (arriba), tornillo 1: tornillo dibujado"
+  },
+  {
+   "texto": "31AIB1 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 790.64,
+   "y": 567.05,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "31AIB1",
+   "tag_fisico": "31AIB1",
+   "modelo": "GS8536-EX",
+   "como": "enchufe [1, 2] (arriba), tornillo 2: tornillo dibujado"
+  },
+  {
+   "texto": "43DIB1 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 798.22,
+   "y": 567.05,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [1, 2] (arriba), tornillo 1: tornillo dibujado"
+  },
+  {
+   "texto": "43DIB1 10",
+   "cables": [
+    "4302"
+   ],
+   "x": 801.81,
+   "y": 495.67,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [9, 10] (abajo), tornillo 2: tornillo dibujado"
+  },
+  {
+   "texto": "43DIB1 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 801.77,
+   "y": 567.05,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [1, 2] (arriba), tornillo 2: tornillo dibujado"
+  },
+  {
+   "texto": "43DIB1 3",
+   "cables": [
+    "1318"
+   ],
+   "x": 798.22,
+   "y": 567.05,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [3, 4] (arriba), tornillo 1: fila no dibujada: x de la columna, y corrida 0.0 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB1 5",
+   "cables": [
+    "2116"
+   ],
+   "x": 798.22,
+   "y": 560.77,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [5, 6] (arriba), tornillo 1: fila no dibujada: x de la columna, y corrida 8.85 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB1 6",
+   "cables": [
+    "2117"
+   ],
+   "x": 801.77,
+   "y": 560.77,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [5, 6] (arriba), tornillo 2: fila no dibujada: x de la columna, y corrida 8.85 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB1 7",
+   "cables": [
+    "4303"
+   ],
+   "x": 798.29,
+   "y": 501.84,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [7, 8] (abajo), tornillo 1: fila no dibujada: x de la columna, y corrida 8.7 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB1 8",
+   "cables": [
+    "4304"
+   ],
+   "x": 801.81,
+   "y": 501.84,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [7, 8] (abajo), tornillo 2: fila no dibujada: x de la columna, y corrida 8.7 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB1 9",
+   "cables": [
+    "4301"
+   ],
+   "x": 798.29,
+   "y": 495.67,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "43DIB1",
+   "tag_fisico": "43DIB1",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [9, 10] (abajo), tornillo 1: tornillo dibujado"
+  },
+  {
+   "texto": "43DIB2 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 807.18,
+   "y": 567.05,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [1, 2] (arriba), tornillo 1: tornillo dibujado"
+  },
+  {
+   "texto": "43DIB2 10",
+   "cables": [
+    "4342"
+   ],
+   "x": 810.76,
+   "y": 495.67,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [9, 10] (abajo), tornillo 2: tornillo dibujado"
+  },
+  {
+   "texto": "43DIB2 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 810.71,
+   "y": 567.05,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [1, 2] (arriba), tornillo 2: tornillo dibujado"
+  },
+  {
+   "texto": "43DIB2 3",
+   "cables": [
+    "1319"
+   ],
+   "x": 807.18,
+   "y": 567.05,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [3, 4] (arriba), tornillo 1: fila no dibujada: x de la columna, y corrida 0.0 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB2 5",
+   "cables": [
+    "2120"
+   ],
+   "x": 807.18,
+   "y": 560.77,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [5, 6] (arriba), tornillo 1: fila no dibujada: x de la columna, y corrida 8.85 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB2 6",
+   "cables": [
+    "2121"
+   ],
+   "x": 810.71,
+   "y": 560.77,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [5, 6] (arriba), tornillo 2: fila no dibujada: x de la columna, y corrida 8.85 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB2 7",
+   "cables": [
+    "4343"
+   ],
+   "x": 807.22,
+   "y": 501.84,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [7, 8] (abajo), tornillo 1: fila no dibujada: x de la columna, y corrida 8.7 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB2 8",
+   "cables": [
+    "4344"
+   ],
+   "x": 810.76,
+   "y": 501.84,
+   "r": 1.4,
+   "confianza": "media",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [7, 8] (abajo), tornillo 2: fila no dibujada: x de la columna, y corrida 8.7 mm hacia adentro (hoja de datos)"
+  },
+  {
+   "texto": "43DIB2 9",
+   "cables": [
+    "4341"
+   ],
+   "x": 807.22,
+   "y": 495.67,
+   "r": 1.4,
+   "confianza": "alta",
+   "tag": "43DIB2",
+   "tag_fisico": "43DIB2",
+   "modelo": "GS8512-EX.22",
+   "como": "enchufe [9, 10] (abajo), tornillo 1: tornillo dibujado"
+  },
+  {
+   "texto": "62XDIO 1 ABAJO",
+   "cables": [
+    "6201"
+   ],
+   "x": 670.06,
+   "y": 544.28,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDIO",
+   "modelo": "PT 2,5-DIO/L-R",
+   "como": "puente dibujado del lado abajo; pieza 1 de 3 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.98)"
+  },
+  {
+   "texto": "62XDIO 2 ABAJO",
+   "cables": [
+    "6203"
+   ],
+   "x": 673.72,
+   "y": 544.28,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDIO",
+   "modelo": "PT 2,5-DIO/L-R",
+   "como": "puente dibujado del lado abajo; pieza 2 de 3 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.96)"
+  },
+  {
+   "texto": "62XDIO 3 ABAJO",
+   "cables": [
+    "6206"
+   ],
+   "x": 677.37,
+   "y": 544.28,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDIO",
+   "modelo": "PT 2,5-DIO/L-R",
+   "como": "puente dibujado del lado abajo; pieza 3 de 3 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.92)"
+  },
+  {
+   "texto": "62XDIO 3 ABAJO",
+   "cables": [
+    "6204"
+   ],
+   "x": 694.22,
+   "y": 507.92,
+   "r": 2.0,
+   "confianza": "baja",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "la boca de 62XDIO 3 ABAJO en 62XDIO ya la ocupa el cable 6206 y en una boca push-in entra un solo cable; el cable 6204 se parece mas a los de 62XDO (diferencia de numero 2), se toma el mismo borne en 62XDO: pieza 2 de 3 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_octogono_cuadro, NCC 0.95)"
+  },
+  {
+   "texto": "62XDIO 3 ARRIBA",
+   "cables": [
+    "1315"
+   ],
+   "x": 677.37,
+   "y": 517.82,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDIO",
+   "modelo": "PT 2,5-DIO/L-R",
+   "como": "puente dibujado del lado abajo; pieza 3 de 3 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_octogono_u, NCC 0.92)"
+  },
+  {
+   "texto": "62XDIO 3 ARRIBA",
+   "cables": [
+    "6203"
+   ],
+   "x": 694.22,
+   "y": 551.75,
+   "r": 2.0,
+   "confianza": "baja",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "la boca de 62XDIO 3 ARRIBA en 62XDIO ya la ocupa el cable 1315 y en una boca push-in entra un solo cable; el cable 6203 se parece mas a los de 62XDO (diferencia de numero 1), se toma el mismo borne en 62XDO: pieza 2 de 3 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_cuadro, NCC 0.97)"
+  },
+  {
+   "texto": "31XAI 1 ABAJO",
+   "cables": [
+    "3142"
+   ],
+   "x": 801.5,
+   "y": 643.2,
+   "r": 2.0,
+   "confianza": "alta",
+   "tag": "31XAI",
+   "tag_fisico": "31XAI",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "como": "pieza 1 de 1 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_hesi, NCC 0.99)"
+  },
+  {
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "2142"
+   ],
+   "x": 801.5,
+   "y": 705.1,
+   "r": 2.0,
+   "confianza": "media",
+   "tag": "31XAI",
+   "tag_fisico": "31XAI",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "como": "pieza 1 de 1 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_hesi, NCC 1.00); ATENCION: dos cables (3141 y 2142) en la misma boca push-in y la etiqueta vecina no tiene ese borne libre: revisar el instructivo"
+  },
+  {
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "3141"
+   ],
+   "x": 801.5,
+   "y": 705.1,
+   "r": 2.0,
+   "confianza": "media",
+   "tag": "31XAI",
+   "tag_fisico": "31XAI",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "como": "pieza 1 de 1 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_hesi, NCC 1.00); ATENCION: dos cables (3141 y 2142) en la misma boca push-in y la etiqueta vecina no tiene ese borne libre: revisar el instructivo"
+  },
+  {
+   "texto": "31XAI F1 ABAJO",
+   "cables": [
+    "3141"
+   ],
+   "x": 801.5,
+   "y": 655.46,
+   "r": 2.0,
+   "confianza": "alta",
+   "tag": "31XAI",
+   "tag_fisico": "31XAI",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "como": "pieza 1 de 1 a la derecha de la etiqueta, abajo, boca interior (plantilla boca_hesi, NCC 0.96)"
+  },
+  {
+   "texto": "31XAI F1 ARRIBA",
+   "cables": [
+    "1324"
+   ],
+   "x": 801.51,
+   "y": 686.3,
+   "r": 2.0,
+   "confianza": "alta",
+   "tag": "31XAI",
+   "tag_fisico": "31XAI",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "como": "pieza 1 de 1 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_hesi, NCC 0.89)"
+  },
+  {
+   "texto": "43KR1 11",
+   "cables": [
+    "2118"
+   ],
+   "x": 842.6,
+   "y": 704.65,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 4, lado contactos (arriba), celda 1 desde el extremo = 11 (NCC 1.00)"
+  },
+  {
+   "texto": "43KR1 14",
+   "cables": [
+    "2119"
+   ],
+   "x": 842.6,
+   "y": 698.26,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 4, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 1.00)"
+  },
+  {
+   "texto": "43KR1 A1",
+   "cables": [
+    "4329"
+   ],
+   "x": 842.63,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 4, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.91)"
+  },
+  {
+   "texto": "43KR2 11",
+   "cables": [
+    "4318"
+   ],
+   "x": 846.93,
+   "y": 704.65,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 4, lado contactos (arriba), celda 1 desde el extremo = 11 (NCC 0.98)"
+  },
+  {
+   "texto": "43KR2 14",
+   "cables": [
+    "4319"
+   ],
+   "x": 846.93,
+   "y": 698.26,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 4, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 0.98)"
+  },
+  {
+   "texto": "43KR2 A1",
+   "cables": [
+    "4329"
+   ],
+   "x": 846.97,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 4, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.90)"
+  },
+  {
+   "texto": "43KR2 A2",
+   "cables": [
+    "1328"
+   ],
+   "x": 846.97,
+   "y": 646.43,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 4, lado bobina (abajo), celda 1 desde el extremo = A2 (NCC 0.92)"
+  },
+  {
+   "texto": "43KR3 11",
+   "cables": [
+    "2122"
+   ],
+   "x": 851.27,
+   "y": 704.65,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 3 de 4, lado contactos (arriba), celda 1 desde el extremo = 11 (NCC 0.98)"
+  },
+  {
+   "texto": "43KR3 14",
+   "cables": [
+    "2123"
+   ],
+   "x": 851.27,
+   "y": 698.27,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 3 de 4, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 0.97)"
+  },
+  {
+   "texto": "43KR3 A1",
+   "cables": [
+    "4369"
+   ],
+   "x": 851.3,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 3 de 4, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.93)"
+  },
+  {
+   "texto": "43KR4 11",
+   "cables": [
+    "4358"
+   ],
+   "x": 855.59,
+   "y": 704.65,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 4 de 4, lado contactos (arriba), celda 1 desde el extremo = 11 (NCC 1.00)"
+  },
+  {
+   "texto": "43KR4 14",
+   "cables": [
+    "4359"
+   ],
+   "x": 855.59,
+   "y": 698.27,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 4 de 4, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 0.99)"
+  },
+  {
+   "texto": "43KR4 A1",
+   "cables": [
+    "4369"
+   ],
+   "x": 855.62,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "43KR",
+   "tag_fisico": "43KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 4 de 4, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.92)"
+  },
+  {
+   "texto": "62XDO 1 ABAJO",
+   "cables": [
+    "6202"
+   ],
+   "x": 689.85,
+   "y": 507.92,
+   "r": 2.0,
+   "confianza": "alta",
+   "tag": "62XDO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "pieza 1 de 3 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_octogono_cuadro, NCC 0.97)"
+  },
+  {
+   "texto": "62XDO 1 ARRIBA",
+   "cables": [
+    "6201"
+   ],
+   "x": 689.85,
+   "y": 551.75,
+   "r": 2.0,
+   "confianza": "alta",
+   "tag": "62XDO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "pieza 1 de 3 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_cuadro, NCC 1.00)"
+  },
+  {
+   "texto": "62XDO 2 ARRIBA",
+   "cables": [
+    "1321"
+   ],
+   "x": 689.85,
+   "y": 543.67,
+   "r": 2.0,
+   "confianza": "alta",
+   "tag": "62XDO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "pieza 1 de 3 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_cuadro, NCC 0.86)"
+  },
+  {
+   "texto": "62KR1 11",
+   "cables": [
+    "1308"
+   ],
+   "x": 882.78,
+   "y": 704.65,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 3, lado contactos (arriba), celda 1 desde el extremo = 11 (NCC 1.00)"
+  },
+  {
+   "texto": "62KR1 14",
+   "cables": [
+    "6201"
+   ],
+   "x": 882.78,
+   "y": 698.26,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 3, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 0.99)"
+  },
+  {
+   "texto": "62KR1 A1",
+   "cables": [
+    "2150"
+   ],
+   "x": 882.81,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 3, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.92)"
+  },
+  {
+   "texto": "62KR1 A2",
+   "cables": [
+    "2151"
+   ],
+   "x": 882.81,
+   "y": 646.43,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 3, lado bobina (abajo), celda 1 desde el extremo = A2 (NCC 0.93)"
+  },
+  {
+   "texto": "62KR2 14",
+   "cables": [
+    "6203"
+   ],
+   "x": 887.11,
+   "y": 698.26,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 3, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 0.99)"
+  },
+  {
+   "texto": "62KR2 A1",
+   "cables": [
+    "2152"
+   ],
+   "x": 887.14,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 3, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.89)"
+  },
+  {
+   "texto": "62KR2 A2",
+   "cables": [
+    "2153"
+   ],
+   "x": 887.14,
+   "y": 646.43,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 3, lado bobina (abajo), celda 1 desde el extremo = A2 (NCC 0.91)"
+  },
+  {
+   "texto": "62KR3 14",
+   "cables": [
+    "6206"
+   ],
+   "x": 891.44,
+   "y": 698.27,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 3 de 3, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 0.96)"
+  },
+  {
+   "texto": "62KR3 A1",
+   "cables": [
+    "2154"
+   ],
+   "x": 891.48,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 3 de 3, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.92)"
+  },
+  {
+   "texto": "62KR3 A2",
+   "cables": [
+    "2155"
+   ],
+   "x": 891.48,
+   "y": 646.43,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "62KR",
+   "tag_fisico": "62KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 3 de 3, lado bobina (abajo), celda 1 desde el extremo = A2 (NCC 0.93)"
+  },
+  {
+   "texto": "46KR A2",
+   "cables": [
+    "4615"
+   ],
+   "x": 871.39,
+   "y": 646.43,
+   "r": 1.45,
+   "confianza": "media",
+   "tag": "46KR",
+   "tag_fisico": "46KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 2, lado bobina (abajo), celda 1 desde el extremo = A2 (NCC 0.93); modulo 2 por cercania con el cable 4614"
+  },
+  {
+   "texto": "46KR A2",
+   "cables": [
+    "4669"
+   ],
+   "x": 867.05,
+   "y": 646.43,
+   "r": 1.45,
+   "confianza": "media",
+   "tag": "46KR",
+   "tag_fisico": "46KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 2, lado bobina (abajo), celda 1 desde el extremo = A2 (NCC 0.90); modulo 1 por cercania con el cable 4668"
+  },
+  {
+   "texto": "46KR1 11",
+   "cables": [
+    "2168"
+   ],
+   "x": 867.02,
+   "y": 704.65,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "46KR",
+   "tag_fisico": "46KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 2, lado contactos (arriba), celda 1 desde el extremo = 11 (NCC 0.99)"
+  },
+  {
+   "texto": "46KR1 14",
+   "cables": [
+    "2169"
+   ],
+   "x": 867.02,
+   "y": 698.26,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "46KR",
+   "tag_fisico": "46KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 2, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 0.99)"
+  },
+  {
+   "texto": "46KR1 A1",
+   "cables": [
+    "4668"
+   ],
+   "x": 867.05,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "46KR",
+   "tag_fisico": "46KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 1 de 2, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.89)"
+  },
+  {
+   "texto": "46KR2 11",
+   "cables": [
+    "2114"
+   ],
+   "x": 871.36,
+   "y": 704.65,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "46KR",
+   "tag_fisico": "46KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 2, lado contactos (arriba), celda 1 desde el extremo = 11 (NCC 0.97)"
+  },
+  {
+   "texto": "46KR2 14",
+   "cables": [
+    "2115"
+   ],
+   "x": 871.36,
+   "y": 698.26,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "46KR",
+   "tag_fisico": "46KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 2, lado contactos (arriba), celda 2 desde el extremo = 14 (NCC 0.96)"
+  },
+  {
+   "texto": "46KR2 A1",
+   "cables": [
+    "4614"
+   ],
+   "x": 871.39,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "tag": "46KR",
+   "tag_fisico": "46KR",
+   "modelo": "RIF-0-RPT-DC/21",
+   "como": "modulo 2 de 2, lado bobina (abajo), celda 2 desde el extremo = A1 (NCC 0.92)"
+  },
+  {
+   "texto": "31XEX 1 ARRIBA",
+   "cables": [
+    "3104"
+   ],
+   "x": 789.16,
+   "y": 433.09,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "31XEX",
+   "tag_fisico": "31XEX",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.96)"
+  },
+  {
+   "texto": "31XEX 2 ARRIBA",
+   "cables": [
+    "3105"
+   ],
+   "x": 789.16,
+   "y": 421.83,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "31XEX",
+   "tag_fisico": "31XEX",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.98)"
+  },
+  {
+   "texto": "31XEX 3 ARRIBA",
+   "cables": [
+    "3138"
+   ],
+   "x": 792.81,
+   "y": 433.09,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "31XEX",
+   "tag_fisico": "31XEX",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.81)"
+  },
+  {
+   "texto": "31XEX 4 ARRIBA",
+   "cables": [
+    "3139"
+   ],
+   "x": 792.8,
+   "y": 421.83,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "31XEX",
+   "tag_fisico": "31XEX",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.83)"
+  },
+  {
+   "texto": "43XCS 1 ARRIBA",
+   "cables": [
+    "4319"
+   ],
+   "x": 679.35,
+   "y": 432.75,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XCS",
+   "tag_fisico": "43XCS",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 1.00)"
+  },
+  {
+   "texto": "43XCS 2 ARRIBA",
+   "cables": [
+    "4318"
+   ],
+   "x": 679.33,
+   "y": 421.48,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XCS",
+   "tag_fisico": "43XCS",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.97)"
+  },
+  {
+   "texto": "43XCS 3 ARRIBA",
+   "cables": [
+    "4359"
+   ],
+   "x": 683.01,
+   "y": 432.74,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XCS",
+   "tag_fisico": "43XCS",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.86)"
+  },
+  {
+   "texto": "43XCS 4 ARRIBA",
+   "cables": [
+    "4358"
+   ],
+   "x": 682.98,
+   "y": 421.47,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XCS",
+   "tag_fisico": "43XCS",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.86)"
+  },
+  {
+   "texto": "43XDI 1 ARRIBA",
+   "cables": [
+    "4301"
+   ],
+   "x": 804.03,
+   "y": 433.09,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XDI",
+   "tag_fisico": "43XDI",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 4 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.96)"
+  },
+  {
+   "texto": "43XDI 2 ARRIBA",
+   "cables": [
+    "4302"
+   ],
+   "x": 804.03,
+   "y": 421.83,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XDI",
+   "tag_fisico": "43XDI",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 4 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.98)"
+  },
+  {
+   "texto": "43XDI 3 ARRIBA",
+   "cables": [
+    "4303"
+   ],
+   "x": 807.68,
+   "y": 433.09,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XDI",
+   "tag_fisico": "43XDI",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 2 de 4 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.94)"
+  },
+  {
+   "texto": "43XDI 4 ARRIBA",
+   "cables": [
+    "4304"
+   ],
+   "x": 807.68,
+   "y": 421.83,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XDI",
+   "tag_fisico": "43XDI",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 2 de 4 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.96)"
+  },
+  {
+   "texto": "43XDI 5 ARRIBA",
+   "cables": [
+    "4341"
+   ],
+   "x": 811.35,
+   "y": 433.09,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XDI",
+   "tag_fisico": "43XDI",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 3 de 4 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.96)"
+  },
+  {
+   "texto": "43XDI 6 ARRIBA",
+   "cables": [
+    "4342"
+   ],
+   "x": 811.35,
+   "y": 421.83,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XDI",
+   "tag_fisico": "43XDI",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 3 de 4 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.98)"
+  },
+  {
+   "texto": "43XDI 7 ARRIBA",
+   "cables": [
+    "4343"
+   ],
+   "x": 815.0,
+   "y": 433.09,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XDI",
+   "tag_fisico": "43XDI",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 4 de 4 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.82)"
+  },
+  {
+   "texto": "43XDI 8 ARRIBA",
+   "cables": [
+    "4344"
+   ],
+   "x": 815.0,
+   "y": 421.83,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "43XDI",
+   "tag_fisico": "43XDI",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 4 de 4 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.84)"
+  },
+  {
+   "texto": "46XC 1 ARRIBA",
+   "cables": [
+    "4668"
+   ],
+   "x": 694.33,
+   "y": 432.75,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "46XC",
+   "tag_fisico": "46XC",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.99)"
+  },
+  {
+   "texto": "46XC 2 ARRIBA",
+   "cables": [
+    "4669"
+   ],
+   "x": 694.3,
+   "y": 421.48,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "46XC",
+   "tag_fisico": "46XC",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 1 de 2 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.94)"
+  },
+  {
+   "texto": "46XC 3 ARRIBA",
+   "cables": [
+    "4614"
+   ],
+   "x": 697.96,
+   "y": 432.77,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "46XC",
+   "tag_fisico": "46XC",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_u, NCC 0.83)"
+  },
+  {
+   "texto": "46XC 4 ARRIBA",
+   "cables": [
+    "4615"
+   ],
+   "x": 697.94,
+   "y": 421.5,
+   "r": 1.3,
+   "confianza": "alta",
+   "tag": "46XC",
+   "tag_fisico": "46XC",
+   "modelo": "PTT 2,5-2MT",
+   "como": "pieza 2 de 2 a la derecha de la etiqueta, arriba, boca interior (plantilla boca_octogono_u, NCC 0.81)"
+  },
+  {
+   "texto": "62XDIO 4 ABAJO",
+   "cables": [
+    "6205"
+   ],
+   "x": 694.22,
+   "y": 516.0,
+   "r": 2.0,
+   "confianza": "baja",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "62XDIO no tiene ese borne (el borne no existe en lo que se encontro a la derecha de la etiqueta); se toma el mismo borne en la etiqueta vecina 62XDO: pieza 2 de 3 a la derecha de la etiqueta, abajo, boca interior (plantilla boca_octogono_cuadro, NCC 0.88)"
+  },
+  {
+   "texto": "62XDIO 5 ABAJO",
+   "cables": [
+    "6207"
+   ],
+   "x": 698.58,
+   "y": 507.92,
+   "r": 2.0,
+   "confianza": "baja",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "62XDIO no tiene ese borne (el borne no existe en lo que se encontro a la derecha de la etiqueta); se toma el mismo borne en la etiqueta vecina 62XDO: pieza 3 de 3 a la derecha de la etiqueta, abajo, boca extrema (plantilla boca_octogono_cuadro, NCC 0.92)"
+  },
+  {
+   "texto": "62XDIO 5 ARRIBA",
+   "cables": [
+    "6206"
+   ],
+   "x": 698.58,
+   "y": 551.75,
+   "r": 2.0,
+   "confianza": "baja",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "62XDIO no tiene ese borne (el borne no existe en lo que se encontro a la derecha de la etiqueta); se toma el mismo borne en la etiqueta vecina 62XDO: pieza 3 de 3 a la derecha de la etiqueta, arriba, boca extrema (plantilla boca_octogono_cuadro, NCC 0.94)"
+  },
+  {
+   "texto": "62XDIO 6 ABAJO",
+   "cables": [
+    "6208"
+   ],
+   "x": 698.58,
+   "y": 516.0,
+   "r": 2.0,
+   "confianza": "baja",
+   "tag": "62XDIO",
+   "tag_fisico": "62XDO",
+   "modelo": "PTT 2,5",
+   "como": "62XDIO no tiene ese borne (el borne no existe en lo que se encontro a la derecha de la etiqueta); se toma el mismo borne en la etiqueta vecina 62XDO: pieza 3 de 3 a la derecha de la etiqueta, abajo, boca interior (plantilla boca_octogono_cuadro, NCC 0.84)"
+  }
+ ],
+ "sin_punto": [
+  {
+   "texto": "31XAI 2 ARRIBA",
+   "cable": "3142",
+   "tag": "31XAI",
+   "motivo": "el borne no existe en lo que se encontro a la derecha de la etiqueta"
+  },
+  {
+   "texto": "62XDO ARRIBA",
+   "cable": "6202",
+   "tag": "62XDO",
+   "motivo": "el borne no existe en lo que se encontro a la derecha de la etiqueta"
+  }
+ ],
+ "componentes": {
+  "11PS1": {
+   "etiqueta": [
+    617.2,
+    665.7,
+    622.2,
+    682.7
+   ],
+   "modelo_materiales": "NDR-240-24",
+   "modelo": "NDR-240-24",
+   "zona": [
+    595.8,
+    585.3,
+    643.6,
+    759.3
+   ],
+   "calidad": 0.865,
+   "candidatos": {
+    "NDR-240-24": 0.865
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "filas": {
+    "TB2": [
+     613.0,
+     617.38,
+     621.76,
+     626.13
+    ],
+    "TB1": [
+     617.57,
+     622.85,
+     628.13
+    ]
+   },
+   "y_filas": {
+    "TB2": 712.5,
+    "TB1": 635.77
+   },
+   "consistencia": 1.0
+  },
+  "11SK1": {
+   "etiqueta": [
+    740.0,
+    694.0,
+    757.0,
+    699.0
+   ],
+   "modelo_materiales": "TOMA IRAM VIVION",
+   "modelo": "TOMA IRAM VIVION",
+   "zona": [
+    731.0,
+    636.2,
+    766.0,
+    756.8
+   ],
+   "calidad": 1.0,
+   "candidatos": {
+    "TOMA IRAM VIVION": 1.0
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "centro": [
+    748.75,
+    674.45
+   ]
+  },
+  "11Q2": {
+   "etiqueta": [
+    672.0,
+    682.5,
+    689.25,
+    687.25
+   ],
+   "modelo_materiales": "EZ9F34210",
+   "modelo": "EZ9F34210",
+   "zona": [
+    666.3,
+    624.5,
+    694.9,
+    745.2
+   ],
+   "calidad": 0.971,
+   "candidatos": {
+    "EZ9R36225": 0.971,
+    "EZ9F34210": 0.971
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "x_polos": [
+    674.55,
+    686.97
+   ],
+   "consistencia": 1.0
+  },
+  "11Q1": {
+   "etiqueta": [
+    647.25,
+    682.5,
+    664.25,
+    687.25
+   ],
+   "modelo_materiales": "EZ9R36225",
+   "modelo": "EZ9R36225",
+   "zona": [
+    641.5,
+    624.5,
+    670.0,
+    745.2
+   ],
+   "calidad": 0.993,
+   "candidatos": {
+    "EZ9R36225": 0.993,
+    "EZ9F34210": 0.993
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "x_polos": [
+    649.7,
+    662.12
+   ],
+   "consistencia": 1.0
+  },
+  "12F2": {
+   "etiqueta": [
+    594.0,
+    302.5,
+    611.25,
+    307.5
+   ],
+   "modelo_materiales": "MEGA",
+   "modelo": "MEGA",
+   "zona": [
+    569.2,
+    280.2,
+    636.1,
+    329.8
+   ],
+   "calidad": 0.993,
+   "candidatos": {
+    "MEGA": 0.993
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "x": [
+    580.5,
+    624.41
+   ]
+  },
+  "12XP": {
+   "etiqueta": [
+    585.25,
+    522.75,
+    590.0,
+    540.0
+   ],
+   "modelo_materiales": "PT 6-QUATTRO",
+   "modelo": "PT 6-QUATTRO",
+   "zona": [
+    584.2,
+    487.5,
+    607.0,
+    575.2
+   ],
+   "calidad": 0.968,
+   "candidatos": {
+    "PT 6-QUATTRO": 0.968
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "piezas": 2,
+   "x_piezas": [
+    593.75,
+    601.09
+   ],
+   "y_riel": 531.64,
+   "niveles": {
+    "arriba": [
+     27.109264255553114,
+     15.4728181429208
+    ],
+    "abajo": [
+     27.108787561952965,
+     15.472818142920687
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "13F3": {
+   "etiqueta": [
+    783.5,
+    666.75,
+    788.5,
+    683.75
+   ],
+   "modelo_materiales": "DF101",
+   "modelo": "DF101",
+   "zona": [
+    778.3,
+    617.7,
+    793.7,
+    732.8
+   ],
+   "calidad": 0.982,
+   "candidatos": {
+    "DF101": 0.982
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "x_polos": [
+    785.98
+   ],
+   "consistencia": 1.0
+  },
+  "13XC1": {
+   "etiqueta": [
+    607.0,
+    522.75,
+    611.75,
+    540.0
+   ],
+   "modelo_materiales": "PT 6-QUATTRO",
+   "modelo": "PT 6-QUATTRO",
+   "zona": [
+    606.0,
+    487.5,
+    640.2,
+    575.2
+   ],
+   "calidad": 0.979,
+   "candidatos": {
+    "PT 6-QUATTRO": 0.979
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "piezas": 4,
+   "x_piezas": [
+    615.54,
+    621.34,
+    628.67,
+    634.46
+   ],
+   "y_riel": 531.64,
+   "niveles": {
+    "arriba": [
+     27.10918179339933,
+     15.472687243297628
+    ],
+    "abajo": [
+     27.10892378203573,
+     15.472746267542277
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "12F1": {
+   "etiqueta": [
+    771.25,
+    666.75,
+    776.0,
+    683.75
+   ],
+   "modelo_materiales": "DF101",
+   "modelo": "DF101",
+   "zona": [
+    765.9,
+    617.7,
+    781.3,
+    732.8
+   ],
+   "calidad": 0.994,
+   "candidatos": {
+    "DF101": 0.994
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "x_polos": [
+    773.55
+   ],
+   "consistencia": 1.0
+  },
+  "81XCM": {
+   "etiqueta": [
+    701.25,
+    394.5,
+    706.25,
+    411.75
+   ],
+   "modelo_materiales": null,
+   "modelo": "PTT 2,5-2MT",
+   "zona": [
+    700.2,
+    359.3,
+    776.5,
+    447.0
+   ],
+   "calidad": 0.949,
+   "candidatos": {
+    "PTT 2,5-2MT": 0.949
+   },
+   "motivo": "reconocido por la imagen",
+   "piezas": 7,
+   "x_piezas": [
+    713.58,
+    717.23,
+    720.89,
+    724.55,
+    728.21,
+    731.86,
+    735.5
+   ],
+   "y_riel": 404.22,
+   "niveles": {
+    "arriba": [
+     29.026635270565748,
+     17.754450377076864
+    ],
+    "abajo": [
+     29.165550787374343,
+     17.754450377076864
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "13PS3": {
+   "etiqueta": [
+    814.5,
+    694.5,
+    831.75,
+    699.5
+   ],
+   "modelo_materiales": "DDR-120A-24",
+   "modelo": "DDR-120A-24",
+   "zona": [
+    810.3,
+    608.1,
+    836.0,
+    759.3
+   ],
+   "calidad": 0.695,
+   "candidatos": {
+    "DDR-120A-24": 0.695
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "filas": {
+    "TB2": [
+     815.51,
+     819.28,
+     823.03,
+     826.79
+    ],
+    "TB1": [
+     818.56,
+     822.26,
+     825.95
+    ]
+   },
+   "y_filas": {
+    "TB2": 715.47,
+    "TB1": 639.85
+   },
+   "consistencia": 1.0
+  },
+  "13X24": {
+   "etiqueta": [
+    640.25,
+    522.75,
+    645.25,
+    540.0
+   ],
+   "modelo_materiales": "PT 6-QUATTRO",
+   "modelo": "PT 6-QUATTRO",
+   "zona": [
+    639.2,
+    487.5,
+    662.0,
+    575.2
+   ],
+   "calidad": 0.968,
+   "candidatos": {
+    "PT 6-QUATTRO": 0.968
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "piezas": 2,
+   "x_piezas": [
+    648.91,
+    656.26
+   ],
+   "y_riel": 531.64,
+   "niveles": {
+    "arriba": [
+     27.109280298820522,
+     15.47280419468882
+    ],
+    "abajo": [
+     27.108849961310625,
+     15.472804194688763
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "31AIB1": {
+   "etiqueta": [
+    787.0,
+    524.75,
+    792.0,
+    542.0
+   ],
+   "modelo_materiales": "GS8536-EX",
+   "modelo": "GS8536-EX",
+   "zona": [
+    781.8,
+    451.7,
+    797.2,
+    615.0
+   ],
+   "calidad": 0.933,
+   "candidatos": {
+    "GS8512-EX.22": 0.933,
+    "GS8536-EX": 0.933
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "filas": {
+    "arriba": [
+     [
+      787.1,
+      567.05
+     ],
+     [
+      790.64,
+      567.05
+     ]
+    ],
+    "abajo": [
+     [
+      787.3,
+      495.67
+     ],
+     [
+      790.83,
+      495.66
+     ]
+    ]
+   },
+   "consistencia": 1.0
+  },
+  "43DIB1": {
+   "etiqueta": [
+    797.75,
+    525.5,
+    802.5,
+    542.75
+   ],
+   "modelo_materiales": "GS8512-EX.22",
+   "modelo": "GS8512-EX.22",
+   "zona": [
+    794.2,
+    452.5,
+    806.1,
+    615.8
+   ],
+   "calidad": 0.933,
+   "candidatos": {
+    "GS8512-EX.22": 0.933,
+    "GS8536-EX": 0.933
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "filas": {
+    "arriba": [
+     [
+      798.22,
+      567.05
+     ],
+     [
+      801.77,
+      567.06
+     ]
+    ],
+    "abajo": [
+     [
+      798.29,
+      495.67
+     ],
+     [
+      801.81,
+      495.66
+     ]
+    ]
+   },
+   "consistencia": 1.0
+  },
+  "43DIB2": {
+   "etiqueta": [
+    806.5,
+    525.5,
+    811.5,
+    542.75
+   ],
+   "modelo_materiales": "GS8512-EX.22",
+   "modelo": "GS8512-EX.22",
+   "zona": [
+    803.1,
+    452.5,
+    814.9,
+    615.8
+   ],
+   "calidad": 0.931,
+   "candidatos": {
+    "GS8512-EX.22": 0.931,
+    "GS8536-EX": 0.931
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "filas": {
+    "arriba": [
+     [
+      807.18,
+      567.06
+     ],
+     [
+      810.71,
+      567.05
+     ]
+    ],
+    "abajo": [
+     [
+      807.22,
+      495.67
+     ],
+     [
+      810.76,
+      495.67
+     ]
+    ]
+   },
+   "consistencia": 1.0
+  },
+  "62XDIO": {
+   "etiqueta": [
+    662.0,
+    521.75,
+    667.0,
+    539.0
+   ],
+   "modelo_materiales": "PT 2,5-DIO/L-R",
+   "modelo": "PT 2,5-DIO/L-R",
+   "zona": [
+    661.0,
+    486.5,
+    681.5,
+    574.2
+   ],
+   "calidad": 0.951,
+   "candidatos": {
+    "PT 2,5-DIO/L-R": 0.951
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "piezas": 3,
+   "x_piezas": [
+    670.06,
+    673.72,
+    677.37
+   ],
+   "y_riel": 531.05,
+   "niveles": {
+    "arriba": [
+     13.226723280548981
+    ],
+    "abajo": [
+     13.226723280549095
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": "abajo"
+  },
+  "31XAI": {
+   "etiqueta": [
+    793.5,
+    666.75,
+    798.25,
+    684.0
+   ],
+   "modelo_materiales": "PTT 2,5-2MT",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "zona": [
+    792.5,
+    631.5,
+    834.5,
+    719.2
+   ],
+   "calidad": 0.962,
+   "candidatos": {
+    "PTTB 4-HESI (5X20)": 0.962
+   },
+   "motivo": "reconocido por la imagen (la lista de materiales dice PTT 2,5-2MT, que encaja peor)",
+   "piezas": 1,
+   "x_piezas": [
+    801.5
+   ],
+   "y_riel": 670.88,
+   "niveles": {
+    "arriba": [
+     34.22198078025838,
+     15.419279963628014
+    ],
+    "abajo": [
+     27.68054492319925,
+     15.4192799636279
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "43KR": {
+   "etiqueta": [
+    834.5,
+    668.0,
+    839.5,
+    685.25
+   ],
+   "modelo_materiales": "RIF-0-RPT-DC/21",
+   "modelo": "RIF-0-RPT-DC/21",
+   "zona": [
+    833.5,
+    632.8,
+    858.8,
+    720.5
+   ],
+   "calidad": 0.957,
+   "candidatos": {
+    "RIF-0-RPT-DC/21": 0.957
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "modulos": 4,
+   "x_modulos": [
+    842.6,
+    846.93,
+    851.27,
+    855.59
+   ],
+   "y_riel": 672.35,
+   "lados": {
+    "contactos": "arriba",
+    "bobina": "abajo"
+   },
+   "consistencia": 1.0
+  },
+  "62XDO": {
+   "etiqueta": [
+    681.5,
+    521.5,
+    686.5,
+    538.75
+   ],
+   "modelo_materiales": "PTT 2,5",
+   "modelo": "PTT 2,5",
+   "zona": [
+    680.5,
+    486.3,
+    787.0,
+    574.0
+   ],
+   "calidad": 0.905,
+   "candidatos": {
+    "PTT 2,5": 0.905,
+    "PTTB 4-HESI (5X20)": 0.852
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "piezas": 3,
+   "x_piezas": [
+    689.85,
+    694.22,
+    698.58
+   ],
+   "y_riel": 529.84,
+   "niveles": {
+    "arriba": [
+     21.914489617757454,
+     13.835288011282614
+    ],
+    "abajo": [
+     21.915749564021894,
+     13.835288011282728
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "62KR": {
+   "etiqueta": [
+    874.5,
+    668.0,
+    879.5,
+    685.25
+   ],
+   "modelo_materiales": "RIF-0-RPT-DC/21",
+   "modelo": "RIF-0-RPT-DC/21",
+   "zona": [
+    873.5,
+    632.8,
+    894.8,
+    720.5
+   ],
+   "calidad": 0.954,
+   "candidatos": {
+    "RIF-0-RPT-DC/21": 0.954
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "modulos": 3,
+   "x_modulos": [
+    882.78,
+    887.11,
+    891.44
+   ],
+   "y_riel": 672.35,
+   "lados": {
+    "contactos": "arriba",
+    "bobina": "abajo"
+   },
+   "consistencia": 1.0
+  },
+  "46KR": {
+   "etiqueta": [
+    858.75,
+    668.0,
+    863.75,
+    685.25
+   ],
+   "modelo_materiales": "RIF-0-RPT-DC/21",
+   "modelo": "RIF-0-RPT-DC/21",
+   "zona": [
+    857.8,
+    632.8,
+    874.5,
+    720.5
+   ],
+   "calidad": 0.949,
+   "candidatos": {
+    "RIF-0-RPT-DC/21": 0.949
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "modulos": 2,
+   "x_modulos": [
+    867.02,
+    871.36
+   ],
+   "y_riel": 672.35,
+   "lados": {
+    "contactos": "arriba",
+    "bobina": "abajo"
+   },
+   "consistencia": 1.0
+  },
+  "31XEX": {
+   "etiqueta": [
+    776.5,
+    395.0,
+    781.5,
+    412.0
+   ],
+   "modelo_materiales": "PTT 2,5-2MT",
+   "modelo": "PTT 2,5-2MT",
+   "zona": [
+    775.5,
+    359.7,
+    795.8,
+    447.3
+   ],
+   "calidad": 0.886,
+   "candidatos": {
+    "PTT 2,5-2MT": 0.886
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "piezas": 2,
+   "x_piezas": [
+    789.16,
+    792.8
+   ],
+   "y_riel": 404.07,
+   "niveles": {
+    "arriba": [
+     29.021269997209288,
+     17.754680886119587
+    ],
+    "abajo": [
+     29.167674148827814,
+     17.754680886119615
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "43XCS": {
+   "etiqueta": [
+    671.5,
+    395.0,
+    676.25,
+    412.0
+   ],
+   "modelo_materiales": null,
+   "modelo": "PTT 2,5-2MT",
+   "zona": [
+    670.5,
+    359.7,
+    686.2,
+    447.3
+   ],
+   "calidad": 0.925,
+   "candidatos": {
+    "PTT 2,5-2MT": 0.925
+   },
+   "motivo": "reconocido por la imagen",
+   "piezas": 2,
+   "x_piezas": [
+    679.29,
+    682.94
+   ],
+   "y_riel": 403.72,
+   "niveles": {
+    "arriba": [
+     29.02696831007492,
+     17.754224458150617
+    ],
+    "abajo": [
+     29.16509907431896,
+     17.75422445815053
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "43XDI": {
+   "etiqueta": [
+    795.75,
+    394.75,
+    800.75,
+    412.0
+   ],
+   "modelo_materiales": "PTT 2,5-2MT",
+   "modelo": "PTT 2,5-2MT",
+   "zona": [
+    794.8,
+    359.5,
+    948.4,
+    447.2
+   ],
+   "calidad": 0.926,
+   "candidatos": {
+    "PTT 2,5-2MT": 0.926
+   },
+   "motivo": "lista de materiales (confirmado por la imagen)",
+   "piezas": 4,
+   "x_piezas": [
+    804.03,
+    807.68,
+    811.35,
+    815.0
+   ],
+   "y_riel": 404.07,
+   "niveles": {
+    "arriba": [
+     29.021254226565333,
+     17.75459879562257
+    ],
+    "abajo": [
+     29.167479138076317,
+     17.75451624989509
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  },
+  "46XC": {
+   "etiqueta": [
+    686.25,
+    395.0,
+    691.25,
+    412.0
+   ],
+   "modelo_materiales": null,
+   "modelo": "PTT 2,5-2MT",
+   "zona": [
+    685.2,
+    359.7,
+    701.2,
+    447.3
+   ],
+   "calidad": 0.892,
+   "candidatos": {
+    "PTT 2,5-2MT": 0.892
+   },
+   "motivo": "reconocido por la imagen",
+   "piezas": 2,
+   "x_piezas": [
+    694.26,
+    697.9
+   ],
+   "y_riel": 403.74,
+   "niveles": {
+    "arriba": [
+     29.02457109075044,
+     17.75452706255024
+    ],
+    "abajo": [
+     29.166961097717262,
+     17.754527062550153
+    ]
+   },
+   "consistencia": 1.0,
+   "lado_puente": null
+  }
+ }
+}

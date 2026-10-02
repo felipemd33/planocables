@@ -1,0 +1,311 @@
+{
+ "descripcion": "Indice de plantillas (generado por hacer_base.py desde recortes.json)",
+ "mm_por_pt": 1.4086,
+ "plantillas": {
+  "boca_quattro": {
+   "png": "plantillas/boca_quattro.png",
+   "ancla_px": [
+    32.5,
+    33.5
+   ],
+   "px_por_pt": 10,
+   "r_pt": 2.8,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "12XP",
+    "que": "pieza 1, boca extrema de arriba (entrada push-in, octogono redondeado con cuadrado)",
+    "centro_pt": [
+     593.75,
+     558.75
+    ]
+   },
+   "boca_pt": [
+    5.5,
+    5.9
+   ],
+   "mascara_png": "plantillas/boca_quattro_mascara.png"
+  },
+  "boca_octogono_u": {
+   "png": "plantillas/boca_octogono_u.png",
+   "ancla_px": [
+    22.5,
+    23.5
+   ],
+   "px_por_pt": 10,
+   "r_pt": 1.9,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "43XCS",
+    "que": "pieza 1, boca extrema de arriba (octogono con abertura en U)",
+    "centro_pt": [
+     679.35,
+     432.75
+    ]
+   },
+   "boca_pt": [
+    3.7,
+    3.9
+   ],
+   "mascara_png": "plantillas/boca_octogono_u_mascara.png"
+  },
+  "boca_octogono_cuadro": {
+   "png": "plantillas/boca_octogono_cuadro.png",
+   "ancla_px": [
+    25.5,
+    26.5
+   ],
+   "px_por_pt": 10,
+   "r_pt": 2.3,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "62XDO",
+    "que": "pieza 1, boca extrema de arriba (octogono con cuadrado, doble piso)",
+    "centro_pt": [
+     689.85,
+     551.75
+    ]
+   },
+   "boca_pt": [
+    4.3,
+    4.7
+   ],
+   "mascara_png": "plantillas/boca_octogono_cuadro_mascara.png"
+  },
+  "boca_hesi": {
+   "png": "plantillas/boca_hesi.png",
+   "ancla_px": [
+    25.0,
+    26.0
+   ],
+   "px_por_pt": 10,
+   "r_pt": 2.2,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "31XAI",
+    "que": "boca extrema de arriba del borne fusible (circulo gris con rectangulo)",
+    "centro_pt": [
+     801.5,
+     705.1
+    ]
+   },
+   "boca_pt": [
+    4.2,
+    4.6
+   ],
+   "mascara_png": "plantillas/boca_hesi_mascara.png"
+  },
+  "celda_rif0": {
+   "png": "plantillas/celda_rif0.png",
+   "ancla_px": [
+    20.0,
+    22.5
+   ],
+   "px_por_pt": 10,
+   "r_pt": 1.5,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "43KR",
+    "que": "modulo 1 (43KR1), celda de contacto mas externa (11): circulo grande de entrada",
+    "centro_pt": [
+     842.6,
+     704.65
+    ]
+   },
+   "boca_pt": [
+    3.2,
+    2.9
+   ],
+   "mascara_png": "plantillas/celda_rif0_mascara.png"
+  },
+  "tornillo_modular": {
+   "png": "plantillas/tornillo_modular.png",
+   "ancla_px": [
+    32.0,
+    31.0
+   ],
+   "px_por_pt": 10,
+   "r_pt": 2.5,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "11Q1",
+    "que": "polo izquierdo, tornillo de arriba (circulo de 12 lados, r 2.5)",
+    "centro_pt": [
+     649.7,
+     700.5
+    ]
+   },
+   "boca_pt": [
+    5.0,
+    5.2
+   ],
+   "mascara_png": "plantillas/tornillo_modular_mascara.png"
+  },
+  "tornillo_df101": {
+   "png": "plantillas/tornillo_df101.png",
+   "ancla_px": [
+    24.5,
+    24.0
+   ],
+   "px_por_pt": 10,
+   "r_pt": 1.95,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "12F1",
+    "que": "tornillo de arriba (circulo con ranura diagonal, r 1.9)",
+    "centro_pt": [
+     773.55,
+     697.3
+    ]
+   },
+   "boca_pt": [
+    3.9,
+    4.0
+   ],
+   "mascara_png": "plantillas/tornillo_df101_mascara.png"
+  },
+  "tornillo_meanwell": {
+   "png": "plantillas/tornillo_meanwell.png",
+   "ancla_px": [
+    25.0,
+    25.0
+   ],
+   "px_por_pt": 10,
+   "r_pt": 2.2,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "11PS1",
+    "que": "bornera TB2 (salida), pin 1: tornillo con cruz Phillips",
+    "centro_pt": [
+     613.0,
+     712.5
+    ]
+   },
+   "boca_pt": [
+    4.2,
+    4.2
+   ],
+   "mascara_png": "plantillas/tornillo_meanwell_mascara.png"
+  },
+  "tornillo_barrera": {
+   "png": "plantillas/tornillo_barrera.png",
+   "ancla_px": [
+    18.0,
+    18.5
+   ],
+   "px_por_pt": 10,
+   "r_pt": 1.5,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "31AIB1",
+    "que": "enchufe de arriba, tornillo izquierdo (media elipse cortada por la carcasa)",
+    "centro_pt": [
+     787.1,
+     567.05
+    ]
+   },
+   "boca_pt": [
+    3.0,
+    1.9
+   ],
+   "mascara_png": "plantillas/tornillo_barrera_mascara.png"
+  },
+  "esparrago_mega": {
+   "png": "plantillas/esparrago_mega.png",
+   "ancla_px": [
+    70.0,
+    71.0
+   ],
+   "px_por_pt": 10,
+   "r_pt": 5.0,
+   "tipo": "boca",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "12F2",
+    "que": "esparrago izquierdo del portafusible MEGA (circulos concentricos)",
+    "centro_pt": [
+     580.5,
+     304.9
+    ]
+   },
+   "boca_pt": [
+    4.0,
+    4.0
+   ],
+   "mascara_png": "plantillas/esparrago_mega_mascara.png"
+  },
+  "aparato_toma_iram": {
+   "png": "plantillas/aparato_toma_iram.png",
+   "ancla_px": [
+    124.5,
+    258.5
+   ],
+   "px_por_pt": 10,
+   "r_pt": 1.2,
+   "tipo": "aparato",
+   "origen": {
+    "plano": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+    "pagina": 8,
+    "tag": "11SK1",
+    "que": "toma IRAM de riel completo (el dibujo no trae tornillos). Anclas N, PE, L en la banda de abajo, a 0.29 / 0.50 / 0.71 del ancho: medido en la foto 'WhatsApp 2026-09-25 15.54.54' (base de 985 px, tornillos en 288 / 493 / 700 px)",
+    "centro_pt": [
+     748.75,
+     674.45
+    ]
+   },
+   "caja_pt": [
+    737.35,
+    649.65,
+    760.15,
+    699.25
+   ],
+   "y_banda_pt": 651.48,
+   "anclas_px": {
+    "N": [
+     77.08,
+     488.25
+    ],
+    "PE": [
+     124.5,
+     488.25
+    ],
+    "L": [
+     172.61,
+     488.25
+    ]
+   },
+   "anclas_pt": {
+    "N": [
+     744.01,
+     651.48
+    ],
+    "PE": [
+     748.75,
+     651.48
+    ],
+    "L": [
+     753.56,
+     651.48
+    ]
+   }
+  }
+ }
+}

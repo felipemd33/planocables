@@ -1,0 +1,23 @@
+{
+ "familia": "aparatos",
+ "correcciones": [
+  {
+   "texto": "13PS2 -Vo",
+   "cable": "1315",
+   "x": 550.73,
+   "y": 606.69,
+   "r": 1.22,
+   "confianza": "media",
+   "motivo": "DDR-120A-24 TB2 pin 1 (primer -Vo, tornillo de la izquierda, centro medido 550.72/606.69), no el pin 2. Funcional hoja 13: el simbolo ordena +Vo(1314) -Vo(1315) +Vo(1601) -Vo(1602); 1315 es el PRIMER -Vo y 1314 el primer +Vo, y llevando el n-esimo borne de cada nombre al n-esimo tornillo de ese nombre queda 1315->pin 1, 1602->pin 2, 1314->pin 3, 1601->pin 4. Fotos de las unidades mas nuevas: 'rev 7 1.0' (12F3 ya 2A, rev 7; el enchufe tiene la junta entre los pines 2 y 3 y la ferrula de 1315 cae sobre el pin 1, 1314 sobre el 3, pines 2 y 4 libres), 'WhatsApp 2026-07-20 at 11.31.09' y '11.31.08 (2)' (unidad 66817-1-22306, girada: 1315 en el tornillo del extremo del lado de 12F3 = pin 1, 1314 en el pin 3), 'WhatsApp 2026-06-26 at 13.15.49 (3)' (ferrulas a 2 pasos: pines 1 y 3) y 'auditora 1.jpeg' (1315 a 3 px del tornillo 1 y a 24 px del 2, a 2 pasos de 1314). La referencia citaba 'auditora 1' como apoyo del pin 2: es al reves. Solo las fotos viejas (05-29 13.27.31/13.27.45 y los pasos 06-23 1.0/4.0, antes de la rev 7) tienen 1315 en el pin 2."
+  },
+  {
+   "texto": "13PS2 -Vo",
+   "cable": "1602",
+   "x": 553.73,
+   "y": 606.69,
+   "r": 1.22,
+   "confianza": "media",
+   "motivo": "DDR-120A-24 TB2 pin 2 (segundo -Vo, x=553.72/y=606.69), no el pin 1. 1602 es el 0 V de la telemetria opcional (hoja 13, a trazos, y hoja 16); en la hoja 13 es el SEGUNDO -Vo del simbolo (+Vo 1314, -Vo 1315, +Vo 1601, -Vo 1602). En las unidades rev 7 ('rev 7 1.0', unidad 22306 del 2026-07-20, 06-26 13.15.49 (3), 'auditora 1') el pin 1 lo ocupa 1315 y el -Vo libre es el pin 2. Deducido, sin foto de 1602."
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+PRUEBA DE PLANO ESCANEADO - P5 vision por imagen
+El topografico se pasa a imagen, se ensucia como un escaneo y se guarda como PDF sin vectores; se corre mapear.py
+con la misma base y se evalua con evaluar.py (tolerancia 1.5 pt).
+
+300 dpi, ruido 8, JPEG 70 (usada para ajustar): imagen 4960x3508 px (4.17 px/pt), PDF de 1.4 MB
+   BIEN 139/140 = 99.3 %   con punto 140/140   error mediano 0.09 pt   tiempo 21.6 s
+      barreras          20/ 20   err medio 0.06 pt
+      borneras_riel2    35/ 35   err medio 0.13 pt
+      borneras_riel3    26/ 26   err medio 0.15 pt
+      fuentes           10/ 10   err medio 0.07 pt
+      protecciones      18/ 18   err medio 0.07 pt
+      reles             30/ 31   err medio 0.17 pt
+   falla: 43KR2 A2 ['1328'] 4.36 pt
+   modelos reconocidos: 11PS1: NDR-240-24, 11SK1: TOMA IRAM VIVION, 11Q2: EZ9F34210, 11Q1: EZ9R36225, 12F2: MEGA, 12XP: PT 6-QUATTRO, 13F3: DF101, 13XC1: PT 6-QUATTRO, 12F1: DF101, 81XCM: PTT 2,5-2MT, 13PS3: DDR-120A-24, 13X24: PT 6-QUATTRO, 31AIB1: GS8536-EX, 43DIB1: GS8512-EX.22, 43DIB2: GS8512-EX.22, 62XDIO: PT 2,5-DIO/L-R, 31XAI: PTTB 4-HESI (5X20), 43KR: RIF-0-RPT-DC/21, 62XDO: PTT 2,5, 62KR: RIF-0-RPT-DC/21, 46KR: RIF-0-RPT-DC/21, 31XEX: PTT 2,5-2MT, 43XCS: PTT 2,5-2MT, 43XDI: PTT 2,5-2MT, 46XC: PTT 2,5-2MT
+
+200 dpi, ruido 8, JPEG 70 (usada para ajustar): imagen 3307x2339 px (2.78 px/pt), PDF de 0.8 MB
+   BIEN 139/140 = 99.3 %   con punto 140/140   error mediano 0.11 pt   tiempo 23.2 s
+      barreras          20/ 20   err medio 0.12 pt
+      borneras_riel2    35/ 35   err medio 0.12 pt
+      borneras_riel3    26/ 26   err medio 0.17 pt
+      fuentes           10/ 10   err medio 0.09 pt
+      protecciones      18/ 18   err medio 0.07 pt
+      reles             30/ 31   err medio 0.18 pt
+   falla: 43KR2 A2 ['1328'] 4.32 pt
+   modelos reconocidos: 11PS1: NDR-240-24, 11SK1: TOMA IRAM VIVION, 11Q2: EZ9F34210, 11Q1: EZ9R36225, 12F2: MEGA, 12XP: PT 6-QUATTRO, 13F3: DF101, 13XC1: PT 6-QUATTRO, 12F1: DF101, 81XCM: PTT 2,5-2MT, 13PS3: DDR-120A-24, 13X24: PT 6-QUATTRO, 31AIB1: GS8536-EX, 43DIB1: GS8512-EX.22, 43DIB2: GS8512-EX.22, 62XDIO: PT 2,5-DIO/L-R, 31XAI: PTTB 4-HESI (5X20), 43KR: RIF-0-RPT-DC/21, 62XDO: PTT 2,5, 62KR: RIF-0-RPT-DC/21, 46KR: RIF-0-RPT-DC/21, 31XEX: PTT 2,5-2MT, 43XCS: PTT 2,5-2MT, 43XDI: PTT 2,5-2MT, 46XC: PTT 2,5-2MT
+
+250 dpi, ruido 14, JPEG 50 (no usada para ajustar): imagen 4133x2923 px (3.47 px/pt), PDF de 0.9 MB
+   BIEN 139/140 = 99.3 %   con punto 140/140   error mediano 0.09 pt   tiempo 22.6 s
+      barreras          20/ 20   err medio 0.1 pt
+      borneras_riel2    35/ 35   err medio 0.13 pt
+      borneras_riel3    26/ 26   err medio 0.15 pt
+      fuentes           10/ 10   err medio 0.08 pt
+      protecciones      18/ 18   err medio 0.07 pt
+      reles             30/ 31   err medio 0.18 pt
+   falla: 43KR2 A2 ['1328'] 4.35 pt
+   modelos reconocidos: 11PS1: NDR-240-24, 11SK1: TOMA IRAM VIVION, 11Q2: EZ9F34210, 11Q1: EZ9R36225, 12F2: MEGA, 12XP: PT 6-QUATTRO, 13F3: DF101, 13XC1: PT 6-QUATTRO, 12F1: DF101, 81XCM: PTT 2,5-2MT, 13PS3: DDR-120A-24, 13X24: PT 6-QUATTRO, 31AIB1: GS8536-EX, 43DIB1: GS8512-EX.22, 43DIB2: GS8512-EX.22, 62XDIO: PT 2,5-DIO/L-R, 31XAI: PTTB 4-HESI (5X20), 43KR: RIF-0-RPT-DC/21, 62XDO: PTT 2,5, 62KR: RIF-0-RPT-DC/21, 46KR: RIF-0-RPT-DC/21, 31XEX: PTT 2,5-2MT, 43XCS: PTT 2,5-2MT, 43XDI: PTT 2,5-2MT, 46XC: PTT 2,5-2MT
+
+150 dpi, ruido 8, JPEG 70 (no usada para ajustar): imagen 2480x1754 px (2.08 px/pt), PDF de 0.5 MB
+   BIEN 110/140 = 78.6 %   con punto 111/140   error mediano 0.1 pt   tiempo 23.5 s
+      barreras           7/ 20   err medio 0.19 pt
+      borneras_riel2    35/ 35   err medio 0.13 pt
+      borneras_riel3    14/ 26   err medio 0.15 pt
+      fuentes           10/ 10   err medio 0.12 pt
+      protecciones      14/ 18   err medio 0.03 pt
+      reles             30/ 31   err medio 0.18 pt
+   falla: 31XAI 1 ARRIBA ['2142'] SIN PUNTO
+   falla: 31XAI F1 ARRIBA ['1324'] SIN PUNTO
+   falla: 31XAI F1 ABAJO ['3141'] SIN PUNTO
+   falla: 31XAI 1 ABAJO ['3142'] SIN PUNTO
+   falla: 43KR2 A2 ['1328'] 4.32 pt
+   falla: 31XEX 1 ARRIBA ['3104'] SIN PUNTO
+   falla: 31XEX 2 ARRIBA ['3105'] SIN PUNTO
+   falla: 31XEX 3 ARRIBA ['3138'] SIN PUNTO
+   falla: 31XEX 4 ARRIBA ['3139'] SIN PUNTO
+   falla: 43XDI 1 ARRIBA ['4301'] SIN PUNTO
+   falla: 43XDI 2 ARRIBA ['4302'] SIN PUNTO
+   falla: 43XDI 3 ARRIBA ['4303'] SIN PUNTO
+   falla: 43XDI 4 ARRIBA ['4304'] SIN PUNTO
+   falla: 43XDI 5 ARRIBA ['4341'] SIN PUNTO
+   falla: 43XDI 6 ARRIBA ['4342'] SIN PUNTO
+   falla: 43XDI 7 ARRIBA ['4343'] SIN PUNTO
+   falla: 43XDI 8 ARRIBA ['4344'] SIN PUNTO
+   falla: 43DIB1 7 ['4303'] SIN PUNTO
+   falla: 43DIB1 8 ['4304'] SIN PUNTO
+   falla: 43DIB1 9 ['4301'] SIN PUNTO
+   falla: 43DIB1 10 ['4302'] SIN PUNTO
+   falla: 43DIB2 1 ABAJO ['1312'] SIN PUNTO
+   falla: 43DIB2 2 ABAJO ['1313'] SIN PUNTO
+   falla: 43DIB2 3 ['1319'] SIN PUNTO
+   falla: 43DIB2 5 ['2120'] SIN PUNTO
+   falla: 43DIB2 6 ['2121'] SIN PUNTO
+   falla: 43DIB2 7 ['4343'] SIN PUNTO
+   falla: 43DIB2 8 ['4344'] SIN PUNTO
+   falla: 43DIB2 9 ['4341'] SIN PUNTO
+   falla: 43DIB2 10 ['4342'] SIN PUNTO
+   modelos reconocidos: 11PS1: NDR-240-24, 11SK1: TOMA IRAM VIVION, 11Q2: EZ9F34210, 11Q1: EZ9R36225, 12F2: MEGA, 12XP: PT 6-QUATTRO, 13F3: DF101, 13XC1: PT 6-QUATTRO, 12F1: DF101, 81XCM: PTT 2,5-2MT, 13PS3: DDR-120A-24, 13X24: PT 6-QUATTRO, 31AIB1: GS8536-EX, 43DIB1: GS8512-EX.22, 43DIB2: -, 62XDIO: PT 2,5-DIO/L-R, 31XAI: -, 43KR: RIF-0-RPT-DC/21, 62XDO: PTT 2,5, 62KR: RIF-0-RPT-DC/21, 46KR: RIF-0-RPT-DC/21, 31XEX: GS8512-EX.22, 43XCS: PTT 2,5-2MT, 43XDI: -, 46XC: PTT 2,5-2MT
+

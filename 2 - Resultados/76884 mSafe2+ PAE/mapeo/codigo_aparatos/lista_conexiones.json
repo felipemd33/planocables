@@ -1,0 +1,1557 @@
+{
+ "fuente": "paginas PDF 47-50 (Lista de conexiones), leida por celdas con pypdfium2; cable None = fila sin numero",
+ "conexiones": [
+  {
+   "cable": "1101",
+   "d1": "-11XPVAC:1:1",
+   "d2": "-11MS1",
+   "color": "Marrón",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1102",
+   "d1": "-11XPVAC:2:1",
+   "d2": "-11MS1",
+   "color": "Celeste",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": null,
+   "d1": "-11XPVAC:3:4",
+   "d2": "-11SK1:PE",
+   "color": "Verde/amarillo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1181",
+   "d1": "-11SK1:L",
+   "d2": "-11X220V:1:4",
+   "color": "Marrón",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1158",
+   "d1": "-11Q2:2",
+   "d2": "-11X220V:1:3",
+   "color": "Marrón",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1156",
+   "d1": "-11Q1:2",
+   "d2": "-11Q2:1",
+   "color": "Marrón",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1154",
+   "d1": "-11MS1",
+   "d2": "-11Q1:1",
+   "color": "Marrón",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1157",
+   "d1": "-11Q1:N'",
+   "d2": "-11Q2:3",
+   "color": "Celeste",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1155",
+   "d1": "-11MS1",
+   "d2": "-11Q1:N",
+   "color": "Celeste",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1182",
+   "d1": "-11SK1:N",
+   "d2": "-11X220V:2:4",
+   "color": "Celeste",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1159",
+   "d1": "-11Q2:4",
+   "d2": "-11X220V:2:3",
+   "color": "Celeste",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1184",
+   "d1": "-11X220V:2:2",
+   "d2": "-11PS2:TB1:2",
+   "color": "Celeste",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1186",
+   "d1": "-11X220V:2:1",
+   "d2": "-11PS1:TB1:2",
+   "color": "Celeste",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1183",
+   "d1": "-11X220V:1:2",
+   "d2": "-11PS2:TB1:3",
+   "color": "Marrón",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1185",
+   "d1": "-11X220V:1:1",
+   "d2": "-11PS1:TB1:3",
+   "color": "Marrón",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1161",
+   "d1": "-11PS1:TB2:1",
+   "d2": "-12XPS:4:2",
+   "color": "Negro",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": null,
+   "d1": "-XPE:1:4",
+   "d2": "-11PS1:TB1:1",
+   "color": "Verde/amarillo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1162",
+   "d1": "-11F1:2",
+   "d2": "-12XPS:3:2",
+   "color": "Rojo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1160",
+   "d1": "-11PS1:TB2:3",
+   "d2": "-11F1:1",
+   "color": "Rojo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1171",
+   "d1": "-11PS2:TB2:1",
+   "d2": "-15XR:2:1",
+   "color": "Negro",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": null,
+   "d1": "-XPE:2:4",
+   "d2": "-11PS2:TB1:1",
+   "color": "Verde/amarillo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1172",
+   "d1": "-11F2:2",
+   "d2": "-15XR:1:2",
+   "color": "Rojo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1170",
+   "d1": "-11PS2:TB2:3",
+   "d2": "-11F2:1",
+   "color": "Rojo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1208",
+   "d1": "-BH_01_ZV:2",
+   "d2": "-BH-01-M:1",
+   "color": "Rojo",
+   "seccion": "35",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1209",
+   "d1": "-12F2:2",
+   "d2": "-BH_01_ZV:1",
+   "color": "Rojo",
+   "seccion": "35",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1211",
+   "d1": "-12F2:1",
+   "d2": "-12PB1:(+)",
+   "color": "Rojo",
+   "seccion": "35",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1218",
+   "d1": "-BH-01-M:2",
+   "d2": "-12PB1:(-)",
+   "color": "Negro",
+   "seccion": "35",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1218",
+   "d1": "-BH-01-M:2",
+   "d2": "-BH_01_ZV:A2",
+   "color": "Azul",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1206",
+   "d1": "-12PB1:-",
+   "d2": "-12XPS:6:2",
+   "color": "Negro",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1202",
+   "d1": "-12PB1:+",
+   "d2": "-12F3:2",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1221",
+   "d1": "-12PS1:+Pan",
+   "d2": "-12XPS:3:1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1222",
+   "d1": "-12PS1:-Pan",
+   "d2": "-12XPS:4:1",
+   "color": "Negro",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1201",
+   "d1": "-12XPS:5:2",
+   "d2": "-12F3:1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1223",
+   "d1": "-12PS1:+Bat",
+   "d2": "-12XPS:5:1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1224",
+   "d1": "-12PS1:-Bat",
+   "d2": "-12XPS:6:1",
+   "color": "Negro",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1232",
+   "d1": "-12XPS:7:2",
+   "d2": "-13F5:1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1230",
+   "d1": "-12XPS:8:2",
+   "d2": "-13F4:1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1225",
+   "d1": "-12PS1:+Car",
+   "d2": "-12XPS:8:1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1231",
+   "d1": "-12XPS:9:2",
+   "d2": "-12XP:1:1",
+   "color": "Negro",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1226",
+   "d1": "-12PS1:-Car",
+   "d2": "-12XPS:9:1",
+   "color": "Negro",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1254",
+   "d1": "-12XP:1:4",
+   "d2": "-21PCB01:49",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1234",
+   "d1": "-12XP:1:3",
+   "d2": "-13PS1:-Vin",
+   "color": "Negro",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1235",
+   "d1": "-12XP:1:2",
+   "d2": "-13PS1:(-Vo)",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1268",
+   "d1": "-12XP:2:4",
+   "d2": "-61X0V:1:1",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1264",
+   "d1": "-12XP:2:3",
+   "d2": "-61XDIO:1",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": null,
+   "d1": "-12PS1:A",
+   "d2": "-12XPS:10:1",
+   "color": "Blanco",
+   "seccion": "0,32",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": null,
+   "d1": "-12PS1:B",
+   "d2": "-12XPS:11:1",
+   "color": "Amarillo",
+   "seccion": "0,32",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": null,
+   "d1": "-12PS1:GND",
+   "d2": "-12XPS:12:1",
+   "color": "Negro",
+   "seccion": "0,32",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": null,
+   "d1": "-12PS1:VCC",
+   "d2": "-12XPS:13:1",
+   "color": "Rojo",
+   "seccion": "0,32",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1303",
+   "d1": "-13MS1:2/T1",
+   "d2": "-13X12V:1:1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1301",
+   "d1": "-13F4:2",
+   "d2": "-13MS1:1/L1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1304",
+   "d1": "-13MS1:4/T2",
+   "d2": "-13X12V:2:1",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1302",
+   "d1": "-13MS1:3/L2",
+   "d2": "-13F5:2",
+   "color": "Rojo",
+   "seccion": "6",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1373",
+   "d1": "-13PS1:+Vin",
+   "d2": "-13X12V:1:4",
+   "color": "Rojo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1350",
+   "d1": "-13X24V:2:1",
+   "d2": "-32XAI:F1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1391",
+   "d1": "-13X24V:1:1",
+   "d2": "-42XC:F1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1339",
+   "d1": "-13X24V:2:2",
+   "d2": "-X1:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1385",
+   "d1": "-13X24V:2:3",
+   "d2": "-42KS1:A1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": null,
+   "d1": "-XPE:1:1",
+   "d2": "-13PS1:PE",
+   "color": "Verde/amarillo",
+   "seccion": "2,5",
+   "pagina_pdf": 47
+  },
+  {
+   "cable": "1370",
+   "d1": "-13X24V:2:4",
+   "d2": "-15AIB1:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1370",
+   "d1": "-15AIB1:1",
+   "d2": "-15DIB1:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1370",
+   "d1": "-15DIB1:1",
+   "d2": "-15DIB2:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1370",
+   "d1": "-15DIB2:1",
+   "d2": "-15DIB3:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1311",
+   "d1": "-13X24V:1:4",
+   "d2": "-13F6:2",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1310",
+   "d1": "-13PS1:+Vo",
+   "d2": "-13F6:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1363",
+   "d1": "-13X12V:1:3",
+   "d2": "-61KR1:11",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1353",
+   "d1": "-13X12V:1:2",
+   "d2": "-21PCB01:48",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1312",
+   "d1": "-13PS1:-Vo",
+   "d2": "-13X24V:3:1",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1396",
+   "d1": "-13X12V:2:4",
+   "d2": "-42KS1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1395",
+   "d1": "-13X12V:2:3",
+   "d2": "-42KS1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1394",
+   "d1": "-13X12V:2:2",
+   "d2": "-42KS1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1361",
+   "d1": "-13X24V:4:1",
+   "d2": "-15AIB1:2",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1361",
+   "d1": "-15AIB1:2",
+   "d2": "-15DIB1:2",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1361",
+   "d1": "-15DIB1:2",
+   "d2": "-15DIB2:2",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1361",
+   "d1": "-15DIB2:2",
+   "d2": "-15DIB3:2",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1386",
+   "d1": "-13X24V:4:2",
+   "d2": "-42KS1:A2",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1340",
+   "d1": "-13X24V:4:3",
+   "d2": "-X1:1",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "1392",
+   "d1": "-13X24V:3:4",
+   "d2": "-42XC:1",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": null,
+   "d1": "-15XR:1:3",
+   "d2": "+Campo-ROTORK:1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 48
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-ROTORK:2",
+   "d2": "-15XR:2:4",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 48
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-ROTORK:PE",
+   "d2": "-15XR:3:4",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2139",
+   "d1": "-21PCB01:39",
+   "d2": "-15AIB1:3",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2140",
+   "d1": "-21PCB01:40",
+   "d2": "-15AIB1:4",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2105",
+   "d1": "-21PCB01:5",
+   "d2": "-15AIB1:6",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2142",
+   "d1": "-21PCB01:42",
+   "d2": "-32XAI:1",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2106",
+   "d1": "-21PCB01:6",
+   "d2": "-15AIB1:7",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2150",
+   "d1": "-21PCB01:50",
+   "d2": "-61KR1:A1+",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2114",
+   "d1": "-21PCB01:14",
+   "d2": "-42KS1",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2151",
+   "d1": "-21PCB01:51",
+   "d2": "-61KR1:A2-",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2115",
+   "d1": "-21PCB01:15",
+   "d2": "-42KS1",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2152",
+   "d1": "-21PCB01:52",
+   "d2": "-61KR2:A1+",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2116",
+   "d1": "-21PCB01:16",
+   "d2": "-15DIB1:5",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2153",
+   "d1": "-21PCB01:53",
+   "d2": "-61KR2:A2-",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2117",
+   "d1": "-21PCB01:17",
+   "d2": "-15DIB1:6",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2118",
+   "d1": "-21PCB01:18",
+   "d2": "-15DIB1:3",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2119",
+   "d1": "-21PCB01:19",
+   "d2": "-15DIB1:4",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2120",
+   "d1": "-21PCB01:20",
+   "d2": "-15DIB2:5",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2121",
+   "d1": "-21PCB01:21",
+   "d2": "-15DIB2:6",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2122",
+   "d1": "-21PCB01:22",
+   "d2": "-15DIB2:3",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2154",
+   "d1": "-21PCB01:54",
+   "d2": "-61KR3:A1+",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2123",
+   "d1": "-21PCB01:23",
+   "d2": "-15DIB2:4",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2155",
+   "d1": "-21PCB01:55",
+   "d2": "-61KR3:A2-",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2124",
+   "d1": "-21PCB01:24",
+   "d2": "-15DIB3:5",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2156",
+   "d1": "-21PCB01:56",
+   "d2": "-61KR4:A1+",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2125",
+   "d1": "-21PCB01:25",
+   "d2": "-15DIB3:6",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2157",
+   "d1": "-21PCB01:57",
+   "d2": "-61KR4:A2-",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2126",
+   "d1": "-21PCB01:26",
+   "d2": "-15DIB3:3",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2127",
+   "d1": "-21PCB01:27",
+   "d2": "-15DIB3:4",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2128",
+   "d1": "-21PCB01:28",
+   "d2": "-42DS:12",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2129",
+   "d1": "-21PCB01:29",
+   "d2": "-42DS:11",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2130",
+   "d1": "-21PCB01:30",
+   "d2": "-42DB1:11",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2131",
+   "d1": "-21PCB01:31",
+   "d2": "-42DB1:12",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2166",
+   "d1": "-21PCB01:66",
+   "d2": "-X1:1",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2135",
+   "d1": "-21PCB01:35",
+   "d2": "-12XPS:10",
+   "color": "Azul",
+   "seccion": "0,32",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2135",
+   "d1": "-12XPS:10",
+   "d2": "-81XCM:7:2",
+   "color": "AZUL",
+   "seccion": "0,32",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2167",
+   "d1": "-21PCB01:67",
+   "d2": "-X1:1",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2136",
+   "d1": "-21PCB01:36",
+   "d2": "-12XPS:11",
+   "color": "Blanco",
+   "seccion": "0,32",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": "2136",
+   "d1": "-12XPS:11",
+   "d2": "-81XCM:8:1",
+   "color": "Blanco",
+   "seccion": "0,32",
+   "pagina_pdf": 48
+  },
+  {
+   "cable": null,
+   "d1": "-21PCB01:37",
+   "d2": "A",
+   "color": "Apantallamiento",
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-32XEX:1:2",
+   "d2": "+Campo-PIT01F:x1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "3202",
+   "d1": "-15AIB1:9",
+   "d2": "-32XEX:1:3",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-32XEX:2:1",
+   "d2": "+Campo-PIT01F:x2",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "3203",
+   "d1": "-15AIB1:10",
+   "d2": "-32XEX:2:4",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "",
+   "d2": "-32XEX:5:4",
+   "color": "Verde/amarillo",
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "3205",
+   "d1": "-15AIB1:12",
+   "d2": "-32XEX:3:3",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "3206",
+   "d1": "-15AIB1:13",
+   "d2": "-32XEX:4:4",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "3221",
+   "d1": "-32XAI:F1",
+   "d2": "-PT001:x1",
+   "color": "Rojo",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "3222",
+   "d1": "-32XAI:1",
+   "d2": "-PT001:x2",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-IP_1_ZSO:14",
+   "d2": "-41XEX:2:1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-41XEX:1:2",
+   "d2": "+Campo-IP_1_ZSO:13",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4116",
+   "d1": "-15DIB1:7",
+   "d2": "-41XEX:1:3",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4117",
+   "d1": "-15DIB1:8",
+   "d2": "-41XEX:2:4",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-IP_1_ZSC:14",
+   "d2": "-41XEX:4:1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-41XEX:3:2",
+   "d2": "+Campo-IP_1_ZSC:13",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4118",
+   "d1": "-15DIB1:9",
+   "d2": "-41XEX:3:3",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4119",
+   "d1": "-15DIB1:10",
+   "d2": "-41XEX:4:4",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-IP_2_ZSO:14",
+   "d2": "-41XEX:6:1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-41XEX:5:2",
+   "d2": "+Campo-IP_2_ZSO:13",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4120",
+   "d1": "-15DIB2:7",
+   "d2": "-41XEX:5:3",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4121",
+   "d1": "-15DIB2:8",
+   "d2": "-41XEX:6:4",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-IP_2_ZSC:14",
+   "d2": "-41XEX:8:1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-41XEX:7:2",
+   "d2": "+Campo-IP_2_ZSC:13",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4122",
+   "d1": "-15DIB2:9",
+   "d2": "-41XEX:7:3",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4123",
+   "d1": "-15DIB2:10",
+   "d2": "-41XEX:8:4",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-IP_3_ZSO:14",
+   "d2": "-41XEX:10:1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-41XEX:9:2",
+   "d2": "+Campo-IP_3_ZSO:13",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4124",
+   "d1": "-15DIB3:7",
+   "d2": "-41XEX:9:3",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4125",
+   "d1": "-15DIB3:8",
+   "d2": "-41XEX:10:4",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-IP_3_ZSC:14",
+   "d2": "-41XEX:12:1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-41XEX:11:2",
+   "d2": "+Campo-IP_3_ZSC:13",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4126",
+   "d1": "-15DIB3:9",
+   "d2": "-41XEX:11:3",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4127",
+   "d1": "-15DIB3:10",
+   "d2": "-41XEX:12:4",
+   "color": "Azul",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-X1:2",
+   "d2": "-LS001A:1",
+   "color": "Marrón",
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-X1:2",
+   "d2": "-LS001A:2",
+   "color": "Azul",
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-X1:2",
+   "d2": "-LS001A:3",
+   "color": "Negro",
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-X1:2",
+   "d2": "-LS001A:4",
+   "color": "Amarillo",
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4221",
+   "d1": "-42KS1:S33",
+   "d2": "-42KS1:S34",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4212",
+   "d1": "-42KR1:14",
+   "d2": "-42DB1:2",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4231",
+   "d1": "-42KR1:11",
+   "d2": "-42XC:3:3",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4211",
+   "d1": "-42KS1:S11",
+   "d2": "-42DB1:1",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4213",
+   "d1": "-42KS1:S12",
+   "d2": "-42XC:4:4",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4232",
+   "d1": "-42XC:5:3",
+   "d2": "-42KR1:A1",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4233",
+   "d1": "-42KR1:A2",
+   "d2": "-42XC:6:4",
+   "color": "Negro",
+   "seccion": "0,75",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4294",
+   "d1": "-42KS1",
+   "d2": "-61KR2:11",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4295",
+   "d1": "-42KS1",
+   "d2": "-61KR3:11",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "4296",
+   "d1": "-42KS1",
+   "d2": "-61KR4:11",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6174",
+   "d1": "-61XDIO:4",
+   "d2": "-61XDO:4:2",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6173",
+   "d1": "-61XDIO:3",
+   "d2": "-61XDO:3:2",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6172",
+   "d1": "-61XDIO:2",
+   "d2": "-61XDO:2:2",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6171",
+   "d1": "-61XDIO:1",
+   "d2": "-61XDO:1:2",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-61KR1",
+   "d2": "-61KR1",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6151",
+   "d1": "-BH_01_ZV:A1",
+   "d2": "-61XDO:1:4",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6141",
+   "d1": "-61KR1:14",
+   "d2": "-61XDO:1:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6162",
+   "d1": "-61X0V:1:4",
+   "d2": "-SP_1:x2",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6163",
+   "d1": "-61X0V:2:3",
+   "d2": "-SP_2:x2",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6164",
+   "d1": "-61X0V:2:4",
+   "d2": "-SP_3:x2",
+   "color": "Negro",
+   "seccion": "1",
+   "pagina_pdf": 49
+  },
+  {
+   "cable": null,
+   "d1": "-61KR2",
+   "d2": "-61KR2",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 49
+  },
+  {
+   "cable": "6152",
+   "d1": "-SP_1:x1",
+   "d2": "-61XDO:2:4",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "6142",
+   "d1": "-61KR2:14",
+   "d2": "-61XDO:2:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": null,
+   "d1": "-61KR3",
+   "d2": "-61KR3",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "6153",
+   "d1": "-SP_2:x1",
+   "d2": "-61XDO:3:4",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "6143",
+   "d1": "-61KR3:14",
+   "d2": "-61XDO:3:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": null,
+   "d1": "-61KR4",
+   "d2": "-61KR4",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "6154",
+   "d1": "-SP_3:x1",
+   "d2": "-61XDO:4:4",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "6144",
+   "d1": "-61KR4:14",
+   "d2": "-61XDO:4:1",
+   "color": "Rojo",
+   "seccion": "1",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": null,
+   "d1": "",
+   "d2": "-81XCM:9:2",
+   "color": "Verde/amarillo",
+   "seccion": null,
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "2133",
+   "d1": "-21PCB01:33",
+   "d2": "-81XCM:6:1",
+   "color": "Blanco",
+   "seccion": "0,32",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "2133",
+   "d1": "-21PCB01:33",
+   "d2": "-81XCM:2:1",
+   "color": "Blanco",
+   "seccion": "0,32",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "2132",
+   "d1": "-21PCB01:32",
+   "d2": "-81XCM:5:2",
+   "color": "Azul",
+   "seccion": "0,32",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": "2132",
+   "d1": "-21PCB01:32",
+   "d2": "-81XCM:1:2",
+   "color": "Azul",
+   "seccion": "0,32",
+   "pagina_pdf": 50
+  },
+  {
+   "cable": null,
+   "d1": "-21PCB01:34",
+   "d2": "-81XCM:4:1",
+   "color": "Apantallamiento",
+   "seccion": null,
+   "pagina_pdf": 50
+  },
+  {
+   "cable": null,
+   "d1": "-21PCB01:34",
+   "d2": "-81XCM:3:2",
+   "color": "Apantallamiento",
+   "seccion": null,
+   "pagina_pdf": 50
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-R2:x2",
+   "d2": "+Campo-ROTORK:28",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 50
+  },
+  {
+   "cable": null,
+   "d1": "+Campo-R2:x1",
+   "d2": "+Campo-ROTORK:27",
+   "color": null,
+   "seccion": null,
+   "pagina_pdf": 50
+  }
+ ]
+}

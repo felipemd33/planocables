@@ -1,0 +1,18 @@
+Salida: salida/prueba_sin_detalle/bornes.json
+Tiempo: 9.2 s
+BIEN (<= 1.5 pt ~ 2 mm): 137/140 = 97.9 %   |   con punto: 140/140   |   error mediano: 0.04 pt
+
+familia            bien  con punto  total  err medio pt
+barreras             20         20     20          0.03
+borneras_riel2       33         35     35           2.3
+borneras_riel3       26         26     26          0.09
+fuentes              10         10     10          0.04
+protecciones         18         18     18          0.06
+reles                30         31     31          0.14
+
+Fallas (sin punto o a mas de 1.5 pt):
+  reles           43KR2 A2               1328       4.33 pt
+  borneras_riel2  62XDIO 3 ABAJO         6204       40.08 pt
+  borneras_riel2  62XDIO 3 ARRIBA        6203       37.87 pt
+
+No evaluados (referencia dudosa): 31XAI 1 ARRIBA ['3141'], 31XAI 2 ARRIBA ['3142'], 12F2 ['1204'], 12F2 ['1216'], 62XDO ARRIBA ['6202']

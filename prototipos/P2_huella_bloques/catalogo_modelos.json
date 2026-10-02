@@ -1,0 +1,466 @@
+{
+ "descripcion": "Catalogo de modelos de la base de bornes (P2, huellas de bloques). Lo escribe una persona: para cada modelo dice COMO SE LLAMAN sus bornes (esquema del instructivo) y con que textos aparece en la lista de materiales. La GEOMETRIA (huella del bloque y posicion de cada borne) no se escribe a mano: la aprende aprender.py de un plano verificado. 'planos_verificados' dice de que plano y de que tags se aprende cada modelo.",
+ "modelos": {
+  "MW_NDR_240": {
+   "nombre": "MEAN WELL NDR-240-24 (fuente de riel DIN, 240 W)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "pin",
+   "patrones": [
+    "NDR-240"
+   ],
+   "pines": {
+    "TB2_1": {
+     "num": 1,
+     "nombres": [
+      "-V",
+      "-",
+      "V-",
+      "VOUT-"
+     ]
+    },
+    "TB2_2": {
+     "num": 2,
+     "nombres": [
+      "-V",
+      "-",
+      "V-",
+      "VOUT-"
+     ]
+    },
+    "TB2_3": {
+     "num": 3,
+     "nombres": [
+      "+V",
+      "+",
+      "V+",
+      "VOUT+"
+     ]
+    },
+    "TB2_4": {
+     "num": 4,
+     "nombres": [
+      "+V",
+      "+",
+      "V+",
+      "VOUT+"
+     ]
+    },
+    "TB1_1": {
+     "num": 1,
+     "nombres": [
+      "FG",
+      "PE",
+      "T",
+      "⏚"
+     ]
+    },
+    "TB1_2": {
+     "num": 2,
+     "nombres": [
+      "N",
+      "AC/N"
+     ]
+    },
+    "TB1_3": {
+     "num": 3,
+     "nombres": [
+      "L",
+      "AC/L"
+     ]
+    }
+   },
+   "fuente": "Hoja de datos NDR-240 (Terminal Pin No. Assignment): TB2 salida arriba 1,2=-V 3,4=+V; TB1 entrada abajo 1=FG 2=N 3=L, numerados de izquierda a derecha.",
+   "filas": [
+    {
+     "claves": [
+      "TB2_1",
+      "TB2_2",
+      "TB2_3",
+      "TB2_4"
+     ],
+     "eje": "x"
+    },
+    {
+     "claves": [
+      "TB1_1",
+      "TB1_2",
+      "TB1_3"
+     ],
+     "eje": "x"
+    }
+   ]
+  },
+  "MW_DDR_120": {
+   "nombre": "MEAN WELL DDR-120A-24 (conversor DC/DC de riel DIN)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "pin",
+   "patrones": [
+    "DDR-120"
+   ],
+   "pines": {
+    "TB2_1": {
+     "num": 1,
+     "nombres": [
+      "-VO",
+      "-V",
+      "-"
+     ]
+    },
+    "TB2_2": {
+     "num": 2,
+     "nombres": [
+      "-VO",
+      "-V",
+      "-"
+     ]
+    },
+    "TB2_3": {
+     "num": 3,
+     "nombres": [
+      "+VO",
+      "+V",
+      "+"
+     ]
+    },
+    "TB2_4": {
+     "num": 4,
+     "nombres": [
+      "+VO",
+      "+V",
+      "+"
+     ]
+    },
+    "TB1_1": {
+     "num": 1,
+     "nombres": [
+      "FG",
+      "PE",
+      "⏚"
+     ]
+    },
+    "TB1_2": {
+     "num": 2,
+     "nombres": [
+      "-VIN"
+     ]
+    },
+    "TB1_3": {
+     "num": 3,
+     "nombres": [
+      "+VIN"
+     ]
+    }
+   },
+   "fuente": "Hoja de datos DDR-120: TB2 salida arriba 1,2=-Vo 3,4=+Vo; TB1 entrada abajo 1=FG 2=-Vin 3=+Vin.",
+   "filas": [
+    {
+     "claves": [
+      "TB2_1",
+      "TB2_2",
+      "TB2_3",
+      "TB2_4"
+     ],
+     "eje": "x"
+    },
+    {
+     "claves": [
+      "TB1_1",
+      "TB1_2",
+      "TB1_3"
+     ],
+     "eje": "x"
+    }
+   ]
+  },
+  "TOMA_IRAM_RIEL": {
+   "nombre": "Tomacorriente IRAM 10 A de riel DIN (VIVION)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "borne",
+   "patrones": [
+    "IRAM",
+    "TOMA ?CORRIENTE"
+   ],
+   "bornes": [
+    "N",
+    "PE",
+    "L"
+   ],
+   "fuente": "Foto del aparato: los tres bornes N-PE-L estan ABAJO. El ARRIBA/ABAJO del texto del instructivo sale del simbolo del esquema y no se usa.",
+   "derivados": [
+    {
+     "clave": "PE",
+     "origen": "N",
+     "vector": [
+      "N",
+      "L"
+     ],
+     "t": 0.5,
+     "fuente": "foto: N-PE-L de izquierda a derecha, PE en el medio"
+    }
+   ]
+  },
+  "DIF_2P_EASY9": {
+   "nombre": "Disyuntor diferencial 2P Schneider Easy9 (EZ9R36225)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "polos",
+   "patrones": [
+    "DIFERENCIAL",
+    "EZ9R"
+   ],
+   "polos": [
+    "N",
+    "F"
+   ],
+   "fuente": "se.com EZ9R36225: N impresa a la izquierda. Cada polo tiene un tornillo arriba y otro abajo.",
+   "filas": [
+    {
+     "claves": [
+      "polo1_ARRIBA",
+      "polo2_ARRIBA"
+     ],
+     "eje": "x"
+    },
+    {
+     "claves": [
+      "polo1_ABAJO",
+      "polo2_ABAJO"
+     ],
+     "eje": "x"
+    }
+   ]
+  },
+  "TERMOMAG_2P": {
+   "nombre": "Termomagnetica 2P (funcional: Schneider EZ9F34210; montada: ABB S202 C10)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "polos",
+   "patrones": [
+    "TERMOMAGN",
+    "EZ9F",
+    "S20[0-9]"
+   ],
+   "polos": [
+    "F",
+    "N"
+   ],
+   "fuente": "Fotos del tablero 75286-1: F a la izquierda, N a la derecha.",
+   "filas": [
+    {
+     "claves": [
+      "polo1_ARRIBA",
+      "polo2_ARRIBA"
+     ],
+     "eje": "x"
+    },
+    {
+     "claves": [
+      "polo1_ABAJO",
+      "polo2_ABAJO"
+     ],
+     "eje": "x"
+    }
+   ]
+  },
+  "DF101": {
+   "nombre": "Portafusible Schneider DF101 10x38 (1 polo)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "lado",
+   "patrones": [
+    "DF101"
+   ],
+   "fuente": "Un tornillo arriba y otro abajo."
+  },
+  "BASE_MEGA": {
+   "nombre": "Base para fusible tipo MEGA (esparragos)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "lado",
+   "patrones": [
+    "MEGA"
+   ],
+   "fuente": "Dos esparragos. El ARRIBA/ABAJO del instructivo sale del esquema (ARRIBA = esparrago del lado de la carga, ABAJO = el de la bateria), no de la posicion fisica."
+  },
+  "PTTB_HESI": {
+   "nombre": "PHOENIX PTTB 4-HESI (5X20): borne fusible de doble piso push-in",
+   "tipo": "pieza",
+   "esquema": "fusible_doble_piso",
+   "patrones": [
+    "HESI",
+    "BORNE FUSIBLE"
+   ],
+   "fuente": "Borne N = piso de abajo (entrada del extremo); FN = piso del fusible (entrada interior). ARRIBA/ABAJO = mitad fisica."
+  },
+  "RIF0": {
+   "nombre": "PHOENIX RIF-0-RPT-xxDC/21 (rele enchufable, un modulo por rele)",
+   "tipo": "modulo",
+   "esquema": "modulos",
+   "patrones": [
+    "RIF-0"
+   ],
+   "contactos": [
+    "11",
+    "14",
+    "12",
+    "A1",
+    "A2"
+   ],
+   "fuente": "Numeros moldeados en la carcasa (fotos 1.2, 1.3, 1.6): contactos 11/14/12 de un lado, bobina A1/A2 del otro. Del lado de los contactos hay 3 celdas: 11 la mas externa, 14 la del medio, 12 la interior; del lado de la bobina A1 la interior y A2 la externa.",
+   "filas": [
+    {
+     "claves": [
+      "11",
+      "14",
+      "12"
+     ],
+     "eje": "y",
+     "mitad": "arriba"
+    }
+   ]
+  },
+  "PT6_QUATTRO": {
+   "nombre": "PHOENIX PT 6-QUATTRO (borne de paso, 4 puntos push-in)",
+   "tipo": "pieza",
+   "esquema": "cuatro_puntos",
+   "patrones": [
+    "PT ?6.?QUATTRO"
+   ],
+   "fuente": "Regla del taller: N.p, puntos 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo)."
+  },
+  "PT25_DIO": {
+   "nombre": "PHOENIX PT 2,5-DIO/L-R (borne con diodo)",
+   "tipo": "pieza",
+   "esquema": "pieza_lado",
+   "patrones": [
+    "PT ?2,5-DIO"
+   ],
+   "fuente": "N ARRIBA = anodo, N ABAJO = catodo (izquierda/derecha del funcional). El lado fisico sale del dibujo (se aprende del plano verificado)."
+  },
+  "PTT25_SIMB62": {
+   "nombre": "PHOENIX PTT 2,5 de doble piso dibujado con el simbolo de 6,2 mm (el mismo dibujo que el PE, pero negro)",
+   "tipo": "pieza",
+   "esquema": "doble_piso",
+   "patrones": [
+    "PTT ?2,5"
+   ],
+   "fuente": "Regla del taller: pieza = ceil(N/2); N impar = entrada del extremo; N par = entrada interior."
+  },
+  "PTT25_2MT_GRIS": {
+   "nombre": "PHOENIX PTT 2,5-2MT gris (doble piso seccionable)",
+   "tipo": "pieza",
+   "esquema": "doble_piso",
+   "patrones": [
+    "PTT ?2,5"
+   ],
+   "fuente": "Regla del taller: pieza = ceil(N/2); N impar = entrada del extremo; N par = entrada interior."
+  },
+  "PTT25_2MT_BU": {
+   "nombre": "PHOENIX PTT 2,5-2MT BU azul (doble piso seccionable, intrinseco)",
+   "tipo": "pieza",
+   "esquema": "doble_piso",
+   "patrones": [
+    "PTT ?2,5.*BU"
+   ],
+   "fuente": "Mismo dibujo que el gris, en azul."
+  },
+  "GS8512": {
+   "nombre": "CHENZHU GS8512-EX.22 (barrera de entrada digital)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "borne",
+   "patrones": [
+    "GS8512"
+   ],
+   "bornes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10"
+   ],
+   "fuente": "Manual CZ.GS8512-EX: 1(+) 2(-) alimentacion, 3-4 y 5-6 reles, 7-8 y 9-10 entradas IS. Numero impar a la izquierda. El ARRIBA/ABAJO del texto sale del funcional y no se usa.",
+   "derivados": [
+    {
+     "clave": "4",
+     "origen": "3",
+     "vector": [
+      "1",
+      "2"
+     ],
+     "t": 1.0,
+     "fuente": "hoja de datos: en cada enchufe el impar a la izquierda, mismo paso"
+    }
+   ]
+  },
+  "GS8536": {
+   "nombre": "CHENZHU GS8536-EX (barrera de entrada analogica)",
+   "tipo": "aparato",
+   "esquema": "aparato",
+   "clave": "borne",
+   "patrones": [
+    "GS8536"
+   ],
+   "bornes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14"
+   ],
+   "fuente": "El numero es el impreso en el enchufe. El ARRIBA/ABAJO del texto sale del funcional y no se usa."
+  }
+ },
+ "planos_verificados": [
+  {
+   "nombre": "75441 REV.6 (CJ. CONTROLADOR mSafe2, tablero 75286-1)",
+   "topografico": "C:/Buscar Termos en plano/prototipos/_referencia/topografico.pdf",
+   "usos": "C:/Buscar Termos en plano/prototipos/_referencia/usos_por_componente.json",
+   "referencia": "C:/Buscar Termos en plano/prototipos/_referencia/bornes_referencia.json",
+   "tags": {
+    "11PS1": "MW_NDR_240",
+    "13PS3": "MW_DDR_120",
+    "11SK1": "TOMA_IRAM_RIEL",
+    "11Q1": "DIF_2P_EASY9",
+    "11Q2": "TERMOMAG_2P",
+    "12F1": "DF101",
+    "13F3": "DF101",
+    "12F2": "BASE_MEGA",
+    "31XAI": "PTTB_HESI",
+    "43KR": "RIF0",
+    "46KR": "RIF0",
+    "62KR": "RIF0",
+    "12XP": "PT6_QUATTRO",
+    "13XC1": "PT6_QUATTRO",
+    "13X24": "PT6_QUATTRO",
+    "62XDIO": "PT25_DIO",
+    "62XDO": "PTT25_SIMB62",
+    "43XCS": "PTT25_2MT_GRIS",
+    "46XC": "PTT25_2MT_GRIS",
+    "81XCM": "PTT25_2MT_GRIS",
+    "31XEX": "PTT25_2MT_BU",
+    "43XDI": "PTT25_2MT_BU",
+    "31AIB1": "GS8536",
+    "43DIB1": "GS8512",
+    "43DIB2": "GS8512"
+   }
+  }
+ ]
+}

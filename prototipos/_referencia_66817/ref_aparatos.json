@@ -1,0 +1,441 @@
+{
+ "descripcion": "Referencia de puntos de borne, familia aparatos (13PS2, 12F1, 12F3, 13F2, 32AIB1, 43DIB1) del topografico 66817 (75775 ZPL rev 8), pagina PDF 4, coordenadas PDF en pt, origen abajo-izq.",
+ "pagina_pdf": 4,
+ "escala_mm_por_pt": 1.7639,
+ "puntos": [
+  {
+   "familia": "aparatos",
+   "componente": "13PS2",
+   "texto": "13PS2 +Vin",
+   "cables": [
+    "1316"
+   ],
+   "x": 559.06,
+   "y": 546.31,
+   "r": 1.22,
+   "confianza": "alta",
+   "como": "DDR-120A-24, TB1 (bornera de entrada de abajo) pin 3 = +Vin: tornillo de la derecha de la fila de 3 circulos r=1.22 en y=546.31 (centros 553.16 / 556.11 / 559.06; el dibujo trae \"1 23\" encima). Hoja de datos DDR-120: TB1 1=FG, 2=-Vin, 3=+Vin. Funcional hoja 13: 1316 rojo 2.5 mm2 a +Vin. Fotos 4.0 y \"auditora 1\": impreso \"(tierra) -Vin +Vin\", verde-amarillo a la izquierda, 1309 al medio y 1316 a la derecha. El cable sale por abajo."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "13PS2",
+   "texto": "13PS2 -Vin",
+   "cables": [
+    "1309"
+   ],
+   "x": 556.11,
+   "y": 546.31,
+   "r": 1.22,
+   "confianza": "alta",
+   "como": "DDR-120A-24, TB1 pin 2 = -Vin: tornillo del medio de la fila de 3 de abajo (y=546.31). Funcional hoja 13: 1309 negro 2.5 mm2 a -Vin. Fotos 4.0 y \"auditora 1\": 1309 entra al tornillo del medio, bajo \"-Vin\". Sale por abajo."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "13PS2",
+   "texto": "13PS2 +Vo",
+   "cables": [
+    "1314"
+   ],
+   "x": 556.73,
+   "y": 606.69,
+   "r": 1.22,
+   "confianza": "alta",
+   "como": "DDR-120A-24, TB2 (bornera de salida de arriba) pin 3 = primer +Vo: fila de 4 circulos r=1.22 en y=606.69 (centros 550.73 / 553.73 / 556.73 / 559.73). Impreso \"-Vo -Vo +Vo +Vo\". Hay dos usos \"13PS2 +Vo\" (1314 y 1601): segun las fotos fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/1.0.jpeg, 4.0.jpeg y \"auditora 1.jpeg\", el rojo 1314 entra en el TERCER tornillo y el cuarto queda libre. Funcional hoja 13: 1314 rojo 1 mm2 a 13X24 1."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "13PS2",
+   "texto": "13PS2 +Vo",
+   "cables": [
+    "1601"
+   ],
+   "x": 559.73,
+   "y": 606.69,
+   "r": 1.22,
+   "confianza": "media",
+   "como": "DDR-120A-24, TB2 pin 4 = segundo +Vo (tornillo de la derecha de la fila de arriba, y=606.69). 1601 es la alimentacion +24 V de la telemetria 81TM01 (funcional hojas 13 y 16, linea a trazos; nota de la hoja 16: \"TELEMETRIA ES UN OPCIONAL\"), por eso no aparece en ninguna foto. En las fotos 1.0, 4.0 y \"auditora 1\" el pin 3 lo ocupa 1314 y el pin 4 esta libre: 1601 va en el unico +Vo libre. Deducido, sin foto."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "13PS2",
+   "texto": "13PS2 -Vo",
+   "cables": [
+    "1315"
+   ],
+   "x": 553.73,
+   "y": 606.69,
+   "r": 1.22,
+   "confianza": "alta",
+   "como": "DDR-120A-24, TB2 pin 2 = segundo -Vo (y=606.69, x=553.73). Hay dos usos \"13PS2 -Vo\" (1315 y 1602): en las fotos fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/1.0.jpeg (ampliada), 4.0.jpeg y \"auditora 1.jpeg\" el negro 1315 entra en el SEGUNDO tornillo, bajo \"-Vo\", y el primero queda libre. Funcional hoja 13: 1315 negro 1 mm2 a 13X24 2."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "13PS2",
+   "texto": "13PS2 -Vo",
+   "cables": [
+    "1602"
+   ],
+   "x": 550.73,
+   "y": 606.69,
+   "r": 1.22,
+   "confianza": "media",
+   "como": "DDR-120A-24, TB2 pin 1 = primer -Vo (tornillo de la izquierda de la fila de arriba, y=606.69, x=550.73). 1602 es el 0 V de la telemetria opcional 81TM01 (hojas 13 y 16, a trazos), sin foto. El pin 2 lo ocupa 1315 y el pin 1 esta libre en las fotos 1.0, 4.0 y \"auditora 1\": 1602 va en el unico -Vo libre. Deducido, sin foto."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "12F1",
+   "texto": "12F1 ARRIBA",
+   "cables": [
+    "1201"
+   ],
+   "x": 617.29,
+   "y": 597.12,
+   "r": 1.54,
+   "confianza": "alta",
+   "como": "Portafusible unipolar 10x38 de riel DIN (1 modulo, 17.5 mm; fusible 20A), izquierdo de la pareja 12F1/13F2 (etiqueta x=617.3). En el dibujo cada tornillo es un octogono r=1.54 con una raya diagonal; hay uno arriba y uno abajo del riel 1, en la misma columna x=617.29 bajo la etiqueta. ARRIBA = tornillo de arriba (y=597.12). Funcional hoja 12: 1201 rojo 4 mm2 del cargador 12PS1 (+ bateria) a 12F1 (lado de arriba del simbolo). Foto: la foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/2.0.jpeg muestra 1201 (puntera naranja) entrando arriba de 12F1. El cable entra por la cara de arriba."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "12F1",
+   "texto": "12F1 ABAJO",
+   "cables": [
+    "1203"
+   ],
+   "x": 617.29,
+   "y": 563.0,
+   "r": 1.54,
+   "confianza": "alta",
+   "como": "Portafusible unipolar 10x38 de riel DIN (1 modulo, 17.5 mm; fusible 20A), izquierdo de la pareja 12F1/13F2 (etiqueta x=617.3). En el dibujo cada tornillo es un octogono r=1.54 con una raya diagonal; hay uno arriba y uno abajo del riel 1, en la misma columna x=617.29 bajo la etiqueta. ABAJO = tornillo de abajo (y=563.00). Funcional hoja 12: 1203 rojo 4 mm2 de 12F1 a 12XP 1. Foto: la foto \"WhatsApp 2026-06-23 at 10.44.59 (1)\" (girada) muestra 1203 (puntera naranja) en el tornillo de abajo de 12F1. El cable sale por la cara de abajo."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "13F2",
+   "texto": "13F2 ARRIBA",
+   "cables": [
+    "1206"
+   ],
+   "x": 627.22,
+   "y": 597.12,
+   "r": 1.54,
+   "confianza": "alta",
+   "como": "Portafusible unipolar 10x38 de riel DIN (1 modulo, 17.5 mm; fusible 6A), derecho de la pareja 12F1/13F2 (etiqueta x=627.3). En el dibujo cada tornillo es un octogono r=1.54 con una raya diagonal; hay uno arriba y uno abajo del riel 1, en la misma columna x=627.22 bajo la etiqueta. ARRIBA = tornillo de arriba (y=597.12). Funcional hoja 13: 1206 rojo 2.5 mm2 (+12 Vdc, Sh12:D5) a 13F2 (lado de arriba del simbolo). Foto: la foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/2.0.jpeg muestra 1206 (puntera azul) entrando arriba de 13F2. El cable entra por la cara de arriba."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "13F2",
+   "texto": "13F2 ABAJO",
+   "cables": [
+    "1317"
+   ],
+   "x": 627.22,
+   "y": 563.0,
+   "r": 1.54,
+   "confianza": "alta",
+   "como": "Portafusible unipolar 10x38 de riel DIN (1 modulo, 17.5 mm; fusible 6A), derecho de la pareja 12F1/13F2 (etiqueta x=627.3). En el dibujo cada tornillo es un octogono r=1.54 con una raya diagonal; hay uno arriba y uno abajo del riel 1, en la misma columna x=627.22 bajo la etiqueta. ABAJO = tornillo de abajo (y=563.00). Funcional hoja 13: 1317 rojo 2.5 mm2 de 13F2 a 13XC1 1. Foto: la foto \"WhatsApp 2026-06-23 at 10.44.59 (1)\" (girada) muestra 1317 (puntera azul) en el tornillo de abajo de 13F2. El cable sale por la cara de abajo."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "12F3",
+   "texto": "12F3 ARRIBA",
+   "cables": [
+    "1215"
+   ],
+   "x": 519.83,
+   "y": 591.43,
+   "r": 1.54,
+   "confianza": "alta",
+   "como": "Portafusible unipolar 10x38 de riel DIN (1 modulo, 17.5 mm; fusible 2A), unico, entre el tope y 62KR en el riel 1 (etiqueta x=519.9). En el dibujo cada tornillo es un octogono r=1.54 con una raya diagonal; hay uno arriba y uno abajo del riel 1, en la misma columna x=519.83 bajo la etiqueta. ARRIBA = tornillo de arriba (y=591.43). Funcional hoja 12: 1215 rojo 2.5 mm2 de 12XP 3 a 12F3 (lado de arriba del simbolo). Foto: las fotos fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/1.0.jpeg, 4.0.jpeg y \"rev 7 1.0\" muestran 1215 (puntera azul) entrando arriba de 12F3. El cable entra por la cara de arriba."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "12F3",
+   "texto": "12F3 ABAJO",
+   "cables": [
+    "1225"
+   ],
+   "x": 519.83,
+   "y": 557.31,
+   "r": 1.54,
+   "confianza": "alta",
+   "como": "Portafusible unipolar 10x38 de riel DIN (1 modulo, 17.5 mm; fusible 2A), unico, entre el tope y 62KR en el riel 1 (etiqueta x=519.9). En el dibujo cada tornillo es un octogono r=1.54 con una raya diagonal; hay uno arriba y uno abajo del riel 1, en la misma columna x=519.83 bajo la etiqueta. ABAJO = tornillo de abajo (y=557.31). Funcional hoja 12: 1225 rojo 2.5 mm2 de 12F3 al + de la bateria de respaldo 12CB1. Foto: las fotos 4.0.jpeg, AE1.jpeg y \"auditora 1\" muestran 1225 saliendo por abajo de 12F3. El cable sale por la cara de abajo."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 1 ABAJO",
+   "cables": [
+    "1318"
+   ],
+   "x": 503.91,
+   "y": 481.61,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 1: alimentacion 1(+) 24 Vdc, enchufe [1 2], el mas exterior de arriba (lado seguro). El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de arriba (tornillos octogonales dibujados, y=481.61), x = 503.91. Funcional hoja 15; foto \"WhatsApp 2026-06-23 at 10.43.15 (2)\" (girada, enchufes delanteros sacados): enchufe [1 2] de las dos barreras con 1318 rojo en 1 (izquierda) y 1319 negro en 2. El instructivo dice \"32AIB1 1 ABAJO\" porque en la hoja 15 el 1-2 esta dibujado abajo del simbolo, pero en el aparato real el enchufe de alimentacion [1 2] esta ARRIBA (etiqueta del aparato y foto)."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 2 ABAJO",
+   "cables": [
+    "1319"
+   ],
+   "x": 506.75,
+   "y": 481.61,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 2: alimentacion 2(-), enchufe [1 2] de arriba. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de arriba (tornillos octogonales dibujados, y=481.61), x = 506.75. Funcional hoja 15; foto \"WhatsApp 2026-06-23 at 10.43.15 (2)\" (girada, enchufes delanteros sacados): enchufe [1 2] de las dos barreras con 1318 rojo en 1 (izquierda) y 1319 negro en 2. El instructivo dice \"32AIB1 2 ABAJO\" porque en la hoja 15 el 1-2 esta dibujado abajo del simbolo, pero en el aparato real el enchufe de alimentacion [1 2] esta ARRIBA (etiqueta del aparato y foto)."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 3",
+   "cables": [
+    "2105"
+   ],
+   "x": 502.5,
+   "y": 481.61,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 3: OUT1 3(+), enchufe del medio [3 4 5] de arriba (tornillo a la misma altura que [1 2]). El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de arriba (tornillos octogonales dibujados, y=481.61), x = 502.50. Funcional hoja 32; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.0.jpeg: enchufe verde \"3 4 5\" de 32AIB1 con 2105 en 3 y 2106 en 4 (5 libre)."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 4",
+   "cables": [
+    "2106"
+   ],
+   "x": 505.33,
+   "y": 481.61,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 4: OUT1 4(-), enchufe del medio [3 4 5], tornillo central. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de arriba (tornillos octogonales dibujados, y=481.61), x = 505.33. Funcional hoja 32; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.0.jpeg: enchufe verde \"3 4 5\" de 32AIB1 con 2105 en 3 y 2106 en 4 (5 libre)."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 6",
+   "cables": [
+    "2102"
+   ],
+   "x": 502.5,
+   "y": 478.36,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 6: OUT2 6(+), enchufe delantero [6 7 8] de arriba, una fila hacia adentro. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila interior de arriba (banda de 2 rectangulos del enchufe dibujado, y=478.36), x = 502.50. Funcional hoja 32; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.1.jpeg: enchufe verde delantero \"6 7 8\" de 32AIB1 con 2102 en 6 y 2103 en 7."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 7",
+   "cables": [
+    "2103"
+   ],
+   "x": 505.33,
+   "y": 478.36,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 7: OUT2 7(-), enchufe delantero [6 7 8], tornillo central. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila interior de arriba (banda de 2 rectangulos del enchufe dibujado, y=478.36), x = 505.33. Funcional hoja 32; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.1.jpeg: enchufe verde delantero \"6 7 8\" de 32AIB1 con 2102 en 6 y 2103 en 7."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 9",
+   "cables": [
+    "3201"
+   ],
+   "x": 502.5,
+   "y": 429.23,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 9: entrada IS 9(+), enchufe delantero [9 10 11] de abajo (pegado al cuerpo). El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila interior de abajo (banda de 2 rectangulos pegada al cuerpo, y=429.23), x = 502.50. Funcional hoja 32; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.3.jpeg: enchufe azul delantero \"9 10 11\" de 32AIB1 con 3201 en 9 y 3202 en 10."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 10",
+   "cables": [
+    "3202"
+   ],
+   "x": 505.33,
+   "y": 429.23,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 10: entrada IS 10(S), enchufe delantero [9 10 11], tornillo central. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila interior de abajo (banda de 2 rectangulos pegada al cuerpo, y=429.23), x = 505.33. Funcional hoja 32; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.3.jpeg: enchufe azul delantero \"9 10 11\" de 32AIB1 con 3201 en 9 y 3202 en 10."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 12",
+   "cables": [
+    "3203"
+   ],
+   "x": 502.5,
+   "y": 426.05,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 12: entrada IS 12(+), enchufe exterior [12 13 14] de abajo. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de abajo (lengueta del enchufe dibujado, y=426.05), x = 502.50. Funcional hoja 32; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.2.jpeg (enchufe delantero sacado): enchufe azul exterior \"12 13 14\" de 32AIB1 con 3203 en 12 y 3204 en 13."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "32AIB1",
+   "texto": "32AIB1 13",
+   "cables": [
+    "3204"
+   ],
+   "x": 505.33,
+   "y": 426.05,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8536-EX borne 13: entrada IS 13(S), enchufe exterior [12 13 14], tornillo central. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 498.95-511.71), que no es la barrera real (CHENZHU GS8536-EX real de 17.5 mm, enchufes de 3 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (505.33) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de abajo (lengueta del enchufe dibujado, y=426.05), x = 505.33. Funcional hoja 32; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.2.jpeg (enchufe delantero sacado): enchufe azul exterior \"12 13 14\" de 32AIB1 con 3203 en 12 y 3204 en 13."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 1 ABAJO",
+   "cables": [
+    "1318"
+   ],
+   "x": 516.67,
+   "y": 481.61,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 1: alimentacion 1(+), enchufe [1 2] de arriba (lado seguro); queda detras del [3 4], mismo punto. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de arriba (tornillos octogonales dibujados, y=481.61), x = 516.67. Funcional hoja 15; foto \"WhatsApp 2026-06-23 at 10.43.15 (2)\" (girada, enchufes delanteros sacados): enchufe [1 2] de las dos barreras con 1318 rojo en 1 (izquierda) y 1319 negro en 2. El instructivo dice \"43DIB1 1 ABAJO\" porque en la hoja 15 el 1-2 esta dibujado abajo del simbolo, pero en el aparato real el enchufe de alimentacion [1 2] esta ARRIBA (etiqueta del aparato y foto)."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 2 ABAJO",
+   "cables": [
+    "1319"
+   ],
+   "x": 519.5,
+   "y": 481.61,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 2: alimentacion 2(-), enchufe [1 2] de arriba; detras del [3 4], mismo punto que el 4. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de arriba (tornillos octogonales dibujados, y=481.61), x = 519.50. Funcional hoja 15; foto \"WhatsApp 2026-06-23 at 10.43.15 (2)\" (girada, enchufes delanteros sacados): enchufe [1 2] de las dos barreras con 1318 rojo en 1 (izquierda) y 1319 negro en 2. El instructivo dice \"43DIB1 2 ABAJO\" porque en la hoja 15 el 1-2 esta dibujado abajo del simbolo, pero en el aparato real el enchufe de alimentacion [1 2] esta ARRIBA (etiqueta del aparato y foto)."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 3",
+   "cables": [
+    "2118"
+   ],
+   "x": 516.67,
+   "y": 481.61,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 3: rele OUT2 3, enchufe del medio [3 4] de arriba (tornillo a la misma altura que [1 2], como en la verificacion del 75286). El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de arriba (tornillos octogonales dibujados, y=481.61), x = 516.67. Funcional hoja 43; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.0.jpeg: enchufe verde \"3 4\" de 43DIB1 con 2118 en 3 y 2119 en 4."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 4",
+   "cables": [
+    "2119"
+   ],
+   "x": 519.5,
+   "y": 481.61,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 4: rele OUT2 4, enchufe [3 4] de arriba, tornillo derecho. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de arriba (tornillos octogonales dibujados, y=481.61), x = 519.50. Funcional hoja 43; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.0.jpeg: enchufe verde \"3 4\" de 43DIB1 con 2118 en 3 y 2119 en 4."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 5",
+   "cables": [
+    "2116"
+   ],
+   "x": 516.67,
+   "y": 478.36,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 5: rele OUT1 5, enchufe delantero [5 6] de arriba, una fila hacia adentro. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila interior de arriba (banda de 2 rectangulos del enchufe dibujado, y=478.36), x = 516.67. Funcional hoja 43; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.1.jpeg: enchufe verde delantero \"5 6\" de 43DIB1 con 2116 en 5 y 2117 en 6."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 6",
+   "cables": [
+    "2117"
+   ],
+   "x": 519.5,
+   "y": 478.36,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 6: rele OUT1 6, enchufe delantero [5 6], tornillo derecho. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila interior de arriba (banda de 2 rectangulos del enchufe dibujado, y=478.36), x = 519.50. Funcional hoja 43; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.1.jpeg: enchufe verde delantero \"5 6\" de 43DIB1 con 2116 en 5 y 2117 en 6."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 7",
+   "cables": [
+    "4301"
+   ],
+   "x": 516.67,
+   "y": 429.23,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 7: entrada IS IN1 7(+), enchufe delantero [7 8] de abajo. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila interior de abajo (banda de 2 rectangulos pegada al cuerpo, y=429.23), x = 516.67. Funcional hoja 43; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.3.jpeg: enchufe azul delantero \"7 8\" de 43DIB1 con 4301 en 7 y 4302 en 8."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 8",
+   "cables": [
+    "4302"
+   ],
+   "x": 519.5,
+   "y": 429.23,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 8: entrada IS IN1 8(-), enchufe delantero [7 8], tornillo derecho. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila interior de abajo (banda de 2 rectangulos pegada al cuerpo, y=429.23), x = 519.50. Funcional hoja 43; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.3.jpeg: enchufe azul delantero \"7 8\" de 43DIB1 con 4301 en 7 y 4302 en 8."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 9",
+   "cables": [
+    "4303"
+   ],
+   "x": 516.67,
+   "y": 426.05,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 9: entrada IS IN2 9(+), enchufe exterior [9 10] de abajo. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de abajo (lengueta del enchufe dibujado, y=426.05), x = 516.67. Funcional hoja 43; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.2.jpeg: enchufe azul exterior \"9 10\" de 43DIB1 con 4303 en 9 y 4304 en 10."
+  },
+  {
+   "familia": "aparatos",
+   "componente": "43DIB1",
+   "texto": "43DIB1 10",
+   "cables": [
+    "4304"
+   ],
+   "x": 519.5,
+   "y": 426.05,
+   "r": 0.85,
+   "confianza": "media",
+   "como": "GS8512-EX.22 borne 10: entrada IS IN2 10(-), enchufe exterior [9 10], tornillo derecho. El topografico dibuja las dos barreras con el mismo bloque simbolico (capa \"0\", 12.76 pt = 22.5 mm de ancho, carcasa 511.71-524.46), que no es la barrera real (CHENZHU GS8512-EX.22 real de 12.5 mm, enchufes de 2 bornes): arriba un enchufe con 4 tornillos octogonales (y=481.61) y una banda interior con 2 rectangulos (y=478.36); abajo una banda con 2 rectangulos (y=429.23) y una lengueta exterior (y=426.05). Convencion: x = centro de la carcasa dibujada (518.09) + posicion real del borne en pasos de 5.0 mm (2.835 pt a 1:5), y = fila dibujada que corresponde al escalonado real de los enchufes. Punto: fila exterior de abajo (lengueta del enchufe dibujado, y=426.05), x = 519.50. Funcional hoja 43; foto fotos66817/Cableado 66817-1/WhatsApp Unknown 2026-06-23 at 10.47.35/3.2.jpeg: enchufe azul exterior \"9 10\" de 43DIB1 con 4303 en 9 y 4304 en 10."
+  }
+ ],
+ "modelos": {
+  "13PS2": "MEAN WELL DDR-120A-24 (conversor DC/DC riel DIN, entrada 9-18 Vdc, salida 24 V 5 A, 32 mm). Fotos 4.0 y \"auditora 1\" (DDR-120A-24 impreso); funcional hoja 13 (12 Vdc -> 24 Vdc 5 A). TB2 arriba: -Vo -Vo +Vo +Vo; TB1 abajo: FG -Vin +Vin. Hoja de datos meanwell.com DDR-120 (tablas TB1/TB2), igual que el 13PS3 del 75286.",
+  "12F1": "Portafusible unipolar 10x38 de riel DIN, 1 modulo (17.5 mm), cuerpo negro con tapa beige abatible (en el aparato se lee \"RN-2025-W12\"); fusible 20 A (funcional hoja 12 y etiqueta). Tornillo arriba y abajo.",
+  "12F3": "Portafusible unipolar 10x38 de riel DIN, 1 modulo, igual a 12F1; fusible 2 A segun funcional hoja 12 rev 7 (en fotos viejas la etiqueta dice 6A, en \"rev 7 1.0\" dice 2A). Tornillo arriba y abajo.",
+  "13F2": "Portafusible unipolar 10x38 de riel DIN, 1 modulo, igual a 12F1; fusible 6 A (funcional hoja 13 y etiqueta). Tornillo arriba y abajo.",
+  "32AIB1": "CHENZHU GS8536-EX (barrera aislada de entrada analogica, 2 canales, 17.5 mm; SAP AB2000134). Funcional hojas 15 y 32; impreso \"GS8536-EX\" en el aparato (foto 86 = \"WhatsApp 2026-06-26 at 13.15.51 (1)\"). Arriba (lado seguro, verde), de afuera hacia adentro: [1 2] alimentacion, [3 4 5] OUT1, [6 7 8] OUT2; abajo (lado IS, azul): [9 10 11] adentro, [12 13 14] afuera. Numero menor a la izquierda.",
+  "43DIB1": "CHENZHU GS8512-EX.22 (barrera aislada de entrada digital, 2 canales, salida rele, 12.5 mm; SAP AB2000135). Funcional hojas 15 y 43. Arriba: [1 2] alimentacion, [3 4] OUT2, [5 6] OUT1 (delantero); abajo: [7 8] IN1 adentro, [9 10] IN2 afuera. Numero impar a la izquierda."
+ },
+ "dudas": [
+  "32AIB1 y 43DIB1: el topografico 66817 dibuja las dos barreras con un bloque SIMBOLICO igual para las dos (capa \"0\", 22.5 mm de ancho), que no corresponde a la barrera real (GS8536-EX de 17.5 mm con enchufes de 3 bornes y GS8512-EX.22 de 12.5 mm con enchufes de 2). No hay un tornillo dibujado por borne: el dibujo trae arriba 4 tornillos octogonales y 2 rectangulos, y abajo 2 rectangulos y una lengueta. Los 20 puntos de barrera son una PROYECCION con una convencion explicita: x = centro de la carcasa dibujada + posicion real del borne (paso 5.0 mm = 2.835 pt); y = fila dibujada segun el escalonado real (arriba: [1 2] y [3 4(5)] en la fila exterior y=481.61, [5 6]/[6 7 8] en la interior y=478.36; abajo: [7 8]/[9 10 11] en y=429.23 pegado al cuerpo y [9 10]/[12 13 14] en la lengueta y=426.05). El lado (arriba/abajo), el enchufe y el orden izquierda/derecha estan confirmados con fotos; la coordenada fina depende de la convencion. Por eso confianza media. Si se prefiere \"pegar\" a lo dibujado, los tornillos octogonales 2 y 3 estan en x=503.61/506.89 (32AIB1) y 516.36/519.65 (43DIB1) y los rectangulos en 503.42/507.16 y 516.18/519.91 (a <= 0.5 pt de los puntos dados).",
+  "43DIB1 1 y 3 (y 2 y 4) quedan en el MISMO punto: en la GS8512-EX el enchufe [1 2] esta detras del [3 4] y sus tornillos estan a la misma altura (vista lateral acotada del manual, ver correcciones_barreras.json del 75286). En 32AIB1 el 1 y el 3 quedan a 1.42 pt (menos que la tolerancia de 1.5 pt del evaluador), igual que el 2 y el 4.",
+  "Barreras \"1 ABAJO\" / \"2 ABAJO\" (1318/1319): el ABAJO sale del dibujo de la hoja 15 (el 1-2 dibujado abajo del simbolo). Fisicamente el enchufe de alimentacion [1 2] esta ARRIBA (lado seguro): se ve en la foto \"WhatsApp 2026-06-23 at 10.43.15 (2)\" con 1318/1319 en el enchufe exterior de arriba de las dos barreras (1318 sigue en cadena de 32AIB1 1 a 43DIB1 1, y 1319 de 32AIB1 2 a 43DIB1 2). El ruteo de 1318/1319 tiene que salir por ARRIBA.",
+  "13PS2 1601/1602 (alimentacion de la telemetria 81TM01, opcional segun la nota de la hoja 16) no estan en ninguna foto. Los puse en los dos pines libres del mismo nombre (1601 en el pin 4 +Vo, 1602 en el pin 1 -Vo), porque 1314 y 1315 ocupan los pines 3 y 2 en todas las fotos. Si la telemetria se monta, conviene confirmarlo. Confianza media.",
+  "13PS2: el simbolo del funcional (hoja 13) ordena la salida \"+Vo -Vo +Vo -Vo\", pero la bornera real TB2 es \"-Vo -Vo +Vo +Vo\". El instructivo no distingue cual +Vo/-Vo es cual (mismo texto para dos cables): el que cablea no sabe en que tornillo va cada uno. Convendria escribir \"13PS2 +Vo (3)\" / \"+Vo (4)\", o el numero de pin.",
+  "43DIB1 3..6: segun VERIFICACION.md, en la hoja 21 las flechas \"43DIB1:3..6\" estan en otro orden que en la hoja 43. Use la hoja 43 (dibujo de la barrera: 2116->5, 2117->6, 2118->3, 2119->4), que coincide con las fotos 3.0 y 3.1.",
+  "12F3: el funcional rev 7 (hoja 12) dice 2 A y la foto \"rev 7 1.0\" tambien; en las fotos mas viejas la etiqueta dice 6A. No cambia los puntos.",
+  "Portafusibles: el punto es el centro del tornillo dibujado (como el DF101 del 75286). El cable entra por la cara de arriba o de abajo del aparato, unos 5-6 pt mas afuera; si el ruteo necesita el borde hay que correr el punto en vertical."
+ ]
+}

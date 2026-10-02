@@ -1,0 +1,11 @@
+{
+  "familia": "borneras_riel2",
+  "correcciones": [],
+  "confirmados": 36,
+  "notas": [
+    "Verificacion independiente (geometria page_strokes + render ampliado + funcional hojas 12, 13 y 62 + fotos 2.0, 2.1, 12.35.39, 12.35.39 (2), 12.35.40, 15.32.33 (1)). Los 36 puntos caen en la boca correcta; desvio frente a los centros medidos < 0,5 pt.",
+    "Regla del tag: 12XP = 2 piezas QUATTRO (x 593,9 / 601,2), 13XC1 = 4 (615,7 / 621,5 / 628,8 / 634,6), 13X24 = 2 (649,1 / 656,4), 62XDIO = 3 DIO (670,0 / 673,6 / 677,3), 62XDO = 3 PTT (689,7 / 694,1 / 698,5). Despues de 62XDO hay un tope, riel vacio y el cablecanal: no hay piezas de mas ni de menos.",
+    "62XDIO: el ARRIBA/ABAJO del texto es izquierda/derecha del funcional (anodo/catodo). Fisicamente el catodo (texto ABAJO: 6201, 6203, 6206) entra ARRIBA y el anodo (texto ARRIBA: 1315) entra ABAJO, del lado del puente azul. Confirmado por foto 12.35.40 y 2.1 (1315 abajo en la pieza 3).",
+    "6204, 6205, 6207 y 6208 (62XDO 3/4/5/6 ABAJO hacia SP-1 y SP-2) no estan conectados en ninguna foto: su punto sale de la regla PTT; probablemente no se cablean en E6."
+  ]
+}

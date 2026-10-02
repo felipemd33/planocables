@@ -1,0 +1,3156 @@
+{
+ "descripcion": "Bornes ubicados por P4 (base que aprende de tableros verificados) - DEJANDO-UN-TAG-AFUERA: cada tag sin sus propios ejemplos",
+ "topografico": "C:\\Buscar Termos en plano\\prototipos\\_referencia\\topografico.pdf",
+ "base": "C:\\Buscar Termos en plano\\prototipos\\P4_aprende_ejemplos\\base_bornes.json",
+ "modo": "loo",
+ "memoria": true,
+ "segundos": 13.54,
+ "modelos": {
+  "11PS1": {
+   "modelo": "MEAN WELL NDR",
+   "unidades": 1,
+   "nivel": "hoja de datos",
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL DDR)"
+  },
+  "11SK1": {
+   "modelo": "TOMA IRAM riel DIN",
+   "unidades": 1,
+   "nivel": "hoja de datos",
+   "nota": "sin ejemplos del modelo: recuadro generico"
+  },
+  "11Q2": {
+   "modelo": "TERMOMAGNETICA 2P (Schneider EZ9F / ABB S202)",
+   "unidades": 1,
+   "nivel": "mismo dibujo",
+   "nota": ""
+  },
+  "11Q1": {
+   "modelo": "DIFERENCIAL 2P (Schneider Easy9 EZ9R)",
+   "unidades": 1,
+   "nivel": "mismo dibujo",
+   "nota": ""
+  },
+  "12F2": {
+   "modelo": "PORTAFUSIBLE MEGA",
+   "unidades": 1,
+   "nivel": "hoja de datos",
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  "12XP": {
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidades": 2,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "13F3": {
+   "modelo": "SCHNEIDER DF101 10x38",
+   "unidades": 1,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "13XC1": {
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidades": 4,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "12F1": {
+   "modelo": "SCHNEIDER DF101 10x38",
+   "unidades": 1,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "81XCM": {
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidades": 7,
+   "nivel": "mismo modelo",
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  "13PS3": {
+   "modelo": "MEAN WELL DDR",
+   "unidades": 1,
+   "nivel": "hoja de datos",
+   "nota": "la lista de materiales lo nombra 13PS2; sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL NDR)"
+  },
+  "13X24": {
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidades": 2,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "31AIB1": {
+   "modelo": "CHENZHU GS8536-EX",
+   "unidades": 1,
+   "nivel": "hoja de datos",
+   "nota": "sin ejemplos del modelo: recuadro generico + pariente (CHENZHU GS8512-EX)"
+  },
+  "43DIB1": {
+   "modelo": "CHENZHU GS8512-EX",
+   "unidades": 1,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "43DIB2": {
+   "modelo": "CHENZHU GS8512-EX",
+   "unidades": 1,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "62XDIO": {
+   "modelo": "PHOENIX PT 2,5-DIO/L-R",
+   "unidades": 3,
+   "nivel": "hoja de datos",
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  "31XAI": {
+   "modelo": "PHOENIX PTTB 4-HESI (borne fusible)",
+   "unidades": 1,
+   "nivel": "pariente",
+   "nota": "la lista dice PHOENIX PTT 2,5-2MT, pero el dibujo no coincide y los textos son de PHOENIX PTTB 4-HESI (borne fusible); sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5, PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU)"
+  },
+  "43KR": {
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidades": 4,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "62XDO": {
+   "modelo": "PHOENIX PTT 2,5",
+   "unidades": 3,
+   "nivel": "pariente",
+   "nota": "sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU, PHOENIX PTTB 4-HESI (borne fusible))"
+  },
+  "62KR": {
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidades": 3,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "46KR": {
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidades": 2,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "31XEX": {
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidades": 2,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "43XCS": {
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidades": 2,
+   "nivel": "mismo modelo",
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  "43XDI": {
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidades": 4,
+   "nivel": "mismo modelo",
+   "nota": ""
+  },
+  "46XC": {
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidades": 2,
+   "nivel": "mismo modelo",
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  }
+ },
+ "puntos": [
+  {
+   "texto": "11PS1 1 (-)",
+   "cables": [
+    "1110"
+   ],
+   "componente": "11PS1",
+   "x": 612.96,
+   "y": 712.45,
+   "r": 2.02,
+   "confianza": "media",
+   "modelo": "MEAN WELL NDR",
+   "unidad": 1,
+   "borne": "TB2.1",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL DDR)"
+  },
+  {
+   "texto": "11PS1 3 (+)",
+   "cables": [
+    "1111"
+   ],
+   "componente": "11PS1",
+   "x": 621.72,
+   "y": 712.45,
+   "r": 2.02,
+   "confianza": "media",
+   "modelo": "MEAN WELL NDR",
+   "unidad": 1,
+   "borne": "TB2.3",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL DDR)"
+  },
+  {
+   "texto": "11PS1 L-3",
+   "cables": [
+    "1108"
+   ],
+   "componente": "11PS1",
+   "x": 628.06,
+   "y": 635.72,
+   "r": 2.24,
+   "confianza": "media",
+   "modelo": "MEAN WELL NDR",
+   "unidad": 1,
+   "borne": "TB1.3",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL DDR)"
+  },
+  {
+   "texto": "11PS1 N-2",
+   "cables": [
+    "1109"
+   ],
+   "componente": "11PS1",
+   "x": 622.78,
+   "y": 635.72,
+   "r": 2.24,
+   "confianza": "media",
+   "modelo": "MEAN WELL NDR",
+   "unidad": 1,
+   "borne": "TB1.2",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL DDR)"
+  },
+  {
+   "texto": "11SK1 L ARRIBA",
+   "cables": [
+    "1108"
+   ],
+   "componente": "11SK1",
+   "x": 756.34,
+   "y": 651.47,
+   "r": 1.52,
+   "confianza": "baja",
+   "modelo": "TOMA IRAM riel DIN",
+   "unidad": 1,
+   "borne": "L",
+   "ajuste": "franja",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico"
+  },
+  {
+   "texto": "11SK1 N ABAJO",
+   "cables": [
+    "1109"
+   ],
+   "componente": "11SK1",
+   "x": 741.12,
+   "y": 651.47,
+   "r": 1.52,
+   "confianza": "baja",
+   "modelo": "TOMA IRAM riel DIN",
+   "unidad": 1,
+   "borne": "N",
+   "ajuste": "franja",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico"
+  },
+  {
+   "texto": "11Q2 F ABAJO",
+   "cables": [
+    "1108"
+   ],
+   "componente": "11Q2",
+   "x": 674.52,
+   "y": 651.53,
+   "r": 2.48,
+   "confianza": "media",
+   "modelo": "TERMOMAGNETICA 2P (Schneider EZ9F / ABB S202)",
+   "unidad": 1,
+   "borne": "P1_ABAJO",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/11Q1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "11Q2 F ARRIBA",
+   "cables": [
+    "1106"
+   ],
+   "componente": "11Q2",
+   "x": 674.52,
+   "y": 700.51,
+   "r": 2.48,
+   "confianza": "media",
+   "modelo": "TERMOMAGNETICA 2P (Schneider EZ9F / ABB S202)",
+   "unidad": 1,
+   "borne": "P1_ARRIBA",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/11Q1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "11Q2 N ABAJO",
+   "cables": [
+    "1109"
+   ],
+   "componente": "11Q2",
+   "x": 686.94,
+   "y": 651.53,
+   "r": 2.48,
+   "confianza": "media",
+   "modelo": "TERMOMAGNETICA 2P (Schneider EZ9F / ABB S202)",
+   "unidad": 1,
+   "borne": "P2_ABAJO",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/11Q1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "11Q2 N ARRIBA",
+   "cables": [
+    "1107"
+   ],
+   "componente": "11Q2",
+   "x": 686.94,
+   "y": 700.51,
+   "r": 2.48,
+   "confianza": "media",
+   "modelo": "TERMOMAGNETICA 2P (Schneider EZ9F / ABB S202)",
+   "unidad": 1,
+   "borne": "P2_ARRIBA",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/11Q1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "11Q1 F ABAJO",
+   "cables": [
+    "1106"
+   ],
+   "componente": "11Q1",
+   "x": 662.09,
+   "y": 651.53,
+   "r": 2.48,
+   "confianza": "media",
+   "modelo": "DIFERENCIAL 2P (Schneider Easy9 EZ9R)",
+   "unidad": 1,
+   "borne": "P2_ABAJO",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/11Q2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "11Q1 F ARRIBA",
+   "cables": [
+    "1104"
+   ],
+   "componente": "11Q1",
+   "x": 662.09,
+   "y": 700.51,
+   "r": 2.48,
+   "confianza": "media",
+   "modelo": "DIFERENCIAL 2P (Schneider Easy9 EZ9R)",
+   "unidad": 1,
+   "borne": "P2_ARRIBA",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/11Q2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "11Q1 N ABAJO",
+   "cables": [
+    "1107"
+   ],
+   "componente": "11Q1",
+   "x": 649.67,
+   "y": 651.53,
+   "r": 2.48,
+   "confianza": "media",
+   "modelo": "DIFERENCIAL 2P (Schneider Easy9 EZ9R)",
+   "unidad": 1,
+   "borne": "P1_ABAJO",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/11Q2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "11Q1 N ARRIBA",
+   "cables": [
+    "1105"
+   ],
+   "componente": "11Q1",
+   "x": 649.67,
+   "y": 700.51,
+   "r": 2.48,
+   "confianza": "media",
+   "modelo": "DIFERENCIAL 2P (Schneider Easy9 EZ9R)",
+   "unidad": 1,
+   "borne": "P1_ARRIBA",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/11Q2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1216"
+   ],
+   "componente": "12F2",
+   "x": 580.49,
+   "y": 304.93,
+   "r": 2.34,
+   "confianza": "media",
+   "modelo": "PORTAFUSIBLE MEGA",
+   "unidad": 1,
+   "borne": "IZQ",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1204"
+   ],
+   "componente": "12F2",
+   "x": 624.39,
+   "y": 304.93,
+   "r": 2.37,
+   "confianza": "media",
+   "modelo": "PORTAFUSIBLE MEGA",
+   "unidad": 1,
+   "borne": "DER",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "12F2",
+   "cables": [
+    "1215"
+   ],
+   "componente": "12F2",
+   "x": 580.49,
+   "y": 304.93,
+   "r": 2.34,
+   "confianza": "media",
+   "modelo": "PORTAFUSIBLE MEGA",
+   "unidad": 1,
+   "borne": "IZQ",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "12F2 ARRIBA",
+   "cables": [
+    "1204"
+   ],
+   "componente": "12F2",
+   "x": 624.39,
+   "y": 304.93,
+   "r": 2.37,
+   "confianza": "media",
+   "modelo": "PORTAFUSIBLE MEGA",
+   "unidad": 1,
+   "borne": "DER",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "12XP 1.1",
+   "cables": [
+    "1202"
+   ],
+   "componente": "12XP",
+   "x": 593.88,
+   "y": 558.75,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 1,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.01,
+   "ejemplos": [
+    "75286-1/13X24/2",
+    "75286-1/13XC1/1",
+    "75286-1/13XC1/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "12XP 1.4",
+   "cables": [
+    "1217"
+   ],
+   "componente": "12XP",
+   "x": 593.88,
+   "y": 504.53,
+   "r": 2.9,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 1,
+   "borne": "4",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.01,
+   "ejemplos": [
+    "75286-1/13X24/2",
+    "75286-1/13XC1/1",
+    "75286-1/13XC1/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "12XP 2.1",
+   "cables": [
+    "1205"
+   ],
+   "componente": "12XP",
+   "x": 601.27,
+   "y": 558.75,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 2,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.03,
+   "ejemplos": [
+    "75286-1/13X24/1",
+    "75286-1/13X24/2",
+    "75286-1/13XC1/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "12XP 2.4",
+   "cables": [
+    "1218"
+   ],
+   "componente": "12XP",
+   "x": 601.27,
+   "y": 504.53,
+   "r": 2.9,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 2,
+   "borne": "4",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.03,
+   "ejemplos": [
+    "75286-1/13X24/1",
+    "75286-1/13X24/2",
+    "75286-1/13XC1/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13F3 ABAJO",
+   "cables": [
+    "1301"
+   ],
+   "componente": "13F3",
+   "x": 785.95,
+   "y": 654.59,
+   "r": 1.92,
+   "confianza": "alta",
+   "modelo": "SCHNEIDER DF101 10x38",
+   "unidad": 1,
+   "borne": "P1_ABAJO",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12F1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13F3 ARRIBA",
+   "cables": [
+    "1206"
+   ],
+   "componente": "13F3",
+   "x": 785.95,
+   "y": 697.31,
+   "r": 1.92,
+   "confianza": "alta",
+   "modelo": "SCHNEIDER DF101 10x38",
+   "unidad": 1,
+   "borne": "P1_ARRIBA",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12F1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 1.1",
+   "cables": [
+    "1304"
+   ],
+   "componente": "13XC1",
+   "x": 615.68,
+   "y": 558.75,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 1,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/13X24/1",
+    "75286-1/13X24/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 1.4",
+   "cables": [
+    "1303"
+   ],
+   "componente": "13XC1",
+   "x": 615.68,
+   "y": 504.53,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 1,
+   "borne": "4",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/13X24/1",
+    "75286-1/13X24/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 2.1",
+   "cables": [
+    "1308"
+   ],
+   "componente": "13XC1",
+   "x": 621.43,
+   "y": 558.75,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 2,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.04,
+   "ejemplos": [
+    "75286-1/12XP/2",
+    "75286-1/13X24/1",
+    "75286-1/13X24/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 2.2",
+   "cables": [
+    "1318"
+   ],
+   "componente": "13XC1",
+   "x": 621.51,
+   "y": 547.11,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 2,
+   "borne": "2",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.03,
+   "ejemplos": [
+    "75286-1/13X24/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 2.3",
+   "cables": [
+    "1319"
+   ],
+   "componente": "13XC1",
+   "x": 621.51,
+   "y": 516.15,
+   "r": 2.76,
+   "confianza": "media",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 2,
+   "borne": "3",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.03,
+   "ejemplos": [
+    "75286-1/13X24/1"
+   ],
+   "nota": "borne deducido por simetria"
+  },
+  {
+   "texto": "13XC1 2.4",
+   "cables": [
+    "1306"
+   ],
+   "componente": "13XC1",
+   "x": 621.43,
+   "y": 504.53,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 2,
+   "borne": "4",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.04,
+   "ejemplos": [
+    "75286-1/12XP/2",
+    "75286-1/13X24/1",
+    "75286-1/13X24/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 3.1",
+   "cables": [
+    "1305"
+   ],
+   "componente": "13XC1",
+   "x": 628.82,
+   "y": 558.75,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 3,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/12XP/2",
+    "75286-1/13X24/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 3.2",
+   "cables": [
+    "1321"
+   ],
+   "componente": "13XC1",
+   "x": 628.92,
+   "y": 547.11,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 3,
+   "borne": "2",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/13X24/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 3.3",
+   "cables": [
+    "1307"
+   ],
+   "componente": "13XC1",
+   "x": 628.91,
+   "y": 516.16,
+   "r": 2.76,
+   "confianza": "media",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 3,
+   "borne": "3",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/13X24/1"
+   ],
+   "nota": "borne deducido por simetria"
+  },
+  {
+   "texto": "13XC1 3.4",
+   "cables": [
+    "1203"
+   ],
+   "componente": "13XC1",
+   "x": 628.82,
+   "y": 504.53,
+   "r": 2.77,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 3,
+   "borne": "4",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/12XP/2",
+    "75286-1/13X24/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 4.1",
+   "cables": [
+    "1323"
+   ],
+   "componente": "13XC1",
+   "x": 634.6,
+   "y": 558.75,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 4,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/12XP/2",
+    "75286-1/13X24/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 4.2",
+   "cables": [
+    "1328"
+   ],
+   "componente": "13XC1",
+   "x": 634.7,
+   "y": 547.11,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 4,
+   "borne": "2",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/13X24/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13XC1 4.4",
+   "cables": [
+    "1315"
+   ],
+   "componente": "13XC1",
+   "x": 634.6,
+   "y": 504.53,
+   "r": 2.77,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 4,
+   "borne": "4",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/12XP/2",
+    "75286-1/13X24/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "12F1 ABAJO",
+   "cables": [
+    "1202"
+   ],
+   "componente": "12F1",
+   "x": 773.54,
+   "y": 654.59,
+   "r": 1.92,
+   "confianza": "alta",
+   "modelo": "SCHNEIDER DF101 10x38",
+   "unidad": 1,
+   "borne": "P1_ABAJO",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/13F3/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "12F1 ARRIBA",
+   "cables": [
+    "1201"
+   ],
+   "componente": "12F1",
+   "x": 773.54,
+   "y": 697.31,
+   "r": 1.92,
+   "confianza": "alta",
+   "modelo": "SCHNEIDER DF101 10x38",
+   "unidad": 1,
+   "borne": "P1_ARRIBA",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/13F3/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "81XCM 1 ARRIBA",
+   "cables": [
+    "2132"
+   ],
+   "componente": "81XCM",
+   "x": 713.5,
+   "y": 433.3,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 1,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "ninguno",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43XCS/2",
+    "75286-1/46XC/1",
+    "75286-1/46XC/2"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "81XCM 11 ARRIBA",
+   "cables": [
+    "2135"
+   ],
+   "componente": "81XCM",
+   "x": 731.8,
+   "y": 433.24,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 6,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.02,
+   "ejemplos": [
+    "75286-1/43XCS/2",
+    "75286-1/46XC/1",
+    "75286-1/46XC/2"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "81XCM 12 ARRIBA",
+   "cables": [
+    "2136"
+   ],
+   "componente": "81XCM",
+   "x": 731.66,
+   "y": 421.97,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 6,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/43XCS/2",
+    "75286-1/46XC/1",
+    "75286-1/46XC/2"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "81XCM 2 ARRIBA",
+   "cables": [
+    "2133"
+   ],
+   "componente": "81XCM",
+   "x": 713.4,
+   "y": 422.03,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 1,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.07,
+   "ejemplos": [
+    "75286-1/43XCS/2",
+    "75286-1/46XC/1",
+    "75286-1/46XC/2"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "81XCM 5 ARRIBA",
+   "cables": [
+    "2132"
+   ],
+   "componente": "81XCM",
+   "x": 720.86,
+   "y": 433.29,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 3,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.05,
+   "ejemplos": [
+    "75286-1/43XCS/1",
+    "75286-1/43XCS/2",
+    "75286-1/46XC/2"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "81XCM 6 ARRIBA",
+   "cables": [
+    "2133"
+   ],
+   "componente": "81XCM",
+   "x": 720.74,
+   "y": 422.01,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 3,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.04,
+   "ejemplos": [
+    "75286-1/43XCS/1",
+    "75286-1/43XCS/2",
+    "75286-1/46XC/2"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "13PS3 +Vin",
+   "cables": [
+    "1304"
+   ],
+   "componente": "13PS3",
+   "x": 825.89,
+   "y": 639.81,
+   "r": 1.52,
+   "confianza": "media",
+   "modelo": "MEAN WELL DDR",
+   "unidad": 1,
+   "borne": "TB1.3",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista de materiales lo nombra 13PS2; sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL NDR)"
+  },
+  {
+   "texto": "13PS3 +Vo",
+   "cables": [
+    "1310"
+   ],
+   "componente": "13PS3",
+   "x": 822.98,
+   "y": 715.43,
+   "r": 1.53,
+   "confianza": "media",
+   "modelo": "MEAN WELL DDR",
+   "unidad": 1,
+   "borne": "TB2.3",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista de materiales lo nombra 13PS2; sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL NDR); nombre repetido: por numero de cable"
+  },
+  {
+   "texto": "13PS3 -Vin",
+   "cables": [
+    "1305"
+   ],
+   "componente": "13PS3",
+   "x": 822.2,
+   "y": 639.81,
+   "r": 1.53,
+   "confianza": "media",
+   "modelo": "MEAN WELL DDR",
+   "unidad": 1,
+   "borne": "TB1.2",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista de materiales lo nombra 13PS2; sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL NDR)"
+  },
+  {
+   "texto": "13PS3 -Vo",
+   "cables": [
+    "1323"
+   ],
+   "componente": "13PS3",
+   "x": 819.22,
+   "y": 715.43,
+   "r": 1.53,
+   "confianza": "media",
+   "modelo": "MEAN WELL DDR",
+   "unidad": 1,
+   "borne": "TB2.2",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista de materiales lo nombra 13PS2; sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL NDR); nombre repetido: por numero de cable"
+  },
+  {
+   "texto": "13PS3 -Vo",
+   "cables": [
+    "1311"
+   ],
+   "componente": "13PS3",
+   "x": 815.46,
+   "y": 715.43,
+   "r": 1.53,
+   "confianza": "media",
+   "modelo": "MEAN WELL DDR",
+   "unidad": 1,
+   "borne": "TB2.1",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista de materiales lo nombra 13PS2; sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos + pariente (MEAN WELL NDR); nombre repetido: por numero de cable"
+  },
+  {
+   "texto": "13X24 1.1",
+   "cables": [
+    "1310"
+   ],
+   "componente": "13X24",
+   "x": 648.97,
+   "y": 558.75,
+   "r": 2.77,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 1,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/12XP/2",
+    "75286-1/13XC1/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13X24 1.2",
+   "cables": [
+    "1324"
+   ],
+   "componente": "13X24",
+   "x": 649.01,
+   "y": 547.11,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 1,
+   "borne": "2",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.04,
+   "ejemplos": [
+    "75286-1/13XC1/2",
+    "75286-1/13XC1/3",
+    "75286-1/13XC1/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13X24 1.4",
+   "cables": [
+    "1312"
+   ],
+   "componente": "13X24",
+   "x": 648.96,
+   "y": 504.53,
+   "r": 2.9,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 1,
+   "borne": "4",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/12XP/2",
+    "75286-1/13XC1/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13X24 2.1",
+   "cables": [
+    "1311"
+   ],
+   "componente": "13X24",
+   "x": 656.4,
+   "y": 558.75,
+   "r": 2.76,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 2,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/13XC1/3",
+    "75286-1/13XC1/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "13X24 2.4",
+   "cables": [
+    "1313"
+   ],
+   "componente": "13X24",
+   "x": 656.4,
+   "y": 504.53,
+   "r": 2.9,
+   "confianza": "alta",
+   "modelo": "PHOENIX PT 6-QUATTRO",
+   "unidad": 2,
+   "borne": "4",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/12XP/1",
+    "75286-1/13XC1/3",
+    "75286-1/13XC1/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "31AIB1 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "componente": "31AIB1",
+   "x": 787.06,
+   "y": 567.04,
+   "r": 0.65,
+   "confianza": "baja",
+   "modelo": "CHENZHU GS8536-EX",
+   "unidad": 1,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.49,
+   "ejemplos": [
+    "75286-1/43DIB1/1",
+    "75286-1/43DIB2/1"
+   ],
+   "nota": "sin ejemplos del modelo: recuadro generico + pariente (CHENZHU GS8512-EX)"
+  },
+  {
+   "texto": "31AIB1 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "componente": "31AIB1",
+   "x": 790.62,
+   "y": 567.04,
+   "r": 0.65,
+   "confianza": "baja",
+   "modelo": "CHENZHU GS8536-EX",
+   "unidad": 1,
+   "borne": "2",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 1.01,
+   "ejemplos": [
+    "75286-1/43DIB1/1",
+    "75286-1/43DIB2/1"
+   ],
+   "nota": "sin ejemplos del modelo: recuadro generico + pariente (CHENZHU GS8512-EX)"
+  },
+  {
+   "texto": "43DIB1 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "componente": "43DIB1",
+   "x": 798.14,
+   "y": 567.04,
+   "r": 0.65,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/31AIB1/1",
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB1 10",
+   "cables": [
+    "4302"
+   ],
+   "componente": "43DIB1",
+   "x": 801.91,
+   "y": 495.69,
+   "r": 0.6,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "10",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB1 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "componente": "43DIB1",
+   "x": 801.78,
+   "y": 567.04,
+   "r": 0.6,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "2",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.05,
+   "ejemplos": [
+    "75286-1/31AIB1/1",
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB1 3",
+   "cables": [
+    "1318"
+   ],
+   "componente": "43DIB1",
+   "x": 798.12,
+   "y": 567.15,
+   "r": 0.65,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "3",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.13,
+   "ejemplos": [
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB1 5",
+   "cables": [
+    "2116"
+   ],
+   "componente": "43DIB1",
+   "x": 798.12,
+   "y": 560.78,
+   "r": 1.75,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "5",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB1 6",
+   "cables": [
+    "2117"
+   ],
+   "componente": "43DIB1",
+   "x": 801.76,
+   "y": 560.78,
+   "r": 1.75,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "6",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.01,
+   "ejemplos": [
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB1 7",
+   "cables": [
+    "4303"
+   ],
+   "componente": "43DIB1",
+   "x": 798.19,
+   "y": 501.86,
+   "r": 1.79,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "7",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB1 8",
+   "cables": [
+    "4304"
+   ],
+   "componente": "43DIB1",
+   "x": 801.92,
+   "y": 501.86,
+   "r": 1.79,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "8",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.1,
+   "ejemplos": [
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB1 9",
+   "cables": [
+    "4301"
+   ],
+   "componente": "43DIB1",
+   "x": 798.2,
+   "y": 495.69,
+   "r": 0.6,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "9",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.07,
+   "ejemplos": [
+    "75286-1/43DIB2/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "componente": "43DIB2",
+   "x": 807.14,
+   "y": 567.04,
+   "r": 0.62,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "1",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.02,
+   "ejemplos": [
+    "75286-1/31AIB1/1",
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 10",
+   "cables": [
+    "4342"
+   ],
+   "componente": "43DIB2",
+   "x": 810.68,
+   "y": 495.69,
+   "r": 0.6,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "10",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "componente": "43DIB2",
+   "x": 810.62,
+   "y": 567.04,
+   "r": 0.65,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "2",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.05,
+   "ejemplos": [
+    "75286-1/31AIB1/1",
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 3",
+   "cables": [
+    "1319"
+   ],
+   "componente": "43DIB2",
+   "x": 807.23,
+   "y": 567.15,
+   "r": 0.55,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "3",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.13,
+   "ejemplos": [
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 5",
+   "cables": [
+    "2120"
+   ],
+   "componente": "43DIB2",
+   "x": 807.23,
+   "y": 560.78,
+   "r": 1.61,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "5",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 6",
+   "cables": [
+    "2121"
+   ],
+   "componente": "43DIB2",
+   "x": 810.59,
+   "y": 560.78,
+   "r": 1.61,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "6",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.1,
+   "ejemplos": [
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 7",
+   "cables": [
+    "4343"
+   ],
+   "componente": "43DIB2",
+   "x": 807.3,
+   "y": 501.86,
+   "r": 1.62,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "7",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 8",
+   "cables": [
+    "4344"
+   ],
+   "componente": "43DIB2",
+   "x": 810.67,
+   "y": 501.86,
+   "r": 1.62,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "8",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.1,
+   "ejemplos": [
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43DIB2 9",
+   "cables": [
+    "4341"
+   ],
+   "componente": "43DIB2",
+   "x": 807.29,
+   "y": 495.69,
+   "r": 0.6,
+   "confianza": "alta",
+   "modelo": "CHENZHU GS8512-EX",
+   "unidad": 1,
+   "borne": "9",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.07,
+   "ejemplos": [
+    "75286-1/43DIB1/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62XDIO 1 ABAJO",
+   "cables": [
+    "6201"
+   ],
+   "componente": "62XDIO",
+   "x": 669.98,
+   "y": 544.31,
+   "r": 1.76,
+   "confianza": "media",
+   "modelo": "PHOENIX PT 2,5-DIO/L-R",
+   "unidad": 1,
+   "borne": "ABAJO",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "62XDIO 2 ABAJO",
+   "cables": [
+    "6203"
+   ],
+   "componente": "62XDIO",
+   "x": 673.64,
+   "y": 544.31,
+   "r": 1.76,
+   "confianza": "media",
+   "modelo": "PHOENIX PT 2,5-DIO/L-R",
+   "unidad": 2,
+   "borne": "ABAJO",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "62XDIO 3 ABAJO",
+   "cables": [
+    "6206"
+   ],
+   "componente": "62XDIO",
+   "x": 677.3,
+   "y": 544.31,
+   "r": 1.76,
+   "confianza": "media",
+   "modelo": "PHOENIX PT 2,5-DIO/L-R",
+   "unidad": 3,
+   "borne": "ABAJO",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "62XDIO 3 ABAJO",
+   "cables": [
+    "6204"
+   ],
+   "componente": "62XDIO",
+   "x": 677.3,
+   "y": 544.31,
+   "r": 1.76,
+   "confianza": "media",
+   "modelo": "PHOENIX PT 2,5-DIO/L-R",
+   "unidad": 3,
+   "borne": "ABAJO",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "62XDIO 3 ARRIBA",
+   "cables": [
+    "1315"
+   ],
+   "componente": "62XDIO",
+   "x": 677.3,
+   "y": 517.78,
+   "r": 1.8,
+   "confianza": "media",
+   "modelo": "PHOENIX PT 2,5-DIO/L-R",
+   "unidad": 3,
+   "borne": "ARRIBA",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "62XDIO 3 ARRIBA",
+   "cables": [
+    "6203"
+   ],
+   "componente": "62XDIO",
+   "x": 677.3,
+   "y": 517.78,
+   "r": 1.8,
+   "confianza": "media",
+   "modelo": "PHOENIX PT 2,5-DIO/L-R",
+   "unidad": 3,
+   "borne": "ARRIBA",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: recuadro generico + disposicion de la hoja de datos"
+  },
+  {
+   "texto": "62XDIO 4 ABAJO",
+   "cables": [
+    "6205"
+   ],
+   "componente": "62XDO",
+   "texto_correcto": "62XDO 4 ABAJO",
+   "x": 694.11,
+   "y": 516.02,
+   "r": 2.09,
+   "confianza": "media",
+   "modelo": "PHOENIX PTT 2,5",
+   "unidad": 2,
+   "borne": "ABAJO_INT",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/62XDO/1"
+   ],
+   "nota": "62XDIO tiene 3 piezas: el borne 4 ABAJO es de la bornera vecina 62XDO; borne deducido por simetria"
+  },
+  {
+   "texto": "62XDIO 5 ABAJO",
+   "cables": [
+    "6207"
+   ],
+   "componente": "62XDO",
+   "texto_correcto": "62XDO 5 ABAJO",
+   "x": 698.47,
+   "y": 507.93,
+   "r": 2.25,
+   "confianza": "media",
+   "modelo": "PHOENIX PTT 2,5",
+   "unidad": 3,
+   "borne": "ABAJO_EXT",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/62XDO/1"
+   ],
+   "nota": "62XDIO tiene 3 piezas: el borne 5 ABAJO es de la bornera vecina 62XDO"
+  },
+  {
+   "texto": "62XDIO 5 ARRIBA",
+   "cables": [
+    "6206"
+   ],
+   "componente": "62XDO",
+   "texto_correcto": "62XDO 5 ARRIBA",
+   "x": 698.47,
+   "y": 551.73,
+   "r": 2.25,
+   "confianza": "media",
+   "modelo": "PHOENIX PTT 2,5",
+   "unidad": 3,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/62XDO/1"
+   ],
+   "nota": "62XDIO tiene 3 piezas: el borne 5 ARRIBA es de la bornera vecina 62XDO"
+  },
+  {
+   "texto": "62XDIO 6 ABAJO",
+   "cables": [
+    "6208"
+   ],
+   "componente": "62XDO",
+   "texto_correcto": "62XDO 6 ABAJO",
+   "x": 698.47,
+   "y": 516.02,
+   "r": 2.09,
+   "confianza": "media",
+   "modelo": "PHOENIX PTT 2,5",
+   "unidad": 3,
+   "borne": "ABAJO_INT",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/62XDO/1"
+   ],
+   "nota": "62XDIO tiene 3 piezas: el borne 6 ABAJO es de la bornera vecina 62XDO; borne deducido por simetria"
+  },
+  {
+   "texto": "31XAI 1 ABAJO",
+   "cables": [
+    "3142"
+   ],
+   "componente": "31XAI",
+   "x": 801.48,
+   "y": 643.25,
+   "r": 2.21,
+   "confianza": "media",
+   "modelo": "PHOENIX PTTB 4-HESI (borne fusible)",
+   "unidad": 1,
+   "borne": "ABAJO_EXT",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista dice PHOENIX PTT 2,5-2MT, pero el dibujo no coincide y los textos son de PHOENIX PTTB 4-HESI (borne fusible); sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5, PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU)"
+  },
+  {
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "2142"
+   ],
+   "componente": "31XAI",
+   "x": 801.39,
+   "y": 705.06,
+   "r": 2.23,
+   "confianza": "media",
+   "modelo": "PHOENIX PTTB 4-HESI (borne fusible)",
+   "unidad": 1,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista dice PHOENIX PTT 2,5-2MT, pero el dibujo no coincide y los textos son de PHOENIX PTTB 4-HESI (borne fusible); sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5, PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU)"
+  },
+  {
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "3141"
+   ],
+   "componente": "31XAI",
+   "x": 801.39,
+   "y": 705.06,
+   "r": 2.23,
+   "confianza": "media",
+   "modelo": "PHOENIX PTTB 4-HESI (borne fusible)",
+   "unidad": 1,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista dice PHOENIX PTT 2,5-2MT, pero el dibujo no coincide y los textos son de PHOENIX PTTB 4-HESI (borne fusible); sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5, PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU)"
+  },
+  {
+   "texto": "31XAI F1 ABAJO",
+   "cables": [
+    "3141"
+   ],
+   "componente": "31XAI",
+   "x": 801.48,
+   "y": 655.52,
+   "r": 2.21,
+   "confianza": "media",
+   "modelo": "PHOENIX PTTB 4-HESI (borne fusible)",
+   "unidad": 1,
+   "borne": "ABAJO_INT",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista dice PHOENIX PTT 2,5-2MT, pero el dibujo no coincide y los textos son de PHOENIX PTTB 4-HESI (borne fusible); sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5, PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU)"
+  },
+  {
+   "texto": "31XAI F1 ARRIBA",
+   "cables": [
+    "1324"
+   ],
+   "componente": "31XAI",
+   "x": 801.68,
+   "y": 686.25,
+   "r": 2.24,
+   "confianza": "media",
+   "modelo": "PHOENIX PTTB 4-HESI (borne fusible)",
+   "unidad": 1,
+   "borne": "ARRIBA_INT",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "la lista dice PHOENIX PTT 2,5-2MT, pero el dibujo no coincide y los textos son de PHOENIX PTTB 4-HESI (borne fusible); sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5, PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU)"
+  },
+  {
+   "texto": "43KR1 11",
+   "cables": [
+    "2118"
+   ],
+   "componente": "43KR",
+   "x": 842.6,
+   "y": 704.63,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "11",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/46KR/2",
+    "75286-1/62KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR1 14",
+   "cables": [
+    "2119"
+   ],
+   "componente": "43KR",
+   "x": 842.6,
+   "y": 698.24,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR1 A1",
+   "cables": [
+    "4329"
+   ],
+   "componente": "43KR",
+   "x": 842.6,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR2 11",
+   "cables": [
+    "4318"
+   ],
+   "componente": "43KR",
+   "x": 846.93,
+   "y": 704.63,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "11",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/46KR/2",
+    "75286-1/62KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR2 14",
+   "cables": [
+    "4319"
+   ],
+   "componente": "43KR",
+   "x": 846.93,
+   "y": 698.24,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR2 A1",
+   "cables": [
+    "4329"
+   ],
+   "componente": "43KR",
+   "x": 846.93,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR2 A2",
+   "cables": [
+    "1328"
+   ],
+   "componente": "43KR",
+   "x": 846.93,
+   "y": 646.44,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "A2",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR3 11",
+   "cables": [
+    "2122"
+   ],
+   "componente": "43KR",
+   "x": 851.26,
+   "y": 704.63,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 3,
+   "borne": "11",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/46KR/2",
+    "75286-1/62KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR3 14",
+   "cables": [
+    "2123"
+   ],
+   "componente": "43KR",
+   "x": 851.26,
+   "y": 698.24,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 3,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/2",
+    "75286-1/62KR/2",
+    "75286-1/62KR/3"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR3 A1",
+   "cables": [
+    "4369"
+   ],
+   "componente": "43KR",
+   "x": 851.26,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 3,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/2",
+    "75286-1/62KR/2",
+    "75286-1/62KR/3"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR4 11",
+   "cables": [
+    "4358"
+   ],
+   "componente": "43KR",
+   "x": 855.59,
+   "y": 704.63,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 4,
+   "borne": "11",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/46KR/2",
+    "75286-1/62KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR4 14",
+   "cables": [
+    "4359"
+   ],
+   "componente": "43KR",
+   "x": 855.59,
+   "y": 698.24,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 4,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43KR4 A1",
+   "cables": [
+    "4369"
+   ],
+   "componente": "43KR",
+   "x": 855.59,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 4,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/46KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62XDO 1 ABAJO",
+   "cables": [
+    "6202"
+   ],
+   "componente": "62XDO",
+   "x": 689.74,
+   "y": 507.93,
+   "r": 2.25,
+   "confianza": "media",
+   "modelo": "PHOENIX PTT 2,5",
+   "unidad": 1,
+   "borne": "ABAJO_EXT",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU, PHOENIX PTTB 4-HESI (borne fusible))"
+  },
+  {
+   "texto": "62XDO 1 ARRIBA",
+   "cables": [
+    "6201"
+   ],
+   "componente": "62XDO",
+   "x": 689.74,
+   "y": 551.73,
+   "r": 2.25,
+   "confianza": "media",
+   "modelo": "PHOENIX PTT 2,5",
+   "unidad": 1,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU, PHOENIX PTTB 4-HESI (borne fusible))"
+  },
+  {
+   "texto": "62XDO 2 ARRIBA",
+   "cables": [
+    "1321"
+   ],
+   "componente": "62XDO",
+   "x": 689.74,
+   "y": 543.64,
+   "r": 2.25,
+   "confianza": "media",
+   "modelo": "PHOENIX PTT 2,5",
+   "unidad": 1,
+   "borne": "ARRIBA_INT",
+   "ajuste": "disposicion",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [],
+   "nota": "sin ejemplos del modelo: se usa un pariente (PHOENIX PTT 2,5-2MT, PHOENIX PTT 2,5-2MT BU, PHOENIX PTTB 4-HESI (borne fusible))"
+  },
+  {
+   "texto": "62KR1 11",
+   "cables": [
+    "1308"
+   ],
+   "componente": "62KR",
+   "x": 882.78,
+   "y": 704.63,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "11",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/4",
+    "75286-1/46KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR1 14",
+   "cables": [
+    "6201"
+   ],
+   "componente": "62KR",
+   "x": 882.78,
+   "y": 698.24,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/4",
+    "75286-1/46KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR1 A1",
+   "cables": [
+    "2150"
+   ],
+   "componente": "62KR",
+   "x": 882.78,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/4",
+    "75286-1/46KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR1 A2",
+   "cables": [
+    "2151"
+   ],
+   "componente": "62KR",
+   "x": 882.78,
+   "y": 646.44,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "A2",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/46KR/1",
+    "75286-1/46KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR2 14",
+   "cables": [
+    "6203"
+   ],
+   "componente": "62KR",
+   "x": 887.11,
+   "y": 698.24,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/2",
+    "75286-1/43KR/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR2 A1",
+   "cables": [
+    "2152"
+   ],
+   "componente": "62KR",
+   "x": 887.11,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/2",
+    "75286-1/43KR/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR2 A2",
+   "cables": [
+    "2153"
+   ],
+   "componente": "62KR",
+   "x": 887.11,
+   "y": 646.44,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "A2",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/46KR/1",
+    "75286-1/46KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR3 14",
+   "cables": [
+    "6206"
+   ],
+   "componente": "62KR",
+   "x": 891.44,
+   "y": 698.24,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 3,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/3",
+    "75286-1/46KR/1",
+    "75286-1/46KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR3 A1",
+   "cables": [
+    "2154"
+   ],
+   "componente": "62KR",
+   "x": 891.44,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 3,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/3",
+    "75286-1/46KR/1",
+    "75286-1/46KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "62KR3 A2",
+   "cables": [
+    "2155"
+   ],
+   "componente": "62KR",
+   "x": 891.44,
+   "y": 646.44,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 3,
+   "borne": "A2",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/46KR/1",
+    "75286-1/46KR/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "46KR A2",
+   "cables": [
+    "4615"
+   ],
+   "componente": "46KR",
+   "texto_correcto": "46KR2 A2",
+   "x": 871.35,
+   "y": 646.44,
+   "r": 1.45,
+   "confianza": "media",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "A2",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/3"
+   ],
+   "nota": "el texto no dice el modulo: modulo del cable de numero mas cercano"
+  },
+  {
+   "texto": "46KR A2",
+   "cables": [
+    "4669"
+   ],
+   "componente": "46KR",
+   "texto_correcto": "46KR1 A2",
+   "x": 867.02,
+   "y": 646.44,
+   "r": 1.45,
+   "confianza": "media",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "A2",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/62KR/1",
+    "75286-1/62KR/3"
+   ],
+   "nota": "el texto no dice el modulo: modulo del cable de numero mas cercano"
+  },
+  {
+   "texto": "46KR1 11",
+   "cables": [
+    "2168"
+   ],
+   "componente": "46KR",
+   "x": 867.02,
+   "y": 704.63,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "11",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/4",
+    "75286-1/62KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "46KR1 14",
+   "cables": [
+    "2169"
+   ],
+   "componente": "46KR",
+   "x": 867.02,
+   "y": 698.24,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/4",
+    "75286-1/62KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "46KR1 A1",
+   "cables": [
+    "4668"
+   ],
+   "componente": "46KR",
+   "x": 867.02,
+   "y": 652.82,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 1,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/4",
+    "75286-1/62KR/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "46KR2 11",
+   "cables": [
+    "2114"
+   ],
+   "componente": "46KR",
+   "x": 871.35,
+   "y": 704.63,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "11",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/3",
+    "75286-1/43KR/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "46KR2 14",
+   "cables": [
+    "2115"
+   ],
+   "componente": "46KR",
+   "x": 871.35,
+   "y": 698.25,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "14",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/3",
+    "75286-1/62KR/3"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "46KR2 A1",
+   "cables": [
+    "4614"
+   ],
+   "componente": "46KR",
+   "x": 871.35,
+   "y": 652.83,
+   "r": 1.45,
+   "confianza": "alta",
+   "modelo": "PHOENIX RIF-0-RPT",
+   "unidad": 2,
+   "borne": "A1",
+   "ajuste": "circulo",
+   "desplazamiento_ajuste": 0.0,
+   "ejemplos": [
+    "75286-1/43KR/1",
+    "75286-1/43KR/3",
+    "75286-1/62KR/3"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "31XEX 1 ARRIBA",
+   "cables": [
+    "3104"
+   ],
+   "componente": "31XEX",
+   "x": 789.01,
+   "y": 433.12,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 1,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.01,
+   "ejemplos": [
+    "75286-1/43XDI/1",
+    "75286-1/43XDI/2",
+    "75286-1/43XDI/3"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "31XEX 2 ARRIBA",
+   "cables": [
+    "3105"
+   ],
+   "componente": "31XEX",
+   "x": 789.02,
+   "y": 421.94,
+   "r": 1.07,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 1,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/43XDI/1",
+    "75286-1/43XDI/2",
+    "75286-1/43XDI/3"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "31XEX 3 ARRIBA",
+   "cables": [
+    "3138"
+   ],
+   "componente": "31XEX",
+   "x": 792.68,
+   "y": 433.12,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 2,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.02,
+   "ejemplos": [
+    "75286-1/43XDI/1",
+    "75286-1/43XDI/2",
+    "75286-1/43XDI/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "31XEX 4 ARRIBA",
+   "cables": [
+    "3139"
+   ],
+   "componente": "31XEX",
+   "x": 792.67,
+   "y": 421.94,
+   "r": 1.07,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 2,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/43XDI/1",
+    "75286-1/43XDI/2",
+    "75286-1/43XDI/4"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43XCS 1 ARRIBA",
+   "cables": [
+    "4319"
+   ],
+   "componente": "43XCS",
+   "x": 679.21,
+   "y": 432.76,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 1,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.02,
+   "ejemplos": [
+    "75286-1/46XC/1",
+    "75286-1/46XC/2",
+    "75286-1/81XCM/3"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "43XCS 2 ARRIBA",
+   "cables": [
+    "4318"
+   ],
+   "componente": "43XCS",
+   "x": 679.19,
+   "y": 421.5,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 1,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.02,
+   "ejemplos": [
+    "75286-1/46XC/1",
+    "75286-1/46XC/2",
+    "75286-1/81XCM/3"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "43XCS 3 ARRIBA",
+   "cables": [
+    "4359"
+   ],
+   "componente": "43XCS",
+   "x": 682.77,
+   "y": 432.74,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 2,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.1,
+   "ejemplos": [
+    "75286-1/46XC/1",
+    "75286-1/46XC/2",
+    "75286-1/81XCM/6"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "43XCS 4 ARRIBA",
+   "cables": [
+    "4358"
+   ],
+   "componente": "43XCS",
+   "x": 682.85,
+   "y": 421.49,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 2,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.02,
+   "ejemplos": [
+    "75286-1/46XC/1",
+    "75286-1/46XC/2",
+    "75286-1/81XCM/6"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "43XDI 1 ARRIBA",
+   "cables": [
+    "4301"
+   ],
+   "componente": "43XDI",
+   "x": 803.91,
+   "y": 433.12,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 1,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.03,
+   "ejemplos": [
+    "75286-1/31XEX/1",
+    "75286-1/31XEX/2",
+    "75286-1/43XCS/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43XDI 2 ARRIBA",
+   "cables": [
+    "4302"
+   ],
+   "componente": "43XDI",
+   "x": 803.91,
+   "y": 421.94,
+   "r": 1.07,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 1,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/31XEX/1",
+    "75286-1/31XEX/2",
+    "75286-1/43XCS/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43XDI 3 ARRIBA",
+   "cables": [
+    "4303"
+   ],
+   "componente": "43XDI",
+   "x": 807.62,
+   "y": 433.12,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 2,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/31XEX/1",
+    "75286-1/31XEX/2",
+    "75286-1/46XC/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43XDI 4 ARRIBA",
+   "cables": [
+    "4304"
+   ],
+   "componente": "43XDI",
+   "x": 807.62,
+   "y": 421.94,
+   "r": 1.07,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 2,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.13,
+   "ejemplos": [
+    "75286-1/31XEX/1",
+    "75286-1/31XEX/2",
+    "75286-1/46XC/2"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43XDI 5 ARRIBA",
+   "cables": [
+    "4341"
+   ],
+   "componente": "43XDI",
+   "x": 811.22,
+   "y": 433.12,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 3,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.02,
+   "ejemplos": [
+    "75286-1/31XEX/1",
+    "75286-1/31XEX/2",
+    "75286-1/81XCM/3"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43XDI 6 ARRIBA",
+   "cables": [
+    "4342"
+   ],
+   "componente": "43XDI",
+   "x": 811.21,
+   "y": 421.94,
+   "r": 1.07,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 3,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.09,
+   "ejemplos": [
+    "75286-1/31XEX/1",
+    "75286-1/31XEX/2",
+    "75286-1/81XCM/3"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43XDI 7 ARRIBA",
+   "cables": [
+    "4343"
+   ],
+   "componente": "43XDI",
+   "x": 814.93,
+   "y": 433.12,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 4,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.08,
+   "ejemplos": [
+    "75286-1/31XEX/1",
+    "75286-1/31XEX/2",
+    "75286-1/46XC/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "43XDI 8 ARRIBA",
+   "cables": [
+    "4344"
+   ],
+   "componente": "43XDI",
+   "x": 814.94,
+   "y": 421.94,
+   "r": 1.07,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT BU",
+   "unidad": 4,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.13,
+   "ejemplos": [
+    "75286-1/31XEX/1",
+    "75286-1/31XEX/2",
+    "75286-1/46XC/1"
+   ],
+   "nota": ""
+  },
+  {
+   "texto": "46XC 1 ARRIBA",
+   "cables": [
+    "4668"
+   ],
+   "componente": "46XC",
+   "x": 694.17,
+   "y": 432.77,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 1,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.01,
+   "ejemplos": [
+    "75286-1/43XCS/1",
+    "75286-1/43XCS/2",
+    "75286-1/81XCM/6"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "46XC 2 ARRIBA",
+   "cables": [
+    "4669"
+   ],
+   "componente": "46XC",
+   "x": 694.14,
+   "y": 421.51,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 1,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.02,
+   "ejemplos": [
+    "75286-1/43XCS/1",
+    "75286-1/43XCS/2",
+    "75286-1/81XCM/6"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "46XC 3 ARRIBA",
+   "cables": [
+    "4614"
+   ],
+   "componente": "46XC",
+   "x": 697.93,
+   "y": 432.81,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 2,
+   "borne": "ARRIBA_EXT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.1,
+   "ejemplos": [
+    "75286-1/43XCS/2",
+    "75286-1/81XCM/3",
+    "75286-1/81XCM/6"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  },
+  {
+   "texto": "46XC 4 ARRIBA",
+   "cables": [
+    "4615"
+   ],
+   "componente": "46XC",
+   "x": 697.8,
+   "y": 421.53,
+   "r": 1.05,
+   "confianza": "alta",
+   "modelo": "PHOENIX PTT 2,5-2MT",
+   "unidad": 2,
+   "borne": "ARRIBA_INT",
+   "ajuste": "parche",
+   "desplazamiento_ajuste": 0.01,
+   "ejemplos": [
+    "75286-1/43XCS/2",
+    "75286-1/81XCM/3",
+    "75286-1/81XCM/6"
+   ],
+   "nota": "modelo reconocido por el dibujo (no esta en la lista)"
+  }
+ ],
+ "no_ubicados": [
+  {
+   "texto": "31XAI 2 ARRIBA",
+   "cable": "3142",
+   "motivo": "el texto no se entiende con la regla tabla"
+  },
+  {
+   "texto": "62XDO ARRIBA",
+   "cable": "6202",
+   "motivo": "el texto no se entiende con la regla doble_piso"
+  }
+ ]
+}

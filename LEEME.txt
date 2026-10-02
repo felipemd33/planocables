@@ -1,0 +1,166 @@
+LISTADO DE CABLES Y PDF BUSCABLE A PARTIR DE PLANOS ELECTRICOS
+==============================================================
+
+CARPETAS
+--------
+  Listado de cables (web).bat      -> abre la interfaz web (recomendada)
+  Listado de cables (ventana).bat  -> ventana clasica (tambien se pueden arrastrar PDF encima)
+  1 - Planos\                      -> guardar aqui los PDF originales de los planos
+  2 - Resultados\                  -> PDF buscable + Excel, una subcarpeta por plano
+  3 - Historial web\               -> lo que se procesa desde la interfaz web (no tocar a mano)
+  programa\                        -> el programa (no hace falta tocarlo)
+  version antigua (OCR)\           -> primera version (OCR, 1 hora por plano). Ya no se usa.
+
+
+USO CON LA INTERFAZ WEB (recomendado)
+-------------------------------------
+1. Doble clic en "Listado de cables (web).bat". Se abre el navegador en http://127.0.0.1:8765
+2. Arrastrar el plano PDF a la pagina (o "elige un archivo") y pulsar "Procesar plano".
+   Tarda aprox. 1 minuto para un plano de 19 hojas.
+3. Al terminar:
+   - Descargar el PDF buscable (Ctrl+F encuentra los numeros) y el Excel.
+   - Buscar un cable escribiendo su numero (tecla "/" para ir al buscador; Enter lo abre).
+   - Clic en un cable o en su ubicacion (p.ej. 13:B3): se abre el plano con el RECORRIDO
+     del cable dibujado con su color (rojo, negro, azul...), un circulo en cada punta y un
+     punto en cada union. Flechas <- -> para saltar entre sus apariciones,
+     rueda del raton para zoom, arrastrar para mover, Esc para cerrar.
+   - Boton "Todos los cables" (tecla C): colorea todos los cables de la hoja con su color.
+     Clic sobre cualquier cable coloreado para abrirlo.
+   - "Reprocesar": vuelve a procesar un plano del historial con la version actual del programa.
+   - Pestañas: Cables, Detalle (cada etiqueta), Sin numero (tierras, etc.),
+     A revisar, Hojas (clic en una hoja para verla con todos sus numeros).
+   - "Copiar" copia la tabla filtrada para pegarla en Excel. "Imprimir" imprime la tabla.
+4. Los planos procesados quedan en "Historial" (arriba a la derecha).
+   Desde ahi tambien se puede "Cerrar el programa".
+El programa funciona solo en este PC (no sale nada a internet).
+
+
+USO CON LA VENTANA CLASICA
+--------------------------
+Doble clic en "Listado de cables (ventana).bat", elegir el plano y "Procesar".
+Los resultados se guardan en "2 - Resultados\<nombre del plano>\".
+
+Desde una terminal:
+     python "C:\Buscar Termos en plano\programa\cli.py" "ruta\al\plano.pdf"
+
+
+QUE CONTIENE EL EXCEL
+---------------------
+- Listado de cables : Nº de cable, color, seccion, hojas y zonas donde aparece,
+                      "continua en (ShXX:YY)" y observaciones.
+                      Amarillo = revisar (el mismo numero tiene distintos colores/secciones).
+                      Verde    = color/seccion tomados de la nota del plano
+                                 ("cables not indicated will be black 0.75mm2").
+- Detalle por aparicion : cada etiqueta de numero, con hoja, zona y de donde sale su
+                      color/seccion (mismo tramo, tramo recto contiguo, otra aparicion o nota).
+- Cables sin numero : tramos con etiqueta de color pero sin numero (tierras A-V, etc.).
+- A revisar         : cosas que el programa no pudo asociar con seguridad.
+
+INSTRUCTIVO DE CABLEADO (pestaña "Instructivo de cableado" de la interfaz web)
+---------------------------------------------------------------------------
+1. Abrir el plano en la interfaz web y entrar en la pestaña "Instructivo de cableado".
+2. Cargar el PLANO TOPOGRAFICO (PDF). Tarda 1-2 minutos.
+3. La herramienta arma los pasos en el orden del taller (el de las etapas del WPC):
+   riel por riel de arriba a abajo; si una canaleta vertical corta el riel (la azul del riel 2),
+   zona por zona; en cada zona primero la parte de ARRIBA y despues la de ABAJO.
+   PRIMERO LOS CABLES QUE QUEDAN DEBAJO DE OTROS: rele 11 (C) -> 14 (NO) -> 12 (NC) y A2 -> A1;
+   QUATTRO 1 -> 2 (arriba) y 4 -> 3 (abajo); doble piso impar -> par; barreras el enchufe de
+   afuera primero. Los bancos de modulos iguales (reles, barreras) van capa por capa en todo el
+   banco; las borneras, una por una. Los tramos de un cable de 3 puntas van seguidos.
+   Cada linea: "1110: N2.5MM   11PS1 1 (-)   ->   LI" (nº, color+seccion, origen, destino).
+   - Bornes de 4 puntos (QUATTRO): N.1 / N.2 (arriba) N.3 / N.4 (abajo).
+   - Bornes de 2 puntos y doble piso: N ARRIBA / N ABAJO (en horizontal: izquierda = arriba).
+   - Termomagneticas: polos F / N.
+   - Todo lo que no esta en la bandeja: LI (lo de la puerta tambien pasa por LI).
+   - Cables LI <-> LI: lista aparte "Pendientes" (se cablean al montar la bandeja).
+   - Cables con puente/derivacion (3 puntas): marcados "3 puntas"; el visor muestra todos sus tramos.
+4. RUTEO: cada paso muestra la bandeja del topografico con el recorrido de sus cables por los
+   cablecanales, con el color de cada cable (clic para verlo grande; al pasar el raton por una
+   linea se resalta su recorrido). Reglas: cable azul (intrinsecamente seguro) por canaletas
+   azules. A LI se sale por el borde izquierdo de la canaleta vertical izquierda: todos los
+   cables por la salida de ARRIBA (a la altura de la canaleta entre el riel 1 y el 2) y los
+   marron y blanco de 220 VAC (>= 1 mm2) por la de ABAJO (canaleta entre el riel 2 y el 3).
+   Largo estimado de cada cable (~mm) = recorrido por canaleta segun la escala del plano
+   (sin sumar sobrantes para pelado/terminales).
+5. Todo es editable: origen/destino (clic en el texto), mover lineas entre pasos, cortar/unir
+   pasos, titulo y etapa. Se guarda solo. "Componentes y orden" permite corregir si un
+   componente esta en la bandeja o en LI, su riel y su posicion, y regenerar.
+6. Imprimir / PDF, descargar JSON (para importar despues a nuestra app) o copiar como texto.
+
+CABLEAR DE A UNO (boton "Cablear de a uno", estacion E6)
+-------------------------------------------------------
+- Se ve SOLO el cable que se esta cableando, sobre el topografico, y la camara lo sigue.
+  Si el cable tiene 3 puntas (puente/derivacion) se ven todos sus tramos a la vez: el que se
+  cablea en linea llena y los otros punteados, cada uno con su seccion (ej. 1108: 1 mm2 al
+  toma y 2,5 mm2 a la termomagnetica).
+- En cada punta se dibuja el TERMINAL que lleva, con el color de la pollera: pino 0,5 blanco,
+  0,75 celeste, 1 rojo, 2,5 azul, 4 naranja, 6 verde; en la union de un cable de 3 puntas va
+  terminal doble (1 rojo, 2,5 gris). La tabla se completa en programa\web	erminales.json.
+- El cable sale del PUNTO EXACTO del borne (mapeado aparato por aparato con hojas de datos y
+  fotos). La marca tiene el tamaño del borne y al lado va el numero del cable y su seccion,
+  a lo largo del cable (como la manga). Las lupas de arriba a la derecha muestran de cerca el
+  borne de origen y el de destino.
+- Listado a la izquierda (tecla L), igual que en el visor del funcional: se marca/desmarca
+  cada cable. Flecha -> pasa al siguiente y marca el actual como cableado; <- vuelve sin
+  desmarcar; Espacio marca/desmarca.
+- "⚡ Funcional" abre ese cable en el plano electrico; en el visor del funcional, en el mismo
+  lugar, "🧰 Instructivo" vuelve al mismo cable del instructivo (tecla I).
+- Si un borne quedo mal ubicado: "📍 Origen" / "📍 Destino" y clic sobre el borne correcto.
+- Los cables de 35 mm2 se pasan solos a E8 (gabinete).
+- Cables que se cablean en otra estacion (ej. 3141 y 3142, en el gabinete, E8): boton ⇄ de la
+  tarjeta. Salen de los pasos, del visor y de la auditoria, y quedan listados aparte
+  ("volver a E6" para deshacer). Se recuerdan al regenerar.
+- "Componentes y orden" > columna Lado: "todo abajo" / "todo arriba" fuerza el lado de todos
+  los bornes de un aparato (ej. el toma 11SK1, que ahora se cablea todo por abajo).
+- Regenerar conserva las marcas de cableado, los puntos ajustados, las estaciones y la
+  auditoria.
+
+AUDITORIA CRUZADA (boton "🔍 Auditoria")
+---------------------------------------
+Otro operario verifica la bandeja POR SECCIONES, sin seguir cada cable: la bandeja se divide
+en conjuntos de aparatos (riel, parte de arriba/abajo) y en cada seccion se marcan todos los
+bornes que llevan cable, con el numero y la seccion del cable que tiene que estar ahi. El
+auditor mira que cada borne marcado tenga su cable con ese numero y tilda "Seccion
+verificada" (Espacio = verificar y pasar a la siguiente). Como cada cable tiene sus dos puntas
+en alguna seccion, al verificar todas queda verificado todo el cableado. La ultima seccion es
+la salida a LI: el mazo tiene que tener todos los numeros de la lista.
+Cada seccion se revisa POR CAPAS: primero la capa de abajo (los cables de afuera de cada fila: 11,
+punto 1/4, borne impar) y al avanzar la capa siguiente, que va encima.
+Si algo no coincide: ⚠ en el borne y se anota que pasa. "Hoja de auditoria" imprime todas
+las secciones con su tabla para firmar.
+
+CABLES DE 3 (O MAS) PUNTAS
+--------------------------
+Un mismo numero con 3 puntas NO es un error: es un puente/derivacion hecho a proposito en
+una bornera. Ejemplo (hoja 62, cable 6201): sale del rele 62KR NO(14), va a la bornera 62XDO
+borne 1 y en ese mismo extremo se une otra punta del mismo cable que va a la bornera con
+diodo 62XDIO borne 1. En el dibujo se ve como una union en T junto a la bornera.
+El programa lo detecta: columna "Puntas" del listado (en azul) y la observacion
+"Cable de N puntas: puente/derivacion (hecho a proposito)".
+- Textos del plano  : todos los textos leidos, por hoja y zona.
+- Resumen           : datos del proceso.
+
+
+COMO FUNCIONA (por que es rapido)
+---------------------------------
+Los planos exportados desde AutoCAD guardan las letras como trazos (lineas), no como
+texto. El programa reconoce cada letra por la forma exacta de sus trazos (diccionario
+"programa\glyphdict.json"), sin OCR, y reconstruye los cables a partir de las lineas:
+  - el numero de cable se asocia al cable por la raya de corte que lo cruza,
+  - la etiqueta "(Color/Seccion)" se asocia al tramo de cable que tiene al lado,
+  - si un tramo no tiene etiqueta: la del tramo que sigue recto tras una union,
+    luego la de otra aparicion del mismo numero y, si no hay, la nota del plano.
+El OCR solo se usa de apoyo para letras que no esten en el diccionario, y para
+paginas escaneadas (imagen), que son mucho mas lentas.
+
+VERIFICACION (plano 75287 mSafe2AC REV.6)
+-----------------------------------------
+Revisado a ojo hoja por hoja: 300 de 300 etiquetas de cable correctas (numero, color,
+seccion), tras corregir 3 errores encontrados en la revision. Ctrl+F encuentra las 300.
+
+LIMITES
+-------
+- Pensado para planos vectoriales como los de Batfer/Digito (AutoCAD -> PDF).
+  Un plano escaneado se hace buscable con OCR, pero el listado de cables necesita
+  la geometria vectorial.
+- Revisar siempre la pestaña/hoja "A revisar" y las filas en amarillo.

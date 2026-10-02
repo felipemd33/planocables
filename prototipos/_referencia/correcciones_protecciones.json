@@ -1,0 +1,5 @@
+{
+ "familia": "protecciones",
+ "correcciones": [],
+ "verificacion": "Verificados los 22 puntos de la familia (11Q1, 11Q2, 12F1, 13F3, 31XAI, 12F2) con geometria propia (page_strokes, ajuste de circulos), cajas de etiqueta, fotos 12.35.34, 1.4, 12.35.37(1) y 1.1, hojas 11/12/13/31/04 del funcional y hoja de datos Phoenix PTTB 4-HESI (5X20) 3211886 (2do nivel = fusible, 6.3 A max). Todos los puntos caen en el tornillo/boca correcto; diferencia maxima 0.22 pt (bocas internas/inferiores del 31XAI, centro de media boca en vez del centro del contorno completo), muy por debajo de la tolerancia de 1.5 pt, por eso no se corrigen. Script: verif_protecciones/verificar.py; imagen: verif_protecciones/control_verificacion.png."
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listado de cables</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fbf'/%3E%3Cpath d='M6 11h9v10h11M6 21h5M22 7v8' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" id="homeLink" aria-label="Inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M6 11h9v10h11M6 21h5M22 7v8"/></svg>
+    <span><b>Listado de cables</b><small>Planos eléctricos → PDF buscable y listado automático</small></span>
+  </a>
+  <nav>
+    <button class="btn ghost" id="btnNuevo" hidden>＋ Nuevo plano</button>
+    <button class="btn ghost" id="btnHistorial">Historial</button>
+  </nav>
+</header>
+
+<main>
+  <!-- INICIO -->
+  <section id="vInicio" class="view">
+    <div class="hero">
+      <h1>Arrastra aquí el plano eléctrico</h1>
+      <p class="muted">PDF exportado desde AutoCAD. Se genera un PDF donde <kbd>Ctrl</kbd>+<kbd>F</kbd> encuentra los números de cable
+        y un listado con número, color y sección de cada cable. Un plano de 19 hojas tarda alrededor de un minuto.</p>
+    </div>
+    <label class="drop" id="drop" tabindex="0">
+      <input type="file" id="fileInput" accept="application/pdf,.pdf" hidden>
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 30l10-10 10 10M24 20v20M10 38h28" /><path d="M16 12h16" opacity=".4"/></svg>
+      <span class="drop-t">Suelta el PDF o <u>elige un archivo</u></span>
+      <span class="muted small" id="dropName">Ningún archivo elegido</span>
+    </label>
+    <div class="opts">
+      <label class="chk"><input type="checkbox" id="optPdf" checked> PDF buscable</label>
+      <label class="chk"><input type="checkbox" id="optExcel" checked> Listado en Excel</label>
+      <label class="chk" title="Para letras que no estén en el diccionario de glifos"><input type="checkbox" id="optOcr" checked> OCR de apoyo</label>
+      <button class="btn primary" id="btnProcesar" disabled>Procesar plano</button>
+    </div>
+    <div class="card" id="recientesCard" hidden>
+      <div class="card-h"><h2>Planos procesados</h2></div>
+      <div id="recientes" class="hist"></div>
+    </div>
+  </section>
+
+  <!-- PROCESANDO -->
+  <section id="vProceso" class="view" hidden>
+    <div class="card proc">
+      <div class="proc-h">
+        <div class="spinner" aria-hidden="true"></div>
+        <div><h2 id="procNombre">—</h2><div class="muted" id="procMsg">Preparando…</div></div>
+        <div class="proc-t mono" id="procTiempo"></div>
+      </div>
+      <div class="bar"><i id="procBar"></i></div>
+      <div class="proc-err" id="procErr" hidden>
+        <div class="muted small mono" id="procErrDet"></div>
+        <div class="dl"><button class="btn" id="procVolver">Volver</button><button class="btn ghost" id="procBorrar">Borrar del historial</button></div>
+      </div>
+      <pre class="log" id="procLog"></pre>
+    </div>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="vResultado" class="view" hidden>
+    <div class="res-head">
+      <div>
+        <h1 id="resNombre">—</h1>
+        <div class="muted small" id="resInfo"></div>
+      </div>
+      <div class="dl">
+        <a class="btn primary" id="dlPdf" href="#">⭳ PDF buscable</a>
+        <a class="btn" id="dlExcel" href="#">⭳ Excel</a>
+        <button class="btn ghost" id="btnCarpeta" title="Abrir la carpeta de resultados">Carpeta</button>
+        <button class="btn ghost" id="btnReproc" title="Volver a procesar este plano con la versión actual del programa">↻ Reprocesar</button>
+      </div>
+    </div>
+    <div class="note" id="resNota" hidden></div>
+    <div class="kpis" id="kpis"></div>
+
+    <div class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-tab="cables" class="on">Cables <span class="cnt" id="cntCables"></span></button>
+      <button role="tab" data-tab="detalle">Detalle <span class="cnt" id="cntDetalle"></span></button>
+      <button role="tab" data-tab="sinnum">Sin número <span class="cnt" id="cntSinnum"></span></button>
+      <button role="tab" data-tab="revisar">A revisar <span class="cnt warn" id="cntRevisar"></span></button>
+      <button role="tab" data-tab="hojas">Hojas <span class="cnt" id="cntHojas"></span></button>
+      <button role="tab" data-tab="instructivo">🧰 Instructivo de cableado</button>
+    </div>
+
+    <div class="toolbar" id="toolbar">
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="q" type="search" placeholder="Buscar nº de cable, color, sección, hoja…  ( / )" autocomplete="off">
+      </div>
+      <select id="fColor" aria-label="Filtrar por color"><option value="">Todos los colores</option></select>
+      <select id="fSec" aria-label="Filtrar por sección"><option value="">Todas las secciones</option></select>
+      <label class="chk small" id="fRevWrap"><input type="checkbox" id="fRev"> Solo a revisar</label>
+      <span class="grow"></span>
+      <span class="muted small" id="nRows"></span>
+      <button class="btn ghost sm" id="btnCopiar" title="Copiar la tabla filtrada para pegar en Excel">Copiar</button>
+      <button class="btn ghost sm" id="btnImprimir">Imprimir</button>
+    </div>
+    <div class="tablewrap" id="tableWrap"><table id="tbl"></table></div>
+    <div class="sheets" id="sheets" hidden></div>
+
+    <!-- INSTRUCTIVO DE CABLEADO -->
+    <div id="insWrap" hidden>
+      <div id="insEmpty" class="card ins-empty" hidden>
+        <h2>Instructivo de cableado</h2>
+        <p class="muted">Cargá el <b>plano topográfico</b> de este tablero (PDF). Con él la herramienta ordena la aparamenta de la bandeja
+          (riel por riel, de arriba a la izquierda; primero la parte de arriba de los aparatos y después la de abajo) y arma cada paso con
+          el <b>origen y destino</b> de los cables, con su <b>ruteo por los cablecanales</b> y el largo estimado. Lo que va fuera de la bandeja queda como <b>LI</b>.</p>
+        <div class="drop" id="insDrop" tabindex="0">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 30l10-10 10 10M24 20v20M10 38h28" /></svg>
+          <span class="drop-t">Soltá el topográfico o <u>elegí el archivo</u></span>
+        </div>
+      </div>
+      <div id="insProg" class="card proc" hidden>
+        <div class="proc-h"><div class="spinner" aria-hidden="true"></div><div><h2>Armando el instructivo…</h2><div class="muted" id="insMsg"></div></div></div>
+        <div class="bar"><i id="insBar"></i></div>
+      </div>
+      <div id="insMain" hidden>
+        <div class="ins-bar">
+          <button class="btn primary" id="insCablear" title="Visor a pantalla completa: un cable por vez, la cámara sigue su recorrido">▶ Cablear de a uno</button>
+          <button class="btn sm" id="insAudit" title="Auditoría cruzada: verificar la bandeja por secciones (sin seguir cable por cable)">🔍 Auditoría</button>
+          <label class="small ins-est" title="Estación donde se cablea esta bandeja">Estación <input id="insEstacion" type="text" size="4" autocomplete="off" aria-label="Estación"></label>
+          <button class="btn sm" id="insBtnComps">Componentes y orden</button>
+          <button class="btn sm" id="insPrint">🖨 Imprimir / PDF</button>
+          <button class="btn sm" id="insJson" title="Para importarlo después a nuestra app">⭳ JSON</button>
+          <button class="btn ghost sm" id="insCopy">Copiar texto</button>
+          <span class="grow"></span>
+          <button class="btn ghost sm" id="insNewTopo">Cambiar topográfico</button>
+          <button class="btn ghost sm" id="insRegen">↻ Regenerar</button>
+        </div>
+        <div class="muted small" id="insInfo"></div>
+        <div class="bar thin"><i id="insProgBar"></i></div>
+        <div class="small ins-save" id="insSave" aria-live="polite"></div>
+        <div id="insComps" class="card" hidden>
+          <div class="card-h"><h2>Componentes y orden en la bandeja</h2><button class="btn primary sm" id="insApply">Aplicar y regenerar</button></div>
+          <p class="muted small">Leído del topográfico. Si algo está mal (un componente que está en la bandeja marcado como LI, o el riel), corregilo acá.
+            El orden dentro del riel es de izquierda a derecha según la posición.</p>
+          <div class="tablewrap"><table><thead><tr><th>Componente</th><th>Ubicación</th><th>Riel</th><th>Posición</th><th></th></tr></thead><tbody id="insCompsBody"></tbody></table></div>
+        </div>
+        <div id="insPasos"></div>
+        <div id="insPend" class="card"></div>
+        <div id="insOtra" class="card" hidden></div>
+        <div id="insAcc" class="card" hidden></div>
+        <div id="insSueltos" class="card"></div>
+      </div>
+      <input type="file" id="insTopoFile" accept="application/pdf,.pdf" hidden>
+    </div>
+  </section>
+</main>
+
+<!-- HISTORIAL -->
+<aside class="drawer" id="drawer" hidden>
+  <div class="drawer-h"><h2>Historial</h2><button class="icon" id="closeDrawer" aria-label="Cerrar">✕</button></div>
+  <div id="histList" class="hist"></div>
+  <div class="drawer-f"><button class="btn ghost sm" id="btnSalir" title="Detiene el programa en este PC">Cerrar el programa</button></div>
+</aside>
+
+<!-- VISOR -->
+<div class="viewer" id="viewer" hidden>
+  <div class="v-top">
+    <div class="v-title"><span id="vTitle">—</span><span class="muted small" id="vSub"></span></div>
+    <div class="v-nav" id="vNav">
+      <button class="icon" id="vPrev" aria-label="Aparición anterior">‹</button>
+      <span class="mono" id="vPos">1 / 1</span>
+      <button class="icon" id="vNext" aria-label="Aparición siguiente">›</button>
+    </div>
+    <select id="vPage" aria-label="Hoja"></select>
+    <div class="v-zoom">
+      <button class="icon" id="zOut" aria-label="Alejar">−</button>
+      <button class="icon" id="zFit" aria-label="Ver hoja entera" title="Hoja entera">⤢</button>
+      <button class="icon" id="zIn" aria-label="Acercar">＋</button>
+    </div>
+    <button class="btn ghost sm" id="vSideBtn" aria-pressed="true" title="Mostrar u ocultar el listado de cables (tecla L)">☰ Listado</button>
+    <button class="btn ghost sm" id="vAll" aria-pressed="false" title="Colorear todos los cables de la hoja con su color (tecla C)">🎨 Todos los cables</button>
+    <button class="btn ghost sm swap" id="vIns" title="Ver este cable en el instructivo de cableado (topográfico)">🧰 Instructivo</button>
+    <button class="icon" id="vClose" aria-label="Cerrar visor">✕</button>
+  </div>
+  <div class="v-body">
+  <aside class="v-side" id="vSide">
+    <div class="vs-h">
+      <input id="vsQ" type="search" placeholder="Buscar cable…" autocomplete="off" aria-label="Buscar cable en el listado">
+      <div class="vs-info muted small"><span id="vsCnt"></span><button class="linkbtn" id="vsReset" title="Quitar las marcas de cables vistos">Borrar marcas</button></div>
+    </div>
+    <div class="vs-list" id="vsList" role="listbox" aria-label="Cables"></div>
+  </aside>
+  <div class="stage" id="stage">
+    <div class="world" id="world"><img id="vImg" alt="Hoja del plano" draggable="false"><div class="ov" id="ov"></div></div>
+    <div class="v-load" id="vLoad"><div class="spinner"></div>Cargando hoja…</div>
+    <div class="v-hint muted small">Rueda: zoom · Arrastrar: mover · ← → apariciones · ↑ ↓ cable anterior/siguiente · C: colorear todos · L: listado · Esc: cerrar</div>
+  </div>
+  </div>
+</div>
+
+<!-- VISOR DE CABLEADO (topográfico, de a un cable) -->
+<div class="viewer cabv" id="cabViewer" hidden>
+  <div class="v-top">
+    <div class="v-title">
+      <span id="cvNum">—</span>
+      <span class="muted small" id="cvGrp"></span>
+    </div>
+    <div class="cv-od mono"><span id="cvOrig"></span><span class="arr">→</span><span id="cvDest"></span>
+      <span class="pill puntas" id="cvPuente" hidden title="Cable de 3 o más puntas (puente/derivación): se muestran todos sus tramos">3 puntas</span></div>
+    <span class="muted small" id="cvLen"></span>
+    <div class="v-nav">
+      <button class="icon" id="cvPrev" aria-label="Cable anterior" title="Cable anterior (←)">‹</button>
+      <span class="mono" id="cvPos">1 / 1</span>
+      <button class="icon" id="cvNext" aria-label="Siguiente cable (marca este como cableado)" title="Siguiente (→): marca este cable como cableado">›</button>
+    </div>
+    <label class="chk cv-ok"><input type="checkbox" id="cvOk"> Cableado</label>
+    <button class="btn ghost sm" id="cvSideBtn" aria-pressed="true" title="Mostrar u ocultar el listado de cables (L)">☰ Listado</button>
+    <button class="btn ghost sm" id="cvAdjO" title="Ajustar el punto del borne de ORIGEN: clic y después clic en el dibujo">📍 Origen</button>
+    <button class="btn ghost sm" id="cvAdjD" title="Ajustar el punto del borne de DESTINO: clic y después clic en el dibujo">📍 Destino</button>
+    <button class="icon" id="cvFocus" aria-label="Centrar en el cable" title="Centrar en el cable (F)">⌖</button>
+    <button class="icon" id="cvFit" aria-label="Ver toda la bandeja" title="Toda la bandeja (0)">⤢</button>
+    <button class="btn ghost sm swap" id="cvAudit" title="Auditoría cruzada de la bandeja, por secciones (A)">🔍 Auditoría</button>
+    <button class="btn ghost sm swap" id="cvPlano" title="Ver este cable en el plano eléctrico (funcional)">⚡ Funcional</button>
+    <button class="icon" id="cvClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="bar thin cv-bar"><i id="cvBar"></i></div>
+  <div class="cv-deriv small" id="cvDeriv" hidden></div>
+  <div class="v-body">
+    <aside class="v-side" id="cvSide">
+      <div class="vs-h">
+        <input id="cvQ" type="search" placeholder="Buscar cable…" autocomplete="off" aria-label="Buscar cable en el listado">
+        <div class="vs-info muted small"><span id="cvCnt"></span></div>
+      </div>
+      <div class="vs-list" id="cvList" aria-label="Cables del instructivo"></div>
+    </aside>
+    <div class="stage cv-stage"><svg id="cvSvg" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="cv-lupas">
+        <div class="cv-lupa ori"><b id="cvLupaOt">Origen</b><svg id="cvLupaO" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
+        <div class="cv-lupa des" id="cvLupaDw"><b id="cvLupaDt">Destino</b><svg id="cvLupaD" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
+      </div>
+      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · A: auditoría · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
+    </div>
+  </div>
+</div>
+
+<!-- AUDITORIA CRUZADA (por secciones de la bandeja) -->
+<div class="viewer audv" id="audViewer" hidden>
+  <div class="v-top">
+    <div class="v-title"><span id="auTit">Auditoría cruzada</span><span class="muted small" id="auSub"></span></div>
+    <label class="small au-who">Auditor <input id="auQuien" type="text" placeholder="Nombre y apellido" autocomplete="off" aria-label="Auditor"></label>
+    <div class="v-nav">
+      <button class="icon" id="auPrev" aria-label="Sección anterior" title="Sección anterior (←)">‹</button>
+      <span class="mono" id="auPos">1 / 1</span>
+      <button class="icon" id="auNext" aria-label="Sección siguiente" title="Sección siguiente (→)">›</button>
+    </div>
+    <label class="chk cv-ok au-ok"><input type="checkbox" id="auOk"> Sección verificada</label>
+    <button class="icon" id="auFit" aria-label="Encuadrar la sección" title="Encuadrar la sección (0)">⤢</button>
+    <button class="btn ghost sm" id="auPrint" title="Hoja de auditoría para imprimir (todas las secciones)">🖨 Hoja de auditoría</button>
+    <button class="btn ghost sm swap" id="auCablear" title="Volver al visor de cablear de a uno (I)">🧰 Instructivo</button>
+    <button class="icon" id="auClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="bar thin cv-bar"><i id="auBar"></i></div>
+  <div class="v-body">
+    <aside class="v-side au-side">
+      <div class="vs-h"><div class="small" id="auCnt"></div></div>
+      <div class="vs-list" id="auList" aria-label="Secciones"></div>
+    </aside>
+    <div class="stage cv-stage"><svg id="auSvg" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="v-hint muted small">Mirá que cada borne marcado tenga su cable con ese número · Clic en un cable (en el dibujo o en la lista): queda translúcido = chequeado · ⚠ en la lista para anotar un problema · Espacio: sección verificada y seguir · ← → secciones · Rueda: zoom · Esc: cerrar</div>
+    </div>
+    <aside class="au-ends" id="auEnds" aria-label="Bornes de la sección"></aside>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+<script src="/static/app.js"></script>
+<script src="/static/instructivo.js"></script>
+<script src="/static/auditoria.js"></script>
+</body>
+</html>

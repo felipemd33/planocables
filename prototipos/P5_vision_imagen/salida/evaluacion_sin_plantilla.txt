@@ -1,0 +1,26 @@
+PRUEBA HONESTA P5 - acierto en los tags que NO aportaron plantilla
+Referencia: C:\Buscar Termos en plano\prototipos\P5_vision_imagen\..\_referencia  (tolerancia 1.5 pt; no se evaluan los puntos de referencia dudosos)
+
+Tags que dieron plantilla (base/recortes.json): 12XP (boca_quattro), 43XCS (boca_octogono_u), 62XDO (boca_octogono_cuadro), 31XAI (boca_hesi), 43KR (celda_rif0), 11Q1 (tornillo_modular), 12F1 (tornillo_df101), 11PS1 (tornillo_meanwell), 31AIB1 (tornillo_barrera), 12F2 (esparrago_mega), 11SK1 (aparato_toma_iram)
+
+A. Base normal
+   todos los tags ............................ 139/140 = 99.3 %
+   tags que dieron plantilla ................. 49/50 = 98.0 %   (se encuentran a si mismos: no prueba nada)
+   tags que NO dieron plantilla .............. 90/90 = 100.0 %
+
+B. Plantilla recortada de OTRO tag del mismo tipo (el donante original pasa a ser un tag sin plantilla)
+   boca_quattro       recortada de 13XC1  -> 12XP   4/4 BIEN   (todo el tablero 139/140)
+   boca_octogono_u    recortada de 43XDI  -> 43XCS  4/4 BIEN   (todo el tablero 139/140)
+   celda_rif0         recortada de 46KR   -> 43KR   12/13 BIEN   (todo el tablero 139/140)
+      falla: 43KR2 A2 ['1328']  err 4.34 pt
+   tornillo_modular   recortada de 11Q2   -> 11Q1   4/4 BIEN   (todo el tablero 139/140)
+   tornillo_df101     recortada de 13F3   -> 12F1   2/2 BIEN   (todo el tablero 139/140)
+   tornillo_barrera   recortada de 43DIB1 -> 31AIB1 2/2 BIEN   (todo el tablero 139/140)
+   tornillo_meanwell  recortada de 13PS3  -> 11PS1  4/4 BIEN   (todo el tablero 139/140, escalas de la base / 0.68)
+
+   Donantes sin otro tag del mismo tipo en este plano (no se pueden probar asi): 11SK1, 12F2, 31XAI, 62XDO
+   (con su propia plantilla dan 17/17; ese numero no cuenta para el acierto honesto)
+
+ACIERTO EN TAGS SIN PLANTILLA PROPIA: 122/123 = 99.2 %   (90/90 de A + 32/33 de B)
+Tiempo de la prueba: 203 s
+JSON {"acierto_sin_plantilla": 0.992, "bien": 122, "total": 123, "a": {"bien": 90, "total": 90}, "b": {"bien": 32, "total": 33}, "donantes_sin_alternativa": ["11SK1", "12F2", "31XAI", "62XDO"]}

@@ -1,0 +1,4266 @@
+{
+ "lineas": [
+  {
+   "num": "1215",
+   "cable": "R2.5MM",
+   "origen": "12F3 ARRIBA",
+   "destino": "12XP 3.3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6104",
+   "cable": "R1MM",
+   "origen": "62KR1 A1",
+   "destino": "61KR3 12",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6104",
+   "cable": "R1MM",
+   "origen": "62KR1 A1",
+   "destino": "62KR1 15",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6104",
+   "cable": "R1MM",
+   "origen": "62KR1 B1",
+   "destino": "62KR1 15",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1216",
+   "cable": "N1MM",
+   "origen": "62KR1 A2",
+   "destino": "12XP 4.3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1216",
+   "cable": "N2.5MM",
+   "origen": "12XP 4.3",
+   "destino": "LD",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1315",
+   "cable": "N1MM",
+   "origen": "13PS2 -Vo",
+   "destino": "13X24 2.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1602",
+   "cable": "N1MM",
+   "origen": "13PS2 -Vo",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1314",
+   "cable": "R1MM",
+   "origen": "13PS2 +Vo",
+   "destino": "13X24 1.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1601",
+   "cable": "R1MM",
+   "origen": "13PS2 +Vo",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1225",
+   "cable": "R2.5MM",
+   "origen": "12F3 ABAJO",
+   "destino": "LD",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6203",
+   "cable": "R1MM",
+   "origen": "62KR1 18",
+   "destino": "XM1 3 ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1309",
+   "cable": "N2.5MM",
+   "origen": "13PS2 -Vin",
+   "destino": "13XC1 3.2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1316",
+   "cable": "R2.5MM",
+   "origen": "13PS2 +Vin",
+   "destino": "13XC1 2.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1318",
+   "cable": "R1MM",
+   "origen": "13X24 1.4",
+   "destino": "32AIB1 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1318",
+   "cable": "R1MM",
+   "origen": "32AIB1 1 ARRIBA",
+   "destino": "43DIB1 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1319",
+   "cable": "N1MM",
+   "origen": "13X24 2.4",
+   "destino": "32AIB1 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1319",
+   "cable": "N1MM",
+   "origen": "32AIB1 2 ARRIBA",
+   "destino": "43DIB1 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1320",
+   "cable": "R1MM",
+   "origen": "13X24 1.3",
+   "destino": "31XAI F1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1320",
+   "cable": "R1MM",
+   "origen": "31XAI F1 ARRIBA",
+   "destino": "31XAI F2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1302",
+   "cable": "N1MM",
+   "origen": "13X24 2.3",
+   "destino": "13XC1 3.7",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1201",
+   "cable": "R4MM",
+   "origen": "12F1 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1206",
+   "cable": "R2.5MM",
+   "origen": "13F2 ARRIBA",
+   "destino": "12XP 1.3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1307",
+   "cable": "R1MM",
+   "origen": "61KR1 11",
+   "destino": "13XC1 2.2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1217",
+   "cable": "R1MM",
+   "origen": "61KR3 11",
+   "destino": "12XP 3.4",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2114",
+   "cable": "N0.75MM",
+   "origen": "43KR1 11",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6101",
+   "cable": "R1MM",
+   "origen": "61KR1 14",
+   "destino": "XM1 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6101",
+   "cable": "R1MM",
+   "origen": "XM1 1 ARRIBA",
+   "destino": "61XDIO 1 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6103",
+   "cable": "R1MM",
+   "origen": "61KR2 14",
+   "destino": "XM1 3 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6103",
+   "cable": "R1MM",
+   "origen": "XM1 3 ARRIBA",
+   "destino": "61XDIO 2 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2115",
+   "cable": "N0.75MM",
+   "origen": "43KR1 12",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1310",
+   "cable": "N1MM",
+   "origen": "XM1 2 ARRIBA",
+   "destino": "XM1 4 ARRIBA",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1310",
+   "cable": "N1MM",
+   "origen": "XM1 2 ARRIBA",
+   "destino": "13XC1 3.3",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2142",
+   "cable": "N0.75MM",
+   "origen": "31XAI 1 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2139",
+   "cable": "N0.75MM",
+   "origen": "31XAI 2 ARRIBA",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1203",
+   "cable": "R4MM",
+   "origen": "12XP 1.1",
+   "destino": "12F1 ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1202",
+   "cable": "N4MM",
+   "origen": "12XP 4.1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1207",
+   "cable": "N2.5MM",
+   "origen": "12XP 4.2",
+   "destino": "13XC1 3.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1317",
+   "cable": "R2.5MM",
+   "origen": "13XC1 1.1",
+   "destino": "13F2 ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1308",
+   "cable": "N1MM",
+   "origen": "13XC1 3.5",
+   "destino": "61XDIO 2 ABAJO",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2151",
+   "cable": "N0.75MM",
+   "origen": "61KR1 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2153",
+   "cable": "N0.75MM",
+   "origen": "61KR2 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2161",
+   "cable": "N0.75MM",
+   "origen": "61KR3 A2",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4306",
+   "cable": "N1MM",
+   "origen": "43KR1 A2",
+   "destino": "LD",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2150",
+   "cable": "N0.75MM",
+   "origen": "61KR1 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2152",
+   "cable": "N0.75MM",
+   "origen": "61KR2 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2160",
+   "cable": "N0.75MM",
+   "origen": "61KR3 A1",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4305",
+   "cable": "R1MM",
+   "origen": "43KR1 A1",
+   "destino": "LD",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6102",
+   "cable": "R1MM",
+   "origen": "XM1 1 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6201",
+   "cable": "R1MM",
+   "origen": "XM1 3 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "6202",
+   "cable": "N1MM",
+   "origen": "XM1 4 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3102",
+   "cable": "N0.75MM",
+   "origen": "31XAI 1 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3101",
+   "cable": "R0.75MM",
+   "origen": "31XAI F1 ABAJO",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1204",
+   "cable": "R4MM",
+   "origen": "12XP 1.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1205",
+   "cable": "N4MM",
+   "origen": "12XP 4.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1301",
+   "cable": "R2.5MM",
+   "origen": "13XC1 1.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1303",
+   "cable": "R2.5MM",
+   "origen": "13XC1 2.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1402",
+   "cable": "N1MM",
+   "origen": "13XC1 3.4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1401",
+   "cable": "R1MM",
+   "origen": "13XC1 2.3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2105",
+   "cable": "N0.75MM",
+   "origen": "32AIB1 3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2106",
+   "cable": "N0.75MM",
+   "origen": "32AIB1 4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2118",
+   "cable": "N0.75MM",
+   "origen": "43DIB1 3",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2119",
+   "cable": "N0.75MM",
+   "origen": "43DIB1 4",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2102",
+   "cable": "N0.75MM",
+   "origen": "32AIB1 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2103",
+   "cable": "N0.75MM",
+   "origen": "32AIB1 7",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2116",
+   "cable": "N0.75MM",
+   "origen": "43DIB1 5",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "2117",
+   "cable": "N0.75MM",
+   "origen": "43DIB1 6",
+   "destino": "LI",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3201",
+   "cable": "A0.75MM",
+   "origen": "32XAIB 1 ARRIBA",
+   "destino": "32AIB1 9",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3203",
+   "cable": "A0.75MM",
+   "origen": "32XAIB 3 ARRIBA",
+   "destino": "32AIB1 12",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4301",
+   "cable": "A0.75MM",
+   "origen": "43XDIB 1 ARRIBA",
+   "destino": "43DIB1 7",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4303",
+   "cable": "A0.75MM",
+   "origen": "43XDIB 3 ARRIBA",
+   "destino": "43DIB1 9",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3202",
+   "cable": "A0.75MM",
+   "origen": "32XAIB 2 ARRIBA",
+   "destino": "32AIB1 10",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3204",
+   "cable": "A0.75MM",
+   "origen": "32XAIB 4 ARRIBA",
+   "destino": "32AIB1 13",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4302",
+   "cable": "A0.75MM",
+   "origen": "43XDIB 2 ARRIBA",
+   "destino": "43DIB1 8",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "4304",
+   "cable": "A0.75MM",
+   "origen": "43XDIB 4 ARRIBA",
+   "destino": "43DIB1 10",
+   "ruta": true,
+   "exacto": true
+  }
+ ],
+ "pendientes": [
+  {
+   "num": "1101",
+   "a": "11XP 1 ABAJO",
+   "b": "12PS1 +"
+  },
+  {
+   "num": "1102",
+   "a": "11XP 2 ABAJO",
+   "b": "12PS1 -"
+  },
+  {
+   "num": "8101",
+   "a": "21PCB01 35",
+   "b": "81TM01 1"
+  },
+  {
+   "num": "8101",
+   "a": "21PCB01 35",
+   "b": "81XCM 1 ARRIBA"
+  },
+  {
+   "num": "8102",
+   "a": "21PCB01 36",
+   "b": "81TM01 15"
+  },
+  {
+   "num": "8102",
+   "a": "21PCB01 36",
+   "b": "81XCM 2 ARRIBA"
+  },
+  {
+   "num": "8103",
+   "a": "21PCB01 37",
+   "b": "81XCM 3 ARRIBA"
+  },
+  {
+   "num": "8104",
+   "a": "21PCB01 32",
+   "b": "12PS2"
+  },
+  {
+   "num": "8105",
+   "a": "21PCB01 33",
+   "b": "12PS2"
+  }
+ ],
+ "sueltos": [],
+ "otra_estacion": [
+  {
+   "num": "1205",
+   "origen": "BH-01-M",
+   "destino": "12PB1 -"
+  },
+  {
+   "num": "1204",
+   "origen": "BH-01-ZV",
+   "destino": "12PB1 +"
+  }
+ ],
+ "extremos": {
+  "1102": [
+   "11XP 2 ABAJO",
+   "12PS1 -"
+  ],
+  "1101": [
+   "11XP 1 ABAJO",
+   "12PS1 +"
+  ],
+  "1205": [
+   "12PB1 -",
+   "12XP 4.4",
+   "BH-01-M"
+  ],
+  "1216": [
+   "12CB1 -",
+   "12XP 4.3",
+   "62KR1 A2"
+  ],
+  "1204": [
+   "12PB1 +",
+   "12XP 1.4",
+   "BH-01-ZV"
+  ],
+  "1225": [
+   "12CB1 +",
+   "12F3 ABAJO"
+  ],
+  "1215": [
+   "12F3 ARRIBA",
+   "12XP 3.3"
+  ],
+  "1206": [
+   "12XP 1.3",
+   "13F2 ARRIBA"
+  ],
+  "1207": [
+   "12XP 4.2",
+   "13XC1 3.1"
+  ],
+  "1201": [
+   "12F1 ARRIBA",
+   "12PS1 +"
+  ],
+  "1202": [
+   "12PS1 -",
+   "12XP 4.1"
+  ],
+  "1217": [
+   "12XP 3.4",
+   "61KR3 11"
+  ],
+  "1203": [
+   "12F1 ABAJO",
+   "12XP 1.1"
+  ],
+  "1319": [
+   "13X24 2.4",
+   "32AIB1 2 ABAJO",
+   "43DIB1 2 ABAJO"
+  ],
+  "1318": [
+   "13X24 1.4",
+   "32AIB1 1 ABAJO",
+   "43DIB1 1 ABAJO"
+  ],
+  "1302": [
+   "13X24 2.3",
+   "13XC1 3.7"
+  ],
+  "1602": [
+   "13PS2 -Vo",
+   "81TM01 6"
+  ],
+  "1315": [
+   "13PS2 -Vo",
+   "13X24 2.1"
+  ],
+  "1601": [
+   "13PS2 +Vo",
+   "81TM01 7"
+  ],
+  "1314": [
+   "13PS2 +Vo",
+   "13X24 1.1"
+  ],
+  "1309": [
+   "13PS2 -Vin",
+   "13XC1 3.2"
+  ],
+  "1320": [
+   "13X24 1.3",
+   "31XAI F1 ARRIBA",
+   "31XAI F2 ARRIBA"
+  ],
+  "1316": [
+   "13PS2 +Vin",
+   "13XC1 2.1"
+  ],
+  "1308": [
+   "13XC1 3.5",
+   "61XDIO 2 ARRIBA"
+  ],
+  "1310": [
+   "13XC1 3.3",
+   "XM1 2 ARRIBA",
+   "XM1 4 ARRIBA"
+  ],
+  "1402": [
+   "13XC1 3.4",
+   "21PCB01 49"
+  ],
+  "1401": [
+   "13XC1 2.3",
+   "21PCB01 48"
+  ],
+  "1307": [
+   "13XC1 2.2",
+   "61KR1 11"
+  ],
+  "1303": [
+   "13SH1 ABAJO",
+   "13XC1 2.4"
+  ],
+  "1301": [
+   "13SH1 ARRIBA",
+   "13XC1 1.4"
+  ],
+  "1317": [
+   "13F2 ABAJO",
+   "13XC1 1.1"
+  ],
+  "8103": [
+   "21PCB01 37",
+   "81XCM 3 ARRIBA"
+  ],
+  "8102": [
+   "21PCB01 36",
+   "81TM01 15",
+   "81XCM 2 ARRIBA"
+  ],
+  "8101": [
+   "21PCB01 35",
+   "81TM01 1",
+   "81XCM 1 ARRIBA"
+  ],
+  "8105": [
+   "12PS2",
+   "21PCB01 33"
+  ],
+  "8104": [
+   "12PS2",
+   "21PCB01 32"
+  ],
+  "2161": [
+   "21PCB01 61",
+   "21PCB01 61",
+   "61KR3 A2"
+  ],
+  "2160": [
+   "21PCB01 60",
+   "21PCB01 60",
+   "61KR3 A1"
+  ],
+  "2119": [
+   "21PCB01 19",
+   "43DIB1 4"
+  ],
+  "2118": [
+   "21PCB01 18",
+   "43DIB1 3"
+  ],
+  "2117": [
+   "21PCB01 17",
+   "43DIB1 6"
+  ],
+  "2116": [
+   "21PCB01 16",
+   "43DIB1 5"
+  ],
+  "2153": [
+   "21PCB01 53",
+   "21PCB01 53",
+   "61KR2 A2"
+  ],
+  "2115": [
+   "21PCB01 15",
+   "43KR1 12"
+  ],
+  "2152": [
+   "21PCB01 52",
+   "21PCB01 52",
+   "61KR2 A1"
+  ],
+  "2114": [
+   "21PCB01 14",
+   "43KR1 11"
+  ],
+  "2151": [
+   "21PCB01 51",
+   "21PCB01 51",
+   "61KR1 A2"
+  ],
+  "2150": [
+   "21PCB01 50",
+   "21PCB01 50",
+   "61KR1 A1"
+  ],
+  "2106": [
+   "21PCB01 6",
+   "32AIB1 4"
+  ],
+  "2105": [
+   "21PCB01 5",
+   "32AIB1 3"
+  ],
+  "2142": [
+   "21PCB01 42",
+   "21PCB01 42",
+   "31XAI 1 ARRIBA"
+  ],
+  "2103": [
+   "21PCB01 3",
+   "32AIB1 7"
+  ],
+  "2102": [
+   "21PCB01 2",
+   "32AIB1 6"
+  ],
+  "2139": [
+   "21PCB01 39",
+   "21PCB01 39",
+   "31XAI 2 ARRIBA"
+  ],
+  "3102": [
+   "31XAI 1 ABAJO",
+   "PT 001 1"
+  ],
+  "3101": [
+   "31XAI F1 ABAJO",
+   "PT 001 2"
+  ],
+  "3204": [
+   "32AIB1 13",
+   "32XAIB 4 ARRIBA"
+  ],
+  "3203": [
+   "32AIB1 12",
+   "32XAIB 3 ARRIBA"
+  ],
+  "3202": [
+   "32AIB1 10",
+   "32XAIB 2 ARRIBA"
+  ],
+  "3201": [
+   "32AIB1 9",
+   "32XAIB 1 ARRIBA"
+  ],
+  "4306": [
+   "43KR1 A2",
+   "43XDI 2 ARRIBA"
+  ],
+  "4305": [
+   "43KR1 A1",
+   "43XDI 1 ARRIBA"
+  ],
+  "4304": [
+   "43DIB1 10",
+   "43XDIB 4 ARRIBA"
+  ],
+  "4303": [
+   "43DIB1 9",
+   "43XDIB 3 ARRIBA"
+  ],
+  "4302": [
+   "43DIB1 8",
+   "43XDIB 2 ARRIBA"
+  ],
+  "4301": [
+   "43DIB1 7",
+   "43XDIB 1 ARRIBA"
+  ],
+  "6104": [
+   "61KR3 12",
+   "62KR1 15",
+   "62KR1 A1",
+   "62KR1 B1"
+  ],
+  "6103": [
+   "61KR2 14",
+   "61XDIO 2 ABAJO",
+   "XM1 3 ARRIBA"
+  ],
+  "6202": [
+   "XM1 4 ABAJO",
+   "ZY"
+  ],
+  "6201": [
+   "XM1 3 ABAJO",
+   "ZY"
+  ],
+  "6101": [
+   "61KR1 14",
+   "61XDIO 1 ABAJO",
+   "XM1 1 ARRIBA"
+  ],
+  "6102": [
+   "BH-01-ZV",
+   "XM1 1 ABAJO"
+  ],
+  "6203": [
+   "62KR1 18",
+   "XM1 3 ABAJO"
+  ]
+ },
+ "layout": {
+  "pag": 4,
+  "region": [
+   456.4,
+   236.5,
+   762.6,
+   644.7
+  ],
+  "filas": [
+   577.4,
+   456.9
+  ],
+  "escala": 1.7639,
+  "ductos": 5,
+  "comp": {
+   "12PB1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 225.2,
+    "leido": "12PB1"
+   },
+   "PT 001": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 669.6,
+    "leido": "PT001"
+   },
+   "BH-01-ZV": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 742.1,
+    "leido": "BH-01-ZV"
+   },
+   "12PS1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 191.7,
+    "leido": "12PS1"
+   },
+   "11XP": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1017.3,
+    "leido": "11XP"
+   },
+   "43XDI": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1017.9,
+    "leido": "43XDI"
+   },
+   "81XCM": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1017.9,
+    "leido": "81XCM"
+   },
+   "12CB1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1000.2,
+    "leido": "12CB1"
+   },
+   "61XDIO": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 745.1,
+    "leido": "61XDIO"
+   },
+   "13XC1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 712.6,
+    "leido": "3XC1"
+   },
+   "12XP": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 687.7,
+    "leido": "2XP"
+   },
+   "31XAI": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 672.1,
+    "leido": "31XAI"
+   },
+   "XM1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 660.2,
+    "leido": "XM1"
+   },
+   "43KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 651.1,
+    "leido": "43KR"
+   },
+   "61KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 635.0,
+    "leido": "61KR"
+   },
+   "13F2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 627.3,
+    "leido": "3F2"
+   },
+   "12F1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 617.3,
+    "leido": "2F1"
+   },
+   "13X24": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 567.9,
+    "leido": "3X24"
+   },
+   "43XDIB": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 553.7,
+    "leido": "43XDIB"
+   },
+   "13PS2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 552.8,
+    "leido": "3PS2"
+   },
+   "32XAIB": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 541.7,
+    "leido": "32XAIB"
+   },
+   "62KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 535.7,
+    "leido": "62KR"
+   },
+   "12F3": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 519.9,
+    "leido": "2F3"
+   },
+   "43DIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 518.5,
+    "leido": "43DIB1"
+   },
+   "32AIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 505.7,
+    "leido": "32AIB1"
+   }
+  }
+ },
+ "cables": [
+  "1101",
+  "1102",
+  "1201",
+  "1202",
+  "1203",
+  "1204",
+  "1205",
+  "1206",
+  "1207",
+  "1215",
+  "1216",
+  "1217",
+  "1225",
+  "1301",
+  "1302",
+  "1303",
+  "1307",
+  "1308",
+  "1309",
+  "1310",
+  "1314",
+  "1315",
+  "1316",
+  "1317",
+  "1318",
+  "1319",
+  "1320",
+  "1401",
+  "1402",
+  "1601",
+  "1602",
+  "2102",
+  "2103",
+  "2105",
+  "2106",
+  "2114",
+  "2115",
+  "2116",
+  "2117",
+  "2118",
+  "2119",
+  "2139",
+  "2142",
+  "2150",
+  "2151",
+  "2152",
+  "2153",
+  "2160",
+  "2161",
+  "3101",
+  "3102",
+  "3201",
+  "3202",
+  "3203",
+  "3204",
+  "4301",
+  "4302",
+  "4303",
+  "4304",
+  "4305",
+  "4306",
+  "6101",
+  "6102",
+  "6103",
+  "6104",
+  "6201",
+  "6202",
+  "6203",
+  "8101",
+  "8102",
+  "8103",
+  "8104",
+  "8105"
+ ],
+ "n_detalle": 199,
+ "segundos": 49.5,
+ "puntas": [
+  {
+   "num": "1215",
+   "origen": "12F3 ARRIBA",
+   "destino": "12XP 3.3",
+   "marca_o": [
+    519.83,
+    591.43,
+    1.54
+   ],
+   "marca_d": [
+    701.51,
+    565.35,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     519.8,
+     591.4
+    ],
+    [
+     519.8,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     701.5,
+     522.9
+    ],
+    [
+     701.5,
+     565.4
+    ]
+   ]
+  },
+  {
+   "num": "6104",
+   "origen": "62KR1 A1",
+   "destino": "61KR3 12",
+   "marca_o": [
+    532.94,
+    596.31,
+    1.42
+   ],
+   "marca_d": [
+    646.49,
+    589.75,
+    1.14
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     532.9,
+     596.3
+    ],
+    [
+     532.9,
+     633.4
+    ],
+    [
+     646.5,
+     633.4
+    ],
+    [
+     646.5,
+     589.8
+    ]
+   ]
+  },
+  {
+   "num": "6104",
+   "origen": "62KR1 A1",
+   "destino": "62KR1 15",
+   "marca_o": [
+    532.94,
+    596.31,
+    1.42
+   ],
+   "marca_d": [
+    532.94,
+    561.5,
+    1.42
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     532.9,
+     596.3
+    ],
+    [
+     532.9,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     532.9,
+     522.9
+    ],
+    [
+     532.9,
+     561.5
+    ]
+   ]
+  },
+  {
+   "num": "6104",
+   "origen": "62KR1 B1",
+   "destino": "62KR1 15",
+   "marca_o": [
+    532.94,
+    590.07,
+    1.42
+   ],
+   "marca_d": [
+    532.94,
+    561.5,
+    1.42
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     532.9,
+     590.1
+    ],
+    [
+     532.9,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     532.9,
+     522.9
+    ],
+    [
+     532.9,
+     561.5
+    ]
+   ]
+  },
+  {
+   "num": "1216",
+   "origen": "62KR1 A2",
+   "destino": "12XP 4.3",
+   "marca_o": [
+    537.9,
+    596.31,
+    1.42
+   ],
+   "marca_d": [
+    706.13,
+    565.35,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     537.9,
+     596.3
+    ],
+    [
+     537.9,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     706.1,
+     522.9
+    ],
+    [
+     706.1,
+     565.4
+    ]
+   ]
+  },
+  {
+   "num": "1216",
+   "origen": "12XP 4.3",
+   "destino": "LD",
+   "marca_o": [
+    706.13,
+    565.35,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     706.1,
+     565.4
+    ],
+    [
+     706.1,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1315",
+   "origen": "13PS2 -Vo",
+   "destino": "13X24 2.1",
+   "marca_o": [
+    550.73,
+    606.7,
+    1.22
+   ],
+   "marca_d": [
+    577.54,
+    595.45,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     550.7,
+     606.7
+    ],
+    [
+     550.7,
+     633.4
+    ],
+    [
+     577.5,
+     633.4
+    ],
+    [
+     577.5,
+     595.5
+    ]
+   ]
+  },
+  {
+   "num": "1602",
+   "origen": "13PS2 -Vo",
+   "destino": "LI",
+   "marca_o": [
+    553.73,
+    606.7,
+    1.22
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     553.7,
+     606.7
+    ],
+    [
+     553.7,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1314",
+   "origen": "13PS2 +Vo",
+   "destino": "13X24 1.1",
+   "marca_o": [
+    556.73,
+    606.69,
+    1.22
+   ],
+   "marca_d": [
+    572.92,
+    595.45,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     556.7,
+     606.7
+    ],
+    [
+     556.7,
+     633.4
+    ],
+    [
+     572.9,
+     633.4
+    ],
+    [
+     572.9,
+     595.5
+    ]
+   ]
+  },
+  {
+   "num": "1601",
+   "origen": "13PS2 +Vo",
+   "destino": "LI",
+   "marca_o": [
+    559.73,
+    606.69,
+    1.22
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     559.7,
+     606.7
+    ],
+    [
+     559.7,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1225",
+   "origen": "12F3 ABAJO",
+   "destino": "LD",
+   "marca_o": [
+    519.83,
+    557.31,
+    1.54
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     519.8,
+     557.3
+    ],
+    [
+     519.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "6203",
+   "origen": "62KR1 18",
+   "destino": "XM1 3 ABAJO",
+   "marca_o": [
+    537.9,
+    561.5,
+    1.42
+   ],
+   "marca_d": [
+    667.5,
+    551.8,
+    1.36
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "PTT2.5-2MT: pieza 2 de 2, lado abajo, boca 0 (extremo) | AVISO: la boca la comparten los cables 6201, 6203",
+   "ruta": [
+    [
+     537.9,
+     561.5
+    ],
+    [
+     537.9,
+     522.9
+    ],
+    [
+     667.5,
+     522.9
+    ],
+    [
+     667.5,
+     551.8
+    ]
+   ]
+  },
+  {
+   "num": "1309",
+   "origen": "13PS2 -Vin",
+   "destino": "13XC1 3.2",
+   "marca_o": [
+    556.11,
+    546.31,
+    1.22
+   ],
+   "marca_d": [
+    734.02,
+    590.05,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     556.1,
+     546.3
+    ],
+    [
+     556.1,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     734.0,
+     633.4
+    ],
+    [
+     734.0,
+     590.0
+    ]
+   ]
+  },
+  {
+   "num": "1316",
+   "origen": "13PS2 +Vin",
+   "destino": "13XC1 2.1",
+   "marca_o": [
+    559.06,
+    546.31,
+    1.22
+   ],
+   "marca_d": [
+    723.53,
+    599.35,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     559.1,
+     546.3
+    ],
+    [
+     559.1,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     723.5,
+     633.4
+    ],
+    [
+     723.5,
+     599.4
+    ]
+   ]
+  },
+  {
+   "num": "1318",
+   "origen": "13X24 1.4",
+   "destino": "32AIB1 1 ARRIBA",
+   "marca_o": [
+    572.92,
+    552.15,
+    2.13
+   ],
+   "marca_d": [
+    503.91,
+    481.61,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 1 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "ruta": [
+    [
+     572.9,
+     552.1
+    ],
+    [
+     572.9,
+     522.9
+    ],
+    [
+     503.9,
+     522.9
+    ],
+    [
+     503.9,
+     481.6
+    ]
+   ]
+  },
+  {
+   "num": "1318",
+   "origen": "32AIB1 1 ARRIBA",
+   "destino": "43DIB1 1 ARRIBA",
+   "marca_o": [
+    503.91,
+    481.61,
+    0.85
+   ],
+   "marca_d": [
+    516.67,
+    481.61,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 1 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 1 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "ruta": [
+    [
+     503.9,
+     481.6
+    ],
+    [
+     503.9,
+     522.9
+    ],
+    [
+     516.7,
+     522.9
+    ],
+    [
+     516.7,
+     481.6
+    ]
+   ]
+  },
+  {
+   "num": "1319",
+   "origen": "13X24 2.4",
+   "destino": "32AIB1 2 ARRIBA",
+   "marca_o": [
+    577.54,
+    552.15,
+    2.13
+   ],
+   "marca_d": [
+    506.75,
+    481.61,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 2 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "ruta": [
+    [
+     577.5,
+     552.1
+    ],
+    [
+     577.5,
+     522.9
+    ],
+    [
+     506.8,
+     522.9
+    ],
+    [
+     506.8,
+     481.6
+    ]
+   ]
+  },
+  {
+   "num": "1319",
+   "origen": "32AIB1 2 ARRIBA",
+   "destino": "43DIB1 2 ARRIBA",
+   "marca_o": [
+    506.75,
+    481.61,
+    0.85
+   ],
+   "marca_d": [
+    519.5,
+    481.61,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "media",
+   "conf_d": "media",
+   "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 2 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 2 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "ruta": [
+    [
+     506.8,
+     481.6
+    ],
+    [
+     506.8,
+     522.9
+    ],
+    [
+     519.8,
+     522.9
+    ],
+    [
+     519.5,
+     481.6
+    ]
+   ]
+  },
+  {
+   "num": "1320",
+   "origen": "13X24 1.3",
+   "destino": "31XAI F1 ARRIBA",
+   "marca_o": [
+    572.92,
+    561.45,
+    2.13
+   ],
+   "marca_d": [
+    676.8,
+    586.82,
+    1.63
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     572.9,
+     561.5
+    ],
+    [
+     572.9,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     676.8,
+     633.4
+    ],
+    [
+     676.8,
+     586.8
+    ]
+   ]
+  },
+  {
+   "num": "1320",
+   "origen": "31XAI F1 ARRIBA",
+   "destino": "31XAI F2 ARRIBA",
+   "marca_o": [
+    676.8,
+    586.82,
+    1.63
+   ],
+   "marca_d": [
+    681.48,
+    586.82,
+    1.63
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     676.8,
+     586.8
+    ],
+    [
+     676.8,
+     633.4
+    ],
+    [
+     681.5,
+     633.4
+    ],
+    [
+     681.5,
+     586.8
+    ]
+   ]
+  },
+  {
+   "num": "1302",
+   "origen": "13X24 2.3",
+   "destino": "13XC1 3.7",
+   "marca_o": [
+    577.54,
+    561.45,
+    2.13
+   ],
+   "marca_d": [
+    738.64,
+    565.35,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     577.5,
+     561.5
+    ],
+    [
+     577.5,
+     522.9
+    ],
+    [
+     738.6,
+     522.9
+    ],
+    [
+     738.6,
+     565.4
+    ]
+   ]
+  },
+  {
+   "num": "1201",
+   "origen": "12F1 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    617.29,
+    597.12,
+    1.54
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     617.3,
+     597.1
+    ],
+    [
+     617.3,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1206",
+   "origen": "13F2 ARRIBA",
+   "destino": "12XP 1.3",
+   "marca_o": [
+    627.22,
+    597.12,
+    1.54
+   ],
+   "marca_d": [
+    692.27,
+    565.35,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     627.2,
+     597.1
+    ],
+    [
+     627.2,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     692.3,
+     522.9
+    ],
+    [
+     692.3,
+     565.4
+    ]
+   ]
+  },
+  {
+   "num": "1307",
+   "origen": "61KR1 11",
+   "destino": "13XC1 2.2",
+   "marca_o": [
+    639.58,
+    599.95,
+    1.14
+   ],
+   "marca_d": [
+    723.53,
+    590.05,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     639.6,
+     600.0
+    ],
+    [
+     639.6,
+     633.4
+    ],
+    [
+     723.5,
+     633.4
+    ],
+    [
+     723.5,
+     590.0
+    ]
+   ]
+  },
+  {
+   "num": "1217",
+   "origen": "61KR3 11",
+   "destino": "12XP 3.4",
+   "marca_o": [
+    646.5,
+    599.95,
+    1.14
+   ],
+   "marca_d": [
+    701.51,
+    556.05,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     646.5,
+     600.0
+    ],
+    [
+     646.5,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     701.5,
+     522.9
+    ],
+    [
+     701.5,
+     556.0
+    ]
+   ]
+  },
+  {
+   "num": "2114",
+   "origen": "43KR1 11",
+   "destino": "LI",
+   "marca_o": [
+    655.62,
+    599.95,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     655.6,
+     600.0
+    ],
+    [
+     655.6,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "6101",
+   "origen": "61KR1 14",
+   "destino": "XM1 1 ARRIBA",
+   "marca_o": [
+    639.58,
+    594.85,
+    1.14
+   ],
+   "marca_d": [
+    664.58,
+    598.29,
+    1.36
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     639.6,
+     594.9
+    ],
+    [
+     639.6,
+     633.4
+    ],
+    [
+     664.6,
+     633.4
+    ],
+    [
+     664.6,
+     598.3
+    ]
+   ]
+  },
+  {
+   "num": "6101",
+   "origen": "XM1 1 ARRIBA",
+   "destino": "61XDIO 1 ARRIBA",
+   "marca_o": [
+    664.58,
+    598.29,
+    1.36
+   ],
+   "marca_d": [
+    749.48,
+    588.68,
+    1.36
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     664.6,
+     598.3
+    ],
+    [
+     664.6,
+     633.4
+    ],
+    [
+     745.5,
+     633.4
+    ],
+    [
+     749.5,
+     588.7
+    ]
+   ]
+  },
+  {
+   "num": "6103",
+   "origen": "61KR2 14",
+   "destino": "XM1 3 ARRIBA",
+   "marca_o": [
+    643.04,
+    594.85,
+    1.14
+   ],
+   "marca_d": [
+    667.5,
+    598.29,
+    1.36
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     643.0,
+     594.9
+    ],
+    [
+     643.0,
+     633.4
+    ],
+    [
+     667.5,
+     633.4
+    ],
+    [
+     667.5,
+     598.3
+    ]
+   ]
+  },
+  {
+   "num": "6103",
+   "origen": "XM1 3 ARRIBA",
+   "destino": "61XDIO 2 ARRIBA",
+   "marca_o": [
+    667.5,
+    598.29,
+    1.36
+   ],
+   "marca_d": [
+    752.4,
+    588.68,
+    1.36
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     667.5,
+     598.3
+    ],
+    [
+     667.5,
+     633.4
+    ],
+    [
+     745.5,
+     633.4
+    ],
+    [
+     752.4,
+     588.7
+    ]
+   ]
+  },
+  {
+   "num": "2115",
+   "origen": "43KR1 12",
+   "destino": "LI",
+   "marca_o": [
+    655.62,
+    589.75,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     655.6,
+     589.8
+    ],
+    [
+     655.6,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1310",
+   "origen": "XM1 2 ARRIBA",
+   "destino": "XM1 4 ARRIBA",
+   "marca_o": [
+    664.58,
+    589.29,
+    1.36
+   ],
+   "marca_d": [
+    667.5,
+    589.29,
+    1.36
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     664.6,
+     589.3
+    ],
+    [
+     664.6,
+     633.4
+    ],
+    [
+     667.5,
+     633.4
+    ],
+    [
+     667.5,
+     589.3
+    ]
+   ]
+  },
+  {
+   "num": "1310",
+   "origen": "XM1 2 ARRIBA",
+   "destino": "13XC1 3.3",
+   "marca_o": [
+    664.58,
+    589.29,
+    1.36
+   ],
+   "marca_d": [
+    734.02,
+    565.35,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     664.6,
+     589.3
+    ],
+    [
+     664.6,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     734.0,
+     522.9
+    ],
+    [
+     734.0,
+     565.4
+    ]
+   ]
+  },
+  {
+   "num": "2142",
+   "origen": "31XAI 1 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    676.8,
+    601.84,
+    1.63
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     676.8,
+     601.8
+    ],
+    [
+     676.8,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2139",
+   "origen": "31XAI 2 ARRIBA",
+   "destino": "LI",
+   "marca_o": [
+    681.48,
+    601.84,
+    1.63
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     681.5,
+     601.8
+    ],
+    [
+     681.5,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1203",
+   "origen": "12XP 1.1",
+   "destino": "12F1 ABAJO",
+   "marca_o": [
+    692.27,
+    599.35,
+    2.13
+   ],
+   "marca_d": [
+    617.29,
+    563.0,
+    1.54
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     692.3,
+     599.4
+    ],
+    [
+     692.3,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     617.3,
+     522.9
+    ],
+    [
+     617.3,
+     563.0
+    ]
+   ]
+  },
+  {
+   "num": "1202",
+   "origen": "12XP 4.1",
+   "destino": "LI",
+   "marca_o": [
+    706.13,
+    599.35,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     706.1,
+     599.4
+    ],
+    [
+     706.1,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1207",
+   "origen": "12XP 4.2",
+   "destino": "13XC1 3.1",
+   "marca_o": [
+    706.13,
+    590.05,
+    2.13
+   ],
+   "marca_d": [
+    734.02,
+    599.35,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     706.1,
+     590.0
+    ],
+    [
+     706.1,
+     633.4
+    ],
+    [
+     734.0,
+     633.4
+    ],
+    [
+     734.0,
+     599.4
+    ]
+   ]
+  },
+  {
+   "num": "1317",
+   "origen": "13XC1 1.1",
+   "destino": "13F2 ABAJO",
+   "marca_o": [
+    717.66,
+    599.35,
+    2.13
+   ],
+   "marca_d": [
+    627.22,
+    563.0,
+    1.54
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     717.7,
+     599.4
+    ],
+    [
+     717.7,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     627.2,
+     522.9
+    ],
+    [
+     627.2,
+     563.0
+    ]
+   ]
+  },
+  {
+   "num": "1308",
+   "origen": "13XC1 3.5",
+   "destino": "61XDIO 2 ABAJO",
+   "marca_o": [
+    738.64,
+    599.35,
+    2.13
+   ],
+   "marca_d": [
+    752.4,
+    567.54,
+    1.36
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     738.6,
+     599.4
+    ],
+    [
+     738.6,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     745.5,
+     522.9
+    ],
+    [
+     752.4,
+     567.5
+    ]
+   ]
+  },
+  {
+   "num": "2151",
+   "origen": "61KR1 A2",
+   "destino": "LI",
+   "marca_o": [
+    639.57,
+    553.48,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     639.6,
+     553.5
+    ],
+    [
+     639.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2153",
+   "origen": "61KR2 A2",
+   "destino": "LI",
+   "marca_o": [
+    643.03,
+    553.48,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     643.0,
+     553.5
+    ],
+    [
+     643.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2161",
+   "origen": "61KR3 A2",
+   "destino": "LI",
+   "marca_o": [
+    646.49,
+    553.48,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     646.5,
+     553.5
+    ],
+    [
+     646.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "4306",
+   "origen": "43KR1 A2",
+   "destino": "LD",
+   "marca_o": [
+    655.62,
+    553.48,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     655.6,
+     553.5
+    ],
+    [
+     655.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2150",
+   "origen": "61KR1 A1",
+   "destino": "LI",
+   "marca_o": [
+    639.57,
+    558.58,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     639.6,
+     558.6
+    ],
+    [
+     639.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2152",
+   "origen": "61KR2 A1",
+   "destino": "LI",
+   "marca_o": [
+    643.03,
+    558.58,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     643.0,
+     558.6
+    ],
+    [
+     643.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2160",
+   "origen": "61KR3 A1",
+   "destino": "LI",
+   "marca_o": [
+    646.49,
+    558.58,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     646.5,
+     558.6
+    ],
+    [
+     646.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "4305",
+   "origen": "43KR1 A1",
+   "destino": "LD",
+   "marca_o": [
+    655.62,
+    558.58,
+    1.14
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     655.6,
+     558.6
+    ],
+    [
+     655.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "6102",
+   "origen": "XM1 1 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    664.58,
+    551.8,
+    1.36
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     664.6,
+     551.8
+    ],
+    [
+     664.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "6201",
+   "origen": "XM1 3 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    667.5,
+    551.8,
+    1.36
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "PTT2.5-2MT: pieza 2 de 2, lado abajo, boca 0 (extremo) | AVISO: la boca la comparten los cables 6201, 6203",
+   "nota_d": null,
+   "ruta": [
+    [
+     667.5,
+     551.8
+    ],
+    [
+     667.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "6202",
+   "origen": "XM1 4 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    667.5,
+    560.92,
+    1.36
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     667.5,
+     560.9
+    ],
+    [
+     667.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "3102",
+   "origen": "31XAI 1 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    676.8,
+    552.49,
+    1.63
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     676.8,
+     552.5
+    ],
+    [
+     676.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "3101",
+   "origen": "31XAI F1 ABAJO",
+   "destino": "LI",
+   "marca_o": [
+    676.79,
+    562.3,
+    1.69
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     676.8,
+     562.3
+    ],
+    [
+     676.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1204",
+   "origen": "12XP 1.4",
+   "destino": "LI",
+   "marca_o": [
+    692.27,
+    556.05,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     692.3,
+     556.0
+    ],
+    [
+     692.3,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1205",
+   "origen": "12XP 4.4",
+   "destino": "LI",
+   "marca_o": [
+    706.13,
+    556.05,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     706.1,
+     556.0
+    ],
+    [
+     706.1,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1301",
+   "origen": "13XC1 1.4",
+   "destino": "LI",
+   "marca_o": [
+    717.66,
+    556.05,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     717.7,
+     556.0
+    ],
+    [
+     717.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1303",
+   "origen": "13XC1 2.4",
+   "destino": "LI",
+   "marca_o": [
+    723.53,
+    556.05,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     723.5,
+     556.0
+    ],
+    [
+     723.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1402",
+   "origen": "13XC1 3.4",
+   "destino": "LI",
+   "marca_o": [
+    734.02,
+    556.05,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     734.0,
+     556.0
+    ],
+    [
+     734.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1401",
+   "origen": "13XC1 2.3",
+   "destino": "LI",
+   "marca_o": [
+    723.53,
+    565.35,
+    2.13
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "alta",
+   "conf_d": null,
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     723.5,
+     565.4
+    ],
+    [
+     723.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2105",
+   "origen": "32AIB1 3",
+   "destino": "LI",
+   "marca_o": [
+    502.5,
+    481.61,
+    0.85
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 3 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -5.0 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     502.5,
+     481.6
+    ],
+    [
+     502.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2106",
+   "origen": "32AIB1 4",
+   "destino": "LI",
+   "marca_o": [
+    505.33,
+    481.61,
+    0.85
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 4 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +0.0 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     505.3,
+     481.6
+    ],
+    [
+     505.3,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2118",
+   "origen": "43DIB1 3",
+   "destino": "LI",
+   "marca_o": [
+    516.67,
+    481.61,
+    0.85
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 3 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     516.7,
+     481.6
+    ],
+    [
+     516.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2119",
+   "origen": "43DIB1 4",
+   "destino": "LI",
+   "marca_o": [
+    519.5,
+    481.61,
+    0.85
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 4 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     519.5,
+     481.6
+    ],
+    [
+     519.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2102",
+   "origen": "32AIB1 6",
+   "destino": "LI",
+   "marca_o": [
+    502.5,
+    478.35,
+    0.85
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 6 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y -5.0 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     502.5,
+     478.4
+    ],
+    [
+     502.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2103",
+   "origen": "32AIB1 7",
+   "destino": "LI",
+   "marca_o": [
+    505.33,
+    478.35,
+    0.85
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 7 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y +0.0 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     505.3,
+     478.4
+    ],
+    [
+     505.3,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2116",
+   "origen": "43DIB1 5",
+   "destino": "LI",
+   "marca_o": [
+    516.67,
+    478.35,
+    0.85
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 5 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y -2.5 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     516.7,
+     478.4
+    ],
+    [
+     516.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "2117",
+   "origen": "43DIB1 6",
+   "destino": "LI",
+   "marca_o": [
+    519.5,
+    478.35,
+    0.85
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 6 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y +2.5 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     519.5,
+     478.4
+    ],
+    [
+     519.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "3201",
+   "origen": "32XAIB 1 ARRIBA",
+   "destino": "32AIB1 9",
+   "marca_o": [
+    545.58,
+    477.82,
+    1.36
+   ],
+   "marca_d": [
+    502.5,
+    429.23,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 9 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y -5.0 mm del centro",
+   "ruta": [
+    [
+     545.6,
+     477.8
+    ],
+    [
+     578.8,
+     477.8
+    ],
+    [
+     578.8,
+     403.8
+    ],
+    [
+     502.5,
+     403.8
+    ],
+    [
+     502.5,
+     429.2
+    ]
+   ]
+  },
+  {
+   "num": "3203",
+   "origen": "32XAIB 3 ARRIBA",
+   "destino": "32AIB1 12",
+   "marca_o": [
+    548.5,
+    477.82,
+    1.36
+   ],
+   "marca_d": [
+    502.5,
+    426.05,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 12 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y -5.0 mm del centro",
+   "ruta": [
+    [
+     548.5,
+     477.8
+    ],
+    [
+     578.8,
+     477.8
+    ],
+    [
+     578.8,
+     403.8
+    ],
+    [
+     502.5,
+     403.8
+    ],
+    [
+     502.5,
+     426.1
+    ]
+   ]
+  },
+  {
+   "num": "4301",
+   "origen": "43XDIB 1 ARRIBA",
+   "destino": "43DIB1 7",
+   "marca_o": [
+    557.54,
+    477.82,
+    1.36
+   ],
+   "marca_d": [
+    516.67,
+    429.23,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 7 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y -2.5 mm del centro",
+   "ruta": [
+    [
+     557.5,
+     477.8
+    ],
+    [
+     578.8,
+     477.8
+    ],
+    [
+     578.8,
+     403.8
+    ],
+    [
+     516.7,
+     403.8
+    ],
+    [
+     516.7,
+     429.2
+    ]
+   ]
+  },
+  {
+   "num": "4303",
+   "origen": "43XDIB 3 ARRIBA",
+   "destino": "43DIB1 9",
+   "marca_o": [
+    560.46,
+    477.82,
+    1.36
+   ],
+   "marca_d": [
+    516.67,
+    426.05,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 9 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "ruta": [
+    [
+     560.5,
+     477.8
+    ],
+    [
+     578.8,
+     477.8
+    ],
+    [
+     578.8,
+     403.8
+    ],
+    [
+     516.7,
+     403.8
+    ],
+    [
+     516.7,
+     426.1
+    ]
+   ]
+  },
+  {
+   "num": "3202",
+   "origen": "32XAIB 2 ARRIBA",
+   "destino": "32AIB1 10",
+   "marca_o": [
+    545.58,
+    468.82,
+    1.36
+   ],
+   "marca_d": [
+    505.33,
+    429.23,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 10 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y +0.0 mm del centro",
+   "ruta": [
+    [
+     545.6,
+     468.8
+    ],
+    [
+     578.8,
+     468.8
+    ],
+    [
+     578.8,
+     403.8
+    ],
+    [
+     505.3,
+     403.8
+    ],
+    [
+     505.3,
+     429.2
+    ]
+   ]
+  },
+  {
+   "num": "3204",
+   "origen": "32XAIB 4 ARRIBA",
+   "destino": "32AIB1 13",
+   "marca_o": [
+    548.5,
+    468.82,
+    1.36
+   ],
+   "marca_d": [
+    505.33,
+    426.05,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 13 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y +0.0 mm del centro",
+   "ruta": [
+    [
+     548.5,
+     468.8
+    ],
+    [
+     578.8,
+     468.8
+    ],
+    [
+     578.8,
+     403.8
+    ],
+    [
+     505.3,
+     403.8
+    ],
+    [
+     505.3,
+     426.1
+    ]
+   ]
+  },
+  {
+   "num": "4302",
+   "origen": "43XDIB 2 ARRIBA",
+   "destino": "43DIB1 8",
+   "marca_o": [
+    557.54,
+    468.82,
+    1.36
+   ],
+   "marca_d": [
+    519.5,
+    429.23,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 8 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y +2.5 mm del centro",
+   "ruta": [
+    [
+     557.5,
+     468.8
+    ],
+    [
+     578.8,
+     468.8
+    ],
+    [
+     578.8,
+     403.8
+    ],
+    [
+     519.5,
+     403.8
+    ],
+    [
+     519.5,
+     429.2
+    ]
+   ]
+  },
+  {
+   "num": "4304",
+   "origen": "43XDIB 4 ARRIBA",
+   "destino": "43DIB1 10",
+   "marca_o": [
+    560.46,
+    468.82,
+    1.36
+   ],
+   "marca_d": [
+    519.5,
+    426.05,
+    0.85
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "media",
+   "nota_o": null,
+   "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 10 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "ruta": [
+    [
+     560.5,
+     468.8
+    ],
+    [
+     578.8,
+     468.8
+    ],
+    [
+     578.8,
+     403.8
+    ],
+    [
+     519.5,
+     403.8
+    ],
+    [
+     519.5,
+     426.1
+    ]
+   ]
+  }
+ ],
+ "mapeo": {
+  "version": "2026.10.02-1",
+  "modelos": {
+   "61XDIO": "PT2.5-DIO",
+   "13XC1": "PT6-QUATTRO",
+   "12XP": "PT6-QUATTRO",
+   "31XAI": "PTTB4-HESI",
+   "XM1": "PTT2.5-2MT",
+   "43KR": "RIF-0-RPT",
+   "61KR": "RIF-0-RPT",
+   "13F2": "DF101",
+   "12F1": "DF101",
+   "13X24": "PT6-QUATTRO",
+   "43XDIB": "PTT2.5-2MT",
+   "13PS2": "MEANWELL-DDR",
+   "32XAIB": "PTT2.5-2MT",
+   "62KR": "FINDER-80.01",
+   "12F3": "DF101",
+   "43DIB1": "GS8512-EX",
+   "32AIB1": "GS8536-EX"
+  },
+  "avisos": [
+   "sin lista de materiales en el funcional; modelo por la geometria: 61XDIO = PT2.5-DIO, 13XC1 = PT6-QUATTRO, 12XP = PT6-QUATTRO, 31XAI = PTTB4-HESI, XM1 = PTT2.5-2MT, 43KR = RIF-0-RPT, 61KR = RIF-0-RPT, 13F2 = DF101, 12F1 = DF101, 13X24 = PT6-QUATTRO, 43XDIB = PTT2.5-2MT, 13PS2 = MEANWELL-DDR, 32XAIB = PTT2.5-2MT, 62KR = FINDER-80.01, 12F3 = DF101, 43DIB1 = GS8512-EX, 32AIB1 = GS8536-EX",
+   "plano monocromo: no se usan los colores del catalogo (PE verde, pieza azul, bocas grises)",
+   "XM1: dos o mas cables en la misma boca (XM1 3 ABAJO #6201, XM1 3 ABAJO #6203): revisar si es un puente/derivacion o un error del instructivo"
+  ],
+  "segundos": 8.09,
+  "de_cache": false,
+  "error": null,
+  "materiales": "sin lista de materiales (modelo por la geometria)",
+  "n_puntos": {
+   "alta": 82,
+   "media": 22,
+   "baja": 0
+  },
+  "usados": 104,
+  "manuales": 0
+ },
+ "renombrar_auto": {},
+ "tiempos": {
+  "funcional": 15.0,
+  "mapeo": 9.23,
+  "total": 49.5
+ }
+}

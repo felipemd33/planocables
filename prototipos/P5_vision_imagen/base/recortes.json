@@ -1,0 +1,35 @@
+{
+ "descripcion": "De donde sale cada plantilla de la base. Cada plantilla es un recorte chico de la IMAGEN del plano (render a 10 px/pt), alrededor de UNA boca o tornillo de UN tag. 'clic' es el punto aproximado que marco una persona mirando el dibujo; hacer_base.py busca solo el centro exacto de la boca (ancla) y guarda el PNG. Una plantilla por TIPO de boca: despues se aplica a todos los tags de ese tipo.",
+ "plano": {
+  "pdf": "C:/Buscar Termos en plano/prototipos/_referencia/topografico.pdf",
+  "pagina": 8,
+  "nombre": "Topografico 75441 REV.6 (tablero 75286-1, CJ. CONTROLADOR mSafe2)",
+  "mm_por_pt": 1.4086
+ },
+ "plantillas": [
+  {"nombre": "boca_quattro", "tag": "12XP", "que": "pieza 1, boca extrema de arriba (entrada push-in, octogono redondeado con cuadrado)",
+   "clic": [593.83, 558.08], "r_pt": 2.8, "ancla": "contorno", "recorte_pt": [6.4, 6.6]},
+  {"nombre": "boca_octogono_u", "tag": "43XCS", "que": "pieza 1, boca extrema de arriba (octogono con abertura en U)",
+   "clic": [679.17, 432.67], "r_pt": 1.9, "ancla": "contorno", "recorte_pt": [4.4, 4.6]},
+  {"nombre": "boca_octogono_cuadro", "tag": "62XDO", "que": "pieza 1, boca extrema de arriba (octogono con cuadrado, doble piso)",
+   "clic": [689.67, 551.67], "r_pt": 2.3, "ancla": "contorno", "recorte_pt": [5.0, 5.2]},
+  {"nombre": "boca_hesi", "tag": "31XAI", "que": "boca extrema de arriba del borne fusible (circulo gris con rectangulo)",
+   "clic": [801.5, 705.17], "r_pt": 2.2, "ancla": "contorno", "recorte_pt": [5.0, 5.2]},
+  {"nombre": "celda_rif0", "tag": "43KR", "que": "modulo 1 (43KR1), celda de contacto mas externa (11): circulo grande de entrada",
+   "clic": [842.6, 704.5], "r_pt": 1.5, "ancla": "contorno", "recorte_pt": [4.0, 4.4]},
+  {"nombre": "tornillo_modular", "tag": "11Q1", "que": "polo izquierdo, tornillo de arriba (circulo de 12 lados, r 2.5)",
+   "clic": [649.6, 700.6], "r_pt": 2.5, "ancla": "contorno", "recorte_pt": [6.2, 6.2]},
+  {"nombre": "tornillo_df101", "tag": "12F1", "que": "tornillo de arriba (circulo con ranura diagonal, r 1.9)",
+   "clic": [773.5, 697.25], "r_pt": 1.95, "ancla": "contorno", "recorte_pt": [4.8, 4.8]},
+  {"nombre": "tornillo_meanwell", "tag": "11PS1", "que": "bornera TB2 (salida), pin 1: tornillo con cruz Phillips",
+   "clic": [612.9, 712.4], "r_pt": 2.2, "ancla": "contorno", "recorte_pt": [5.0, 5.0]},
+  {"nombre": "tornillo_barrera", "tag": "31AIB1", "que": "enchufe de arriba, tornillo izquierdo (media elipse cortada por la carcasa)",
+   "clic": [787.0, 567.3], "r_pt": 1.5, "ancla": "ancho_maximo", "recorte_pt": [3.6, 3.6]},
+  {"nombre": "esparrago_mega", "tag": "12F2", "que": "esparrago izquierdo del portafusible MEGA (circulos concentricos)",
+   "clic": [580.25, 304.75], "r_pt": 5.0, "ancla": "hueco", "recorte_pt": [14.0, 14.0]},
+  {"nombre": "aparato_toma_iram", "tag": "11SK1", "tipo": "aparato",
+   "que": "toma IRAM de riel completo (el dibujo no trae tornillos). Anclas N, PE, L en la banda de abajo, a 0.29 / 0.50 / 0.71 del ancho: medido en la foto 'WhatsApp 2026-09-25 15.54.54' (base de 985 px, tornillos en 288 / 493 / 700 px)",
+   "clic": [748.5, 675.0], "caja_aprox": [737.0, 649.5, 760.0, 699.0], "r_pt": 1.2,
+   "anclas_frac": {"N": 0.292, "PE": 0.500, "L": 0.711}, "anclas_y": "banda_inferior"}
+ ]
+}

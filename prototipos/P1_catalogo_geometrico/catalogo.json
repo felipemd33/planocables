@@ -1,0 +1,379 @@
+{
+  "descripcion": "Base de datos de bornes del taller Batfer (prototipo P1: catalogo de modelos + detector geometrico generico). Cada modelo dice COMO se ve la boca/tornillo en el bloque CAD del topografico (firma geometrica), COMO se ordenan las bocas en la pieza o el aparato (disposicion) y COMO se llaman los pines (reglas de nombres). Las medidas van en MILIMETROS del tablero real; mapear.py las pasa a puntos PDF con la escala del plano (escala_mm_por_pt de usos_por_componente.json). Para agregar un modelo: copiar la entrada de un modelo parecido, cambiarle id, alias, medidas y nombres. No hace falta tocar codigo.",
+  "version": 1,
+
+  "general": {
+    "capas_componentes": ["COMPONENTES", "00_COMPONENTS"],
+    "capa_riel": "RIEL DIN",
+    "colores_excluidos": [[0.0, 0.58, 0.15]],
+    "nota_colores_excluidos": "Las piezas de tierra PE se dibujan en verde: sus bocas no se cuentan (regla 1 del taller).",
+    "tolerancia_color": 0.12,
+    "margen_der_mm": 1.0,
+    "margen_alto_mm": 5.0,
+    "distancia_max_etiqueta_mm": 20.0,
+    "margen_etiqueta_riel_mm": 21.0,
+    "nota_margenes": "margen_der_mm: se deja antes de la etiqueta siguiente; margen_alto_mm: se suma a la mitad del alto del modelo para la altura de la zona; distancia_max_etiqueta_mm: distancia maxima entre la posicion que trae usos_por_componente.json y la etiqueta amarilla del dibujo; margen_etiqueta_riel_mm: una etiqueta pertenece a un riel si su centro esta dentro de la banda del riel mas este margen.",
+    "puentes": "rellenos de color saturado (rojo, azul) dibujados sobre las piezas: son los puentes FBS"
+  },
+
+  "modelos": [
+    {
+      "id": "PT6-QUATTRO",
+      "es_bornera": true,
+      "tipo": "borne de riel por piezas (1 piso, 4 conexiones push-in)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PT 6 QUATTRO", "PT 6-QUATTRO", "PT6-QUATTRO", "3212934"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 90.5,
+      "paso_mm": 8.2,
+      "boca": {"primitiva": "contorno", "w_mm": [6.4, 7.7], "h_mm": [7.3, 8.7], "curvos_min": 8, "sin_x": true,
+               "nota": "entrada push-in dibujada como rectangulo redondeado (unos 7 x 8 mm en el bloque Batfer)"},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 2, "abajo": 2}},
+      "nombres": {
+        "reglas": [{"patron": "^(\\d+)\\.(\\d)$", "pieza": "$1", "punto": "$2"}],
+        "puntos": {"1": ["arriba", 0], "2": ["arriba", 1], "3": ["abajo", 1], "4": ["abajo", 0]},
+        "nota": "Regla 2 del taller: 'N.p' = pieza N; 1 arriba extremo, 2 arriba interior, 3 abajo interior, 4 abajo extremo. Boca 0 = la del extremo (lejos del riel), 1 = la interior."
+      },
+      "fuente": "Hoja de datos Phoenix 3212934; fotos 2.1, 12.35.39, 12.35.40 del tablero 75286-1"
+    },
+    {
+      "id": "PTT2.5",
+      "es_bornera": true,
+      "tipo": "borne de riel por piezas (doble piso, 4 conexiones push-in)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PTT 2,5", "PTTB 2,5", "PTT 2.5", "3210567", "3210172"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 90.0,
+      "paso_mm": 6.1,
+      "boca": {"primitiva": "circulo", "r_mm": [2.65, 3.2], "cob_min": 250, "sin_x": true,
+               "nota": "entrada redonda de unos 5,8 mm de diametro"},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 2, "abajo": 2}},
+      "nombres": {
+        "reglas": [{"patron": "^(\\d+)$", "pieza": "ceil($1/2)", "boca": "paridad($1)", "lado": "texto"}],
+        "nota": "Regla 3 del taller: pieza ceil(N/2); N impar = piso de abajo = entrada del extremo (boca 0); N par = piso de arriba = entrada interior (boca 1). ARRIBA/ABAJO del texto = extremo de la pieza."
+      },
+      "fuente": "Phoenix PTTB 2,5 3210567; fotos 12.35.39(2) y 2.1"
+    },
+    {
+      "id": "PTT2.5-2MT",
+      "es_bornera": true,
+      "tipo": "borne de riel por piezas (doble piso seccionable, gris)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PTT 2,5-2MT", "PTT 2,5-2 MT", "PTT 2.5-2MT", "3210258"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 92.4,
+      "paso_mm": 5.2,
+      "color_dibujo": [0.0, 0.0, 0.0],
+      "boca": {"primitiva": "circulo", "r_mm": [2.2, 2.55], "cob_min": 250, "sin_x": true,
+               "nota": "entrada dibujada como octogono con una abertura en U adentro (unos 4,8 x 5,3 mm)"},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 2, "abajo": 2}},
+      "nombres": {
+        "reglas": [{"patron": "^(\\d+)$", "pieza": "ceil($1/2)", "boca": "paridad($1)", "lado": "texto"}],
+        "nota": "Igual que PTT 2,5: impar = extremo, par = interior (en la pieza real el piso de arriba lleva impresos 2, 4, 6...)."
+      },
+      "fuente": "Hoja de datos Phoenix 3210258; fotos 12.35.44 (1), (2) y (3)"
+    },
+    {
+      "id": "PTT2.5-2MT-BU",
+      "es_bornera": true,
+      "tipo": "borne de riel por piezas (doble piso seccionable, azul)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PTT 2,5-2MT BU", "PTT 2,5-2 MT BU", "PTT 2.5-2MT BU", "3210265"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 92.4,
+      "paso_mm": 5.2,
+      "color_dibujo": [0.0, 0.0, 0.58],
+      "boca": {"primitiva": "circulo", "r_mm": [2.2, 2.55], "cob_min": 250, "sin_x": true},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 2, "abajo": 2}},
+      "nombres": {
+        "reglas": [{"patron": "^(\\d+)$", "pieza": "ceil($1/2)", "boca": "paridad($1)", "lado": "texto"}]
+      },
+      "fuente": "Hoja de datos Phoenix 3210265"
+    },
+    {
+      "id": "PT2.5-DIO",
+      "es_bornera": true,
+      "tipo": "borne de riel por piezas con diodo (1 piso, 1 entrada por extremo)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PT 2,5-DIO", "PT 2.5-DIO", "3210224"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 60.0,
+      "paso_mm": 5.2,
+      "boca": {"primitiva": "circulo", "r_mm": [2.2, 2.55], "cob_min": 250, "sin_x": true},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 1, "abajo": 1}},
+      "nombres": {
+        "reglas": [{"patron": "^(\\d+)$", "pieza": "$1", "boca": 0, "lado": "diodo"}],
+        "diodo": {"ARRIBA": "puente", "ABAJO": "opuesto_puente", "puente_por_defecto": "abajo"},
+        "desborde": true,
+        "conductores_por_boca": 1,
+        "nota": "En el instructivo ARRIBA = borne izquierdo del funcional = anodo (lado del puente FBS); ABAJO = catodo. El punto fisico del anodo es el extremo donde esta dibujado el puente (relleno de color). 'desborde': si el numero de borne pasa la cantidad de piezas, se busca en el componente siguiente del mismo riel y de la misma hoja (el instructivo a veces pone la etiqueta del bloque vecino). 'conductores_por_boca' 1: si dos cables distintos caen en la misma boca, uno tiene la etiqueta del bloque vecino; se pasa al bloque siguiente el que deja todo coherente (ningun cable con dos puntas en el mismo bloque)."
+      },
+      "fuente": "Hoja de datos Phoenix 3210224; foto 12.35.39 (2)"
+    },
+    {
+      "id": "PTTB4-HESI",
+      "es_bornera": true,
+      "tipo": "borne de riel por piezas (doble piso con fusible 5x20, negro)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PTTB 4-HESI", "HESI", "3211886", "BORNE FUSIBLE"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 102.9,
+      "paso_mm": 6.2,
+      "color_dibujo": [0.46, 0.46, 0.46],
+      "boca": {"primitiva": "circulo", "r_mm": [2.65, 3.2], "cob_min": 250, "sin_x": true, "color": [0.46, 0.46, 0.46],
+               "nota": "bocas redondas en el eje del borne, dibujadas en gris"},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 2, "abajo": 2}},
+      "nombres": {
+        "reglas": [
+          {"patron": "^F(\\d+)$", "pieza": "$1", "boca": 1, "lado": "texto"},
+          {"patron": "^(\\d+)$", "pieza": "$1", "boca": 0, "lado": "texto"}
+        ],
+        "nota": "Bocas externas = piso de abajo = paso directo (borne N); internas = piso de arriba = nivel del fusible (FN)."
+      },
+      "fuente": "Hoja de datos PHOENIX PTTB 4-HESI (5X20) 3211886; fotos 12.35.37(1) y 1.1"
+    },
+    {
+      "id": "RIF-0-RPT",
+      "tipo": "rele modular (base + rele enchufable, push-in)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["RIF-0-RPT", "RIF-0", "2903370", "2900958"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 93.0,
+      "paso_mm": 6.2,
+      "boca": {"primitiva": "circulo", "r_mm": [1.8, 2.3], "cob_min": 250, "sin_x": true,
+               "nota": "circulo grande de entrada del conductor (r unos 2 mm); el LED es mas chico y queda afuera"},
+      "disposicion": {"tipo": "piezas", "bocas": {"contactos": 3, "bobina": 2}, "lados_por_cantidad": {"3": "contactos", "2": "bobina"}},
+      "nombres": {
+        "reglas": [
+          {"patron": "^11$", "pieza": "modulo", "lado": "contactos", "boca": 0},
+          {"patron": "^14$", "pieza": "modulo", "lado": "contactos", "boca": 1},
+          {"patron": "^12$", "pieza": "modulo", "lado": "contactos", "boca": 2},
+          {"patron": "^A2$", "pieza": "modulo", "lado": "bobina", "boca": 0},
+          {"patron": "^A1$", "pieza": "modulo", "lado": "bobina", "boca": 1}
+        ],
+        "modulo_sin_numero": "pareja_bobina",
+        "comunes": [{"borne": "A2", "pareja": "A1"}, {"borne": "11", "pareja": "14"}],
+        "nota": "Regla 4: el lado con 3 bocas es CONTACTOS y el de 2 es BOBINA (sirve aunque el rele este girado). Desde el extremo: 11, 14, 12; bobina: A2 en el extremo, A1 junto al LED. El modulo sale del numero pegado a la etiqueta (43KR2 = modulo 2). Si el texto no trae modulo ('46KR A2'), se busca el modulo cuyo otro borne de bobina tiene el numero de cable vecino (4668/4669). 'comunes': si un borne esta cableado en menos modulos que su pareja (A2 en 1 modulo y A1 en 4), es un comun unido con puente FBS (en el topografico se anota 'FBS 4-6 AZUL (A2)'): el cable entra por el PRIMER modulo del grupo, el mas cercano a la etiqueta (foto 1.6: 1328 en 43KR1 A2; foto 1.2: 1308 en 62KR1 11)."
+      },
+      "fuente": "Hoja de datos Phoenix 2903370 / 2900958; numeros moldeados en la carcasa, fotos 1.2, 1.3, 1.6, 1.7"
+    },
+    {
+      "id": "EASY9-RCCB-2P",
+      "tipo": "modular DIN (disyuntor diferencial 2 polos)",
+      "fabricante": "SCHNEIDER",
+      "alias": ["DIFERENCIAL", "EZ9R", "RCCB", "F202", "FH202"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 85.0,
+      "paso_mm": 17.5,
+      "polos": 2,
+      "boca": {"primitiva": "circulo", "r_mm": [3.1, 3.9], "cob_min": 250, "sin_x": true,
+               "nota": "tornillo del frente: poligono de 12 lados de unos 7 mm de diametro"},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 1, "abajo": 1}},
+      "nombres": {
+        "reglas": [
+          {"patron": "^N$", "pieza": 1, "lado": "texto", "boca": 0},
+          {"patron": "^F$|^L\\d?$", "pieza": 2, "lado": "texto", "boca": 0}
+        ],
+        "nota": "Regla 5: polos F y N con tornillo arriba y abajo. Easy9 diferencial: N impresa a la izquierda, F a la derecha."
+      },
+      "fuente": "se.com EZ9R36225; fotos 12.35.34 y 1.4"
+    },
+    {
+      "id": "MCB-2P",
+      "tipo": "modular DIN (termomagnetica 2 polos)",
+      "fabricante": "SCHNEIDER / ABB",
+      "alias": ["TERMOMAGN", "EZ9F", "S202", "IC60"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 85.0,
+      "paso_mm": 17.5,
+      "polos": 2,
+      "boca": {"primitiva": "circulo", "r_mm": [3.1, 3.9], "cob_min": 250, "sin_x": true},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 1, "abajo": 1}},
+      "nombres": {
+        "reglas": [
+          {"patron": "^F$|^L\\d?$", "pieza": 1, "lado": "texto", "boca": 0},
+          {"patron": "^N$", "pieza": 2, "lado": "texto", "boca": 0}
+        ],
+        "nota": "F a la izquierda y N a la derecha (colores de los cables en las fotos)."
+      },
+      "fuente": "se.com EZ9F34210; fotos 12.35.34 y 1.4 (en el tablero hay un ABB S202 C10)"
+    },
+    {
+      "id": "DF101",
+      "tipo": "modular DIN (portafusible 10x38, 1 polo)",
+      "fabricante": "SCHNEIDER",
+      "alias": ["DF101", "DF 101"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 81.0,
+      "paso_mm": 17.5,
+      "polos": 1,
+      "boca": {"primitiva": "circulo", "r_mm": [2.45, 2.95], "cob_min": 250, "sin_x": true,
+               "nota": "tornillo: poligono de 12 lados de unos 5,4 mm de diametro con una raya diagonal"},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 1, "abajo": 1}},
+      "nombres": {
+        "reglas": [{"patron": "^$", "pieza": 1, "lado": "texto", "boca": 0}],
+        "nota": "Un polo: ARRIBA = tornillo de arriba (entrada), ABAJO = tornillo de abajo."
+      },
+      "fuente": "se.com DF101; fotos 12.35.37(1), 12.35.36(2)"
+    },
+    {
+      "id": "MEANWELL-NDR",
+      "tipo": "fuente de riel DIN (AC/DC)",
+      "fabricante": "MEAN WELL",
+      "alias": ["NDR-", "NDR "],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 125.4,
+      "boca": {"primitiva": "circulo", "r_mm": [2.0, 3.4], "cob_min": 250, "sin_x": true,
+               "nota": "tornillo de la bornera enchufable: circulo con cruz Phillips"},
+      "disposicion": {"tipo": "filas", "grupos": [
+        {"nombre": "TB2", "lado": "arriba", "n": 4},
+        {"nombre": "TB1", "lado": "abajo", "n": 3}
+      ]},
+      "nombres": {
+        "pines": {
+          "-V": {"grupo": "TB2", "pines": [1, 2]},
+          "+V": {"grupo": "TB2", "pines": [3, 4]},
+          "FG": {"grupo": "TB1", "pines": [1]},
+          "N": {"grupo": "TB1", "pines": [2]},
+          "L": {"grupo": "TB1", "pines": [3]}
+        },
+        "alias": {"-": "-V", "V-": "-V", "+": "+V", "V+": "+V", "PE": "FG", "T": "FG", "⏚": "FG"},
+        "nota": "TB2 (salida) arriba, 4 pines 1..4 de izquierda a derecha: 1,2 = -V; 3,4 = +V. TB1 (entrada) abajo: 1 = FG, 2 = N, 3 = L. Si el texto trae numero ('1 (-)', 'L-3') se usa ese pin; si hay dos usos del mismo nombre, van de izquierda a derecha en orden creciente de numero de cable."
+      },
+      "fuente": "MEAN WELL NDR-120 / NDR-240 SPEC (Terminal Pin No. Assignment); fotos 1.0 y 1.4"
+    },
+    {
+      "id": "MEANWELL-DDR",
+      "tipo": "fuente de riel DIN (conversor DC/DC)",
+      "fabricante": "MEAN WELL",
+      "alias": ["DDR-", "DDR "],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 125.2,
+      "boca": {"primitiva": "circulo", "r_mm": [2.0, 3.4], "cob_min": 250, "sin_x": true},
+      "disposicion": {"tipo": "filas", "grupos": [
+        {"nombre": "TB2", "lado": "arriba", "n": 4},
+        {"nombre": "TB1", "lado": "abajo", "n": 3}
+      ]},
+      "nombres": {
+        "pines": {
+          "-VO": {"grupo": "TB2", "pines": [1, 2]},
+          "+VO": {"grupo": "TB2", "pines": [3, 4]},
+          "FG": {"grupo": "TB1", "pines": [1]},
+          "-VIN": {"grupo": "TB1", "pines": [2]},
+          "+VIN": {"grupo": "TB1", "pines": [3]}
+        },
+        "alias": {"PE": "FG", "T": "FG", "⏚": "FG", "-V": "-VO", "+V": "+VO"},
+        "nota": "TB2 (salida) arriba: 1,2 = -Vo; 3,4 = +Vo. TB1 (entrada) abajo: 1 = FG, 2 = -Vin, 3 = +Vin."
+      },
+      "fuente": "MEAN WELL DDR-120 SPEC; fotos 1.1 y 1.5"
+    },
+    {
+      "id": "GS8512-EX",
+      "tipo": "barrera de seguridad intrinseca (carcasa angosta, enchufes escalonados)",
+      "fabricante": "CHENZHU",
+      "alias": ["GS8512"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 114.5,
+      "boca": {"primitiva": "tornillo_cortado", "w_mm": [3.3, 4.7], "h_max_mm": 4.8,
+               "nota": "tornillo: elipse de unos 4 x 3,4 mm cortada por el borde de la carcasa; el bloque dibuja solo el enchufe exterior de cada lado"},
+      "disposicion": {"tipo": "filas", "grupos": [
+        {"nombre": "SUP", "lado": "arriba", "n": 2, "filas_mm": [0.0, 0.0, 8.85], "tornillos_por_fila": [2, 2, 2]},
+        {"nombre": "INF", "lado": "abajo", "n": 2, "filas_mm": [0.0, 8.7], "tornillos_por_fila": [2, 2]}
+      ]},
+      "nombres": {
+        "pines": {
+          "1": {"grupo": "SUP", "fila": 0, "pin": 1}, "2": {"grupo": "SUP", "fila": 0, "pin": 2},
+          "3": {"grupo": "SUP", "fila": 1, "pin": 1}, "4": {"grupo": "SUP", "fila": 1, "pin": 2},
+          "5": {"grupo": "SUP", "fila": 2, "pin": 1}, "6": {"grupo": "SUP", "fila": 2, "pin": 2},
+          "7": {"grupo": "INF", "fila": 1, "pin": 1}, "8": {"grupo": "INF", "fila": 1, "pin": 2},
+          "9": {"grupo": "INF", "fila": 0, "pin": 1}, "10": {"grupo": "INF", "fila": 0, "pin": 2}
+        },
+        "ignorar_lado_del_texto": true,
+        "nota": "Regla 7: el ARRIBA/ABAJO del texto sale del simbolo del funcional; se ubica por numero. Arriba (lado seguro, de afuera hacia adentro): [1 2], [3 4], [5 6]. Abajo (lado IS): afuera [9 10], adentro [7 8]. Numero menor a la izquierda. 'filas_mm' = cuanto se corre hacia adentro (hacia el riel) cada enchufe que el bloque no dibuja, medido en la vista lateral acotada del manual: [3 4] tiene el tornillo a la misma altura que [1 2] (que queda detras, inclinado); [5 6] esta 8,85 mm mas adentro; abajo [7 8] esta 8,7 mm mas adentro que [9 10]."
+      },
+      "fuente": "Manual CZ.GS8512-EX; catalogo CHENZHU GS8500-EX 2023 pag. 11; fotos 3.0-3.3, 12.35.42/43"
+    },
+    {
+      "id": "GS8536-EX",
+      "tipo": "barrera de seguridad intrinseca (entrada analogica, enchufes de 3 bornes)",
+      "fabricante": "CHENZHU",
+      "alias": ["GS8536"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 114.5,
+      "boca": {"primitiva": "tornillo_cortado", "w_mm": [3.3, 4.7], "h_max_mm": 4.8},
+      "disposicion": {"tipo": "filas", "grupos": [
+        {"nombre": "SUP", "lado": "arriba", "n": 2, "filas_mm": [0.0, 0.0, 8.85], "tornillos_por_fila": [2, 3, 3]},
+        {"nombre": "INF", "lado": "abajo", "n": 2, "filas_mm": [0.0, 8.7], "tornillos_por_fila": [3, 3]}
+      ]},
+      "nombres": {
+        "pines": {
+          "1": {"grupo": "SUP", "fila": 0, "pin": 1}, "2": {"grupo": "SUP", "fila": 0, "pin": 2},
+          "3": {"grupo": "SUP", "fila": 1, "pin": 1}, "4": {"grupo": "SUP", "fila": 1, "pin": 2}, "5": {"grupo": "SUP", "fila": 1, "pin": 3},
+          "6": {"grupo": "SUP", "fila": 2, "pin": 1}, "7": {"grupo": "SUP", "fila": 2, "pin": 2}, "8": {"grupo": "SUP", "fila": 2, "pin": 3},
+          "9": {"grupo": "INF", "fila": 1, "pin": 1}, "10": {"grupo": "INF", "fila": 1, "pin": 2}, "11": {"grupo": "INF", "fila": 1, "pin": 3},
+          "12": {"grupo": "INF", "fila": 0, "pin": 1}, "13": {"grupo": "INF", "fila": 0, "pin": 2}, "14": {"grupo": "INF", "fila": 0, "pin": 3}
+        },
+        "ignorar_lado_del_texto": true,
+        "nota": "Arriba: [1 2] afuera, [3 4 5], [6 7 8] adentro. Abajo: [9 10 11] adentro, [12 13 14] afuera. Los enchufes de 3 bornes se ubican centrados en la carcasa con el paso dibujado."
+      },
+      "fuente": "Catalogo CHENZHU GS8500-EX 2023 pag. 23; etiqueta del aparato en fotos 12.35.42/43"
+    },
+    {
+      "id": "TOMA-IRAM-DIN",
+      "tipo": "toma corriente de riel DIN (bloque simbolico sin tornillos)",
+      "fabricante": "VIVION",
+      "alias": ["TOMA CORRIENTE", "TOMACORRIENTE", "TOMA IRAM", "AC30"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 75.0,
+      "r_borne_mm": 2.5,
+      "boca": {"primitiva": "caja", "w_mm": [25.0, 65.0], "h_mm": [55.0, 95.0],
+               "nota": "el dibujo no trae tornillos: se toma el cuerpo (rectangulo cerrado que contiene la etiqueta)"},
+      "disposicion": {"tipo": "caja"},
+      "nombres": {
+        "pines": {
+          "N": {"fx": 0.292, "desde": "abajo", "dy_mm": 2.4},
+          "PE": {"fx": 0.501, "desde": "abajo", "dy_mm": 2.4},
+          "L": {"fx": 0.710, "desde": "abajo", "dy_mm": 2.4}
+        },
+        "ignorar_lado_del_texto": true,
+        "confianza": "media",
+        "nota": "Regla 6: los 3 bornes N-PE-L van ABAJO, de izquierda a derecha, en la franja de la base (fracciones del ancho del cuerpo, sacadas de la foto)."
+      },
+      "fuente": "fotos 'WhatsApp 2026-09-25 15.54.54' y 1.5"
+    },
+    {
+      "id": "MEGA-BASE",
+      "tipo": "portafusible MEGA de esparragos (fuera del riel, horizontal)",
+      "fabricante": "-",
+      "alias": ["MEGA"],
+      "anclaje": "libre",
+      "margen_izq_mm": 0.0,
+      "ancho_mm": 80.0,
+      "alto_mm": 35.0,
+      "boca": {"primitiva": "circulo", "r_mm": [9.5, 12.5], "cob_min": 250, "sin_x": false,
+               "nota": "esparrago: circulos concentricos grandes (tuerca de unos 22 mm)"},
+      "disposicion": {"tipo": "filas", "grupos": [{"nombre": "E", "lado": "centro", "n": 2}]},
+      "nombres": {
+        "pines": {"": {"grupo": "E", "por_lado": {"ABAJO": 1, "ARRIBA": 2}}},
+        "confianza": "media",
+        "nota": "Montado horizontal: el lado ABAJO del esquema es el esparrago izquierdo (bateria) y ARRIBA el derecho (carga). Confirmar con el recorrido del cable de potencia en cada tablero."
+      },
+      "fuente": "Hoja 12 del funcional + recorrido del cable de 35 mm2 en el topografico"
+    }
+  ]
+}

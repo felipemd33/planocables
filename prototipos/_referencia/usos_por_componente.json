@@ -1,0 +1,1748 @@
+{
+ "topografico": "C:\\Buscar Termos en plano\\prototipos\\_referencia\\topografico.pdf",
+ "pagina_pdf": 8,
+ "region_bandeja": [
+  520.1,
+  177.1,
+  1045.4,
+  759.3
+ ],
+ "escala_mm_por_pt": 1.4086,
+ "componentes": {
+  "11PS1": {
+   "etiqueta_topografico": {
+    "x": 619.7,
+    "y": 674.2,
+    "riel": 1,
+    "leido": "11PS1"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1110",
+     "texto": "11PS1 1 (-)",
+     "tag": "11PS1",
+     "borne": "1 (-)",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1111",
+     "texto": "11PS1 3 (+)",
+     "tag": "11PS1",
+     "borne": "3 (+)",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1108",
+     "texto": "11PS1 L-3",
+     "tag": "11PS1",
+     "borne": "L-3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1109",
+     "texto": "11PS1 N-2",
+     "tag": "11PS1",
+     "borne": "N-2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "11"
+    }
+   ]
+  },
+  "11SK1": {
+   "etiqueta_topografico": {
+    "x": 748.1,
+    "y": 696.5,
+    "riel": 1,
+    "leido": "11SK1"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1108",
+     "texto": "11SK1 L ARRIBA",
+     "tag": "11SK1",
+     "borne": "L",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1109",
+     "texto": "11SK1 N ABAJO",
+     "tag": "11SK1",
+     "borne": "N",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "11"
+    }
+   ]
+  },
+  "11Q2": {
+   "etiqueta_topografico": {
+    "x": 680.5,
+    "y": 684.7,
+    "riel": 1,
+    "leido": "11Q2"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1108",
+     "texto": "11Q2 F ABAJO",
+     "tag": "11Q2",
+     "borne": "F",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1106",
+     "texto": "11Q2 F ARRIBA",
+     "tag": "11Q2",
+     "borne": "F",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1109",
+     "texto": "11Q2 N ABAJO",
+     "tag": "11Q2",
+     "borne": "N",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1107",
+     "texto": "11Q2 N ARRIBA",
+     "tag": "11Q2",
+     "borne": "N",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "11"
+    }
+   ]
+  },
+  "11Q1": {
+   "etiqueta_topografico": {
+    "x": 655.6,
+    "y": 684.7,
+    "riel": 1,
+    "leido": "11Q1"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1106",
+     "texto": "11Q1 F ABAJO",
+     "tag": "11Q1",
+     "borne": "F",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1104",
+     "texto": "11Q1 F ARRIBA",
+     "tag": "11Q1",
+     "borne": "F",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1107",
+     "texto": "11Q1 N ABAJO",
+     "tag": "11Q1",
+     "borne": "N",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "11"
+    },
+    {
+     "cable": "1105",
+     "texto": "11Q1 N ARRIBA",
+     "tag": "11Q1",
+     "borne": "N",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "11"
+    }
+   ]
+  },
+  "12F2": {
+   "etiqueta_topografico": {
+    "x": 602.4,
+    "y": 305.0,
+    "riel": 3,
+    "leido": "12F2"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1216",
+     "texto": "12F2",
+     "tag": "12F2",
+     "borne": "",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "12"
+    },
+    {
+     "cable": "1204",
+     "texto": "12F2",
+     "tag": "12F2",
+     "borne": "",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "12"
+    },
+    {
+     "cable": "1215",
+     "texto": "12F2",
+     "tag": "12F2",
+     "borne": "",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "12"
+    },
+    {
+     "cable": "1204",
+     "texto": "12F2 ARRIBA",
+     "tag": "12F2",
+     "borne": "",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "12"
+    }
+   ]
+  },
+  "12XP": {
+   "etiqueta_topografico": {
+    "x": 587.4,
+    "y": 531.2,
+    "riel": 2,
+    "leido": "1132XP1"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "1202",
+     "texto": "12XP 1.1",
+     "tag": "12XP",
+     "borne": "1",
+     "punto": 1,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "12"
+    },
+    {
+     "cable": "1217",
+     "texto": "12XP 1.4",
+     "tag": "12XP",
+     "borne": "1",
+     "punto": 4,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "12"
+    },
+    {
+     "cable": "1205",
+     "texto": "12XP 2.1",
+     "tag": "12XP",
+     "borne": "2",
+     "punto": 1,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "12"
+    },
+    {
+     "cable": "1218",
+     "texto": "12XP 2.4",
+     "tag": "12XP",
+     "borne": "2",
+     "punto": 4,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "12"
+    }
+   ]
+  },
+  "13F3": {
+   "etiqueta_topografico": {
+    "x": 785.8,
+    "y": 676.6,
+    "riel": 1,
+    "leido": "3F3"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1301",
+     "texto": "13F3 ABAJO",
+     "tag": "13F3",
+     "borne": "",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1206",
+     "texto": "13F3 ARRIBA",
+     "tag": "13F3",
+     "borne": "",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    }
+   ]
+  },
+  "13XC1": {
+   "etiqueta_topografico": {
+    "x": 609.2,
+    "y": 532.6,
+    "riel": 2,
+    "leido": "3XC1"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "1304",
+     "texto": "13XC1 1.1",
+     "tag": "13XC1",
+     "borne": "1",
+     "punto": 1,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1303",
+     "texto": "13XC1 1.4",
+     "tag": "13XC1",
+     "borne": "1",
+     "punto": 4,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1308",
+     "texto": "13XC1 2.1",
+     "tag": "13XC1",
+     "borne": "2",
+     "punto": 1,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1318",
+     "texto": "13XC1 2.2",
+     "tag": "13XC1",
+     "borne": "2",
+     "punto": 2,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1319",
+     "texto": "13XC1 2.3",
+     "tag": "13XC1",
+     "borne": "2",
+     "punto": 3,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1306",
+     "texto": "13XC1 2.4",
+     "tag": "13XC1",
+     "borne": "2",
+     "punto": 4,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1305",
+     "texto": "13XC1 3.1",
+     "tag": "13XC1",
+     "borne": "3",
+     "punto": 1,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1321",
+     "texto": "13XC1 3.2",
+     "tag": "13XC1",
+     "borne": "3",
+     "punto": 2,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1307",
+     "texto": "13XC1 3.3",
+     "tag": "13XC1",
+     "borne": "3",
+     "punto": 3,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1203",
+     "texto": "13XC1 3.4",
+     "tag": "13XC1",
+     "borne": "3",
+     "punto": 4,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1323",
+     "texto": "13XC1 4.1",
+     "tag": "13XC1",
+     "borne": "4",
+     "punto": 1,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1328",
+     "texto": "13XC1 4.2",
+     "tag": "13XC1",
+     "borne": "4",
+     "punto": 2,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1315",
+     "texto": "13XC1 4.4",
+     "tag": "13XC1",
+     "borne": "4",
+     "punto": 4,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    }
+   ]
+  },
+  "12F1": {
+   "etiqueta_topografico": {
+    "x": 773.4,
+    "y": 676.6,
+    "riel": 1,
+    "leido": "2F1"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1202",
+     "texto": "12F1 ABAJO",
+     "tag": "12F1",
+     "borne": "",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "12"
+    },
+    {
+     "cable": "1201",
+     "texto": "12F1 ARRIBA",
+     "tag": "12F1",
+     "borne": "",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "12"
+    }
+   ]
+  },
+  "81XCM": {
+   "etiqueta_topografico": {
+    "x": 703.6,
+    "y": 403.0,
+    "riel": 3,
+    "leido": "81XCM"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "2132",
+     "texto": "81XCM 1 ARRIBA",
+     "tag": "81XCM",
+     "borne": "1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "81"
+    },
+    {
+     "cable": "2135",
+     "texto": "81XCM 11 ARRIBA",
+     "tag": "81XCM",
+     "borne": "11",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "81"
+    },
+    {
+     "cable": "2136",
+     "texto": "81XCM 12 ARRIBA",
+     "tag": "81XCM",
+     "borne": "12",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "81"
+    },
+    {
+     "cable": "2133",
+     "texto": "81XCM 2 ARRIBA",
+     "tag": "81XCM",
+     "borne": "2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "81"
+    },
+    {
+     "cable": "2132",
+     "texto": "81XCM 5 ARRIBA",
+     "tag": "81XCM",
+     "borne": "5",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "81"
+    },
+    {
+     "cable": "2133",
+     "texto": "81XCM 6 ARRIBA",
+     "tag": "81XCM",
+     "borne": "6",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "81"
+    }
+   ]
+  },
+  "13PS3": {
+   "etiqueta_topografico": {
+    "x": 823.0,
+    "y": 697.0,
+    "riel": 1,
+    "leido": "13PS3"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1304",
+     "texto": "13PS3 +Vin",
+     "tag": "13PS3",
+     "borne": "+Vin",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1310",
+     "texto": "13PS3 +Vo",
+     "tag": "13PS3",
+     "borne": "+Vo",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1305",
+     "texto": "13PS3 -Vin",
+     "tag": "13PS3",
+     "borne": "-Vin",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1323",
+     "texto": "13PS3 -Vo",
+     "tag": "13PS3",
+     "borne": "-Vo",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1311",
+     "texto": "13PS3 -Vo",
+     "tag": "13PS3",
+     "borne": "-Vo",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    }
+   ]
+  },
+  "13X24": {
+   "etiqueta_topografico": {
+    "x": 642.7,
+    "y": 532.7,
+    "riel": 2,
+    "leido": "3X24"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "1310",
+     "texto": "13X24 1.1",
+     "tag": "13X24",
+     "borne": "1",
+     "punto": 1,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1324",
+     "texto": "13X24 1.2",
+     "tag": "13X24",
+     "borne": "1",
+     "punto": 2,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1312",
+     "texto": "13X24 1.4",
+     "tag": "13X24",
+     "borne": "1",
+     "punto": 4,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1311",
+     "texto": "13X24 2.1",
+     "tag": "13X24",
+     "borne": "2",
+     "punto": 1,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "13"
+    },
+    {
+     "cable": "1313",
+     "texto": "13X24 2.4",
+     "tag": "13X24",
+     "borne": "2",
+     "punto": 4,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "13"
+    }
+   ]
+  },
+  "31AIB1": {
+   "etiqueta_topografico": {
+    "x": 789.4,
+    "y": 533.3,
+    "riel": 2,
+    "leido": "31AIB1"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1312",
+     "texto": "31AIB1 1 ABAJO",
+     "tag": "31AIB1",
+     "borne": "1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "15"
+    },
+    {
+     "cable": "1313",
+     "texto": "31AIB1 2 ABAJO",
+     "tag": "31AIB1",
+     "borne": "2",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "15"
+    }
+   ]
+  },
+  "43DIB1": {
+   "etiqueta_topografico": {
+    "x": 799.9,
+    "y": 534.1,
+    "riel": 2,
+    "leido": "43DIB1"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1312",
+     "texto": "43DIB1 1 ABAJO",
+     "tag": "43DIB1",
+     "borne": "1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "15"
+    },
+    {
+     "cable": "4302",
+     "texto": "43DIB1 10",
+     "tag": "43DIB1",
+     "borne": "10",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "1313",
+     "texto": "43DIB1 2 ABAJO",
+     "tag": "43DIB1",
+     "borne": "2",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "15"
+    },
+    {
+     "cable": "1318",
+     "texto": "43DIB1 3",
+     "tag": "43DIB1",
+     "borne": "3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "2116",
+     "texto": "43DIB1 5",
+     "tag": "43DIB1",
+     "borne": "5",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "2117",
+     "texto": "43DIB1 6",
+     "tag": "43DIB1",
+     "borne": "6",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4303",
+     "texto": "43DIB1 7",
+     "tag": "43DIB1",
+     "borne": "7",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4304",
+     "texto": "43DIB1 8",
+     "tag": "43DIB1",
+     "borne": "8",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4301",
+     "texto": "43DIB1 9",
+     "tag": "43DIB1",
+     "borne": "9",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    }
+   ]
+  },
+  "43DIB2": {
+   "etiqueta_topografico": {
+    "x": 808.9,
+    "y": 534.1,
+    "riel": 2,
+    "leido": "43DIB2"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1312",
+     "texto": "43DIB2 1 ABAJO",
+     "tag": "43DIB2",
+     "borne": "1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "15"
+    },
+    {
+     "cable": "4342",
+     "texto": "43DIB2 10",
+     "tag": "43DIB2",
+     "borne": "10",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "1313",
+     "texto": "43DIB2 2 ABAJO",
+     "tag": "43DIB2",
+     "borne": "2",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "15"
+    },
+    {
+     "cable": "1319",
+     "texto": "43DIB2 3",
+     "tag": "43DIB2",
+     "borne": "3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "2120",
+     "texto": "43DIB2 5",
+     "tag": "43DIB2",
+     "borne": "5",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "2121",
+     "texto": "43DIB2 6",
+     "tag": "43DIB2",
+     "borne": "6",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4343",
+     "texto": "43DIB2 7",
+     "tag": "43DIB2",
+     "borne": "7",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4344",
+     "texto": "43DIB2 8",
+     "tag": "43DIB2",
+     "borne": "8",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4341",
+     "texto": "43DIB2 9",
+     "tag": "43DIB2",
+     "borne": "9",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    }
+   ]
+  },
+  "62XDIO": {
+   "etiqueta_topografico": {
+    "x": 664.4,
+    "y": 530.3,
+    "riel": 2,
+    "leido": "62XDIO"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "6201",
+     "texto": "62XDIO 1 ABAJO",
+     "tag": "62XDIO",
+     "borne": "1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6203",
+     "texto": "62XDIO 2 ABAJO",
+     "tag": "62XDIO",
+     "borne": "2",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6206",
+     "texto": "62XDIO 3 ABAJO",
+     "tag": "62XDIO",
+     "borne": "3",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6204",
+     "texto": "62XDIO 3 ABAJO",
+     "tag": "62XDIO",
+     "borne": "3",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "1315",
+     "texto": "62XDIO 3 ARRIBA",
+     "tag": "62XDIO",
+     "borne": "3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6203",
+     "texto": "62XDIO 3 ARRIBA",
+     "tag": "62XDIO",
+     "borne": "3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6205",
+     "texto": "62XDIO 4 ABAJO",
+     "tag": "62XDIO",
+     "borne": "4",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6207",
+     "texto": "62XDIO 5 ABAJO",
+     "tag": "62XDIO",
+     "borne": "5",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6206",
+     "texto": "62XDIO 5 ARRIBA",
+     "tag": "62XDIO",
+     "borne": "5",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6208",
+     "texto": "62XDIO 6 ABAJO",
+     "tag": "62XDIO",
+     "borne": "6",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    }
+   ]
+  },
+  "31XAI": {
+   "etiqueta_topografico": {
+    "x": 795.7,
+    "y": 675.3,
+    "riel": 1,
+    "leido": "6311XDA0"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "3142",
+     "texto": "31XAI 1 ABAJO",
+     "tag": "31XAI",
+     "borne": "1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "31"
+    },
+    {
+     "cable": "2142",
+     "texto": "31XAI 1 ARRIBA",
+     "tag": "31XAI",
+     "borne": "1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "31"
+    },
+    {
+     "cable": "3141",
+     "texto": "31XAI 1 ARRIBA",
+     "tag": "31XAI",
+     "borne": "1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "31"
+    },
+    {
+     "cable": "3142",
+     "texto": "31XAI 2 ARRIBA",
+     "tag": "31XAI",
+     "borne": "2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "31"
+    },
+    {
+     "cable": "3141",
+     "texto": "31XAI F1 ABAJO",
+     "tag": "31XAI",
+     "borne": "F1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "31"
+    },
+    {
+     "cable": "1324",
+     "texto": "31XAI F1 ARRIBA",
+     "tag": "31XAI",
+     "borne": "F1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "31"
+    }
+   ]
+  },
+  "43KR": {
+   "etiqueta_topografico": {
+    "x": 836.9,
+    "y": 675.5,
+    "riel": 1,
+    "leido": "43KR"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "2118",
+     "texto": "43KR1 11",
+     "tag": "43KR1",
+     "borne": "11",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "2119",
+     "texto": "43KR1 14",
+     "tag": "43KR1",
+     "borne": "14",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4329",
+     "texto": "43KR1 A1",
+     "tag": "43KR1",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4318",
+     "texto": "43KR2 11",
+     "tag": "43KR2",
+     "borne": "11",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4319",
+     "texto": "43KR2 14",
+     "tag": "43KR2",
+     "borne": "14",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4329",
+     "texto": "43KR2 A1",
+     "tag": "43KR2",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "1328",
+     "texto": "43KR2 A2",
+     "tag": "43KR2",
+     "borne": "A2",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "2122",
+     "texto": "43KR3 11",
+     "tag": "43KR3",
+     "borne": "11",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "2123",
+     "texto": "43KR3 14",
+     "tag": "43KR3",
+     "borne": "14",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4369",
+     "texto": "43KR3 A1",
+     "tag": "43KR3",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4358",
+     "texto": "43KR4 11",
+     "tag": "43KR4",
+     "borne": "11",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4359",
+     "texto": "43KR4 14",
+     "tag": "43KR4",
+     "borne": "14",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4369",
+     "texto": "43KR4 A1",
+     "tag": "43KR4",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "43"
+    }
+   ]
+  },
+  "62XDO": {
+   "etiqueta_topografico": {
+    "x": 683.9,
+    "y": 530.1,
+    "riel": 2,
+    "leido": "62XD0"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "6202",
+     "texto": "62XDO 1 ABAJO",
+     "tag": "62XDO",
+     "borne": "1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6201",
+     "texto": "62XDO 1 ARRIBA",
+     "tag": "62XDO",
+     "borne": "1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "1321",
+     "texto": "62XDO 2 ARRIBA",
+     "tag": "62XDO",
+     "borne": "2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6202",
+     "texto": "62XDO ARRIBA",
+     "tag": "62XDO",
+     "borne": "",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    }
+   ]
+  },
+  "62KR": {
+   "etiqueta_topografico": {
+    "x": 877.0,
+    "y": 675.5,
+    "riel": 1,
+    "leido": "62KR"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "1308",
+     "texto": "62KR1 11",
+     "tag": "62KR1",
+     "borne": "11",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6201",
+     "texto": "62KR1 14",
+     "tag": "62KR1",
+     "borne": "14",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "2150",
+     "texto": "62KR1 A1",
+     "tag": "62KR1",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "2151",
+     "texto": "62KR1 A2",
+     "tag": "62KR1",
+     "borne": "A2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6203",
+     "texto": "62KR2 14",
+     "tag": "62KR2",
+     "borne": "14",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "2152",
+     "texto": "62KR2 A1",
+     "tag": "62KR2",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "2153",
+     "texto": "62KR2 A2",
+     "tag": "62KR2",
+     "borne": "A2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "6206",
+     "texto": "62KR3 14",
+     "tag": "62KR3",
+     "borne": "14",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ARRIBA",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "2154",
+     "texto": "62KR3 A1",
+     "tag": "62KR3",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    },
+    {
+     "cable": "2155",
+     "texto": "62KR3 A2",
+     "tag": "62KR3",
+     "borne": "A2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ABAJO",
+     "hoja_funcional": "62"
+    }
+   ]
+  },
+  "46KR": {
+   "etiqueta_topografico": {
+    "x": 861.3,
+    "y": 675.5,
+    "riel": 1,
+    "leido": "46KR"
+   },
+   "es_bornera": false,
+   "usos": [
+    {
+     "cable": "4615",
+     "texto": "46KR A2",
+     "tag": "46KR",
+     "borne": "A2",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "4669",
+     "texto": "46KR A2",
+     "tag": "46KR",
+     "borne": "A2",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "2168",
+     "texto": "46KR1 11",
+     "tag": "46KR1",
+     "borne": "11",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "2169",
+     "texto": "46KR1 14",
+     "tag": "46KR1",
+     "borne": "14",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "4668",
+     "texto": "46KR1 A1",
+     "tag": "46KR1",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "2114",
+     "texto": "46KR2 11",
+     "tag": "46KR2",
+     "borne": "11",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "2115",
+     "texto": "46KR2 14",
+     "tag": "46KR2",
+     "borne": "14",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "4614",
+     "texto": "46KR2 A1",
+     "tag": "46KR2",
+     "borne": "A1",
+     "punto": null,
+     "lado": "ABAJO",
+     "parte": "ABAJO",
+     "hoja_funcional": "46"
+    }
+   ]
+  },
+  "31XEX": {
+   "etiqueta_topografico": {
+    "x": 778.9,
+    "y": 403.4,
+    "riel": 3,
+    "leido": "31XEX"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "3104",
+     "texto": "31XEX 1 ARRIBA",
+     "tag": "31XEX",
+     "borne": "1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "31"
+    },
+    {
+     "cable": "3105",
+     "texto": "31XEX 2 ARRIBA",
+     "tag": "31XEX",
+     "borne": "2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "31"
+    },
+    {
+     "cable": "3138",
+     "texto": "31XEX 3 ARRIBA",
+     "tag": "31XEX",
+     "borne": "3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "31"
+    },
+    {
+     "cable": "3139",
+     "texto": "31XEX 4 ARRIBA",
+     "tag": "31XEX",
+     "borne": "4",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "31"
+    }
+   ]
+  },
+  "43XCS": {
+   "etiqueta_topografico": {
+    "x": 673.7,
+    "y": 403.5,
+    "riel": 3,
+    "leido": "43XCS"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "4319",
+     "texto": "43XCS 1 ARRIBA",
+     "tag": "43XCS",
+     "borne": "1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4318",
+     "texto": "43XCS 2 ARRIBA",
+     "tag": "43XCS",
+     "borne": "2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4359",
+     "texto": "43XCS 3 ARRIBA",
+     "tag": "43XCS",
+     "borne": "3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4358",
+     "texto": "43XCS 4 ARRIBA",
+     "tag": "43XCS",
+     "borne": "4",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    }
+   ]
+  },
+  "43XDI": {
+   "etiqueta_topografico": {
+    "x": 798.1,
+    "y": 403.4,
+    "riel": 3,
+    "leido": "43XDI"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "4301",
+     "texto": "43XDI 1 ARRIBA",
+     "tag": "43XDI",
+     "borne": "1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4302",
+     "texto": "43XDI 2 ARRIBA",
+     "tag": "43XDI",
+     "borne": "2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4303",
+     "texto": "43XDI 3 ARRIBA",
+     "tag": "43XDI",
+     "borne": "3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4304",
+     "texto": "43XDI 4 ARRIBA",
+     "tag": "43XDI",
+     "borne": "4",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4341",
+     "texto": "43XDI 5 ARRIBA",
+     "tag": "43XDI",
+     "borne": "5",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4342",
+     "texto": "43XDI 6 ARRIBA",
+     "tag": "43XDI",
+     "borne": "6",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4343",
+     "texto": "43XDI 7 ARRIBA",
+     "tag": "43XDI",
+     "borne": "7",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    },
+    {
+     "cable": "4344",
+     "texto": "43XDI 8 ARRIBA",
+     "tag": "43XDI",
+     "borne": "8",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "43"
+    }
+   ]
+  },
+  "46XC": {
+   "etiqueta_topografico": {
+    "x": 688.7,
+    "y": 403.5,
+    "riel": 3,
+    "leido": "46XC"
+   },
+   "es_bornera": true,
+   "usos": [
+    {
+     "cable": "4668",
+     "texto": "46XC 1 ARRIBA",
+     "tag": "46XC",
+     "borne": "1",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "4669",
+     "texto": "46XC 2 ARRIBA",
+     "tag": "46XC",
+     "borne": "2",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "4614",
+     "texto": "46XC 3 ARRIBA",
+     "tag": "46XC",
+     "borne": "3",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "46"
+    },
+    {
+     "cable": "4615",
+     "texto": "46XC 4 ARRIBA",
+     "tag": "46XC",
+     "borne": "4",
+     "punto": null,
+     "lado": "ARRIBA",
+     "parte": "ARRIBA",
+     "hoja_funcional": "46"
+    }
+   ]
+  }
+ }
+}

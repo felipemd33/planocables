@@ -1,0 +1,2339 @@
+{
+ "carpeta": "20059147 - FCS - 10un",
+ "orden": "20059147",
+ "codigo_producto": "75902-1",
+ "descripcion": "dFrac FCS # Controlador Eléctrico",
+ "cant_orden": 10,
+ "lista_materiales_sap": "00112861",
+ "observaciones_orden": "E225",
+ "planos": {
+  "funcional": "75733 ZPL-Rev1-PI&D+Functional Diagram dFRAC - Panel FCS.pdf (75733 ZPL Rev 1, 25 hojas: 00 cover, 01 index, 02 material list, 11-17 alimentacion y distribucion, 20 pin out Red Lion, 30-34 entradas analogicas, 40-43 entradas digitales, 60-63 salidas digitales, 81 comunicaciones)",
+  "topografico": "75992  ZPL-Rev1 Structure and Arrangement - dFrac FCS.pdf (75992 ZPL Rev 1, 16 hojas: caratula, indice, vistas exteriores, 05 detalle aparamenta, 06 bandeja principal, 07 bandejas laterales, 08 conectores, 09 luminaria/tomacorriente, 10 etiquetado, 11 puerta interior, 12-15 tagueado de bandejas)",
+  "otros": [
+   "20059147.pdf (orden de montaje SAP, 6 hojas)"
+  ],
+  "documentos_citados_en_la_orden": [
+   {
+    "clase_doc": "ZPL",
+    "numero": "75733",
+    "descripcion": "DIAGRAMA ELECTRICO FCS",
+    "rev": "01"
+   },
+   {
+    "clase_doc": "ZPL",
+    "numero": "75992",
+    "descripcion": "DIAGRAMA CONSTRUCTIVO FCS",
+    "rev": "01"
+   }
+  ]
+ },
+ "componentes_sap": [
+  {
+   "pos": "0010",
+   "codigo": "75904-1",
+   "descripcion": "dFrac Panel FCS - Conjunto Panel",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "conjunto",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0010",
+   "codigo": "76055-1",
+   "descripcion": "Gabinete 800x940x400 dFrac FCS",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "conjunto",
+   "cantidad_por_unidad": 1.0,
+   "nota": "subconjunto gabinete"
+  },
+  {
+   "pos": "0010",
+   "codigo": "AB2000381",
+   "descripcion": "BORNE DE PASO PT 6",
+   "cantidad": 120.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 12.0
+  },
+  {
+   "pos": "0020",
+   "codigo": "E0550105",
+   "descripcion": "ARANDELA GROWER 3/8\" AISI 316",
+   "cantidad": 80.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 8.0
+  },
+  {
+   "pos": "0020",
+   "codigo": "75905-1",
+   "descripcion": "dFrac Panel FCS - Sist. Eléctrico",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "conjunto",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0020",
+   "codigo": "AB2000379",
+   "descripcion": "TAPA FINAL D-PT 6",
+   "cantidad": 60.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 6.0,
+   "nota": "tapa final de bornera (accesorio)"
+  },
+  {
+   "pos": "0030",
+   "codigo": "E1480005",
+   "descripcion": "TUERCA HEXAGONAL 3/8-16UN-2B AISI 316",
+   "cantidad": 120.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 12.0
+  },
+  {
+   "pos": "0030",
+   "codigo": "AB2000530",
+   "descripcion": "INT.TQ.DIN + DIFERENCIAL 10A 30mA",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0040",
+   "codigo": "E1510005",
+   "descripcion": "ARANDELA PLANA 3/8\" AISI 316",
+   "cantidad": 160.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 16.0
+  },
+  {
+   "pos": "0040",
+   "codigo": "AB2000467",
+   "descripcion": "BORNE DE PASO PT 6-QUATTRO-PE",
+   "cantidad": 40.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0050",
+   "codigo": "E2130256",
+   "descripcion": "TOR.CAB.EXA. 3/8\"-16UNCx2\"-AISI 316",
+   "cantidad": 40.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0050",
+   "codigo": "AB2000369",
+   "descripcion": "BORNE DE PASO PT 6-QUATTRO",
+   "cantidad": 110.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 11.0
+  },
+  {
+   "pos": "0060",
+   "codigo": "AB2000145",
+   "descripcion": "CANCAMO DE IZAJE PARA GABINETES",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0060",
+   "codigo": "AB2000314",
+   "descripcion": "TAPA FINAL D-PTTB 2,5",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0,
+   "nota": "tapa final de bornera (accesorio)"
+  },
+  {
+   "pos": "0070",
+   "codigo": "AB2000469",
+   "descripcion": "FILTRO SALIDA ARM 92x92 IP54 F7F03",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0,
+   "nota": "rejilla de salida pasiva, sin conexion"
+  },
+  {
+   "pos": "0070",
+   "codigo": "AB2000315",
+   "descripcion": "BORNE DE PASO DOBLE PISO PUENTEABLE PUSH",
+   "cantidad": 140.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 14.0
+  },
+  {
+   "pos": "0080",
+   "codigo": "AB1202912",
+   "descripcion": "PORTAFUSIBLE 1X32A, 10x38mm - P/RIEL DIN",
+   "cantidad": 50.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0090",
+   "codigo": "AB1202915",
+   "descripcion": "FUSIBLE 2A - 10x38mm",
+   "cantidad": 50.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 5.0,
+   "nota": "fusible (consumible del portafusible AB1202912)"
+  },
+  {
+   "pos": "0100",
+   "codigo": "AB1202913",
+   "descripcion": "FUSIBLE 6A - 10x38mm",
+   "cantidad": 30.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 3.0,
+   "nota": "fusible (consumible del portafusible AB1202912)"
+  },
+  {
+   "pos": "0110",
+   "codigo": "AB2000457",
+   "descripcion": "FUENTE DE ALIMENTACION 24V 480W",
+   "cantidad": 20.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0120",
+   "codigo": "AB2000479",
+   "descripcion": "MODULO E/S RED LION E3-MIX24880-1",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0130",
+   "codigo": "AB2000458",
+   "descripcion": "SWITCH WEIDMULLER 5 BOCAS",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0140",
+   "codigo": "AB500595",
+   "descripcion": "CABLE DE ALIMENTACIÓN IOTG-ACC-CABDC",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "cable",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0150",
+   "codigo": "AB500596",
+   "descripcion": "COMPULAB RASPBERRY PI4 4GB 32GB",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0160",
+   "codigo": "AB2000474",
+   "descripcion": "PASACHAPA M12 H 4-PIN D-CODE TO RJ45",
+   "cantidad": 20.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0170",
+   "codigo": "AB2000475",
+   "descripcion": "PASACHAPA M12 H 4 PINES L-CODE",
+   "cantidad": 30.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 3.0
+  },
+  {
+   "pos": "0180",
+   "codigo": "AB2000523",
+   "descripcion": "PASACHAPA M12 H A-CODE CABLE 1.5M",
+   "cantidad": 90.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 9.0
+  },
+  {
+   "pos": "0190",
+   "codigo": "AB2000459",
+   "descripcion": "BARRERA AISLADORA 2CH EX ia P+F",
+   "cantidad": 60.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 6.0
+  },
+  {
+   "pos": "0200",
+   "codigo": "AB500294",
+   "descripcion": "BARRERA ZENER Z788 PP+FUCHS",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0210",
+   "codigo": "AB2000460",
+   "descripcion": "BARRERA SEGURIDAD INTRI 2CH AI HART P+F",
+   "cantidad": 40.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0220",
+   "codigo": "AB2000351",
+   "descripcion": "CONVERSOR UARTx4 A USB",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0230",
+   "codigo": "AB2000461",
+   "descripcion": "BORNE SECCIONABLE PT 4-TG",
+   "cantidad": 20.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0240",
+   "codigo": "AB2000462",
+   "descripcion": "CONECTOR PARA COMPONENTES P-CO",
+   "cantidad": 20.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0,
+   "nota": "conector para componentes P-CO (lleva la resistencia AB2000352 sobre el borne PT 4-TG)"
+  },
+  {
+   "pos": "0250",
+   "codigo": "AB2000352",
+   "descripcion": "RESISTENCIA 1K OHM 1/4W 5%",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0,
+   "nota": "resistencia 1K, va enchufada con el conector P-CO (AB2000462) en el borne PT 4-TG de 32XAI"
+  },
+  {
+   "pos": "0260",
+   "codigo": "AB160583",
+   "descripcion": "BORNE DE PASO PUSH-IN PT 4",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0270",
+   "codigo": "AB160584",
+   "descripcion": "TAPA BORNE DE PASO PUSH-IN D-ST 4",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0,
+   "nota": "tapa final de bornera (accesorio)"
+  },
+  {
+   "pos": "0280",
+   "codigo": "AB2000235",
+   "descripcion": "PASTILLA RELÉ 24V DC PHOENIX CONTACT",
+   "cantidad": 70.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 7.0
+  },
+  {
+   "pos": "0290",
+   "codigo": "AB2000419",
+   "descripcion": "ZÓCALO DE RELÉ PHOENIX CONTACT",
+   "cantidad": 70.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 7.0
+  },
+  {
+   "pos": "0300",
+   "codigo": "AB2000466",
+   "descripcion": "TOMACORRIENTE INDUSTRIAL 2P + T 16 A M",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0310",
+   "codigo": "AB2000470",
+   "descripcion": "VENT FILT INV 92x92 230VAC IP54 F7F31",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0320",
+   "codigo": "AB2000472",
+   "descripcion": "HIGROSTATO STEGO CSS 014 4 A 20mA",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0350",
+   "codigo": "76156-1",
+   "descripcion": "JUEGO DE PLACAS DE IDENT. - FCS",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0,
+   "nota": "juego de placas de identificacion"
+  },
+  {
+   "pos": "0360",
+   "codigo": "AB2000177",
+   "descripcion": "CABLE 3MT C/CONECT M12 4P H NEGRO",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "cable",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0370",
+   "codigo": "AB2000141",
+   "descripcion": "CABLE DE RED UTP CAT-6 1M",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "cable",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0380",
+   "codigo": "AB2000219",
+   "descripcion": "FUSIBLE 10A - 10x38mm",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 2.0,
+   "nota": "fusible (consumible del portafusible AB1202912)"
+  },
+  {
+   "pos": "0390",
+   "codigo": "69112-1",
+   "descripcion": "SOPORTE FUSIBLES DE REPUESTO - IMP 3D",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0400",
+   "codigo": "G0000014",
+   "descripcion": "CABLE UNIPOLAR S=0.75mm^2 COLOR NEGRO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0410",
+   "codigo": "G0000015",
+   "descripcion": "CABLE UNIPOLAR S=1.00mm^2 COLOR ROJO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0420",
+   "codigo": "G0000016",
+   "descripcion": "CABLE UNIPOLAR S=1.00mm^2 COLOR NEGRO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0430",
+   "codigo": "G0000044",
+   "descripcion": "CABLE UNIPOLAR S=2,5mm²-ROJO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0440",
+   "codigo": "G0000045",
+   "descripcion": "CABLE UNIPOLAR S=2,5mm²-NEGRO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0450",
+   "codigo": "G0000019",
+   "descripcion": "CABLE UNIPOLAR S=4mm^2 COLOR ROJO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0460",
+   "codigo": "G0000020",
+   "descripcion": "CABLE UNIPOLAR S=4mm^2 COLOR NEGRO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0470",
+   "codigo": "G0000199",
+   "descripcion": "CABLE UNIPOLAR S=1,00mm^2 COLOR BLANCO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0480",
+   "codigo": "G0000100",
+   "descripcion": "CABLE UNIPOLAR S=1,00mm^2 COLOR MARRON",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0490",
+   "codigo": "G0000197",
+   "descripcion": "CABLE UNIPOLAR S=1mm²-VERDE-AMARILLO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0500",
+   "codigo": "G0000057",
+   "descripcion": "CABLE UNIPOLAR S=2.50mm^2 COLOR MARRON",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0510",
+   "codigo": "G0000198",
+   "descripcion": "CABLE UNIPOLAR S=2,50mm^2 COLOR BLANCO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0520",
+   "codigo": "G0000023",
+   "descripcion": "CABLE UNIPOLAR S=2,5mm²-VERDE-AMARILLO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0530",
+   "codigo": "G0000156",
+   "descripcion": "CABLE UNIPOLAR S=4mm^2 COLOR MARRÓN",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0540",
+   "codigo": "G0000157",
+   "descripcion": "CABLE UNIPOLAR S=4mm^2 COLOR BLANCO",
+   "cantidad": 50.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0550",
+   "codigo": "G0000162",
+   "descripcion": "CABLE UNIPOLAR S=4mm²-VERDE-AMARILLO",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "cable",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0560",
+   "codigo": "AB1202998",
+   "descripcion": "CABLE CANAL B.040 H60 GRIS RANURADO",
+   "cantidad": 85.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 8.5
+  },
+  {
+   "pos": "0570",
+   "codigo": "AB1202858",
+   "descripcion": "RIEL DIN SIMETRICO 35MM C/SLOTS 1M",
+   "cantidad": 15.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.5
+  },
+  {
+   "pos": "0580",
+   "codigo": "AB2000052",
+   "descripcion": "CABLE CANAL B.040 H60 AZUL RANURADO",
+   "cantidad": 20.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0590",
+   "codigo": "AB2000493",
+   "descripcion": "ANTENA WIFI EXTERIOR IMAN SMA MACHO",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0,
+   "nota": "antena WiFi (conexion coaxial SMA, sin bornes)"
+  },
+  {
+   "pos": "0600",
+   "codigo": "AB1202844",
+   "descripcion": "EXTREMO ZOLODA EKN1",
+   "cantidad": 300.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 30.0,
+   "nota": "tope final de riel (accesorio)"
+  },
+  {
+   "pos": "0610",
+   "codigo": "AB2000370",
+   "descripcion": "TAPA FINAL D-PT 6-QUATTRO",
+   "cantidad": 100.0,
+   "unidad": null,
+   "clase": "mecanico",
+   "cantidad_por_unidad": 10.0,
+   "nota": "tapa final de bornera (accesorio)"
+  },
+  {
+   "pos": "0620",
+   "codigo": "AB2000236",
+   "descripcion": "PERFIL ALUMINIO \"L\" 60mm x 25mm x 1000mm",
+   "cantidad": 50.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 5.0
+  },
+  {
+   "pos": "0630",
+   "codigo": "AB500597",
+   "descripcion": "KIT DE MONTAJE VERTICAL EN RIEL DIN",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0640",
+   "codigo": "AB2000528",
+   "descripcion": "CONECTOR CUPLA SMA H A RP-SMA M",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "otro",
+   "cantidad_por_unidad": 1.0,
+   "nota": "adaptador coaxial SMA / RP-SMA (sin bornes)"
+  },
+  {
+   "pos": "0650",
+   "codigo": "AB1202838",
+   "descripcion": "CONECTOR ETHERNET RJ45 AMPHENOL",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 2.0
+  },
+  {
+   "pos": "0660",
+   "codigo": "73087-1",
+   "descripcion": "SOPORTE DOOR SWITCH OMRON",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0670",
+   "codigo": "AB2000022",
+   "descripcion": "FINAL DE CARRERA NAC METALICO",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0680",
+   "codigo": "AB2000482",
+   "descripcion": "REGLETA LED 24 V DC L: 610 MM",
+   "cantidad": 10.0,
+   "unidad": null,
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0690",
+   "codigo": "AB2000200",
+   "descripcion": "CABLE SMA MACHO A HEMBRA PASACHAPA",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "cable",
+   "cantidad_por_unidad": 1.0,
+   "nota": "cable coaxial SMA pasachapa"
+  },
+  {
+   "pos": "0700",
+   "codigo": "AB2000531",
+   "descripcion": "TOMACORRIENTE INDUSTRIAL 2P + T 16 A H",
+   "cantidad": 10.0,
+   "unidad": "KG",
+   "clase": "aparato",
+   "cantidad_por_unidad": 1.0
+  },
+  {
+   "pos": "0710",
+   "codigo": "72346-1",
+   "descripcion": "SEPARADOR DELRING DIAM INT:6.5MM//L:9MM",
+   "cantidad": 40.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0720",
+   "codigo": "E2131470",
+   "descripcion": "TORNILLO ALLEN C/CABEZA M3x25mm",
+   "cantidad": 40.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0730",
+   "codigo": "E1483003",
+   "descripcion": "TUERCA REMACHABLE M3 - ZINCADA",
+   "cantidad": 40.0,
+   "unidad": "KG",
+   "clase": "mecanico",
+   "cantidad_por_unidad": 4.0
+  },
+  {
+   "pos": "0740",
+   "codigo": "AB160600",
+   "descripcion": "CABLE DE RED CAT8 F/FTP INT/EXT 2M",
+   "cantidad": 20.0,
+   "unidad": "KG",
+   "clase": "cable",
+   "cantidad_por_unidad": 2.0
+  }
+ ],
+ "lista_funcional": [
+  {
+   "tag": "CONNECTOR 1",
+   "descripcion": "220 V AC POWER TERMINAL BLOCKS",
+   "codigo_sap": "AB2000477",
+   "marca": "FAMATEL",
+   "modelo": "23250",
+   "temperatura": "-25...+40℃",
+   "renglon_leido": "CONNECTOR 1 | 220 V AC POWER TERMINAL BLOCKS | AB2000477 | FAMATEL | 23250 | -25...+40℃",
+   "nota": "El codigo AB2000477 / FAMATEL 23250 no esta en la orden; la orden trae AB2000466 TOMACORRIENTE INDUSTRIAL 2P+T 16 A M (y AB2000531 ... H para CONNECTOR 2)."
+  },
+  {
+   "tag": "11XP",
+   "descripcion": "220 V AC POWER DISTRIBUTION TERMINAL BLOCKS",
+   "codigo_sap": "AB2000381",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "11XP | 220 V AC POWER DISTRIBUTION | TERMINAL BLOCKS | AB2000381 | PHOENIX CONTACT | PT 6 | -60...+110℃"
+  },
+  {
+   "tag": "11XG",
+   "descripcion": "MAIN GROUNDING TERMINAL",
+   "codigo_sap": "AB2000467",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6-QUATTRO-PE",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "A | 11XG | MAIN | GROUNDING TERMINAL | AB2000467 | PHOENIX CONTACT | PT 6-QUATTRO-PE | -60...+110℃ | A"
+  },
+  {
+   "tag": "11Q1",
+   "descripcion": "AC RCBO BREAKER",
+   "codigo_sap": "AB2000530",
+   "marca": "ABB",
+   "modelo": "DS201",
+   "temperatura": "-25...+55℃",
+   "renglon_leido": "11Q1 | AC RCBO BREAKER | AB2000530 | ABB | DS201 | -25...+55℃"
+  },
+  {
+   "tag": "12PS1...PS2",
+   "descripcion": "POWER SOURCE 110 - 220 V AC TO 24 V DC",
+   "codigo_sap": "AB2000457",
+   "marca": "MEAN WELL",
+   "modelo": "XDR-480E-24",
+   "temperatura": "-40...+70℃",
+   "renglon_leido": "12PS1...PS2 | POWER SOURCE 110 | 220 V AC TO 24 V DC | AB2000457 | MEAN WELL | XDR-480E-24 | -40...+70℃"
+  },
+  {
+   "tag": "12XP1...XP2",
+   "descripcion": "DISTRIBUTION TERMINAL BLOCK FOR PARALLEL POWER SUPPLIES",
+   "codigo_sap": "AB2000369",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6-QUATTRO",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "12XP1...XP2 | DISTRIBUTION TERMINAL BLOCK FOR PARALLEL POWER SUPPLIES | AB2000369 | PHOENIX CONTACT | PT 6-QUATTRO | -60...+110℃"
+  },
+  {
+   "tag": "13XP",
+   "descripcion": "24 V DC DISTRIBUTION TERMINAL BLOCK (+)",
+   "codigo_sap": "AB2000369",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6-QUATTRO",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "13XP | 24 V DC DISTRIBUTION | TERMINAL BLOCK | (+) | AB2000369 | PHOENIX CONTACT | PT 6-QUATTRO | -60...+110℃"
+  },
+  {
+   "tag": "14XN",
+   "descripcion": "24 V DC DISTRIBUTION TERMINAL BLOCK (-)",
+   "codigo_sap": "AB2000369",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6-QUATTRO",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "14XN | 24 V DC DISTRIBUTION TERMINAL BLOCK | (-) | AB2000369 | PHOENIX CONTACT | PT 6-QUATTRO | -60...+110℃"
+  },
+  {
+   "tag": "15MX",
+   "descripcion": "MODULE RED LION E3 I/O",
+   "codigo_sap": "AB2000479",
+   "marca": "RED LION",
+   "modelo": "E3-MIX24880-1",
+   "temperatura": "-40...+75℃",
+   "renglon_leido": "15MX | MODULE RED LION E3 1/O | AB2000479 | RED LION | E3-MIX24880-1 | -40...+75℃"
+  },
+  {
+   "tag": "15SW-1",
+   "descripcion": "UNMANAGED FAST ETHERNET SWITCH",
+   "codigo_sap": "AB2000458",
+   "marca": "WEIDMULLER",
+   "modelo": "IE-SW-EL05-5TX",
+   "temperatura": "-40...+75℃",
+   "renglon_leido": "15SW-1 | UNMANAGED FAST ETHERNET SWITCH | AB2000458 | WEIDMULLER | IE-SW-EL05-5TX | -40...+75℃"
+  },
+  {
+   "tag": "15IOT",
+   "descripcion": "COMPULAB IOT-GATE-RPI4",
+   "codigo_sap": "AB500596",
+   "marca": "COMPULAB",
+   "modelo": "IOT-GATE-RPI4",
+   "temperatura": "-40...+80℃",
+   "renglon_leido": "15IOT | COMPULAB IOT-GATE-RPI4 | AB500596 | COMPULAB | IOT-GATE-RPI4 | -40...+80℃",
+   "nota": "En el dibujo aparece como 15IOT (hojas 13-15), 15IOT1 (hoja 20 y topografico) y 151OT1 (hoja 81, lectura)."
+  },
+  {
+   "tag": "16XP1...XP2",
+   "descripcion": "24 V DC POWER DISTRIBUTION TERMINAL BLOCKS",
+   "codigo_sap": "AB2000381",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "16XP1...XP2 | 24 V DC POWER DISTRIBUTION TERMINAL BLOCKS | AB2000381 | PHOENIX CONTACT | PT 6 | -60...+110℃",
+   "nota": "En el dibujo los tags son 15XP1 (hoja 15), 16XP2 y 16XP3 (hoja 16): la lista no coincide."
+  },
+  {
+   "tag": "30AIB1",
+   "descripcion": "ANALOG INPUT SIGNALS / INTRINSIC SAFETY BARRIER",
+   "codigo_sap": "AB2000460",
+   "marca": "PEPPERL + FUCHS",
+   "modelo": "KCD2-SCS-Ex2",
+   "temperatura": "-40...+70℃",
+   "renglon_leido": "30AIB1 | ANALOG INPUT SIGNALS | 1 | INTRINSIC SAFETY BARRIER | AB2000460 | PEPPERL + FUCHS | KCD2-SCS-Ex2 | -40...+70℃"
+  },
+  {
+   "tag": "31AIB2...3...4",
+   "descripcion": "ANALOG INPUT SIGNALS / INTRINSIC SAFETY BARRIER",
+   "codigo_sap": "AB2000460",
+   "marca": "PEPPERL + FUCHS",
+   "modelo": "KCD2-SCS-Ex2",
+   "temperatura": "-40...+70℃",
+   "renglon_leido": "31AIB2...3...4 | ANALOG INPUT SIGNALS | / | INTRINSIC SAFETY BARRIER | AB2000460 | PEPPERL + FUCHS | KCD2-SCS-Ex2 | -40...+70℃"
+  },
+  {
+   "tag": "32AIB1...2",
+   "descripcion": "ANALOG INPUT SIGNALS / INTRINSIC SAFETY BARRIER",
+   "codigo_sap": "AB500294",
+   "marca": "PEPPERL + FUCHS",
+   "modelo": "Z788",
+   "temperatura": "-20...+60℃",
+   "renglon_leido": "32AIB1...2 | ANALOG INPUT SIGNALS | / | INTRINSIC SAFETY BARRIER | AB500294 | PEPPERL + | FUCHS | Z788 | -20...+60℃",
+   "nota": "El lector separo PEPPERL + | FUCHS."
+  },
+  {
+   "tag": "41DIB1...2...3...4...5...6",
+   "descripcion": "DIGITAL INPUT SIGNALS / INTRINSIC SAFETY BARRIER",
+   "codigo_sap": "AB2000459",
+   "marca": "PEPPERL + FUCHS",
+   "modelo": "KCD2-SR-Ex2",
+   "temperatura": "-40...+70℃",
+   "renglon_leido": "41DIB1...2...3...4...5...6 | DIGITAL INPUT SIGNALS | / | INTRINSIC SAFETY BARRIER | AB2000459 | PEPPERL + | FUCHS | KCD2-SR-Ex2 | -40...+70℃"
+  },
+  {
+   "tag": "30XAI",
+   "descripcion": "ANALOG INPUT SIGNAL TERMINAL BLOCKS",
+   "codigo_sap": "AB2000315",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTTB 2,5",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "30XAI | ANALOG INPUT SIGNAL TERMINAL BLOCKS | AB2000315 | PHOENIX CONTACT | PTTB 2,5 | -60...+110℃"
+  },
+  {
+   "tag": "30TR1",
+   "descripcion": "ANALOG SENSOR 4-20 mA",
+   "codigo_sap": "AB2000472",
+   "marca": "STEGO",
+   "modelo": "CSS014",
+   "temperatura": "-40...+60℃",
+   "renglon_leido": "30TR1 | ANALOG SENSOR 4-20 mA | AB2000472 | STEGO | CSS014 | -40...+60℃"
+  },
+  {
+   "tag": "32XAI",
+   "descripcion": "ANALOG INPUT SIGNAL TERMINAL BLOCKS",
+   "codigo_sap": "AB160583",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 4",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "32XAI | ANALOG INPUT SIGNAL TERMINAL BLOCKS | AB160583 | PHOENIX CONTACT | PT 4 | -60...+110℃"
+  },
+  {
+   "tag": "32XAI",
+   "descripcion": "ANALOG INPUT SIGNAL TERMINAL BLOCKS",
+   "codigo_sap": "AB2000461",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 4-TG",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "32XAI | ANALOG INPUT SIGNAL TERMINAL BLOCKS | AB2000461 | PHOENIX CONTACT | PT 4-TG | -60...+110℃"
+  },
+  {
+   "tag": "33AI-1...2/34AI-3...4",
+   "descripcion": "MODULE TURCK - AI",
+   "codigo_sap": null,
+   "marca": "TURCK",
+   "modelo": "TBEN-S2-4AI",
+   "temperatura": "-40...+70℃",
+   "renglon_leido": "33AI-1...2/34A1-3...4 | MODULE TURCK | AI | TURCK | TBEN-S2-4AI | -40...+70℃",
+   "nota": "Sin codigo SAP (equipo de campo/skid, no va en el tablero). El lector leyo 34A1-3."
+  },
+  {
+   "tag": "40DI-1/62DO-2...3",
+   "descripcion": "MODULE TURCK - I/O",
+   "codigo_sap": null,
+   "marca": "TURCK",
+   "modelo": "TBEN-L4-16DXP",
+   "temperatura": "-40...+70℃",
+   "renglon_leido": "40DI-1/62DO-2...3 | MODULE TURCK | 1/O | TURCK | TBEN-L4-16DXP | -40...+70℃",
+   "nota": "En el dibujo son 63DO-2 y 63DO-3 (hoja 63). Sin codigo SAP (campo/skid)."
+  },
+  {
+   "tag": "41XDI",
+   "descripcion": "DIGITAL INPUT SIGNAL TERMINAL BLOCKS",
+   "codigo_sap": "AB2000315",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTTB 2,5",
+   "temperatura": "-60...+110℃",
+   "renglon_leido": "41XDI | DIGITAL INPUT SIGNAL TERMINAL BLOCKS | AB2000315 | PHOENIX CONTACT | PTTB 2,5 | -60...+110℃"
+  },
+  {
+   "tag": "60KR1",
+   "descripcion": "TERMINAL RELAY 24 V DC",
+   "codigo_sap": "AB2000064",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "temperatura": "-40...+60℃",
+   "renglon_leido": "60KR1 | TERMINAL RELAY 24 V DC | AB2000064 | PHOENIX CONTACT | RIF-0-RPT-24DC/21 | -40...+60℃",
+   "nota": "La orden no trae AB2000064: trae el rele partido en AB2000235 PASTILLA RELE 24V DC PHOENIX + AB2000419 ZOCALO DE RELE PHOENIX (7 por tablero = 60KR1 + 61KR1..6)."
+  },
+  {
+   "tag": "60VN1",
+   "descripcion": "VENTILATION (FAN)",
+   "codigo_sap": "AB2000470",
+   "marca": "FINDER",
+   "modelo": "7F.31.8.230.1020",
+   "temperatura": "-30...+55℃",
+   "renglon_leido": "60VN1 | VENTILATION (FAN) | AB2000470 | FINDER | 7F.31.8.230.1020 | -30...+55℃"
+  },
+  {
+   "tag": "60DS",
+   "descripcion": "DOOR SWTICH",
+   "codigo_sap": "AB2000022",
+   "marca": "OMRON",
+   "modelo": "HL-5200",
+   "temperatura": "-5...+65℃",
+   "renglon_leido": "60DS | DOOR SWTICH | AB2000022 | OMRON | HL-5200 | -5...+65℃"
+  },
+  {
+   "tag": "6IL1",
+   "descripcion": "LIGHT LED INTERIOR PANEL",
+   "codigo_sap": "AB2000482",
+   "marca": "P01",
+   "modelo": "24 V DC / 4000 K",
+   "temperatura": null,
+   "renglon_leido": "6IL1 | LIGHT LED INTERIOR PANEL | AB2000482 | P01 | 24 V DC | / | 4000 K",
+   "nota": "Asi esta escrito en la lista (el dibujo dice 60IL1, hoja 60)."
+  },
+  {
+   "tag": "61KR...1...2...3...4...5...6",
+   "descripcion": "TERMINAL RELAY 24 V DC",
+   "codigo_sap": "AB2000064",
+   "marca": "PHOENIX CONTACT",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "temperatura": "-40...+60℃",
+   "renglon_leido": "61KR...1...2...3...4...5...6 | TERMINAL RELAY 24 V DC | AB2000064 | PHOENIX CONTACT | RIF-0-RPT-24DC/21 | -40...+60℃",
+   "nota": "idem 60KR1 (AB2000235 + AB2000419 en la orden)."
+  }
+ ],
+ "tags": [
+  {
+   "tag": "11XP",
+   "hoja": "11",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6 (lista)",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior izquierdo (hoja 13): 2 piezas + 1 pieza de tierra",
+   "nota": "3 bornes: 1=L, 2=N, 3=tierra. En el topografico las 2 primeras se dibujan altas (tipo QUATTRO) y la 3a negra con simbolo de tierra."
+  },
+  {
+   "tag": "11XG",
+   "hoja": "11",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6-QUATTRO-PE (lista); MAIN GROUNDING TERMINAL",
+   "codigo_sap": "AB2000467",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12): 3 piezas",
+   "nota": "bornes 1..3; referenciado tambien en hojas 12, 15 y 20"
+  },
+  {
+   "tag": "11Q1",
+   "hoja": "11",
+   "modelo_segun_funcional": "ABB DS201 (lista); en el simbolo: 10A 30mA",
+   "codigo_sap": "AB2000530",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior izquierdo (hoja 12)"
+  },
+  {
+   "tag": "11F1",
+   "hoja": "11",
+   "modelo_segun_funcional": "en el simbolo: fusible 2A (la lista del funcional no trae los portafusibles)",
+   "codigo_sap": "AB1202912",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12)",
+   "nota": "codigo asociado por descripcion SAP (PORTAFUSIBLE 10x38, 5 por tablero = 11F1, 13F2, 13F3, 16F4, 16F5)"
+  },
+  {
+   "tag": "CONNECTOR 1",
+   "hoja": "11",
+   "modelo_segun_funcional": "MALE CONNECTOR 2P + T 16A 220V - BASE (simbolo); FAMATEL 23250 AB2000477 (lista)",
+   "codigo_sap": "AB2000466",
+   "en_topografico": "techo del gabinete (hoja 08 VISTA SUPERIOR EXTERIOR y hoja 09 VISTA SUPERIOR INTERIOR, etiqueta CONNn), POWER SUPPLY 220VAC IN",
+   "nota": "codigo de la orden por descripcion (TOMACORRIENTE INDUSTRIAL 2P+T 16 A M); la lista del funcional dice AB2000477"
+  },
+  {
+   "tag": "CONNECTOR 2",
+   "hoja": "11",
+   "modelo_segun_funcional": "FEMALE CONNECTOR 2P + T 16A 220V - BASE (simbolo)",
+   "codigo_sap": "AB2000531",
+   "en_topografico": "techo del gabinete (hoja 08 VISTA SUPERIOR EXTERIOR y hoja 09 VISTA SUPERIOR INTERIOR, etiqueta CONNn), POWER SUPPLY 220VAC OUT",
+   "nota": "codigo de la orden por descripcion (TOMACORRIENTE INDUSTRIAL 2P+T 16 A H); no figura en la lista del funcional"
+  },
+  {
+   "tag": "12PS1",
+   "hoja": "12",
+   "modelo_segun_funcional": "MEAN WELL XDR-480E-24 (lista y simbolo)",
+   "codigo_sap": "AB2000457",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior izquierdo (hoja 12)"
+  },
+  {
+   "tag": "12PS2",
+   "hoja": "12",
+   "modelo_segun_funcional": "MEAN WELL XDR-480E-24 (lista y simbolo)",
+   "codigo_sap": "AB2000457",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior izquierdo (hoja 12)"
+  },
+  {
+   "tag": "12XP1",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6-QUATTRO (lista)",
+   "codigo_sap": "AB2000369",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior izquierdo (hoja 12): 2 piezas"
+  },
+  {
+   "tag": "12XP2",
+   "hoja": "12",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6-QUATTRO (lista)",
+   "codigo_sap": "AB2000369",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior izquierdo (hoja 12): 2 piezas"
+  },
+  {
+   "tag": "13XP",
+   "hoja": "13",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6-QUATTRO (lista)",
+   "codigo_sap": "AB2000369",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12): 3 piezas"
+  },
+  {
+   "tag": "13F2",
+   "hoja": "13",
+   "modelo_segun_funcional": "en el simbolo: fusible 2A",
+   "codigo_sap": "AB1202912",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12)",
+   "nota": "codigo por descripcion SAP (portafusible)"
+  },
+  {
+   "tag": "13F3",
+   "hoja": "13",
+   "modelo_segun_funcional": "en el simbolo: fusible 6A",
+   "codigo_sap": "AB1202912",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12)",
+   "nota": "codigo por descripcion SAP (portafusible)"
+  },
+  {
+   "tag": "14XN",
+   "hoja": "14",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 6-QUATTRO (lista)",
+   "codigo_sap": "AB2000369",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12): 4 piezas"
+  },
+  {
+   "tag": "15MX",
+   "hoja": "15",
+   "modelo_segun_funcional": "RED LION E3-MIX24880-1 (lista; en el simbolo de la hoja 15 dice MIX-E3-24880-1)",
+   "codigo_sap": "AB2000479",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel medio (hoja 12)",
+   "nota": "aparece tambien en hojas 13, 14, 20, 30, 31, 41-43, 60-62 y 81"
+  },
+  {
+   "tag": "15SW-1",
+   "hoja": "15",
+   "modelo_segun_funcional": "WEIDMULLER IE-SW-EL05-5TX (lista y simbolo)",
+   "codigo_sap": "AB2000458",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior izquierdo (hoja 13), etiqueta 15SW1"
+  },
+  {
+   "tag": "15IOT",
+   "hoja": "15",
+   "modelo_segun_funcional": "COMPULAB IOT-GATE-RPI4 (lista)",
+   "codigo_sap": "AB500596",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel medio (hoja 12), etiqueta 15IOT1",
+   "nota": "tambien escrito 15IOT1 (hoja 20 y topografico)"
+  },
+  {
+   "tag": "15XP1",
+   "hoja": "15",
+   "modelo_segun_funcional": "sin modelo en el simbolo; la lista solo trae 16XP1...XP2 PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior izquierdo (hoja 13): 4 piezas",
+   "nota": "codigo asociado por familia (bornera de distribucion 24 V DC, PT 6 / AB2000381 en la lista para 16XP)"
+  },
+  {
+   "tag": "CONNECTOR 3",
+   "hoja": "15",
+   "modelo_segun_funcional": "M12-5 PIN TIPO L-CODE FEMALE TO WIRE (simbolo)",
+   "codigo_sap": "AB2000475",
+   "en_topografico": "techo del gabinete (hoja 08 VISTA SUPERIOR EXTERIOR y hoja 09 VISTA SUPERIOR INTERIOR, etiqueta CONNn), POWER SUPPLY 24VDC TO RGB",
+   "nota": "el constructivo hoja 08 marca M12 4 pines hembra tipo L, 3 lugares, AB2000475"
+  },
+  {
+   "tag": "16XP2",
+   "hoja": "16",
+   "modelo_segun_funcional": "la lista dice 16XP1...XP2 PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior izquierdo (hoja 13): 4 piezas"
+  },
+  {
+   "tag": "16XP3",
+   "hoja": "16",
+   "modelo_segun_funcional": "la lista dice 16XP1...XP2 PT 6",
+   "codigo_sap": "AB2000381",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior izquierdo (hoja 13): 4 piezas"
+  },
+  {
+   "tag": "16F4",
+   "hoja": "16",
+   "modelo_segun_funcional": "en el simbolo: fusible 2A",
+   "codigo_sap": "AB1202912",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12)",
+   "nota": "codigo por descripcion SAP (portafusible)"
+  },
+  {
+   "tag": "16F5",
+   "hoja": "16",
+   "modelo_segun_funcional": "en el simbolo: fusible 10A",
+   "codigo_sap": "AB1202912",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12)",
+   "nota": "codigo por descripcion SAP (portafusible)"
+  },
+  {
+   "tag": "CONNECTOR 4",
+   "hoja": "16",
+   "modelo_segun_funcional": "M12-5 PIN TIPO L-CODE FEMALE TO WIRE (simbolo)",
+   "codigo_sap": "AB2000475",
+   "en_topografico": "techo del gabinete (hoja 08 VISTA SUPERIOR EXTERIOR y hoja 09 VISTA SUPERIOR INTERIOR, etiqueta CONNn), POWER SUPPLY TO MODULES #1"
+  },
+  {
+   "tag": "CONNECTOR 5",
+   "hoja": "16",
+   "modelo_segun_funcional": "M12-5 PIN TIPO L-CODE FEMALE TO WIRE (simbolo)",
+   "codigo_sap": "AB2000475",
+   "en_topografico": "techo del gabinete (hoja 08 VISTA SUPERIOR EXTERIOR y hoja 09 VISTA SUPERIOR INTERIOR, etiqueta CONNn), POWER SUPPLY TO MODULES #2"
+  },
+  {
+   "tag": "33AI-1",
+   "hoja": "16",
+   "modelo_segun_funcional": "TURCK TBEN-S2-4AI (lista y simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero",
+   "nota": "en hojas 16, 33/34 y 81; sin codigo SAP"
+  },
+  {
+   "tag": "33AI-2",
+   "hoja": "16",
+   "modelo_segun_funcional": "TURCK TBEN-S2-4AI (lista y simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero",
+   "nota": "en hojas 16, 33/34 y 81; sin codigo SAP"
+  },
+  {
+   "tag": "34AI-3",
+   "hoja": "16",
+   "modelo_segun_funcional": "TURCK TBEN-S2-4AI (lista y simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero",
+   "nota": "en hojas 16, 33/34 y 81; sin codigo SAP"
+  },
+  {
+   "tag": "34AI-4",
+   "hoja": "16",
+   "modelo_segun_funcional": "TURCK TBEN-S2-4AI (lista y simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero",
+   "nota": "en hojas 16, 33/34 y 81; sin codigo SAP"
+  },
+  {
+   "tag": "40DI-1",
+   "hoja": "16",
+   "modelo_segun_funcional": "TURCK TBEN-L4-16DXP (lista y simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero",
+   "nota": "en hojas 16, 40/63 y 81; la lista escribe 62DO-2...3; sin codigo SAP"
+  },
+  {
+   "tag": "63DO-2",
+   "hoja": "16",
+   "modelo_segun_funcional": "TURCK TBEN-L4-16DXP (lista y simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero",
+   "nota": "en hojas 16, 40/63 y 81; la lista escribe 62DO-2...3; sin codigo SAP"
+  },
+  {
+   "tag": "63DO-3",
+   "hoja": "16",
+   "modelo_segun_funcional": "TURCK TBEN-L4-16DXP (lista y simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero",
+   "nota": "en hojas 16, 40/63 y 81; la lista escribe 62DO-2...3; sin codigo SAP"
+  },
+  {
+   "tag": "41DIB1",
+   "hoja": "41",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SR-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000459",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "41DIB2",
+   "hoja": "41",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SR-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000459",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "42DIB3",
+   "hoja": "42",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SR-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000459",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "42DIB4",
+   "hoja": "42",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SR-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000459",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "43DIB5",
+   "hoja": "43",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SR-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000459",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "43DIB6",
+   "hoja": "43",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SR-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000459",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "30AIB1",
+   "hoja": "30",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SCS-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000460",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "31AIB2",
+   "hoja": "31",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SCS-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000460",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "31AIB3",
+   "hoja": "31",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SCS-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000460",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "31AIB4",
+   "hoja": "31",
+   "modelo_segun_funcional": "PEPPERL + FUCHS KCD2-SCS-Ex2 (lista y simbolo)",
+   "codigo_sap": "AB2000460",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "32AIB1",
+   "hoja": "32",
+   "modelo_segun_funcional": "PEPPERL + FUCHS Z788 (lista y simbolo)",
+   "codigo_sap": "AB500294",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "32AIB2",
+   "hoja": "32",
+   "modelo_segun_funcional": "PEPPERL + FUCHS Z788 (lista y simbolo)",
+   "codigo_sap": "AB500294",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 13)",
+   "nota": "alimentacion en hoja 17"
+  },
+  {
+   "tag": "30TR1",
+   "hoja": "30",
+   "modelo_segun_funcional": "STEGO CSS 014 SMART CLIMATE SENSOR 4-20mA (simbolo); CSS014 (lista)",
+   "codigo_sap": "AB2000472",
+   "en_topografico": "lateral izquierdo (bandeja lateral izquierda, hojas 05/14)"
+  },
+  {
+   "tag": "30XAI",
+   "hoja": "30",
+   "modelo_segun_funcional": "PHOENIX CONTACT PTTB 2,5 (lista)",
+   "codigo_sap": "AB2000315",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12): 2 piezas doble piso"
+  },
+  {
+   "tag": "CONNECTOR 6",
+   "hoja": "30",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), STACK PRESSURE SENSOR",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN6",
+   "nota": "la orden trae AB2000523 PASACHAPA M12 H A-CODE CABLE 1.5M (9 por tablero = CONNECTOR 6..14); el constructivo hoja 08 escribe AB2000476"
+  },
+  {
+   "tag": "AIM01",
+   "hoja": "32",
+   "modelo_segun_funcional": "UART MODULE (simbolo); no figura en la lista",
+   "codigo_sap": "AB2000351",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), zona media derecha (hoja 12), caja con etiqueta AIM01",
+   "nota": "codigo por descripcion SAP (CONVERSOR UARTx4 A USB); se conecta por USB al 15IOT"
+  },
+  {
+   "tag": "32XAI",
+   "hoja": "32",
+   "modelo_segun_funcional": "PHOENIX CONTACT PT 4 + PT 4-TG (lista)",
+   "codigo_sap": "AB160583 / AB2000461",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 12): PT 4 y PT 4-TG alternados (4 piezas)",
+   "nota": "bornes 1..4: 1 y 3 de paso (PT 4), 2 y 4 seccionables (PT 4-TG) con la resistencia R1/R2"
+  },
+  {
+   "tag": "R1",
+   "hoja": "32",
+   "modelo_segun_funcional": "1KΩ (simbolo)",
+   "codigo_sap": "AB2000352",
+   "en_topografico": "no tiene etiqueta propia en el topografico (va sobre el borne PT 4-TG de 32XAI)",
+   "nota": "codigo por descripcion SAP (RESISTENCIA 1K OHM 1/4W), con conector P-CO AB2000462"
+  },
+  {
+   "tag": "R2",
+   "hoja": "32",
+   "modelo_segun_funcional": "1KΩ (simbolo)",
+   "codigo_sap": "AB2000352",
+   "en_topografico": "no tiene etiqueta propia en el topografico (va sobre el borne PT 4-TG de 32XAI)",
+   "nota": "codigo por descripcion SAP (RESISTENCIA 1K OHM 1/4W), con conector P-CO AB2000462"
+  },
+  {
+   "tag": "CONNECTOR 7",
+   "hoja": "32",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), WIRELINE SENSOR 1",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN7"
+  },
+  {
+   "tag": "CONNECTOR 8",
+   "hoja": "32",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), WIRELINE SENSOR 2",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN8"
+  },
+  {
+   "tag": "41XDI",
+   "hoja": "41",
+   "modelo_segun_funcional": "PHOENIX CONTACT PTTB 2,5 (lista)",
+   "codigo_sap": "AB2000315",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel inferior derecho (hoja 12): 12 piezas doble piso (bornes 1..24)",
+   "nota": "aparece en hojas 41, 42 y 43"
+  },
+  {
+   "tag": "60KR1",
+   "hoja": "60",
+   "modelo_segun_funcional": "PHOENIX CONTACT RIF-0-RPT-24DC/21 (lista); simbolo 60KR + numero 1 en recuadro",
+   "codigo_sap": "AB2000235 + AB2000419",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12), etiqueta 60KR",
+   "nota": "la lista del funcional dice AB2000064; la orden trae pastilla AB2000235 + zocalo AB2000419"
+  },
+  {
+   "tag": "60VN1",
+   "hoja": "60",
+   "modelo_segun_funcional": "FINDER 7F.31.8.230.1020 220 VAC (lista y simbolo)",
+   "codigo_sap": "AB2000470",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), ventilador con etiqueta 60VN1 (hoja 05)"
+  },
+  {
+   "tag": "60DS",
+   "hoja": "60",
+   "modelo_segun_funcional": "OMRON HL-5200 Door Switch (lista)",
+   "codigo_sap": "AB2000022",
+   "en_topografico": "lateral derecho, arriba junto a la puerta (hoja 05), etiqueta 60DS",
+   "nota": "en la orden: FINAL DE CARRERA NAC METALICO + soporte 73087-1"
+  },
+  {
+   "tag": "60IL1",
+   "hoja": "60",
+   "modelo_segun_funcional": "LIGHT LED 24 V DC (simbolo); P01 24 V DC / 4000 K (lista, escrito 6IL1)",
+   "codigo_sap": "AB2000482",
+   "en_topografico": "techo interior (hoja 09 DETALLE DE MONTAJE DE LUMINARIA), etiqueta 60IL1"
+  },
+  {
+   "tag": "61KR1",
+   "hoja": "61",
+   "modelo_segun_funcional": "PHOENIX CONTACT RIF-0-RPT-24DC/21 (lista); simbolo 61KR + numero en recuadro",
+   "codigo_sap": "AB2000235 + AB2000419",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12), etiqueta comun 61KR para los 6",
+   "nota": "el tag completo 61KR1..6 se lee en las referencias de la hoja 20 (61KRn:A1)"
+  },
+  {
+   "tag": "61KR2",
+   "hoja": "61",
+   "modelo_segun_funcional": "PHOENIX CONTACT RIF-0-RPT-24DC/21 (lista); simbolo 61KR + numero en recuadro",
+   "codigo_sap": "AB2000235 + AB2000419",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12), etiqueta comun 61KR para los 6",
+   "nota": "el tag completo 61KR1..6 se lee en las referencias de la hoja 20 (61KRn:A1)"
+  },
+  {
+   "tag": "61KR3",
+   "hoja": "61",
+   "modelo_segun_funcional": "PHOENIX CONTACT RIF-0-RPT-24DC/21 (lista); simbolo 61KR + numero en recuadro",
+   "codigo_sap": "AB2000235 + AB2000419",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12), etiqueta comun 61KR para los 6",
+   "nota": "el tag completo 61KR1..6 se lee en las referencias de la hoja 20 (61KRn:A1)"
+  },
+  {
+   "tag": "61KR4",
+   "hoja": "62",
+   "modelo_segun_funcional": "PHOENIX CONTACT RIF-0-RPT-24DC/21 (lista); simbolo 61KR + numero en recuadro",
+   "codigo_sap": "AB2000235 + AB2000419",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12), etiqueta comun 61KR para los 6",
+   "nota": "el tag completo 61KR1..6 se lee en las referencias de la hoja 20 (61KRn:A1)"
+  },
+  {
+   "tag": "61KR5",
+   "hoja": "62",
+   "modelo_segun_funcional": "PHOENIX CONTACT RIF-0-RPT-24DC/21 (lista); simbolo 61KR + numero en recuadro",
+   "codigo_sap": "AB2000235 + AB2000419",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12), etiqueta comun 61KR para los 6",
+   "nota": "el tag completo 61KR1..6 se lee en las referencias de la hoja 20 (61KRn:A1)"
+  },
+  {
+   "tag": "61KR6",
+   "hoja": "62",
+   "modelo_segun_funcional": "PHOENIX CONTACT RIF-0-RPT-24DC/21 (lista); simbolo 61KR + numero en recuadro",
+   "codigo_sap": "AB2000235 + AB2000419",
+   "en_topografico": "fondo (bandeja principal, hojas 05/12/13), riel superior derecho (hoja 12), etiqueta comun 61KR para los 6",
+   "nota": "el tag completo 61KR1..6 se lee en las referencias de la hoja 20 (61KRn:A1)"
+  },
+  {
+   "tag": "CONNECTOR 9",
+   "hoja": "61",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), VALVE POSITION SENSOR PORT 1",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN9"
+  },
+  {
+   "tag": "CONNECTOR 10",
+   "hoja": "61",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), VALVE POSITION SENSOR PORT 2",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN10"
+  },
+  {
+   "tag": "CONNECTOR 11",
+   "hoja": "61",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), VALVE POSITION SENSOR PORT 3",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN11"
+  },
+  {
+   "tag": "CONNECTOR 12",
+   "hoja": "62",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), VALVE POSITION SENSOR PORT 4",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN12"
+  },
+  {
+   "tag": "CONNECTOR 13",
+   "hoja": "62",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), VALVE POSITION SENSOR PORT 5",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN13"
+  },
+  {
+   "tag": "CONNECTOR 14",
+   "hoja": "62",
+   "modelo_segun_funcional": "M12-4 PIN TIPO A-CODE FEMALE TO WIRE (simbolo), VALVE POSITION SENSOR PORT 6",
+   "codigo_sap": "AB2000523",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN14"
+  },
+  {
+   "tag": "63IL1",
+   "hoja": "63",
+   "modelo_segun_funcional": "RGB LED STRIP 24 VDC 60 W, SUPPLIED BY MMA (simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero"
+  },
+  {
+   "tag": "63IL2",
+   "hoja": "63",
+   "modelo_segun_funcional": "RGB LED STRIP 24 VDC 60 W, SUPPLIED BY MMA (simbolo)",
+   "codigo_sap": null,
+   "en_topografico": "no: equipo de campo (SKID), fuera del tablero"
+  },
+  {
+   "tag": "CONNECTOR 15",
+   "hoja": "81",
+   "modelo_segun_funcional": "TYPO: ETHERNET RJ45 (simbolo), COMMUNICATION IN",
+   "codigo_sap": "AB1202838",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN15 (DATA COM. PORT)",
+   "nota": "constructivo hoja 08: CONECTOR ETHERNET RJ45 AMPHENOL, 2 lugares, AB1202838"
+  },
+  {
+   "tag": "CONNECTOR 16",
+   "hoja": "81",
+   "modelo_segun_funcional": "TYPO: ETHERNET RJ45 (simbolo), COMMUNICATION OUT",
+   "codigo_sap": "AB1202838",
+   "en_topografico": "lateral derecho (bandeja lateral derecha, hojas 05/15), CONN16 (DATA COM. PORT)"
+  },
+  {
+   "tag": "CONNECTOR 17",
+   "hoja": "81",
+   "modelo_segun_funcional": "M12-4 PIN TIPO D-CODE FEMALE TO RJ45 MALE (simbolo), COMMUNICATION TO MODULES #1",
+   "codigo_sap": "AB2000474",
+   "en_topografico": "techo del gabinete (hoja 08 VISTA SUPERIOR EXTERIOR y hoja 09 VISTA SUPERIOR INTERIOR, etiqueta CONNn), COMMUNICATION TO MODULES #1"
+  },
+  {
+   "tag": "CONNECTOR 18",
+   "hoja": "81",
+   "modelo_segun_funcional": "M12-4 PIN TIPO D-CODE FEMALE TO RJ45 MALE (simbolo), COMMUNICATION TO MODULES #2",
+   "codigo_sap": "AB2000474",
+   "en_topografico": "techo del gabinete (hoja 08 VISTA SUPERIOR EXTERIOR y hoja 09 VISTA SUPERIOR INTERIOR, etiqueta CONNn), COMMUNICATION TO MODULES #2"
+  }
+ ],
+ "aparatos": [
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "descripcion": "Borne de paso PT 6 (2 conexiones push-in)",
+   "codigos_sap": [
+    "AB2000381"
+   ],
+   "tags": [
+    "11XP",
+    "15XP1",
+    "16XP2",
+    "16XP3"
+   ],
+   "cantidad": 12,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: piezas con entrada push-in arriba y abajo; 15XP1/16XP2/16XP3 de 4 piezas con puentes enchufables",
+   "nota": "el catalogo solo tiene PT6-QUATTRO. La orden da 12 por tablero = 15XP1+16XP2+16XP3 (4+4+4); la lista del funcional tambien pone 11XP como PT 6, pero el topografico dibuja sus bornes L/N como piezas altas tipo QUATTRO: no cierra la cuenta, verificar."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6-QUATTRO",
+   "descripcion": "Borne de paso PT 6-QUATTRO (4 conexiones push-in)",
+   "codigos_sap": [
+    "AB2000369"
+   ],
+   "tags": [
+    "12XP1",
+    "12XP2",
+    "13XP",
+    "14XN"
+   ],
+   "cantidad": 11,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": "PT6-QUATTRO",
+   "como_se_dibuja": "bloque con bornes visibles: piezas de 2 bocas arriba y 2 abajo (12XP1 2, 12XP2 2, 13XP 3, 14XN 4 piezas = 11, igual que la orden)"
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 6-QUATTRO-PE",
+   "descripcion": "Borne de tierra PT 6-QUATTRO-PE",
+   "codigos_sap": [
+    "AB2000467"
+   ],
+   "tags": [
+    "11XG",
+    "11XP"
+   ],
+   "cantidad": 4,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": "PT6-QUATTRO",
+   "como_se_dibuja": "bloque con bornes visibles: piezas QUATTRO negras con simbolo de tierra encima (11XG 3 piezas, hoja 12; 11XP:3, hoja 13)",
+   "nota": "el alias del catalogo PT6-QUATTRO lo reconoce (\"PT 6-QUATTRO\" esta contenido en \"PT 6-QUATTRO-PE\"); ojo: la regla de colores excluye el verde de las piezas PE. 4 por tablero = 11XG (3) + borne 3 de 11XP (asumido)."
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PTTB 2,5",
+   "descripcion": "Borne de paso doble piso puenteable push-in",
+   "codigos_sap": [
+    "AB2000315"
+   ],
+   "tags": [
+    "30XAI",
+    "41XDI"
+   ],
+   "cantidad": 14,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": "PTT2.5",
+   "como_se_dibuja": "bloque con bornes visibles: piezas doble piso (30XAI 2, 41XDI 12 con puente negro) = 14, igual que la orden"
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 4",
+   "descripcion": "Borne de paso push-in PT 4",
+   "codigos_sap": [
+    "AB160583"
+   ],
+   "tags": [
+    "32XAI"
+   ],
+   "cantidad": 2,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles (rotulo PT 4 bajo la pieza), alternado con PT 4-TG en 32XAI"
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "PT 4-TG",
+   "descripcion": "Borne seccionable PT 4-TG (con conector P-CO y resistencia 1K)",
+   "codigos_sap": [
+    "AB2000461",
+    "AB2000462",
+    "AB2000352"
+   ],
+   "tags": [
+    "32XAI",
+    "R1",
+    "R2"
+   ],
+   "cantidad": 2,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: pieza negra con cuchilla seccionadora en el medio",
+   "nota": "por tablero: 2 PT 4-TG + 2 conectores P-CO (AB2000462) + 2 resistencias 1K (AB2000352) = R1 y R2 del funcional (hoja 32)."
+  },
+  {
+   "marca": "ABB",
+   "modelo": "DS201",
+   "descripcion": "Interruptor termomagnetico + diferencial (RCBO) 1P+N 10A 30mA",
+   "codigos_sap": [
+    "AB2000530"
+   ],
+   "tags": [
+    "11Q1"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: 2 modulos con tornillo Phillips arriba y abajo, ventanas O-OFF (hoja 12)",
+   "nota": "la descripcion SAP \"INT.TQ.DIN + DIFERENCIAL\" hace coincidir el alias \"DIFERENCIAL\" de EASY9-RCCB-2P (falso positivo de modelo_por_materiales); el modelo DS201 no esta en el catalogo."
+  },
+  {
+   "marca": "SCHNEIDER",
+   "modelo": "DF101 (probable)",
+   "descripcion": "Portafusible 1x32A 10x38 para riel DIN",
+   "codigos_sap": [
+    "AB1202912"
+   ],
+   "tags": [
+    "11F1",
+    "13F2",
+    "13F3",
+    "16F4",
+    "16F5"
+   ],
+   "cantidad": 5,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": "DF101",
+   "como_se_dibuja": "bloque con bornes visibles: cuerpo con tornillo de ranura arriba y abajo, etiqueta vertical (hoja 12)",
+   "nota": "marca/modelo no figuran en este plano: el mismo codigo AB1202912 es SCHNEIDER DF101 en la lista del funcional 76611 (tablero distribucion dFRAC). Fusibles: 2A x5 (3 usados + repuesto), 6A x3, 10A x2 por tablero."
+  },
+  {
+   "marca": "MEAN WELL",
+   "modelo": "XDR-480E-24",
+   "descripcion": "Fuente 24 V DC 480 W de riel DIN",
+   "codigos_sap": [
+    "AB2000457"
+   ],
+   "tags": [
+    "12PS1",
+    "12PS2"
+   ],
+   "cantidad": 2,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: cuerpo con bornera TB2 de 4 tornillos arriba y TB1 de 3 abajo (hoja 12)",
+   "nota": "mismo esquema de borneras que MEANWELL-NDR/DDR del catalogo, pero el alias \"NDR-\" no reconoce \"XDR-480E-24\": habria que agregar el modelo (verificar medidas)."
+  },
+  {
+   "marca": "RED LION",
+   "modelo": "E3-MIX24880-1",
+   "descripcion": "Modulo E/S mixto Red Lion E3",
+   "codigos_sap": [
+    "AB2000479"
+   ],
+   "tags": [
+    "15MX"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: cuerpo con borneras enchufables (tiras de bornes) y 2 RJ45 (hoja 12)"
+  },
+  {
+   "marca": "WEIDMULLER",
+   "modelo": "IE-SW-EL05-5TX",
+   "descripcion": "Switch Ethernet no gestionable 5 x RJ45",
+   "codigos_sap": [
+    "AB2000458"
+   ],
+   "tags": [
+    "15SW-1"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico con los 5 RJ45 dibujados (hoja 13); la alimentacion (+)(-) del funcional no se ve como bornes"
+  },
+  {
+   "marca": "COMPULAB",
+   "modelo": "IOT-GATE-RPI4",
+   "descripcion": "Gateway IoT Compulab (Raspberry Pi 4, 4GB/32GB)",
+   "codigos_sap": [
+    "AB500596",
+    "AB500595",
+    "AB500597"
+   ],
+   "tags": [
+    "15IOT"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: rectangulo con etiqueta 15IOT1 sobre riel (hoja 12)",
+   "nota": "se alimenta con el cable propio IOTG-ACC-CABDC (AB500595) y va con kit de montaje vertical en riel (AB500597)."
+  },
+  {
+   "marca": null,
+   "modelo": null,
+   "descripcion": "Conversor UART x4 a USB (UART MODULE)",
+   "codigos_sap": [
+    "AB2000351"
+   ],
+   "tags": [
+    "AIM01"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: caja con orejas de fijacion y etiqueta AIM01 (hoja 12)",
+   "nota": "marca/modelo no figuran; asociado por descripcion SAP. Bornes GND/RXD/VCC por canal en el funcional (hoja 32)."
+  },
+  {
+   "marca": "PEPPERL + FUCHS",
+   "modelo": "KCD2-SR-Ex2",
+   "descripcion": "Barrera aisladora 2 canales Ex ia (entradas digitales)",
+   "codigos_sap": [
+    "AB2000459"
+   ],
+   "tags": [
+    "41DIB1",
+    "41DIB2",
+    "42DIB3",
+    "42DIB4",
+    "43DIB5",
+    "43DIB6"
+   ],
+   "cantidad": 6,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: carcasa angosta con enchufes de bornes arriba y abajo (hoja 13)"
+  },
+  {
+   "marca": "PEPPERL + FUCHS",
+   "modelo": "KCD2-SCS-Ex2",
+   "descripcion": "Barrera de seguridad intrinseca 2 canales AI HART",
+   "codigos_sap": [
+    "AB2000460"
+   ],
+   "tags": [
+    "30AIB1",
+    "31AIB2",
+    "31AIB3",
+    "31AIB4"
+   ],
+   "cantidad": 4,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: carcasa con enchufes de bornes arriba y abajo (hoja 13)"
+  },
+  {
+   "marca": "PEPPERL + FUCHS",
+   "modelo": "Z788",
+   "descripcion": "Barrera zener",
+   "codigos_sap": [
+    "AB500294"
+   ],
+   "tags": [
+    "32AIB1",
+    "32AIB2"
+   ],
+   "cantidad": 2,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque con bornes visibles: carcasa angosta con tornillos arriba y abajo (hoja 13)"
+  },
+  {
+   "marca": "PHOENIX CONTACT",
+   "modelo": "RIF-0-RPT-24DC/21",
+   "descripcion": "Rele de interfaz 24 V DC, 1 conmutado (base + rele enchufable)",
+   "codigos_sap": [
+    "AB2000235",
+    "AB2000419",
+    "AB2000064"
+   ],
+   "tags": [
+    "60KR1",
+    "61KR1",
+    "61KR2",
+    "61KR3",
+    "61KR4",
+    "61KR5",
+    "61KR6"
+   ],
+   "cantidad": 7,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": "RIF-0-RPT",
+   "como_se_dibuja": "bloque con bornes visibles: base angosta con bornes push-in arriba (3) y abajo (2), rele negro en el medio (hoja 12)",
+   "nota": "la orden usa AB2000235 (pastilla) + AB2000419 (zocalo); la lista del funcional usa AB2000064. Bornes A1/A2, 11/12/14."
+  },
+  {
+   "marca": "STEGO",
+   "modelo": "CSS 014",
+   "descripcion": "Sensor de clima (temperatura/humedad) 4-20 mA",
+   "codigos_sap": [
+    "AB2000472"
+   ],
+   "tags": [
+    "30TR1"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico en la bandeja lateral izquierda (hoja 14), sin bornes dibujados",
+   "nota": "la orden lo llama HIGROSTATO STEGO CSS 014 4 A 20mA."
+  },
+  {
+   "marca": "FINDER",
+   "modelo": "7F.31.8.230.1020",
+   "descripcion": "Ventilador con filtro 92x92 230 VAC IP54",
+   "codigos_sap": [
+    "AB2000470"
+   ],
+   "tags": [
+    "60VN1"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico: rejilla de ventilador en el lateral derecho (hoja 05), sin bornes",
+   "nota": "la rejilla de salida F7F03 (AB2000469) va en el lateral izquierdo."
+  },
+  {
+   "marca": "OMRON",
+   "modelo": "HL-5200",
+   "descripcion": "Interruptor de puerta (final de carrera metalico)",
+   "codigos_sap": [
+    "AB2000022",
+    "73087-1"
+   ],
+   "tags": [
+    "60DS"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "bloque simbolico arriba a la derecha, sobre el marco de la puerta (hoja 05)"
+  },
+  {
+   "marca": null,
+   "modelo": "Regleta LED 24 V DC L 610 mm",
+   "descripcion": "Luz interior del gabinete 24 V DC 4000 K",
+   "codigos_sap": [
+    "AB2000482"
+   ],
+   "tags": [
+    "60IL1"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en la bandeja: va en el techo interior (hoja 09)",
+   "nota": "la lista del funcional pone marca P01."
+  },
+  {
+   "marca": null,
+   "modelo": "Tomacorriente industrial 2P+T 16A macho (base)",
+   "descripcion": "Conector de entrada de alimentacion 220 VAC",
+   "codigos_sap": [
+    "AB2000466"
+   ],
+   "tags": [
+    "CONNECTOR 1"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en la bandeja: va en el techo exterior (hoja 08, POWER SUPPLY 220VAC IN)",
+   "nota": "la lista del funcional dice FAMATEL 23250 / AB2000477 (no esta en la orden). El alias \"TOMACORRIENTE\" de TOMA-IRAM-DIN coincidiria con la descripcion SAP, pero no es un toma de riel: no aplica."
+  },
+  {
+   "marca": null,
+   "modelo": "Tomacorriente industrial 2P+T 16A hembra (base)",
+   "descripcion": "Conector de salida de alimentacion 220 VAC",
+   "codigos_sap": [
+    "AB2000531"
+   ],
+   "tags": [
+    "CONNECTOR 2"
+   ],
+   "cantidad": 1,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en la bandeja: va en el techo exterior (hoja 08, POWER SUPPLY 220VAC OUT)",
+   "nota": "idem: el alias \"TOMACORRIENTE\" de TOMA-IRAM-DIN no aplica."
+  },
+  {
+   "marca": null,
+   "modelo": "Pasachapa M12 hembra 4 pines L-code",
+   "descripcion": "Conector de alimentacion 24 V DC al skid",
+   "codigos_sap": [
+    "AB2000475"
+   ],
+   "tags": [
+    "CONNECTOR 3",
+    "CONNECTOR 4",
+    "CONNECTOR 5"
+   ],
+   "cantidad": 3,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en la bandeja: techo exterior (hoja 08)",
+   "nota": "el funcional lo dibuja como M12-5 PIN; la orden y el constructivo dicen 4 pines."
+  },
+  {
+   "marca": null,
+   "modelo": "Pasachapa M12 hembra A-code con cable 1,5 m",
+   "descripcion": "Conector de senales de campo",
+   "codigos_sap": [
+    "AB2000523"
+   ],
+   "tags": [
+    "CONNECTOR 6",
+    "CONNECTOR 7",
+    "CONNECTOR 8",
+    "CONNECTOR 9",
+    "CONNECTOR 10",
+    "CONNECTOR 11",
+    "CONNECTOR 12",
+    "CONNECTOR 13",
+    "CONNECTOR 14"
+   ],
+   "cantidad": 9,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en la bandeja: lateral derecho, CONN6..CONN14 (hoja 15), circulos M12",
+   "nota": "el constructivo hoja 08 escribe el codigo AB2000476; la orden trae AB2000523."
+  },
+  {
+   "marca": "AMPHENOL",
+   "modelo": "RJ45 pasachapa",
+   "descripcion": "Conector Ethernet RJ45 de panel",
+   "codigos_sap": [
+    "AB1202838"
+   ],
+   "tags": [
+    "CONNECTOR 15",
+    "CONNECTOR 16"
+   ],
+   "cantidad": 2,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en la bandeja: lateral derecho, CONN15/CONN16 hexagonales (hoja 15)"
+  },
+  {
+   "marca": null,
+   "modelo": "Pasachapa M12 hembra 4 pines D-code a RJ45",
+   "descripcion": "Conector de comunicacion a modulos",
+   "codigos_sap": [
+    "AB2000474"
+   ],
+   "tags": [
+    "CONNECTOR 17",
+    "CONNECTOR 18"
+   ],
+   "cantidad": 2,
+   "cantidad_unidad": "por tablero (cantidad de la orden / 10)",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en la bandeja: techo exterior (hoja 08, COMMUNICATION TO MODULES #1/#2)"
+  },
+  {
+   "marca": "TURCK",
+   "modelo": "TBEN-S2-4AI",
+   "descripcion": "Modulo remoto 4 AI (campo)",
+   "codigos_sap": [],
+   "tags": [
+    "33AI-1",
+    "33AI-2",
+    "34AI-3",
+    "34AI-4"
+   ],
+   "cantidad": 4,
+   "cantidad_unidad": "en el skid, segun el funcional",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en el topografico (equipo de campo / skid)",
+   "nota": "no esta en la orden ni tiene codigo SAP en la lista: no se arma en el tablero."
+  },
+  {
+   "marca": "TURCK",
+   "modelo": "TBEN-L4-16DXP",
+   "descripcion": "Modulo remoto 16 DXP (campo)",
+   "codigos_sap": [],
+   "tags": [
+    "40DI-1",
+    "63DO-2",
+    "63DO-3"
+   ],
+   "cantidad": 3,
+   "cantidad_unidad": "en el skid, segun el funcional",
+   "en_catalogo_bornes": null,
+   "como_se_dibuja": "no esta en el topografico (equipo de campo / skid)",
+   "nota": "no esta en la orden ni tiene codigo SAP en la lista: no se arma en el tablero."
+  }
+ ],
+ "notas": [
+  "Orden 20059147 (6 hojas): N° Material 75902-1 \"dFrac FCS # Controlador Electrico\", cantidad 10, lista de materiales SAP 00112861, observaciones E225; cita 75733 ZPL DIAGRAMA ELECTRICO FCS Rev 01 y 75992 ZPL DIAGRAMA CONSTRUCTIVO FCS Rev 01 (los dos estan en la carpeta).",
+  "La orden es una lista explotada de subconjuntos (75904-1 Conjunto Panel, 76055-1 Gabinete, 75905-1 Sist. Electrico): los numeros de Pos se repiten (0010..0070 dos o tres veces) y se intercalan; se guardan los 81 renglones en el orden de la orden. Descripciones partidas en 2 lineas unidas (ej. 0300 \"TOMACORRIENTE INDUSTRIAL 2P + T 16 A M\" y 0690 \"CABLE SMA MACHO A HEMBRA PASACHAPA\", que siguen en la hoja siguiente). No hay posiciones 0330/0340.",
+  "unidad: la orden no trae unidad de cantidad; la columna \"Unidad\" acompana al peso unitario (KG o vacia), se copia tal cual. Los cables G... (50 por orden) seran metros, sin confirmar.",
+  "Lista de materiales del funcional (hoja 02, 28 renglones) leida con materiales_funcional y verificada contra el render; materiales_funcional tambien devuelve renglones de la hoja 81 (Communications) porque tiene muchos nombres de fabricantes: se descartaron. Errores de lectura corregidos: 34A1-3 -> 34AI-3, \"PEPPERL + | FUCHS\" unido.",
+  "Discrepancias lista del funcional vs dibujo: 16XP1...XP2 (dibujo 15XP1, 16XP2, 16XP3), 40DI-1/62DO-2...3 (dibujo 63DO-2/3), 6IL1 (dibujo 60IL1), 15IOT (dibujo 15IOT/15IOT1), 15MX escrito MIX-E3-24880-1 en la hoja 15. Codigos lista vs orden: CONNECTOR 1 AB2000477 (orden AB2000466), reles AB2000064 (orden AB2000235 + AB2000419), M12 A-code AB2000476 en el constructivo (orden AB2000523).",
+  "Los tags de reles en el simbolo son \"60KR\"/\"61KR\" con el numero en un recuadro aparte; el tag completo (60KR1, 61KR1..6) sale de las referencias de la hoja 20. El topografico pone una sola etiqueta 60KR y una 61KR para los 6 reles.",
+  "Portafusibles 11F1, 13F2, 13F3, 16F4, 16F5 y modulo AIM01 no estan en la lista del funcional: codigo asociado por descripcion SAP (unico portafusible y unico conversor UART de la orden).",
+  "Cuenta de bornes PT 6 / QUATTRO / PE: la orden (12 / 11 / 4 por tablero) cierra con 15XP1+16XP2+16XP3, 12XP1+12XP2+13XP+14XN y 11XG+11XP:3, dejando sin cubrir los 2 bornes L/N de 11XP (la lista los pone como PT 6 y el topografico los dibuja tipo QUATTRO). Verificar con el armado real.",
+  "Topografico 75992 (16 hojas): 05 detalle aparamenta (vistas interior izquierda/frente/derecha), 08 conectores exteriores, 09 luminaria y tomacorriente industrial, 12-13 tagueado bandeja principal, 14 bandeja lateral izquierda (30TR1), 15 bandeja lateral derecha (CONN6..16, Wi-Fi). Ubicacion por vista mirando los renders; el texto de las etiquetas tambien se leyo con core.process (ver lectura_topografico).",
+  "Hoja 09 del constructivo: tabla REF 1 REGLETA LED 24 V DC L 610 MM AB2000482 x1 y REF 2 CINTA ALTAS TEMP. GPH-160GF AB2000317 (sin cantidad, no esta en la orden).",
+  "Wi-Fi: antena AB2000493 + cupla SMA AB2000528 + cable SMA pasachapa AB2000200, en el lateral derecho (agujero \"Wi-Fi\", hoja 15); sin tag ni bornes.",
+  "Alias del catalogo de bornes (modelo_por_materiales sobre los textos de la lista): PT 6-QUATTRO y PT 6-QUATTRO-PE -> PT6-QUATTRO, PTTB 2,5 -> PTT2.5, RIF-0-RPT-24DC/21 -> RIF-0-RPT, AB1202912 -> DF101 (por el modelo del otro plano). Sin modelo en el catalogo: PT 6, PT 4, PT 4-TG, DS201, XDR-480E-24, E3-MIX24880-1, IE-SW-EL05-5TX, IOT-GATE-RPI4, KCD2-SR-Ex2, KCD2-SCS-Ex2, Z788, CSS 014, Finder 7F.31, HL-5200. Falsos positivos a cuidar: la descripcion SAP de 11Q1 cae en EASY9-RCCB-2P (alias DIFERENCIAL) y la de los tomacorrientes industriales en TOMA-IRAM-DIN (alias TOMACORRIENTE)."
+ ],
+ "lectura_topografico": {
+  "nota": "tags que core.process leyo como texto en cada pagina del constructivo 75992 (pagina_pdf 6 = hoja 05, 10 = hoja 09, 13-16 = hojas 12-15). No se leen las etiquetas verticales 11XP, 12XP1, 12XP2, 15XP1, 16XP2, 16XP3 (se vieron en el render); 61KR y 60KR aparecen sin numero; 15SW1 sin guion; 15IOT1 con 1; los conectores como CONN1..CONN18; 00X en la hoja 13 es una lectura espuria.",
+  "paginas": [
+   {
+    "pagina_pdf": 1,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 2,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 3,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 4,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 5,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 6,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": [
+     "CONN15",
+     "CONN16",
+     "WI-FI",
+     "15SW1",
+     "CONN6",
+     "CONN7",
+     "CONN8",
+     "CONN12",
+     "CONN13",
+     "CONN14",
+     "CONN9",
+     "CONN10",
+     "CONN11",
+     "15MX",
+     "15IOT1",
+     "AIM01",
+     "60VN1",
+     "30TR1",
+     "11Q1",
+     "12PS1",
+     "12PS2",
+     "60DS",
+     "43DIB6",
+     "43DIB5",
+     "61KR",
+     "42DIB4",
+     "60KR",
+     "42DIB3",
+     "41DIB2",
+     "30XAI",
+     "41DIB1",
+     "41XDI",
+     "32AIB2",
+     "32AIB1",
+     "32XAI",
+     "31AIB4",
+     "31AIB3",
+     "31AIB2",
+     "30AIB1"
+    ]
+   },
+   {
+    "pagina_pdf": 7,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 8,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 9,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 10,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": [
+     "60IL1",
+     "CONN2",
+     "CONN3",
+     "CONN4",
+     "CONN5",
+     "CONN17",
+     "CONN18",
+     "CONN1"
+    ]
+   },
+   {
+    "pagina_pdf": 11,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 12,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": []
+   },
+   {
+    "pagina_pdf": 13,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": [
+     "15MX",
+     "AIM01",
+     "11Q1",
+     "12PS1",
+     "12PS2",
+     "11XG",
+     "61KR",
+     "60KR",
+     "30XAI",
+     "14XN",
+     "13XP",
+     "16F5",
+     "16F4",
+     "41XDI",
+     "13F3",
+     "13F2",
+     "32XAI",
+     "11F1"
+    ]
+   },
+   {
+    "pagina_pdf": 14,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": [
+     "00X",
+     "15SW1",
+     "43DIB6",
+     "43DIB5",
+     "42DIB4",
+     "42DIB3",
+     "41DIB2",
+     "41DIB1",
+     "32AIB2",
+     "32AIB1",
+     "31AIB4",
+     "31AIB3",
+     "31AIB2",
+     "30AIB1"
+    ]
+   },
+   {
+    "pagina_pdf": 15,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": [
+     "30TR1"
+    ]
+   },
+   {
+    "pagina_pdf": 16,
+    "hoja": null,
+    "titulo": null,
+    "tags_leidos": [
+     "CONN15",
+     "CONN16",
+     "WI-FI",
+     "CONN6",
+     "CONN7",
+     "CONN8",
+     "CONN12",
+     "CONN13",
+     "CONN14",
+     "CONN9",
+     "CONN10",
+     "CONN11"
+    ]
+   }
+  ]
+ }
+}

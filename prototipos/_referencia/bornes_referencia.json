@@ -1,0 +1,2103 @@
+{
+ "descripcion": "Puntos de conexion de referencia (plano topografico 75441 REV.6, pagina PDF 8, coordenadas en puntos PDF con origen abajo-izquierda). Obtenidos por agentes con hoja de datos + geometria + fotos del tablero. familia verificada=True: revisada por un segundo agente. Las correcciones de verificacion posteriores quedan en correcciones_<familia>.json y evaluar.py las aplica.",
+ "pagina_pdf": 8,
+ "escala_mm_por_pt": 1.4086,
+ "puntos": [
+  {
+   "familia": "fuentes",
+   "componente": "11PS1",
+   "texto": "11PS1 1 (-)",
+   "cables": [
+    "1110"
+   ],
+   "x": 612.95,
+   "y": 712.45,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "TB2, la bornera de salida de arriba, pin 1: el primer tornillo de la izquierda, -V. En el dibujo (capa COMPONENTES) la bornera es una fila de 4 círculos de r=2.02 pt, cada uno hecho con dos medias circunferencias y una cruz Phillips, a y=712.45. Los centros sacados con page_strokes son 612.95 / 617.33 / 621.71 / 626.09. Según la hoja de datos MEAN WELL NDR-120/NDR-240, TB2 va arriba y sus pines 1,2 son -V y 3,4 son +V, de izquierda a derecha. La foto 1.0.jpeg muestra '-V -V +V +V' impreso y el cable negro 1110 entrando al primer borne; lo comprobé corrigiendo la perspectiva. El cable entra por el borde superior del enchufe (612.95, 718.62)."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "11PS1",
+   "texto": "11PS1 3 (+)",
+   "cables": [
+    "1111"
+   ],
+   "x": 621.71,
+   "y": 712.45,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "TB2 pin 3, el tercer tornillo desde la izquierda y el primer +V, en la misma fila detectada de 4 círculos (y=712.45). Coincide con la hoja de datos (pines 3,4 = +V), con el esquema (hoja 11, borne '3 (+)') y con la foto 1.0.jpeg, donde el cable rojo 1111 entra al tercer borne y el cuarto queda libre. Entrada del cable arriba: (621.71, 718.62)."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "11PS1",
+   "texto": "11PS1 L-3",
+   "cables": [
+    "1108"
+   ],
+   "x": 628.07,
+   "y": 635.72,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "TB1, la bornera de entrada de abajo, pin 3 = AC/L: el tornillo de la derecha de una fila de 3 círculos (r=2.26 pt) a y=635.72, con centros 617.52 / 622.80 / 628.07. La hoja de datos NDR da TB1: 1=FG, 2=AC/N, 3=AC/L. La foto 1.4.jpeg muestra '⏚ N L' impreso, con el verde-amarillo en el 1, el blanco 1109 en el 2 y el marrón 1108 en el 3. El cable entra por el borde inferior de la caja (628.07, 629.68)."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "11PS1",
+   "texto": "11PS1 N-2",
+   "cables": [
+    "1109"
+   ],
+   "x": 622.8,
+   "y": 635.72,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "TB1 pin 2 = AC/N, el tornillo del centro de la fila de 3 de abajo (y=635.72). Coincide con la hoja de datos NDR, con el esquema (borne 'N-2') y con la foto 1.4.jpeg (cable blanco 1109 en el borne del medio, bajo la 'N' impresa). Entrada del cable abajo: (622.80, 629.68)."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "13PS3",
+   "texto": "13PS3 +Vin",
+   "cables": [
+    "1304"
+   ],
+   "x": 825.9,
+   "y": 639.82,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "TB1, la bornera de entrada de abajo, pin 3 = +Vin: el tornillo de la derecha de una fila de 3 círculos (r=1.53 pt) a y=639.82, con centros 818.52 / 822.21 / 825.90. El dibujo trae los números '1 2 3' encima. La hoja de datos DDR-120 da TB1: 1=FG, 2=-Vin, 3=+Vin. Las fotos 1.5.jpeg y 'WhatsApp 2026-09-25 15.54.54' muestran '⏚ -Vin +Vin', con el verde-amarillo, el negro 1305 y el rojo 1304 en ese orden. Entrada del cable abajo: (825.90, 633.00)."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "13PS3",
+   "texto": "13PS3 +Vo",
+   "cables": [
+    "1310"
+   ],
+   "x": 822.99,
+   "y": 715.43,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "TB2, la bornera de salida de arriba, pin 3 = el primer +Vo: una fila de 4 círculos (r=1.53 pt) a y=715.43, con centros 815.47 / 819.23 / 822.99 / 826.74. La hoja de datos DDR-120 da TB2: 1,2=-Vo y 3,4=+Vo. En la foto 1.1.jpeg se lee '-Vo -Vo +Vo +Vo' y las mangas 1311 | 1323 | 1310 en los tres primeros bornes, con el cuarto libre; 1310 es el rojo y va en el tercero (perspectiva corregida). Entrada del cable arriba: (822.99, 721.89)."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "13PS3",
+   "texto": "13PS3 -Vo",
+   "cables": [
+    "1323"
+   ],
+   "x": 819.23,
+   "y": 715.43,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "TB2 pin 2, el segundo -Vo. Hay dos usos con el mismo texto '13PS3 -Vo'. La foto 1.1.jpeg decide cuál va dónde: el negro 1323 entra en el segundo borne. Entrada del cable arriba: (819.23, 721.89)."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "13PS3",
+   "texto": "13PS3 -Vo",
+   "cables": [
+    "1311"
+   ],
+   "x": 815.47,
+   "y": 715.43,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "TB2 pin 1, el primer tornillo de la izquierda (-Vo). Según la foto 1.1.jpeg, el negro 1311 entra en el primer borne. Entrada del cable arriba: (815.47, 721.89)."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "11SK1",
+   "texto": "11SK1 L ARRIBA",
+   "cables": [
+    "1108"
+   ],
+   "x": 753.53,
+   "y": 651.47,
+   "confianza": "media",
+   "verificado": true,
+   "como": "En el aparato real los 3 bornes están ABAJO, en la franja de la base, y de izquierda a derecha son N, PE, L. Así lo muestra la foto 'WhatsApp 2026-09-25 15.54.54': N/PE/L impreso, el marrón 1108 en L (a la derecha) y los cables saliendo hacia abajo. El 'ARRIBA' del texto sale del símbolo del esquema (hoja 11, L dibujado arriba), no del aparato. El topográfico no dibuja tornillos para este aparato, solo una banda inferior (polilínea de 4 puntos, 737.31..760.15 x 649.78..653.16, tapada por la etiqueta '220VAC'), que corresponde a la franja de bornes. El punto está a la altura media de esa banda, y en x a 0.710 del ancho, fracción medida en la foto sobre la franja (tornillos a 0.292 / 0.501 / 0.710, simétricos con PE al medio). El cable entra por abajo: (753.53, 649.78). La x es estimada, con un error de unos ±2 pt."
+  },
+  {
+   "familia": "fuentes",
+   "componente": "11SK1",
+   "texto": "11SK1 N ABAJO",
+   "cables": [
+    "1109"
+   ],
+   "x": 743.98,
+   "y": 651.47,
+   "confianza": "media",
+   "verificado": true,
+   "como": "N es el borne de la izquierda de la franja inferior (foto 'WhatsApp 2026-09-25 15.54.54': el blanco 1109 bajo la 'N' impresa). Está en la banda inferior del dibujo (y=651.47 es su centro) a 0.292 del ancho, fracción medida en la foto. El cable entra por abajo: (743.98, 649.78). Como en el dibujo no hay tornillos, la x es estimada (±2 pt aprox.). El orden y el lado (abajo) sí están confirmados."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "11Q1",
+   "texto": "11Q1 N ARRIBA",
+   "cables": [
+    "1105"
+   ],
+   "x": 649.67,
+   "y": 700.51,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo superior del polo izquierdo. En el dibujo es un poligono cerrado de 12 lados (r=2.48) en la fila de arriba de los 4 modulos, y 11Q1 son las 2 columnas que quedan bajo su etiqueta. Segun la hoja de datos del Easy9 RCCB EZ9R36225, el neutro va a la izquierda. La foto 12.35.34 muestra 1105 (blanco) en el polo izquierdo, que tiene una N impresa."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "11Q1",
+   "texto": "11Q1 F ARRIBA",
+   "cables": [
+    "1104"
+   ],
+   "x": 662.09,
+   "y": 700.51,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo superior del polo derecho de 11Q1 (circulo r=2.48). La foto 12.35.34 muestra 1104 (marron, fase) arriba a la derecha."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "11Q1",
+   "texto": "11Q1 N ABAJO",
+   "cables": [
+    "1107"
+   ],
+   "x": 649.67,
+   "y": 651.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo inferior del polo izquierdo (N) de 11Q1. En la foto 1.4, 1107 (blanco) sale de abajo a la izquierda, junto a la N impresa."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "11Q1",
+   "texto": "11Q1 F ABAJO",
+   "cables": [
+    "1106"
+   ],
+   "x": 662.09,
+   "y": 651.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo inferior del polo derecho (F) de 11Q1. En la foto 1.4, 1106 (marron) sale de abajo a la derecha."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "11Q2",
+   "texto": "11Q2 F ARRIBA",
+   "cables": [
+    "1106"
+   ],
+   "x": 674.52,
+   "y": 700.51,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo superior de la columna 3 (la primera de 11Q2 bajo su etiqueta). La foto 12.35.34 muestra 1106 (marron) en el polo izquierdo de 11Q2."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "11Q2",
+   "texto": "11Q2 N ARRIBA",
+   "cables": [
+    "1107"
+   ],
+   "x": 686.94,
+   "y": 700.51,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo superior de la columna 4 (polo derecho de 11Q2). La foto 12.35.34 muestra 1107 (blanco) arriba a la derecha."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "11Q2",
+   "texto": "11Q2 F ABAJO",
+   "cables": [
+    "1108"
+   ],
+   "x": 674.52,
+   "y": 651.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo inferior del polo izquierdo de 11Q2. En la foto 1.4, 1108 (marron) esta abajo a la izquierda."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "11Q2",
+   "texto": "11Q2 N ABAJO",
+   "cables": [
+    "1109"
+   ],
+   "x": 686.94,
+   "y": 651.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo inferior del polo derecho de 11Q2. En la foto 1.4, 1109 (blanco) esta abajo a la derecha."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "12F1",
+   "texto": "12F1 ARRIBA",
+   "cables": [
+    "1201"
+   ],
+   "x": 773.53,
+   "y": 697.31,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo superior del DF101 izquierdo (circulo r=1.92 con raya diagonal; etiqueta en x=773.4). Las fotos 12.35.37(1) y 1.1 muestran 1201 entrando arriba de 12F1."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "12F1",
+   "texto": "12F1 ABAJO",
+   "cables": [
+    "1202"
+   ],
+   "x": 773.53,
+   "y": 654.59,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo inferior del DF101 izquierdo. Las fotos 12.35.36(2) y 2026-09-25 muestran 1202 saliendo abajo de 12F1."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "13F3",
+   "texto": "13F3 ARRIBA",
+   "cables": [
+    "1206"
+   ],
+   "x": 785.96,
+   "y": 697.31,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo superior del DF101 derecho (etiqueta en x=785.8). Las fotos 12.35.37(1) y 1.1 muestran 1206 arriba de 13F3."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "13F3",
+   "texto": "13F3 ABAJO",
+   "cables": [
+    "1301"
+   ],
+   "x": 785.96,
+   "y": 654.59,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tornillo inferior del DF101 derecho. Las fotos 12.35.36(2) y 2026-09-25 muestran 1301 abajo de 13F3."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "31XAI",
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "2142"
+   ],
+   "x": 801.48,
+   "y": 705.06,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Boca externa superior (piso de abajo, paso directo = borne 1). El borne dibujado mide 4.3x72 pt (6.1x101 mm), igual que un PTTB 4-HESI (6.2x102.9 mm), y tiene 4 bocas redondas de r=2 hechas con dos medias circunferencias. En la foto 12.35.37(1)/1.1, 2142 (negro) entra por la boca de mas arriba."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "31XAI",
+   "texto": "31XAI F1 ARRIBA",
+   "cables": [
+    "1324"
+   ],
+   "x": 801.49,
+   "y": 686.47,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Boca interna superior (piso de arriba = nivel con fusible F1). Segun la hoja de datos del PTTB 4-HESI, el 2do nivel es el del fusible (IEC 60947-7-3). La foto 12.35.37(1) muestra 1324 (rojo) entrando por la segunda boca. La altura relativa de las bocas es la misma en foto y dibujo."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "31XAI",
+   "texto": "31XAI F1 ABAJO",
+   "cables": [
+    "3141"
+   ],
+   "x": 801.48,
+   "y": 655.74,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Boca interna inferior (piso de arriba, salida del fusible F1). Sale de la estructura de doble piso: las bocas internas son del nivel superior. En las fotos esta boca todavia esta sin cable (va a campo, PT 001)."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "31XAI",
+   "texto": "31XAI 1 ABAJO",
+   "cables": [
+    "3142"
+   ],
+   "x": 801.48,
+   "y": 643.46,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Boca externa inferior (piso de abajo, borne 1). Sale de la estructura de doble piso. En las fotos esta boca todavia esta sin cable (va a campo, PT 001)."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "31XAI",
+   "texto": "31XAI 1 ARRIBA",
+   "cables": [
+    "3141"
+   ],
+   "x": 801.48,
+   "y": 705.06,
+   "confianza": "baja",
+   "verificado": false,
+   "como": "Se ubico por el texto literal, en la boca externa superior (la misma de 2142), pero es un error del instructivo. Segun la hoja 31, 3141 va de 31XAI F1 (abajo) al borne 1 del transmisor PT 001 en campo. Por esta boca solo entra 2142."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "31XAI",
+   "texto": "31XAI 2 ARRIBA",
+   "cables": [
+    "3142"
+   ],
+   "x": 795.7,
+   "y": 675.3,
+   "confianza": "baja",
+   "verificado": false,
+   "como": "31XAI no tiene borne 2 (el rotulo de la hoja 31 solo tiene F1 y 1), asi que se dejo en la etiqueta. Segun la hoja 31, 3142 va de 31XAI 1 (abajo) al borne 2 de PT 001 en campo. Es un error del instructivo."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "12F2",
+   "texto": "12F2 ARRIBA",
+   "cables": [
+    "1204"
+   ],
+   "x": 624.39,
+   "y": 304.93,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Esparrago derecho del portafusible MEGA horizontal (circulos concentricos r=8.1). La hoja 12 pone 1204 del lado del contactor BH-01-ZV. En el topografico (y en la hoja 04 Detalles), el cable de 35 mm2 dibujado (gris a trazos, capa TABLERO) sale del esparrago derecho y baja hacia la bomba y el contactor. No hay foto de este fusible."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "12F2",
+   "texto": "12F2",
+   "cables": [
+    "1215"
+   ],
+   "x": 580.48,
+   "y": 304.9,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Esparrago izquierdo (lado ABAJO segun el uso). La hoja 12 pone 1215 entre 12F2 y 12PB1 (+). El cable de 35 mm2 dibujado sale del esparrago izquierdo, da la vuelta y llega al borne de la bateria 12PB1 (x~629, y~276). No hay foto."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "12F2",
+   "texto": "12F2",
+   "cables": [
+    "1204"
+   ],
+   "x": 624.39,
+   "y": 304.93,
+   "confianza": "baja",
+   "verificado": false,
+   "como": "El instructivo pone 1204 como 12F2 ARRIBA -> 12F2, con los dos extremos en el mismo fusible. Por el texto (lado ARRIBA) queda en el esparrago derecho. Segun la hoja 12, este extremo es en realidad el contactor BH-01-ZV de la bomba, no 12F2."
+  },
+  {
+   "familia": "protecciones",
+   "componente": "12F2",
+   "texto": "12F2",
+   "cables": [
+    "1216"
+   ],
+   "x": 580.48,
+   "y": 304.9,
+   "confianza": "baja",
+   "verificado": false,
+   "como": "Quedo en el esparrago izquierdo solo por el lado ABAJO que trae el uso. Segun la hoja 12, 1216 (negro 35 mm2) va de 12PB1 (-) a GND de BH-01-M y no pasa por 12F2. Es un error del instructivo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR1 11",
+   "cables": [
+    "2118"
+   ],
+   "x": 842.6,
+   "y": 704.63,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Centro del círculo grande de entrada del conductor (arcos de r~1.45 pt, capa COMPONENTES) del módulo 1, que es la primera columna a la derecha del rótulo 43KR. Lado contactos (arriba), celda más externa = 11. La foto 1.2 muestra el 11 moldeado en la fila más externa con el cable 2118 en el 1er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR1 14",
+   "cables": [
+    "2119"
+   ],
+   "x": 842.6,
+   "y": 698.24,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 43KR. Lado contactos, 2a celda desde el extremo = 14. Foto 1.3: 2119 en la fila 14 del 1er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR1 A1",
+   "cables": [
+    "4329"
+   ],
+   "x": 842.6,
+   "y": 652.82,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 43KR. Lado bobina (abajo), celda interna junto al LED (círculo r 0.98 en y 658.3) = A1. Foto 1.7: 4329 en A1 del 1er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR2 11",
+   "cables": [
+    "4318"
+   ],
+   "x": 846.93,
+   "y": 704.63,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 43KR (paso 4.33 pt). Celda de contactos más externa = 11. Foto 1.2: 4318 en el 11 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR2 14",
+   "cables": [
+    "4319"
+   ],
+   "x": 846.93,
+   "y": 698.24,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 43KR, celda 14 (la del medio). Foto 1.3: 4319 en el 14 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR2 A1",
+   "cables": [
+    "4329"
+   ],
+   "x": 846.93,
+   "y": 652.82,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 43KR, lado bobina, celda junto al LED = A1. Foto 1.7: la derivación de 4329 entra en A1 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR2 A2",
+   "cables": [
+    "1328"
+   ],
+   "x": 842.6,
+   "y": 646.44,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Punto en 43KR1 A2, no en 43KR2: el instructivo dice 43KR2 A2, pero la hoja 43 del funcional dibuja 1328 en el A2 del módulo [1]. Los A2 de los 4 módulos están puenteados con un FBS 4-6 AZUL, anotado en el topográfico como 'FBS 4-6 AZUL (A2)'. En la foto 1.6 el 1328 entra en el A2 del módulo de la izquierda. Es el círculo de entrada del módulo 1, celda externa del lado bobina."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR3 11",
+   "cables": [
+    "2122"
+   ],
+   "x": 851.26,
+   "y": 704.63,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 3 de 43KR, celda 11 (la más externa). Foto 1.2: 2122 en el 11 del 3er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR3 14",
+   "cables": [
+    "2123"
+   ],
+   "x": 851.26,
+   "y": 698.25,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 3 de 43KR, celda 14. Foto 1.3: 2123 en el 14 del 3er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR3 A1",
+   "cables": [
+    "4369"
+   ],
+   "x": 851.26,
+   "y": 652.83,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 3 de 43KR, celda A1 junto al LED. Foto 1.7: 4369 en A1 del 3er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR4 11",
+   "cables": [
+    "4358"
+   ],
+   "x": 855.59,
+   "y": 704.63,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 4 de 43KR, celda 11. Foto 1.2: 4358 en el 11 del 4o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR4 14",
+   "cables": [
+    "4359"
+   ],
+   "x": 855.59,
+   "y": 698.25,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 4 de 43KR, celda 14. Foto 1.3: 4359 en el 14 del 4o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "43KR",
+   "texto": "43KR4 A1",
+   "cables": [
+    "4369"
+   ],
+   "x": 855.59,
+   "y": 652.83,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 4 de 43KR, celda A1 junto al LED. Foto 1.7: la derivación de 4369 entra en A1 del 4o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "46KR",
+   "texto": "46KR A2",
+   "cables": [
+    "4615"
+   ],
+   "x": 871.35,
+   "y": 646.44,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "El texto no dice el módulo. La hoja 46 del funcional pone 4615 en el A2 del módulo [2], y en la foto 1.6 el 4615 entra en el A2 del 2o módulo 46KR. Punto en el círculo de entrada del módulo 2 (x 871.35), celda externa del lado bobina."
+  },
+  {
+   "familia": "reles",
+   "componente": "46KR",
+   "texto": "46KR A2",
+   "cables": [
+    "4669"
+   ],
+   "x": 867.02,
+   "y": 646.44,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "El texto no dice el módulo. La hoja 46 del funcional pone 4669 en el A2 del módulo [1], y en la foto 1.6 el 4669 entra en el A2 del 1er módulo 46KR. Punto en el círculo de entrada del módulo 1 (x 867.02), celda externa del lado bobina."
+  },
+  {
+   "familia": "reles",
+   "componente": "46KR",
+   "texto": "46KR1 11",
+   "cables": [
+    "2168"
+   ],
+   "x": 867.02,
+   "y": 704.63,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 46KR (primera columna a la derecha del rótulo 46KR), celda 11 (la más externa). Foto 1.2: 2168 en el 11."
+  },
+  {
+   "familia": "reles",
+   "componente": "46KR",
+   "texto": "46KR1 14",
+   "cables": [
+    "2169"
+   ],
+   "x": 867.02,
+   "y": 698.24,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 46KR, celda 14. Foto 1.3: 2169 en el 14."
+  },
+  {
+   "familia": "reles",
+   "componente": "46KR",
+   "texto": "46KR1 A1",
+   "cables": [
+    "4668"
+   ],
+   "x": 867.02,
+   "y": 652.82,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 46KR, celda A1 junto al LED. Foto 1.7: 4668 en A1."
+  },
+  {
+   "familia": "reles",
+   "componente": "46KR",
+   "texto": "46KR2 11",
+   "cables": [
+    "2114"
+   ],
+   "x": 871.35,
+   "y": 704.63,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 46KR, celda 11. Foto 1.2: 2114 en el 11 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "46KR",
+   "texto": "46KR2 14",
+   "cables": [
+    "2115"
+   ],
+   "x": 871.35,
+   "y": 698.24,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 46KR, celda 14. Foto 1.3: 2115 en el 14 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "46KR",
+   "texto": "46KR2 A1",
+   "cables": [
+    "4614"
+   ],
+   "x": 871.35,
+   "y": 652.82,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 46KR, celda A1 junto al LED. Foto 1.7: 4614 en A1 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 11",
+   "cables": [
+    "1308"
+   ],
+   "x": 882.78,
+   "y": 704.63,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 62KR (primera columna a la derecha del rótulo 62KR), celda 11. En la foto 1.2 el 1308 rojo entra en el 11, que tiene un puente rojo hacia los 11 de los módulos 2 y 3 (en el funcional FBS 3-6 ROJO; en el topográfico 'FBS 3-6 ROJO (C 11)')."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 14",
+   "cables": [
+    "6201"
+   ],
+   "x": 882.78,
+   "y": 698.24,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 62KR, celda 14. Foto 1.3: 6201 en el 14 del 1er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 A1",
+   "cables": [
+    "2150"
+   ],
+   "x": 882.78,
+   "y": 652.82,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 62KR, celda A1 junto al LED. Foto 1.7: 2150 en A1."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR1 A2",
+   "cables": [
+    "2151"
+   ],
+   "x": 882.78,
+   "y": 646.44,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 1 de 62KR, celda A2 (la externa). Foto 1.6: 2151 en A2 del 1er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR2 14",
+   "cables": [
+    "6203"
+   ],
+   "x": 887.11,
+   "y": 698.24,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 62KR, celda 14. Foto 1.3: 6203 en el 14 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR2 A1",
+   "cables": [
+    "2152"
+   ],
+   "x": 887.11,
+   "y": 652.82,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 62KR, celda A1. Foto 1.7: 2152 en A1 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR2 A2",
+   "cables": [
+    "2153"
+   ],
+   "x": 887.11,
+   "y": 646.44,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 2 de 62KR, celda A2. Foto 1.6: 2153 en A2 del 2o módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR3 14",
+   "cables": [
+    "6206"
+   ],
+   "x": 891.44,
+   "y": 698.25,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 3 de 62KR, celda 14. Foto 1.3: 6206 en el 14 del 3er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR3 A1",
+   "cables": [
+    "2154"
+   ],
+   "x": 891.45,
+   "y": 652.83,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 3 de 62KR, celda A1. Foto 1.7: 2154 en A1 del 3er módulo."
+  },
+  {
+   "familia": "reles",
+   "componente": "62KR",
+   "texto": "62KR3 A2",
+   "cables": [
+    "2155"
+   ],
+   "x": 891.45,
+   "y": 646.44,
+   "confianza": "alta",
+   "verificado": true,
+   "como": "Círculo de entrada del módulo 3 de 62KR, celda A2. Foto 1.6: 2155 en A2 del 3er módulo."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "12XP",
+   "texto": "12XP 1.1",
+   "cables": [
+    "1202"
+   ],
+   "x": 593.89,
+   "y": 558.75,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 12XP (primera a la derecha de la etiqueta). Entrada extrema de arriba: contorno de rectangulo redondeado hecho con arcos (r 2,13/2,70 pt), centro del contorno. PT 6-QUATTRO: 4 entradas push-in, 2 por extremo. Foto 12.35.39: 1202 entra en la abertura de mas arriba de la pieza 1."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "12XP",
+   "texto": "12XP 1.4",
+   "cables": [
+    "1217"
+   ],
+   "x": 593.89,
+   "y": 504.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1, entrada extrema de abajo (punto 4). Fotos 2.1 y 12.35.40: 1217 entra en la abertura de mas abajo de la pieza 1; la interior queda libre."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "12XP",
+   "texto": "12XP 2.1",
+   "cables": [
+    "1205"
+   ],
+   "x": 601.24,
+   "y": 558.75,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, entrada extrema de arriba. Foto 12.35.39: 1205 (negro) entra arriba del todo en la pieza 2."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "12XP",
+   "texto": "12XP 2.4",
+   "cables": [
+    "1218"
+   ],
+   "x": 601.24,
+   "y": 504.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, entrada extrema de abajo. Fotos 2.1 y 12.35.40: 1218 entra abajo del todo en la pieza 2."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 1.1",
+   "cables": [
+    "1304"
+   ],
+   "x": 615.69,
+   "y": 558.75,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 13XC1 (una de las dos piezas con puente rojo), entrada extrema de arriba (rectangulo redondeado). Foto 12.35.39: cable rojo con manga '130..' entra arriba del todo en la pieza 1."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 1.4",
+   "cables": [
+    "1303"
+   ],
+   "x": 615.69,
+   "y": 504.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1, entrada extrema de abajo. Fotos 2.1 y 12.35.40: 1303 entra abajo del todo en la pieza 1."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 2.1",
+   "cables": [
+    "1308"
+   ],
+   "x": 621.47,
+   "y": 558.75,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, entrada extrema de arriba. Foto 12.35.39 (ampliada): 1308 entra arriba del todo en la pieza 2."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 2.2",
+   "cables": [
+    "1318"
+   ],
+   "x": 621.47,
+   "y": 547.11,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, entrada interior de arriba (la mas cerca del riel, punto 2). Foto 12.35.39 ampliada: 1318 (rojo) entra en la segunda abertura de la pieza 2. El campo 'lado' del JSON dice ABAJO, pero 'parte' y la regla dicen ARRIBA."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 2.3",
+   "cables": [
+    "1319"
+   ],
+   "x": 621.47,
+   "y": 516.17,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, entrada interior de abajo (punto 3). Foto 12.35.40: 1319 entra en la abertura de abajo mas cerca del riel en la pieza 2."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 2.4",
+   "cables": [
+    "1306"
+   ],
+   "x": 621.47,
+   "y": 504.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, entrada extrema de abajo (punto 4). Foto 12.35.40: 1306 entra abajo del todo en la pieza 2."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 3.1",
+   "cables": [
+    "1305"
+   ],
+   "x": 628.82,
+   "y": 558.75,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 3 (primera con puente azul), entrada extrema de arriba. Foto 12.35.39: cable negro con manga '..5' entra arriba del todo en la pieza 3."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 3.2",
+   "cables": [
+    "1321"
+   ],
+   "x": 628.82,
+   "y": 547.11,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 3, entrada interior de arriba. Foto 12.35.39 ampliada: 1321 (negro) entra en la segunda abertura de la pieza 3."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 3.3",
+   "cables": [
+    "1307"
+   ],
+   "x": 628.82,
+   "y": 516.17,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 3, entrada interior de abajo. Foto 12.35.40: 1307 (negro) entra en la abertura de abajo mas cerca del riel en la pieza 3."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 3.4",
+   "cables": [
+    "1203"
+   ],
+   "x": 628.82,
+   "y": 504.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 3, entrada extrema de abajo. Fotos 2.1 y 12.35.40: 1203 entra abajo del todo en la pieza 3."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 4.1",
+   "cables": [
+    "1323"
+   ],
+   "x": 634.61,
+   "y": 558.75,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 4, entrada extrema de arriba. Foto 12.35.39 ampliada: 1323 entra arriba del todo en la pieza 4."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 4.2",
+   "cables": [
+    "1328"
+   ],
+   "x": 634.61,
+   "y": 547.11,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 4, entrada interior de arriba. Foto 12.35.39 ampliada: cable negro (manga '13?8') entra en la segunda abertura de la pieza 4."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13XC1",
+   "texto": "13XC1 4.4",
+   "cables": [
+    "1315"
+   ],
+   "x": 634.61,
+   "y": 504.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 4, entrada extrema de abajo. Fotos 2.1 y 12.35.40: 1315 (negro) entra abajo del todo en la pieza 4 y va por abajo hasta 62XDIO."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13X24",
+   "texto": "13X24 1.1",
+   "cables": [
+    "1310"
+   ],
+   "x": 649.06,
+   "y": 558.75,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 13X24, entrada extrema de arriba. Foto 12.35.39: 1310 entra arriba del todo en la pieza 1."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13X24",
+   "texto": "13X24 1.2",
+   "cables": [
+    "1324"
+   ],
+   "x": 649.06,
+   "y": 547.11,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1, entrada interior de arriba. Foto 12.35.39: 1324 entra en la segunda abertura de la pieza 1."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13X24",
+   "texto": "13X24 1.4",
+   "cables": [
+    "1312"
+   ],
+   "x": 649.06,
+   "y": 504.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1, entrada extrema de abajo. Fotos 2.1 y 12.35.40: 1312 entra abajo del todo en la pieza 1."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13X24",
+   "texto": "13X24 2.1",
+   "cables": [
+    "1311"
+   ],
+   "x": 656.4,
+   "y": 558.75,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, entrada extrema de arriba. Fotos 12.35.39 y 12.35.39(2): 1311 entra arriba del todo en la pieza 2."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "13X24",
+   "texto": "13X24 2.4",
+   "cables": [
+    "1313"
+   ],
+   "x": 656.4,
+   "y": 504.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, entrada extrema de abajo. Fotos 2.1 y 12.35.40: 1313 entra abajo del todo en la pieza 2."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 1 ABAJO",
+   "cables": [
+    "6201"
+   ],
+   "x": 669.98,
+   "y": 544.31,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 62XDIO (PT 2,5-DIO, 1 entrada por extremo; abertura redonda r 1,70 pt). En el instructivo 'ABAJO' es el borne derecho del funcional (catodo). En este tablero el catodo esta ARRIBA: el puente azul del dibujo y de la foto esta en la mitad de abajo, del lado del anodo (hoja de datos 3210224: borne - 2 ranuras de puente - diodo - borne). Foto 12.35.39(2): 6201 entra arriba en la pieza 1."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 2 ABAJO",
+   "cables": [
+    "6203"
+   ],
+   "x": 673.64,
+   "y": 544.31,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2 de 62XDIO, catodo, fisicamente arriba (misma regla). Foto 12.35.39(2): 6203 entra arriba en la pieza 2."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 3 ABAJO",
+   "cables": [
+    "6206"
+   ],
+   "x": 677.3,
+   "y": 544.31,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 3 de 62XDIO, catodo, fisicamente arriba. Foto 12.35.39(2): 6206 entra arriba en la pieza 3."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 3 ABAJO",
+   "cables": [
+    "6204"
+   ],
+   "x": 694.1,
+   "y": 507.93,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Tag mal puesto en el instructivo: segun el funcional (h62 C7), 6204 sale de 62XDO 3, borne derecho, hacia SP-1. Por eso el punto es 62XDO 3 ABAJO: pieza 2 de 62XDO, entrada extrema de abajo (impar = piso de abajo), circulo r 2,06 pt. Es un cable de campo y no esta conectado en las fotos: el punto sale del funcional y de la regla PTT."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 3 ARRIBA",
+   "cables": [
+    "1315"
+   ],
+   "x": 677.3,
+   "y": 517.78,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 3 de 62XDIO. 'ARRIBA' en el instructivo = borne izquierdo del funcional = anodo (polarizacion -0VDC). Fisicamente esta ABAJO, del lado del puente. Fotos 2.1, 12.35.40 y 12.35.39(2): 1315 entra por la abertura de abajo de la pieza 3 (marcada '+')."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 3 ARRIBA",
+   "cables": [
+    "6203"
+   ],
+   "x": 694.1,
+   "y": 551.73,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Tag mal puesto: segun el funcional (h62 C6), 6203 entra en 62XDO 3, borne izquierdo. El punto es 62XDO 3 ARRIBA: pieza 2 de 62XDO, entrada extrema de arriba. Foto 12.35.39(2): 6203 entra arriba del todo en la segunda pieza de 62XDO."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 4 ABAJO",
+   "cables": [
+    "6205"
+   ],
+   "x": 694.1,
+   "y": 516.02,
+   "confianza": "media",
+   "verificado": false,
+   "como": "62XDIO no tiene borne 4. Segun el funcional (h62 C7), 6205 sale de 62XDO 4, borne derecho, hacia SP-1. El punto es 62XDO 4 ABAJO: pieza 2, entrada interior de abajo (par = piso de arriba). Cable de campo, sin foto."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 5 ABAJO",
+   "cables": [
+    "6207"
+   ],
+   "x": 698.47,
+   "y": 507.93,
+   "confianza": "media",
+   "verificado": false,
+   "como": "62XDIO no tiene borne 5. Segun el funcional (h62 D7), 6207 sale de 62XDO 5, borne derecho, hacia SP-2. El punto es 62XDO 5 ABAJO: pieza 3, entrada extrema de abajo. Cable de campo, sin foto."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 5 ARRIBA",
+   "cables": [
+    "6206"
+   ],
+   "x": 698.47,
+   "y": 551.73,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "62XDIO no tiene borne 5. Segun el funcional (h62 D6), 6206 entra en 62XDO 5, borne izquierdo. El punto es la pieza 3 de 62XDO, entrada extrema de arriba. Foto 12.35.39(2): 6206 entra arriba del todo en la tercera pieza de 62XDO."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDIO",
+   "texto": "62XDIO 6 ABAJO",
+   "cables": [
+    "6208"
+   ],
+   "x": 698.47,
+   "y": 516.02,
+   "confianza": "media",
+   "verificado": false,
+   "como": "62XDIO no tiene borne 6. Segun el funcional (h62 D7), 6208 sale de 62XDO 6, borne derecho, hacia SP-2. El punto es 62XDO 6 ABAJO: pieza 3, entrada interior de abajo. Cable de campo, sin foto."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDO",
+   "texto": "62XDO 1 ABAJO",
+   "cables": [
+    "6202"
+   ],
+   "x": 689.74,
+   "y": 507.93,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 62XDO (PTT 2,5, doble piso, 4 entradas; circulo r 2,06 pt). Borne 1 impar = piso de abajo = entrada extrema; extremo de abajo. Fotos 2.1 y 12.35.40: 6202 (rojo) entra abajo del todo en la primera pieza de 62XDO."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDO",
+   "texto": "62XDO 1 ARRIBA",
+   "cables": [
+    "6201"
+   ],
+   "x": 689.74,
+   "y": 551.73,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 62XDO, entrada extrema de arriba (borne 1 impar). Foto 12.35.39(2): 6201 entra arriba del todo en la pieza 1 de 62XDO (el mismo 6201 tambien va a 62XDIO 1: cable de 3 puntas)."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDO",
+   "texto": "62XDO 2 ARRIBA",
+   "cables": [
+    "1321"
+   ],
+   "x": 689.74,
+   "y": 543.64,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 62XDO, entrada interior de arriba (borne 2 par = piso de arriba). Foto 12.35.39(2): 1321 (negro) entra en la segunda abertura de la pieza 1, bajo el marcador '2'."
+  },
+  {
+   "familia": "borneras_riel2",
+   "componente": "62XDO",
+   "texto": "62XDO ARRIBA",
+   "cables": [
+    "6202"
+   ],
+   "x": 689.74,
+   "y": 507.93,
+   "confianza": "baja",
+   "verificado": false,
+   "como": "Extremo espurio del instructivo (no tiene numero). En el funcional (h62 A7), 6202 va de 62XDO 1 (borne derecho) a BH-01-ZV, que es campo. En el tablero 6202 entra solo en la pieza 1 de 62XDO abajo (foto 2.1). No existe un 62XDO 'ARRIBA' para 6202: se devuelve el mismo punto de 62XDO 1 ABAJO para no inventar otro."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XCS",
+   "texto": "43XCS 1 ARRIBA",
+   "cables": [
+    "4319"
+   ],
+   "x": 679.2,
+   "y": 432.78,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 2 a la derecha de la etiqueta 43XCS (x=679.14). Borne impar = piso de abajo = entrada del EXTREMO superior. Punto = centro de la abertura U (x 678.14..680.27, y 431.77..433.79). Foto 'WhatsApp 2026-08-21 12.35.44 (1)' y '(2)': 4319 entra en la entrada del extremo de la pieza izquierda."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XCS",
+   "texto": "43XCS 2 ARRIBA",
+   "cables": [
+    "4318"
+   ],
+   "x": 679.18,
+   "y": 421.51,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1, borne par = piso de arriba = entrada INTERIOR superior (la mas cercana al riel), centro de la U. En las fotos 12.35.44 (1)/(2) 4318 entra en la entrada interior de la pieza izquierda."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XCS",
+   "texto": "43XCS 3 ARRIBA",
+   "cables": [
+    "4359"
+   ],
+   "x": 682.86,
+   "y": 432.77,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2 (x=682.79), borne impar -> entrada del extremo superior, centro de la U. En las fotos 12.35.44 (1)/(2) 4359 entra en la entrada del extremo de la pieza derecha."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XCS",
+   "texto": "43XCS 4 ARRIBA",
+   "cables": [
+    "4358"
+   ],
+   "x": 682.83,
+   "y": 421.5,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, borne par -> entrada interior superior, centro de la U. En las fotos 4358 entra en la entrada interior de la pieza derecha."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "46XC",
+   "texto": "46XC 1 ARRIBA",
+   "cables": [
+    "4668"
+   ],
+   "x": 694.18,
+   "y": 432.78,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1 de 2 a la derecha de la etiqueta 46XC (x=694.12), borne impar -> entrada del extremo superior, centro de la U. En las fotos 12.35.44 (1)/(2) 4668 (rojo) entra en el extremo de la pieza izquierda."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "46XC",
+   "texto": "46XC 2 ARRIBA",
+   "cables": [
+    "4669"
+   ],
+   "x": 694.16,
+   "y": 421.51,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1, borne par -> entrada interior superior, centro de la U. En las fotos 4669 entra en la entrada interior de la pieza izquierda."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "46XC",
+   "texto": "46XC 3 ARRIBA",
+   "cables": [
+    "4614"
+   ],
+   "x": 697.84,
+   "y": 432.8,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2 (x=697.77), borne impar -> entrada del extremo superior, centro de la U. En las fotos 4614 (rojo) entra en el extremo de la pieza derecha."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "46XC",
+   "texto": "46XC 4 ARRIBA",
+   "cables": [
+    "4615"
+   ],
+   "x": 697.81,
+   "y": 421.53,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 2, borne par -> entrada interior superior, centro de la U. En las fotos 4615 entra en la entrada interior de la pieza derecha."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "81XCM",
+   "texto": "81XCM 1 ARRIBA",
+   "cables": [
+    "2132"
+   ],
+   "x": 713.5,
+   "y": 433.3,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Primera de las 7 piezas grises a la derecha de la etiqueta 81XCM (x=713.43). La pieza verde/amarilla de tierra (PE) que esta antes no se cuenta. Borne impar -> entrada del extremo superior, centro de la U. Fotos 'WhatsApp 12.35.44' y '(3)': 2132 (blanco) entra en el extremo de la pieza 1."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "81XCM",
+   "texto": "81XCM 11 ARRIBA",
+   "cables": [
+    "2135"
+   ],
+   "x": 731.78,
+   "y": 433.26,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 6 de 7 (x=731.71), borne 11 impar -> entrada del extremo superior, centro de la U. Fotos 12.35.44 y (3): 2135 (blanco, puntera roja) entra en el extremo de la pieza 6, justo encima de la interior marcada '12'."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "81XCM",
+   "texto": "81XCM 12 ARRIBA",
+   "cables": [
+    "2136"
+   ],
+   "x": 731.75,
+   "y": 421.99,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 6, borne 12 par -> entrada interior superior, centro de la U. En las fotos la fila interior tiene impresos 2,4,6,8,10,12 y 2136 entra debajo del '12'."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "81XCM",
+   "texto": "81XCM 2 ARRIBA",
+   "cables": [
+    "2133"
+   ],
+   "x": 713.47,
+   "y": 422.03,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 1, borne par -> entrada interior superior, centro de la U. En las fotos 2133 entra en la entrada interior de la pieza 1 (numero impreso '2')."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "81XCM",
+   "texto": "81XCM 5 ARRIBA",
+   "cables": [
+    "2132"
+   ],
+   "x": 720.81,
+   "y": 433.28,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 3 (x=720.74), borne 5 impar -> entrada del extremo superior, centro de la U. En las fotos el segundo 2132 (blanco) entra en el extremo de la pieza 3."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "81XCM",
+   "texto": "81XCM 6 ARRIBA",
+   "cables": [
+    "2133"
+   ],
+   "x": 720.78,
+   "y": 422.01,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "Pieza 3, borne 6 par -> entrada interior superior, centro de la U. En las fotos el segundo 2133 entra en la interior de la pieza 3 (numero impreso '6')."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "31XEX",
+   "texto": "31XEX 1 ARRIBA",
+   "cables": [
+    "3104"
+   ],
+   "x": 789.01,
+   "y": 433.12,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Primera de las 2 piezas azules a la derecha de la etiqueta 31XEX (x=789.01). La pieza verde PE que esta antes no se cuenta. Borne impar -> entrada del extremo superior, centro de la U (x 787.94..790.07, y 432.11..434.13). La geometria sale exacta del dibujo. Ninguna foto muestra el lado de la bornera; la asignacion usa la hoja de datos 3210265, la regla del taller y la misma regla ya confirmada con fotos en 43XCS, 46XC y 81XCM."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "31XEX",
+   "texto": "31XEX 2 ARRIBA",
+   "cables": [
+    "3105"
+   ],
+   "x": 789.01,
+   "y": 421.85,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 1, borne par -> entrada interior superior, centro de la U. Sin foto del lado de la bornera (solo del lado de la barrera 31AIB1, fotos 3.2 y 3.3)."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "31XEX",
+   "texto": "31XEX 3 ARRIBA",
+   "cables": [
+    "3138"
+   ],
+   "x": 792.66,
+   "y": 433.12,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 2 (x=792.66), borne impar -> entrada del extremo superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "31XEX",
+   "texto": "31XEX 4 ARRIBA",
+   "cables": [
+    "3139"
+   ],
+   "x": 792.66,
+   "y": 421.85,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 2, borne par -> entrada interior superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XDI",
+   "texto": "43XDI 1 ARRIBA",
+   "cables": [
+    "4301"
+   ],
+   "x": 803.88,
+   "y": 433.12,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 1 de 4 azules a la derecha de la etiqueta 43XDI (x=803.88), borne impar -> entrada del extremo superior, centro de la U. Ninguna foto muestra el lado de la bornera; regla de la hoja de datos 3210265 y del taller."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XDI",
+   "texto": "43XDI 2 ARRIBA",
+   "cables": [
+    "4302"
+   ],
+   "x": 803.88,
+   "y": 421.85,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 1, borne par -> entrada interior superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XDI",
+   "texto": "43XDI 3 ARRIBA",
+   "cables": [
+    "4303"
+   ],
+   "x": 807.54,
+   "y": 433.12,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 2 (x=807.54), borne impar -> entrada del extremo superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XDI",
+   "texto": "43XDI 4 ARRIBA",
+   "cables": [
+    "4304"
+   ],
+   "x": 807.54,
+   "y": 421.85,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 2, borne par -> entrada interior superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XDI",
+   "texto": "43XDI 5 ARRIBA",
+   "cables": [
+    "4341"
+   ],
+   "x": 811.19,
+   "y": 433.12,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 3 (x=811.19), borne impar -> entrada del extremo superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XDI",
+   "texto": "43XDI 6 ARRIBA",
+   "cables": [
+    "4342"
+   ],
+   "x": 811.19,
+   "y": 421.85,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 3, borne par -> entrada interior superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XDI",
+   "texto": "43XDI 7 ARRIBA",
+   "cables": [
+    "4343"
+   ],
+   "x": 814.85,
+   "y": 433.12,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 4 (x=814.85), borne impar -> entrada del extremo superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "borneras_riel3",
+   "componente": "43XDI",
+   "texto": "43XDI 8 ARRIBA",
+   "cables": [
+    "4344"
+   ],
+   "x": 814.85,
+   "y": 421.85,
+   "confianza": "media",
+   "verificado": false,
+   "como": "Pieza 4, borne par -> entrada interior superior, centro de la U. Sin foto del lado de la bornera."
+  },
+  {
+   "familia": "barreras",
+   "componente": "31AIB1",
+   "texto": "31AIB1 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 787.08,
+   "y": 567.04,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8536-EX, borne 1(+) de alimentación 24VDC. Es el tornillo izquierdo del enchufe superior exterior, el que está dibujado: centro de la elipse de tornillo en la capa COMPONENTES, tomado a la altura donde el aro exterior es más ancho. Hoja de datos CHENZHU: 1(+) 2(-) del lado seguro. La etiqueta del aparato tiene '1 2' rojo/negro en la fila de arriba (foto 12.35.42). En 3.0.jpeg, detrás del enchufe '3 4 5', se ve el enchufe con 2 punteras rojas. El texto dice ABAJO porque así está dibujado el símbolo en el funcional (hoja 15), pero físicamente va ARRIBA."
+  },
+  {
+   "familia": "barreras",
+   "componente": "31AIB1",
+   "texto": "31AIB1 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 790.63,
+   "y": 567.04,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8536-EX, borne 2(-) de alimentación. Tornillo derecho del enchufe superior exterior dibujado (centro de la elipse, capa COMPONENTES). Hoja de datos: 1(+) 2(-). Etiqueta '1 2' en la fila superior; enchufe con punteras rojas detrás del '3 4 5' (3.0.jpeg). El instructivo dice ABAJO solo por el símbolo del funcional; físicamente está ARRIBA."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 798.2,
+   "y": 567.04,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 1(+) de alimentación. Tornillo izquierdo del enchufe superior exterior dibujado (centro de la elipse, capa COMPONENTES). Hoja de datos CZ.GS8512-EX: 1(+) 2(-) del lado seguro. La etiqueta '1 2' rojo/negro está en la fila de arriba. En 3.0.jpeg se ven 2 punteras rojas en el enchufe que está detrás del '3 4'. El instructivo dice ABAJO por el funcional; físicamente va ARRIBA."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 801.75,
+   "y": 567.04,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 2(-). Tornillo derecho del enchufe superior exterior dibujado (centro de la elipse, capa COMPONENTES). Hoja de datos: 1(+) 2(-). Etiqueta '1 2' en la fila superior. Físicamente va ARRIBA aunque el texto diga ABAJO."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 3",
+   "cables": [
+    "1318"
+   ],
+   "x": 798.2,
+   "y": 560.22,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 3 (salida relé OUT2, lado seguro, enchufe verde intermedio '3 4', tornillo izquierdo). Ese nivel no está dibujado. x = tornillo dibujado de la misma columna. y = fila dibujada movida hacia adentro según la vista frontal vectorial de la hoja de datos: fracción 0.1465 contra 0.0611 de la altura total dibujada de 79.85 pt, o sea -6.8 pt. Foto 3.0.jpeg: 1318 entra al borne 3 (izquierda) del enchufe '3 4' de 43DIB1."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 5",
+   "cables": [
+    "2116"
+   ],
+   "x": 798.2,
+   "y": 553.58,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 5 (OUT1, enchufe verde interior '5 6', el de adelante, tornillo izquierdo). Nivel no dibujado: x de la columna dibujada, y a 13.5 pt de la fila dibujada (fracción 0.2296 de la hoja de datos). Fotos 3.1.jpeg y 12.35.42: 2116 en el borne 5 (izquierda) de 43DIB1."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 6",
+   "cables": [
+    "2117"
+   ],
+   "x": 801.75,
+   "y": 553.58,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 6 (OUT1, enchufe verde interior '5 6', tornillo derecho). Nivel no dibujado; y extrapolada con la hoja de datos. Fotos 3.1.jpeg y 12.35.42: 2117 en el borne 6 (derecha) de 43DIB1."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 7",
+   "cables": [
+    "4303"
+   ],
+   "x": 798.27,
+   "y": 501.86,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 7(+) (entrada IS 1, enchufe azul interior '7 8', tornillo izquierdo). Nivel no dibujado: x del tornillo inferior dibujado, y = fila dibujada +6.2 pt (fracciones 0.1351 contra 0.0578 de la hoja de datos). Foto 3.3.jpeg: 4303 en el borne 7 (izquierda) del enchufe '7 8' de 43DIB1."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 8",
+   "cables": [
+    "4304"
+   ],
+   "x": 801.82,
+   "y": 501.86,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 8(-) (entrada IS 1, enchufe azul interior '7 8', tornillo derecho). Nivel no dibujado; y extrapolada con la hoja de datos. Foto 3.3.jpeg: 4304 en el borne 8 (derecha) de 43DIB1."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 9",
+   "cables": [
+    "4301"
+   ],
+   "x": 798.27,
+   "y": 495.69,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 9(+) (entrada IS 2, enchufe azul exterior '9 10', el que está dibujado, tornillo izquierdo). Centro de la elipse de tornillo dibujada abajo (capa COMPONENTES). Fotos 3.2.jpeg y 12.35.43 (enchufe de adelante sacado): 4301 en el borne 9 (izquierda) de 43DIB1."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB1",
+   "texto": "43DIB1 10",
+   "cables": [
+    "4302"
+   ],
+   "x": 801.82,
+   "y": 495.69,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 10(-) (enchufe azul exterior '9 10' dibujado, tornillo derecho). Centro de la elipse de tornillo dibujada. Fotos 3.2.jpeg y 12.35.43: 4302 en el borne 10 (derecha) de 43DIB1."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 1 ABAJO",
+   "cables": [
+    "1312"
+   ],
+   "x": 807.15,
+   "y": 567.04,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 1(+) de alimentación. Tornillo izquierdo del enchufe superior exterior dibujado (centro de la elipse, capa COMPONENTES). Hoja de datos: 1(+) 2(-); etiqueta '1 2' en la fila superior; punteras rojas en el enchufe de atrás en 3.0.jpeg. Físicamente va ARRIBA, no ABAJO. El 1312 es un cable en cadena: 31AIB1 1, 43DIB1 1, 43DIB2 1."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 2 ABAJO",
+   "cables": [
+    "1313"
+   ],
+   "x": 810.7,
+   "y": 567.04,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 2(-). Tornillo derecho del enchufe superior exterior dibujado. Hoja de datos: 1(+) 2(-). Físicamente va ARRIBA. El 1313 va en cadena igual que el 1312."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 3",
+   "cables": [
+    "1319"
+   ],
+   "x": 807.15,
+   "y": 560.22,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 3 (OUT2, enchufe verde intermedio '3 4', tornillo izquierdo). Nivel no dibujado: x de la columna dibujada, y = fila dibujada -6.8 pt según la hoja de datos. Foto 3.0.jpeg: 131(9) (manga leída en parte) en el borne 3 (izquierda) del '3 4' de 43DIB2."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 5",
+   "cables": [
+    "2120"
+   ],
+   "x": 807.15,
+   "y": 553.58,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 5 (OUT1, enchufe verde interior '5 6', tornillo izquierdo). Nivel no dibujado; y extrapolada con la hoja de datos (-13.5 pt desde la fila dibujada). Fotos 3.1.jpeg y 12.35.42: 2120 en el borne 5 de 43DIB2."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 6",
+   "cables": [
+    "2121"
+   ],
+   "x": 810.7,
+   "y": 553.58,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 6 (OUT1, enchufe verde interior '5 6', tornillo derecho). Nivel no dibujado; y extrapolada con la hoja de datos. Fotos 3.1.jpeg y 12.35.42: 2121 en el borne 6 de 43DIB2."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 7",
+   "cables": [
+    "4343"
+   ],
+   "x": 807.22,
+   "y": 501.86,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 7(+) (entrada IS 1, enchufe azul interior '7 8', tornillo izquierdo). Nivel no dibujado: y = fila inferior dibujada +6.2 pt según la hoja de datos. Foto 3.3.jpeg: 4343 en el borne 7 de 43DIB2."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 8",
+   "cables": [
+    "4344"
+   ],
+   "x": 810.77,
+   "y": 501.86,
+   "confianza": "media",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 8(-) (enchufe azul interior '7 8', tornillo derecho). Nivel no dibujado; y extrapolada con la hoja de datos. Foto 3.3.jpeg: 4344 en el borne 8 de 43DIB2."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 9",
+   "cables": [
+    "4341"
+   ],
+   "x": 807.22,
+   "y": 495.69,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 9(+) (entrada IS 2, enchufe azul exterior '9 10' dibujado, tornillo izquierdo). Centro de la elipse de tornillo dibujada. Fotos 3.2.jpeg y 12.35.43: 4341 en el borne 9 (izquierda) de 43DIB2."
+  },
+  {
+   "familia": "barreras",
+   "componente": "43DIB2",
+   "texto": "43DIB2 10",
+   "cables": [
+    "4342"
+   ],
+   "x": 810.77,
+   "y": 495.69,
+   "confianza": "alta",
+   "verificado": false,
+   "como": "GS8512-EX.22, borne 10(-) (enchufe azul exterior '9 10' dibujado, tornillo derecho). Centro de la elipse de tornillo dibujada. Fotos 3.2.jpeg y 12.35.43: 4342 en el borne 10 (derecha) de 43DIB2."
+  }
+ ],
+ "modelos": {
+  "fuentes": [
+   {
+    "componente": "11PS1",
+    "modelo": "MEAN WELL NDR-240-24. La lista de materiales dice NDR-120-24, pero el esquema dice NDR-240-24, la foto 1.0 muestra 'Max. 240 Watt' y en el dibujo la caja mide 63.0 x 125.4 mm, que es la NDR-240; la NDR-120 mide 40 mm. Las dos tienen la misma disposición de bornes.",
+    "disposicion_bornes": "Vista frontal. TB2 (salida) ARRIBA, a la izquierda del centro, 4 pines numerados 1..4 de izquierda a derecha: 1 y 2 = -V, 3 y 4 = +V. TB1 (entrada) ABAJO, 3 pines 1..3 de izquierda a derecha: 1 = FG (tierra), 2 = AC/N, 3 = AC/L. Enchufes con tornillo al frente y el cable entrando por la cara superior (TB2) o inferior (TB1). En el esquema: '1 (-)', '2 (-)', '3 (+)', '⏚ 1', 'N-2', 'L-3'.",
+    "fuente": "https://www.meanwell.com/Upload/PDF/NDR-240/NDR-240-SPEC.PDF y https://www.meanwell.com/Upload/PDF/NDR-120/NDR-120-SPEC.PDF (Mechanical Specification, tablas Terminal Pin No. Assignment TB1/TB2); fotos 1.0.jpeg (arriba '-V -V +V +V', 1110 y 1111) y 1.4.jpeg (abajo '⏚ N L', 1109 y 1108)"
+   },
+   {
+    "componente": "13PS3",
+    "modelo": "MEAN WELL DDR-120A-24 (conversor DC/DC). En la lista de materiales figura como '13PS2'.",
+    "disposicion_bornes": "Vista frontal. TB2 (salida) ARRIBA, 4 pines 1..4 de izquierda a derecha: 1 y 2 = -Vo, 3 y 4 = +Vo. TB1 (entrada) ABAJO a la derecha, 3 pines 1..3 de izquierda a derecha: 1 = FG, 2 = -Vin, 3 = +Vin. Caja de 32 x 125.2 mm, igual que en el dibujo.",
+    "fuente": "https://www.meanwell.com/Upload/PDF/DDR-120/DDR-120-SPEC.PDF (Mechanical Specification, tablas TB1/TB2); fotos 1.1.jpeg (arriba '-Vo -Vo +Vo +Vo': 1311, 1323, 1310, libre), 1.5.jpeg y 'WhatsApp 2026-09-25 15.54.54' (abajo '⏚ -Vin +Vin': verde-amarillo, 1305, 1304)"
+   },
+   {
+    "componente": "11SK1",
+    "modelo": "Tomacorriente IRAM 10A para riel DIN VIVION. Parece del tipo AC30 de unos 45 mm de ancho. No encontré hoja de datos de VIVION.",
+    "disposicion_bornes": "Los 3 bornes a tornillo están ABAJO, en la franja de la base que asoma bajo la tapa. De izquierda a derecha: N, PE, L (impreso en el aparato), con los tornillos repartidos simétricamente y PE en el centro. Los cables entran desde abajo. No tiene bornes arriba. En el dibujo del topográfico es un bloque simbólico de 32 mm (el real mide 45 mm), sin tornillos, con una banda inferior de 3.4 pt de alto.",
+    "fuente": "foto 'WhatsApp Image 2026-09-25 at 15.54.54.jpeg' (N/PE/L impreso; 1109 blanco en N, verde-amarillo en PE, 1108 marrón en L) y foto 1.5.jpeg (1108 y verde-amarillo saliendo por abajo); esquema hoja 11 (símbolo con L arriba y N abajo, de ahí sale el ARRIBA/ABAJO del texto)"
+   }
+  ],
+  "protecciones": [
+   {
+    "componente": "11Q1",
+    "modelo": "SCHNEIDER Easy9 EZ9R36225 (disyuntor diferencial RCCB 2P 25A 30mA, 36 mm)",
+    "disposicion_bornes": "2 polos, 1 tornillo arriba y 1 abajo por polo. Mirando de frente: N a la izquierda (tiene la N impresa) y F a la derecha. Cables arriba: 1105 N / 1104 F; abajo: 1107 N / 1106 F.",
+    "fuente": "se.com EZ9R36225 (neutro a la izquierda) + fotos 12.35.34 y 1.4 + lista de materiales (hoja 09)"
+   },
+   {
+    "componente": "11Q2",
+    "modelo": "SCHNEIDER Easy9 EZ9F34210 (termomagnetica 2P C10); en el tablero fotografiado hay un ABB S202 C10",
+    "disposicion_bornes": "2 polos, 1 tornillo arriba y 1 abajo por polo. F a la izquierda y N a la derecha (marron a la izquierda, blanco a la derecha, arriba y abajo).",
+    "fuente": "se.com EZ9F34210 + fotos 12.35.34 y 1.4"
+   },
+   {
+    "componente": "12F1",
+    "modelo": "SCHNEIDER TeSys DF101 10x38 (fusible 20A gL)",
+    "disposicion_bornes": "1 polo, 17.5 mm de ancho: tornillo arriba (entrada 1201) y tornillo abajo (salida 1202). En el dibujo el tornillo es un circulo r=1.9 con raya.",
+    "fuente": "se.com DF101 + fotos 12.35.37(1), 12.35.36(2) y 2026-09-25"
+   },
+   {
+    "componente": "13F3",
+    "modelo": "SCHNEIDER TeSys DF101 10x38 (fusible 10A gL)",
+    "disposicion_bornes": "1 polo: tornillo arriba (1206) y abajo (1301). Va a la derecha de 12F1.",
+    "fuente": "se.com DF101 + fotos 12.35.37(1), 12.35.36(2) y 2026-09-25"
+   },
+   {
+    "componente": "31XAI",
+    "modelo": "La lista de materiales dice PHOENIX PTT 2,5-2MT, pero el dibujo (\"BORNE FUSIBLE 0.1A\", 6.1x101 mm) y la foto (negro, doble piso push-in, con fusible) coinciden con un PHOENIX PTTB 4-HESI (5X20) 3211886 (6.2x102.9 mm, negro).",
+    "disposicion_bornes": "Doble piso con 4 bocas push-in en el eje del borne, de arriba a abajo: externa superior = piso de abajo (borne 1, paso directo), interna superior = piso de arriba (F1, fusible 100mA), interna inferior = F1, externa inferior = 1. Cada boca tiene su boton naranja del lado del centro.",
+    "fuente": "Hoja de datos PHOENIX PTTB 4-HESI (5X20) 3211886 (docs.rs-online.com/d609/0900766b81599f8d.pdf: 2do nivel IEC 60947-7-3 con corriente fijada por el fusible) + fotos 12.35.37(1), 1.1 y 2026-09-25 + hoja 31 del funcional"
+   },
+   {
+    "componente": "12F2",
+    "modelo": "Base portafusible tipo MEGA (2 esparragos) con fusible MEGA 150A",
+    "disposicion_bornes": "Horizontal, con un esparrago a cada lado. Izquierdo = lado bateria 12PB1 + (1215, ABAJO); derecho = lado contactor BH-01-ZV (1204, ARRIBA).",
+    "fuente": "Hoja 12 del funcional (1204 contactor / 1215 bateria) + recorrido del cable de 35 mm2 dibujado en el topografico (capa TABLERO) y en la hoja 04 Detalles; no hay foto"
+   }
+  ],
+  "reles": [
+   {
+    "componente": "43KR",
+    "modelo": "PHOENIX CONTACT RIF-0-RPT-12DC/21 (base RIF-0-BPT/21 + relé REL-MR-12DC/21), 4 módulos 43KR1..43KR4",
+    "disposicion_bornes": "Módulo de 6.2 x 93 mm (4.33 x 65.1 pt en el dibujo), conexión push-in. Arriba, lado contactos: 3 bornes escalonados; del extremo hacia el relé: 11 (común C), 14 (NA), 12 (NC). Abajo, lado bobina: A1+ interno (junto al LED) y A2- en el extremo. Los A2 de los 4 módulos están puenteados con FBS 4-6 AZUL. Módulos numerados 1..4 de izquierda a derecha.",
+    "fuente": "Hoja de datos Phoenix 2903370 / 2900958 (ancho, alto, push-in; el esquema 12/14/11 no indica posición física). El orden físico sale de los números moldeados en la carcasa, fotos 1.2, 1.3, 1.6 y 1.7 del tablero 75286-1. Funcional hoja 43."
+   },
+   {
+    "componente": "46KR",
+    "modelo": "PHOENIX CONTACT RIF-0-RPT-24DC/21 (2903370), 2 módulos 46KR1..46KR2",
+    "disposicion_bornes": "Igual que 43KR: arriba 11 (extremo), 14, 12 (interno); abajo A1 (junto al LED) y A2 (extremo). Sin puentes; cada A2 tiene su propio cable (4669 en el módulo 1, 4615 en el 2).",
+    "fuente": "Hoja de datos Phoenix 2903370; fotos 1.2, 1.3, 1.6 y 1.7; funcional hoja 46."
+   },
+   {
+    "componente": "62KR",
+    "modelo": "PHOENIX CONTACT RIF-0-RPT-12DC/21, 3 módulos 62KR1..62KR3",
+    "disposicion_bornes": "Igual que 43KR, con los contactos ARRIBA (no está girado). Los 11 (C) de los 3 módulos están puenteados con FBS 3-6 ROJO: el 1308 entra solo en 62KR1 11 y los 11 de los módulos 2 y 3 quedan libres.",
+    "fuente": "Hoja de datos Phoenix; fotos 1.2 (puente rojo y 1308), 1.3, 1.6 y 1.7; funcional hoja 62; anotación del topográfico 'FBS 3-6 ROJO (C 11)'."
+   }
+  ],
+  "borneras_riel2": [
+   {
+    "componente": "12XP, 13XC1, 13X24",
+    "modelo": "PHOENIX CONTACT PT 6-QUATTRO (gris, 3212934)",
+    "disposicion_bornes": "Push-in, 1 nivel, 4 conexiones, 8,2 mm de ancho y 90,5 mm de largo (en el dibujo 5,8 x 63,5 pt). Cada pieza, de arriba hacia abajo: entrada extrema (punto 1), pulsador naranja, entrada interior (punto 2), pulsador, zocalo de prueba, marcador blanco con el numero de borne, zona del riel, pulsador, entrada interior (punto 3), pulsador, entrada extrema (punto 4). En el dibujo las entradas son rectangulos redondeados de unos 5 x 5,7 pt, en y = 558,75 / 547,11 / 516,17 / 504,53. Piezas de izquierda a derecha desde la etiqueta, borne N = pieza N. 13XC1: puente rojo en las piezas 1-2 y azul en las 3-4 (coincide con la foto).",
+    "fuente": "Hoja de datos Phoenix PT 6-QUATTRO 3212934 (https://docs.rs-online.com/4c53/0900766b8150a8f2.pdf: ancho 8,2 mm, largo 90,5 mm, 4 conexiones, 1 nivel, push-in) y fotos 2.1, 12.35.39 y 12.35.40 del tablero 75286-1"
+   },
+   {
+    "componente": "62XDIO",
+    "modelo": "PHOENIX CONTACT PT 2,5-DIO/L-R (3210224)",
+    "disposicion_bornes": "Push-in, 1 nivel, 2 conexiones (1 por extremo), 5,2 mm de ancho (paso en el dibujo 3,66 pt), diodo 1N4007. Esquema de la hoja de datos: borne L - 2 ranuras de puente - anodo>|catodo - borne R. En este tablero el lado del puente (anodo, que el instructivo llama 'ARRIBA') esta abajo, y el catodo ('ABAJO') arriba. Entradas redondas de r 1,70 pt en y = 544,31 (arriba) y 517,78 (abajo). 3 piezas con marcadores 1, 2, 3.",
+    "fuente": "Hoja de datos Phoenix PT 2,5-DIO/L-R 3210224 (esquema del circuito, https://www.phoenixcontact.com/en-us/products/component-terminal-block-pt-25-diol-r-3210224); foto WhatsApp 12.35.39 (2): 6201/6203/6206 arriba, 1315 abajo en el borne marcado '+'"
+   },
+   {
+    "componente": "62XDO",
+    "modelo": "PHOENIX CONTACT PTT 2,5 (doble piso push-in)",
+    "disposicion_bornes": "2 niveles, 4 conexiones por pieza (2 por extremo). La entrada extrema (lejos del riel) es el nivel 1 = piso de abajo = borne impar. La entrada interior es el nivel 2 = piso de arriba = borne par. Pieza k = bornes 2k-1 y 2k. Entradas circulares de r 2,06 pt en y = 551,73 / 543,64 (arriba) y 516,02 / 507,93 (abajo). Paso en el dibujo 4,36 pt. 3 piezas = bornes 1 a 6.",
+    "fuente": "Regla PTT confirmada en el riel 3 con la hoja de datos Phoenix 3210258; PTTB 2,5 (https://www.phoenixcontact.com/en-us/products/multi-level-terminal-block-pttb-25-3210567); fotos 12.35.39(2) (6201/6203/6206 en la entrada extrema de arriba, 1321 en la interior) y 2.1 (6202 en la extrema de abajo)"
+   }
+  ],
+  "borneras_riel3": [
+   {
+    "componente": "43XCS",
+    "modelo": "PHOENIX CONTACT PTT 2,5-2MT (gris, 3210258). No figura en la lista de materiales; se deduce del dibujo (mismo simbolo gris '2,5-2 secc' que 46XC y 81XCM) y de las fotos (piezas grises push-in de doble piso con 2 cuchillas).",
+    "disposicion_bornes": "2 piezas, cada una de doble piso con 4 entradas push-in: 2 en el extremo de ARRIBA y 2 en el de ABAJO. Entrada del extremo (mas lejos del riel) = piso de abajo = borne impar. Entrada interior (en la parte elevada) = piso de arriba = borne par. Pieza k = bornes 2k-1 / 2k.",
+    "fuente": "Hoja de datos Phoenix 3210258 / 3210265 (2 pisos, 4 conexiones, 2 potenciales, ancho 5,2 mm, largo 92,4 mm) y fotos WhatsApp 2026-08-21 12.35.44 (1) y (2)"
+   },
+   {
+    "componente": "46XC",
+    "modelo": "PHOENIX CONTACT PTT 2,5-2 MT (gris, 3210258), segun la lista de materiales del funcional",
+    "disposicion_bornes": "2 piezas; igual que 43XCS: extremo = impar (piso de abajo), interior = par (piso de arriba); pieza k = 2k-1 / 2k",
+    "fuente": "Lista de materiales (pag. 6 del funcional), hoja de datos Phoenix y fotos 12.35.44 (1)/(2)"
+   },
+   {
+    "componente": "81XCM",
+    "modelo": "PHOENIX CONTACT PTT 2,5-2MT (gris, 3210258), segun la lista de materiales del funcional",
+    "disposicion_bornes": "7 piezas despues de una pieza verde/amarilla de tierra (BORNES DE TIERRA = PT 2,5-QUATTRO-PE), que no se cuenta. Fila interior con numeros impresos 2,4,6,8,10,12,14. Extremo = impar, interior = par.",
+    "fuente": "Lista de materiales y fotos WhatsApp 12.35.44 y 12.35.44 (3)"
+   },
+   {
+    "componente": "31XEX",
+    "modelo": "PHOENIX CONTACT PTT 2,5-2 MT BU (azul, 3210265)",
+    "disposicion_bornes": "2 piezas azules despues de una pieza verde PE que no se cuenta (en el esquema el PE aparece aparte, dibujado entre el 2 y el 3). Extremo = impar, interior = par; pieza k = 2k-1 / 2k",
+    "fuente": "Lista de materiales, hoja de datos Phoenix 3210265 (en RS: assets.rs-online.com, dibujo de circuito de 2 pisos con cuchilla) y funcional hoja 31"
+   },
+   {
+    "componente": "43XDI",
+    "modelo": "PHOENIX CONTACT PTT 2,5-2 MT BU (azul, 3210265)",
+    "disposicion_bornes": "4 piezas azules; extremo = impar (piso de abajo), interior = par (piso de arriba); pieza k = 2k-1 / 2k",
+    "fuente": "Lista de materiales, hoja de datos Phoenix 3210265 y funcional hoja 43"
+   }
+  ],
+  "barreras": [
+   {
+    "componente": "31AIB1",
+    "modelo": "CHENZHU GS8536-EX (barrera de entrada analógica 2/2, 17.5 mm de ancho; en el topográfico mide 12.78 pt = 18 mm)",
+    "disposicion_bornes": "Alimentación 1(+) 2(-). Salidas 3(+) 4(-) (OUT1) y 6(+) 7(-) (OUT2). Entradas IS 9(+) 10(S) 11(-) y 12(+) 13(S) 14(-). ARRIBA (lado seguro, verde) hay 3 enchufes escalonados; del borde hacia el centro: [1 2], [3 4 5], [6 7 8]. ABAJO (lado IS, azul): adentro [9 10 11], afuera [12 13 14]. En cada enchufe el número menor queda a la izquierda. El dibujo trae un solo enchufe de 2 tornillos por lado, centrado en la carcasa. Los tornillos de arriba coinciden con el enchufe de alimentación 1-2. Los enchufes de 3 bornes se calculan centrados en la carcasa con el paso dibujado (3.55 pt).",
+    "fuente": "Catálogo CHENZHU GS8500-EX 2023, pág. 23 (chenzhuisolator.com/uploads/file/chenzhu-gs8500-ex-isolated-barrier-2023.pdf). Etiqueta del aparato en las fotos 12.35.42 y 12.35.43 ('1 2 / 3 4 5 / 6 7 8' y '9 10 11 / 12 13 14'). Fotos 3.0, 3.1, 3.2 y 3.3."
+   },
+   {
+    "componente": "43DIB1",
+    "modelo": "CHENZHU GS8512-EX.22 (entrada digital 2/2 con salida relé, 12.5 mm)",
+    "disposicion_bornes": "Alimentación 1(+) 2(-). Relés: OUT2 = 3-4, OUT1 = 5-6. Entradas IS: IN1 = 7(+) 8(-), IN2 = 9(+) 10(-). ARRIBA (verde, lado seguro), de afuera hacia adentro: [1 2], [3 4], [5 6]; el de 5-6 es el de adelante y queda pegado a la etiqueta. ABAJO (azul, IS): adentro [7 8], afuera [9 10]. Número impar a la izquierda. El topográfico dibuja solo el enchufe exterior de cada lado: arriba 1-2 y abajo 9-10.",
+    "fuente": "Manual CZ.GS8512-EX.11(S)E-5.0 (chenzhu-inst.com/Upload/File/Content/2016-02-23/201602231513277575.pdf): esquema de conexión y vista frontal vectorial con 3 filas de tornillos arriba y 2 abajo. Catálogo GS8500-EX 2023, pág. 11. Fotos 3.0, 3.1, 3.2, 3.3, 12.35.42 y 12.35.43."
+   },
+   {
+    "componente": "43DIB2",
+    "modelo": "CHENZHU GS8512-EX.22",
+    "disposicion_bornes": "Igual que 43DIB1: arriba [1 2] afuera, [3 4] en el medio, [5 6] adentro; abajo [7 8] adentro, [9 10] afuera. Número impar a la izquierda.",
+    "fuente": "Las mismas que 43DIB1. Fotos: 1319 en el 3, 4369 en el 4, 2120/2121 en el 5/6, 4343/4344 en el 7/8, 4341/4342 en el 9/10."
+   }
+  ]
+ },
+ "reglas": {
+  "fuentes": "FUENTES MEAN WELL de riel DIN (NDR, DDR, y en general EDR/HDR/SDR con bornera enchufable): en la vista frontal del topográfico, cada tornillo aparece en la capa COMPONENTES/00_COMPONENTS como un círculo hecho con dos medias circunferencias, con una cruz Phillips adentro. La bornera de SALIDA (TB2) es la única fila de 4 círculos iguales y equiespaciados (paso de 3.5 a 5.5 pt, unos 5 mm) arriba del cuerpo. La de ENTRADA (TB1) es la fila de 3 abajo. Los pines se numeran de 1 a n de izquierda a derecha. NDR: TB2 1,2 = -V y 3,4 = +V; TB1 1 = FG, 2 = N, 3 = L. DDR: TB2 1,2 = -Vo y 3,4 = +Vo; TB1 1 = FG, 2 = -Vin, 3 = +Vin. Del rótulo del funcional al pin: si trae número, se usa ese número ('1 (-)' → TB2 pin 1, '3 (+)' → TB2 pin 3, 'N-2' → TB1 pin 2, 'L-3' → TB1 pin 3). Si trae nombre ('+Vo', '-Vin'), se busca en la tabla del modelo. Cuando dos pines tienen el mismo nombre (-Vo/-Vo), se asignan por la foto o, si no hay foto, en orden de izquierda a derecha. El punto del borne es el centro del círculo, sacado con el ajuste de círculo. El cable sale por el borde exterior del enchufe o de la caja: hacia arriba en TB2, hacia abajo en TB1. Se implementa en fuentes.py con bornes_meanwell(trazos, etiqueta_xy), que busca las filas cerca de la etiqueta amarilla (4 círculos arriba y 3 abajo), y con resolver_meanwell(familia, borne). TOMACORRIENTE IRAM de riel DIN: los tres bornes N-PE-L van siempre ABAJO, de izquierda a derecha, aunque el funcional diga 'L ARRIBA / N ABAJO', porque eso es el símbolo del esquema. El dibujo no trae tornillos: se toma la banda inferior (polilínea de 4 puntos pegada bajo el cuerpo, del ancho total del aparato) y se ubican N, PE y L a 0.292, 0.501 y 0.710 de su ancho, a media altura de la banda. Se marca con confianza media. Función: bornes_toma_iram(trazos, etiqueta_xy).",
+  "protecciones": "1) Aparatos modulares de riel DIN (termomagneticas, diferenciales, portafusibles DF101): el punto de conexion es el circulo de tornillo del frente. En el dibujo Batfer es un poligono cerrado de 12-13 puntos (r~2.5 pt en termomagneticas y diferenciales, r~1.9 pt con una raya diagonal en el DF101). Hay una fila de tornillos arriba del riel y otra abajo, y cada polo es una columna con un paso de 12.4 pt (17.5 mm por modulo). Para saber que columnas son de cada aparato se toman las N columnas mas cercanas a la x de su etiqueta amarilla (N = polos del modelo). En cada columna, ARRIBA = el tornillo de mayor y y ABAJO = el de menor y (el origen PDF esta abajo). Los polos se nombran de izquierda a derecha segun el aparato real: diferencial Easy9 = N, F (N impresa a la izquierda); termomagnetica 2P de este tablero = F, N (confirmado por los colores de los cables en las fotos); DF101 = un solo polo. 2) Borne de doble piso push-in (incluido el borne fusible PTTB-HESI): se buscan las bocas redondas (r~2 pt, dibujadas como dos medias circunferencias) en el eje del borne angosto que esta a la derecha de su etiqueta. Ordenadas de arriba a abajo son [externa sup, interna sup, interna inf, externa inf]. Las externas son del piso de abajo (1er nivel, borne impar o paso directo); las internas son del piso de arriba (2do nivel; en el HESI es el del fusible, F1). 3) Portafusible MEGA y otros aparatos de esparragos: los esparragos son circulos concentricos grandes (r~8 pt). El ARRIBA/ABAJO del instructivo sale del simbolo del esquema, no de la posicion fisica. Se resuelve siguiendo el cable de potencia dibujado (gris grueso a trazos, capa TABLERO) hasta la bateria o la carga, y cruzandolo con la hoja del esquema. 4) Siempre hay que validar con las fotos (numero de manga y borne de entrada). Si un cable del instructivo tiene los dos extremos en el mismo aparato, o nombra un borne que no esta en el rotulo del esquema, hay que marcarlo como sospechoso (confianza baja) y revisarlo contra la hoja funcional. Todo esto esta implementado en protecciones.py: circulos() detecta poligonos cerrados y tambien arcos partidos en segmentos sueltos; bornes_modular(), bornes_fusible_doble_piso(), bornes_mega() y ubicar() leen usos_por_componente.json.",
+  "reles": "Relés de interfaz Phoenix RIF-0 (RIF-0-RPT-xxDC/21) en el topográfico Batfer:\n(1) Cada módulo es un rectángulo de 4.33 x 65.1 pt (6.2 x 93 mm) en la capa COMPONENTES. Los módulos van pegados a paso 4.33 pt y el rótulo amarillo del grupo queda a la izquierda del primero, sobre el separador.\n(2) Cada borne es una celda con tres dibujos: un óvalo chico en el extremo (abertura de prueba), un círculo grande de r 1.43-1.52 pt, hecho de 2-3 arcos con centro común, y un rectángulo con semicírculo (pulsador) hacia el cuerpo. El centro del círculo grande es el punto de entrada del cable. El LED es otro círculo más chico (r ~0.98 pt) y se descarta por el radio.\n(3) En cada columna de módulo hay 5 círculos grandes. Se separan en dos lados por el mayor hueco en y (el cuerpo del relé): el lado con 3 es CONTACTOS y el lado con 2 es BOBINA. Así funciona con cualquier orientación, incluso con el relé girado 180°.\n(4) Lado contactos, contando desde el extremo del módulo hacia el cuerpo: 11 (C), 14 (NA), 12 (NC). Lado bobina: A1 es el interno (junto al LED) y A2 el del extremo.\n(5) Los módulos se numeran 1..n de izquierda a derecha desde el rótulo, y se corta en el primer salto de paso (el separador del grupo siguiente). La cantidad se puede verificar con los rótulos por módulo '12VDC'/'24VDC' en la capa 'Texto etiquetas'.\n(6) Si un texto del instructivo nombra el grupo sin módulo ('46KR A2') o un módulo que no coincide con el funcional, el módulo se toma del número [n] del funcional junto a ese cable. Los puentes FBS (anotados sobre el grupo en el topográfico, p. ej. 'FBS 4-6 AZUL (A2)') explican por qué un solo cable alimenta varios bornes.\nCódigo: reles.py, con las funciones detectar_grupo_reles(strokes, etiqueta_xy, tag, n) y ubicar_usos(usos, strokes).",
+  "borneras_riel2": "1) Aislar la zona del riel. Tomar los trazos 'S' de la capa COMPONENTES/00_COMPONENTS y buscar curvas aplanadas de 3-4 puntos que sean suaves y de radio 1,55-2,8 pt (2,2-3,9 mm). Agruparlas por centro de curvatura: cada grupo es una entrada push-in, y el punto de conexion es el centro del rectangulo que encierra su contorno. Quedan fuera los tornillos de los topes (circulos de r 1,4-1,5 pt con una X), los pulsadores naranja (rectangulos con una 'V') y el zocalo de prueba (r 0,7 pt). 2) Agrupar las entradas por columna: cada columna es una pieza. La brecha vertical mas grande de la columna es el riel; lo de encima es ARRIBA y lo de debajo ABAJO. En cada extremo, [0] es la entrada extrema (la mas lejos del riel) y [1] la interior. 3) Las piezas de un componente son las contiguas a la derecha de su etiqueta amarilla, hasta la etiqueta siguiente del mismo riel. Se cuentan desde 1, sin contar topes ni piezas PE. 4) Asignacion segun el modelo. PT QUATTRO 'N.p': pieza N; p1 = arriba extrema, p2 = arriba interior, p3 = abajo interior, p4 = abajo extrema. PTT / doble piso 'N ARRIBA/ABAJO': pieza ceil(N/2); N impar = entrada extrema, N par = entrada interior. PT 2,5-DIO 'N ARRIBA/ABAJO': pieza N; ARRIBA del instructivo = anodo (lado del puente), ABAJO = catodo. El extremo fisico del anodo es el lado donde esta dibujado el puente FBS: un rectangulo relleno de color en las capas 'rojo' o '_Zona Segura'. Aqui esta abajo, y la foto lo confirma. 5) Comparar con el funcional los bornes que no existen en el componente o que se repiten, porque el instructivo puede asignarlos a la bornera vecina de la misma hoja. Confirmar con las fotos: el numero de la manga dice que abertura usa cada cable. La deteccion esta en borneras_riel2.py (funcion ubicar(usos_json, pdf, 7, TIPOS, CORRECCIONES_75286), con aberturas(), piezas(), puentes() y lado_anodo_dio()). control_riel2.py genera la imagen y puntos_borneras_riel2.json en la carpeta bornes. En este dibujo detecta exactamente 50 entradas en 14 piezas (8 QUATTRO x 4 + 3 DIO x 2 + 3 PTT x 4).",
+  "borneras_riel3": "Borneras Phoenix de doble piso seccionables (PTT 2,5-2MT gris / PTT 2,5-2MT BU azul; vale igual para PTTB/UTTB) en el topografico vectorial. (1) Cada entrada de conductor se dibuja como un octogono de unos 3,4 x 3,8 pt. Adentro tiene una abertura en 'U': una linea plana doble o triple del lado exterior, dos verticales separadas unos 2,13 pt (3 mm) y un arco. El punto de conexion es el centro de esa U. Debajo de cada entrada vienen el pulsador (rectangulo con dos chevrones) y el punto de prueba (octogono con cruz). No hay que confundirlos con la entrada. (2) Se agrupan las U por columna: cada pieza tiene 4 entradas en la misma x. El riel queda en la mayor brecha vertical: 2 entradas arriba y 2 abajo. El paso entre piezas es de 3,66 pt, que coincide con el ancho de 5,2 mm. Las piezas verdes de tierra (PT 2,5-QUATTRO-PE) no tienen esa U y se descartan (color verde). (3) Las piezas de un aparato son las que estan a la derecha de su etiqueta amarilla y antes de la etiqueta siguiente del mismo riel. Se numeran de izquierda a derecha sin contar la pieza PE. (4) Pieza k = bornes 2k-1 y 2k. Borne impar = piso de abajo = entrada del EXTREMO de la pieza (la mas lejos del riel). Borne par = piso de arriba = entrada INTERIOR (la mas cerca del riel; en la pieza real lleva impresos 2, 4, 6...). 'N ARRIBA' usa las dos entradas de la mitad superior y 'N ABAJO' las de la mitad inferior. El codigo implementado es borneras_riel3.ubicar(usos_json, pdf, pagina, tags, confirmados=...). Para ABAJO toma la entrada de menor y (extremo) o la siguiente (interior).",
+  "barreras": "Barreras CHENZHU GS8500-EX, y en general aparatos de carcasa angosta con enchufes escalonados (estructura tipo Phoenix): el bloque CAD del topográfico, en la capa COMPONENTES, dibuja solo el enchufe más exterior de cada extremo, con 2 tornillos. Los tornillos son elipses de unos 2.8 x 2.4 pt, cortadas por el borde de la carcasa.\n\nCómo detectarlos:\n(1) Carcasa: los lados verticales de más de 40 pt que quedan justo a la izquierda y a la derecha de la etiqueta amarilla.\n(2) Tornillos: polilíneas de 5 puntos o más, de menos de 3.5 pt, pegadas al borde superior o inferior de la carcasa. Se agrupan por solapamiento en x (el bloque está repetido en el PDF, hay que sacar duplicados). El centro x es la mitad del aro exterior; el centro y es la altura donde el aro es más ancho.\n(3) Bordes exteriores de los enchufes: la línea horizontal de y máxima arriba y de y mínima abajo.\n\nCómo asignar los bornes:\n- ARRIBA está el lado seguro (enchufes verdes). De afuera hacia adentro: [1 2] alimentación (etiqueta roja/negra), [3 4(5)], [5 6] o [6 7 8].\n- ABAJO está el lado IS (enchufes azules). Afuera [9 10] o [12 13 14]; adentro [7 8] o [9 10 11].\n- En cada enchufe el número menor queda a la izquierda.\n- Los tornillos dibujados son la fila exterior. Las otras filas usan la x de la misma columna, o, si el enchufe tiene 3 bornes, x centradas en la carcasa con el paso dibujado. Su y se corre hacia adentro (frac_k - frac_0) x altura total dibujada, con las fracciones de la vista frontal de la hoja de datos: arriba 0.0611 / 0.1465 / 0.2296, abajo 0.0578 / 0.1351.\n\nEl número del texto del instructivo (por ejemplo '43DIB1 7') es el número impreso en el enchufe y en la etiqueta del aparato. En estas barreras el ARRIBA/ABAJO del texto sale de dónde está dibujado el borne en el símbolo del funcional, no de la posición física. Por ejemplo, '1 ABAJO' y '2 ABAJO' van físicamente ARRIBA. Hay que ubicar siempre por número de borne y modelo. La función reutilizable es barreras.detectar_barrera(strokes, x_etiqueta, y_etiqueta) + barreras.bornes_barrera(modelo, det)."
+ },
+ "dudas": {
+  "fuentes": [
+   "11SK1: los textos del instructivo '11SK1 L ARRIBA' y '11SK1 N ABAJO' confunden. Salen del símbolo del esquema (hoja 11), pero en el aparato real L y N (y PE) están los tres ABAJO, y los cables 1108 y 1109 salen hacia abajo (foto 15.54.54). El ruteo del 1108 tiene que salir por abajo del toma, no por arriba. Convendría que el instructivo diga '11SK1 L' / '11SK1 N' o 'ABAJO' en los dos.",
+   "11SK1: el topográfico dibuja el toma como bloque simbólico de 32 mm, cuando el real mide unos 45 mm, y sin tornillos. La x de N y L es una estimación proporcional a la foto (error aprox. ±2 pt = ±3 mm). La y queda a media altura de la banda inferior, que está tapada por la etiqueta '220VAC'. Por eso la confianza es media. El orden N-PE-L y el lado (abajo) sí están confirmados por la foto. El PE del toma (verde-amarillo a XPE) no figura en los usos; su punto estimado es (748.75, 651.47).",
+   "11PS1: la lista de materiales dice NDR-120-24, pero el esquema, la foto y el dibujo (caja de 63 mm) corresponden a la NDR-240-24. La disposición de bornes es la misma en las dos, así que los puntos no cambian.",
+   "13PS3: la lista de materiales la nombra '13PS2' (DDR-120A-24), mientras el esquema, el topográfico y los usos dicen 13PS3.",
+   "13PS3 -Vo: hay dos usos con el mismo texto. 1311 va al pin 1 y 1323 al pin 2 según la foto 1.1 de este tablero. Eléctricamente son el mismo -Vo, así que en otro tablero podrían ir cambiados.",
+   "Los puntos x,y son el centro del tornillo. El borde por donde entra el cable está en el campo 'entrada' de fuentes_puntos.json: TB2 arriba en y=718.62 (11PS1) y 721.89 (13PS3); TB1 abajo en y=629.68 (11PS1) y 633.00 (13PS3); toma abajo en y=649.78. Hay que decidir de cuál de los dos puntos sale el ruteo."
+  ],
+  "protecciones": [
+   "Errores del instructivo, detectados contra el funcional: (a) 1204 figura como '12F2 ARRIBA -> 12F2', pero segun la hoja 12 el otro extremo es el contactor BH-01-ZV de la bomba; (b) 1216 figura como '12F2 -> LI', pero segun la hoja 12 1216 va de 12PB1 (-) a GND de BH-01-M y no toca 12F2; (c) 3141 figura como '31XAI 1 ARRIBA -> 31XAI F1 ABAJO', pero deberia ser 31XAI F1 ABAJO -> PT 001 borne 1 (campo); (d) 3142 figura como '31XAI 2 ARRIBA -> 31XAI 1 ABAJO', pero deberia ser 31XAI 1 ABAJO -> PT 001 borne 2 (campo), y 31XAI no tiene borne 2. Parece que el generador toma los numeros de borne 1 y 2 del transmisor PT 001 (hoja 31) como si fueran de 31XAI. Estos 4 usos quedaron con confianza baja, en su lugar literal o en la etiqueta.",
+   "31XAI: la lista de materiales dice PHOENIX PTT 2,5-2MT (seccionable doble piso, gris), pero el topografico lo rotula 'BORNE FUSIBLE 0.1A' y lo dibuja de 6.1x101 mm, y la foto muestra un borne negro de doble piso push-in con fusible. Coincide con un PHOENIX PTTB 4-HESI (5X20). Ubique los bornes segun el dibujo y la foto. Las dos bocas inferiores (F1 ABAJO y 1 ABAJO) aparecen sin cable en las fotos, asi que se asignaron por la estructura del doble piso.",
+   "11Q2: el funcional pide SCHNEIDER EZ9F34210, pero en las fotos hay un ABB S202 C10. El orden F izquierda / N derecha sale de las fotos. Si se monta el Schneider 2P, que no trae la N marcada, conviene mantener la misma convencion.",
+   "12F2: no hay foto del portafusible MEGA. Que el izquierdo sea el de la bateria (1215) y el derecho el del contactor (1204) sale del cable de 35 mm2 dibujado en el topografico y en la hoja 04, por eso queda con confianza media.",
+   "El punto que entrego es el centro del tornillo o boca del dibujo. En termomagneticas y DF101 el cable entra fisicamente por la cara superior o inferior del aparato, unos 5-9 pt mas afuera del tornillo (cuerpo de 11Q de y~646.5 a 706.4). Si el ruteo necesita el borde, hay que desplazar el punto en vertical.",
+   "31XAI F1 ARRIBA: el centro geometrico de la boca da y=686.26 si se funden las dos medias circunferencias y 686.47 con la media superior sola. La diferencia es de 0.3 mm y no importa para el ruteo.",
+   "Codigo de apoyo: protecciones.py lee strokes_p7.pkl, una cache que dejo otro agente en la misma carpeta, y la regenera sola si falta o si esta vieja. Salida completa: protecciones_puntos.json en la misma carpeta."
+  ],
+  "reles": [
+   "El instructivo pone el cable 1328 en '43KR2 A2', pero el funcional (hoja 43) y la foto 1.6 lo ponen en 43KR1 A2. El punto se entrega en 43KR1 A2 (842.6, 646.44). Conviene corregir cómo la herramienta lee ese rótulo: como los A2 están puenteados, el cable puede quedar asignado al módulo vecino.",
+   "Hay dos usos con el texto '46KR A2', sin número de módulo. Por el funcional y la foto 1.6 se separaron así: 4669 en 46KR1 A2 y 4615 en 46KR2 A2. La herramienta debería agregarle el número de módulo al texto.",
+   "En usos_por_componente.json, el campo 'lado' de los 62KR está invertido (ABAJO para 11/14 y ARRIBA para A1/A2). Físicamente los 62KR tienen los contactos arriba, como indica 'parte': el dibujo lo muestra y las fotos 1.3 y 1.7 lo confirman (6201/6203/6206 entran arriba, 2150/2152/2154 abajo). Se usó 'parte'.",
+   "La hoja de datos Phoenix (2903370/2900958) no tiene plano dimensional con la posición de los bornes, y su esquema de conexiones (12 arriba, 14, 11 junto a la bobina) no indica la posición física. El orden físico (11 en el extremo, 14, 12 hacia el cuerpo; A1 junto al LED, A2 en el extremo) sale de los números moldeados en la carcasa en las fotos 1.2, 1.3 y 1.6.",
+   "Las fotos 1.6 (solo A2 cableado) y 1.7 (A1 cableado) son de distintas etapas del cableado. Ninguna foto muestra A1 y A2 cableados a la vez, pero cada una confirma su fila por separado."
+  ],
+  "borneras_riel2": [
+   "El instructivo pone el tag 62XDIO en usos que, segun el funcional (hoja 62), son de 62XDO: 6203 '62XDIO 3 ARRIBA' (es 62XDO 3 ARRIBA), 6204 '62XDIO 3 ABAJO' (62XDO 3 ABAJO), 6205 '62XDIO 4 ABAJO' (62XDO 4), 6207 '62XDIO 5 ABAJO' (62XDO 5), 6206 '62XDIO 5 ARRIBA' (62XDO 5 ARRIBA) y 6208 '62XDIO 6 ABAJO' (62XDO 6). 62XDIO solo tiene 3 bornes. Los puntos se dieron en la posicion fisica real en 62XDO (tabla CORRECCIONES_75286), pero conviene corregir el parser del instructivo, que parece tomar la etiqueta '62XDIO' mas cercana en la hoja 62.",
+   "62XDIO: el ARRIBA/ABAJO del instructivo es izquierda/derecha del funcional (anodo/catodo), no la posicion fisica. En el tablero el catodo ('ABAJO': 6201, 6203, 6206) entra ARRIBA y el anodo ('ARRIBA': 1315) entra ABAJO. Lo confirman el puente del dibujo en la mitad de abajo y la foto 12.35.39 (2). Los puntos estan en la posicion fisica; si el ruteo usa el texto ARRIBA/ABAJO para elegir el lado de la bandeja, va a salir invertido para 62XDIO.",
+   "'62XDO ARRIBA' (6202, sin numero) es un extremo espurio. 6202 va de 62XDO 1 ABAJO a BH-01-ZV (campo). Se devolvio el mismo punto que 62XDO 1 ABAJO, con confianza baja.",
+   "6204, 6205, 6207 y 6208 son cables de campo (van a SP-1 y SP-2) y no estan conectados en las fotos. Su punto sale del funcional mas la regla PTT (impar = extrema, par = interior): confianza media.",
+   "En usos_por_componente.json el campo 'lado' de los puntos .2 del QUATTRO (13XC1 2.2, 3.2, 4.2 y 13X24 1.2) dice ABAJO, pero 'parte' dice ARRIBA. Se uso 'punto', con 2 = arriba interior, confirmado por la foto (1318, 1321, 1328, 1324 entran arriba).",
+   "Colores de puentes: el funcional marca FBS 3-5 AZUL en 62XDIO y en 62XDO; el topografico dibuja 62XDO en rojo y la foto lo muestra azul. No afecta a los puntos.",
+   "En el dibujo, el paso de 62XDO es 4,36 pt (unos 6,1 mm), mas ancho que los 5,2 mm de un PTT 2,5; parece otro simbolo de biblioteca. La disposicion (3 piezas x 4 entradas) coincide con la foto. La lista de materiales no da numero de articulo para el PT 6 QUATTRO: se tomo 3212934 (gris)."
+  ],
+  "borneras_riel3": [
+   "31XEX y 43XDI: ninguna foto muestra el lado de la bornera; solo se ve la otra punta de 3104/3105/3138/3139 y de 4301..4344 en las barreras (fotos 3.2 y 3.3). La geometria es exacta. La numeracion sale de la hoja de datos, la regla del taller y la misma regla confirmada con fotos en las piezas grises iguales, por eso quedan con confianza media.",
+   "43XCS no figura en la lista de materiales del funcional (REV.6). El modelo PTT 2,5-2MT gris se dedujo del dibujo ('2,5-2 secc') y de las fotos.",
+   "Las fotos son del tablero 75286-1. En 81XCM se ven ademas los cables 2164/2165 en los bornes 9/10, que no estan en el instructivo 75287 y no se usaron. Ahi tambien hay un hilo fino en las entradas de extremo 3 y 7.",
+   "En el esquema de la hoja 31 el PE de 31XEX esta dibujado entre los bornes 2 y 3. En el topografico la pieza verde PE esta a la izquierda de las dos piezas azules. Como la PE no se numera, la asignacion no cambia.",
+   "El punto es el centro de la abertura U, es decir el agujero del conductor, no el centro del octogono. El octogono esta corrido 0,1 pt en x y unos 0,02 pt en y: la diferencia es despreciable.",
+   "Los puntos tambien quedaron guardados en puntos_borneras_riel3.json, y la imagen se regenera con r3_control.py (misma carpeta)."
+  ],
+  "barreras": [
+   "Los textos '31AIB1/43DIB1/43DIB2 1 ABAJO' y '2 ABAJO' (cables 1312/1313) dicen ABAJO porque en la hoja 15 del funcional el 24VDC está dibujado abajo del símbolo. Pero la hoja de datos y la etiqueta del aparato ubican 1(+) 2(-) en el enchufe de alimentación de ARRIBA (lado seguro, el más exterior), y ahí los ubiqué. En las fotos se ve ese enchufe con 2 punteras rojas detrás del enchufe '3 4' (3.0.jpeg), pero los números de las mangas de 1312/1313 no se alcanzan a leer.",
+   "El topográfico dibuja un solo enchufe de 2 tornillos por lado, pero la barrera real tiene 3 enchufes escalonados arriba y 2 abajo. Para 3, 5, 6, 7 y 8 (confianza media), la x y el lado son seguros (confirmados con las fotos). La y está extrapolada con la vista frontal de la hoja de datos, así que puede errar en ±1-2 pt (unos 1.5-3 mm).",
+   "El centro de cada tornillo dibujado lo tomo donde el aro exterior de la elipse es más ancho (y=567.04 arriba, 495.69 abajo). El centro visual del aro queda unos 0.2-0.3 pt más afuera; la diferencia no importa.",
+   "31AIB1 (GS8536-EX) tiene enchufes de 3 bornes (3-4-5, 6-7-8, 9-10-11, 12-13-14) y el dibujo muestra solo 2 tornillos por lado. En usos_por_componente.json solo figuran sus bornes 1 y 2, que coinciden con los tornillos de arriba dibujados, así que no afecta este resultado.",
+   "En las fotos hay cables en estas barreras que NO aparecen en usos_por_componente.json: 31AIB1 3=2139, 4=2140, 6=2105, 7=2106, 9=3104, 10=3105, 12=3138, 13=3139; 43DIB1 4=4329; 43DIB2 4=4369. Puede que en el instructivo figuren con otro rótulo o que falten; conviene revisarlo.",
+   "Los puntos, las detecciones y los textos 'como' completos quedaron también en C:\\Users\\Taller\\AppData\\Local\\Temp\\claude\\C--Buscar-Termos-en-plano\\df789214-ab4c-4f72-b06e-82b003555a70\\scratchpad\\bornes\\barreras_puntos.json. La imagen de control se genera con control_barreras.py, en la misma carpeta."
+  ]
+ }
+}

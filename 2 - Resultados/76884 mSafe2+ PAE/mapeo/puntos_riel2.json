@@ -1,0 +1,1841 @@
+{
+ "documento": "ZPL-76884 Rev 1 mSafe2+ PAE, pag. 8 (Detalle bandejas), BANDEJA PRINCIPAL riel 2 (U11 izquierdo y U12 derecho)",
+ "unidades": "pt de la pagina PDF 8, origen abajo-izquierda; r = radio de la boca o del tornillo en pt",
+ "zona": [
+  "12XP",
+  "13X12V",
+  "13X24V",
+  "61XDO",
+  "61X0V",
+  "61XDIO",
+  "15AIB1",
+  "15DIB1",
+  "15DIB2",
+  "15DIB3"
+ ],
+ "n_puntos": 86,
+ "puntos": [
+  {
+   "d": "-12XP:1:1",
+   "cables": [
+    "1231"
+   ],
+   "tag": "12XP",
+   "texto_taller": "12XP 1.1",
+   "x": 625.54,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-12XPS:9:2 -> LI (bandeja lateral izquierda)",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "filas_lista": [
+    39
+   ]
+  },
+  {
+   "d": "-12XP:1:2",
+   "cables": [
+    "1235"
+   ],
+   "tag": "12XP",
+   "texto_taller": "12XP 1.2",
+   "x": 625.54,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-13PS1:(-Vo) -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    43
+   ]
+  },
+  {
+   "d": "-12XP:1:3",
+   "cables": [
+    "1234"
+   ],
+   "tag": "12XP",
+   "texto_taller": "12XP 1.3",
+   "x": 625.54,
+   "y": 499.43,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-13PS1:-Vin -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 2.5,
+   "filas_lista": [
+    42
+   ]
+  },
+  {
+   "d": "-12XP:1:4",
+   "cables": [
+    "1254"
+   ],
+   "tag": "12XP",
+   "texto_taller": "12XP 1.4",
+   "x": 625.54,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-21PCB01:49 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    41
+   ]
+  },
+  {
+   "d": "-12XP:2:3",
+   "cables": [
+    "1264"
+   ],
+   "tag": "12XP",
+   "texto_taller": "12XP 2.3",
+   "x": 631.31,
+   "y": 499.43,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61XDIO:1 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    45
+   ]
+  },
+  {
+   "d": "-12XP:2:4",
+   "cables": [
+    "1268"
+   ],
+   "tag": "12XP",
+   "texto_taller": "12XP 2.4",
+   "x": 631.31,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x3 (PXC.3212934), puente FBS 3-8 BU en 1-2-3. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61X0V:1:1 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    44
+   ]
+  },
+  {
+   "d": "-13X12V:1:1",
+   "cables": [
+    "1303"
+   ],
+   "tag": "13X12V",
+   "texto_taller": "13X12V 1.1",
+   "x": 651.16,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-13MS1:2/T1 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "filas_lista": [
+    50
+   ]
+  },
+  {
+   "d": "-13X12V:1:2",
+   "cables": [
+    "1353"
+   ],
+   "tag": "13X12V",
+   "texto_taller": "13X12V 1.2",
+   "x": 651.16,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-21PCB01:48 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    67
+   ]
+  },
+  {
+   "d": "-13X12V:1:3",
+   "cables": [
+    "1363"
+   ],
+   "tag": "13X12V",
+   "texto_taller": "13X12V 1.3",
+   "x": 651.16,
+   "y": 499.43,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61KR1:11 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    66
+   ]
+  },
+  {
+   "d": "-13X12V:1:4",
+   "cables": [
+    "1373"
+   ],
+   "tag": "13X12V",
+   "texto_taller": "13X12V 1.4",
+   "x": 651.16,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-13PS1:+Vin -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "filas_lista": [
+    54
+   ]
+  },
+  {
+   "d": "-13X12V:2:1",
+   "cables": [
+    "1304"
+   ],
+   "tag": "13X12V",
+   "texto_taller": "13X12V 2.1",
+   "x": 656.93,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-13MS1:4/T2 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "filas_lista": [
+    52
+   ]
+  },
+  {
+   "d": "-13X12V:2:2",
+   "cables": [
+    "1394"
+   ],
+   "tag": "13X12V",
+   "texto_taller": "13X12V 2.2",
+   "x": 656.93,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-42KS1 [=42KS1:23] -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    71
+   ]
+  },
+  {
+   "d": "-13X12V:2:3",
+   "cables": [
+    "1395"
+   ],
+   "tag": "13X12V",
+   "texto_taller": "13X12V 2.3",
+   "x": 656.93,
+   "y": 499.43,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-42KS1 [=42KS1:33] -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    70
+   ]
+  },
+  {
+   "d": "-13X12V:2:4",
+   "cables": [
+    "1396"
+   ],
+   "tag": "13X12V",
+   "texto_taller": "13X12V 2.4",
+   "x": 656.93,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-42KS1 [=42KS1:43] -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    69
+   ]
+  },
+  {
+   "d": "-13X24V:1:1",
+   "cables": [
+    "1391"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 1.1",
+   "x": 671.0,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-42XC:F1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    56
+   ]
+  },
+  {
+   "d": "-13X24V:1:4",
+   "cables": [
+    "1311"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 1.4",
+   "x": 671.0,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-13F6:2 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    64
+   ]
+  },
+  {
+   "d": "-13X24V:2:1",
+   "cables": [
+    "1350"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 2.1",
+   "x": 676.77,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-32XAI:F1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    55
+   ]
+  },
+  {
+   "d": "-13X24V:2:2",
+   "cables": [
+    "1339"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 2.2",
+   "x": 676.77,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-X1:1 [=empalme con LS001A:1 Marron (+)] -> E8 (zona hidraulica / empalmes X1, se cablea en gabinete)",
+   "otro_extremo_estacion": "E8",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    57
+   ]
+  },
+  {
+   "d": "-13X24V:2:3",
+   "cables": [
+    "1385"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 2.3",
+   "x": 676.77,
+   "y": 499.43,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-42KS1:A1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    58
+   ]
+  },
+  {
+   "d": "-13X24V:2:4",
+   "cables": [
+    "1370"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 2.4",
+   "x": 676.77,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-15AIB1:1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    60
+   ]
+  },
+  {
+   "d": "-13X24V:3:1",
+   "cables": [
+    "1312"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 3.1",
+   "x": 684.11,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-13PS1:-Vo -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    68
+   ]
+  },
+  {
+   "d": "-13X24V:3:4",
+   "cables": [
+    "1392"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 3.4",
+   "x": 684.11,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-42XC:1 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    78
+   ]
+  },
+  {
+   "d": "-13X24V:4:1",
+   "cables": [
+    "1361"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 4.1",
+   "x": 689.88,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-15AIB1:2 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    72
+   ]
+  },
+  {
+   "d": "-13X24V:4:2",
+   "cables": [
+    "1386"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 4.2",
+   "x": 689.88,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-42KS1:A2 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    76
+   ]
+  },
+  {
+   "d": "-13X24V:4:3",
+   "cables": [
+    "1340"
+   ],
+   "tag": "13X24V",
+   "texto_taller": "13X24V 4.3",
+   "x": 689.88,
+   "y": 499.43,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934): 1, FBS 2-8 rojo, 2, tapa D-PT 6-QUATTRO, 3, FBS 2-8 BU, 4 (la tapa entre 2 y 3 corre 1,55 pt las piezas 3 y 4). Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-X1:1 [=empalme con LS001A:2 Azul (-)] -> E8 (zona hidraulica / empalmes X1, se cablea en gabinete)",
+   "otro_extremo_estacion": "E8",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    77
+   ]
+  },
+  {
+   "d": "-61XDO:1:1",
+   "cables": [
+    "6141"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 1.1",
+   "x": 703.95,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61KR1:14 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    173
+   ]
+  },
+  {
+   "d": "-61XDO:1:2",
+   "cables": [
+    "6171"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 1.2",
+   "x": 703.95,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61XDIO:1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    170
+   ]
+  },
+  {
+   "d": "-61XDO:1:4",
+   "cables": [
+    "6151"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 1.4",
+   "x": 703.95,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-BH_01_ZV:A1 -> E8 (zona hidraulica / empalmes X1, se cablea en gabinete)",
+   "otro_extremo_estacion": "E8",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    172
+   ]
+  },
+  {
+   "d": "-61XDO:2:1",
+   "cables": [
+    "6142"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 2.1",
+   "x": 709.73,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61KR2:14 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    179
+   ]
+  },
+  {
+   "d": "-61XDO:2:2",
+   "cables": [
+    "6172"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 2.2",
+   "x": 709.73,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61XDIO:2 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    169
+   ]
+  },
+  {
+   "d": "-61XDO:2:4",
+   "cables": [
+    "6152"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 2.4",
+   "x": 709.73,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-SP_1:x1 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    178
+   ]
+  },
+  {
+   "d": "-61XDO:3:1",
+   "cables": [
+    "6143"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 3.1",
+   "x": 715.5,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61KR3:14 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    182
+   ]
+  },
+  {
+   "d": "-61XDO:3:2",
+   "cables": [
+    "6173"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 3.2",
+   "x": 715.5,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61XDIO:3 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    168
+   ]
+  },
+  {
+   "d": "-61XDO:3:4",
+   "cables": [
+    "6153"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 3.4",
+   "x": 715.5,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 3 contada desde el tope de la etiqueta (numero \"3\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-SP_2:x1 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    181
+   ]
+  },
+  {
+   "d": "-61XDO:4:1",
+   "cables": [
+    "6144"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 4.1",
+   "x": 721.28,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61KR4:14 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    185
+   ]
+  },
+  {
+   "d": "-61XDO:4:2",
+   "cables": [
+    "6174"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 4.2",
+   "x": 721.28,
+   "y": 530.31,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 2 = boca ARRIBA interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-61XDIO:4 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    167
+   ]
+  },
+  {
+   "d": "-61XDO:4:4",
+   "cables": [
+    "6154"
+   ],
+   "tag": "61XDO",
+   "texto_taller": "61XDO 4.4",
+   "x": 721.28,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x4 (PXC.3212934), sin puentes. Pieza 4 contada desde el tope de la etiqueta (numero \"4\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-SP_3:x1 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    184
+   ]
+  },
+  {
+   "d": "-61X0V:1:1",
+   "cables": [
+    "1268"
+   ],
+   "tag": "61X0V",
+   "texto_taller": "61X0V 1.1",
+   "x": 735.35,
+   "y": 541.93,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934), puente FBS 2-8 BU. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 1 = boca ARRIBA extremo (la boca mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-12XP:2:4 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    44
+   ]
+  },
+  {
+   "d": "-61X0V:1:4",
+   "cables": [
+    "6162"
+   ],
+   "tag": "61X0V",
+   "texto_taller": "61X0V 1.4",
+   "x": 735.35,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934), puente FBS 2-8 BU. Pieza 1 contada desde el tope de la etiqueta (numero \"1\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-SP_1:x2 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    174
+   ]
+  },
+  {
+   "d": "-61X0V:2:3",
+   "cables": [
+    "6163"
+   ],
+   "tag": "61X0V",
+   "texto_taller": "61X0V 2.3",
+   "x": 741.12,
+   "y": 499.43,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934), puente FBS 2-8 BU. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 3 = boca ABAJO interior (la mas cerca del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-SP_2:x2 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    175
+   ]
+  },
+  {
+   "d": "-61X0V:2:4",
+   "cables": [
+    "6164"
+   ],
+   "tag": "61X0V",
+   "texto_taller": "61X0V 2.4",
+   "x": 741.12,
+   "y": 487.81,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO x2 (PXC.3212934), puente FBS 2-8 BU. Pieza 2 contada desde el tope de la etiqueta (numero \"2\" dibujado debajo), punto EPLAN 4 = boca ABAJO extremo (la mas lejos del riel). Centro del contorno redondeado de la entrada push-in (page_strokes: la boca mide 5,0 x 5,7 pt). Regla N.p del taller: 1 y 2 arriba (1 extremo), 3 y 4 abajo (4 extremo); el simbolo EPLAN del esquema dibuja los puntos 1-2-3-4 en ese orden.",
+   "otro_extremo": "-SP_3:x2 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    176
+   ]
+  },
+  {
+   "d": "-61XDIO:1",
+   "cables": [
+    "6171"
+   ],
+   "tag": "61XDIO",
+   "texto_taller": "61XDIO 1 ARRIBA",
+   "x": 754.2,
+   "y": 528.88,
+   "r": 1.6,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 1 (numero \"1\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. CATODO: boca de ARRIBA. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:1 en los dos extremos): el lado sale del cable.",
+   "otro_extremo": "-61XDO:1:2 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    170
+   ]
+  },
+  {
+   "d": "-61XDIO:1",
+   "cables": [
+    "1264"
+   ],
+   "tag": "61XDIO",
+   "texto_taller": "61XDIO 1 ABAJO",
+   "x": 754.2,
+   "y": 502.45,
+   "r": 1.6,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 1 (numero \"1\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. ANODO (lado del puente): boca de ABAJO. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:1 en los dos extremos): el lado sale del cable.",
+   "otro_extremo": "-12XP:2:3 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    45
+   ]
+  },
+  {
+   "d": "-61XDIO:2",
+   "cables": [
+    "6172"
+   ],
+   "tag": "61XDIO",
+   "texto_taller": "61XDIO 2 ARRIBA",
+   "x": 757.85,
+   "y": 528.88,
+   "r": 1.6,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 2 (numero \"2\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. CATODO: boca de ARRIBA. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:2 en los dos extremos): el lado sale del cable.",
+   "otro_extremo": "-61XDO:2:2 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    169
+   ]
+  },
+  {
+   "d": "-61XDIO:3",
+   "cables": [
+    "6173"
+   ],
+   "tag": "61XDIO",
+   "texto_taller": "61XDIO 3 ARRIBA",
+   "x": 761.5,
+   "y": 528.88,
+   "r": 1.6,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 3 (numero \"3\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. CATODO: boca de ARRIBA. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:3 en los dos extremos): el lado sale del cable.",
+   "otro_extremo": "-61XDO:3:2 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    168
+   ]
+  },
+  {
+   "d": "-61XDIO:4",
+   "cables": [
+    "6174"
+   ],
+   "tag": "61XDIO",
+   "texto_taller": "61XDIO 4 ARRIBA",
+   "x": 765.14,
+   "y": 528.88,
+   "r": 1.6,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 2,5-DIO/L-R (PXC.3210224), pieza 4 (numero \"4\" dibujado debajo), una boca push-in por extremo; centro del octogono con U. CATODO: boca de ARRIBA. Hoja 61: anodo a la izquierda del diodo (1264 entra en el 1 y el puente FBS 4-5 BU une los anodos de 1 a 4), catodo a la derecha (6171-6174 a 61XDO N.2). En la pag. 8 (y en la vista 3D de la hoja de hileras) el puente esta dibujado en la mitad de ABAJO: el anodo esta fisicamente ABAJO y el catodo ARRIBA (igual que 62XDIO del 75286 y 61XDIO del 66817, confirmados con fotos). EPLAN no da punto (-61XDIO:4 en los dos extremos): el lado sale del cable.",
+   "otro_extremo": "-61XDO:4:2 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    167
+   ]
+  },
+  {
+   "d": "-15AIB1:1",
+   "cables": [
+    "1370"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 1",
+   "x": 825.56,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero, NO dibujado: queda detras del [3 4 5] con el tornillo a la misma altura (vista lateral del manual; regla del 75286/66817 y catalogo GS8536-EX); 2 bornes a paso 5,0 mm centrados en la carcasa: x = tornillo del medio - 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1370 en este borne (cadena de alimentacion de las barreras, filas 60, 61 de la lista): puntera doble.",
+   "n_conductores": 2,
+   "otro_extremo": "-13X24V:2:4 -> bandeja principal; -15DIB1:1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    60,
+    61
+   ]
+  },
+  {
+   "d": "-15AIB1:2",
+   "cables": [
+    "1361"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 2",
+   "x": 829.1,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, NO dibujado: detras del [3 4 5], misma altura; x = tornillo del medio + 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1361 en este borne (cadena de alimentacion de las barreras, filas 72, 73 de la lista): puntera doble.",
+   "n_conductores": 2,
+   "otro_extremo": "-13X24V:4:1 -> bandeja principal; -15DIB1:2 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    72,
+    73
+   ]
+  },
+  {
+   "d": "-15AIB1:3",
+   "cables": [
+    "2139"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 3",
+   "x": 823.79,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe [3 4 5] (OUT1), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:39 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    82
+   ]
+  },
+  {
+   "d": "-15AIB1:4",
+   "cables": [
+    "2140"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 4",
+   "x": 827.33,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe [3 4 5] (OUT1), fila exterior de arriba, tornillo del medio. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:40 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    83
+   ]
+  },
+  {
+   "d": "-15AIB1:6",
+   "cables": [
+    "2105"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 6",
+   "x": 823.79,
+   "y": 544.8,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe delantero [6 7 8] (OUT2), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:5 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    84
+   ]
+  },
+  {
+   "d": "-15AIB1:7",
+   "cables": [
+    "2106"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 7",
+   "x": 827.33,
+   "y": 544.8,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe [6 7 8] (OUT2), fila interior de arriba, tornillo del medio. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:6 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    86
+   ]
+  },
+  {
+   "d": "-15AIB1:9",
+   "cables": [
+    "3202"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 9",
+   "x": 823.79,
+   "y": 486.23,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe IS [9 10 11] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-32XEX:1:3 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    121
+   ]
+  },
+  {
+   "d": "-15AIB1:10",
+   "cables": [
+    "3203"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 10",
+   "x": 827.33,
+   "y": 486.23,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe IS [9 10 11] (IN1), fila interior de abajo, tornillo del medio. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-32XEX:2:4 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    123
+   ]
+  },
+  {
+   "d": "-15AIB1:12",
+   "cables": [
+    "3205"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 12",
+   "x": 823.79,
+   "y": 479.86,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe IS [12 13 14] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-32XEX:3:3 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    125
+   ]
+  },
+  {
+   "d": "-15AIB1:13",
+   "cables": [
+    "3206"
+   ],
+   "tag": "15AIB1",
+   "texto_taller": "15AIB1 13",
+   "x": 827.33,
+   "y": 479.86,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe IS [12 13 14] (IN2), fila exterior de abajo, tornillo del medio. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-32XEX:4:4 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    126
+   ]
+  },
+  {
+   "d": "-15DIB1:1",
+   "cables": [
+    "1370"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 1",
+   "x": 836.26,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1370 en este borne (cadena de alimentacion de las barreras, filas 61, 62 de la lista): puntera doble.",
+   "n_conductores": 2,
+   "otro_extremo": "-15AIB1:1 -> bandeja principal; -15DIB2:1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    61,
+    62
+   ]
+  },
+  {
+   "d": "-15DIB1:2",
+   "cables": [
+    "1361"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 2",
+   "x": 839.8,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1361 en este borne (cadena de alimentacion de las barreras, filas 73, 74 de la lista): puntera doble.",
+   "n_conductores": 2,
+   "otro_extremo": "-15AIB1:2 -> bandeja principal; -15DIB2:2 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    73,
+    74
+   ]
+  },
+  {
+   "d": "-15DIB1:3",
+   "cables": [
+    "2118"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 3",
+   "x": 836.26,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2, rele), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:18 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    95
+   ]
+  },
+  {
+   "d": "-15DIB1:4",
+   "cables": [
+    "2119"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 4",
+   "x": 839.8,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2), fila exterior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:19 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    96
+   ]
+  },
+  {
+   "d": "-15DIB1:5",
+   "cables": [
+    "2116"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 5",
+   "x": 836.26,
+   "y": 544.8,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe delantero [5 6] (OUT1, rele), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:16 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    92
+   ]
+  },
+  {
+   "d": "-15DIB1:6",
+   "cables": [
+    "2117"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 6",
+   "x": 839.8,
+   "y": 544.8,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [5 6] (OUT1), fila interior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:17 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    94
+   ]
+  },
+  {
+   "d": "-15DIB1:7",
+   "cables": [
+    "4116"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 7",
+   "x": 836.26,
+   "y": 486.23,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-41XEX:1:3 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    131
+   ]
+  },
+  {
+   "d": "-15DIB1:8",
+   "cables": [
+    "4117"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 8",
+   "x": 839.8,
+   "y": 486.23,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-41XEX:2:4 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    132
+   ]
+  },
+  {
+   "d": "-15DIB1:9",
+   "cables": [
+    "4118"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 9",
+   "x": 836.26,
+   "y": 479.86,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-41XEX:3:3 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    135
+   ]
+  },
+  {
+   "d": "-15DIB1:10",
+   "cables": [
+    "4119"
+   ],
+   "tag": "15DIB1",
+   "texto_taller": "15DIB1 10",
+   "x": 839.8,
+   "y": 479.86,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-41XEX:4:4 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    136
+   ]
+  },
+  {
+   "d": "-15DIB2:1",
+   "cables": [
+    "1370"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 1",
+   "x": 845.12,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1370 en este borne (cadena de alimentacion de las barreras, filas 62, 63 de la lista): puntera doble.",
+   "n_conductores": 2,
+   "otro_extremo": "-15DIB1:1 -> bandeja principal; -15DIB3:1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    62,
+    63
+   ]
+  },
+  {
+   "d": "-15DIB2:2",
+   "cables": [
+    "1361"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 2",
+   "x": 848.66,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores del mismo cable 1361 en este borne (cadena de alimentacion de las barreras, filas 74, 75 de la lista): puntera doble.",
+   "n_conductores": 2,
+   "otro_extremo": "-15DIB1:2 -> bandeja principal; -15DIB3:2 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    74,
+    75
+   ]
+  },
+  {
+   "d": "-15DIB2:3",
+   "cables": [
+    "2122"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 3",
+   "x": 845.12,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2, rele), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:22 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    99
+   ]
+  },
+  {
+   "d": "-15DIB2:4",
+   "cables": [
+    "2123"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 4",
+   "x": 848.66,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2), fila exterior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:23 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    101
+   ]
+  },
+  {
+   "d": "-15DIB2:5",
+   "cables": [
+    "2120"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 5",
+   "x": 845.12,
+   "y": 544.8,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe delantero [5 6] (OUT1, rele), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:20 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    97
+   ]
+  },
+  {
+   "d": "-15DIB2:6",
+   "cables": [
+    "2121"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 6",
+   "x": 848.66,
+   "y": 544.8,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [5 6] (OUT1), fila interior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-21PCB01:21 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    98
+   ]
+  },
+  {
+   "d": "-15DIB2:7",
+   "cables": [
+    "4120"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 7",
+   "x": 845.12,
+   "y": 486.23,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-41XEX:5:3 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    139
+   ]
+  },
+  {
+   "d": "-15DIB2:8",
+   "cables": [
+    "4121"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 8",
+   "x": 848.66,
+   "y": 486.23,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-41XEX:6:4 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    140
+   ]
+  },
+  {
+   "d": "-15DIB2:9",
+   "cables": [
+    "4122"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 9",
+   "x": 845.12,
+   "y": 479.86,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-41XEX:7:3 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    143
+   ]
+  },
+  {
+   "d": "-15DIB2:10",
+   "cables": [
+    "4123"
+   ],
+   "tag": "15DIB2",
+   "texto_taller": "15DIB2 10",
+   "x": 848.66,
+   "y": 479.86,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda.",
+   "otro_extremo": "-41XEX:8:4 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    144
+   ]
+  },
+  {
+   "d": "-15DIB3:1",
+   "cables": [
+    "1370"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 1",
+   "x": 853.98,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-15DIB2:1 -> bandeja principal",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    63
+   ]
+  },
+  {
+   "d": "-15DIB3:2",
+   "cables": [
+    "1361"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 2",
+   "x": 857.52,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-15DIB2:2 -> bandeja principal",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "filas_lista": [
+    75
+   ]
+  },
+  {
+   "d": "-15DIB3:3",
+   "cables": [
+    "2126"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 3",
+   "x": 853.98,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2, rele), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-21PCB01:26 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    107
+   ]
+  },
+  {
+   "d": "-15DIB3:4",
+   "cables": [
+    "2127"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 4",
+   "x": 857.52,
+   "y": 551.17,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2), fila exterior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-21PCB01:27 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    108
+   ]
+  },
+  {
+   "d": "-15DIB3:5",
+   "cables": [
+    "2124"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 5",
+   "x": 853.98,
+   "y": 544.8,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe delantero [5 6] (OUT1, rele), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-21PCB01:24 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    103
+   ]
+  },
+  {
+   "d": "-15DIB3:6",
+   "cables": [
+    "2125"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 6",
+   "x": 857.52,
+   "y": 544.8,
+   "r": 1.4,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [5 6] (OUT1), fila interior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-21PCB01:25 -> LI (fuera de la bandeja: puerta/campo)",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    105
+   ]
+  },
+  {
+   "d": "-15DIB3:7",
+   "cables": [
+    "4124"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 7",
+   "x": 853.98,
+   "y": 486.23,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-41XEX:9:3 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    147
+   ]
+  },
+  {
+   "d": "-15DIB3:8",
+   "cables": [
+    "4125"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 8",
+   "x": 857.52,
+   "y": 486.23,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-41XEX:10:4 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    148
+   ]
+  },
+  {
+   "d": "-15DIB3:9",
+   "cables": [
+    "4126"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 9",
+   "x": 853.98,
+   "y": 479.86,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-41XEX:11:3 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    151
+   ]
+  },
+  {
+   "d": "-15DIB3:10",
+   "cables": [
+    "4127"
+   ],
+   "tag": "15DIB3",
+   "texto_taller": "15DIB3 10",
+   "x": 857.52,
+   "y": 479.86,
+   "r": 1.4,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera (bornes cuchilla abiertos); el punto es el de la barrera dibujada en la pag. 8.",
+   "otro_extremo": "-41XEX:12:4 -> bandeja principal",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "filas_lista": [
+    152
+   ]
+  }
+ ],
+ "dudas": [
+  "15AIB1 1 y 2 (1370 y 1361, cadena de alimentacion de las barreras): el enchufe de alimentacion [1 2] de la GS8536-EX NO esta dibujado en la pag. 8 (el bloque EPLAN dibuja solo las filas [3 4 5] y [6 7 8] arriba). Lo ubique detras del [3 4 5], a la misma altura que su tornillo (regla de la vista lateral del manual, usada en el 75286 y el 66817), con 2 bornes a paso 5,0 mm centrados en la carcasa: x = 825.56 / 829.10. Confianza media; confirmar con la barrera real.",
+  "15DIB1, 15DIB2, 15DIB3 1 y 2: en la GS8512-EX.22 el enchufe [1 2] queda detras del [3 4], asi que de frente el 1 cae en el mismo punto que el 3 y el 2 en el mismo que el 4 (no es boca compartida: son dos enchufes). Confianza media, igual que en la referencia del 75286.",
+  "Cadena 1370 / 1361: en 15AIB1:1, 15DIB1:1 y 15DIB2:1 (y en los :2) entran 2 conductores del mismo cable (llega uno y sale otro hacia la barrera siguiente): puntera doble de 2 x 1 mm2 en un tornillo M3 (admite 0,5-2,5 mm2). En 15DIB3:1 y :2 termina la cadena (1 conductor). Cada (designacion, cable) es un solo punto con n_conductores = 2.",
+  "15DIB3: las hojas 15 y 41 dicen 'se deja previsto el cableado SIN la barrera, se reemplaza por bornes tipo cuchilla abiertos', pero la pag. 8 dibuja la barrera y la lista de conexiones lleva 1370, 1361, 2124-2127 y 4124-4127 a 15DIB3:x. Mapee los 10 puntos en la barrera dibujada (confianza media). Si se monta con bornes cuchilla, hay que saber su tag, su ubicacion y su numeracion para rehacer esos puntos.",
+  "61XDIO: EPLAN no da el punto (-61XDIO:N en los dos extremos de cada cable). El lado sale del cable: 1264 (desde 12XP 2.3, 0 V) entra al ANODO, que es el lado del puente FBS 4-5 BU = fisicamente ABAJO (el puente esta dibujado en la mitad de abajo en la pag. 8 y en la vista 3D de la hoja de hileras); 6171-6174 salen del CATODO = ARRIBA hacia 61XDO N.2. En la hoja 61 el anodo esta a la izquierda (el funcional diria 'ARRIBA'): el texto lleva el lado fisico ('61XDIO 1 ABAJO' para 1264, '61XDIO 1 ARRIBA' para 6171).",
+  "Puntas con el otro extremo en E8 (zona hidraulica / empalmes X1, se cablean en el gabinete): 1339 en 13X24V 2.2 y 1340 en 13X24V 4.3 (van a los empalmes X1 del cable de LS001A) y 6151 en 61XDO 1.4 (va a BH_01_ZV A1). Estan mapeadas como puntas de esta zona, con otro_extremo_estacion = 'E8'.",
+  "13X24V tiene una tapa D-PT 6-QUATTRO entre las piezas 2 y 3 (hoja de hileras pag. 34: 1, FBS 2-8 rojo, 2, tapa, 3, FBS 2-8 BU, 4). Por eso las piezas 3 y 4 quedan 1,55 pt mas a la derecha y los 'xc' repartidos parejos de bandejas.json (671.21 / 677.38 / 683.54 / 689.70) difieren hasta 0,6 pt de las bocas reales (671.00 / 676.77 / 684.11 / 689.88). Usar las x de este archivo.",
+  "Bocas libres (sin cable en la lista): 12XP pieza 3 completa (puenteada con FBS 3-8 BU a 1 y 2), 12XP 2.1 y 2.2; 13X24V 1.2, 1.3, 3.2 y 3.3; 61X0V 1.2, 1.3, 2.1 y 2.2; 15AIB1 5, 8, 11 y 14. No es un error: son bornes de reserva o puenteados.",
+  "Regla N.p de los QUATTRO: el punto EPLAN p se toma como la boca de la regla del taller (1 arriba extremo, 2 arriba interior, 3 abajo interior, 4 abajo extremo). El bloque es simetrico; el simbolo del esquema (hojas 12, 13 y 61) dibuja los puntos 1-2-3-4 en ese orden y la lista de conexiones coincide. Si EPLAN Pro Panel tiene otra posicion 3D de los puntos, la hoja 8 no la muestra."
+ ],
+ "geometria": {
+  "QUATTRO_y_bocas": {
+   "1 ARRIBA extremo": 541.93,
+   "2 ARRIBA interior": 530.31,
+   "3 ABAJO interior": 499.43,
+   "4 ABAJO extremo": 487.81,
+   "r": 2.5
+  },
+  "QUATTRO_x_piezas": {
+   "12XP": [
+    625.54,
+    631.31,
+    637.09
+   ],
+   "13X12V": [
+    651.16,
+    656.93
+   ],
+   "13X24V": [
+    671.0,
+    676.77,
+    684.11,
+    689.88
+   ],
+   "61XDO": [
+    703.95,
+    709.73,
+    715.5,
+    721.28
+   ],
+   "61X0V": [
+    735.35,
+    741.12
+   ]
+  },
+  "DIO": {
+   "x": [
+    754.2,
+    757.85,
+    761.5,
+    765.14
+   ],
+   "y_arriba_catodo": 528.88,
+   "y_abajo_anodo": 502.45,
+   "r": 1.6
+  },
+  "barreras_tornillos": {
+   "x": {
+    "15AIB1": [
+     823.79,
+     827.33,
+     830.87
+    ],
+    "15DIB1": [
+     836.26,
+     839.8
+    ],
+    "15DIB2": [
+     845.12,
+     848.66
+    ],
+    "15DIB3": [
+     853.98,
+     857.52
+    ]
+   },
+   "y": {
+    "arriba_exterior": 551.17,
+    "arriba_interior": 544.8,
+    "abajo_interior": 486.23,
+    "abajo_exterior": 479.86
+   },
+   "r": 1.4
+  },
+  "metodo": "page_strokes de la copia sin proteccion (76884_proc.pdf, pagina indice 7). QUATTRO: tapas superior e inferior (segmentos horizontales de 0,57 pt) del contorno redondeado de cada boca, pareadas a 5,67 pt. DIO: barra de la U (2,13 pt) para x y caja del octogono para y. Barreras: componentes conexos de segmentos con caja de 2,8 x 2,8 pt (aro del tornillo)."
+ }
+}

@@ -1,0 +1,2652 @@
+{
+ "descripcion": "Puntos de conexion del 76884 (ZPL-76884 Rev 1, mSafe2+ PAE, EPLAN): riel 3 de la bandeja principal (15XR, 42XC, 81XCM, 32XEX, 41XEX) y bandeja lateral izquierda (12PS1, 12XPS, 11SK1, 11Q1, 11Q2, 11XPVAC, 11X220V). x, y = centro de la boca push-in o del tornillo en pt de la pagina PDF 8 (origen abajo-izq); r = radio de la boca. Un punto por (designacion EPLAN, cable). lado = lado fisico respecto del riel. Fuente de las puntas: conexiones.json (lista de conexiones pags 47-50).",
+ "pagina_pdf": 8,
+ "escala_mm_por_pt": 1.41111,
+ "puntos": [
+  {
+   "d": "-11XPVAC:1:1",
+   "cables": [
+    "1101"
+   ],
+   "tag": "11XPVAC",
+   "texto_taller": "11XPVAC 1 ARRIBA",
+   "x": 354.32,
+   "y": 398.6,
+   "r": 2.58,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 1 de 11XPVAC (numero 1). Punto :1 = boca de arriba (octogono de 5.2 x 5.5 pt, centro del envolvente). Hoja 11: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11MS1 (pin propuesto 11MS1:1/L1)"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    1
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11XPVAC:2:1",
+   "cables": [
+    "1102"
+   ],
+   "tag": "11XPVAC",
+   "texto_taller": "11XPVAC 2 ARRIBA",
+   "x": 360.1,
+   "y": 398.6,
+   "r": 2.58,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 2 de 11XPVAC (numero 2). Punto :1 = boca de arriba (octogono de 5.2 x 5.5 pt, centro del envolvente). Hoja 11: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11MS1 (pin propuesto 11MS1:3/L2)"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    2
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11XPVAC:3:4",
+   "cables": [
+    "sin numero Verde/amarillo 2,5"
+   ],
+   "tag": "11XPVAC",
+   "texto_taller": "11XPVAC 3.4",
+   "x": 366.41,
+   "y": 363.61,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 2,5-QUATTRO-PE (verde) (verde, PE), pieza 3 de 11XPVAC (numero 3). Punto 4 = ABAJO extremo (convencion N.p del taller: 1 y 2 arriba, 1 el extremo; 3 y 4 abajo, 4 el extremo). Aro r 1.7 pt. Hoja 11: simbolo horizontal, el 4 es el de la derecha (= ABAJO por la regla horizontal) y de ahi sale la tierra al 11SK1.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Verde/amarillo",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11SK1:PE"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    3
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "tierra"
+  },
+  {
+   "d": "-11SK1:PE",
+   "cables": [
+    "sin numero Verde/amarillo 2,5"
+   ],
+   "tag": "11SK1",
+   "texto_taller": "11SK1 PE ABAJO",
+   "x": 215.02,
+   "y": 362.5,
+   "r": 1.62,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "zona": "bandeja lateral izquierda",
+   "color": "Verde/amarillo",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11XPVAC:3:4"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    3
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "tierra"
+  },
+  {
+   "d": "-11SK1:L",
+   "cables": [
+    "1181"
+   ],
+   "tag": "11SK1",
+   "texto_taller": "11SK1 L ABAJO",
+   "x": 208.29,
+   "y": 362.5,
+   "r": 1.62,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11X220V:1:4"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    4
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11X220V:1:4",
+   "cables": [
+    "1181"
+   ],
+   "tag": "11X220V",
+   "texto_taller": "11X220V 1.4",
+   "x": 379.36,
+   "y": 356.2,
+   "r": 2.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 1 de 11X220V (numero 1). Punto 4 = ABAJO extremo (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11SK1:L"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    4
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11Q2:2",
+   "cables": [
+    "1158"
+   ],
+   "tag": "11Q2",
+   "texto_taller": "11Q2 F ABAJO",
+   "x": 262.53,
+   "y": 358.56,
+   "r": 2.21,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Termomagnetica Schneider EZ9F34210 2P 10 A. Borne 2 = tornillo inferior del polo izquierdo (hexagono con cruz, r 2.21). Marcado Schneider 2P: 1-2 polo izquierdo, 3-4 polo derecho, impares arriba. Hoja 11: 1 marron (fase) y 3 celeste (neutro).",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11X220V:1:3"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    5
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11X220V:1:3",
+   "cables": [
+    "1158"
+   ],
+   "tag": "11X220V",
+   "texto_taller": "11X220V 1.3",
+   "x": 379.36,
+   "y": 367.83,
+   "r": 2.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 1 de 11X220V (numero 1). Punto 3 = ABAJO interior (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11Q2:2"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    5
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11Q1:2",
+   "cables": [
+    "1156"
+   ],
+   "tag": "11Q1",
+   "texto_taller": "11Q1 F ABAJO",
+   "x": 249.88,
+   "y": 358.69,
+   "r": 2.55,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Diferencial 2P (lista: EZ9F36225 \"ACTI9 IID 2P 25A 30MA AC RCCB\"). Tornillo inferior del polo derecho (circulo r 2.55 con cruz). Polo de neutro a la IZQUIERDA: ficha Schneider \"neutral position: left\" tanto del Easy9 EZ9R36225 como del Acti9 iID A9R11225, y 75286 (foto, N impresa a la izquierda). OJO: el esquema (hoja 11) dibuja 1 a la izquierda y N a la derecha; el lado fisico manda. EPLAN: 1/2 = fase, N/N' = neutro.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11Q2:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    6
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11Q2:1",
+   "cables": [
+    "1156"
+   ],
+   "tag": "11Q2",
+   "texto_taller": "11Q2 F ARRIBA",
+   "x": 262.53,
+   "y": 408.17,
+   "r": 2.21,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Termomagnetica Schneider EZ9F34210 2P 10 A. Borne 1 = tornillo superior del polo izquierdo (hexagono con cruz, r 2.21). Marcado Schneider 2P: 1-2 polo izquierdo, 3-4 polo derecho, impares arriba. Hoja 11: 1 marron (fase) y 3 celeste (neutro).",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11Q1:2"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    6
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11Q1:1",
+   "cables": [
+    "1154"
+   ],
+   "tag": "11Q1",
+   "texto_taller": "11Q1 F ARRIBA",
+   "x": 249.88,
+   "y": 408.15,
+   "r": 2.55,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Diferencial 2P (lista: EZ9F36225 \"ACTI9 IID 2P 25A 30MA AC RCCB\"). Tornillo superior del polo derecho (circulo r 2.55 con cruz). Polo de neutro a la IZQUIERDA: ficha Schneider \"neutral position: left\" tanto del Easy9 EZ9R36225 como del Acti9 iID A9R11225, y 75286 (foto, N impresa a la izquierda). OJO: el esquema (hoja 11) dibuja 1 a la izquierda y N a la derecha; el lado fisico manda. EPLAN: 1/2 = fase, N/N' = neutro.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11MS1 (pin propuesto 11MS1:2/T1)"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    7
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11Q1:N'",
+   "cables": [
+    "1157"
+   ],
+   "tag": "11Q1",
+   "texto_taller": "11Q1 N ABAJO",
+   "x": 237.26,
+   "y": 358.69,
+   "r": 2.55,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Diferencial 2P (lista: EZ9F36225 \"ACTI9 IID 2P 25A 30MA AC RCCB\"). Tornillo inferior del polo izquierdo (circulo r 2.55 con cruz). Polo de neutro a la IZQUIERDA: ficha Schneider \"neutral position: left\" tanto del Easy9 EZ9R36225 como del Acti9 iID A9R11225, y 75286 (foto, N impresa a la izquierda). OJO: el esquema (hoja 11) dibuja 1 a la izquierda y N a la derecha; el lado fisico manda. EPLAN: 1/2 = fase, N/N' = neutro.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11Q2:3"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    8
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11Q2:3",
+   "cables": [
+    "1157"
+   ],
+   "tag": "11Q2",
+   "texto_taller": "11Q2 N ARRIBA",
+   "x": 275.07,
+   "y": 408.17,
+   "r": 2.21,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Termomagnetica Schneider EZ9F34210 2P 10 A. Borne 3 = tornillo superior del polo derecho (hexagono con cruz, r 2.21). Marcado Schneider 2P: 1-2 polo izquierdo, 3-4 polo derecho, impares arriba. Hoja 11: 1 marron (fase) y 3 celeste (neutro).",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11Q1:N'"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    8
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11Q1:N",
+   "cables": [
+    "1155"
+   ],
+   "tag": "11Q1",
+   "texto_taller": "11Q1 N ARRIBA",
+   "x": 237.26,
+   "y": 408.15,
+   "r": 2.55,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "Diferencial 2P (lista: EZ9F36225 \"ACTI9 IID 2P 25A 30MA AC RCCB\"). Tornillo superior del polo izquierdo (circulo r 2.55 con cruz). Polo de neutro a la IZQUIERDA: ficha Schneider \"neutral position: left\" tanto del Easy9 EZ9R36225 como del Acti9 iID A9R11225, y 75286 (foto, N impresa a la izquierda). OJO: el esquema (hoja 11) dibuja 1 a la izquierda y N a la derecha; el lado fisico manda. EPLAN: 1/2 = fase, N/N' = neutro.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11MS1 (pin propuesto 11MS1:4/T2)"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    9
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11SK1:N",
+   "cables": [
+    "1182"
+   ],
+   "tag": "11SK1",
+   "texto_taller": "11SK1 N ABAJO",
+   "x": 221.75,
+   "y": 362.5,
+   "r": 1.62,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11X220V:2:4"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    10
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11X220V:2:4",
+   "cables": [
+    "1182"
+   ],
+   "tag": "11X220V",
+   "texto_taller": "11X220V 2.4",
+   "x": 385.13,
+   "y": 356.2,
+   "r": 2.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 2 de 11X220V (numero 2). Punto 4 = ABAJO extremo (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11SK1:N"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    10
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11Q2:4",
+   "cables": [
+    "1159"
+   ],
+   "tag": "11Q2",
+   "texto_taller": "11Q2 N ABAJO",
+   "x": 275.07,
+   "y": 358.56,
+   "r": 2.21,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "Termomagnetica Schneider EZ9F34210 2P 10 A. Borne 4 = tornillo inferior del polo derecho (hexagono con cruz, r 2.21). Marcado Schneider 2P: 1-2 polo izquierdo, 3-4 polo derecho, impares arriba. Hoja 11: 1 marron (fase) y 3 celeste (neutro).",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11X220V:2:3"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    11
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11X220V:2:3",
+   "cables": [
+    "1159"
+   ],
+   "tag": "11X220V",
+   "texto_taller": "11X220V 2.3",
+   "x": 385.13,
+   "y": 367.83,
+   "r": 2.4,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 2 de 11X220V (numero 2). Punto 3 = ABAJO interior (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11Q2:4"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    11
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11X220V:2:2",
+   "cables": [
+    "1184"
+   ],
+   "tag": "11X220V",
+   "texto_taller": "11X220V 2.2",
+   "x": 385.13,
+   "y": 398.71,
+   "r": 2.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 2 de 11X220V (numero 2). Punto 2 = ARRIBA interior (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11PS2:TB1:2"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    12
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11X220V:2:1",
+   "cables": [
+    "1186"
+   ],
+   "tag": "11X220V",
+   "texto_taller": "11X220V 2.1",
+   "x": 385.13,
+   "y": 410.33,
+   "r": 2.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 2 de 11X220V (numero 2). Punto 1 = ARRIBA extremo (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Celeste",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11PS1:TB1:2"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    13
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11X220V:1:2",
+   "cables": [
+    "1183"
+   ],
+   "tag": "11X220V",
+   "texto_taller": "11X220V 1.2",
+   "x": 379.36,
+   "y": 398.71,
+   "r": 2.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 1 de 11X220V (numero 1). Punto 2 = ARRIBA interior (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11PS2:TB1:3"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    14
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-11X220V:1:1",
+   "cables": [
+    "1185"
+   ],
+   "tag": "11X220V",
+   "texto_taller": "11X220V 1.1",
+   "x": 379.36,
+   "y": 410.33,
+   "r": 2.4,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6-QUATTRO (4 bocas push-in, 2 por extremo), pieza 1 de 11X220V (numero 1). Punto 1 = ARRIBA extremo (convencion N.p; en la hoja 11 el simbolo va 1..4 de arriba hacia abajo). Contorno de 5.0 x 5.7 pt, centro del envolvente.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Marrón",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11PS1:TB1:3"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    15
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:4:2",
+   "cables": [
+    "1161"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 4 ABAJO",
+   "x": 247.97,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 4 de 12XPS (numero 4). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11PS1:TB2:1"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    16
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:3:2",
+   "cables": [
+    "1162"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 3 ABAJO",
+   "x": 242.2,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 3 de 12XPS (numero 3). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11F1:2"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    18
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-15XR:2:1",
+   "cables": [
+    "1171"
+   ],
+   "tag": "15XR",
+   "texto_taller": "15XR 2 ARRIBA",
+   "x": 689.95,
+   "y": 402.41,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 1 de 15XR (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 15 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Negro",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11PS2:TB2:1"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    20
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-15XR:1:2",
+   "cables": [
+    "1172"
+   ],
+   "tag": "15XR",
+   "texto_taller": "15XR 1 ARRIBA",
+   "x": 689.95,
+   "y": 413.66,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 1 de 15XR (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 15 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Rojo",
+   "seccion_mm2": 2.5,
+   "otro_extremo": [
+    "-11F2:2"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    22
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:6:2",
+   "cables": [
+    "1206"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 6 ABAJO",
+   "x": 259.52,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 6 de 12XPS (numero 6). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12PB1:-"
+   ],
+   "otro_extremo_donde": "gabinete (bateria en el piso del gabinete, fuera de la bandeja)",
+   "filas_lista": [
+    29
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12PS1:+Pan",
+   "cables": [
+    "1221"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 +Pan",
+   "x": 246.32,
+   "y": 578.41,
+   "r": 1.8,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12XPS:3:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    31
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:3:1",
+   "cables": [
+    "1221"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 3 ARRIBA",
+   "x": 242.2,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 3 de 12XPS (numero 3). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12PS1:+Pan"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    31
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12PS1:-Pan",
+   "cables": [
+    "1222"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 -Pan",
+   "x": 253.32,
+   "y": 578.41,
+   "r": 1.8,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12XPS:4:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    32
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:4:1",
+   "cables": [
+    "1222"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 4 ARRIBA",
+   "x": 247.97,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 4 de 12XPS (numero 4). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12PS1:-Pan"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    32
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:5:2",
+   "cables": [
+    "1201"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 5 ABAJO",
+   "x": 253.75,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 5 de 12XPS (numero 5). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12F3:1"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    33
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12PS1:+Bat",
+   "cables": [
+    "1223"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 +Bat",
+   "x": 260.32,
+   "y": 578.41,
+   "r": 1.8,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12XPS:5:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    34
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:5:1",
+   "cables": [
+    "1223"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 5 ARRIBA",
+   "x": 253.75,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 5 de 12XPS (numero 5). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12PS1:+Bat"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    34
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12PS1:-Bat",
+   "cables": [
+    "1224"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 -Bat",
+   "x": 267.32,
+   "y": 578.41,
+   "r": 1.8,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12XPS:6:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    35
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:6:1",
+   "cables": [
+    "1224"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 6 ARRIBA",
+   "x": 259.52,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 6 de 12XPS (numero 6). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12PS1:-Bat"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    35
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:7:2",
+   "cables": [
+    "1232"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 7 ABAJO",
+   "x": 265.3,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 7 de 12XPS (numero 7). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. 12XPS 7 y 8 llevan el puente enchufable FBS 2-8 (rojo) en el canal central: no ocupa boca.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-13F5:1"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    36
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:8:2",
+   "cables": [
+    "1230"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 8 ABAJO",
+   "x": 271.07,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 8 de 12XPS (numero 8). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. 12XPS 7 y 8 llevan el puente enchufable FBS 2-8 (rojo) en el canal central: no ocupa boca.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-13F4:1"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    37
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12PS1:+Car",
+   "cables": [
+    "1225"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 +Car",
+   "x": 274.32,
+   "y": 578.41,
+   "r": 1.8,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12XPS:8:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    38
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:8:1",
+   "cables": [
+    "1225"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 8 ARRIBA",
+   "x": 271.07,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 8 de 12XPS (numero 8). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. 12XPS 7 y 8 llevan el puente enchufable FBS 2-8 (rojo) en el canal central: no ocupa boca.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12PS1:+Car"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    38
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:9:2",
+   "cables": [
+    "1231"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 9 ABAJO",
+   "x": 276.85,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 9 de 12XPS (numero 9). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12XP:1:1"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    39
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12PS1:-Car",
+   "cables": [
+    "1226"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 -Car",
+   "x": 281.32,
+   "y": 578.41,
+   "r": 1.8,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). cable propio de potencia (10 AWG = 6 mm2, como dice la lista): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12XPS:9:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    40
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:9:1",
+   "cables": [
+    "1226"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 9 ARRIBA",
+   "x": 276.85,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 9 de 12XPS (numero 9). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 6.0,
+   "otro_extremo": [
+    "-12PS1:-Car"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    40
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12PS1:A",
+   "cables": [
+    "sin numero Blanco 0,32"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 A",
+   "x": 291.82,
+   "y": 578.41,
+   "r": 3.0,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). puerto RS-485 estanco (el cable 0,32 mm2 A/B/GND/VCC sale del conector): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Blanco",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12XPS:10:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    46
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "rs485_sin_numero"
+  },
+  {
+   "d": "-12XPS:10:1",
+   "cables": [
+    "sin numero Blanco 0,32"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 10 ARRIBA",
+   "x": 282.63,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 10 de 12XPS (numero 10). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Blanco",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12PS1:A"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    46
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "rs485_sin_numero"
+  },
+  {
+   "d": "-12PS1:B",
+   "cables": [
+    "sin numero Amarillo 0,32"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 B",
+   "x": 291.82,
+   "y": 578.41,
+   "r": 3.0,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). puerto RS-485 estanco (el cable 0,32 mm2 A/B/GND/VCC sale del conector): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Amarillo",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12XPS:11:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    47
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "rs485_sin_numero"
+  },
+  {
+   "d": "-12XPS:11:1",
+   "cables": [
+    "sin numero Amarillo 0,32"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 11 ARRIBA",
+   "x": 288.4,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 11 de 12XPS (numero 11). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Amarillo",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12PS1:B"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    47
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "rs485_sin_numero"
+  },
+  {
+   "d": "-12PS1:GND",
+   "cables": [
+    "sin numero Negro 0,32"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 GND",
+   "x": 291.82,
+   "y": 578.41,
+   "r": 3.0,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). puerto RS-485 estanco (el cable 0,32 mm2 A/B/GND/VCC sale del conector): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12XPS:12:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    48
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "rs485_sin_numero"
+  },
+  {
+   "d": "-12XPS:12:1",
+   "cables": [
+    "sin numero Negro 0,32"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 12 ARRIBA",
+   "x": 294.18,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 12 de 12XPS (numero 12). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Negro",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12PS1:GND"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    48
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "rs485_sin_numero"
+  },
+  {
+   "d": "-12PS1:VCC",
+   "cables": [
+    "sin numero Rojo 0,32"
+   ],
+   "tag": "12PS1",
+   "texto_taller": "12PS1 VCC",
+   "x": 291.82,
+   "y": 578.41,
+   "r": 3.0,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus cables van a 12XPS :1 ARRIBA). puerto RS-485 estanco (el cable 0,32 mm2 A/B/GND/VCC sale del conector): punto sobre el borde inferior de la caja (y 578.4); la x es una estimacion del orden PV, bateria, carga (+ a la izquierda) y NO esta dibujada: A CONFIRMAR con el aparato.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12XPS:13:1"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    49
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "rs485_sin_numero"
+  },
+  {
+   "d": "-12XPS:13:1",
+   "cables": [
+    "sin numero Rojo 0,32"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 13 ARRIBA",
+   "x": 299.95,
+   "y": 547.53,
+   "r": 2.5,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 13 de 12XPS (numero 13). Punto :1 = boca de arriba (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Rojo",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12PS1:VCC"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    49
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "rs485_sin_numero"
+  },
+  {
+   "d": "-42XC:F1",
+   "cables": [
+    "1391"
+   ],
+   "tag": "42XC",
+   "texto_taller": "42XC F1 ARRIBA",
+   "x": 706.47,
+   "y": 400.05,
+   "r": 2.06,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTTB 4-HESI (5X20), pieza 1 de 42XC (F1 debajo en la pag 8). EPLAN no da punto (-42XC:F1). F1: nivel del fusible = piso de arriba = boca INTERIOR. Lado ARRIBA: en la hoja 42 el cable de la bandeja entra por arriba (el presostato PS1 de campo va abajo). Piso: hoja de datos Phoenix 3211886 (2do nivel con fusible) y 31XAI del 75286 (mismo articulo, fotos: el borne 1 entra por la boca del extremo). Aro r 2.1 pt.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Rojo",
+   "seccion_mm2": 1.0,
+   "otro_extremo": [
+    "-13X24V:1:1"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    56
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-42XC:1",
+   "cables": [
+    "1392"
+   ],
+   "tag": "42XC",
+   "texto_taller": "42XC 1 ARRIBA",
+   "x": 706.47,
+   "y": 419.01,
+   "r": 2.06,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTTB 4-HESI (5X20), pieza 1 de 42XC (F1 debajo en la pag 8). EPLAN no da punto (-42XC:1). 1: paso directo = piso de abajo = boca del EXTREMO. Lado ARRIBA: en la hoja 42 el cable de la bandeja entra por arriba (el presostato PS1 de campo va abajo). Piso: hoja de datos Phoenix 3211886 (2do nivel con fusible) y 31XAI del 75286 (mismo articulo, fotos: el borne 1 entra por la boca del extremo). Aro r 2.1 pt.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Negro",
+   "seccion_mm2": 1.0,
+   "otro_extremo": [
+    "-13X24V:3:4"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    78
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-15XR:1:3",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "15XR",
+   "texto_taller": "15XR 1 ABAJO",
+   "x": 689.95,
+   "y": 355.55,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 1 de 15XR (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 15 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :3 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-ROTORK:1"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    79
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-15XR:2:4",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "15XR",
+   "texto_taller": "15XR 2 ABAJO",
+   "x": 689.95,
+   "y": 366.94,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 1 de 15XR (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 15 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :4 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-ROTORK:2"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    80
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-15XR:3:4",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "15XR",
+   "texto_taller": "15XR 3.4",
+   "x": 694.17,
+   "y": 364.26,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 2,5-QUATTRO-PE (verde) (verde, PE), pieza 2 de 15XR (numero 3). Punto 4 = ABAJO extremo (convencion N.p del taller: 1 y 2 arriba, 1 el extremo; 3 y 4 abajo, 4 el extremo). Aro r 1.7 pt. En la hoja 15 el simbolo esta espejado (punto 4 a la izquierda); como los 4 puntos son PE y el cable es de campo (entra por abajo), se deja 4 = ABAJO extremo.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-ROTORK:PE"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    81
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-12XPS:10",
+   "cables": [
+    "2135"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 10 ABAJO",
+   "x": 282.63,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 10 de 12XPS (numero 10). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. EPLAN escribe -12XPS:10 sin punto. El punto :1 (ARRIBA) lo ocupa el RS-485 de 12PS1 y en la hoja 81 la union en T del cable sale del lado derecho del borne (= ABAJO, regla horizontal): las dos puntas del cable van juntas en la boca de ABAJO, con TERMINAL DOBLE. Cable de 3 puntas: en este borne entran 2 tramos con el mismo numero (-21PCB01:35, -81XCM:7:2): TERMINAL DOBLE.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Azul",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-21PCB01:35",
+    "-81XCM:7:2"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    114,
+    115
+   ],
+   "tramos": 2
+  },
+  {
+   "d": "-81XCM:7:2",
+   "cables": [
+    "2135"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 7 ARRIBA",
+   "x": 736.59,
+   "y": 413.66,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 4 de 81XCM (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2135 de 3 puntas (-21PCB01:35, -12XPS:10, -81XCM:7:2); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12XPS:10"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    115
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-12XPS:11",
+   "cables": [
+    "2136"
+   ],
+   "tag": "12XPS",
+   "texto_taller": "12XPS 11 ABAJO",
+   "x": 288.4,
+   "y": 516.65,
+   "r": 2.5,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 6 (borne de paso push-in, una boca por extremo), pieza 11 de 12XPS (numero 11). Punto :2 = boca de abajo (contorno redondeado de 5.0 x 5.7 pt, centro del envolvente). Hoja 12 y 81: simbolo vertical con :1 arriba. EPLAN escribe -12XPS:11 sin punto. El punto :1 (ARRIBA) lo ocupa el RS-485 de 12PS1 y en la hoja 81 la union en T del cable sale del lado derecho del borne (= ABAJO, regla horizontal): las dos puntas del cable van juntas en la boca de ABAJO, con TERMINAL DOBLE. Cable de 3 puntas: en este borne entran 2 tramos con el mismo numero (-21PCB01:36, -81XCM:8:1): TERMINAL DOBLE.",
+   "zona": "bandeja lateral izquierda",
+   "color": "Blanco",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-21PCB01:36",
+    "-81XCM:8:1"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    117,
+    118
+   ],
+   "tramos": 2
+  },
+  {
+   "d": "-81XCM:8:1",
+   "cables": [
+    "2136"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 8 ARRIBA",
+   "x": 736.59,
+   "y": 402.41,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 4 de 81XCM (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2136 de 3 puntas (-21PCB01:36, -12XPS:11, -81XCM:8:1); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "bandeja principal, riel 3",
+   "color": "Blanco",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-12XPS:11"
+   ],
+   "otro_extremo_donde": "lateral_izquierda",
+   "filas_lista": [
+    118
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-32XEX:1:2",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "32XEX",
+   "texto_taller": "32XEX 1 ABAJO",
+   "x": 823.04,
+   "y": 355.43,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 32XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-PIT01F:x1"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    120
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-32XEX:1:3",
+   "cables": [
+    "3202"
+   ],
+   "tag": "32XEX",
+   "texto_taller": "32XEX 1 ARRIBA",
+   "x": 823.04,
+   "y": 413.54,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 32XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15AIB1:9"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    121
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-32XEX:2:1",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "32XEX",
+   "texto_taller": "32XEX 2 ABAJO",
+   "x": 823.04,
+   "y": 366.82,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 32XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-PIT01F:x2"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    122
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-32XEX:2:4",
+   "cables": [
+    "3203"
+   ],
+   "tag": "32XEX",
+   "texto_taller": "32XEX 2 ARRIBA",
+   "x": 823.04,
+   "y": 402.29,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 32XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15AIB1:10"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    123
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-32XEX:5:4",
+   "cables": [
+    "sin numero Verde/amarillo"
+   ],
+   "tag": "32XEX",
+   "texto_taller": "32XEX 5.4",
+   "x": 830.91,
+   "y": 364.14,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PT 2,5-QUATTRO-PE (verde) (verde, PE), pieza 3 de 32XEX (numero 5). Punto 4 = ABAJO extremo (convencion N.p del taller: 1 y 2 arriba, 1 el extremo; 3 y 4 abajo, 4 el extremo). Aro r 1.7 pt. En la hoja 32 el simbolo esta espejado (punto 4 a la izquierda); como los 4 puntos son PE y el cable es de campo (entra por abajo), se deja 4 = ABAJO extremo.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Verde/amarillo",
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "(sin otro extremo en la lista)"
+   ],
+   "otro_extremo_donde": null,
+   "filas_lista": [
+    124
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "pantalla"
+  },
+  {
+   "d": "-32XEX:3:3",
+   "cables": [
+    "3205"
+   ],
+   "tag": "32XEX",
+   "texto_taller": "32XEX 3 ARRIBA",
+   "x": 826.69,
+   "y": 413.54,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 32XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15AIB1:12"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    125
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-32XEX:4:4",
+   "cables": [
+    "3206"
+   ],
+   "tag": "32XEX",
+   "texto_taller": "32XEX 4 ARRIBA",
+   "x": 826.69,
+   "y": 402.29,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 32XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 32 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15AIB1:13"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    126
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:2:1",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 2 ABAJO",
+   "x": 842.85,
+   "y": 366.82,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 41XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_1_ZSO:14"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    129
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:1:2",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 1 ABAJO",
+   "x": 842.85,
+   "y": 355.43,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 41XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_1_ZSO:13"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    130
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:1:3",
+   "cables": [
+    "4116"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 1 ARRIBA",
+   "x": 842.85,
+   "y": 413.54,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 41XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB1:7"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    131
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:2:4",
+   "cables": [
+    "4117"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 2 ARRIBA",
+   "x": 842.85,
+   "y": 402.29,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 1 de 41XEX (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB1:8"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    132
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:4:1",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 4 ABAJO",
+   "x": 846.5,
+   "y": 366.82,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 41XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_1_ZSC:14"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    133
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:3:2",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 3 ABAJO",
+   "x": 846.5,
+   "y": 355.43,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 41XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_1_ZSC:13"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    134
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:3:3",
+   "cables": [
+    "4118"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 3 ARRIBA",
+   "x": 846.5,
+   "y": 413.54,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 41XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB1:9"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    135
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:4:4",
+   "cables": [
+    "4119"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 4 ARRIBA",
+   "x": 846.5,
+   "y": 402.29,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 2 de 41XEX (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB1:10"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    136
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:6:1",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 6 ABAJO",
+   "x": 850.15,
+   "y": 366.82,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 3 de 41XEX (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 6 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_2_ZSO:14"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    137
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:5:2",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 5 ABAJO",
+   "x": 850.15,
+   "y": 355.43,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 3 de 41XEX (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 5 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_2_ZSO:13"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    138
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:5:3",
+   "cables": [
+    "4120"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 5 ARRIBA",
+   "x": 850.15,
+   "y": 413.54,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 3 de 41XEX (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 5 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB2:7"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    139
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:6:4",
+   "cables": [
+    "4121"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 6 ARRIBA",
+   "x": 850.15,
+   "y": 402.29,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 3 de 41XEX (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 6 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB2:8"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    140
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:8:1",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 8 ABAJO",
+   "x": 857.45,
+   "y": 366.82,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_2_ZSC:14"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    141
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:7:2",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 7 ABAJO",
+   "x": 857.45,
+   "y": 355.43,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_2_ZSC:13"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    142
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:7:3",
+   "cables": [
+    "4122"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 7 ARRIBA",
+   "x": 857.45,
+   "y": 413.54,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB2:9"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    143
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:8:4",
+   "cables": [
+    "4123"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 8 ARRIBA",
+   "x": 857.45,
+   "y": 402.29,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB2:10"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    144
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:10:1",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 10 ABAJO",
+   "x": 853.8,
+   "y": 366.82,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 10 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_3_ZSO:14"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    145
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:9:2",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 9 ABAJO",
+   "x": 853.8,
+   "y": 355.43,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 9 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_3_ZSO:13"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    146
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:9:3",
+   "cables": [
+    "4124"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 9 ARRIBA",
+   "x": 853.8,
+   "y": 413.54,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 9 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB3:7"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    147
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:10:4",
+   "cables": [
+    "4125"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 10 ARRIBA",
+   "x": 853.8,
+   "y": 402.29,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 10 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB3:8"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    148
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:12:1",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 12 ABAJO",
+   "x": 861.1,
+   "y": 366.82,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 6 de 41XEX (la que tiene el numero 11 debajo en la pag 8; lleva los bornes 11 y 12). Borne 12 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_3_ZSC:14"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    149
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:11:2",
+   "cables": [
+    "sin numero campo"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 11 ABAJO",
+   "x": 861.1,
+   "y": 355.43,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 6 de 41XEX (la que tiene el numero 11 debajo en la pag 8; lleva los bornes 11 y 12). Borne 11 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": null,
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "+Campo-IP_3_ZSC:13"
+   ],
+   "otro_extremo_donde": "campo",
+   "filas_lista": [
+    150
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "campo"
+  },
+  {
+   "d": "-41XEX:11:3",
+   "cables": [
+    "4126"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 11 ARRIBA",
+   "x": 861.1,
+   "y": 413.54,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 6 de 41XEX (la que tiene el numero 11 debajo en la pag 8; lleva los bornes 11 y 12). Borne 11 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB3:9"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    151
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-41XEX:12:4",
+   "cables": [
+    "4127"
+   ],
+   "tag": "41XEX",
+   "texto_taller": "41XEX 12 ARRIBA",
+   "x": 861.1,
+   "y": 402.29,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT BU, pieza 6 de 41XEX (la que tiene el numero 11 debajo en la pag 8; lleva los bornes 11 y 12). Borne 12 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-15DIB3:10"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    152
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-42XC:3:3",
+   "cables": [
+    "4231"
+   ],
+   "tag": "42XC",
+   "texto_taller": "42XC 3 ARRIBA",
+   "x": 711.04,
+   "y": 413.66,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 2 de 42XC (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 42 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-42KR1:11"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    159
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-42XC:4:4",
+   "cables": [
+    "4213"
+   ],
+   "tag": "42XC",
+   "texto_taller": "42XC 4 ARRIBA",
+   "x": 711.04,
+   "y": 402.41,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 2 de 42XC (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 42 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-42KS1:S12"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    161
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-42XC:5:3",
+   "cables": [
+    "4232"
+   ],
+   "tag": "42XC",
+   "texto_taller": "42XC 5 ARRIBA",
+   "x": 714.69,
+   "y": 413.66,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 3 de 42XC (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 5 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 42 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-42KR1:A1"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    162
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-42XC:6:4",
+   "cables": [
+    "4233"
+   ],
+   "tag": "42XC",
+   "texto_taller": "42XC 6 ARRIBA",
+   "x": 714.69,
+   "y": 402.41,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 3 de 42XC (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 6 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 42 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Negro",
+   "seccion_mm2": 0.75,
+   "otro_extremo": [
+    "-42KR1:A2"
+   ],
+   "otro_extremo_donde": "bandeja_principal",
+   "filas_lista": [
+    163
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-81XCM:9:2",
+   "cables": [
+    "sin numero Verde/amarillo"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 9 ARRIBA",
+   "x": 740.23,
+   "y": 413.66,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 5 de 81XCM (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 9 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Verde/amarillo",
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "(sin otro extremo en la lista)"
+   ],
+   "otro_extremo_donde": null,
+   "filas_lista": [
+    186
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "pantalla"
+  },
+  {
+   "d": "-81XCM:6:1",
+   "cables": [
+    "2133"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 6 ARRIBA",
+   "x": 732.94,
+   "y": 402.41,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 3 de 81XCM (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 6 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2133 de 3 puntas (-21PCB01:33, -81XCM:6:1, -81XCM:2:1); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "bandeja principal, riel 3",
+   "color": "Blanco",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-21PCB01:33"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    187
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-81XCM:2:1",
+   "cables": [
+    "2133"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 2 ARRIBA",
+   "x": 725.64,
+   "y": 402.41,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 1 de 81XCM (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 2 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2133 de 3 puntas (-21PCB01:33, -81XCM:6:1, -81XCM:2:1); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "bandeja principal, riel 3",
+   "color": "Blanco",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-21PCB01:33"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    188
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-81XCM:5:2",
+   "cables": [
+    "2132"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 5 ARRIBA",
+   "x": 732.94,
+   "y": 413.66,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 3 de 81XCM (la que tiene el numero 5 debajo en la pag 8; lleva los bornes 5 y 6). Borne 5 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2132 de 3 puntas (-21PCB01:32, -81XCM:5:2, -81XCM:1:2); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-21PCB01:32"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    189
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-81XCM:1:2",
+   "cables": [
+    "2132"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 1 ARRIBA",
+   "x": 725.64,
+   "y": 413.66,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 1 de 81XCM (la que tiene el numero 1 debajo en la pag 8; lleva los bornes 1 y 2). Borne 1 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. Cable 2132 de 3 puntas (-21PCB01:32, -81XCM:5:2, -81XCM:1:2); en este borne entra un solo conductor (la union esta en otro borne).",
+   "zona": "bandeja principal, riel 3",
+   "color": "Azul",
+   "seccion_mm2": 0.32,
+   "otro_extremo": [
+    "-21PCB01:32"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    190
+   ],
+   "tramos": 1
+  },
+  {
+   "d": "-81XCM:4:1",
+   "cables": [
+    "sin numero Apantallamiento"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 4 ARRIBA",
+   "x": 729.29,
+   "y": 402.41,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 2 de 81XCM (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 4 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :1 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Apantallamiento",
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "-21PCB01:34"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    191
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "pantalla"
+  },
+  {
+   "d": "-81XCM:3:2",
+   "cables": [
+    "sin numero Apantallamiento"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 3 ARRIBA",
+   "x": 729.29,
+   "y": 413.66,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "alta",
+   "como": "PTT 2,5-2MT, pieza 2 de 81XCM (la que tiene el numero 3 debajo en la pag 8; lleva los bornes 3 y 4). Borne 3 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :2 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT.",
+   "zona": "bandeja principal, riel 3",
+   "color": "Apantallamiento",
+   "seccion_mm2": null,
+   "otro_extremo": [
+    "-21PCB01:34"
+   ],
+   "otro_extremo_donde": "fuera de las bandejas (puerta / gabinete)",
+   "filas_lista": [
+    192
+   ],
+   "tramos": 1,
+   "tipo_sin_numero": "pantalla"
+  }
+ ],
+ "extra_esquema": [
+  {
+   "d": "-11XPVAC:3:1",
+   "cables": [
+    "sin numero Verde/amarillo 2,5 (no esta en la lista)"
+   ],
+   "tag": "11XPVAC",
+   "texto_taller": "11XPVAC 3.1",
+   "x": 366.41,
+   "y": 404.5,
+   "r": 1.7,
+   "lado": "ARRIBA",
+   "confianza": "media",
+   "como": "Hoja 11: tierra 2,5 mm2 V/A de TIERRA GABINETE CONEXION INTERIOR al punto de la izquierda del borne PE 11XPVAC 3 (= punto 1 = ARRIBA extremo por la regla horizontal). No figura en la lista de conexiones; el otro extremo es el perno de tierra del gabinete (E8/LI). PT 2,5-QUATTRO-PE (verde) (verde, PE), pieza 3 de 11XPVAC (numero 3). Punto 1 = ARRIBA extremo (convencion N.p del taller: 1 y 2 arriba, 1 el extremo; 3 y 4 abajo, 4 el extremo). Aro r 1.7 pt. Hoja 11: simbolo horizontal, el 4 es el de la derecha (= ABAJO por la regla horizontal) y de ahi sale la tierra al 11SK1."
+  },
+  {
+   "d": "-81XCM:7:3",
+   "cables": [
+    "R1 120 ohm pata x1 (no esta en la lista)"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 7 ABAJO",
+   "x": 736.59,
+   "y": 355.55,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Hoja 81: resistencia de fin de linea R1 120R entre 81XCM 7 y 8 del lado derecho del simbolo (campo = ABAJO). No esta en la lista de conexiones ni en la de articulos. PTT 2,5-2MT, pieza 4 de 81XCM (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :3 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT."
+  },
+  {
+   "d": "-81XCM:8:4",
+   "cables": [
+    "R1 120 ohm pata x2 (no esta en la lista)"
+   ],
+   "tag": "81XCM",
+   "texto_taller": "81XCM 8 ABAJO",
+   "x": 736.59,
+   "y": 366.94,
+   "r": 1.7,
+   "lado": "ABAJO",
+   "confianza": "media",
+   "como": "Hoja 81: resistencia de fin de linea R1 120R entre 81XCM 7 y 8 del lado derecho del simbolo (campo = ABAJO). No esta en la lista de conexiones ni en la de articulos. PTT 2,5-2MT, pieza 4 de 81XCM (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 81 el simbolo tiene :1/:2 dibujados arriba (o a la izquierda en horizontal) y :3/:4 abajo, asi que :4 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT."
+  }
+ ],
+ "dudas": [
+  "PTT 2,5-2MT (15XR, 42XC 3-6, 81XCM, 32XEX, 41XEX): el piso sale de la convencion del taller (borne impar = piso de abajo = boca del EXTREMO; par = piso de arriba = boca INTERIOR), verificada con fotos en el 75286 y el 66817 para el mismo articulo Phoenix. EPLAN numera las bocas de la pieza de forma que el impar usa :2/:3 y el par :1/:4; si esa numeracion fuera correlativa a lo largo de la pieza (1 ext, 2 int, 3 int, 4 ext), el impar quedaria en las bocas INTERIORES. Lo importante es que las dos puntas de un mismo numero queden en el mismo piso: con la convencion del taller quedan. Confirmar en el primer tablero.",
+  "El lado ARRIBA/ABAJO de los PTT sale del dibujo de cada esquema (regla del taller): en 15XR y 81XCM los puntos :1/:2 estan dibujados arriba (o a la izquierda) y en 32XEX, 41XEX y 42XC los :3/:4. En todos, los cables del tablero quedan ARRIBA y los de campo (ROTORK, PIT01F, IP_x, PS1, R1) ABAJO, que es lo logico (campo entra por la canaleta de abajo U8/U9).",
+  "41XEX: las piezas 4 y 5 estan cambiadas (la 4ta lleva 9-10 y la 5ta 7-8) en la hoja de hileras (pag 38) y en la pag 8. Se mapeo respetando el numero: 4122/4123 (41XEX 7/8) en la 5ta pieza y 4124/4125 (41XEX 9/10) en la 4ta. Si el taller las arma en orden 1..12, hay que mover esos 4 puntos (y los de campo) una pieza. Conviene avisar al proyectista.",
+  "12XPS 10 y 11: EPLAN no da el punto para 2135 y 2136 (-12XPS:10 / -12XPS:11). Se pusieron en la boca de ABAJO (:2), con los dos tramos de cada cable (a 21PCB01 y a 81XCM) en la misma boca con TERMINAL DOBLE de 0,32 mm2 (seccion de terminal doble sin definir en terminales.json). El ARRIBA lo ocupa el RS-485 de 12PS1 (A, B).",
+  "12PS1 (EPEVER Tracer7810BP) no tiene bornes: los cables 1221-1226 (6 mm2 = 10 AWG) son los cables propios del regulador y el RS-485 sale de un conector estanco. Los puntos estan sobre el borde inferior de la caja con una x ESTIMADA (orden PV, bateria, carga y RS-485 a la derecha, de la foto del manual). Confirmar de que lado salen los cables en el aparato montado y si el taller les pone la manga con el numero.",
+  "12PS1 RS-485: los 4 hilos A/B/GND/VCC (0,32 mm2, sin numero) salen del mismo conector: los 4 puntos coinciden.",
+  "11SK1 (Phoenix EO-I/UT): los 3 tornillos estan abajo y se ven en el dibujo, pero el orden L / PE / N de izquierda a derecha es supuesto (el de la macro EPLAN); la ficha Phoenix no muestra la vista de bornes. Confianza media.",
+  "11Q1: el esquema (hoja 11) dibuja la fase (1/2) a la izquierda y el neutro (N/N') a la derecha, pero el aparato (Easy9 EZ9R36225 o Acti9 iID; la lista dice EZ9F36225) tiene el NEUTRO a la IZQUIERDA. Se mapeo el lado fisico: 1155/1157 (celeste) en el polo izquierdo y 1154/1156 (marron) en el derecho. 1156 y 1157 se cruzan entre 11Q1 y 11Q2 (11Q2 tiene la fase a la izquierda).",
+  "11XPVAC 1 y 2 (PT 6): la macro dibuja la boca como un octogono irregular recortado por el borde de la pieza; el centro (envolvente) queda unos 0,1-0,4 pt corrido a la derecha del eje de la pieza. Dentro de la tolerancia.",
+  "Conexiones de mi zona que estan en el esquema y no en la lista (van en \"extra_esquema\"): tierra 2,5 mm2 V/A del perno del gabinete a 11XPVAC 3 (punto 1, hoja 11) y la resistencia R1 120R en 81XCM 7 y 8 ABAJO (hoja 81). Ademas, del lado de campo (ABAJO) quedan sin fila: 42XC F1/1/3/4 al presostato PS1 (hoja 42) y 81XCM 7/8/9 al ROTORK 27/28/malla (hoja 81); en 81XCM 7 ABAJO y 8 ABAJO entrarian R1 y el cable de campo juntos.",
+  "Mallas: 81XCM 3 y 4 ARRIBA reciben las 2 mallas \"2134\" que van a 21PCB01:34 (sin numero en la lista); 81XCM 9 ARRIBA la malla \"2137\" (la lista la da como Verde/amarillo sin origen; el esquema dice Apantallamiento hacia 21PCB01:37). 32XEX 5.4 es la malla SH del cable de campo de PIT01F.",
+  "Cables de campo (ROTORK, PIT01F, IP_x) y la tierra del ROTORK (15XR 3.4) estan mapeados en la boca de ABAJO correspondiente, pero no se cablean en E6.",
+  "15XR 3.4 y 32XEX 5.4 (PT 2,5-QUATTRO-PE): el simbolo del esquema esta espejado (el 4 dibujado a la izquierda); como los 4 puntos son PE y el cable es de campo se dejo 4 = ABAJO extremo.",
+  "Bocas con mas de un punto de la lista: {\"291.82, 578.41\": [\"-12PS1:A #sin numero Blanco 0,32\", \"-12PS1:B #sin numero Amarillo 0,32\", \"-12PS1:GND #sin numero Negro 0,32\", \"-12PS1:VCC #sin numero Rojo 0,32\"]}"
+ ]
+}

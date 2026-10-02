@@ -1,0 +1,104 @@
+VALIDACION DEJANDO-UN-TAG-AFUERA (LOO) - prototipo P2 huellas de bloques
+
+Para cada tag T la base se aprende SIN T (sin sus bornes de referencia ni las instancias de bloque de su zona)
+y se mapea T con esa base. Mide lo que pasaria en un plano nuevo con un modelo que la base conoce de otro lugar.
+Tiempo total: 195.8 s (25 vueltas de aprender + mapear).
+
+Salida: C:\Buscar Termos en plano\prototipos\P2_huella_bloques\salida\bornes_loo.json
+Tiempo: 195.8 s
+BIEN (<= 1.5 pt ~ 2 mm): 100/140 = 71.4 %   |   con punto: 101/140   |   error mediano: 0.0 pt
+
+familia            bien  con punto  total  err medio pt
+barreras             18         18     20           0.0
+borneras_riel2       22         22     35           0.0
+borneras_riel3       26         26     26           0.0
+fuentes               0          0     10          None
+protecciones          4          4     18          0.01
+reles                30         31     31          0.14
+
+Fallas (sin punto o a mas de 1.5 pt):
+  fuentes         11PS1 1 (-)            1110       SIN PUNTO
+  fuentes         11PS1 3 (+)            1111       SIN PUNTO
+  fuentes         11PS1 L-3              1108       SIN PUNTO
+  fuentes         11PS1 N-2              1109       SIN PUNTO
+  fuentes         13PS3 +Vin             1304       SIN PUNTO
+  fuentes         13PS3 +Vo              1310       SIN PUNTO
+  fuentes         13PS3 -Vo              1323       SIN PUNTO
+  fuentes         13PS3 -Vo              1311       SIN PUNTO
+  fuentes         11SK1 L ARRIBA         1108       SIN PUNTO
+  fuentes         11SK1 N ABAJO          1109       SIN PUNTO
+  protecciones    11Q1 N ARRIBA          1105       SIN PUNTO
+  protecciones    11Q1 F ARRIBA          1104       SIN PUNTO
+  protecciones    11Q1 N ABAJO           1107       SIN PUNTO
+  protecciones    11Q1 F ABAJO           1106       SIN PUNTO
+  protecciones    11Q2 F ARRIBA          1106       SIN PUNTO
+  protecciones    11Q2 N ARRIBA          1107       SIN PUNTO
+  protecciones    11Q2 F ABAJO           1108       SIN PUNTO
+  protecciones    11Q2 N ABAJO           1109       SIN PUNTO
+  protecciones    31XAI 1 ARRIBA         2142       SIN PUNTO
+  protecciones    31XAI F1 ARRIBA        1324       SIN PUNTO
+  protecciones    31XAI F1 ABAJO         3141       SIN PUNTO
+  protecciones    31XAI 1 ABAJO          3142       SIN PUNTO
+  protecciones    12F2 ARRIBA            1204       SIN PUNTO
+  protecciones    12F2                   1215       SIN PUNTO
+  reles           43KR2 A2               1328       4.33 pt
+  borneras_riel2  62XDIO 1 ABAJO         6201       SIN PUNTO
+  borneras_riel2  62XDIO 2 ABAJO         6203       SIN PUNTO
+  borneras_riel2  62XDIO 3 ABAJO         6206       SIN PUNTO
+  borneras_riel2  62XDIO 3 ABAJO         6204       SIN PUNTO
+  borneras_riel2  62XDIO 3 ARRIBA        1315       SIN PUNTO
+  borneras_riel2  62XDIO 3 ARRIBA        6203       SIN PUNTO
+  borneras_riel2  62XDIO 4 ABAJO         6205       SIN PUNTO
+  borneras_riel2  62XDIO 5 ABAJO         6207       SIN PUNTO
+  borneras_riel2  62XDIO 5 ARRIBA        6206       SIN PUNTO
+  borneras_riel2  62XDIO 6 ABAJO         6208       SIN PUNTO
+  borneras_riel2  62XDO 1 ABAJO          6202       SIN PUNTO
+  borneras_riel2  62XDO 1 ARRIBA         6201       SIN PUNTO
+  borneras_riel2  62XDO 2 ARRIBA         1321       SIN PUNTO
+  barreras        31AIB1 1 ABAJO         1312       SIN PUNTO
+  barreras        31AIB1 2 ABAJO         1313       SIN PUNTO
+
+No evaluados (referencia dudosa): 31XAI 1 ARRIBA ['3141'], 31XAI 2 ARRIBA ['3142'], 12F2 ['1204'], 12F2 ['1216'], 62XDO ARRIBA ['6202']
+
+Modelos que aparecen UNA SOLA VEZ en este tablero (en su vuelta no hay de donde aprenderlos: quedan sin punto):
+  11PS1   MW_NDR_240       4 usos
+  13PS3   MW_DDR_120       5 usos
+  11SK1   TOMA_IRAM_RIEL   2 usos
+  11Q1    DIF_2P_EASY9     4 usos
+  11Q2    TERMOMAG_2P      4 usos
+  12F2    BASE_MEGA        4 usos
+  31XAI   PTTB_HESI        6 usos
+  62XDIO  PT25_DIO        10 usos
+  62XDO   PTT25_SIMB62     4 usos
+  31AIB1  GS8536           2 usos
+
+Evaluables sin punto en modo LOO: 39 (casi todos de los modelos unicos de arriba).
+
+Detalle por tag (modelo, con que otros tags se aprendio, usos con punto / usos):
+  11PS1   MW_NDR_240      aprendido de: (nadie)                 0/ 4  ningun bloque de la base en la zona de la etiqueta
+  13PS3   MW_DDR_120      aprendido de: (nadie)                 0/ 5  ningun bloque de la base en la zona de la etiqueta
+  11SK1   TOMA_IRAM_RIEL  aprendido de: (nadie)                 0/ 2  la lista de materiales dice TOMA_IRAM_RIEL, que no tiene huella aprendida en la base
+  11Q1    DIF_2P_EASY9    aprendido de: (nadie)                 0/ 4  la lista de materiales dice DIF_2P_EASY9, que no tiene huella aprendida en la base
+  11Q2    TERMOMAG_2P     aprendido de: (nadie)                 0/ 4  la lista de materiales dice TERMOMAG_2P, que no tiene huella aprendida en la base; en la zona hay un bloque parecido: DIF_2P_EASY9
+  12F1    DF101           aprendido de: 13F3                    2/ 2  modelo de la lista de materiales, bloque hallado en la zona
+  13F3    DF101           aprendido de: 12F1                    2/ 2  modelo de la lista de materiales, bloque hallado en la zona
+  12F2    BASE_MEGA       aprendido de: (nadie)                 0/ 4  la lista de materiales dice BASE_MEGA, que no tiene huella aprendida en la base
+  31XAI   PTTB_HESI       aprendido de: (nadie)                 0/ 6  ningun bloque de la base en la zona de la etiqueta (la lista dice PTT25_SIMB62/PTT25_2MT_GRIS)
+  43KR    RIF0            aprendido de: 46KR,62KR              13/13  modelo de la lista de materiales, bloque hallado en la zona
+  46KR    RIF0            aprendido de: 43KR,62KR               8/ 8  modelo de la lista de materiales, bloque hallado en la zona
+  62KR    RIF0            aprendido de: 43KR,46KR              10/10  modelo de la lista de materiales, bloque hallado en la zona
+  12XP    PT6_QUATTRO     aprendido de: 13XC1,13X24             4/ 4  modelo de la lista de materiales, bloque hallado en la zona
+  13XC1   PT6_QUATTRO     aprendido de: 12XP,13X24             13/13  modelo de la lista de materiales, bloque hallado en la zona
+  13X24   PT6_QUATTRO     aprendido de: 12XP,13XC1              5/ 5  modelo de la lista de materiales, bloque hallado en la zona
+  62XDIO  PT25_DIO        aprendido de: (nadie)                 0/10  la lista de materiales dice PT25_DIO, que no tiene huella aprendida en la base
+  62XDO   PTT25_SIMB62    aprendido de: (nadie)                 0/ 4  ningun bloque de la base en la zona de la etiqueta (la lista dice PTT25_SIMB62/PTT25_2MT_GRIS)
+  43XCS   PTT25_2MT_GRIS  aprendido de: 46XC,81XCM              4/ 4  bloque reconocido en la zona (sin renglon en la lista de materiales)
+  46XC    PTT25_2MT_GRIS  aprendido de: 43XCS,81XCM             4/ 4  bloque reconocido en la zona (la lista no nombra un modelo de la base)
+  81XCM   PTT25_2MT_GRIS  aprendido de: 43XCS,46XC              6/ 6  bloque reconocido en la zona (la lista no nombra un modelo de la base)
+  31XEX   PTT25_2MT_BU    aprendido de: 43XDI                   4/ 4  modelo de la lista de materiales, bloque hallado en la zona
+  43XDI   PTT25_2MT_BU    aprendido de: 31XEX                   8/ 8  modelo de la lista de materiales, bloque hallado en la zona
+  31AIB1  GS8536          aprendido de: (nadie)                 0/ 2  la lista de materiales dice GS8536, que no tiene huella aprendida en la base
+  43DIB1  GS8512          aprendido de: 43DIB2                  9/ 9  modelo de la lista de materiales, bloque hallado en la zona
+  43DIB2  GS8512          aprendido de: 43DIB1                  9/ 9  modelo de la lista de materiales, bloque hallado en la zona
+
+Solo los modelos que aparecen en 2 o mas tags: 100/101 BIEN = 99.0 %

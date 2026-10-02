@@ -1,0 +1,38 @@
+11XP | Bornes de alimentación | PHOENIX CONTACT | PT 6
+A | 11MS1 | Interruptor Seccionador | SCHNEIDER | VBF1 | A
+11PS1 | MEAN WELL | NDR-120-24
+11Q1 | Disyuntor diferencial 25A | -
+11Q2 | Interruptor termomagnético 2x10A curva C | SCHNEIDER | EZ9F34210
+11SK1 | Toma corriente IRAM | VIVION | -
+12XPS | PHOENIX CONTACT | PT 6
+12PS2 | EPEVER | MPPT TRACER5210BP
+12XP | Bornes de distribución de voltaje de 12VDC | PT 6 QUATTRO
+12F1 | Base de fusible para alimentación de batería | SCHNEIDER | DF101 | 10x38
+- | Fusible cerámico cilindrico 20A 10x38mm | gL | - | -
+12F2 | Base para fusible tipo MEGA | MEGA | -
+Fusible tipo MEGA 150A
+13XC1 | Distribución de voltaje de control 12VDC | PT 6 QUATTRO
+13PS2 | Conversor 12/24VDC | MEAN WELL | DDR-120A-24
+13F3 | Base de fusible para alimentacion 12VDC | SCHNEIDER | DF101 | 10x38
+- | Fusible cerámico cilindrico 10A 10x38mm | gL | - | -
+13F4 | SCHNEIDER | DF101 | 10x38
+Base de fusible para alimentacion 12VDC
+Fusible cerámico cilindrico 10A 10x38mm
+13X24 | Distribución | de voltaje de control | 24VDC | PHOENIX CONTACT | PT 6 QUATTRO
+21PCB01 | Placa Electrónica de Control | Principal | MMA | L03-60591-01
+31XAI | Bornes de entradas analógicas internas | PHOENIX CONTACT | PTT 2,5-2MT
+31XAI | PHOENIX CONTACT
+31XEX | Bornes de entradas analógicas externas | PHOENIX CONTACT | PTT 2,5-2 MT BU
+31AIB1 | - | CHENZHU | GS8536-EX
+41DS | OMRON | HL-5200
+43XDI | Bornes de entradas digitales | PHOENIX CONTACT | PTT 2,5-2 MT BU
+43DIB1 | /2 | Entrada Digital | - | Barrera Seg. Intrínseca | CHENZHU | GS8512-EX.22
+43KR | Borne relé 12VDC | PHOENIX CONTACT | RIF-0-RPT | -1 | 2DC/21
+46DB1 | Botón de paro de emergencia. | SCHNEIDER | ZBE-101
+46XC | Bornes de comando externo 24 VDC | PHOENIX CONTACT
+Borne relé 24VDC | PHOENIX CONTACT
+46KR | RIF-0-RPT-24DC/21
+62KR | Borne relé 12VDC | PHOENIX CONTACT | RIF-0-RPT | -1 | 2DC/21
+62XDO | Bornes de comandos | PHOENIX CONTACT | PTT 2,5
+62XDIO | Bornes diodo antiparalelo de supresion | PHOENIX CONTACT | PT 2,5-DIO/L-R | D
+81XCM | Borne de comunicación | PHOENIX CONTACT

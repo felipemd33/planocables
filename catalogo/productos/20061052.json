@@ -1,0 +1,6038 @@
+{
+ "carpeta": "20061052 - mSafe2 PAE - 6un",
+ "orden": "20061052",
+ "codigo_producto": "76860-1",
+ "descripcion": "mSafe2+ (cliente PAE), 6 unidades: tablero mSafe2 con unidad hidráulica 12 V, regulador de carga, placa de control E2.5 y barreras de seguridad intrínseca. Plano DIGITO ZPL-76884 Rev 0 \"Diagrama Eléctrico Funcional Conjunto 76860-1\" (21-04-2026).",
+ "planos": {
+  "funcional": {
+   "archivo": "ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+   "paginas_pdf": "1-21",
+   "hojas": "00 Portada .. 82 Topología de Red (esquemas en hojas 11, 12, 13, 15, 16, 21, 32, 41, 42, 61, 81, 82)",
+   "nota": "EPLAN: texto real con fuente (no trazos SHX). PDF cifrado AES sin contraseña de apertura."
+  },
+  "topografico": {
+   "archivo": "ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+   "paginas_pdf": [
+    6,
+    7,
+    8,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+   ],
+   "hojas": [
+    "06 Topográfico Exterior",
+    "07 Vista 2D Interior",
+    "08 Detalle bandejas (con rótulos de cada aparato)",
+    "fab. 04 Vistas 2D internas",
+    "fab. 05 Vistas 3D internas",
+    "fab. 06 Vistas 2D superior",
+    "fab. 07 Vistas 2D bandejas (con rótulos)",
+    "fab. 08 Vistas 2D gabinete",
+    "fab. 09 Cotas de bandejas",
+    "fab. 10 Cotas de Cartelería",
+    "fab. 11 Detalle de ductos y rieles (con lista de canaletas y rieles)"
+   ]
+  },
+  "otros": [
+   {
+    "archivo": "ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+    "paginas_pdf": "32-39",
+    "hojas": "fab. 51-58 Conjunto de Bornes (plano de hileras de bornes, pieza por pieza)"
+   },
+   {
+    "archivo": "ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+    "paginas_pdf": "40-46",
+    "hojas": "fab. 101-107 Lista de materiales (117 renglones; número de pedido = código SAP AB...)"
+   },
+   {
+    "archivo": "ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+    "paginas_pdf": "47-50",
+    "hojas": "fab. 108, 108.a, 108.b, 108.c Conexiones (lista de conexiones cable / destino 1 / destino 2 / color / sección)"
+   },
+   {
+    "archivo": "ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+    "paginas_pdf": "4-5",
+    "hojas": "04 Datos de panel, 05 Vista 3D Exterior"
+   },
+   {
+    "archivo": "ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+    "paginas_pdf": "22-23",
+    "hojas": "fab. 01 Portada Fabricación, fab. 02 Índice"
+   }
+  ]
+ },
+ "componentes_sap": [],
+ "componentes_segun_lista_del_plano": [
+  {
+   "codigo": "AB1202844",
+   "codigo_en_plano": "AB1202844",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "cantidad": 30,
+   "unidad": "un",
+   "clase": "mecanico",
+   "tags": [
+    "31",
+    "22",
+    "24",
+    "28",
+    "29",
+    "30",
+    "61KR",
+    "11X220V",
+    "13X12V",
+    "13X24V",
+    "61X0V",
+    "32XAI",
+    "42XC",
+    "81XCM",
+    "61XDIO",
+    "61XDO",
+    "32XEX",
+    "41XEX",
+    "12XP",
+    "XPE",
+    "12XPS",
+    "11XPVAC",
+    "15XR"
+   ],
+   "renglones_lista": [
+    "101/1",
+    "101/3",
+    "101/4",
+    "101/5",
+    "101/6",
+    "101/7",
+    "101/8",
+    "102/34",
+    "104/57",
+    "104/60",
+    "104/63",
+    "104/68",
+    "104/72",
+    "105/75",
+    "105/79",
+    "105/82",
+    "105/86",
+    "105/89",
+    "106/94",
+    "106/97",
+    "106/101",
+    "106/104",
+    "107/108",
+    "107/113"
+   ]
+  },
+  {
+   "codigo": "AB2000273",
+   "codigo_en_plano": "AB2000273",
+   "descripcion": "Enchufe redondo negro para orificio Ø22",
+   "marca": "Schneider Electric",
+   "modelo": "ZB5SZ3",
+   "numero_articulo": "SE.ZB5SZ3",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "mecanico",
+   "tags": [
+    "12"
+   ],
+   "renglones_lista": [
+    "101/2"
+   ]
+  },
+  {
+   "codigo": "AB2000134",
+   "codigo_en_plano": "AB2000134",
+   "descripcion": "Barrera de seguridad intrínseca / 2 Entradas analógicas",
+   "marca": "CHENZHU",
+   "modelo": "GS8536-EX",
+   "numero_articulo": "CZ.GS8536-EX",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "15AIB1"
+   ],
+   "renglones_lista": [
+    "101/9"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": "UNIDAD HIDRAULICA",
+   "descripcion": "UNIDAD HIDRAULICA",
+   "marca": "DIGITO",
+   "modelo": "UNIDAD HIDRAULICA R2",
+   "numero_articulo": "DIG.UNIDAD HIDRAULICA R2",
+   "cantidad": 2,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "BH-01-M",
+    "M1"
+   ],
+   "renglones_lista": [
+    "101/10",
+    "103/41"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": null,
+   "descripcion": "Unidad hidráulica completa",
+   "marca": "Vibo",
+   "modelo": "VIBO",
+   "numero_articulo": "VIBO",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "BH-01-M"
+   ],
+   "renglones_lista": [
+    "101/11"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": "684-1261-212-17",
+   "descripcion": "Contactor de bomba 12 VDC",
+   "marca": "Trombetta",
+   "modelo": "684-1261-212-17",
+   "numero_articulo": "TROM.684-1261-212-17",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "BH_01_ZV"
+   ],
+   "renglones_lista": [
+    "101/12"
+   ]
+  },
+  {
+   "codigo": "AB2000051",
+   "codigo_en_plano": "AB2000051",
+   "descripcion": "Parada de emergencia Ø22 - cabeza seta Ø40 - girar para desenclavar 1NC",
+   "marca": "Schneider Electric",
+   "modelo": "XB4BS8442",
+   "numero_articulo": "SE.XB4BS8442",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "42DB1"
+   ],
+   "renglones_lista": [
+    "101/13"
+   ]
+  },
+  {
+   "codigo": "AB2000050",
+   "codigo_en_plano": "AB2000050",
+   "descripcion": "Protección para seta Ø 40 y unidades Ø 22 mm - amarillo",
+   "marca": "Schneider Electric",
+   "modelo": "ZBZ1605",
+   "numero_articulo": "SE.ZBZ1605",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "mecanico",
+   "tags": [
+    "42DB1"
+   ],
+   "renglones_lista": [
+    "101/14"
+   ]
+  },
+  {
+   "codigo": "AB2000405",
+   "codigo_en_plano": "AB2000405",
+   "descripcion": "Contacto 1NC para XB4",
+   "marca": "Schneider Electric",
+   "modelo": "ZBE102",
+   "numero_articulo": "SE.ZBE102",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "42DB1"
+   ],
+   "renglones_lista": [
+    "101/15"
+   ]
+  },
+  {
+   "codigo": "AB2000135",
+   "codigo_en_plano": "AB2000135",
+   "descripcion": "Barrera de seguridad intrínseca / 2 Entradas digitales",
+   "marca": "CHENZHU",
+   "modelo": "GS8512-EX.22",
+   "numero_articulo": "CZ.GS8512-EX.22",
+   "cantidad": 3,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "15DIB1",
+    "15DIB2",
+    "15DIB3"
+   ],
+   "renglones_lista": [
+    "101/16",
+    "101/17",
+    "101/18"
+   ]
+  },
+  {
+   "codigo": "AB2000022",
+   "codigo_en_plano": "AB2000022",
+   "descripcion": "Final de carrera metálico 1NAC",
+   "marca": "OMRON Corporation",
+   "modelo": "HL-5200",
+   "numero_articulo": "HL-5200",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "42DS"
+   ],
+   "renglones_lista": [
+    "101/19"
+   ]
+  },
+  {
+   "codigo": "AB12029121",
+   "codigo_en_plano": "AB12029121",
+   "descripcion": "TeSys portafusibles - 1 P 32A",
+   "marca": "Schneider Electric",
+   "modelo": "DF101",
+   "numero_articulo": "SE.DF101",
+   "cantidad": 5,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "11F1",
+    "11F2",
+    "13F4",
+    "13F5",
+    "13F6"
+   ],
+   "renglones_lista": [
+    "102/20",
+    "102/22",
+    "102/28",
+    "102/30",
+    "102/32"
+   ]
+  },
+  {
+   "codigo": "AB2000219",
+   "codigo_en_plano": "AB2000219",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2CN10",
+   "numero_articulo": "SE.DF2CN10",
+   "cantidad": 4,
+   "unidad": "un",
+   "clase": "otro",
+   "tags": [
+    "11F1",
+    "11F2",
+    "13F4",
+    "13F5"
+   ],
+   "renglones_lista": [
+    "102/21",
+    "102/23",
+    "102/29",
+    "102/31"
+   ]
+  },
+  {
+   "codigo": "AB2000441",
+   "codigo_en_plano": "AB2000441",
+   "descripcion": "Portafusible MEGA con protección",
+   "marca": "Littelfuse",
+   "modelo": "FUSE MEGA HOLDER",
+   "numero_articulo": "FUSE MEGA HOLDER",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "12F2"
+   ],
+   "renglones_lista": [
+    "102/24"
+   ]
+  },
+  {
+   "codigo": "AB2000435",
+   "codigo_en_plano": "AB2000435",
+   "descripcion": "FUSIBLE-MEGA",
+   "marca": "Littelfuse",
+   "modelo": "FUSIBLE MEGA 150A",
+   "numero_articulo": "FUSIBLE MEGA 150A",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "otro",
+   "tags": [
+    "12F2"
+   ],
+   "renglones_lista": [
+    "102/25"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": "DF141",
+   "descripcion": "TeSys portafusibles - 1 P 50A",
+   "marca": "Schneider Electric",
+   "modelo": "DF141",
+   "numero_articulo": "SE.DF141",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "12F3"
+   ],
+   "renglones_lista": [
+    "102/26"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": "DF2EA32",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 14 x 51 mm - Am 32 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2EA32",
+   "numero_articulo": "SE.DF2EA32",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "otro",
+   "tags": [
+    "12F3"
+   ],
+   "renglones_lista": [
+    "102/27"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": "DF2CN06",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 6 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2CN06",
+   "numero_articulo": "SE.DF2CN06",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "otro",
+   "tags": [
+    "13F6"
+   ],
+   "renglones_lista": [
+    "102/33"
+   ]
+  },
+  {
+   "codigo": "AB2000063",
+   "codigo_en_plano": "AB2000063",
+   "descripcion": "Relé de todo o nada básico / Módulo de relés",
+   "marca": "Phoenix Contact",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "numero_articulo": "PXC.2903371",
+   "cantidad": 4,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "61KR1",
+    "61KR2",
+    "61KR3",
+    "61KR4"
+   ],
+   "renglones_lista": [
+    "102/35",
+    "102/36",
+    "102/37",
+    "102/38"
+   ]
+  },
+  {
+   "codigo": "AB2000444",
+   "codigo_en_plano": "AB2000444",
+   "descripcion": "Relé de seguridad",
+   "marca": "Phoenix Contact",
+   "modelo": "PSR-SCP- 24UC/ESA2/4X1/1X2/B",
+   "numero_articulo": "PXC.2963802",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "42KS1"
+   ],
+   "renglones_lista": [
+    "103/39"
+   ]
+  },
+  {
+   "codigo": "AB2000505",
+   "codigo_en_plano": "AB2000505",
+   "descripcion": "SENSOR DE NIVEL CAPACITIVO",
+   "marca": "XKC",
+   "modelo": "XKC-Y28-NO",
+   "numero_articulo": "XKC-Y28-NO",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "LS001A"
+   ],
+   "renglones_lista": [
+    "103/40"
+   ]
+  },
+  {
+   "codigo": "AB20000331",
+   "codigo_en_plano": "AB20000331",
+   "descripcion": "TeSys VARIO Interruptor seccionador en la puerta",
+   "marca": "Schneider Electric",
+   "modelo": "VBF1",
+   "numero_articulo": "SE.VBF1",
+   "cantidad": 2,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "11MS1",
+    "13MS1"
+   ],
+   "renglones_lista": [
+    "103/42",
+    "103/43"
+   ]
+  },
+  {
+   "codigo": "AB139844",
+   "codigo_en_plano": "AB139844",
+   "descripcion": "Batería de 12V",
+   "marca": "ODYSSEY",
+   "modelo": "ODX-AGM34M",
+   "numero_articulo": "ODY.ODX-AGM34M",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "12PB1"
+   ],
+   "renglones_lista": [
+    "103/44"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": "L03-60591-01",
+   "descripcion": "E2.5 DI/DO/AI / PLACA E2.5",
+   "marca": "DIGITO",
+   "modelo": "PLACA E2.5 (PCB-E2-5)",
+   "numero_articulo": "PLACA_E2.5",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "21PCB01"
+   ],
+   "renglones_lista": [
+    "103/45"
+   ]
+  },
+  {
+   "codigo": "AB1202653",
+   "codigo_en_plano": "AB1202653",
+   "descripcion": "Fuente de alimentación 110/220VAC - 24/28VDC",
+   "marca": "MEAN WELL",
+   "modelo": "NDR-240-24",
+   "numero_articulo": "MWP.NDR-240-24",
+   "cantidad": 2,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "11PS1",
+    "11PS2"
+   ],
+   "renglones_lista": [
+    "103/46",
+    "103/47"
+   ]
+  },
+  {
+   "codigo": "AB20000291",
+   "codigo_en_plano": "AB20000291",
+   "descripcion": "Regulador de carga MPPT",
+   "marca": "EPEVER",
+   "modelo": "TRACER7810BP",
+   "numero_articulo": "TRACER7810BP",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "12PS1"
+   ],
+   "renglones_lista": [
+    "103/48"
+   ]
+  },
+  {
+   "codigo": "AB139867",
+   "codigo_en_plano": "AB139867",
+   "descripcion": "Elevador de tensión 12-24VDC",
+   "marca": "MEAN WELL",
+   "modelo": "DDR-120A-24",
+   "numero_articulo": "MW.DDR-120A-24",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "13PS1"
+   ],
+   "renglones_lista": [
+    "103/49"
+   ]
+  },
+  {
+   "codigo": "AB2000144",
+   "codigo_en_plano": "AB2000144",
+   "descripcion": "Transmisor de presión / Conector: 1 DIN",
+   "marca": "ifm electronic",
+   "modelo": "PT-250-SEG14-A-ZVG/VE",
+   "numero_articulo": "IFM.PT-250-SEG14-A-ZVG/VE",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "PT001"
+   ],
+   "renglones_lista": [
+    "103/50"
+   ]
+  },
+  {
+   "codigo": "AB1203305",
+   "codigo_en_plano": "AB1203305",
+   "descripcion": "ACTI9 IID 2P 25A 30MA AC RCCB",
+   "marca": "Schneider Electric",
+   "modelo": "EZ9F36225",
+   "numero_articulo": "SE.EZ9F36225",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "11Q1"
+   ],
+   "renglones_lista": [
+    "103/51"
+   ]
+  },
+  {
+   "codigo": "AB12026561",
+   "codigo_en_plano": "AB12026561",
+   "descripcion": "TERMOMAGNÉTICA 2x10A",
+   "marca": "Schneider Electric",
+   "modelo": "EZ9F34210",
+   "numero_articulo": "SE.EZ9F34210",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "11Q2"
+   ],
+   "renglones_lista": [
+    "103/52"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": "0804087",
+   "descripcion": "Enchufe de zócalo para caja de distribución / Toma de corriente",
+   "marca": "Phoenix Contact",
+   "modelo": "EO-I/UT",
+   "numero_articulo": "PXC.0804087",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "11SK1"
+   ],
+   "renglones_lista": [
+    "103/53"
+   ]
+  },
+  {
+   "codigo": "AB2000408",
+   "codigo_en_plano": "AB2000408",
+   "descripcion": "VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC",
+   "marca": "DIGITO",
+   "modelo": "DLEHM-3A/WP-X 12DC",
+   "numero_articulo": "DIG.DLEHM-3A/WP-X 12DC",
+   "cantidad": 3,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "SP_1",
+    "SP_2",
+    "SP_3"
+   ],
+   "renglones_lista": [
+    "103/54",
+    "103/55",
+    "103/56"
+   ]
+  },
+  {
+   "codigo": "AB2000369",
+   "codigo_en_plano": "AB2000369",
+   "descripcion": "Bloque de terminales de paso / Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212934",
+   "cantidad": 17,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "11X220V",
+    "13X12V",
+    "13X24V",
+    "61X0V",
+    "61XDO",
+    "12XP"
+   ],
+   "renglones_lista": [
+    "104/58",
+    "104/61",
+    "104/64",
+    "104/69",
+    "105/87",
+    "106/98"
+   ]
+  },
+  {
+   "codigo": "AB2000370",
+   "codigo_en_plano": "AB2000370",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212963",
+   "cantidad": 7,
+   "unidad": "un",
+   "clase": "mecanico",
+   "tags": [
+    "11X220V",
+    "13X12V",
+    "13X24V",
+    "61X0V",
+    "61XDO",
+    "12XP"
+   ],
+   "renglones_lista": [
+    "104/59",
+    "104/62",
+    "104/66",
+    "104/71",
+    "105/88",
+    "106/100"
+   ]
+  },
+  {
+   "codigo": "AB20003702",
+   "codigo_en_plano": "AB20003702",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 2-8",
+   "numero_articulo": "PXC.3030284",
+   "cantidad": 2,
+   "unidad": "un",
+   "clase": "otro",
+   "tags": [
+    "13X24V",
+    "12XPS"
+   ],
+   "renglones_lista": [
+    "104/65",
+    "107/106"
+   ]
+  },
+  {
+   "codigo": "AB20003703",
+   "codigo_en_plano": "AB20003703",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 2-8 BU",
+   "numero_articulo": "PXC.3032567",
+   "cantidad": 2,
+   "unidad": "un",
+   "clase": "otro",
+   "tags": [
+    "13X24V",
+    "61X0V"
+   ],
+   "renglones_lista": [
+    "104/67",
+    "104/70"
+   ]
+  },
+  {
+   "codigo": "AB2000436",
+   "codigo_en_plano": "AB2000436",
+   "descripcion": "Borna con portafusible / Borne de carril para fusible",
+   "marca": "Phoenix Contact",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "numero_articulo": "PXC.3211886",
+   "cantidad": 2,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "32XAI",
+    "42XC"
+   ],
+   "renglones_lista": [
+    "104/73",
+    "105/76"
+   ]
+  },
+  {
+   "codigo": "AB2000069",
+   "codigo_en_plano": "AB2000069",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PTT 2,5-2MT-0,8",
+   "numero_articulo": "PXC.3210300",
+   "cantidad": 7,
+   "unidad": "un",
+   "clase": "mecanico",
+   "tags": [
+    "32XAI",
+    "42XC",
+    "81XCM",
+    "32XEX",
+    "41XEX",
+    "15XR"
+   ],
+   "renglones_lista": [
+    "105/74",
+    "105/77",
+    "105/81",
+    "106/91",
+    "106/96",
+    "107/115"
+   ]
+  },
+  {
+   "codigo": "AB2000067",
+   "codigo_en_plano": "AB2000067",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT",
+   "numero_articulo": "PXC.3210258",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "42XC"
+   ],
+   "renglones_lista": [
+    "105/78"
+   ]
+  },
+  {
+   "codigo": null,
+   "codigo_en_plano": "3210258",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT",
+   "numero_articulo": "PXC.3210258",
+   "cantidad": 6,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "81XCM",
+    "15XR"
+   ],
+   "renglones_lista": [
+    "105/80",
+    "107/114"
+   ]
+  },
+  {
+   "codigo": "AB2000080",
+   "codigo_en_plano": "AB2000080",
+   "descripcion": "Borne para componentes",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-DIO/L-R",
+   "numero_articulo": "PXC.3210224",
+   "cantidad": 4,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "61XDIO"
+   ],
+   "renglones_lista": [
+    "105/83"
+   ]
+  },
+  {
+   "codigo": "AB20003705",
+   "codigo_en_plano": "AB20003705",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 4-5 BU",
+   "numero_articulo": "PXC.3036893",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "otro",
+   "tags": [
+    "61XDIO"
+   ],
+   "renglones_lista": [
+    "105/84"
+   ]
+  },
+  {
+   "codigo": "AB2000081",
+   "codigo_en_plano": "AB2000081",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-ST 2,5",
+   "numero_articulo": "PXC.3030417",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "mecanico",
+   "tags": [
+    "61XDIO"
+   ],
+   "renglones_lista": [
+    "105/85"
+   ]
+  },
+  {
+   "codigo": "AB2000068",
+   "codigo_en_plano": "AB2000068",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT BU",
+   "numero_articulo": "PXC.3210265",
+   "cantidad": 8,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "32XEX",
+    "41XEX"
+   ],
+   "renglones_lista": [
+    "106/90",
+    "106/95"
+   ]
+  },
+  {
+   "codigo": "AB20003691",
+   "codigo_en_plano": "AB20003691",
+   "descripcion": "Bloque de terminales de tierra / Borna de tierra",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-QUATTRO-PE",
+   "numero_articulo": "PXC.3209594",
+   "cantidad": 6,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "32XEX",
+    "XPE",
+    "11XPVAC",
+    "15XR"
+   ],
+   "renglones_lista": [
+    "106/92",
+    "106/102",
+    "107/111",
+    "107/116"
+   ]
+  },
+  {
+   "codigo": "AB20003701",
+   "codigo_en_plano": "AB20003701",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-ST 2,5-QUATTRO GN",
+   "numero_articulo": "PXC.3032059",
+   "cantidad": 4,
+   "unidad": "un",
+   "clase": "mecanico",
+   "tags": [
+    "32XEX",
+    "XPE",
+    "11XPVAC",
+    "15XR"
+   ],
+   "renglones_lista": [
+    "106/93",
+    "106/103",
+    "107/112",
+    "107/117"
+   ]
+  },
+  {
+   "codigo": "AB20003704",
+   "codigo_en_plano": "AB20003704",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 3-8 BU",
+   "numero_articulo": "PXC.3032570",
+   "cantidad": 1,
+   "unidad": "un",
+   "clase": "otro",
+   "tags": [
+    "12XP"
+   ],
+   "renglones_lista": [
+    "106/99"
+   ]
+  },
+  {
+   "codigo": "AB2000381",
+   "codigo_en_plano": "AB2000381",
+   "descripcion": "Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6",
+   "numero_articulo": "PXC.3211813",
+   "cantidad": 15,
+   "unidad": "un",
+   "clase": "aparato",
+   "tags": [
+    "12XPS",
+    "11XPVAC"
+   ],
+   "renglones_lista": [
+    "107/105",
+    "107/109"
+   ]
+  },
+  {
+   "codigo": "AB2000379",
+   "codigo_en_plano": "AB2000379",
+   "descripcion": "Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6",
+   "numero_articulo": "PXC.3212044",
+   "cantidad": 2,
+   "unidad": "un",
+   "clase": "mecanico",
+   "tags": [
+    "12XPS",
+    "11XPVAC"
+   ],
+   "renglones_lista": [
+    "107/107",
+    "107/110"
+   ]
+  },
+  {
+   "codigo": "AB12029981",
+   "codigo_en_plano": "AB12029981",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X80",
+   "numero_articulo": "PXC.3240198",
+   "cantidad": 1.66,
+   "unidad": "m",
+   "clase": "mecanico",
+   "tags": [
+    "U2",
+    "U3",
+    "U4",
+    "U5"
+   ],
+   "renglones_lista": [
+    "11 (fab.)/1",
+    "11 (fab.)/2",
+    "11 (fab.)/3",
+    "11 (fab.)/4"
+   ]
+  },
+  {
+   "codigo": "AB12029982",
+   "codigo_en_plano": "AB12029982",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X80 BU",
+   "numero_articulo": "PXC.3240198 BU",
+   "cantidad": 0.47,
+   "unidad": "m",
+   "clase": "mecanico",
+   "tags": [
+    "U6",
+    "U7"
+   ],
+   "renglones_lista": [
+    "11 (fab.)/5",
+    "11 (fab.)/6"
+   ]
+  },
+  {
+   "codigo": "AB12029983",
+   "codigo_en_plano": "AB12029983",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 60X80",
+   "numero_articulo": "PXC.3240199",
+   "cantidad": 0.28,
+   "unidad": "m",
+   "clase": "mecanico",
+   "tags": [
+    "U8"
+   ],
+   "renglones_lista": [
+    "11 (fab.)/7"
+   ]
+  },
+  {
+   "codigo": "AB12029984",
+   "codigo_en_plano": "AB12029984",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 60X80 BU",
+   "numero_articulo": "PXC.3240199 BU",
+   "cantidad": 0.18,
+   "unidad": "m",
+   "clase": "mecanico",
+   "tags": [
+    "U9"
+   ],
+   "renglones_lista": [
+    "11 (fab.)/8"
+   ]
+  },
+  {
+   "codigo": "AB1202858",
+   "codigo_en_plano": "AB1202858",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "cantidad": 1.72,
+   "unidad": "m",
+   "clase": "mecanico",
+   "tags": [
+    "U10",
+    "U11",
+    "U12",
+    "U13",
+    "U14",
+    "U18",
+    "U19",
+    "U21"
+   ],
+   "renglones_lista": [
+    "11 (fab.)/9",
+    "11 (fab.)/10",
+    "11 (fab.)/11",
+    "11 (fab.)/12",
+    "11 (fab.)/13",
+    "11 (fab.)/17",
+    "11 (fab.)/18",
+    "11 (fab.)/19"
+   ]
+  },
+  {
+   "codigo": "AB1202835",
+   "codigo_en_plano": "AB1202835",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X40",
+   "numero_articulo": "PXC.3240189",
+   "cantidad": 1.27,
+   "unidad": "m",
+   "clase": "mecanico",
+   "tags": [
+    "U15",
+    "U16",
+    "U17",
+    "U22"
+   ],
+   "renglones_lista": [
+    "11 (fab.)/14",
+    "11 (fab.)/15",
+    "11 (fab.)/16",
+    "11 (fab.)/20"
+   ]
+  }
+ ],
+ "lista_funcional": [
+  {
+   "hoja": "101",
+   "pos": 1,
+   "tag": "31",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "31 | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "101",
+   "pos": 2,
+   "tag": "12",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Enchufe redondo negro para orificio Ø22",
+   "marca": "Schneider Electric",
+   "modelo": "ZB5SZ3",
+   "numero_tipo": "ZB5SZ3",
+   "numero_articulo": "SE.ZB5SZ3",
+   "numero_pedido": "AB2000273",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "12 | Enchufe redondo negro para orificio Ø22 | Schneider Electric | ZB5SZ3 | SE.ZB5SZ3 | AB2000273"
+  },
+  {
+   "hoja": "101",
+   "pos": 3,
+   "tag": "22",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "22 | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "101",
+   "pos": 4,
+   "tag": "24",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "24 | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "101",
+   "pos": 5,
+   "tag": "28",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "28 | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "101",
+   "pos": 6,
+   "tag": "29",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "29 | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "101",
+   "pos": 7,
+   "tag": "30",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "30 | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "101",
+   "pos": 8,
+   "tag": "31",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "31 | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "101",
+   "pos": 9,
+   "tag": "15AIB1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Barrera de seguridad intrínseca / 2 Entradas analógicas",
+   "marca": "CHENZHU",
+   "modelo": "GS8536-EX",
+   "numero_tipo": "GS8536-EX",
+   "numero_articulo": "CZ.GS8536-EX",
+   "numero_pedido": "AB2000134",
+   "texto_funcion": "Barrera de Seguridad",
+   "colocacion": [
+    "&CLIENTE/32.2C"
+   ],
+   "clase": "aparato",
+   "renglon": "15AIB1 | Barrera de seguridad intrínseca / 2 Entradas analógicas | CHENZHU | GS8536-EX | CZ.GS8536-EX | AB2000134"
+  },
+  {
+   "hoja": "101",
+   "pos": 10,
+   "tag": "BH-01-M",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "UNIDAD HIDRAULICA",
+   "marca": "DIGITO",
+   "modelo": "UNIDAD HIDRAULICA R2",
+   "numero_tipo": "UNIDAD HIDRAULICA",
+   "numero_articulo": "DIG.UNIDAD HIDRAULICA R2",
+   "numero_pedido": "UNIDAD HIDRAULICA",
+   "texto_funcion": "Motor Unidad Hidráulica",
+   "colocacion": [
+    "&CLIENTE/12.2E"
+   ],
+   "clase": "aparato",
+   "renglon": "BH-01-M | UNIDAD HIDRAULICA | DIGITO | UNIDAD HIDRAULICA R2 | DIG.UNIDAD HIDRAULICA R2 | UNIDAD HIDRAULICA"
+  },
+  {
+   "hoja": "101",
+   "pos": 11,
+   "tag": "BH-01-M",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Unidad hidráulica completa",
+   "marca": "Vibo",
+   "modelo": "VIBO",
+   "numero_tipo": null,
+   "numero_articulo": "VIBO",
+   "numero_pedido": null,
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "aparato",
+   "renglon": "BH-01-M | Unidad hidráulica completa | Vibo | VIBO | VIBO | "
+  },
+  {
+   "hoja": "101",
+   "pos": 12,
+   "tag": "BH_01_ZV",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Contactor de bomba 12 VDC",
+   "marca": "Trombetta",
+   "modelo": "684-1261-212-17",
+   "numero_tipo": "684-1261-212-17",
+   "numero_articulo": "TROM.684-1261-212-17",
+   "numero_pedido": "684-1261-212-17",
+   "texto_funcion": "Contactor de Motor",
+   "colocacion": [
+    "&CLIENTE/61.2E"
+   ],
+   "clase": "aparato",
+   "renglon": "BH_01_ZV | Contactor de bomba 12 VDC | Trombetta | 684-1261-212-17 | TROM.684-1261-212-17 | 684-1261-212-17"
+  },
+  {
+   "hoja": "101",
+   "pos": 13,
+   "tag": "42DB1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Parada de emergencia Ø22 - cabeza seta Ø40 - girar para desenclavar 1NC",
+   "marca": "Schneider Electric",
+   "modelo": "XB4BS8442",
+   "numero_tipo": "XB4BS8442",
+   "numero_articulo": "SE.XB4BS8442",
+   "numero_pedido": "AB2000051",
+   "texto_funcion": "Pulsador",
+   "colocacion": [
+    "&CLIENTE/42.3C"
+   ],
+   "clase": "aparato",
+   "renglon": "42DB1 | Parada de emergencia Ø22 - cabeza seta Ø40 - girar para desenclavar 1NC | Schneider Electric | XB4BS8442 | SE.XB4BS8442 | AB2000051"
+  },
+  {
+   "hoja": "101",
+   "pos": 14,
+   "tag": "42DB1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Protección para seta Ø 40 y unidades Ø 22 mm - amarillo",
+   "marca": "Schneider Electric",
+   "modelo": "ZBZ1605",
+   "numero_tipo": "ZBZ1605",
+   "numero_articulo": "SE.ZBZ1605",
+   "numero_pedido": "AB2000050",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/42.3C"
+   ],
+   "clase": "mecanico",
+   "renglon": "42DB1 | Protección para seta Ø 40 y unidades Ø 22 mm - amarillo | Schneider Electric | ZBZ1605 | SE.ZBZ1605 | AB2000050"
+  },
+  {
+   "hoja": "101",
+   "pos": 15,
+   "tag": "42DB1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Contacto 1NC para XB4",
+   "marca": "Schneider Electric",
+   "modelo": "ZBE102",
+   "numero_tipo": "ZBE102",
+   "numero_articulo": "SE.ZBE102",
+   "numero_pedido": "AB2000405",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/42.3C"
+   ],
+   "clase": "aparato",
+   "renglon": "42DB1 | Contacto 1NC para XB4 | Schneider Electric | ZBE102 | SE.ZBE102 | AB2000405"
+  },
+  {
+   "hoja": "101",
+   "pos": 16,
+   "tag": "15DIB1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Barrera de seguridad intrínseca / 2 Entradas digitales",
+   "marca": "CHENZHU",
+   "modelo": "GS8512-EX.22",
+   "numero_tipo": "GS8512-EX.22",
+   "numero_articulo": "CZ.GS8512-EX.22",
+   "numero_pedido": "AB2000135",
+   "texto_funcion": "Barrera de Seguridad",
+   "colocacion": [
+    "&CLIENTE/41.2C"
+   ],
+   "clase": "aparato",
+   "renglon": "15DIB1 | Barrera de seguridad intrínseca / 2 Entradas digitales | CHENZHU | GS8512-EX.22 | CZ.GS8512-EX.22 | AB2000135"
+  },
+  {
+   "hoja": "101",
+   "pos": 17,
+   "tag": "15DIB2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Barrera de seguridad intrínseca / 2 Entradas digitales",
+   "marca": "CHENZHU",
+   "modelo": "GS8512-EX.22",
+   "numero_tipo": "GS8512-EX.22",
+   "numero_articulo": "CZ.GS8512-EX.22",
+   "numero_pedido": "AB2000135",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/41.4C"
+   ],
+   "clase": "aparato",
+   "renglon": "15DIB2 | Barrera de seguridad intrínseca / 2 Entradas digitales | CHENZHU | GS8512-EX.22 | CZ.GS8512-EX.22 | AB2000135"
+  },
+  {
+   "hoja": "101",
+   "pos": 18,
+   "tag": "15DIB3",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Barrera de seguridad intrínseca / 2 Entradas digitales",
+   "marca": "CHENZHU",
+   "modelo": "GS8512-EX.22",
+   "numero_tipo": "GS8512-EX.22",
+   "numero_articulo": "CZ.GS8512-EX.22",
+   "numero_pedido": "AB2000135",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/41.6C"
+   ],
+   "clase": "aparato",
+   "renglon": "15DIB3 | Barrera de seguridad intrínseca / 2 Entradas digitales | CHENZHU | GS8512-EX.22 | CZ.GS8512-EX.22 | AB2000135"
+  },
+  {
+   "hoja": "101",
+   "pos": 19,
+   "tag": "42DS",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Final de carrera metálico 1NAC",
+   "marca": "OMRON Corporation",
+   "modelo": "HL-5200",
+   "numero_tipo": "HL-5200",
+   "numero_articulo": "HL-5200",
+   "numero_pedido": "AB2000022",
+   "texto_funcion": "Sensor de Puerta",
+   "colocacion": [
+    "&CLIENTE/42.1C"
+   ],
+   "clase": "aparato",
+   "renglon": "42DS | Final de carrera metálico 1NAC | OMRON Corporation | HL-5200 | HL-5200 | AB2000022"
+  },
+  {
+   "hoja": "102",
+   "pos": 20,
+   "tag": "11F1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys portafusibles - 1 P 32A",
+   "marca": "Schneider Electric",
+   "modelo": "DF101",
+   "numero_tipo": "DF101",
+   "numero_articulo": "SE.DF101",
+   "numero_pedido": "AB12029121",
+   "texto_funcion": "Protección",
+   "colocacion": [
+    "&CLIENTE/11.6D"
+   ],
+   "clase": "aparato",
+   "renglon": "11F1 | TeSys portafusibles - 1 P 32A | Schneider Electric | DF101 | SE.DF101 | AB12029121"
+  },
+  {
+   "hoja": "102",
+   "pos": 21,
+   "tag": "11F1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2CN10",
+   "numero_tipo": "DF2CN10",
+   "numero_articulo": "SE.DF2CN10",
+   "numero_pedido": "AB2000219",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.6D"
+   ],
+   "clase": "otro",
+   "renglon": "11F1 | TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación | Schneider Electric | DF2CN10 | SE.DF2CN10 | AB2000219"
+  },
+  {
+   "hoja": "102",
+   "pos": 22,
+   "tag": "11F2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys portafusibles - 1 P 32A",
+   "marca": "Schneider Electric",
+   "modelo": "DF101",
+   "numero_tipo": "DF101",
+   "numero_articulo": "SE.DF101",
+   "numero_pedido": "AB12029121",
+   "texto_funcion": "Protección",
+   "colocacion": [
+    "&CLIENTE/11.7D"
+   ],
+   "clase": "aparato",
+   "renglon": "11F2 | TeSys portafusibles - 1 P 32A | Schneider Electric | DF101 | SE.DF101 | AB12029121"
+  },
+  {
+   "hoja": "102",
+   "pos": 23,
+   "tag": "11F2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2CN10",
+   "numero_tipo": "DF2CN10",
+   "numero_articulo": "SE.DF2CN10",
+   "numero_pedido": "AB2000219",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.7D"
+   ],
+   "clase": "otro",
+   "renglon": "11F2 | TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación | Schneider Electric | DF2CN10 | SE.DF2CN10 | AB2000219"
+  },
+  {
+   "hoja": "102",
+   "pos": 24,
+   "tag": "12F2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Portafusible MEGA con protección",
+   "marca": "Littelfuse",
+   "modelo": "FUSE MEGA HOLDER",
+   "numero_tipo": "FUSE MEGA HOLDER",
+   "numero_articulo": "FUSE MEGA HOLDER",
+   "numero_pedido": "AB2000441",
+   "texto_funcion": "Protección Motor de",
+   "colocacion": [
+    "&CLIENTE/12.2D"
+   ],
+   "clase": "aparato",
+   "renglon": "12F2 | Portafusible MEGA con protección | Littelfuse | FUSE MEGA HOLDER | FUSE MEGA HOLDER | AB2000441"
+  },
+  {
+   "hoja": "102",
+   "pos": 25,
+   "tag": "12F2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "FUSIBLE-MEGA",
+   "marca": "Littelfuse",
+   "modelo": "FUSIBLE MEGA 150A",
+   "numero_tipo": "FUSIBLE MEGA 150A",
+   "numero_articulo": "FUSIBLE MEGA 150A",
+   "numero_pedido": "AB2000435",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/12.2D"
+   ],
+   "clase": "otro",
+   "renglon": "12F2 | FUSIBLE-MEGA | Littelfuse | FUSIBLE MEGA 150A | FUSIBLE MEGA 150A | AB2000435"
+  },
+  {
+   "hoja": "102",
+   "pos": 26,
+   "tag": "12F3",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys portafusibles - 1 P 50A",
+   "marca": "Schneider Electric",
+   "modelo": "DF141",
+   "numero_tipo": "DF141",
+   "numero_articulo": "SE.DF141",
+   "numero_pedido": "DF141",
+   "texto_funcion": "Protección",
+   "colocacion": [
+    "&CLIENTE/12.5C"
+   ],
+   "clase": "aparato",
+   "renglon": "12F3 | TeSys portafusibles - 1 P 50A | Schneider Electric | DF141 | SE.DF141 | DF141"
+  },
+  {
+   "hoja": "102",
+   "pos": 27,
+   "tag": "12F3",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 14 x 51 mm - Am 32 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2EA32",
+   "numero_tipo": "DF2EA32",
+   "numero_articulo": "SE.DF2EA32",
+   "numero_pedido": "DF2EA32",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/12.5C"
+   ],
+   "clase": "otro",
+   "renglon": "12F3 | TeSys fusible-seccionador - cartucho de fusible de 14 x 51 mm - Am 32 A - w / o / indicación | Schneider Electric | DF2EA32 | SE.DF2EA32 | DF2EA32"
+  },
+  {
+   "hoja": "102",
+   "pos": 28,
+   "tag": "13F4",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys portafusibles - 1 P 32A",
+   "marca": "Schneider Electric",
+   "modelo": "DF101",
+   "numero_tipo": "DF101",
+   "numero_articulo": "SE.DF101",
+   "numero_pedido": "AB12029121",
+   "texto_funcion": "Protección",
+   "colocacion": [
+    "&CLIENTE/13.1B"
+   ],
+   "clase": "aparato",
+   "renglon": "13F4 | TeSys portafusibles - 1 P 32A | Schneider Electric | DF101 | SE.DF101 | AB12029121"
+  },
+  {
+   "hoja": "102",
+   "pos": 29,
+   "tag": "13F4",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2CN10",
+   "numero_tipo": "DF2CN10",
+   "numero_articulo": "SE.DF2CN10",
+   "numero_pedido": "AB2000219",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.1B"
+   ],
+   "clase": "otro",
+   "renglon": "13F4 | TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación | Schneider Electric | DF2CN10 | SE.DF2CN10 | AB2000219"
+  },
+  {
+   "hoja": "102",
+   "pos": 30,
+   "tag": "13F5",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys portafusibles - 1 P 32A",
+   "marca": "Schneider Electric",
+   "modelo": "DF101",
+   "numero_tipo": "DF101",
+   "numero_articulo": "SE.DF101",
+   "numero_pedido": "AB12029121",
+   "texto_funcion": "Protección",
+   "colocacion": [
+    "&CLIENTE/13.2B"
+   ],
+   "clase": "aparato",
+   "renglon": "13F5 | TeSys portafusibles - 1 P 32A | Schneider Electric | DF101 | SE.DF101 | AB12029121"
+  },
+  {
+   "hoja": "102",
+   "pos": 31,
+   "tag": "13F5",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2CN10",
+   "numero_tipo": "DF2CN10",
+   "numero_articulo": "SE.DF2CN10",
+   "numero_pedido": "AB2000219",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.2B"
+   ],
+   "clase": "otro",
+   "renglon": "13F5 | TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 10 A - w / o / indicación | Schneider Electric | DF2CN10 | SE.DF2CN10 | AB2000219"
+  },
+  {
+   "hoja": "102",
+   "pos": 32,
+   "tag": "13F6",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys portafusibles - 1 P 32A",
+   "marca": "Schneider Electric",
+   "modelo": "DF101",
+   "numero_tipo": "DF101",
+   "numero_articulo": "SE.DF101",
+   "numero_pedido": "AB12029121",
+   "texto_funcion": "Protección",
+   "colocacion": [
+    "&CLIENTE/13.5D"
+   ],
+   "clase": "aparato",
+   "renglon": "13F6 | TeSys portafusibles - 1 P 32A | Schneider Electric | DF101 | SE.DF101 | AB12029121"
+  },
+  {
+   "hoja": "102",
+   "pos": 33,
+   "tag": "13F6",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 6 A - w / o / indicación",
+   "marca": "Schneider Electric",
+   "modelo": "DF2CN06",
+   "numero_tipo": "DF2CN06",
+   "numero_articulo": "SE.DF2CN06",
+   "numero_pedido": "DF2CN06",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.5D"
+   ],
+   "clase": "otro",
+   "renglon": "13F6 | TeSys fusible-seccionador - cartucho de fusible de 10 x 38 mm - gG 6 A - w / o / indicación | Schneider Electric | DF2CN06 | SE.DF2CN06 | DF2CN06"
+  },
+  {
+   "hoja": "102",
+   "pos": 34,
+   "tag": "61KR",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "61KR | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "102",
+   "pos": 35,
+   "tag": "61KR1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Relé de todo o nada básico / Módulo de relés",
+   "marca": "Phoenix Contact",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "numero_tipo": "RIF-0-RPT-12DC/21",
+   "numero_articulo": "PXC.2903371",
+   "numero_pedido": "AB2000063",
+   "texto_funcion": "Relé",
+   "colocacion": [
+    "&CLIENTE/61.1A"
+   ],
+   "clase": "aparato",
+   "renglon": "61KR1 | Relé de todo o nada básico / Módulo de relés | Phoenix Contact | RIF-0-RPT-12DC/21 | PXC.2903371 | AB2000063"
+  },
+  {
+   "hoja": "102",
+   "pos": 36,
+   "tag": "61KR2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Relé de todo o nada básico / Módulo de relés",
+   "marca": "Phoenix Contact",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "numero_tipo": "RIF-0-RPT-12DC/21",
+   "numero_articulo": "PXC.2903371",
+   "numero_pedido": "AB2000063",
+   "texto_funcion": "Relé",
+   "colocacion": [
+    "&CLIENTE/61.3A"
+   ],
+   "clase": "aparato",
+   "renglon": "61KR2 | Relé de todo o nada básico / Módulo de relés | Phoenix Contact | RIF-0-RPT-12DC/21 | PXC.2903371 | AB2000063"
+  },
+  {
+   "hoja": "102",
+   "pos": 37,
+   "tag": "61KR3",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Relé de todo o nada básico / Módulo de relés",
+   "marca": "Phoenix Contact",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "numero_tipo": "RIF-0-RPT-12DC/21",
+   "numero_articulo": "PXC.2903371",
+   "numero_pedido": "AB2000063",
+   "texto_funcion": "Relé",
+   "colocacion": [
+    "&CLIENTE/61.5A"
+   ],
+   "clase": "aparato",
+   "renglon": "61KR3 | Relé de todo o nada básico / Módulo de relés | Phoenix Contact | RIF-0-RPT-12DC/21 | PXC.2903371 | AB2000063"
+  },
+  {
+   "hoja": "102",
+   "pos": 38,
+   "tag": "61KR4",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Relé de todo o nada básico / Módulo de relés",
+   "marca": "Phoenix Contact",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "numero_tipo": "RIF-0-RPT-12DC/21",
+   "numero_articulo": "PXC.2903371",
+   "numero_pedido": "AB2000063",
+   "texto_funcion": "Relé",
+   "colocacion": [
+    "&CLIENTE/61.6A"
+   ],
+   "clase": "aparato",
+   "renglon": "61KR4 | Relé de todo o nada básico / Módulo de relés | Phoenix Contact | RIF-0-RPT-12DC/21 | PXC.2903371 | AB2000063"
+  },
+  {
+   "hoja": "103",
+   "pos": 39,
+   "tag": "42KS1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Relé de seguridad",
+   "marca": "Phoenix Contact",
+   "modelo": "PSR-SCP- 24UC/ESA2/4X1/1X2/B",
+   "numero_tipo": "PSR-SCP- 24UC/ESA2/4X1/1X2/B",
+   "numero_articulo": "PXC.2963802",
+   "numero_pedido": "AB2000444",
+   "texto_funcion": "Relé de Seguridad",
+   "colocacion": [
+    "&CLIENTE/42.4B"
+   ],
+   "clase": "aparato",
+   "renglon": "42KS1 | Relé de seguridad | Phoenix Contact | PSR-SCP- 24UC/ESA2/4X1/1X2/B | PXC.2963802 | AB2000444"
+  },
+  {
+   "hoja": "103",
+   "pos": 40,
+   "tag": "LS001A",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "SENSOR DE NIVEL CAPACITIVO",
+   "marca": "XKC",
+   "modelo": "XKC-Y28-NO",
+   "numero_tipo": "XKC-Y28-NO",
+   "numero_articulo": "XKC-Y28-NO",
+   "numero_pedido": "AB2000505",
+   "texto_funcion": "Sensor de",
+   "colocacion": [
+    "&CLIENTE/42.2D"
+   ],
+   "clase": "aparato",
+   "renglon": "LS001A | SENSOR DE NIVEL CAPACITIVO | XKC | XKC-Y28-NO | XKC-Y28-NO | AB2000505"
+  },
+  {
+   "hoja": "103",
+   "pos": 41,
+   "tag": "M1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "UNIDAD HIDRAULICA",
+   "marca": "DIGITO",
+   "modelo": "UNIDAD HIDRAULICA R2",
+   "numero_tipo": "UNIDAD HIDRAULICA",
+   "numero_articulo": "DIG.UNIDAD HIDRAULICA R2",
+   "numero_pedido": "UNIDAD HIDRAULICA",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "aparato",
+   "renglon": "M1 | UNIDAD HIDRAULICA | DIGITO | UNIDAD HIDRAULICA R2 | DIG.UNIDAD HIDRAULICA R2 | UNIDAD HIDRAULICA"
+  },
+  {
+   "hoja": "103",
+   "pos": 42,
+   "tag": "11MS1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys VARIO Interruptor seccionador en la puerta",
+   "marca": "Schneider Electric",
+   "modelo": "VBF1",
+   "numero_tipo": "VBF1",
+   "numero_articulo": "SE.VBF1",
+   "numero_pedido": "AB20000331",
+   "texto_funcion": "Llave de Corte",
+   "colocacion": [
+    "&CLIENTE/11.4C"
+   ],
+   "clase": "aparato",
+   "renglon": "11MS1 | TeSys VARIO Interruptor seccionador en la puerta | Schneider Electric | VBF1 | SE.VBF1 | AB20000331"
+  },
+  {
+   "hoja": "103",
+   "pos": 43,
+   "tag": "13MS1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TeSys VARIO Interruptor seccionador en la puerta",
+   "marca": "Schneider Electric",
+   "modelo": "VBF1",
+   "numero_tipo": "VBF1",
+   "numero_articulo": "SE.VBF1",
+   "numero_pedido": "AB20000331",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.1C"
+   ],
+   "clase": "aparato",
+   "renglon": "13MS1 | TeSys VARIO Interruptor seccionador en la puerta | Schneider Electric | VBF1 | SE.VBF1 | AB20000331"
+  },
+  {
+   "hoja": "103",
+   "pos": 44,
+   "tag": "12PB1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Batería de 12V",
+   "marca": "ODYSSEY",
+   "modelo": "ODX-AGM34M",
+   "numero_tipo": "ODX-AGM34M",
+   "numero_articulo": "ODY.ODX-AGM34M",
+   "numero_pedido": "AB139844",
+   "texto_funcion": "Batería de Potencia",
+   "colocacion": [
+    "&CLIENTE/12.4D"
+   ],
+   "clase": "aparato",
+   "renglon": "12PB1 | Batería de 12V | ODYSSEY | ODX-AGM34M | ODY.ODX-AGM34M | AB139844"
+  },
+  {
+   "hoja": "103",
+   "pos": 45,
+   "tag": "21PCB01",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "E2.5 DI/DO/AI / PLACA E2.5",
+   "marca": "DIGITO",
+   "modelo": "PLACA E2.5 (PCB-E2-5)",
+   "numero_tipo": "PCB-E2-5",
+   "numero_articulo": "PLACA_E2.5",
+   "numero_pedido": "L03-60591-01",
+   "texto_funcion": "Unidad de Control",
+   "colocacion": [
+    "&CLIENTE/21.1B"
+   ],
+   "clase": "aparato",
+   "renglon": "21PCB01 | E2.5 DI/DO/AI / PLACA E2.5 | DIGITO | PLACA E2.5 (PCB-E2-5) | PLACA_E2.5 | L03-60591-01"
+  },
+  {
+   "hoja": "103",
+   "pos": 46,
+   "tag": "11PS1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Fuente de alimentación 110/220VAC - 24/28VDC",
+   "marca": "MEAN WELL",
+   "modelo": "NDR-240-24",
+   "numero_tipo": "NDR-240-24",
+   "numero_articulo": "MWP.NDR-240-24",
+   "numero_pedido": "AB1202653",
+   "texto_funcion": "Fuente 24VDC",
+   "colocacion": [
+    "&CLIENTE/11.6C"
+   ],
+   "clase": "aparato",
+   "renglon": "11PS1 | Fuente de alimentación 110/220VAC - 24/28VDC | MEAN WELL | NDR-240-24 | MWP.NDR-240-24 | AB1202653"
+  },
+  {
+   "hoja": "103",
+   "pos": 47,
+   "tag": "11PS2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Fuente de alimentación 110/220VAC - 24/28VDC",
+   "marca": "MEAN WELL",
+   "modelo": "NDR-240-24",
+   "numero_tipo": "NDR-240-24",
+   "numero_articulo": "MWP.NDR-240-24",
+   "numero_pedido": "AB1202653",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.7C"
+   ],
+   "clase": "aparato",
+   "renglon": "11PS2 | Fuente de alimentación 110/220VAC - 24/28VDC | MEAN WELL | NDR-240-24 | MWP.NDR-240-24 | AB1202653"
+  },
+  {
+   "hoja": "103",
+   "pos": 48,
+   "tag": "12PS1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Regulador de carga MPPT",
+   "marca": "EPEVER",
+   "modelo": "TRACER7810BP",
+   "numero_tipo": "EPE.TRACER7810BP",
+   "numero_articulo": "TRACER7810BP",
+   "numero_pedido": "AB20000291",
+   "texto_funcion": "Regulador de carga",
+   "colocacion": [
+    "&CLIENTE/12.4A"
+   ],
+   "clase": "aparato",
+   "renglon": "12PS1 | Regulador de carga MPPT | EPEVER | TRACER7810BP | TRACER7810BP | AB20000291"
+  },
+  {
+   "hoja": "103",
+   "pos": 49,
+   "tag": "13PS1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Elevador de tensión 12-24VDC",
+   "marca": "MEAN WELL",
+   "modelo": "DDR-120A-24",
+   "numero_tipo": "MWP.DDR-120A-24",
+   "numero_articulo": "MW.DDR-120A-24",
+   "numero_pedido": "AB139867",
+   "texto_funcion": "Elevador 12/24VDC",
+   "colocacion": [
+    "&CLIENTE/13.4C"
+   ],
+   "clase": "aparato",
+   "renglon": "13PS1 | Elevador de tensión 12-24VDC | MEAN WELL | DDR-120A-24 | MW.DDR-120A-24 | AB139867"
+  },
+  {
+   "hoja": "103",
+   "pos": 50,
+   "tag": "PT001",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Transmisor de presión / Conector: 1 DIN",
+   "marca": "ifm electronic",
+   "modelo": "PT-250-SEG14-A-ZVG/VE",
+   "numero_tipo": "PT-250-SEG14-A-ZVG/VE",
+   "numero_articulo": "IFM.PT-250-SEG14-A-ZVG/VE",
+   "numero_pedido": "AB2000144",
+   "texto_funcion": "Transmisor de Presión",
+   "colocacion": [
+    "&CLIENTE/32.5D"
+   ],
+   "clase": "aparato",
+   "renglon": "PT001 | Transmisor de presión / Conector: 1 DIN | ifm electronic | PT-250-SEG14-A-ZVG/VE | IFM.PT-250-SEG14-A-ZVG/VE | AB2000144"
+  },
+  {
+   "hoja": "103",
+   "pos": 51,
+   "tag": "11Q1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "ACTI9 IID 2P 25A 30MA AC RCCB",
+   "marca": "Schneider Electric",
+   "modelo": "EZ9F36225",
+   "numero_tipo": "EZ9F36225",
+   "numero_articulo": "SE.EZ9F36225",
+   "numero_pedido": "AB1203305",
+   "texto_funcion": "Proteccion Diferencial 110/220V",
+   "colocacion": [
+    "&CLIENTE/11.4C"
+   ],
+   "clase": "aparato",
+   "renglon": "11Q1 | ACTI9 IID 2P 25A 30MA AC RCCB | Schneider Electric | EZ9F36225 | SE.EZ9F36225 | AB1203305"
+  },
+  {
+   "hoja": "103",
+   "pos": 52,
+   "tag": "11Q2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "TERMOMAGNÉTICA 2x10A",
+   "marca": "Schneider Electric",
+   "modelo": "EZ9F34210",
+   "numero_tipo": "EZ9F34210",
+   "numero_articulo": "SE.EZ9F34210",
+   "numero_pedido": "AB12026561",
+   "texto_funcion": "Protección 110/220V",
+   "colocacion": [
+    "&CLIENTE/11.4D"
+   ],
+   "clase": "aparato",
+   "renglon": "11Q2 | TERMOMAGNÉTICA 2x10A | Schneider Electric | EZ9F34210 | SE.EZ9F34210 | AB12026561"
+  },
+  {
+   "hoja": "103",
+   "pos": 53,
+   "tag": "11SK1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Enchufe de zócalo para caja de distribución / Toma de corriente",
+   "marca": "Phoenix Contact",
+   "modelo": "EO-I/UT",
+   "numero_tipo": "EO-I/UT",
+   "numero_articulo": "PXC.0804087",
+   "numero_pedido": "0804087",
+   "texto_funcion": "Tomacorriente",
+   "colocacion": [
+    "&CLIENTE/11.4E"
+   ],
+   "clase": "aparato",
+   "renglon": "11SK1 | Enchufe de zócalo para caja de distribución / Toma de corriente | Phoenix Contact | EO-I/UT | PXC.0804087 | 0804087"
+  },
+  {
+   "hoja": "103",
+   "pos": 54,
+   "tag": "SP_1",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC",
+   "marca": "DIGITO",
+   "modelo": "DLEHM-3A/WP-X 12DC",
+   "numero_tipo": "VALV.SOLENOIDE 3/2 NC POPPET 30 W 12VDC",
+   "numero_articulo": "DIG.DLEHM-3A/WP-X 12DC",
+   "numero_pedido": "AB2000408",
+   "texto_funcion": "Solenoide Válvula 1",
+   "colocacion": [
+    "&CLIENTE/61.4E"
+   ],
+   "clase": "aparato",
+   "renglon": "SP_1 | VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC | DIGITO | DLEHM-3A/WP-X 12DC | DIG.DLEHM-3A/WP-X 12DC | AB2000408"
+  },
+  {
+   "hoja": "103",
+   "pos": 55,
+   "tag": "SP_2",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC",
+   "marca": "DIGITO",
+   "modelo": "DLEHM-3A/WP-X 12DC",
+   "numero_tipo": "VALV.SOLENOIDE 3/2 NC POPPET 30 W 12VDC",
+   "numero_articulo": "DIG.DLEHM-3A/WP-X 12DC",
+   "numero_pedido": "AB2000408",
+   "texto_funcion": "Solenoide Válvula 2",
+   "colocacion": [
+    "&CLIENTE/61.6E"
+   ],
+   "clase": "aparato",
+   "renglon": "SP_2 | VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC | DIGITO | DLEHM-3A/WP-X 12DC | DIG.DLEHM-3A/WP-X 12DC | AB2000408"
+  },
+  {
+   "hoja": "103",
+   "pos": 56,
+   "tag": "SP_3",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC",
+   "marca": "DIGITO",
+   "modelo": "DLEHM-3A/WP-X 12DC",
+   "numero_tipo": "VALV.SOLENOIDE 3/2 NC POPPET 30 W 12VDC",
+   "numero_articulo": "DIG.DLEHM-3A/WP-X 12DC",
+   "numero_pedido": "AB2000408",
+   "texto_funcion": "Solenoide Válvula 3",
+   "colocacion": [
+    "&CLIENTE/61.7E"
+   ],
+   "clase": "aparato",
+   "renglon": "SP_3 | VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC | DIGITO | DLEHM-3A/WP-X 12DC | DIG.DLEHM-3A/WP-X 12DC | AB2000408"
+  },
+  {
+   "hoja": "104",
+   "pos": 57,
+   "tag": "11X220V",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)",
+    "&CLIENTE/11.5E"
+   ],
+   "clase": "mecanico",
+   "renglon": "11X220V | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "104",
+   "pos": 58,
+   "tag": "11X220V",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de paso / Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6-QUATTRO",
+   "numero_tipo": "PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212934",
+   "numero_pedido": "AB2000369",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.5E"
+   ],
+   "clase": "aparato",
+   "renglon": "11X220V | Bloque de terminales de paso / Borne de paso | Phoenix Contact | PT 6-QUATTRO | PXC.3212934 | AB2000369"
+  },
+  {
+   "hoja": "104",
+   "pos": 59,
+   "tag": "11X220V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6-QUATTRO",
+   "numero_tipo": "D-PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212963",
+   "numero_pedido": "AB2000370",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.5E"
+   ],
+   "clase": "mecanico",
+   "renglon": "11X220V | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PT 6-QUATTRO | PXC.3212963 | AB2000370"
+  },
+  {
+   "hoja": "104",
+   "pos": 60,
+   "tag": "13X12V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "13X12V | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "104",
+   "pos": 61,
+   "tag": "13X12V",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de paso / Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6-QUATTRO",
+   "numero_tipo": "PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212934",
+   "numero_pedido": "AB2000369",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.5A"
+   ],
+   "clase": "aparato",
+   "renglon": "13X12V | Bloque de terminales de paso / Borne de paso | Phoenix Contact | PT 6-QUATTRO | PXC.3212934 | AB2000369"
+  },
+  {
+   "hoja": "104",
+   "pos": 62,
+   "tag": "13X12V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6-QUATTRO",
+   "numero_tipo": "D-PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212963",
+   "numero_pedido": "AB2000370",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.5A"
+   ],
+   "clase": "mecanico",
+   "renglon": "13X12V | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PT 6-QUATTRO | PXC.3212963 | AB2000370"
+  },
+  {
+   "hoja": "104",
+   "pos": 63,
+   "tag": "13X24V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "13X24V | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "104",
+   "pos": 64,
+   "tag": "13X24V",
+   "cantidad": 4.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de paso / Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6-QUATTRO",
+   "numero_tipo": "PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212934",
+   "numero_pedido": "AB2000369",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.4E",
+    "&CLIENTE/13.5E"
+   ],
+   "clase": "aparato",
+   "renglon": "13X24V | Bloque de terminales de paso / Borne de paso | Phoenix Contact | PT 6-QUATTRO | PXC.3212934 | AB2000369"
+  },
+  {
+   "hoja": "104",
+   "pos": 65,
+   "tag": "13X24V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 2-8",
+   "numero_tipo": "FBS 2-8",
+   "numero_articulo": "PXC.3030284",
+   "numero_pedido": "AB20003702",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.4E"
+   ],
+   "clase": "otro",
+   "renglon": "13X24V | Puente / Puente enchufable | Phoenix Contact | FBS 2-8 | PXC.3030284 | AB20003702"
+  },
+  {
+   "hoja": "104",
+   "pos": 66,
+   "tag": "13X24V",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6-QUATTRO",
+   "numero_tipo": "D-PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212963",
+   "numero_pedido": "AB2000370",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.4E",
+    "&CLIENTE/13.5E"
+   ],
+   "clase": "mecanico",
+   "renglon": "13X24V | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PT 6-QUATTRO | PXC.3212963 | AB2000370"
+  },
+  {
+   "hoja": "104",
+   "pos": 67,
+   "tag": "13X24V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 2-8 BU",
+   "numero_tipo": "FBS 2-8 BU",
+   "numero_articulo": "PXC.3032567",
+   "numero_pedido": "AB20003703",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/13.5E"
+   ],
+   "clase": "otro",
+   "renglon": "13X24V | Puente / Puente enchufable | Phoenix Contact | FBS 2-8 BU | PXC.3032567 | AB20003703"
+  },
+  {
+   "hoja": "104",
+   "pos": 68,
+   "tag": "61X0V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "61X0V | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "104",
+   "pos": 69,
+   "tag": "61X0V",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de paso / Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6-QUATTRO",
+   "numero_tipo": "PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212934",
+   "numero_pedido": "AB2000369",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/61.2E",
+    "&CLIENTE/61.3E"
+   ],
+   "clase": "aparato",
+   "renglon": "61X0V | Bloque de terminales de paso / Borne de paso | Phoenix Contact | PT 6-QUATTRO | PXC.3212934 | AB2000369"
+  },
+  {
+   "hoja": "104",
+   "pos": 70,
+   "tag": "61X0V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 2-8 BU",
+   "numero_tipo": "FBS 2-8 BU",
+   "numero_articulo": "PXC.3032567",
+   "numero_pedido": "AB20003703",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/61.2E"
+   ],
+   "clase": "otro",
+   "renglon": "61X0V | Puente / Puente enchufable | Phoenix Contact | FBS 2-8 BU | PXC.3032567 | AB20003703"
+  },
+  {
+   "hoja": "104",
+   "pos": 71,
+   "tag": "61X0V",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6-QUATTRO",
+   "numero_tipo": "D-PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212963",
+   "numero_pedido": "AB2000370",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/61.3E"
+   ],
+   "clase": "mecanico",
+   "renglon": "61X0V | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PT 6-QUATTRO | PXC.3212963 | AB2000370"
+  },
+  {
+   "hoja": "104",
+   "pos": 72,
+   "tag": "32XAI",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "32XAI | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "104",
+   "pos": 73,
+   "tag": "32XAI",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Borna con portafusible / Borne de carril para fusible",
+   "marca": "Phoenix Contact",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "numero_tipo": "PTTB 4-HESI (5X20)",
+   "numero_articulo": "PXC.3211886",
+   "numero_pedido": "AB2000436",
+   "texto_funcion": "Fusible 100mA",
+   "colocacion": [
+    "&CLIENTE/32.5C"
+   ],
+   "clase": "aparato",
+   "renglon": "32XAI | Borna con portafusible / Borne de carril para fusible | Phoenix Contact | PTTB 4-HESI (5X20) | PXC.3211886 | AB2000436"
+  },
+  {
+   "hoja": "105",
+   "pos": 74,
+   "tag": "32XAI",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PTT 2,5-2MT-0,8",
+   "numero_tipo": "D-PTT 2,5-2MT-0,8",
+   "numero_articulo": "PXC.3210300",
+   "numero_pedido": "AB2000069",
+   "texto_funcion": "Fusible 100mA",
+   "colocacion": [
+    "&CLIENTE/32.5C"
+   ],
+   "clase": "mecanico",
+   "renglon": "32XAI | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PTT 2,5-2MT-0,8 | PXC.3210300 | AB2000069"
+  },
+  {
+   "hoja": "105",
+   "pos": 75,
+   "tag": "42XC",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "42XC | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "105",
+   "pos": 76,
+   "tag": "42XC",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Borna con portafusible / Borne de carril para fusible",
+   "marca": "Phoenix Contact",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "numero_tipo": "PTTB 4-HESI (5X20)",
+   "numero_articulo": "PXC.3211886",
+   "numero_pedido": "AB2000436",
+   "texto_funcion": "Fusible 100mA",
+   "colocacion": [
+    "&CLIENTE/42.5D"
+   ],
+   "clase": "aparato",
+   "renglon": "42XC | Borna con portafusible / Borne de carril para fusible | Phoenix Contact | PTTB 4-HESI (5X20) | PXC.3211886 | AB2000436"
+  },
+  {
+   "hoja": "105",
+   "pos": 77,
+   "tag": "42XC",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PTT 2,5-2MT-0,8",
+   "numero_tipo": "D-PTT 2,5-2MT-0,8",
+   "numero_articulo": "PXC.3210300",
+   "numero_pedido": "AB2000069",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/42.5D"
+   ],
+   "clase": "mecanico",
+   "renglon": "42XC | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PTT 2,5-2MT-0,8 | PXC.3210300 | AB2000069"
+  },
+  {
+   "hoja": "105",
+   "pos": 78,
+   "tag": "42XC",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT",
+   "numero_tipo": "PTT 2,5-2MT",
+   "numero_articulo": "PXC.3210258",
+   "numero_pedido": "AB2000067",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/42.5D"
+   ],
+   "clase": "aparato",
+   "renglon": "42XC | Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla | Phoenix Contact | PTT 2,5-2MT | PXC.3210258 | AB2000067"
+  },
+  {
+   "hoja": "105",
+   "pos": 79,
+   "tag": "81XCM",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)",
+    "&CLIENTE/81.5E"
+   ],
+   "clase": "mecanico",
+   "renglon": "81XCM | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "105",
+   "pos": 80,
+   "tag": "81XCM",
+   "cantidad": 5.0,
+   "unidad": "un",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT",
+   "numero_tipo": "PTT 2,5-2MT",
+   "numero_articulo": "PXC.3210258",
+   "numero_pedido": "3210258",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/81.5C",
+    "&CLIENTE/81.5E"
+   ],
+   "clase": "aparato",
+   "renglon": "81XCM | Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla | Phoenix Contact | PTT 2,5-2MT | PXC.3210258 | 3210258"
+  },
+  {
+   "hoja": "105",
+   "pos": 81,
+   "tag": "81XCM",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PTT 2,5-2MT-0,8",
+   "numero_tipo": "D-PTT 2,5-2MT-0,8",
+   "numero_articulo": "PXC.3210300",
+   "numero_pedido": "AB2000069",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/81.5E"
+   ],
+   "clase": "mecanico",
+   "renglon": "81XCM | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PTT 2,5-2MT-0,8 | PXC.3210300 | AB2000069"
+  },
+  {
+   "hoja": "105",
+   "pos": 82,
+   "tag": "61XDIO",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)",
+    "&CLIENTE/61.2D"
+   ],
+   "clase": "mecanico",
+   "renglon": "61XDIO | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "105",
+   "pos": 83,
+   "tag": "61XDIO",
+   "cantidad": 4.0,
+   "unidad": "un",
+   "descripcion": "Borne para componentes",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-DIO/L-R",
+   "numero_tipo": "PT 2,5-DIO/L-R",
+   "numero_articulo": "PXC.3210224",
+   "numero_pedido": "AB2000080",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/61.2C",
+    "&CLIENTE/61.2D"
+   ],
+   "clase": "aparato",
+   "renglon": "61XDIO | Borne para componentes | Phoenix Contact | PT 2,5-DIO/L-R | PXC.3210224 | AB2000080"
+  },
+  {
+   "hoja": "105",
+   "pos": 84,
+   "tag": "61XDIO",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 4-5 BU",
+   "numero_tipo": "FBS 4-5 BU",
+   "numero_articulo": "PXC.3036893",
+   "numero_pedido": "AB20003705",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/61.2C"
+   ],
+   "clase": "otro",
+   "renglon": "61XDIO | Puente / Puente enchufable | Phoenix Contact | FBS 4-5 BU | PXC.3036893 | AB20003705"
+  },
+  {
+   "hoja": "105",
+   "pos": 85,
+   "tag": "61XDIO",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-ST 2,5",
+   "numero_tipo": "D-ST 2,5",
+   "numero_articulo": "PXC.3030417",
+   "numero_pedido": "AB2000081",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/61.2D"
+   ],
+   "clase": "mecanico",
+   "renglon": "61XDIO | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-ST 2,5 | PXC.3030417 | AB2000081"
+  },
+  {
+   "hoja": "105",
+   "pos": 86,
+   "tag": "61XDO",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "61XDO | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "105",
+   "pos": 87,
+   "tag": "61XDO",
+   "cantidad": 4.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de paso / Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6-QUATTRO",
+   "numero_tipo": "PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212934",
+   "numero_pedido": "AB2000369",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/61.2C",
+    "&CLIENTE/61.4C",
+    "&CLIENTE/61.6D",
+    "&CLIENTE/61.7D"
+   ],
+   "clase": "aparato",
+   "renglon": "61XDO | Bloque de terminales de paso / Borne de paso | Phoenix Contact | PT 6-QUATTRO | PXC.3212934 | AB2000369"
+  },
+  {
+   "hoja": "105",
+   "pos": 88,
+   "tag": "61XDO",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6-QUATTRO",
+   "numero_tipo": "D-PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212963",
+   "numero_pedido": "AB2000370",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/61.7D"
+   ],
+   "clase": "mecanico",
+   "renglon": "61XDO | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PT 6-QUATTRO | PXC.3212963 | AB2000370"
+  },
+  {
+   "hoja": "105",
+   "pos": 89,
+   "tag": "32XEX",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "32XEX | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "106",
+   "pos": 90,
+   "tag": "32XEX",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT BU",
+   "numero_tipo": "PTT 2,5-2MT BU",
+   "numero_articulo": "PXC.3210265",
+   "numero_pedido": "AB2000068",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/32.2D",
+    "&CLIENTE/32.3D"
+   ],
+   "clase": "aparato",
+   "renglon": "32XEX | Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla | Phoenix Contact | PTT 2,5-2MT BU | PXC.3210265 | AB2000068"
+  },
+  {
+   "hoja": "106",
+   "pos": 91,
+   "tag": "32XEX",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PTT 2,5-2MT-0,8",
+   "numero_tipo": "D-PTT 2,5-2MT-0,8",
+   "numero_articulo": "PXC.3210300",
+   "numero_pedido": "AB2000069",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/32.3D"
+   ],
+   "clase": "mecanico",
+   "renglon": "32XEX | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PTT 2,5-2MT-0,8 | PXC.3210300 | AB2000069"
+  },
+  {
+   "hoja": "106",
+   "pos": 92,
+   "tag": "32XEX",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de tierra / Borna de tierra",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-QUATTRO-PE",
+   "numero_tipo": "PT 2,5-QUATTRO-PE",
+   "numero_articulo": "PXC.3209594",
+   "numero_pedido": "AB20003691",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/32.3E"
+   ],
+   "clase": "aparato",
+   "renglon": "32XEX | Bloque de terminales de tierra / Borna de tierra | Phoenix Contact | PT 2,5-QUATTRO-PE | PXC.3209594 | AB20003691"
+  },
+  {
+   "hoja": "106",
+   "pos": 93,
+   "tag": "32XEX",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-ST 2,5-QUATTRO GN",
+   "numero_tipo": "D-ST 2,5-QUATTRO GN",
+   "numero_articulo": "PXC.3032059",
+   "numero_pedido": "AB20003701",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/32.3E"
+   ],
+   "clase": "mecanico",
+   "renglon": "32XEX | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-ST 2,5-QUATTRO GN | PXC.3032059 | AB20003701"
+  },
+  {
+   "hoja": "106",
+   "pos": 94,
+   "tag": "41XEX",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)",
+    "&CLIENTE/41.6D"
+   ],
+   "clase": "mecanico",
+   "renglon": "41XEX | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "106",
+   "pos": 95,
+   "tag": "41XEX",
+   "cantidad": 6.0,
+   "unidad": "un",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT BU",
+   "numero_tipo": "PTT 2,5-2MT BU",
+   "numero_articulo": "PXC.3210265",
+   "numero_pedido": "AB2000068",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/41.2D",
+    "&CLIENTE/41.4D",
+    "&CLIENTE/41.6D"
+   ],
+   "clase": "aparato",
+   "renglon": "41XEX | Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla | Phoenix Contact | PTT 2,5-2MT BU | PXC.3210265 | AB2000068"
+  },
+  {
+   "hoja": "106",
+   "pos": 96,
+   "tag": "41XEX",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PTT 2,5-2MT-0,8",
+   "numero_tipo": "D-PTT 2,5-2MT-0,8",
+   "numero_articulo": "PXC.3210300",
+   "numero_pedido": "AB2000069",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/41.6D"
+   ],
+   "clase": "mecanico",
+   "renglon": "41XEX | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PTT 2,5-2MT-0,8 | PXC.3210300 | AB2000069"
+  },
+  {
+   "hoja": "106",
+   "pos": 97,
+   "tag": "12XP",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "12XP | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "106",
+   "pos": 98,
+   "tag": "12XP",
+   "cantidad": 3.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de paso / Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6-QUATTRO",
+   "numero_tipo": "PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212934",
+   "numero_pedido": "AB2000369",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/12.6B",
+    "&CLIENTE/12.7B"
+   ],
+   "clase": "aparato",
+   "renglon": "12XP | Bloque de terminales de paso / Borne de paso | Phoenix Contact | PT 6-QUATTRO | PXC.3212934 | AB2000369"
+  },
+  {
+   "hoja": "106",
+   "pos": 99,
+   "tag": "12XP",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 3-8 BU",
+   "numero_tipo": "FBS 3-8 BU",
+   "numero_articulo": "PXC.3032570",
+   "numero_pedido": "AB20003704",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/12.6B"
+   ],
+   "clase": "otro",
+   "renglon": "12XP | Puente / Puente enchufable | Phoenix Contact | FBS 3-8 BU | PXC.3032570 | AB20003704"
+  },
+  {
+   "hoja": "106",
+   "pos": 100,
+   "tag": "12XP",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6-QUATTRO",
+   "numero_tipo": "D-PT 6-QUATTRO",
+   "numero_articulo": "PXC.3212963",
+   "numero_pedido": "AB2000370",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/12.7B"
+   ],
+   "clase": "mecanico",
+   "renglon": "12XP | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PT 6-QUATTRO | PXC.3212963 | AB2000370"
+  },
+  {
+   "hoja": "106",
+   "pos": 101,
+   "tag": "XPE",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)",
+    "&CLIENTE/11.8A"
+   ],
+   "clase": "mecanico",
+   "renglon": "XPE | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "106",
+   "pos": 102,
+   "tag": "XPE",
+   "cantidad": 3.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de tierra / Borna de tierra",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-QUATTRO-PE",
+   "numero_tipo": "PT 2,5-QUATTRO-PE",
+   "numero_articulo": "PXC.3209594",
+   "numero_pedido": "AB20003691",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.6B",
+    "&CLIENTE/11.7B",
+    "&CLIENTE/11.8A"
+   ],
+   "clase": "aparato",
+   "renglon": "XPE | Bloque de terminales de tierra / Borna de tierra | Phoenix Contact | PT 2,5-QUATTRO-PE | PXC.3209594 | AB20003691"
+  },
+  {
+   "hoja": "106",
+   "pos": 103,
+   "tag": "XPE",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-ST 2,5-QUATTRO GN",
+   "numero_tipo": "D-ST 2,5-QUATTRO GN",
+   "numero_articulo": "PXC.3032059",
+   "numero_pedido": "AB20003701",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.8A"
+   ],
+   "clase": "mecanico",
+   "renglon": "XPE | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-ST 2,5-QUATTRO GN | PXC.3032059 | AB20003701"
+  },
+  {
+   "hoja": "106",
+   "pos": 104,
+   "tag": "12XPS",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)",
+    "&CLIENTE/12.7B"
+   ],
+   "clase": "mecanico",
+   "renglon": "12XPS | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "107",
+   "pos": 105,
+   "tag": "12XPS",
+   "cantidad": 13.0,
+   "unidad": "un",
+   "descripcion": "Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6",
+   "numero_tipo": "PT 6",
+   "numero_articulo": "PXC.3211813",
+   "numero_pedido": "AB2000381",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/12.4B",
+    "&CLIENTE/12.5B",
+    "&CLIENTE/12.6B",
+    "&CLIENTE/12.7B"
+   ],
+   "clase": "aparato",
+   "renglon": "12XPS | Borne de paso | Phoenix Contact | PT 6 | PXC.3211813 | AB2000381"
+  },
+  {
+   "hoja": "107",
+   "pos": 106,
+   "tag": "12XPS",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Puente / Puente enchufable",
+   "marca": "Phoenix Contact",
+   "modelo": "FBS 2-8",
+   "numero_tipo": "FBS 2-8",
+   "numero_articulo": "PXC.3030284",
+   "numero_pedido": "AB20003702",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/12.5B"
+   ],
+   "clase": "otro",
+   "renglon": "12XPS | Puente / Puente enchufable | Phoenix Contact | FBS 2-8 | PXC.3030284 | AB20003702"
+  },
+  {
+   "hoja": "107",
+   "pos": 107,
+   "tag": "12XPS",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6",
+   "numero_tipo": "D-PT 6",
+   "numero_articulo": "PXC.3212044",
+   "numero_pedido": "AB2000379",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/12.7B"
+   ],
+   "clase": "mecanico",
+   "renglon": "12XPS | Tapa final | Phoenix Contact | D-PT 6 | PXC.3212044 | AB2000379"
+  },
+  {
+   "hoja": "107",
+   "pos": 108,
+   "tag": "11XPVAC",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "11XPVAC | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "107",
+   "pos": 109,
+   "tag": "11XPVAC",
+   "cantidad": 2.0,
+   "unidad": "un",
+   "descripcion": "Borne de paso",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6",
+   "numero_tipo": "PT 6",
+   "numero_articulo": "PXC.3211813",
+   "numero_pedido": "AB2000381",
+   "texto_funcion": "TOMA DE TIERRA EN SKID",
+   "colocacion": [
+    "&CLIENTE/11.2B",
+    "&CLIENTE/11.3B"
+   ],
+   "clase": "aparato",
+   "renglon": "11XPVAC | Borne de paso | Phoenix Contact | PT 6 | PXC.3211813 | AB2000381"
+  },
+  {
+   "hoja": "107",
+   "pos": 110,
+   "tag": "11XPVAC",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PT 6",
+   "numero_tipo": "D-PT 6",
+   "numero_articulo": "PXC.3212044",
+   "numero_pedido": "AB2000379",
+   "texto_funcion": "ALIMENTACIÓN",
+   "colocacion": [
+    "&CLIENTE/11.3B"
+   ],
+   "clase": "mecanico",
+   "renglon": "11XPVAC | Tapa final | Phoenix Contact | D-PT 6 | PXC.3212044 | AB2000379"
+  },
+  {
+   "hoja": "107",
+   "pos": 111,
+   "tag": "11XPVAC",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de tierra / Borna de tierra",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-QUATTRO-PE",
+   "numero_tipo": "PT 2,5-QUATTRO-PE",
+   "numero_articulo": "PXC.3209594",
+   "numero_pedido": "AB20003691",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.3E"
+   ],
+   "clase": "aparato",
+   "renglon": "11XPVAC | Bloque de terminales de tierra / Borna de tierra | Phoenix Contact | PT 2,5-QUATTRO-PE | PXC.3209594 | AB20003691"
+  },
+  {
+   "hoja": "107",
+   "pos": 112,
+   "tag": "11XPVAC",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-ST 2,5-QUATTRO GN",
+   "numero_tipo": "D-ST 2,5-QUATTRO GN",
+   "numero_articulo": "PXC.3032059",
+   "numero_pedido": "AB20003701",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/11.3E"
+   ],
+   "clase": "mecanico",
+   "renglon": "11XPVAC | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-ST 2,5-QUATTRO GN | PXC.3032059 | AB20003701"
+  },
+  {
+   "hoja": "107",
+   "pos": 113,
+   "tag": "15XR",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Plaquita tope para borna / Soporte final",
+   "marca": "Phoenix Contact",
+   "modelo": "E/NS 35 N",
+   "numero_tipo": "E/NS 35 N",
+   "numero_articulo": "PXC.0800886",
+   "numero_pedido": "AB1202844",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "15XR | Plaquita tope para borna / Soporte final | Phoenix Contact | E/NS 35 N | PXC.0800886 | AB1202844"
+  },
+  {
+   "hoja": "107",
+   "pos": 114,
+   "tag": "15XR",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT",
+   "numero_tipo": "PTT 2,5-2MT",
+   "numero_articulo": "PXC.3210258",
+   "numero_pedido": "3210258",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/15.2D"
+   ],
+   "clase": "aparato",
+   "renglon": "15XR | Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla | Phoenix Contact | PTT 2,5-2MT | PXC.3210258 | 3210258"
+  },
+  {
+   "hoja": "107",
+   "pos": 115,
+   "tag": "15XR",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-PTT 2,5-2MT-0,8",
+   "numero_tipo": "D-PTT 2,5-2MT-0,8",
+   "numero_articulo": "PXC.3210300",
+   "numero_pedido": "AB2000069",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/15.2D"
+   ],
+   "clase": "mecanico",
+   "renglon": "15XR | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-PTT 2,5-2MT-0,8 | PXC.3210300 | AB2000069"
+  },
+  {
+   "hoja": "107",
+   "pos": 116,
+   "tag": "15XR",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Bloque de terminales de tierra / Borna de tierra",
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-QUATTRO-PE",
+   "numero_tipo": "PT 2,5-QUATTRO-PE",
+   "numero_articulo": "PXC.3209594",
+   "numero_pedido": "AB20003691",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/15.2D"
+   ],
+   "clase": "aparato",
+   "renglon": "15XR | Bloque de terminales de tierra / Borna de tierra | Phoenix Contact | PT 2,5-QUATTRO-PE | PXC.3209594 | AB20003691"
+  },
+  {
+   "hoja": "107",
+   "pos": 117,
+   "tag": "15XR",
+   "cantidad": 1.0,
+   "unidad": "un",
+   "descripcion": "Placa final e intermedia para borna / Tapa final",
+   "marca": "Phoenix Contact",
+   "modelo": "D-ST 2,5-QUATTRO GN",
+   "numero_tipo": "D-ST 2,5-QUATTRO GN",
+   "numero_articulo": "PXC.3032059",
+   "numero_pedido": "AB20003701",
+   "texto_funcion": null,
+   "colocacion": [
+    "&CLIENTE/15.2D"
+   ],
+   "clase": "mecanico",
+   "renglon": "15XR | Placa final e intermedia para borna / Tapa final | Phoenix Contact | D-ST 2,5-QUATTRO GN | PXC.3032059 | AB20003701"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 1,
+   "tag": "U2",
+   "cantidad": 0.46,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X80",
+   "numero_tipo": "CD 40X80",
+   "numero_articulo": "PXC.3240198",
+   "numero_pedido": "AB12029981",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U2 | Canaleta de cableado | Phoenix Contact | CD 40X80 | PXC.3240198 | AB12029981"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 2,
+   "tag": "U3",
+   "cantidad": 0.54,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X80",
+   "numero_tipo": "CD 40X80",
+   "numero_articulo": "PXC.3240198",
+   "numero_pedido": "AB12029981",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U3 | Canaleta de cableado | Phoenix Contact | CD 40X80 | PXC.3240198 | AB12029981"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 3,
+   "tag": "U4",
+   "cantidad": 0.42,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X80",
+   "numero_tipo": "CD 40X80",
+   "numero_articulo": "PXC.3240198",
+   "numero_pedido": "AB12029981",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U4 | Canaleta de cableado | Phoenix Contact | CD 40X80 | PXC.3240198 | AB12029981"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 4,
+   "tag": "U5",
+   "cantidad": 0.24,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X80",
+   "numero_tipo": "CD 40X80",
+   "numero_articulo": "PXC.3240198",
+   "numero_pedido": "AB12029981",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U5 | Canaleta de cableado | Phoenix Contact | CD 40X80 | PXC.3240198 | AB12029981"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 5,
+   "tag": "U6",
+   "cantidad": 0.33,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X80 BU",
+   "numero_tipo": "CD 40X80 BU",
+   "numero_articulo": "PXC.3240198 BU",
+   "numero_pedido": "AB12029982",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U6 | Canaleta de cableado | Phoenix Contact | CD 40X80 BU | PXC.3240198 BU | AB12029982"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 6,
+   "tag": "U7",
+   "cantidad": 0.14,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X80 BU",
+   "numero_tipo": "CD 40X80 BU",
+   "numero_articulo": "PXC.3240198 BU",
+   "numero_pedido": "AB12029982",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U7 | Canaleta de cableado | Phoenix Contact | CD 40X80 BU | PXC.3240198 BU | AB12029982"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 7,
+   "tag": "U8",
+   "cantidad": 0.28,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 60X80",
+   "numero_tipo": "CD 60X80",
+   "numero_articulo": "PXC.3240199",
+   "numero_pedido": "AB12029983",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U8 | Canaleta de cableado | Phoenix Contact | CD 60X80 | PXC.3240199 | AB12029983"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 8,
+   "tag": "U9",
+   "cantidad": 0.18,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 60X80 BU",
+   "numero_tipo": "CD 60X80 BU",
+   "numero_articulo": "PXC.3240199 BU",
+   "numero_pedido": "AB12029984",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U9 | Canaleta de cableado | Phoenix Contact | CD 60X80 BU | PXC.3240199 BU | AB12029984"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 9,
+   "tag": "U10",
+   "cantidad": 0.42,
+   "unidad": "m",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_tipo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "numero_pedido": "AB1202858",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U10 | Carril DIN / Carril DIN perforado | Phoenix Contact | NS 35/ 7,5 PERF 2000MM | PXC.0801733 | AB1202858"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 10,
+   "tag": "U11",
+   "cantidad": 0.24,
+   "unidad": "m",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_tipo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "numero_pedido": "AB1202858",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U11 | Carril DIN / Carril DIN perforado | Phoenix Contact | NS 35/ 7,5 PERF 2000MM | PXC.0801733 | AB1202858"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 11,
+   "tag": "U12",
+   "cantidad": 0.14,
+   "unidad": "m",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_tipo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "numero_pedido": "AB1202858",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U12 | Carril DIN / Carril DIN perforado | Phoenix Contact | NS 35/ 7,5 PERF 2000MM | PXC.0801733 | AB1202858"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 12,
+   "tag": "U13",
+   "cantidad": 0.24,
+   "unidad": "m",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_tipo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "numero_pedido": "AB1202858",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U13 | Carril DIN / Carril DIN perforado | Phoenix Contact | NS 35/ 7,5 PERF 2000MM | PXC.0801733 | AB1202858"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 13,
+   "tag": "U14",
+   "cantidad": 0.14,
+   "unidad": "m",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_tipo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "numero_pedido": "AB1202858",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U14 | Carril DIN / Carril DIN perforado | Phoenix Contact | NS 35/ 7,5 PERF 2000MM | PXC.0801733 | AB1202858"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 14,
+   "tag": "U15",
+   "cantidad": 0.33,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X40",
+   "numero_tipo": "CD 40X40",
+   "numero_articulo": "PXC.3240189",
+   "numero_pedido": "AB1202835",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U15 | Canaleta de cableado | Phoenix Contact | CD 40X40 | PXC.3240189 | AB1202835"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 15,
+   "tag": "U16",
+   "cantidad": 0.16,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X40",
+   "numero_tipo": "CD 40X40",
+   "numero_articulo": "PXC.3240189",
+   "numero_pedido": "AB1202835",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U16 | Canaleta de cableado | Phoenix Contact | CD 40X40 | PXC.3240189 | AB1202835"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 16,
+   "tag": "U17",
+   "cantidad": 0.33,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X40",
+   "numero_tipo": "CD 40X40",
+   "numero_articulo": "PXC.3240189",
+   "numero_pedido": "AB1202835",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U17 | Canaleta de cableado | Phoenix Contact | CD 40X40 | PXC.3240189 | AB1202835"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 17,
+   "tag": "U18",
+   "cantidad": 0.135,
+   "unidad": "m",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_tipo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "numero_pedido": "AB1202858",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U18 | Carril DIN / Carril DIN perforado | Phoenix Contact | NS 35/ 7,5 PERF 2000MM | PXC.0801733 | AB1202858"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 18,
+   "tag": "U19",
+   "cantidad": 0.33,
+   "unidad": "m",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_tipo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "numero_pedido": "AB1202858",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U19 | Carril DIN / Carril DIN perforado | Phoenix Contact | NS 35/ 7,5 PERF 2000MM | PXC.0801733 | AB1202858"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 19,
+   "tag": "U21",
+   "cantidad": 0.075,
+   "unidad": "m",
+   "descripcion": "Carril DIN / Carril DIN perforado",
+   "marca": "Phoenix Contact",
+   "modelo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_tipo": "NS 35/ 7,5 PERF 2000MM",
+   "numero_articulo": "PXC.0801733",
+   "numero_pedido": "AB1202858",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U21 | Carril DIN / Carril DIN perforado | Phoenix Contact | NS 35/ 7,5 PERF 2000MM | PXC.0801733 | AB1202858"
+  },
+  {
+   "hoja": "11 (fab.)",
+   "pos": 20,
+   "tag": "U22",
+   "cantidad": 0.45,
+   "unidad": "m",
+   "descripcion": "Canaleta de cableado",
+   "marca": "Phoenix Contact",
+   "modelo": "CD 40X40",
+   "numero_tipo": "CD 40X40",
+   "numero_articulo": "PXC.3240189",
+   "numero_pedido": "AB1202835",
+   "texto_funcion": null,
+   "colocacion": [
+    "(mSafe.S1)"
+   ],
+   "clase": "mecanico",
+   "renglon": "U22 | Canaleta de cableado | Phoenix Contact | CD 40X40 | PXC.3240189 | AB1202835"
+  }
+ ],
+ "tags": [
+  {
+   "tag": "11F1",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Schneider Electric DF101 + cartucho DF2CN10",
+   "texto_en_simbolo": "10x38mm 10A gG",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB12029121",
+   "codigos_sap_aparato": [
+    "AB12029121"
+   ],
+   "codigos_sap_todos": [
+    "AB12029121",
+    "AB2000219"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-11F1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "11F2",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Schneider Electric DF101 + cartucho DF2CN10",
+   "texto_en_simbolo": "10x38mm 10A gG",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB12029121",
+   "codigos_sap_aparato": [
+    "AB12029121"
+   ],
+   "codigos_sap_todos": [
+    "AB12029121",
+    "AB2000219"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-11F2",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "11MS1",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Schneider Electric VBF1",
+   "texto_en_simbolo": "32A (Llave de Corte Alimentación / Carga Batería)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB20000331",
+   "codigos_sap_aparato": [
+    "AB20000331"
+   ],
+   "codigos_sap_todos": [
+    "AB20000331"
+   ],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "interruptor VBF1 en la pared/puerta del gabinete: se ve en las vistas 2D/3D (hojas 06, 07, fab. 04) pero sin rótulo"
+   }
+  },
+  {
+   "tag": "11PS1",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "MEAN WELL NDR-240-24",
+   "texto_en_simbolo": "MEAN WELL NDR-240-24 (Fuente 24VDC General)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB1202653",
+   "codigos_sap_aparato": [
+    "AB1202653"
+   ],
+   "codigos_sap_todos": [
+    "AB1202653"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-11PS1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "11PS2",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "MEAN WELL NDR-240-24",
+   "texto_en_simbolo": "MEAN WELL NDR-240-24 (Fuente 24VDC Rotork)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB1202653",
+   "codigos_sap_aparato": [
+    "AB1202653"
+   ],
+   "codigos_sap_todos": [
+    "AB1202653"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-11PS2",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "11Q1",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Schneider Electric EZ9F36225",
+   "texto_en_simbolo": "25 A - 30mA (Proteccion Diferencial 110/220V)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB1203305",
+   "codigos_sap_aparato": [
+    "AB1203305"
+   ],
+   "codigos_sap_todos": [
+    "AB1203305"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "lateral",
+    "bandeja": "BANDEJA LATERAL IZQUIERDA",
+    "rotulo": "-11Q1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "11Q2",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Schneider Electric EZ9F34210",
+   "texto_en_simbolo": "10A (Protección 110/220V)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB12026561",
+   "codigos_sap_aparato": [
+    "AB12026561"
+   ],
+   "codigos_sap_todos": [
+    "AB12026561"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "lateral",
+    "bandeja": "BANDEJA LATERAL IZQUIERDA",
+    "rotulo": "-11Q2",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "11SK1",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Phoenix Contact EO-I/UT",
+   "texto_en_simbolo": "250 V 16 A (Tomacorriente Servicio)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "lateral",
+    "bandeja": "BANDEJA LATERAL IZQUIERDA",
+    "rotulo": "-11SK1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   },
+   "codigo_en_lista_no_sap": "0804087"
+  },
+  {
+   "tag": "11X220V",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Phoenix Contact 2x PT 6-QUATTRO",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000369",
+   "codigos_sap_aparato": [
+    "AB2000369"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000369",
+    "AB2000370"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "lateral",
+    "bandeja": "BANDEJA LATERAL IZQUIERDA",
+    "rotulo": "-11X220V",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "11XPVAC",
+   "hoja": "11",
+   "hojas": [
+    "11"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Phoenix Contact 2x PT 6 + 1x PT 2,5-QUATTRO-PE",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000381",
+   "codigos_sap_aparato": [
+    "AB2000381",
+    "AB20003691"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000381",
+    "AB2000379",
+    "AB20003691",
+    "AB20003701"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "lateral",
+    "bandeja": "BANDEJA LATERAL IZQUIERDA",
+    "rotulo": "-11XPVAC",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "12F2",
+   "hoja": "12",
+   "hojas": [
+    "12"
+   ],
+   "titulo_hoja": "Cargador y Baterías",
+   "modelo_segun_funcional": "Littelfuse FUSE MEGA HOLDER + FUSIBLE MEGA 150A",
+   "texto_en_simbolo": "MEGA 150 A",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000441",
+   "codigos_sap_aparato": [
+    "AB2000441"
+   ],
+   "codigos_sap_todos": [
+    "AB2000441",
+    "AB2000435"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-12F2",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)"
+    ]
+   }
+  },
+  {
+   "tag": "12F3",
+   "hoja": "12",
+   "hojas": [
+    "12"
+   ],
+   "titulo_hoja": "Cargador y Baterías",
+   "modelo_segun_funcional": "Schneider Electric DF141 + cartucho DF2EA32",
+   "texto_en_simbolo": "14x51mm 32A gG",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-12F3",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   },
+   "codigo_en_lista_no_sap": "DF141"
+  },
+  {
+   "tag": "12PB1",
+   "hoja": "12",
+   "hojas": [
+    "12"
+   ],
+   "titulo_hoja": "Cargador y Baterías",
+   "modelo_segun_funcional": "ODYSSEY ODX-AGM34M",
+   "texto_en_simbolo": "ODYSSEY ODX-AGM34 AGM 12 V - 68 Ah",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB139844",
+   "codigos_sap_aparato": [
+    "AB139844"
+   ],
+   "codigos_sap_todos": [
+    "AB139844"
+   ],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "batería en el piso del gabinete (se ve en hoja 07 Vista 2D Interior), sin rótulo"
+   }
+  },
+  {
+   "tag": "12PS1",
+   "hoja": "12",
+   "hojas": [
+    "12",
+    "81",
+    "82"
+   ],
+   "titulo_hoja": "Cargador y Baterías",
+   "modelo_segun_funcional": "EPEVER TRACER7810BP",
+   "texto_en_simbolo": "EPEVER TRACER 7810BP (Regulador de carga 390 W / 12 V - 780 W / 24 V, corriente de carga 30 A)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB20000291",
+   "codigos_sap_aparato": [
+    "AB20000291"
+   ],
+   "codigos_sap_todos": [
+    "AB20000291"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "lateral",
+    "bandeja": "BANDEJA LATERAL IZQUIERDA",
+    "rotulo": "-12PS1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "12XP",
+   "hoja": "12",
+   "hojas": [
+    "12"
+   ],
+   "titulo_hoja": "Cargador y Baterías",
+   "modelo_segun_funcional": "Phoenix Contact 3x PT 6-QUATTRO",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000369",
+   "codigos_sap_aparato": [
+    "AB2000369"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000369",
+    "AB20003704",
+    "AB2000370"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-12XP",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "12XPS",
+   "hoja": "12",
+   "hojas": [
+    "12",
+    "81"
+   ],
+   "titulo_hoja": "Cargador y Baterías",
+   "modelo_segun_funcional": "Phoenix Contact 13x PT 6",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000381",
+   "codigos_sap_aparato": [
+    "AB2000381"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000381",
+    "AB20003702",
+    "AB2000379"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "lateral",
+    "bandeja": "BANDEJA LATERAL IZQUIERDA",
+    "rotulo": "-12XPS",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "13F4",
+   "hoja": "13",
+   "hojas": [
+    "13"
+   ],
+   "titulo_hoja": "Distribución de 12 V y 24 V / Elevadores DC/DC",
+   "modelo_segun_funcional": "Schneider Electric DF101 + cartucho DF2CN10",
+   "texto_en_simbolo": "10x38mm 10A gG",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB12029121",
+   "codigos_sap_aparato": [
+    "AB12029121"
+   ],
+   "codigos_sap_todos": [
+    "AB12029121",
+    "AB2000219"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-13F4",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "13F5",
+   "hoja": "13",
+   "hojas": [
+    "13"
+   ],
+   "titulo_hoja": "Distribución de 12 V y 24 V / Elevadores DC/DC",
+   "modelo_segun_funcional": "Schneider Electric DF101 + cartucho DF2CN10",
+   "texto_en_simbolo": "10x38mm 10A gG",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB12029121",
+   "codigos_sap_aparato": [
+    "AB12029121"
+   ],
+   "codigos_sap_todos": [
+    "AB12029121",
+    "AB2000219"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-13F5",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "13F6",
+   "hoja": "13",
+   "hojas": [
+    "13"
+   ],
+   "titulo_hoja": "Distribución de 12 V y 24 V / Elevadores DC/DC",
+   "modelo_segun_funcional": "Schneider Electric DF101 + cartucho DF2CN06",
+   "texto_en_simbolo": "10x38mm 6A gG",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB12029121",
+   "codigos_sap_aparato": [
+    "AB12029121"
+   ],
+   "codigos_sap_todos": [
+    "AB12029121"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-13F6",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "13MS1",
+   "hoja": "13",
+   "hojas": [
+    "13"
+   ],
+   "titulo_hoja": "Distribución de 12 V y 24 V / Elevadores DC/DC",
+   "modelo_segun_funcional": "Schneider Electric VBF1",
+   "texto_en_simbolo": "32A (Llave de Corte Encendido / Apagado)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB20000331",
+   "codigos_sap_aparato": [
+    "AB20000331"
+   ],
+   "codigos_sap_todos": [
+    "AB20000331"
+   ],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "interruptor VBF1 en la pared/puerta del gabinete: se ve en las vistas 2D/3D (hojas 06, 07, fab. 04) pero sin rótulo"
+   }
+  },
+  {
+   "tag": "13PS1",
+   "hoja": "13",
+   "hojas": [
+    "13"
+   ],
+   "titulo_hoja": "Distribución de 12 V y 24 V / Elevadores DC/DC",
+   "modelo_segun_funcional": "MEAN WELL DDR-120A-24",
+   "texto_en_simbolo": "MEAN WELL DDR-120A-24 (Elevador 12/24VDC)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB139867",
+   "codigos_sap_aparato": [
+    "AB139867"
+   ],
+   "codigos_sap_todos": [
+    "AB139867"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-13PS1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "13X12V",
+   "hoja": "13",
+   "hojas": [
+    "13"
+   ],
+   "titulo_hoja": "Distribución de 12 V y 24 V / Elevadores DC/DC",
+   "modelo_segun_funcional": "Phoenix Contact 2x PT 6-QUATTRO",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000369",
+   "codigos_sap_aparato": [
+    "AB2000369"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000369",
+    "AB2000370"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-13X12V",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "13X24V",
+   "hoja": "13",
+   "hojas": [
+    "13"
+   ],
+   "titulo_hoja": "Distribución de 12 V y 24 V / Elevadores DC/DC",
+   "modelo_segun_funcional": "Phoenix Contact 4x PT 6-QUATTRO",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000369",
+   "codigos_sap_aparato": [
+    "AB2000369"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000369",
+    "AB20003702",
+    "AB2000370",
+    "AB20003703"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-13X24V",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "15AIB1",
+   "hoja": "15",
+   "hojas": [
+    "15",
+    "32"
+   ],
+   "titulo_hoja": "Alimentación Barreras de Seguridad y Módulos",
+   "modelo_segun_funcional": "CHENZHU GS8536-EX",
+   "texto_en_simbolo": "CHENZHU GS8536-EX",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000134",
+   "codigos_sap_aparato": [
+    "AB2000134"
+   ],
+   "codigos_sap_todos": [
+    "AB2000134"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-15AIB1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "15DIB1",
+   "hoja": "15",
+   "hojas": [
+    "15",
+    "41"
+   ],
+   "titulo_hoja": "Alimentación Barreras de Seguridad y Módulos",
+   "modelo_segun_funcional": "CHENZHU GS8512-EX.22",
+   "texto_en_simbolo": "CHENZHU GS8512-EX.22",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000135",
+   "codigos_sap_aparato": [
+    "AB2000135"
+   ],
+   "codigos_sap_todos": [
+    "AB2000135"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-15DIB1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "15DIB2",
+   "hoja": "15",
+   "hojas": [
+    "15",
+    "41"
+   ],
+   "titulo_hoja": "Alimentación Barreras de Seguridad y Módulos",
+   "modelo_segun_funcional": "CHENZHU GS8512-EX.22",
+   "texto_en_simbolo": "CHENZHU GS8512-EX.22",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000135",
+   "codigos_sap_aparato": [
+    "AB2000135"
+   ],
+   "codigos_sap_todos": [
+    "AB2000135"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-15DIB2",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "15DIB3",
+   "hoja": "15",
+   "hojas": [
+    "15",
+    "41"
+   ],
+   "titulo_hoja": "Alimentación Barreras de Seguridad y Módulos",
+   "modelo_segun_funcional": "CHENZHU GS8512-EX.22",
+   "texto_en_simbolo": "CHENZHU GS8512-EX.22",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000135",
+   "codigos_sap_aparato": [
+    "AB2000135"
+   ],
+   "codigos_sap_todos": [
+    "AB2000135"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-15DIB3",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "15XR",
+   "hoja": "15",
+   "hojas": [
+    "15"
+   ],
+   "titulo_hoja": "Alimentación Barreras de Seguridad y Módulos",
+   "modelo_segun_funcional": "Phoenix Contact 1x PTT 2,5-2MT + 1x PT 2,5-QUATTRO-PE",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [
+    "AB20003691"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000069",
+    "AB20003691",
+    "AB20003701"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-15XR",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   },
+   "codigo_en_lista_no_sap": "3210258"
+  },
+  {
+   "tag": "21PCB01",
+   "hoja": "21",
+   "hojas": [
+    "16",
+    "21",
+    "81",
+    "82"
+   ],
+   "titulo_hoja": "Placa E2.5 (-21PCB01) Distribución de Conexiones",
+   "modelo_segun_funcional": "DIGITO PLACA E2.5 (PCB-E2-5)",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "placa E2.5 con display: no está en las bandejas (el funcional dice \"DISPLAY E2.5 A TORNILLO DE PUERTA\")"
+   },
+   "codigo_en_lista_no_sap": "L03-60591-01"
+  },
+  {
+   "tag": "32XAI",
+   "hoja": "32",
+   "hojas": [
+    "32"
+   ],
+   "titulo_hoja": "Entradas Analógicas Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact 1x PTTB 4-HESI (5X20)",
+   "texto_en_simbolo": "Fusible 100mA",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000436",
+   "codigos_sap_aparato": [
+    "AB2000436"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000436",
+    "AB2000069"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-32XAI",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "32XEX",
+   "hoja": "32",
+   "hojas": [
+    "32"
+   ],
+   "titulo_hoja": "Entradas Analógicas Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact 2x PTT 2,5-2MT BU + 1x PT 2,5-QUATTRO-PE",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000068",
+   "codigos_sap_aparato": [
+    "AB2000068",
+    "AB20003691"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000068",
+    "AB2000069",
+    "AB20003691",
+    "AB20003701"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-32XEX",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "41XEX",
+   "hoja": "41",
+   "hojas": [
+    "41"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact 6x PTT 2,5-2MT BU",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000068",
+   "codigos_sap_aparato": [
+    "AB2000068"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000068",
+    "AB2000069"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-41XEX",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "42DB1",
+   "hoja": "42",
+   "hojas": [
+    "42"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Schneider Electric XB4BS8442 + ZBE102 (contacto 1NC) + ZBZ1605 (guarda amarilla)",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000051",
+   "codigos_sap_aparato": [
+    "AB2000051",
+    "AB2000405"
+   ],
+   "codigos_sap_todos": [
+    "AB2000051",
+    "AB2000050",
+    "AB2000405"
+   ],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "parada de emergencia en la puerta (vista exterior hoja 06), sin rótulo"
+   }
+  },
+  {
+   "tag": "42DS",
+   "hoja": "42",
+   "hojas": [
+    "42"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": "OMRON Corporation HL-5200",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000022",
+   "codigos_sap_aparato": [
+    "AB2000022"
+   ],
+   "codigos_sap_todos": [
+    "AB2000022"
+   ],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "final de carrera de puerta, no rotulado en el topográfico"
+   }
+  },
+  {
+   "tag": "42KS1",
+   "hoja": "42",
+   "hojas": [
+    "42"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact PSR-SCP- 24UC/ESA2/4X1/1X2/B",
+   "texto_en_simbolo": "PSR-SCP- 24UC/ESA2/4X1/1X2/B (Relé de Seguridad)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000444",
+   "codigos_sap_aparato": [
+    "AB2000444"
+   ],
+   "codigos_sap_todos": [
+    "AB2000444"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-42KS1",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "42XC",
+   "hoja": "42",
+   "hojas": [
+    "42"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact 1x PTTB 4-HESI (5X20) + 1x PTT 2,5-2MT",
+   "texto_en_simbolo": "Fusible 100mA",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000436",
+   "codigos_sap_aparato": [
+    "AB2000436",
+    "AB2000067"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000436",
+    "AB2000069",
+    "AB2000067"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-42XC",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "61KR1",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact RIF-0-RPT-12DC/21",
+   "texto_en_simbolo": "RIF-0-RPT-12DC/21",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000063",
+   "codigos_sap_aparato": [
+    "AB2000063"
+   ],
+   "codigos_sap_todos": [
+    "AB2000063"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-61KR",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ],
+    "nota": "los 4 relés 61KR1..61KR4 se dibujan juntos con un solo rótulo -61KR"
+   }
+  },
+  {
+   "tag": "61KR2",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact RIF-0-RPT-12DC/21",
+   "texto_en_simbolo": "RIF-0-RPT-12DC/21",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000063",
+   "codigos_sap_aparato": [
+    "AB2000063"
+   ],
+   "codigos_sap_todos": [
+    "AB2000063"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-61KR",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ],
+    "nota": "los 4 relés 61KR1..61KR4 se dibujan juntos con un solo rótulo -61KR"
+   }
+  },
+  {
+   "tag": "61KR3",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact RIF-0-RPT-12DC/21",
+   "texto_en_simbolo": "RIF-0-RPT-12DC/21",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000063",
+   "codigos_sap_aparato": [
+    "AB2000063"
+   ],
+   "codigos_sap_todos": [
+    "AB2000063"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-61KR",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ],
+    "nota": "los 4 relés 61KR1..61KR4 se dibujan juntos con un solo rótulo -61KR"
+   }
+  },
+  {
+   "tag": "61KR4",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact RIF-0-RPT-12DC/21",
+   "texto_en_simbolo": "RIF-0-RPT-12DC/21",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000063",
+   "codigos_sap_aparato": [
+    "AB2000063"
+   ],
+   "codigos_sap_todos": [
+    "AB2000063"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-61KR",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ],
+    "nota": "los 4 relés 61KR1..61KR4 se dibujan juntos con un solo rótulo -61KR"
+   }
+  },
+  {
+   "tag": "61X0V",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact 2x PT 6-QUATTRO",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000369",
+   "codigos_sap_aparato": [
+    "AB2000369"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000369",
+    "AB20003703",
+    "AB2000370"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-61X0V",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "61XDIO",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact 4x PT 2,5-DIO/L-R",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000080",
+   "codigos_sap_aparato": [
+    "AB2000080"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000080",
+    "AB20003705",
+    "AB2000081"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-61XDIO",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "61XDO",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "Phoenix Contact 4x PT 6-QUATTRO",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000369",
+   "codigos_sap_aparato": [
+    "AB2000369"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000369",
+    "AB2000370"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-61XDO",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  },
+  {
+   "tag": "81XCM",
+   "hoja": "81",
+   "hojas": [
+    "81"
+   ],
+   "titulo_hoja": "Comunicación",
+   "modelo_segun_funcional": "Phoenix Contact 5x PTT 2,5-2MT",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB2000069"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-81XCM",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   },
+   "codigo_en_lista_no_sap": "3210258"
+  },
+  {
+   "tag": "BH-01-M",
+   "hoja": "12",
+   "hojas": [
+    "12"
+   ],
+   "titulo_hoja": "Cargador y Baterías",
+   "modelo_segun_funcional": "DIGITO UNIDAD HIDRAULICA R2 / Vibo (unidad hidráulica completa)",
+   "texto_en_simbolo": "12 V DC - 1,6 kW 2600 rpm (Motor Unidad Hidráulica)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-BH",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)"
+    ],
+    "nota": "la unidad hidráulica se rotula -BH en el topográfico"
+   },
+   "codigo_en_lista_no_sap": "UNIDAD HIDRAULICA"
+  },
+  {
+   "tag": "BH_01_ZV",
+   "hoja": "12",
+   "hojas": [
+    "12",
+    "61"
+   ],
+   "titulo_hoja": "Cargador y Baterías",
+   "modelo_segun_funcional": "Trombetta 684-1261-212-17",
+   "texto_en_simbolo": "Contactor de Potencia, Corriente Máxima: 250 A",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-BH_01_ZV",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)"
+    ]
+   },
+   "codigo_en_lista_no_sap": "684-1261-212-17"
+  },
+  {
+   "tag": "IP_1_ZSC",
+   "hoja": "41",
+   "hojas": [
+    "41"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": null,
+   "texto_en_simbolo": null,
+   "fuente_modelo": null,
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "sensor reed de campo (no está en la lista de materiales)"
+   },
+   "nota": "sensor reed de campo (no está en la lista de materiales)"
+  },
+  {
+   "tag": "IP_1_ZSO",
+   "hoja": "41",
+   "hojas": [
+    "41"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": null,
+   "texto_en_simbolo": null,
+   "fuente_modelo": null,
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "sensor reed de campo (no está en la lista de materiales)"
+   },
+   "nota": "sensor reed de campo (no está en la lista de materiales)"
+  },
+  {
+   "tag": "IP_2_ZSC",
+   "hoja": "41",
+   "hojas": [
+    "41"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": null,
+   "texto_en_simbolo": null,
+   "fuente_modelo": null,
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "sensor reed de campo (no está en la lista de materiales)"
+   },
+   "nota": "sensor reed de campo (no está en la lista de materiales)"
+  },
+  {
+   "tag": "IP_2_ZSO",
+   "hoja": "41",
+   "hojas": [
+    "41"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": null,
+   "texto_en_simbolo": null,
+   "fuente_modelo": null,
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "sensor reed de campo (no está en la lista de materiales)"
+   },
+   "nota": "sensor reed de campo (no está en la lista de materiales)"
+  },
+  {
+   "tag": "IP_3_ZSC",
+   "hoja": "41",
+   "hojas": [
+    "41"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": null,
+   "texto_en_simbolo": null,
+   "fuente_modelo": null,
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "sensor reed de campo (no está en la lista de materiales)"
+   },
+   "nota": "sensor reed de campo (no está en la lista de materiales)"
+  },
+  {
+   "tag": "IP_3_ZSO",
+   "hoja": "41",
+   "hojas": [
+    "41"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": null,
+   "texto_en_simbolo": null,
+   "fuente_modelo": null,
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "sensor reed de campo (no está en la lista de materiales)"
+   },
+   "nota": "sensor reed de campo (no está en la lista de materiales)"
+  },
+  {
+   "tag": "LS001A",
+   "hoja": "42",
+   "hojas": [
+    "42"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": "XKC XKC-Y28-NO",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000505",
+   "codigos_sap_aparato": [
+    "AB2000505"
+   ],
+   "codigos_sap_todos": [
+    "AB2000505"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-LS001A",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)"
+    ]
+   }
+  },
+  {
+   "tag": "PIT01F",
+   "hoja": "32",
+   "hojas": [
+    "32"
+   ],
+   "titulo_hoja": "Entradas Analógicas Placa E2.5",
+   "modelo_segun_funcional": "4 - 20 mA 24 V DC (Presión de Línea)",
+   "texto_en_simbolo": "4 - 20 mA 24 V DC (Presión de Línea)",
+   "fuente_modelo": "texto del símbolo del funcional",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "transmisor de presión de línea, de campo (no está en la lista de materiales)"
+   },
+   "nota": "transmisor de presión de línea, de campo (no está en la lista de materiales)"
+  },
+  {
+   "tag": "PS1",
+   "hoja": "42",
+   "hojas": [
+    "42"
+   ],
+   "titulo_hoja": "Entradas Digitales Placa E2.5",
+   "modelo_segun_funcional": "UC 2SLP48 (Presostato de seguridad)",
+   "texto_en_simbolo": "UC 2SLP48 (Presostato de seguridad)",
+   "fuente_modelo": "texto del símbolo del funcional",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "presostato de seguridad de campo (cable soldado), no está en la lista de materiales"
+   },
+   "nota": "presostato de seguridad de campo (cable soldado), no está en la lista de materiales"
+  },
+  {
+   "tag": "PT001",
+   "hoja": "32",
+   "hojas": [
+    "32"
+   ],
+   "titulo_hoja": "Entradas Analógicas Placa E2.5",
+   "modelo_segun_funcional": "ifm electronic PT-250-SEG14-A-ZVG/VE",
+   "texto_en_simbolo": "4 - 20 mA 24 V DC (Transmisor de Presión Actuador interno)",
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000144",
+   "codigos_sap_aparato": [
+    "AB2000144"
+   ],
+   "codigos_sap_todos": [
+    "AB2000144"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-PT001",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)"
+    ]
+   }
+  },
+  {
+   "tag": "R1",
+   "hoja": "81",
+   "hojas": [
+    "81"
+   ],
+   "titulo_hoja": "Comunicación",
+   "modelo_segun_funcional": "120R",
+   "texto_en_simbolo": "120R",
+   "fuente_modelo": "texto del símbolo del funcional",
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "resistencia de terminación 120R de la red RS485 (no está en la lista de materiales)"
+   },
+   "nota": "resistencia de terminación 120R de la red RS485 (no está en la lista de materiales)"
+  },
+  {
+   "tag": "ROTORK",
+   "hoja": "15",
+   "hojas": [
+    "15",
+    "81",
+    "82"
+   ],
+   "titulo_hoja": "Alimentación Barreras de Seguridad y Módulos",
+   "modelo_segun_funcional": null,
+   "texto_en_simbolo": null,
+   "fuente_modelo": null,
+   "codigo_sap": null,
+   "codigos_sap_aparato": [],
+   "codigos_sap_todos": [],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "actuador de campo (no está en la lista de materiales)"
+   },
+   "nota": "actuador de campo (no está en la lista de materiales)"
+  },
+  {
+   "tag": "SP_1",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "DIGITO DLEHM-3A/WP-X 12DC",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000408",
+   "codigos_sap_aparato": [
+    "AB2000408"
+   ],
+   "codigos_sap_todos": [
+    "AB2000408"
+   ],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "solenoide de la unidad hidráulica (bloque de válvulas abajo a la derecha en hoja 07), sin rótulo"
+   }
+  },
+  {
+   "tag": "SP_2",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "DIGITO DLEHM-3A/WP-X 12DC",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000408",
+   "codigos_sap_aparato": [
+    "AB2000408"
+   ],
+   "codigos_sap_todos": [
+    "AB2000408"
+   ],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "idem SP_1"
+   }
+  },
+  {
+   "tag": "SP_3",
+   "hoja": "61",
+   "hojas": [
+    "61"
+   ],
+   "titulo_hoja": "Salidas Digitales Placa E2.5",
+   "modelo_segun_funcional": "DIGITO DLEHM-3A/WP-X 12DC",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB2000408",
+   "codigos_sap_aparato": [
+    "AB2000408"
+   ],
+   "codigos_sap_todos": [
+    "AB2000408"
+   ],
+   "en_topografico": {
+    "aparece": false,
+    "nota": "idem SP_1"
+   }
+  },
+  {
+   "tag": "XPE",
+   "hoja": "11",
+   "hojas": [
+    "11",
+    "13"
+   ],
+   "titulo_hoja": "Entrada de Alimentación y Fuente",
+   "modelo_segun_funcional": "Phoenix Contact 3x PT 2,5-QUATTRO-PE",
+   "texto_en_simbolo": null,
+   "fuente_modelo": "lista de materiales del plano (hojas 101-107)",
+   "codigo_sap": "AB20003691",
+   "codigos_sap_aparato": [
+    "AB20003691"
+   ],
+   "codigos_sap_todos": [
+    "AB1202844",
+    "AB20003691",
+    "AB20003701"
+   ],
+   "en_topografico": {
+    "aparece": true,
+    "vista": "fondo",
+    "bandeja": "BANDEJA PRINCIPAL",
+    "rotulo": "-XPE",
+    "hojas": [
+     "08 Detalle bandejas (pág. 8)",
+     "fab. 07 Vistas 2D bandejas (pág. 27)"
+    ]
+   }
+  }
+ ],
+ "aparatos": [
+  {
+   "marca": "CHENZHU",
+   "modelo": "GS8536-EX",
+   "descripcion": "Barrera de seguridad intrínseca / 2 Entradas analógicas",
+   "numero_articulo": "CZ.GS8536-EX",
+   "codigos_sap": [
+    "AB2000134"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "15AIB1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": "GS8536-EX",
+   "alias_catalogo": "GS8536",
+   "como_se_dibuja": "bloque con bornes visibles (fondo): enchufes de 3 tornillos, 2 hileras arriba y 2 abajo"
+  },
+  {
+   "marca": "DIGITO",
+   "modelo": "UNIDAD HIDRAULICA R2",
+   "descripcion": "UNIDAD HIDRAULICA",
+   "numero_articulo": "DIG.UNIDAD HIDRAULICA R2",
+   "codigos_sap": [],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "BH-01-M",
+    "M1"
+   ],
+   "cantidad": 2,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "bloque simbólico (dibujo de la unidad con acumulador, motor, manómetro y tanque), sin bornes; rotulado -BH a la derecha de la bandeja principal",
+   "nota": "La lista trae la unidad hidráulica dos veces con el mismo artículo DIG.UNIDAD HIDRAULICA R2: -BH-01-M (ubicada en hoja 12.2E) y -M1 (sin ubicación en el funcional, solo \"(mSafe.S1)\"); -M1 parece un duplicado. Además -BH-01-M tiene un segundo renglón Vibo \"Unidad hidráulica completa\"."
+  },
+  {
+   "marca": "Vibo",
+   "modelo": "VIBO",
+   "descripcion": "Unidad hidráulica completa",
+   "numero_articulo": "VIBO",
+   "codigos_sap": [],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "BH-01-M"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "idem unidad hidráulica (-BH): bloque simbólico sin bornes"
+  },
+  {
+   "marca": "Trombetta",
+   "modelo": "684-1261-212-17",
+   "descripcion": "Contactor de bomba 12 VDC",
+   "numero_articulo": "TROM.684-1261-212-17",
+   "codigos_sap": [],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "BH_01_ZV"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "dibujado sobre la unidad hidráulica (-BH_01_ZV), sin bornes numerados"
+  },
+  {
+   "marca": "Schneider Electric",
+   "modelo": "XB4BS8442",
+   "descripcion": "Parada de emergencia Ø22 - cabeza seta Ø40 - girar para desenclavar 1NC",
+   "numero_articulo": "SE.XB4BS8442",
+   "codigos_sap": [
+    "AB2000051"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "42DB1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "no está en el topográfico de bandejas (puerta)"
+  },
+  {
+   "marca": "Schneider Electric",
+   "modelo": "ZBE102",
+   "descripcion": "Contacto 1NC para XB4",
+   "numero_articulo": "SE.ZBE102",
+   "codigos_sap": [
+    "AB2000405"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "42DB1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "no está en el topográfico de bandejas (bloque de contacto de 42DB1, puerta)"
+  },
+  {
+   "marca": "CHENZHU",
+   "modelo": "GS8512-EX.22",
+   "descripcion": "Barrera de seguridad intrínseca / 2 Entradas digitales",
+   "numero_articulo": "CZ.GS8512-EX.22",
+   "codigos_sap": [
+    "AB2000135"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "15DIB1",
+    "15DIB2",
+    "15DIB3"
+   ],
+   "cantidad": 3,
+   "en_catalogo_bornes": "GS8512-EX",
+   "alias_catalogo": "GS8512",
+   "como_se_dibuja": "bloque con bornes visibles (fondo): enchufes de 2 tornillos, 2 hileras arriba y 2 abajo; 3 unidades contiguas a 15AIB1"
+  },
+  {
+   "marca": "OMRON Corporation",
+   "modelo": "HL-5200",
+   "descripcion": "Final de carrera metálico 1NAC",
+   "numero_articulo": "HL-5200",
+   "codigos_sap": [
+    "AB2000022"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "42DS"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "no está en el topográfico de bandejas (sensor de puerta)"
+  },
+  {
+   "marca": "Schneider Electric",
+   "modelo": "DF101",
+   "descripcion": "TeSys portafusibles - 1 P 32A",
+   "numero_articulo": "SE.DF101",
+   "codigos_sap": [
+    "AB12029121"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "11F1",
+    "11F2",
+    "13F4",
+    "13F5",
+    "13F6"
+   ],
+   "cantidad": 5,
+   "en_catalogo_bornes": "DF101",
+   "alias_catalogo": "DF101",
+   "como_se_dibuja": "bloque con bornes visibles (fondo): 1 tornillo arriba y 1 abajo; unidades contiguas en el riel superior (11F1, 11F2, [12F3 DF141], 13F4, 13F5, 13F6)"
+  },
+  {
+   "marca": "Littelfuse",
+   "modelo": "FUSE MEGA HOLDER",
+   "descripcion": "Portafusible MEGA con protección",
+   "numero_articulo": "FUSE MEGA HOLDER",
+   "codigos_sap": [
+    "AB2000441"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "12F2"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": "MEGA-BASE",
+   "alias_catalogo": "MEGA",
+   "como_se_dibuja": "bloque con espárragos visibles (2), horizontal, fuera del riel, arriba a la derecha de la bandeja principal"
+  },
+  {
+   "marca": "Schneider Electric",
+   "modelo": "DF141",
+   "descripcion": "TeSys portafusibles - 1 P 50A",
+   "numero_articulo": "SE.DF141",
+   "codigos_sap": [],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "12F3"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "bloque con bornes visibles (fondo): más alto y ancho que el DF101, 1 tornillo arriba y 1 abajo, entre 11F2 y 13F4",
+   "nota": "Sin código SAP en la lista (el número de pedido repite el tipo DF141); cartucho DF2EA32 también sin código."
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "RIF-0-RPT-12DC/21",
+   "descripcion": "Relé de todo o nada básico / Módulo de relés",
+   "numero_articulo": "PXC.2903371",
+   "codigos_sap": [
+    "AB2000063"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "61KR1",
+    "61KR2",
+    "61KR3",
+    "61KR4"
+   ],
+   "cantidad": 4,
+   "en_catalogo_bornes": "RIF-0-RPT",
+   "alias_catalogo": "RIF-0-RPT",
+   "como_se_dibuja": "bloque con bornes visibles (fondo): 4 relés angostos contiguos con bornes push-in arriba y abajo, rotulados en grupo -61KR",
+   "nota": "Coincide con RIF-0-RPT por alias; esta variante es la de bobina 12 V DC (art. PXC.2903371), el catálogo lista los artículos 2903370 / 2900958."
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "PSR-SCP- 24UC/ESA2/4X1/1X2/B",
+   "descripcion": "Relé de seguridad",
+   "numero_articulo": "PXC.2963802",
+   "codigos_sap": [
+    "AB2000444"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "42KS1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "bloque con bornes visibles (fondo): 2 hileras de 4 bornes arriba y 2 hileras de 4 abajo"
+  },
+  {
+   "marca": "XKC",
+   "modelo": "XKC-Y28-NO",
+   "descripcion": "SENSOR DE NIVEL CAPACITIVO",
+   "numero_articulo": "XKC-Y28-NO",
+   "codigos_sap": [
+    "AB2000505"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "LS001A"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "rectángulo simbólico sobre el tanque de la unidad hidráulica (-LS001A)"
+  },
+  {
+   "marca": "Schneider Electric",
+   "modelo": "VBF1",
+   "descripcion": "TeSys VARIO Interruptor seccionador en la puerta",
+   "numero_articulo": "SE.VBF1",
+   "codigos_sap": [
+    "AB20000331"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "11MS1",
+    "13MS1"
+   ],
+   "cantidad": 2,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "no está en el topográfico de bandejas (pared/puerta del gabinete; visible sin rótulo en las vistas 2D/3D)",
+   "nota": "Código de pedido AB20000331 tal como figura (8 cifras)."
+  },
+  {
+   "marca": "ODYSSEY",
+   "modelo": "ODX-AGM34M",
+   "descripcion": "Batería de 12V",
+   "numero_articulo": "ODY.ODX-AGM34M",
+   "codigos_sap": [
+    "AB139844"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "12PB1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "no está en el topográfico de bandejas (batería en el piso del gabinete, sin rótulo)",
+   "nota": "La lista no trae fabricante; la marca ODYSSEY sale del prefijo del artículo (ODY.ODX-AGM34M) y del símbolo del funcional (\"ODYSSEY ODX-AGM34\")."
+  },
+  {
+   "marca": "DIGITO",
+   "modelo": "PLACA E2.5 (PCB-E2-5)",
+   "descripcion": "E2.5 DI/DO/AI / PLACA E2.5",
+   "numero_articulo": "PLACA_E2.5",
+   "codigos_sap": [],
+   "codigos_en_plano_no_sap": [
+    "L03-60591-01"
+   ],
+   "tags": [
+    "21PCB01"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "no está en el topográfico de bandejas (placa/display en la puerta)",
+   "nota": "Número de pedido L03-60591-01 (no es código SAP AB)."
+  },
+  {
+   "marca": "MEAN WELL",
+   "modelo": "NDR-240-24",
+   "descripcion": "Fuente de alimentación 110/220VAC - 24/28VDC",
+   "numero_articulo": "MWP.NDR-240-24",
+   "codigos_sap": [
+    "AB1202653"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "11PS1",
+    "11PS2"
+   ],
+   "cantidad": 2,
+   "en_catalogo_bornes": "MEANWELL-NDR",
+   "alias_catalogo": "NDR-",
+   "como_se_dibuja": "bloque con bornes visibles (fondo): bornera de tornillo de 4 arriba (salida +V/-V) y de 3 abajo (entrada L/N/FG); 11PS1 y 11PS2 contiguas al comienzo del riel superior"
+  },
+  {
+   "marca": "EPEVER",
+   "modelo": "TRACER7810BP",
+   "descripcion": "Regulador de carga MPPT",
+   "numero_articulo": "TRACER7810BP",
+   "codigos_sap": [
+    "AB20000291"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "12PS1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "bloque simbólico sin bornes visibles (lateral): solo el contorno/disipador del regulador",
+   "nota": "En la lista el número de tipo y el de artículo vienen cruzados (tipo \"EPE.TRACER7810BP\", artículo \"TRACER7810BP\"); el símbolo dice \"EPEVER TRACER 7810BP\"."
+  },
+  {
+   "marca": "MEAN WELL",
+   "modelo": "DDR-120A-24",
+   "descripcion": "Elevador de tensión 12-24VDC",
+   "numero_articulo": "MW.DDR-120A-24",
+   "codigos_sap": [
+    "AB139867"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "13PS1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": "MEANWELL-DDR",
+   "alias_catalogo": "DDR-",
+   "como_se_dibuja": "bloque con bornes visibles (fondo): conector de 4 bornes arriba y de 3 abajo",
+   "nota": "En la lista el número de tipo y el de artículo vienen cruzados (tipo \"MWP.DDR-120A-24\", artículo \"MW.DDR-120A-24\")."
+  },
+  {
+   "marca": "ifm electronic",
+   "modelo": "PT-250-SEG14-A-ZVG/VE",
+   "descripcion": "Transmisor de presión / Conector: 1 DIN",
+   "numero_articulo": "IFM.PT-250-SEG14-A-ZVG/VE",
+   "codigos_sap": [
+    "AB2000144"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "PT001"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "dibujado sobre el bloque de la unidad hidráulica (-PT001), sin bornes (conector DIN)"
+  },
+  {
+   "marca": "Schneider Electric",
+   "modelo": "EZ9F36225",
+   "descripcion": "ACTI9 IID 2P 25A 30MA AC RCCB",
+   "numero_articulo": "SE.EZ9F36225",
+   "codigos_sap": [
+    "AB1203305"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "11Q1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": "EASY9-RCCB-2P",
+   "alias_catalogo": "DIFERENCIAL",
+   "como_se_dibuja": "bloque con bornes visibles (lateral): 2 tornillos arriba y 2 abajo",
+   "nota": "Es un diferencial (ACTI9 IID 2P 25A 30mA RCCB) aunque el código empiece con EZ9F: lo toma EASY9-RCCB-2P por el alias más largo \"DIFERENCIAL\"."
+  },
+  {
+   "marca": "Schneider Electric",
+   "modelo": "EZ9F34210",
+   "descripcion": "TERMOMAGNÉTICA 2x10A",
+   "numero_articulo": "SE.EZ9F34210",
+   "codigos_sap": [
+    "AB12026561"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "11Q2"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": "MCB-2P",
+   "alias_catalogo": "TERMOMAGN",
+   "como_se_dibuja": "bloque con bornes visibles (lateral): 2 tornillos arriba y 2 abajo"
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "EO-I/UT",
+   "descripcion": "Enchufe de zócalo para caja de distribución / Toma de corriente",
+   "numero_articulo": "PXC.0804087",
+   "codigos_sap": [],
+   "codigos_en_plano_no_sap": [
+    "0804087"
+   ],
+   "tags": [
+    "11SK1"
+   ],
+   "cantidad": 1,
+   "en_catalogo_bornes": "TOMA-IRAM-DIN",
+   "alias_catalogo": "TOMA CORRIENTE",
+   "como_se_dibuja": "bloque con el frente del tomacorriente (3 espigas inclinadas) y bornes de tornillo abajo (lateral)",
+   "nota": "Coincide con TOMA-IRAM-DIN solo por el alias genérico \"TOMA CORRIENTE\" (texto de función \"Tomacorriente\"); el modelo real es Phoenix Contact EO-I/UT (art. 0804087), hay que confirmar que es el mismo bloque/medidas que el del catálogo."
+  },
+  {
+   "marca": "DIGITO",
+   "modelo": "DLEHM-3A/WP-X 12DC",
+   "descripcion": "VÁLVULA SOLENOIDE 3/2 NC POPPET 30W 12VDC",
+   "numero_articulo": "DIG.DLEHM-3A/WP-X 12DC",
+   "codigos_sap": [
+    "AB2000408"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "SP_1",
+    "SP_2",
+    "SP_3"
+   ],
+   "cantidad": 3,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "no está en el topográfico de bandejas (solenoides de la unidad hidráulica, sin rótulo)",
+   "nota": "El número de tipo largo se parte en 2 renglones y tapa el número de pedido; AB2000408 se tomó de la columna angosta de la lista (copia truncada del pedido)."
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6-QUATTRO",
+   "descripcion": "Bloque de terminales de paso / Borne de paso",
+   "numero_articulo": "PXC.3212934",
+   "codigos_sap": [
+    "AB2000369"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "11X220V",
+    "13X12V",
+    "13X24V",
+    "61X0V",
+    "61XDO",
+    "12XP"
+   ],
+   "cantidad": 17,
+   "en_catalogo_bornes": "PT6-QUATTRO",
+   "alias_catalogo": "PT 6-QUATTRO",
+   "como_se_dibuja": "bornes de riel dibujados uno a uno con sus 4 entradas push-in (2 arriba, 2 abajo), numeración debajo; tapas y soportes finales dibujados"
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "descripcion": "Borna con portafusible / Borne de carril para fusible",
+   "numero_articulo": "PXC.3211886",
+   "codigos_sap": [
+    "AB2000436"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "32XAI",
+    "42XC"
+   ],
+   "cantidad": 2,
+   "en_catalogo_bornes": "PTTB4-HESI",
+   "alias_catalogo": "PTTB 4-HESI",
+   "como_se_dibuja": "borne portafusible dibujado (alto, con la tapa del fusible), rotulado F1"
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "numero_articulo": "PXC.3210258",
+   "codigos_sap": [
+    "AB2000067"
+   ],
+   "codigos_en_plano_no_sap": [
+    "3210258"
+   ],
+   "tags": [
+    "42XC",
+    "81XCM",
+    "15XR"
+   ],
+   "cantidad": 7,
+   "en_catalogo_bornes": "PTT2.5-2MT",
+   "alias_catalogo": "PTT 2,5-2MT",
+   "como_se_dibuja": "bornes doble piso seccionables dibujados uno a uno (2 entradas arriba, 2 abajo), numeración impar debajo (81XCM 1 3 5 7 9)",
+   "nota": "En la lista, 42XC trae el código SAP AB2000067 y 81XCM / 15XR traen en \"Número de pedido\" el artículo Phoenix 3210258 (sin código SAP)."
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-DIO/L-R",
+   "descripcion": "Borne para componentes",
+   "numero_articulo": "PXC.3210224",
+   "codigos_sap": [
+    "AB2000080"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "61XDIO"
+   ],
+   "cantidad": 4,
+   "en_catalogo_bornes": "PT2.5-DIO",
+   "alias_catalogo": "PT 2,5-DIO",
+   "como_se_dibuja": "4 bornes angostos dibujados (1 entrada por extremo), numerados 1..4, con puente FBS"
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "PTT 2,5-2MT BU",
+   "descripcion": "Bornas de carril de desconexión y prueba / Borna interrumpible por cuchilla",
+   "numero_articulo": "PXC.3210265",
+   "codigos_sap": [
+    "AB2000068"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "32XEX",
+    "41XEX"
+   ],
+   "cantidad": 8,
+   "en_catalogo_bornes": "PTT2.5-2MT-BU",
+   "alias_catalogo": "PTT 2,5-2MT BU",
+   "como_se_dibuja": "bornes doble piso seccionables azules dibujados uno a uno, numeración impar debajo (41XEX 1 3 5 7 9 11, 32XEX 1 3)"
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "PT 2,5-QUATTRO-PE",
+   "descripcion": "Bloque de terminales de tierra / Borna de tierra",
+   "numero_articulo": "PXC.3209594",
+   "codigos_sap": [
+    "AB20003691"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "32XEX",
+    "XPE",
+    "11XPVAC",
+    "15XR"
+   ],
+   "cantidad": 6,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "bornes de tierra dibujados uno a uno (4 entradas), en la misma hilera que la bornera a la que pertenecen"
+  },
+  {
+   "marca": "Phoenix Contact",
+   "modelo": "PT 6",
+   "descripcion": "Borne de paso",
+   "numero_articulo": "PXC.3211813",
+   "codigos_sap": [
+    "AB2000381"
+   ],
+   "codigos_en_plano_no_sap": [],
+   "tags": [
+    "12XPS",
+    "11XPVAC"
+   ],
+   "cantidad": 15,
+   "en_catalogo_bornes": null,
+   "alias_catalogo": null,
+   "como_se_dibuja": "bornes de riel dibujados uno a uno (1 entrada arriba y 1 abajo), numeración debajo (12XPS 1..13 en la bandeja lateral; 11XPVAC 1-2)"
+  }
+ ],
+ "notas": [
+  "NO HAY ORDEN DE MONTAJE SAP en la carpeta: solo un PDF de 50 páginas (DIGITO, EPLAN) que trae funcional, topográfico, conjunto de bornes, lista de materiales y lista de conexiones. Por eso componentes_sap = [] y la orden (20061052) sale del nombre de la carpeta.",
+  "codigo_producto 76860-1 sale de la portada del plano (\"Diagrama Eléctrico Funcional Conjunto 76860-1\"), no de una orden SAP. Doc. ZPL-76884 Rev 0 (21-04-2026), proyecto mSafe2+, cliente PAE, código de proyecto 2344.",
+  "componentes_segun_lista_del_plano: agregado por código de pedido de la lista de materiales del plano (hojas 101-107, 117 renglones) y de la lista de canaletas/rieles (fab. hoja 11, 20 renglones, en metros). El \"Número de pedido\" del EPLAN es el código SAP de Batfer (AB...): sirve para cruzar con las órdenes de otros productos. Algunos renglones no traen código SAP (DF141, DF2EA32, DF2CN06, 684-1261-212-17, unidad hidráulica, Vibo, placa E2.5 L03-60591-01, EO-I/UT 0804087, PTT 2,5-2MT de 81XCM/15XR con 3210258).",
+  "lista_funcional: leída por posición del texto real del PDF (pypdfium2), columnas Tag/Colocación, Cant, Designación, Número de tipo/Número de pedido, Fabricante, Número de artículo/Texto de función, Pos. Un \"=\" en Texto de función significa \"igual al de arriba\" (EPLAN) y se dejó null.",
+  "EL PROGRAMA NO LEE ESTE PLANO TAL CUAL: (1) el PDF está cifrado AES (se abre sin contraseña) y pypdf necesita el paquete \"cryptography\", que no está instalado: core.process falla en PdfReader. Se trabajó con una copia descifrada en el scratchpad (pypdfium2 save con FPDF_REMOVE_SECURITY). (2) Los textos son texto real con fuente (EPLAN), no trazos SHX: core.process lee 0 textos útiles (solo reconoce como letras algunos trazos de símbolos) y materiales_funcional(res) devuelve None. Hay que agregar al programa la lectura del texto real (pypdfium2 get_text_bounded por rectángulo) para este tipo de plano. (3) La corrida completa de core.process se cortó a los 10 min trabada en la hoja 8 (Detalle bandejas, muchos vectores); con pages=funcional+lista terminó en 86 s.",
+  "tags: tags con \"-\" delante en las hojas 11-82 del funcional (texto real). Se excluyeron \"-V\" (rótulo de borne \"1 -V\") y \"-PE\" (punto de tierra de la placa, hoja 16). Tags de la lista que no son aparatos del funcional: -12 (tapón ZB5SZ3), -22/-24/-28/-29/-30/-31 y -61KR (soportes finales E/NS 35 N sueltos), -M1 (unidad hidráulica duplicada), -U2..-U22 (canaletas y rieles).",
+  "Tags de campo sin renglón en la lista de materiales: ROTORK, PIT01F, IP_1_ZSO, IP_1_ZSC, IP_2_ZSO, IP_2_ZSC, IP_3_ZSO, IP_3_ZSC, PS1 (presostato UC 2SLP48), R1 (120R).",
+  "Topográfico: la hoja 08 \"Detalle bandejas\" (pág. 8) y fab. 07 \"Vistas 2D bandejas\" (pág. 27) traen los aparatos dibujados con el detalle del EPLAN Pro Panel (bornes visibles) y rotulados con su tag en texto real. Bandeja principal = fondo; BANDEJA LATERAL IZQUIERDA = lateral (12PS1, 12XPS, 11SK1, 11Q1, 11Q2, 11XPVAC, 11X220V). No hay vista de puerta con rótulos: los aparatos de puerta/pared (11MS1, 13MS1, 42DB1, 42DS, display 21PCB01) y la batería 12PB1 se ven solo en las vistas 2D/3D sin tag. Los 4 relés 61KR1..61KR4 se rotulan juntos como -61KR y la unidad hidráulica como -BH.",
+  "Extra útil para E8/E6: las hojas 108 y 108.a-c (págs. 47-50) traen la LISTA DE CONEXIONES del EPLAN (cable, destino 1, destino 2 como TAG:borne:punto, color, sección; ej. \"1101 -11XPVAC:1:1 -11MS1 Marrón 2,5\") y las hojas 51-58 el plano de hileras de bornes pieza por pieza: con eso se puede armar el instructivo sin leer el dibujo del funcional. Las hojas 05 (Vista 3D Exterior), fab. 05 (Vistas 3D internas) y fab. 08 (Vistas 2D gabinete) traen vistas del gabinete completo.",
+  "en_catalogo_bornes: calculado como bornes.motor.modelo_por_materiales (alias más largo del catálogo contenido en descripción+marca+modelo+artículo+código+texto de función). Sin modelo en el catálogo: PT 6 (12XPS, 11XPVAC), PT 2,5-QUATTRO-PE (tierras), DF141, PSR-SCP (42KS1), TRACER7810BP, VBF1, XB4BS8442/ZBE102, HL-5200, XKC-Y28-NO, PT-250, contactor Trombetta, unidad hidráulica, solenoides, batería y placa E2.5."
+ ]
+}
