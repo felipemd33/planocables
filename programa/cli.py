@@ -14,8 +14,13 @@ def run(pdf, outdir=None, make_pdf=True, make_xlsx=True, use_ocr=True, log=print
     os.makedirs(outdir, exist_ok=True)
     log(f'Procesando {os.path.basename(pdf)} ...')
     res = process(pdf, log=log, use_ocr=use_ocr)
+    es_eplan = bool(getattr(res, 'eplan', False))
     outs = []
-    if make_pdf:
+    if make_pdf and es_eplan:
+        # plano de EPLAN: el PDF ya trae el texto (Ctrl+F encuentra los numeros tal cual); un 'BUSCABLE' seria una copia
+        # sin la proteccion del original (como en la web, no se genera)
+        log('Plano de EPLAN: el PDF ya es buscable (Ctrl+F encuentra los números): no se genera el PDF buscable.')
+    elif make_pdf:
         from ocr_raster import page_items
         p = os.path.join(outdir, base + ' - BUSCABLE.pdf')
         write_searchable_pdf(res, p, raster_ocr=page_items if use_ocr else None)
@@ -23,6 +28,9 @@ def run(pdf, outdir=None, make_pdf=True, make_xlsx=True, use_ocr=True, log=print
     if make_xlsx:
         p = os.path.join(outdir, base + ' - LISTADO DE CABLES.xlsx')
         write_excel(res, p)
+        if es_eplan:                    # como web.run_job: la hoja 'Lista de conexiones (EPLAN)' con los textos del taller
+            import eplan
+            eplan.excel_extra(res, p)
         outs.append(p)
     ncab = len({c['num'] for c in res.cables})
     log(f'Listo en {res.seconds:.0f} s: {ncab} números de cable, {len(res.review)} elementos a revisar.')

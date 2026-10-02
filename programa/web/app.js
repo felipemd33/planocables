@@ -156,7 +156,7 @@ function procError(st) {
   $('#procLog').hidden = !!st;   // el detalle tecnico queda en una linea; el volcado completo no hace falta
   if (!st) return;
   const e = st.error || '';
-  const msg = /interrumpido/i.test(e) ? e
+  const msg = /interrumpido|Falta la lista de conexiones/i.test(e) ? e
     : /pdf|stream|xref|eof|header|trailer/i.test(e) ? 'El archivo no parece un PDF válido o está dañado.'
     : 'No se pudo procesar el plano.';
   $('#procMsg').textContent = msg;

@@ -303,15 +303,22 @@ def copia_proceso(pdf):
 _ES = {}
 
 
-def es_eplan(pdf):
-    """True si el PDF es un plano de EPLAN con lista de conexiones: alguna hoja con muchas designaciones '-TAG:borne' en
-    renglones de tabla y el titulo o la cabecera de la lista. Rapido para los PDF de AutoCAD (no traen texto real)."""
+# etiqueta de aparato EPLAN en texto real: '-11PS1', '-13X24V:2:1', '+Campo-ROTORK:27' (con letra y numero: '-V' o '-10'
+# sueltos no cuentan). Los PDF de AutoCAD / ZWCAD no traen texto real y el PDF buscable del programa trae pocas.
+TAG_TXT_RE = re.compile(r'^(?:=[^+\-\s:]*)?(?:\+[^\-\s:]+)?-(?=[\w\-]*\d)(?=[\w\-]*[A-Z])[A-Z0-9][\w\-]*(?::\S*)?$')
+
+
+def deteccion(pdf):
+    """dict(eplan, lista): eplan = el PDF es un plano de EPLAN (texto real con muchas designaciones '-TAG' / '-TAG:borne':
+    una hoja con 15 o mas '-TAG:borne', o 3 hojas con 12 o mas etiquetas '-TAG'); lista = trae la LISTA DE CONEXIONES
+    (una hoja con 15 o mas '-TAG:borne' y el titulo o la cabecera de la lista). Rapido para los PDF de AutoCAD."""
     key = _firma(pdf)
     if key in _ES:
         return _ES[key]
-    ok = False
+    out = dict(eplan=False, lista=False)
     try:
         import pypdfium2 as pdfium
+        hojas_tags = 0; total_tags = 0
         with PDFIUM_LOCK:
             doc = pdfium.PdfDocument(pdf)
             try:
@@ -327,15 +334,38 @@ def es_eplan(pdf):
                         pg.close()
                     toks = t.split()
                     n = sum(1 for x in toks if ':' in x and DESIG_RE.match(x))
-                    if n >= 15 and LISTA_RE.search(t):
-                        ok = True
-                        break
+                    if n >= 15:
+                        out['eplan'] = True
+                        if LISTA_RE.search(t):
+                            out['lista'] = True
+                            break
+                    nt = sum(1 for x in toks if TAG_TXT_RE.match(x))
+                    total_tags += nt
+                    if nt >= 8:
+                        hojas_tags += 1
+                    if hojas_tags >= 3 or total_tags >= 40:      # solo el esquema (sin la lista): sigue siendo EPLAN
+                        out['eplan'] = True
             finally:
                 doc.close()
     except Exception:
-        ok = False
-    _ES[key] = ok
-    return ok
+        out = dict(eplan=False, lista=False)
+    _ES[key] = out
+    return out
+
+
+def es_eplan(pdf):
+    """True si el PDF es un plano de EPLAN (texto real con muchas designaciones '-TAG:borne'), tenga o no la lista de
+    conexiones: un EPLAN sin la lista NO se lee con el lector de AutoCAD (process corta con un mensaje claro)."""
+    return deteccion(pdf)['eplan']
+
+
+def tiene_lista(pdf):
+    """True si el PDF de EPLAN trae la lista de conexiones (origen / destino de cada cable)"""
+    return deteccion(pdf)['lista']
+
+
+FALTA_LISTA = ('Falta la lista de conexiones: exportala desde EPLAN (informe «Lista de conexiones», con el número de cable, '
+               'los dos destinos, el color y la sección) en el mismo PDF que el esquema y volvé a cargarlo.')
 
 
 def rotulo(pg):
@@ -344,7 +374,8 @@ def rotulo(pg):
     W = pg['words']; meta = {}
     low = lambda w: w['text'].strip().lower()
     horiz = [w for w in W if w['ang'] == 0]
-    cont = [w for w in horiz if re.fullmatch(r'(cont|sig|siguiente|next)[:.]?', low(w))]
+    # 'Cont:' con los dos puntos: un 'CONT.' suelto en el esquema ('ALIM. CONT. E2.5') no es el rotulo del cajetin
+    cont = [w for w in horiz if re.fullmatch(r'(cont|sig|siguiente|next):', low(w))]
     tit = [w for w in horiz if re.fullmatch(r'(title|t[ií]tulo)[:.]?', low(w))]
     rot = [w for w in horiz if re.fullmatch(r'(rev\.?|revisi[oó]n|cont|title|t[ií]tulo|project|proyecto|code|c[oó]digo|client|cliente|'
                                              r'doc\.?|number|n[uú]mero|date|fecha|description|descripci[oó]n|proj\.?|dw\.?|apr\.?)[:.]?', low(w))]
@@ -379,9 +410,12 @@ def rotulo(pg):
                 if after:
                     meta['revision'] = after[0]['text']
             break
-    if len(rot) >= 3:
-        bb = _bb_union([w['bbox'] for w in rot])
-        meta['cajetin'] = (bb[0] - 30, bb[1] - 25, pg['w'], bb[3] + 15)
+    # cajetin: SOLO el bloque del rotulo (el de 'Cont:' / 'Doc. number:' / 'Rev.:'), no la union de todas las palabras tipo
+    # rotulo de la hoja (la cabecera 'Revisión / Fecha' de una tabla o un 'CONT.' del esquema lo estiraban a toda la hoja y
+    # se perdian los numeros de cable). Se arranca de esos rotulos y se suman los que estan pegados en vertical.
+    caj = cajetin_rotulo(horiz, rot, cont, dn, pg['h'])
+    if caj:
+        meta['cajetin'] = (caj[0] - 30, caj[1] - 25, pg['w'], caj[3] + 15)
     # rejilla de zonas (como core.page_meta): numeros arriba y letras a la izquierda
     pw, ph = pg['w'], pg['h']
     cols = sorted(((w['bbox'][0] + w['bbox'][2]) / 2, w['text']) for w in horiz if w['text'] in list('123456789') and w['bbox'][1] > 0.9 * ph)
@@ -395,6 +429,35 @@ def rotulo(pg):
         meta['row_edges'] = [(-(a[0] + b[0]) / 2, b[1]) for a, b in zip(rows, rows[1:])]
         meta['row_first'] = rows[0][1]
     return meta
+
+
+def cajetin_rotulo(horiz, rot, cont, dn, h):
+    """caja de los rotulos del bloque del cajetin: arranca del 'Cont:' de la hoja (o del 'Doc. number:' / 'Rev.:' si no hay)
+    y suma los rotulos que estan a menos de 4 alturas de letra en vertical del bloque (en cadena), sin pasar de un quinto
+    del alto de la hoja. -> (x0, y0, x1, y1) o None"""
+    sem = []
+    if cont:
+        sem = [min(cont, key=lambda w: w['bbox'][1] - w['bbox'][0])]
+    elif dn:
+        sem = [min(dn, key=lambda w: w['bbox'][1])]
+    else:
+        rv = [w for w in rot if re.fullmatch(r'(?i)rev(\.|isi[oó]n)?:', w['text'].strip())]
+        sem = [min(rv, key=lambda w: w['bbox'][1])] if rv else []
+    if not sem:
+        return None
+    blk = list(sem)
+    y0, y1 = sem[0]['bbox'][1], sem[0]['bbox'][3]
+    resto = [w for w in rot if w is not sem[0]]
+    cambio = True
+    while cambio:
+        cambio = False
+        for w in list(resto):
+            gap = max(w['bbox'][1] - y1, y0 - w['bbox'][3], 0.0)
+            if gap <= 4 * max(w['fs'], 1.0) and max(y1, w['bbox'][3]) - min(y0, w['bbox'][1]) <= 0.2 * h:
+                blk.append(w); resto.remove(w)
+                y0, y1 = min(y0, w['bbox'][1]), max(y1, w['bbox'][3])
+                cambio = True
+    return _bb_union([w['bbox'] for w in blk]) if len(blk) >= 3 else None
 
 
 def documento(pdf):
@@ -514,9 +577,103 @@ def clave_punta(d, num):
     return f'{d}#{num or "s/n"}'
 
 
+def clave_tramo(d, num, otra):
+    """clave de una punta cuando la de clave_punta no alcanza (varios renglones sin numero con la misma designacion y
+    distinto texto, ej. los empalmes '-X1:2' del sensor de nivel): '<designacion>#<cable>@<designacion de la otra punta>'"""
+    return f'{clave_punta(d, num)}@{otra or ""}'
+
+
 # ------------------------------------------------------------------ textos del taller
+HILERAS_RE = re.compile(r'(?i)hileras?\s+de\s+bornes|plano\s+de\s+bornes|terminal\s+(?:strip|diagram)|klemmen(?:plan|leiste)')
+ARTICULOS_RE = re.compile(r'(?i)lista\s+de\s+art[ií]culos|lista\s+de\s+materiales|parts\s+list|bill\s+of\s+materials|st[üu]ckliste')
+COL_TIPO_RE = re.compile(r'(?i)^(n[uú]mero\s+de\s+tipo|type\s+number|typnummer)$')
+COL_ART_RE = re.compile(r'(?i)^(n[uú]mero\s+de\s+art[ií]culo|part\s+number|artikelnummer)$')
+COL_SEC_RE = re.compile(r'(?i)^(secci[oó]n|cross[\s-]?section|querschnitt)$')
+ACCESORIO_RE = re.compile(r'(?i)^(D-|E/|FBS|ZB|ATP|UBE|KLM|CLIPFIX|E-?NS\b)')   # tapas, topes, puentes, marcadores
+QUATTRO_RE = re.compile(r'(?i)QUATTRO')
+DOBLE_RE = re.compile(r'(?i)^(?:P|U|S|ST|PS|UT|UK)TT|TTB|UKK|DIK|-2L\b|2\s*pisos|doble\s+piso')
+NUM_BORNE_RE = re.compile(r'^[A-Z]{0,2}\d{1,3}[A-Z]?$')
+PROTECCION_RE = re.compile(r'^\d*[FQ]\d+[A-Z]?$')       # fusibles / interruptores (IEC 81346: F, Q)
+
+
+def clase_borne(tipo):
+    """'QUATTRO' (4 puntos: 'N.p'), 'DOBLE' (doble piso: 'N ARRIBA/ABAJO'), '2P' (2 puntos: 'N ARRIBA/ABAJO') o None
+    (accesorio: tapa, tope, puente) segun el numero de tipo del articulo ('PT 6-QUATTRO', 'PTT 2,5-2MT', 'PT 6')"""
+    t = (tipo or '').strip()
+    if not t or ACCESORIO_RE.match(t):
+        return None
+    if QUATTRO_RE.search(t):
+        return 'QUATTRO'
+    if DOBLE_RE.search(t):
+        return 'DOBLE'
+    return '2P'
+
+
+def tipos_bornes(pages):
+    """tipo de cada borne de las borneras, leido del mismo PDF:
+    - hojas 'Plano de hileras de bornes': por tira ('-15XR') y numero de borne, el 'Numero de tipo' de su renglon (un
+      renglon sin tipo es el otro piso del articulo de arriba: 'F1' + '1' de un PTTB);
+    - si no, la 'Lista de articulos': el tipo de la tira cuando tiene una sola clase de borne.
+    -> (por_num {(tira, n): dict(clase, tipo, pag)}, por_tira {tira: dict(clase, tipo, pag)})"""
+    por_num, por_tira = {}, {}
+    clases_tira = collections.defaultdict(dict)
+    for pg in pages:
+        caj = (pg.get('_meta') or rotulo(pg)).get('cajetin')
+        L = [l for l in pg['lines'] if l['ang'] == 0 and not (caj and _dentro(_centro(l['bbox']), caj))]
+        cy = lambda l: (l['bbox'][1] + l['bbox'][3]) / 2
+        tits = sorted((l for l in L if HILERAS_RE.search(l['text'])), key=lambda l: -cy(l))
+        for i, t in enumerate(tits):
+            bot = cy(tits[i + 1]) if i + 1 < len(tits) else -1e9
+            blk = [l for l in L if bot < cy(l) < cy(t)]
+            hdr = [l for l in blk if COL_TIPO_RE.match(l['text'].strip())]
+            if not hdr:
+                continue
+            hdr = max(hdr, key=cy)
+            x_tipo, y_hdr = hdr['bbox'][0], cy(hdr)
+            tiras = [l for l in blk if re.fullmatch(r'-\S+', l['text']) and TERMINAL_RE.match(l['text'][1:]) and cy(l) > y_hdr - 6]
+            if not tiras:
+                continue
+            tira = tiras[0]['text'][1:]
+            x_num = max(l['bbox'][0] for l in tiras) if len(tiras) > 1 else None
+            if x_num is None or x_num < x_tipo + 100:
+                continue
+            # columnas de la tabla por sus cabeceras (los valores no estan alineados con la cabecera: cada valor va a la
+            # columna de la cabecera mas cercana)
+            cols = [('tipo', x_tipo), ('num', x_num)] + [(k, l['bbox'][0]) for l in blk if abs(cy(l) - y_hdr) < 6 and l is not hdr
+                                                          for k, rx in (('art', COL_ART_RE), ('sec', COL_SEC_RE)) if rx.match(l['text'].strip())]
+            col_de = lambda l: min(cols, key=lambda c: abs(l['bbox'][0] - c[1]))[0]
+            filas_t = [(cy(l), l['text'].strip()) for l in blk if cy(l) < y_hdr - 2 and l['bbox'][0] < x_num - 10 and col_de(l) == 'tipo']
+            for l in blk:
+                if not (cy(l) < y_hdr - 2 and x_num - 10 <= l['bbox'][0] <= x_num + 90):
+                    continue
+                for tok in l['text'].split():
+                    if not NUM_BORNE_RE.match(tok):
+                        continue
+                    y = cy(l)
+                    mismo = [ft for ft in filas_t if abs(ft[0] - y) < 4 and clase_borne(ft[1])]
+                    arriba = sorted((ft for ft in filas_t if 0 < ft[0] - y < 70 and clase_borne(ft[1])), key=lambda ft: ft[0] - y)
+                    ft = (mismo or arriba or [None])[0]
+                    if ft:
+                        por_num[(tira, tok)] = dict(clase=clase_borne(ft[1]), tipo=ft[1], pag=pg['index'])
+        # lista de articulos: tag a la izquierda y 'Numero de tipo' en su columna, en el mismo renglon
+        if any(ARTICULOS_RE.search(l['text']) for l in L):
+            hdr = [l for l in L if COL_TIPO_RE.match(l['text'].strip())]
+            if hdr:
+                x_tipo = hdr[0]['bbox'][0]
+                for l in L:
+                    if re.fullmatch(r'-\S+', l['text']) and TERMINAL_RE.match(l['text'][1:]) and l['bbox'][0] < x_tipo - 100:
+                        for v in L:
+                            if abs(cy(v) - cy(l)) < 3 and abs(v['bbox'][0] - x_tipo) < 15 and clase_borne(v['text']):
+                                clases_tira[l['text'][1:]][clase_borne(v['text'])] = dict(clase=clase_borne(v['text']), tipo=v['text'].strip(), pag=pg['index'])
+    for tira, cs in clases_tira.items():
+        if len(cs) == 1:
+            por_tira[tira] = next(iter(cs.values()))
+    return por_num, por_tira
+
+
 def texto_general(d, info=None):
-    """texto del taller de un punto de conexion EPLAN sin mapeo verificado:
+    """texto del taller de un punto de conexion EPLAN sin mapeo verificado ni tipo de bornera conocido (ultimo recurso;
+    lo normal es textos_generales, que lee el tipo de las hojas de hileras de bornes):
     bornera con punto: QUATTRO (4 puntos) 'N.p'; borne de 2 puntos 'N ARRIBA' (punto 1) / 'N ABAJO' (punto 2).
     aparato: 'TAG borne' con los campos de la designacion ('11PS1 TB2 1', '61KR1 A1', '13MS1 2/T1')."""
     if not d:
@@ -536,6 +693,138 @@ def texto_general(d, info=None):
     return f'{tag} {b}'
 
 
+def textos_generales(filas, tipos):
+    """texto del taller de cada punta SIN mapeo verificado (regla general) y, si algo no se puede saber del PDF, por que
+    hay que confirmarlo: {(fila, designacion): (texto, motivo o None)}.
+    - Borneras: la CLASE sale del tipo del articulo (tipos_bornes), no del punto mas alto usado:
+      QUATTRO 'N.p' (los puntos de EPLAN son los del taller); doble piso (PTT) y 2 puntos 'N ARRIBA' / 'N ABAJO'.
+      El LADO no sale del numero de punto (en el PTT EPLAN numera al reves que el taller y depende de como se monta la
+      tira): en el doble piso los puntos 1-2 son un lado y 3-4 el otro; va ABAJO el lado de los cables de campo
+      ('+Campo...'), y si todos van del mismo lado, ARRIBA. Siempre 'a confirmar'.
+      Una designacion sin punto ('-12XPS:10') va al lado que no usa otro cable de ese borne.
+    - Fusibles / interruptores (F, Q) con pines numericos: IEC, impar = entrada ARRIBA y par = salida ABAJO; con dos
+      polos, 'F' y 'N' ('11Q2 F ARRIBA'); 'N' / "N'" = 'N ARRIBA' / 'N ABAJO'. A confirmar.
+    - Sin pin ('-42KS1'): 'TAG', a confirmar (EPLAN no da el borne).
+    - El resto: 'TAG pin' con los campos de la designacion (texto_general)."""
+    por_num, por_tira = tipos or ({}, {})
+    maxp = collections.defaultdict(int)
+    usos = collections.defaultdict(list)               # (tira, n) -> [(fila, d, punto o None)]
+    pines_dev = collections.defaultdict(set)
+    for f in filas:
+        for d in (f['d1'], f['d2']):
+            if not d:
+                continue
+            p = partes(d)
+            if TERMINAL_RE.match(p['tag']) and p['pines']:
+                pt = int(p['pines'][1]) if len(p['pines']) >= 2 and p['pines'][1].isdigit() else None
+                usos[(p['tag'], p['pines'][0])].append((f, d, pt))
+                if pt:
+                    maxp[(p['tag'], p['pines'][0])] = max(maxp[(p['tag'], p['pines'][0])], pt)
+            elif PROTECCION_RE.match(p['tag']) and len(p['pines']) == 1:
+                pines_dev[p['tag']].add(p['pines'][0])
+
+    def clase(tag, n):
+        c = por_num.get((tag, n)) or por_tira.get(tag)
+        return (c['clase'], c['tipo']) if c else (None, None)
+    par = lambda pt: 0 if (pt - 1) % 4 < 2 else 1          # 0 = puntos 1-2 (5-6), 1 = puntos 3-4 (7-8)
+    campo = lambda f, d: any(partes(x)['ubic'] for x in (f['d1'], f['d2']) if x and x != d)
+    # orientacion de cada tira de doble piso: que par de puntos queda ARRIBA
+    est = collections.defaultdict(lambda: [[0, 0], [0, 0]])
+    for (tag, n), us in usos.items():
+        if clase(tag, n)[0] == 'DOBLE':
+            for f, d, pt in us:
+                if pt:
+                    est[tag][1][par(pt)] += 1
+                    est[tag][0][par(pt)] += campo(f, d)
+    orient = {}
+    for tag, (cm, us) in est.items():
+        if cm[0] != cm[1]:
+            orient[tag] = (1 if cm[0] > cm[1] else 0, 'va ABAJO el lado de los cables de campo')
+        elif bool(us[0]) != bool(us[1]):
+            orient[tag] = (0 if us[0] else 1, 'todos sus cables van del mismo lado: se puso ARRIBA')
+        else:
+            orient[tag] = (0, 'se puso ARRIBA el lado de los puntos 1-2')
+    out = {}
+    for (tag, n), us in usos.items():
+        cl, tipo = clase(tag, n)
+        lados = {}
+        for f, d, pt in us:
+            if not pt:
+                continue
+            if cl == 'QUATTRO':
+                out[(f['fila'], d)] = (f'{tag} {n}.{pt}', None)
+            elif cl == 'DOBLE':
+                arriba, why = orient.get(tag, (0, ''))
+                lado = 'ARRIBA' if par(pt) == arriba else 'ABAJO'
+                lados[d] = lado
+                out[(f['fila'], d)] = (f'{tag} {n} {lado}', f'borne de doble piso ({tipo}): EPLAN no dice qué lado queda arriba; {why}')
+            elif cl == '2P':
+                lado = 'ARRIBA' if pt % 2 else 'ABAJO'
+                lados[d] = lado
+                out[(f['fila'], d)] = (f'{tag} {n} {lado}', f'borne de 2 puntos ({tipo}): lado tomado del punto de EPLAN (1 = ARRIBA, 2 = ABAJO)')
+            else:
+                t = texto_general(d, maxp)
+                out[(f['fila'], d)] = (t, 'no se encontró el tipo de esta bornera en las hojas de hileras de bornes ni en la lista de '
+                                          'artículos: se supuso por los puntos usados' + (' (y el lado, por el número de punto)' if t.endswith(('ARRIBA', 'ABAJO')) else ''))
+        # designaciones sin punto: al lado que no usa otro cable de ese borne (si no, ARRIBA / ABAJO en el orden de la lista)
+        sin = [(f, d) for f, d, pt in us if not pt]
+        if not sin:
+            continue
+        if cl is None:          # ni tipo ni punto (ej. un empalme 'X1'): el texto de la designacion, sin inventar el lado
+            for f, d in sin:
+                out[(f['fila'], d)] = (texto_general(d), 'no se encontró el tipo de esta bornera en las hojas de hileras de bornes '
+                                                         'ni en la lista de artículos')
+            continue
+        if cl == 'QUATTRO':
+            for f, d in sin:
+                out[(f['fila'], d)] = (f'{tag} {n}', 'EPLAN no da el punto del borne QUATTRO')
+            continue
+        libres = [s for s in ('ARRIBA', 'ABAJO') if s not in set(lados.values())] or ['ARRIBA', 'ABAJO']
+        cables = []
+        for f, d in sin:
+            k = f['num'] or ('s/n', f['fila'])
+            if k not in cables:
+                cables.append(k)
+        for f, d in sin:
+            i = cables.index(f['num'] or ('s/n', f['fila']))
+            lado = libres[min(i, len(libres) - 1)]
+            como = ('del lado que no usa otro cable de ese borne' if len(libres) < 2 else
+                    'ARRIBA y ABAJO repartidos en el orden de la lista' if len(cables) > 1 else 'se puso ARRIBA')
+            out[(f['fila'], d)] = (f'{tag} {n} {lado}', f'EPLAN no da el punto del borne ({tipo or "tipo desconocido"}): {como}')
+    # fusibles e interruptores
+    for f in filas:
+        for d in (f['d1'], f['d2']):
+            if not d or (f['fila'], d) in out:
+                continue
+            p = partes(d)
+            if not p['pines']:
+                if not TERMINAL_RE.match(p['tag']):
+                    out[(f['fila'], d)] = (p['tag'], 'EPLAN no da el borne: buscalo en el esquema')
+                continue
+            pins = pines_dev.get(p['tag'])
+            if not pins or len(p['pines']) != 1:
+                continue
+            nums = sorted(int(x) for x in pins if x.isdigit())
+            otros = {x for x in pins if not x.isdigit()}
+            if not nums or nums[-1] > 8 or otros - {'N', "N'"}:
+                continue
+            polos = (nums[-1] + 1) // 2
+            pin = p['pines'][0]
+            motivo = 'protección (fusible / interruptor): regla general IEC, impar = entrada ARRIBA y par = salida ABAJO'
+            if pin in ('N', "N'"):
+                out[(f['fila'], d)] = (f"{p['tag']} N {'ARRIBA' if pin == 'N' else 'ABAJO'}", motivo)
+                continue
+            k = int(pin)
+            lado = 'ARRIBA' if k % 2 else 'ABAJO'
+            if polos <= 1 and not otros:
+                out[(f['fila'], d)] = (f"{p['tag']} {lado}", motivo)
+            elif polos <= 2:
+                out[(f['fila'], d)] = (f"{p['tag']} {'F' if k <= 2 else 'N'} {lado}", motivo + '; polo 1 = F, polo 2 = N')
+            else:
+                out[(f['fila'], d)] = (f"{p['tag']} {k} {lado}", motivo)
+    return out
+
+
 def nodo(texto, d, tag_base, hoja, pag, p):
     """punta en el formato de instructivo.describe_end, armada desde su texto del taller"""
     from instructivo import is_terminal_block
@@ -545,10 +834,60 @@ def nodo(texto, d, tag_base, hoja, pag, p):
     m = re.match(r'^(.*) (ARRIBA|ABAJO)$', rest)
     if m:
         e.update(borne=m.group(1), lado=m.group(2), vertical=True)
+    elif rest in ('ARRIBA', 'ABAJO'):                # '11F1 ABAJO': aparato de 2 bornes, el lado es todo el borne
+        e.update(borne='', lado=rest, vertical=True)
     m2 = re.fullmatch(r'(\d+)\.(\d)', rest)
     if m2 and is_terminal_block(tag_base or tag):
         e.update(borne=m2.group(1), punto=int(m2.group(2)))
     return e
+
+
+def hojas_esquema(cond, detail, pages):
+    """la hoja de cada punta es la del ESQUEMA donde aparece su numero (no la de la lista de conexiones, que es la misma
+    para todas): la aparicion del numero mas cerca de la etiqueta '-TAG' de su aparato en esa hoja (si el numero esta en
+    varias hojas, la que tiene dibujado el aparato). Asi el boton Funcional del visor abre la hoja correcta.
+    La de la lista queda en hoja_lista / pag_lista / p_lista."""
+    occ = collections.defaultdict(list)
+    for d in detail:
+        if not str(d.get('origen', '')).startswith('Solo'):
+            occ[d['num']].append(d)
+    etq = {}
+    for pg in pages:
+        m = collections.defaultdict(list)
+        for w in pg['words']:
+            if w['text'][:1] in '-=+':
+                mm = DESIG_PARTES.match(w['text'])
+                if mm:
+                    m[mm.group('tag')].append(_centro(w['bbox']))
+        etq[pg['index']] = m
+    hoja_de = {d['pag']: d['hoja'] for d in detail}
+    esquema = {d['pag'] for v in occ.values() for d in v}          # hojas del esquema (las que tienen numeros)
+    for num, c in cond.items():
+        oc = occ.get(num)
+        if not oc:
+            # sin numero en el esquema (tierras, mallas, cables de campo): la hoja del esquema donde estan dibujados sus
+            # aparatos (la que tiene mas etiquetas de sus puntas)
+            tags_c = {partes(e['d'])['tag'] for e in c['nodes'].values() if e.get('d')}
+            cand = sorted(((sum(1 for t in tags_c if etq.get(pg_, {}).get(t)), -pg_) for pg_ in esquema), reverse=True)
+            if not cand or cand[0][0] == 0:
+                continue
+            pg_ = -cand[0][1]
+            for e in c['nodes'].values():
+                e.update(hoja_lista=e.get('hoja'), pag_lista=e.get('pag'), p_lista=e.get('p'), hoja=hoja_de[pg_], pag=pg_)
+                pts = etq[pg_].get(partes(e['d'])['tag']) if e.get('d') else None
+                if e.get('p') is not None:
+                    e['p'] = [round(v, 1) for v in pts[0]] if pts else None
+            continue
+        for e in c['nodes'].values():
+            tags = {partes(e['d'])['tag'], e.get('tag_base')} - {None, ''} if e.get('d') else set()
+            def costo(o):
+                pts = [q for t in tags for q in etq.get(o['pag'], {}).get(t, [])]
+                ce = _centro(o['bbox'])
+                return (0, min(math.dist(ce, q) for q in pts), o['pag']) if pts else (1, 0.0, o['pag'])
+            o = min(oc, key=costo)
+            e.update(hoja_lista=e.get('hoja'), pag_lista=e.get('pag'), p_lista=e.get('p'), hoja=o['hoja'], pag=o['pag'])
+            if e.get('p') is not None:
+                e['p'] = [round(v, 1) for v in _centro(o['bbox'])]
 
 
 # ------------------------------------------------------------------ proceso del plano (como core.process)
@@ -567,6 +906,8 @@ def process(pdf_path, log=print, use_ocr=True, pages=None):
     doc, rev = documento(pdf_path)
     mapeo = cargar_mapeo(doc, rev)
     filas = lista_conexiones(pgs)
+    if not filas:            # EPLAN sin la lista de conexiones: no se puede saber de donde a donde va cada cable
+        raise ValueError(FALTA_LISTA)
     log(f'Lista de conexiones: {len(filas)} renglones' + (f' · mapeo verificado {mapeo["_archivo"]}' if mapeo else ''))
     hojas_lista = {f['pag'] for f in filas}
     res = Result(); res.path = pdf_path; res.eplan = True; res.H = 7.93; res.k = 1.0; res.default = None
@@ -591,24 +932,21 @@ def process(pdf_path, log=print, use_ocr=True, pages=None):
             return tag
         b = re.sub(r'\d+$', '', tag)
         return b if b != tag and b in etiquetas and re.search(r'[A-Z]$', b) else tag
-    # puntos usados por bornera (para saber si es de 4 puntos)
-    maxp = collections.defaultdict(int)
-    for f in filas:
-        for d in (f['d1'], f['d2']):
-            if not d:
-                continue
-            p = partes(d)
-            if TERMINAL_RE.match(p['tag']) and len(p['pines']) == 2 and p['pines'][1].isdigit():
-                maxp[(p['tag'], p['pines'][0])] = max(maxp[(p['tag'], p['pines'][0])], int(p['pines'][1]))
+    # textos del taller sin mapeo verificado: regla general con el tipo de cada bornera (hojas de hileras de bornes /
+    # lista de articulos del mismo PDF); lo que el PDF no dice queda 'a confirmar'
+    tipos = tipos_bornes(pgs)
+    general = textos_generales(filas, tipos)
     mp_puntas = (mapeo or {}).get('puntas') or {}
     mp_textos = (mapeo or {}).get('textos') or {}
-    def texto_de(d, num):
-        k = clave_punta(d, num)
-        if k in mp_puntas and mp_puntas[k].get('texto'):
-            return mp_puntas[k]['texto']
-        if k in mp_textos:
-            return mp_textos[k]
-        return texto_general(d, maxp)
+    def texto_de(d, f):
+        """(texto, motivo 'a confirmar' o None): del mapeo verificado o de la regla general"""
+        otra = f['d2'] if d == f['d1'] else f['d1']
+        for k in (clave_tramo(d, f['num'], otra), clave_punta(d, f['num'])):
+            if k in mp_puntas and mp_puntas[k].get('texto'):
+                return mp_puntas[k]['texto'], None
+            if k in mp_textos:
+                return mp_textos[k], None
+        return general.get((f['fila'], d)) or (texto_general(d), None)
     # nombres de los renglones sin numero (tierras, mallas, cables de campo): unicos y legibles
     usados = collections.Counter()
     from instructivo import is_terminal_block
@@ -641,9 +979,12 @@ def process(pdf_path, log=print, use_ocr=True, pages=None):
                 if nid not in c['nodes']:
                     p = partes(d)
                     bb = f['bbox']
-                    c['nodes'][nid] = nodo(texto_de(d, f['num']), d, tag_base(p['tag']), f['hoja'], f['pag'], [round(bb[0], 1), round(bb[1], 1)])
+                    txt, motivo = texto_de(d, f)
+                    c['nodes'][nid] = nodo(txt, d, tag_base(p['tag']), f['hoja'], f['pag'], [round(bb[0], 1), round(bb[1], 1)])
                     if p['ubic']:
                         c['nodes'][nid]['ubicacion'] = p['ubic']
+                    if motivo:                  # texto de la regla general: lo que el PDF no dice, a confirmar
+                        c['nodes'][nid]['a_confirmar'] = motivo
             else:                               # renglon con un solo destino (malla o tierra de un cable de campo)
                 nid = f'?{f["fila"]}'
                 c['nodes'][nid] = dict(tipo='borne', tag='', tag_base='', borne='', punto=None, lado='ARRIBA', vertical=False, circulo=False,
@@ -722,6 +1063,7 @@ def process(pdf_path, log=print, use_ocr=True, pages=None):
         c = cond.get(d['num'])
         d['puntas'] = len(c['bornes']) if c else 0
     res.detail = detail
+    hojas_esquema(cond, detail, pgs)
     cables = []
     by_num = collections.defaultdict(list)
     for d in detail:
@@ -766,7 +1108,7 @@ def process(pdf_path, log=print, use_ocr=True, pages=None):
             d = f[k]
             if d and ':' not in d and not (f['d1'] == f['d2'] and not f['num']):
                 k2 = clave_punta(d, f['num'])
-                if k2 in mp_puntas or k2 in mp_textos:
+                if k2 in mp_puntas or k2 in mp_textos or clave_tramo(d, f['num'], f['d2'] if k == 'd1' else f['d1']) in mp_textos:
                     continue
                 review.append(dict(tipo='EPLAN no indica el borne (solo el aparato)', texto=f"{f['num'] or f.get('cable', '')}: {d}", pag=f['pag'],
                                    hoja=sheet(page), zona=z, bbox=bb, num=f['num'] or None))
@@ -779,8 +1121,28 @@ def process(pdf_path, log=print, use_ocr=True, pages=None):
             review.append(dict(tipo='Cable con distintos colores/secciones', texto=num + ': ' + ' | '.join(f'{c} {s}' for c, s in vs),
                                pag=occ[0]['pag'] if occ else filas[0]['pag'], hoja=occ[0]['hoja'] if occ else '', zona=occ[0]['zona'] if occ else '',
                                bbox=occ[0]['bbox'] if occ else None, num=num))
+    # textos del taller de la regla general que hay que confirmar (lado del borne, tipo de bornera); los que no tienen
+    # borne ya estan arriba ('EPLAN no indica el borne')
+    n_conf = 0
+    for num, c in cond.items():
+        for e in c['nodes'].values():
+            if not e.get('a_confirmar'):
+                continue
+            n_conf += 1
+            if e['a_confirmar'].startswith('EPLAN no da el borne'):
+                continue
+            page = res.pages_by_index.get(e.get('pag'))
+            q = e.get('p')
+            bb = [round(q[0] - 8, 2), round(q[1] - 4, 2), round(q[0] + 8, 2), round(q[1] + 4, 2)] if q else None
+            review.append(dict(tipo='Texto del taller a confirmar (regla general)', texto=f"{num}: {e['d']} → {e['texto']} ({e['a_confirmar']})",
+                               pag=e.get('pag'), hoja=e.get('hoja'), bbox=bb, num=num if num in nums else None,
+                               zona=zone_of(page['meta'], *q, page['w'], page['h']) if (page and q) else ''))
+    res.textos_a_confirmar = n_conf
+    if n_conf:
+        log(f'Textos del taller: {n_conf} puntas con la regla general a confirmar' + (' (fuera del mapeo verificado)' if mapeo else ''))
     res.review = review
-    res.stats = dict(eplan=1, filas_lista=len(filas), puentes_internos=len(puentes_internos), mapeo_verificado=(mapeo or {}).get('_archivo'))
+    res.stats = dict(eplan=1, filas_lista=len(filas), puentes_internos=len(puentes_internos), mapeo_verificado=(mapeo or {}).get('_archivo'),
+                     textos_a_confirmar=n_conf)
     res.seconds = time.time() - t0
     return res
 
@@ -999,7 +1361,12 @@ def layout(pdf_path, known_tags, log=print, dec=None):
             best = dict(pag=pi, segs=segs, bands=bands, H=H, n=n_et)
             break
     if not best:
-        return dict(pag=None, comp={}, vistas=[], filas=[], eplan=True, avisos=['no se encontró la hoja de bandejas (rieles DIN) en el PDF'])
+        # sin hoja de bandejas el instructivo sale sin cables en la bandeja (todo a pendientes): el aviso tiene que verse
+        aviso = ('no se encontró la hoja de bandejas en el PDF (la vista de las placas con los rieles DIN y las canaletas): '
+                 'sin ella todos los cables quedan como pendientes; exportala desde EPLAN en el mismo PDF o cargá el topográfico aparte')
+        log('No se encontró la hoja de bandejas en el PDF')
+        return dict(pag=None, comp={}, vistas=[], filas=[], ductos=[], region=None, escala=None, avisos=[aviso],
+                    eplan=dict(documento=doc, revision=rev, mapeo=(mapeo or {}).get('_archivo'), ex=None, avisos=[aviso], sin_bandejas=True))
     pg = pgs[best['pag'] - 1]
     H = best['H']
     from topo import snap_escala, RIEL_MM
@@ -1212,13 +1579,16 @@ def aplicar_puntos(res, lay, dir_trabajo):
     resumen para ins['mapeo']."""
     import bornes as mb
     mapeo = getattr(res, 'mapeo_verificado', None)
-    le = lay.get('eplan') or {}
+    le = lay.get('eplan') if isinstance(lay.get('eplan'), dict) else {}     # (layouts viejos: eplan=True)
+    sin_bandejas = bool(le.get('sin_bandejas')) or not lay.get('pag')
     if mapeo and (str(le.get('documento') or '').upper() != str(mapeo.get('documento')).upper()
                   or (mapeo.get('pagina_bandejas') and lay.get('pag') != mapeo.get('pagina_bandejas'))):
         mapeo = None              # el topografico no es la hoja de bandejas de ese documento: los puntos no sirven
     manual, ren_m = mb.leer_manuales(dir_trabajo)
     hay_bj = os.path.exists(os.path.join(dir_trabajo, 'bornes.json'))
-    avisos = list(((lay.get('eplan') or {}).get('avisos')) or [])
+    avisos = list(le.get('avisos') or lay.get('avisos') or [])
+    if sin_bandejas and not avisos:
+        avisos.append('no se encontró la hoja de bandejas en el PDF: sin ella todos los cables quedan como pendientes')
     bornes, conf, nota = {}, {}, {}
     n = collections.Counter()
     if mapeo and not hay_bj:
@@ -1249,9 +1619,18 @@ def aplicar_puntos(res, lay, dir_trabajo):
     lay['bornes_conf'] = {k: v for k, v in conf.items() if k not in manual}
     lay['bornes_nota'] = {k: v for k, v in nota.items() if k not in manual}
     lay['renombrar_auto'] = {}
-    if not mapeo:
+    if not mapeo and not sin_bandejas:
         avisos.append('sin mapeo verificado para este plano de EPLAN: cada cable sale de un punto aproximado del aparato')
-    return dict(version=f'eplan-{VERSION}', titulo=(f"Mapeo verificado {mapeo.get('documento')} rev {mapeo.get('revision')}" if mapeo else 'Plano de EPLAN sin mapeo verificado'),
+    # textos de la regla general (sin mapeo verificado, o puntas que el mapeo no tiene): lo que el PDF no dice
+    conf_txt = [(num, e) for num, c in (res.conductores or {}).items() for e in c['nodes'].values() if e.get('a_confirmar')]
+    if conf_txt:
+        ej = '; '.join(f"{num}: {e['texto']}" for num, e in conf_txt[:6])
+        avisos.append(f'los TEXTOS de {len(conf_txt)} puntas salen de una regla general (tipo de bornera de las hojas de hileras de bornes '
+                      f'o de la lista de artículos, lado ARRIBA/ABAJO, pines que EPLAN no da): marcados «a confirmar» (ej. {ej}'
+                      + ('…' if len(conf_txt) > 6 else '') + ')')
+    titulo = (f"Mapeo verificado {mapeo.get('documento')} rev {mapeo.get('revision')}" if mapeo else
+              'Plano de EPLAN sin hoja de bandejas' if sin_bandejas else 'Plano de EPLAN sin mapeo verificado')
+    return dict(version=f'eplan-{VERSION}', titulo=titulo, sin_bandejas=sin_bandejas,
                 modelos={}, avisos=avisos, segundos=0, de_cache=False, error=None,
                 materiales='mapeo verificado del producto' if mapeo else None,
                 n_puntos=dict(alta=n['alta'], media=n['media'], baja=0), usados=sum(n.values()), manuales=len(manual))
@@ -1267,12 +1646,23 @@ def excel_extra(res, path):
     ws.append(['Renglón', 'Hoja', 'Nº cable', 'Destino 1 (EPLAN)', 'Destino 2 (EPLAN)', 'Texto taller 1', 'Texto taller 2', 'Color', 'Sección (mm²)', 'Nota'])
     for c in ws[1]:
         c.font = Font(bold=True, color='FFFFFF'); c.fill = PatternFill('solid', fgColor='1F4E78'); c.alignment = Alignment(wrap_text=True)
+    def numero(s):
+        """'1101' -> 1101 y '2,5' -> 2.5 (numeros de verdad en el Excel, para ordenar y filtrar); lo demas, texto"""
+        s = str(s or '').strip()
+        if re.fullmatch(r'\d+', s):
+            return int(s)
+        if re.fullmatch(r'\d+(?:[.,]\d+)?', s):
+            return float(s.replace(',', '.'))
+        return s or None
     for f in res.filas_conexiones:
         c = (res.conductores or {}).get(f.get('cable')) or {}
-        t = lambda d: (c.get('nodes', {}).get(d) or {}).get('texto', '') if d else ''
+        nd = lambda d: (c.get('nodes', {}).get(d) or {}) if d else {}
         nota = 'unión interna del aparato (no es un cable)' if not f['num'] and f['d1'] == f['d2'] else ''
-        ws.append([f['fila'], f['hoja'], f['num'] or f.get('cable', ''), f['d1'] or '', f['d2'] or '', t(f['d1']), t(f['d2']),
-                   f['color_txt'], f['sec'], nota])
+        dudas = [f"{nd(d).get('texto')}: {nd(d)['a_confirmar']}" for d in (f['d1'], f['d2']) if nd(d).get('a_confirmar')]
+        if dudas:
+            nota = '; '.join([nota] * bool(nota) + ['a confirmar: ' + ' | '.join(dudas)])
+        ws.append([f['fila'], f['hoja'], numero(f['num']) if f['num'] else f.get('cable', ''), f['d1'] or '', f['d2'] or '',
+                   nd(f['d1']).get('texto', ''), nd(f['d2']).get('texto', ''), f['color_txt'], numero(f['sec']), nota])
     for i, w in enumerate([9, 8, 14, 22, 22, 22, 22, 16, 12, 40], 1):
         ws.column_dimensions[get_column_letter(i)].width = w
     ws.freeze_panes = 'A2'; ws.auto_filter.ref = ws.dimensions

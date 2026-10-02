@@ -862,6 +862,7 @@ def build(res, lay, max_lineas=7):
        renombrar       'texto#cable' -> texto correcto (modulo del rele, bornera vecina mal leida...)
        estaciones      cable -> estacion donde se cablea si NO es esta (ej. {'3141': 'E8'})"""
     cs = conductors(res)
+    con_lista = getattr(res, 'conductores', None) is not None      # EPLAN: conductores de la lista de conexiones
     comp = lay.get('comp', {})
     bornes = lay.get('bornes') or {}
     usuario = lay.get('bornes_usuario') or {}
@@ -1028,6 +1029,14 @@ def build(res, lay, max_lineas=7):
                                hojas=sorted({ea.get('hoja'), eb.get('hoja')} - {None}, key=natk)))
             if est_par(ea, eb):
                 lineas[-1]['_est'] = est_par(ea, eb)
+            if not bandeja(d) and est_par(d):
+                # la otra punta es un aparato que se cablea en otra estacion (ej. la zona hidraulica en E8): en la
+                # lista de esa estacion va su texto real, no 'LI'
+                lineas[-1]['_dreal'] = base_txt(d, num)[1]
+            if con_lista:
+                # EPLAN: cada renglon de la lista de conexiones es un tramo real (aunque dos tramos de la misma punta
+                # de la bandeja a dos puntos distintos de afuera se escriban igual, 'X 1 -> LI')
+                lineas[-1]['_par'] = (num,) + tuple(sorted((a, b)))
     # ---- correcciones de la verificacion contra el funcional (correcciones.json del trabajo): conductores que el
     # programa no lee solo (tierras sin numero, mallas a trazos), pendientes mal armados
     def sintetico(txt):
@@ -1092,6 +1101,7 @@ def build(res, lay, max_lineas=7):
         elif is_terminal_block(e.get('tag_base')) and re.fullmatch(r'\d+', e.get('borne') or ''):
             x += min(int(e['borne']), 12) * 3.5 * kr      # el tag nombra los bornes que tiene a su derecha
         return (x, y + (9 * kr if side == 0 else -9 * kr), None, False)
+    a_rutear = []
     for l in lineas:
         o, d = l.pop('_o'), l.pop('_d')
         l['ruta'] = None; l['largo_mm'] = None
@@ -1108,27 +1118,57 @@ def build(res, lay, max_lineas=7):
             l['nota_o'] = nota_o
         if l['conf_d'] == 'media' and nota_d:
             l['nota_d'] = nota_d
-        if not net:
+        for w_, e_ in (('o', o), ('d', d)):    # EPLAN sin mapeo verificado: texto de la regla general (eplan.textos_generales)
+            if e_ is not None and e_.get('a_confirmar') and not l.get(f'conf_{w_}'):
+                l[f'conf_{w_}'], l[f'nota_{w_}'] = 'media', 'texto de la regla general: ' + e_['a_confirmar']
+        if net:
+            a_rutear.append((l, o, d, so, sd, po, pd, to_li))
+    # TIPO DE CIRCUITO de cada cable (intrinsecamente seguro -> canaletas azules; comun -> las otras):
+    # - por el color: los azules son intrinsecos;
+    # - EPLAN, ademas, por la ZONA de sus puntas en la bandeja (la canaleta a la que entra un cable que sale de ese
+    #   borne, net.zona): un azul con todas sus puntas en zona comun no es intrinseco (ej. el RS-485 azul de
+    #   0,32 mm2 de 81XCM). Los cables de campo, las mallas y las tierras sin otra punta (sin color, '+Campo' o solo
+    #   LI) no tienen color que diga: toman el tipo de la zona de su borne, o del otro piso del mismo borne
+    #   (41XEX 1 ARRIBA = 4116 azul -> 41XEX 1 ABAJO es intrinseco). Asi todos los de campo de una bornera de
+    #   intrinsecos van por la canaleta azul hasta la salida.
+    zonas = {id(l): [z for z in (net.zona(po[:2], so), None if pd is None else net.zona(pd[:2], sd)) if z is not None]
+             for l, o, d, so, sd, po, pd, to_li in a_rutear}
+    de_campo = lambda l, o, d: bool(o.get('eplan')) and (not l['color'] or d.get('fuera') or d.get('ubicacion'))
+    tipo, borne_ex = {}, set()
+    for l, o, d, so, sd, po, pd, to_li in a_rutear:
+        if de_campo(l, o, d):
             continue
+        ex = l['color'] == 'Azul'
+        if ex and o.get('eplan') and zonas[id(l)] and not any(zonas[id(l)]):
+            ex = False
+        tipo[id(l)] = ex
+        if ex:
+            borne_ex |= {(e.get('tag'), e.get('borne')) for e in (o, d) if bandeja(e) and e.get('borne')}
+    for l, o, d, so, sd, po, pd, to_li in a_rutear:
+        if de_campo(l, o, d):
+            zs = zonas[id(l)]
+            tipo[id(l)] = True if any(zs) or (o.get('tag'), o.get('borne')) in borne_ex else (False if zs else None)
+    for l, o, d, so, sd, po, pd, to_li in a_rutear:
         try:
             sec = float(l['secc'] or 0)
         except ValueError:
             sec = 0
         # 220 VAC (marron y blanco de potencia) salen a LI por la salida de abajo; el resto por la de arriba
         abajo = l['color'] in ('Marrón', 'Blanco') and sec >= 1.0
-        ex = l['color'] == 'Azul'                        # intrinsecamente seguro: canaletas azules
-        if o.get('eplan') and (not l['color'] or d.get('fuera') or d.get('ubicacion')):
-            ex = None       # EPLAN: cable de campo (+Campo, sin color o sin otro extremo) o malla: va por la canaleta mas cercana
-        ruta = route_line(net, po[:2], so, None if to_li else pd[:2], sd, ex, to_li, abajo, lado_li='der' if l['destino'] == 'LD' else 'izq')
+        ruta = route_line(net, po[:2], so, None if to_li else pd[:2], sd, tipo[id(l)], to_li, abajo, lado_li='der' if l['destino'] == 'LD' else 'izq')
         if ruta:
             l['ruta'] = ruta
             if lay.get('escala'):
                 l['largo_mm'] = int(round(length(ruta) * lay['escala'] / 10.0) * 10)
+    # lineas repetidas: el mismo cable con el mismo origen y destino (un agregado a mano que ya estaba, el mismo borne
+    # dibujado en dos hojas). EPLAN: cada renglon de la lista es un tramo; se quita solo si es el mismo par de puntas
     vistas = set(); uniq = []
     for l in lineas:
+        par = l.pop('_par', None)
         k = (l['num'], l['origen'], l['destino'])
-        if k not in vistas:
-            vistas.add(k); uniq.append(l)
+        if (par if par else k) in vistas:
+            continue
+        vistas |= {k, par} - {None}; uniq.append(l)
     lineas = sorted(uniq, key=lambda l: l['orden'])
     # los tramos de un mismo cable (3 puntas) se cablean seguidos: el puente con terminal doble se hace en el momento
     seguidos, puestos = [], set()
@@ -1160,8 +1200,11 @@ def build(res, lay, max_lineas=7):
             otra.append(dict(num=x['num'], cable=x.get('cable', ''), color=x.get('color', ''), secc=x.get('secc', ''),
                              origen=x['a'], destino=x['b'], estacion=estacion_de(x['num'], x.get('secc'), x.get('_est')), pendiente=True))
     pendientes = [x for x in pendientes if not estacion_de(x['num'], x.get('secc'), x.get('_est'))]
+    for l in otra:          # en la otra estacion se escribe adonde va de verdad (ej. 'PT001 x1'), no 'LI'
+        if l.get('_dreal') and l['destino'] in ('LI', 'LD'):
+            l['destino'] = l['_dreal']
     for l in lineas + otra + pendientes:
-        l.pop('_est', None)
+        l.pop('_est', None); l.pop('_dreal', None)
     for l in otra:
         l.pop('orden', None)
     # pasos: cambia de paso al cambiar de riel o de lado, o al llenarse (sin partir un componente)

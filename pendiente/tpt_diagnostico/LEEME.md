@@ -1,6 +1,6 @@
 # Diagnostico de los errores del funcional del TPT (72715 REV.8) - 2026-10-02
 
-Trabajo del usuario: 3 - Historial web/e548b195eb2a (no pisar sus marcas: probar en una copia).
+Trabajo de prueba: pruebas/trabajos/tpt (copia del trabajo del usuario e548b195eb2a, que ya no esta en el historial).
 Base antes de corregir: pruebas/bases/base_tpt.json. verdad_tpt.json = la verdad de cada cable segun el funcional (barrido completo).
 Falta: CORREGIR el lector (core.py / wires.py / instructivo.py) con arreglos generales y verificar que 75287 quede igual y 66817 104/104.
 

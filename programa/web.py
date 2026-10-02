@@ -503,6 +503,8 @@ def topografico_mismo(jid):
     ins_paths(jid); s = load_state(jid) or {}
     if not s.get('archivo'):
         abort(404)
+    if not s.get('eplan'):          # en AutoCAD el topografico es otro PDF: copiar el funcional no sirve
+        return jsonify(error='Solo para planos de EPLAN'), 400
     if (INS.get(jid) or {}).get('estado') in ('procesando', 'en cola'):
         return jsonify(error='Ya se está generando'), 409
     usar_mismo_pdf(jid)

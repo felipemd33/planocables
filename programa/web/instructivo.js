@@ -87,7 +87,12 @@ const Ins = (() => {
       $('#insMsg').textContent = st.mensaje || '…';
       $('#insBar').style.width = Math.max(3, (st.progreso || 0) * 100) + '%';
       if (st.estado === 'terminado') { D = await api(`/api/trabajo/${job}/instructivo`); return render(); }
-      if (st.estado === 'error') { toast('Error: ' + (st.error || ''), 7000); return show(st.hay_instructivo ? 'insMain' : 'insEmpty'); }
+      if (st.estado === 'error') {
+        toast('Error: ' + (st.error || ''), 7000);
+        if (st.hay_instructivo) return show('insMain');
+        $('#insEplan').hidden = !st.eplan;      // plano de EPLAN: se puede volver a probar con las bandejas del mismo PDF
+        return show('insEmpty');
+      }
       poll = setTimeout(tick, 900);
     };
     tick();
@@ -297,6 +302,7 @@ const Ins = (() => {
     const n = m.n_puntos || {}, tot = (n.alta || 0) + (n.media || 0) + (n.baja || 0);
     const partes = [`alta ${n.alta || 0}`, `media ${n.media || 0}`].concat(n.baja ? [`sin ubicar ${n.baja}`] : []);
     const verif = m.materiales === 'mapeo verificado del producto';
+    if (m.sin_bandejas) mp.open = true;          // PDF de EPLAN sin hoja de bandejas: el aviso tiene que verse
     mp.innerHTML = `<summary>${esc(m.titulo || 'Mapeo automático de bornes')}: ${m.error ? 'no se pudo calcular' : `${tot} puntos (${partes.join(', ')})`}${m.manuales ? ` · ${m.manuales} con punto manual del trabajo` : ''} · ver avisos (${av.length})</summary>
       <ul>${av.map(a => `<li>${esc(a)}</li>`).join('')}</ul>
       <div class="muted">${verif ? 'puntos del mapeo verificado del producto · media = punto con una duda anotada: confirmalo en el visor (marca «a confirmar»)'

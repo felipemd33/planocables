@@ -71,6 +71,9 @@ out = dict(
     layout=dict(pag=lay.get('pag'), region=lay.get('region'), filas=lay.get('filas'), escala=lay.get('escala'), ductos=len(lay.get('ductos') or []),
                 comp={t: dict(ubic=c.get('ubic'), fila=c.get('fila'), x=c.get('x'), leido=c.get('leido')) for t, c in lay['comp'].items()}),
     cables=sorted({d['num'] for d in res.detail}), n_detalle=len(res.detail), segundos=round(time.time() - t0, 1),
+    # apariciones de numeros por hoja del PDF (un cajetin mal leido se come los numeros de una hoja)
+    detalle_por_pag={str(k): v for k, v in sorted(__import__('collections').Counter(d['pag'] for d in res.detail).items())},
+    solo_en_lista=sorted(d['num'] for d in res.detail if str(d.get('origen', '')).startswith('Solo en la lista')),
     # detalle de las puntas (no entra en la comparacion de 'lineas')
     puntas=[dict(num=l['num'], origen=l['origen'], destino=l['destino'], marca_o=l.get('marca_o'), marca_d=l.get('marca_d'),
                  exacto_o=l.get('exacto_o'), exacto_d=l.get('exacto_d'), conf_o=l.get('conf_o'), conf_d=l.get('conf_d'),

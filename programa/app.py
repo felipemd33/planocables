@@ -20,7 +20,8 @@ class App(tk.Tk):
 
         opt = ttk.LabelFrame(self, text='Qué generar'); opt.pack(fill='x', **pad)
         self.v_pdf = tk.BooleanVar(value=True); self.v_xls = tk.BooleanVar(value=True); self.v_ocr = tk.BooleanVar(value=True)
-        ttk.Checkbutton(opt, text='PDF buscable (Ctrl+F encuentra los números)', variable=self.v_pdf).pack(anchor='w', padx=8, pady=2)
+        ttk.Checkbutton(opt, text='PDF buscable (Ctrl+F encuentra los números; los planos de EPLAN ya lo son y no se copian)',
+                        variable=self.v_pdf).pack(anchor='w', padx=8, pady=2)
         ttk.Checkbutton(opt, text='Listado de cables en Excel (número, color, sección, hojas)', variable=self.v_xls).pack(anchor='w', padx=8, pady=2)
         ttk.Checkbutton(opt, text='Usar OCR como apoyo para textos que no reconozca (recomendado)', variable=self.v_ocr).pack(anchor='w', padx=8, pady=2)
 
@@ -79,8 +80,9 @@ class App(tk.Tk):
                 res, outs = run(f, outdir, self.v_pdf.get(), self.v_xls.get(), self.v_ocr.get(), log=lg)
                 self.outs += outs
             self.q.put(('done', None))
-        except Exception:
-            self.q.put(('err', traceback.format_exc()))
+        except Exception as e:
+            # EPLAN sin la lista de conexiones: el mensaje alcanza (sin el detalle tecnico)
+            self.q.put(('err', str(e) if str(e).startswith('Falta la lista de conexiones') else traceback.format_exc()))
 
     def poll(self):
         try:

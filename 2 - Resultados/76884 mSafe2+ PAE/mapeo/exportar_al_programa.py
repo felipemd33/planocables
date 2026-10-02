@@ -32,14 +32,44 @@ for f in sorted(glob.glob(os.path.join(D, 'puntos_*.json'))):
             puntas[clave(p['d'], num)] = q
             if p.get('d_usada'):
                 puntas.setdefault(clave(p['d_usada'], num), dict(q))
-# textos de las puntas fuera de las bandejas cuyo pin no da EPLAN (propuesto desde el esquema)
-textos = {}
+# textos verificados de las puntas fuera de las bandejas:
+# - las que tienen texto propuesto desde el esquema: el pin que EPLAN no da ('11MS1:1/L1' -> '11MS1 1/L1') y los
+#   empalmes X1 del sensor de nivel ('empalme con LS001A:3 Negro' -> 'empalme con LS001A 3 Negro');
+# - las de la zona hidraulica (E8): la designacion tal cual ('-PT001:x1' -> 'PT001 x1', '-12F2:1' -> '12F2 1').
+# Asi la lista de otra estacion (E8) dice el destino real. Si varios renglones comparten la clave '<d>#<cable>' con
+# distinto texto (los 4 empalmes '-X1:2' sin numero), la clave lleva la otra punta: '<d>#<cable>@<otra designacion>'.
+ZONA_E8 = ('12F2', 'BH', 'BH_01_ZV', 'BH-01-M', 'PT001', 'LS001A', 'X1')
+
+
+def texto_desig(d):
+    m = re.match(r'^(?:=[^+\-\s:]*)?(?:\+[^\-\s:]+)?-([^\s:]+)(?::(\S*))?$', d or '')
+    if not m:
+        return None
+    return ' '.join([m.group(1)] + [p for p in (m.group(2) or '').split(':') if p])
+
+
+cand = {}
 for c in con['conexiones']:
-    for k in ('d1', 'd2'):
+    for k, o in (('d1', 'd2'), ('d2', 'd1')):
+        d = c[k]
+        if not d or clave(d, c.get('num')) in puntas:
+            continue
         prop = c.get(f'{k}_propuesto')
-        if prop and ':' in prop and re.fullmatch(r'-?[\w\-]+:\S+', prop) and clave(c[k], c.get('num')) not in puntas:
-            tag, _, pines = prop.partition(':')
-            textos[clave(c[k], c.get('num'))] = f"{tag.lstrip('-')} {' '.join(pines.split(':'))}".strip()
+        if prop:
+            t = re.sub(r'\s+', ' ', prop.lstrip('-').replace(':', ' ')).strip()
+        elif (c.get(f'{k}_tag') or (texto_desig(d) or '').split(' ')[0]) in ZONA_E8:
+            t = texto_desig(d)
+        else:
+            continue
+        if t:
+            cand.setdefault(clave(d, c.get('num')), []).append((c[o], t))
+textos = {}
+for k, vs in cand.items():
+    if len({t for _, t in vs}) == 1:
+        textos[k] = vs[0][1]
+    else:
+        for otra, t in vs:
+            textos[f'{k}@{otra or ""}'] = t
 intr = [cn['b'] for cn in band['principal']['canaletas'] if 'intrinseca' in cn.get('tipo', '')]
 avisos = [
     'Doble piso PTT 2,5-2MT (15XR, 32XEX, 41XEX, 42XC, 81XCM): impar en la boca del extremo, par en la interior (convención del taller). Confirmar en el primer tablero.',
@@ -61,7 +91,7 @@ out = dict(documento='ZPL-76884', revision='1', producto='mSafe2+ PAE (EPLAN)', 
            exportado=datetime.datetime.now().strftime('%Y-%m-%d %H:%M'),
            unidades='x, y, r en pt de la hoja de bandejas (pagina PDF 8), origen abajo a la izquierda',
            clave='<designacion EPLAN tal cual en la lista de conexiones>#<numero de cable> ("#s/n" si el renglon no tiene numero)',
-           estaciones_tag={t: 'E8' for t in ('12F2', 'BH', 'BH_01_ZV', 'BH-01-M', 'PT001', 'LS001A', 'X1')},
+           estaciones_tag={t: 'E8' for t in ZONA_E8},
            canaletas_intrinsecas=intr, avisos=avisos, puntas=puntas, textos=textos)
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

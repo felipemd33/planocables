@@ -87,7 +87,7 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 - **PAE** (ZPL-76884, EPLAN): `pruebas/trabajos/76884` usa el PDF original de `1 - Planos/Producto nuevo/` (no lo copia).
   Tiene que dar como `pruebas/bases/base_76884.json`: 143 líneas E6, 31 pendientes, 16 en otra estación (E8), 0 sueltos,
   igual al Excel del mapeo verificado.
-- **TPT** (72715, `3 - Historial web/e548b195eb2a`): `pruebas/bases/base_tpt.json` es el estado ANTES de corregir el
+- **TPT** (72715; trabajo de prueba `pruebas/trabajos/tpt`, el del usuario `e548b195eb2a` ya no está en el historial): `pruebas/bases/base_tpt.json` es el estado ANTES de corregir el
   lector (con errores).
 - `--sin-cache` no escribe nada en el trabajo.
 
@@ -121,6 +121,19 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
     (no es cable), rieles DIN por el patrón de líneas del perfil, canaletas = franjas vacías de ancho normalizado, placas,
     etiquetas `-TAG`, lo que está en la placa principal fuera de rieles y canaletas → E8, canaletas de intrínsecos de la
     vista a color de las bandejas (coincide con el mapeo). Sin mapeo verificado: texto general y punto aproximado, con aviso.
+  - Corregido el 2026-10-02 tarde (`pruebas/probar_arreglos_pae.py` = TODO OK):
+    - el cajetín del rótulo solo con el bloque de `Cont:`: la hoja 13 tiene sus 44 números; `base_76884` trae
+      `detalle_por_pag`;
+    - PDF de EPLAN sin hoja de bandejas → aviso claro;
+    - sin lista de conexiones → mensaje "Falta la lista de conexiones" (se detecta EPLAN con 3 hojas de 8 o más `-TAG`, o
+      40 o más en total; AutoCAD llega a 7/18);
+    - textos sin mapeo: el tipo de bornera sale de las hileras de bornes y lo dudoso queda «a confirmar»;
+    - Excel con números;
+    - las puntas con la hoja del esquema, para el botón ⚡ Funcional;
+    - cli/app sin BUSCABLE para EPLAN;
+    - E8 con el destino real (empalmes X1, PT001, BH_01_ZV);
+    - cables de campo de borneras intrínsecas por la canaleta azul (por zona, solo EPLAN);
+    - deduplicación por par de designaciones.
 
 ## Fuentes de verdad fuera de este repositorio (solo en la PC del taller, disco G:)
 
@@ -180,6 +193,6 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
     - `LEEME.md`: cada error con la verdad del funcional, la causa en el código y el arreglo propuesto;
     - `diagnosticos.json`: 3 diagnósticos con 6, 22 y 7 casos;
     - `verdad_tpt.json`: la verdad de todos los cables del TPT según el funcional.
-  - Próximo paso: corregir el lector con arreglos generales, probar en una COPIA del trabajo `e548b195eb2a` y verificar
+  - Próximo paso: corregir el lector con arreglos generales, probar en `pruebas/trabajos/tpt` y verificar
     que el 75287 quede igual y el 66817 siga 104/104.
   - Después, el usuario cierra y abre el programa y aprieta ↻ Regenerar en el TPT.

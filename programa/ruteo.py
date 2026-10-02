@@ -142,6 +142,22 @@ class Net:
           canaleta comun mas cercana;
         - un cable intrinseco que del lado pedido no tiene canaleta intrinseca horizontal se engancha en una
           vertical intrinseca que llegue a ese lado, si esta mas cerca que la comun."""
+        _, i, q = self._elegir(p, side, ex)
+        k = self._node(q)
+        if k not in self.pts[i]:
+            self.pts[i].append(k); self._link_all()
+        return k
+
+    def zona(self, p, side):
+        """tipo de la zona del borne p del lado side: True si un cable intrinseco que sale de ahi entra a una canaleta
+        de intrinsecos (la horizontal de ese lado, o la vertical azul mas cercana si de ese lado no hay horizontal
+        azul), False si entra a una comun, None sin canaletas. No cambia la red."""
+        if not self.d:
+            return None
+        return bool(self.d[self._elegir(p, side, True)[1]]['ex'])
+
+    def _elegir(self, p, side, ex):
+        """(costo, canaleta, punto de enganche) para attach"""
         todas = range(len(self.d))
         def horizontal(pool):
             best = None
@@ -183,12 +199,7 @@ class Net:
             elif not horizontal(propias):
                 h, v = horizontal(todas), vertical(propias)
                 best = min((b for b in (h, v) if b), default=None, key=lambda b: b[0])
-        best = best or horizontal(todas) or cercana(todas)
-        _, i, q = best
-        k = self._node(q)
-        if k not in self.pts[i]:
-            self.pts[i].append(k); self._link_all()
-        return k
+        return best or horizontal(todas) or cercana(todas)
 
     def path(self, a, b, ex):
         """camino mas corto; penaliza canaletas del tipo equivocado (azul/intrinseco vs normal)"""

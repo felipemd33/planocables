@@ -1307,27 +1307,27 @@
   {
    "num": "3222",
    "origen": "32XAI 1 ABAJO",
-   "destino": "LI"
+   "destino": "PT001 x2"
   },
   {
    "num": "3221",
    "origen": "32XAI F1 ABAJO",
-   "destino": "LI"
+   "destino": "PT001 x1"
   },
   {
    "num": "1339",
    "origen": "13X24V 2.2",
-   "destino": "LI"
+   "destino": "empalme con LS001A 1 Marron (+)"
   },
   {
    "num": "1340",
    "origen": "13X24V 4.3",
-   "destino": "LI"
+   "destino": "empalme con LS001A 2 Azul (-)"
   },
   {
    "num": "6151",
    "origen": "61XDO 1.4",
-   "destino": "LI"
+   "destino": "BH_01_ZV A1"
   },
   {
    "num": "1208",
@@ -1357,32 +1357,32 @@
   {
    "num": "2166",
    "origen": "21PCB01 66",
-   "destino": "X1 1"
+   "destino": "empalme con LS001A 3 Negro"
   },
   {
    "num": "2167",
    "origen": "21PCB01 67",
-   "destino": "X1 1"
+   "destino": "empalme con LS001A 4 Amarillo"
   },
   {
    "num": "s/n LS001A 1",
    "origen": "LS001A 1",
-   "destino": "X1 2"
+   "destino": "empalme con el 1339 (+24V)"
   },
   {
    "num": "s/n LS001A 2",
    "origen": "LS001A 2",
-   "destino": "X1 2"
+   "destino": "empalme con el 1340 (0V)"
   },
   {
    "num": "s/n LS001A 3",
    "origen": "LS001A 3",
-   "destino": "X1 2"
+   "destino": "empalme con el 2166 (21PCB01 66)"
   },
   {
    "num": "s/n LS001A 4",
    "origen": "LS001A 4",
-   "destino": "X1 2"
+   "destino": "empalme con el 2167 (21PCB01 67)"
   }
  ],
  "extremos": {
@@ -1609,7 +1609,7 @@
   ],
   "1339": [
    "13X24V 2.2",
-   "X1 1"
+   "empalme con LS001A 1 Marron (+)"
   ],
   "1385": [
    "13X24V 2.3",
@@ -1671,7 +1671,7 @@
   ],
   "1340": [
    "13X24V 4.3",
-   "X1 1"
+   "empalme con LS001A 2 Azul (-)"
   ],
   "1392": [
    "13X24V 3.4",
@@ -1815,7 +1815,7 @@
   ],
   "2166": [
    "21PCB01 66",
-   "X1 1"
+   "empalme con LS001A 3 Negro"
   ],
   "2135": [
    "12XPS 10 ABAJO",
@@ -1824,7 +1824,7 @@
   ],
   "2167": [
    "21PCB01 67",
-   "X1 1"
+   "empalme con LS001A 4 Amarillo"
   ],
   "2136": [
    "12XPS 11 ABAJO",
@@ -1969,19 +1969,19 @@
   ],
   "s/n LS001A 1": [
    "LS001A 1",
-   "X1 2"
+   "empalme con el 1339 (+24V)"
   ],
   "s/n LS001A 2": [
    "LS001A 2",
-   "X1 2"
+   "empalme con el 1340 (0V)"
   ],
   "s/n LS001A 3": [
    "LS001A 3",
-   "X1 2"
+   "empalme con el 2166 (21PCB01 66)"
   ],
   "s/n LS001A 4": [
    "LS001A 4",
-   "X1 2"
+   "empalme con el 2167 (21PCB01 67)"
   ],
   "4221": [
    "42KS1 S33",
@@ -2535,8 +2535,22 @@
   "6173",
   "6174"
  ],
- "n_detalle": 331,
- "segundos": 5.0,
+ "n_detalle": 365,
+ "segundos": 4.4,
+ "detalle_por_pag": {
+  "10": 28,
+  "11": 35,
+  "12": 44,
+  "13": 16,
+  "14": 4,
+  "15": 78,
+  "16": 18,
+  "17": 36,
+  "18": 47,
+  "19": 45,
+  "20": 14
+ },
+ "solo_en_lista": [],
  "puntas": [
   {
    "num": "1161",
@@ -7493,14 +7507,6 @@
     ],
     [
      800.2,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
      582.8
     ],
     [
@@ -7535,11 +7541,11 @@
      313.6
     ],
     [
-     601.8,
+     800.2,
      313.6
     ],
     [
-     601.8,
+     800.2,
      582.8
     ],
     [
@@ -7579,14 +7585,6 @@
     ],
     [
      800.2,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
      582.8
     ],
     [
@@ -7621,11 +7619,11 @@
      313.6
     ],
     [
-     601.8,
+     800.2,
      313.6
     ],
     [
-     601.8,
+     800.2,
      582.8
     ],
     [
@@ -7665,14 +7663,6 @@
     ],
     [
      800.2,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
      582.8
     ],
     [
@@ -7712,14 +7702,6 @@
     ],
     [
      800.2,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
      582.8
     ],
     [
@@ -7832,11 +7814,11 @@
      313.6
     ],
     [
-     601.8,
+     800.2,
      313.6
     ],
     [
-     601.8,
+     800.2,
      582.8
     ],
     [
@@ -7871,11 +7853,11 @@
      313.6
     ],
     [
-     601.8,
+     800.2,
      313.6
     ],
     [
-     601.8,
+     800.2,
      582.8
     ],
     [
@@ -7915,14 +7897,6 @@
     ],
     [
      800.2,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
      582.8
     ],
     [
@@ -7962,14 +7936,6 @@
     ],
     [
      800.2,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
      582.8
     ],
     [
@@ -8082,11 +8048,11 @@
      313.6
     ],
     [
-     601.8,
+     800.2,
      313.6
     ],
     [
-     601.8,
+     800.2,
      582.8
     ],
     [
@@ -8099,6 +8065,7 @@
  "mapeo": {
   "version": "eplan-1",
   "titulo": "Mapeo verificado ZPL-76884 rev 1",
+  "sin_bandejas": false,
   "modelos": {},
   "avisos": [
    "Doble piso PTT 2,5-2MT (15XR, 32XEX, 41XEX, 42XC, 81XCM): impar en la boca del extremo, par en la interior (convención del taller). Confirmar en el primer tablero.",
@@ -8128,8 +8095,8 @@
  },
  "renombrar_auto": {},
  "tiempos": {
-  "funcional": 2.0,
+  "funcional": 1.7,
   "mapeo": 0.01,
-  "total": 5.0
+  "total": 4.4
  }
 }
