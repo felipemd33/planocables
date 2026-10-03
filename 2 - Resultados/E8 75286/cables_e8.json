@@ -1,0 +1,2756 @@
+{
+ "producto": "Tablero 75286 (mSafe2AC). Funcional 75287 REV.6 · topográfico 75441 REV.6",
+ "estacion": "E8 (gabinete)",
+ "generado": "2026-10-02",
+ "fuentes": {
+  "trabajo": "3 - Historial web/ac0f0949510a (instructivo.json con las marcas del usuario, sin tocar; se leyó una copia)",
+  "programa": "core.process + instructivo.build/conductors/fmt_terminal (otro extremo real de cada línea \"→ LI\"); layout releído (versión del lector)",
+  "verificacion": "funcional hojas 11, 12, 13, 14, 21, 31, 41, 43, 46, 62 y 81; topográfico hojas 02 a 08; verificacion_funcional.md; correcciones.json",
+  "fotos": "G:/.../Fotos soporte E08/75286-1 (31 fotos del 18/06 y 21/08 + carpeta \"a\" del 29/09)"
+ },
+ "convenciones": {
+  "desde": "la punta que ya está conectada (en E6, la de la bandeja) o, en los pendientes, la del lateral",
+  "hasta": "la punta que se conecta en E8",
+  "zona": "'bandeja' | 'lateral izq' | 'lateral der' | 'puerta' | 'campo' | 'otro' (subzona: 'zona hidráulica', 'batería', 'tierra del gabinete')",
+  "texto": "texto del programa (fmt_terminal); si el programa da otra cosa, está corregido y queda \"texto_programa\" y \"correccion\""
+ },
+ "resumen": {
+  "total_conductores": 82,
+  "con_numero": 68,
+  "sin_numero": 14,
+  "a_confirmar": 3,
+  "numeros_de_cable_distintos": 62,
+  "por_lista": {
+   "linea E6 (punta LI)": 53,
+   "funcional (sin numero)": 14,
+   "pendiente": 10,
+   "otra estacion": 5
+  },
+  "por_tipo": {
+   "bandeja->puerta": 35,
+   "lateral->lateral": 12,
+   "bandeja->lateral": 11,
+   "bandeja->zona hidraulica": 7,
+   "puerta->puerta": 3,
+   "lateral->puerta": 3,
+   "35mm2": 3,
+   "lateral der->puerta": 2,
+   "zona hidraulica": 2,
+   "bandeja->bateria": 2,
+   "lateral->tierra gabinete": 1,
+   "otro->puerta": 1
+  },
+  "por_etapa": {
+   "E8-1": 13,
+   "E8-2": 4,
+   "E8-3": 26,
+   "E8-4": 17,
+   "E8-5": 8,
+   "E8-6": 9,
+   "E8-7": 5
+  },
+  "puntas_por_zona": {
+   "bandeja": 57,
+   "puerta": 47,
+   "lateral izq": 39,
+   "otro": 19,
+   "lateral der": 2
+  },
+  "corregidos_a_mano": 12,
+  "puntos_de_campo_referencia": 12
+ },
+ "orden_sugerido": [
+  {
+   "etapa": "E8-1",
+   "titulo": "Lateral izquierdo: cables con las dos puntas en el lateral",
+   "por_que": "Quedan debajo de todo lo que llega después desde la bandeja y la puerta (12XPS arriba, 11MS1 y 11XP abajo). De arriba hacia abajo y borne por borne.",
+   "cables": [
+    "E8-001",
+    "E8-002",
+    "E8-003",
+    "E8-004",
+    "E8-005",
+    "E8-006",
+    "E8-007",
+    "E8-008",
+    "E8-009",
+    "E8-010",
+    "E8-011",
+    "E8-012",
+    "E8-013"
+   ],
+   "n": 13
+  },
+  {
+   "etapa": "E8-2",
+   "titulo": "Puerta: cables con las dos puntas en la puerta",
+   "por_que": "Cortos, dentro de la puerta: pulsador de shutdown 46DB1 a la placa, tierra del display y tierra de la puerta.",
+   "cables": [
+    "E8-014",
+    "E8-015",
+    "E8-016",
+    "E8-017"
+   ],
+   "n": 4
+  },
+  {
+   "etapa": "E8-3",
+   "titulo": "A la puerta por la bisagra: placa 21PCB01, fila de ABAJO (1-37)",
+   "por_que": "El mazo de la puerta sale de la bandeja por la salida LI de arriba, va por la canaleta superior del lateral izquierdo, cruza la bisagra en espiral y entra a la canaleta de la puerta (foto E08 20). En las fotos, los cables de la fila de arriba de la placa pasan por delante de la de abajo: primero la fila de abajo, de izquierda a derecha. Los cables de 3 puntas van seguidos (terminal doble).",
+   "cables": [
+    "E8-018",
+    "E8-019",
+    "E8-020",
+    "E8-021",
+    "E8-022",
+    "E8-023",
+    "E8-024",
+    "E8-025",
+    "E8-026",
+    "E8-027",
+    "E8-028",
+    "E8-029",
+    "E8-030",
+    "E8-031",
+    "E8-032",
+    "E8-033",
+    "E8-034",
+    "E8-035",
+    "E8-036",
+    "E8-037",
+    "E8-038",
+    "E8-039",
+    "E8-040",
+    "E8-041",
+    "E8-042",
+    "E8-043"
+   ],
+   "n": 26
+  },
+  {
+   "etapa": "E8-4",
+   "titulo": "A la puerta por la bisagra: placa 21PCB01, fila de ARRIBA (38-69) y selectora 13SH1",
+   "por_que": "Después de la fila de abajo, de izquierda a derecha. La selectora 13SH1 (rojo 2,5 mm²) al final.",
+   "cables": [
+    "E8-044",
+    "E8-045",
+    "E8-046",
+    "E8-047",
+    "E8-048",
+    "E8-049",
+    "E8-050",
+    "E8-051",
+    "E8-052",
+    "E8-053",
+    "E8-054",
+    "E8-055",
+    "E8-056",
+    "E8-057",
+    "E8-058",
+    "E8-059",
+    "E8-060"
+   ],
+   "n": 17
+  },
+  {
+   "etapa": "E8-5",
+   "titulo": "De la bandeja al lateral izquierdo",
+   "por_que": "Las puntas que terminan en el lateral: 12XPS de abajo, borne por borne (1 a 6), y la llave 11MS1 de arriba (220 VAC, salen por la salida LI de abajo).",
+   "cables": [
+    "E8-061",
+    "E8-062",
+    "E8-063",
+    "E8-064",
+    "E8-065",
+    "E8-066",
+    "E8-067",
+    "E8-068"
+   ],
+   "n": 8
+  },
+  {
+   "etapa": "E8-6",
+   "titulo": "De la bandeja a la zona hidráulica (control)",
+   "por_que": "Con la unidad hidráulica, las válvulas y el transmisor ya montados: PT 001, bobina del contactor BH-01-ZV y solenoides SP-1 / SP-2.",
+   "cables": [
+    "E8-069",
+    "E8-070",
+    "E8-071",
+    "E8-072",
+    "E8-073",
+    "E8-074",
+    "E8-075",
+    "E8-076",
+    "E8-077"
+   ],
+   "n": 9
+  },
+  {
+   "etapa": "E8-7",
+   "titulo": "Potencia de 35 mm² y batería (al final)",
+   "por_que": "Sugerido: con los fusibles 12F1 y 12F2 sacados. Primero 1204 (fusible → contactor), después los + de la batería y al final los −.",
+   "cables": [
+    "E8-078",
+    "E8-079",
+    "E8-080",
+    "E8-081",
+    "E8-082"
+   ],
+   "n": 5
+  }
+ ],
+ "zonas": {
+  "11MS1": {
+   "zona": "lateral izq",
+   "subzona": null,
+   "lugar": "Lateral izquierdo, abajo: llave de corte general Schneider VBF1 (la manija sale por el costado del gabinete)",
+   "fuente": "layout: ubic LI (vista lateral del topográfico, hoja 07); topográfico hoja 02 (vista exterior con la manija); foto E08 a7"
+  },
+  "11XP": {
+   "zona": "lateral izq",
+   "subzona": null,
+   "lugar": "Lateral izquierdo, abajo: riel a la derecha de 11MS1, bornes PT 6 de la entrada 220 VAC (1, 2 y tierra)",
+   "fuente": "layout (relectura): ubic LI x=276.7; topográfico hoja 07; foto E08 a7"
+  },
+  "12PS2": {
+   "zona": "lateral izq",
+   "subzona": null,
+   "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP",
+   "fuente": "layout: ubic LI; topográfico hoja 07 y hoja 08 (placa lateral 310x810)"
+  },
+  "12XPS": {
+   "zona": "lateral izq",
+   "subzona": null,
+   "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+   "fuente": "layout: ubic LI; topográfico hoja 07; fotos E08 7, 15 y 20"
+  },
+  "EMPALME 12XPS": {
+   "zona": "lateral izq",
+   "subzona": null,
+   "lugar": "Lateral izquierdo, junto a 12XPS: empalme de las mallas de los dos cables Marlew del RS-485 Port #1",
+   "fuente": "funcional hoja 81 (mallas a trazos) y verificacion_funcional.md"
+  },
+  "21PCB01": {
+   "zona": "puerta",
+   "subzona": null,
+   "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+   "fuente": "topográfico hoja 04 (vista posterior puerta); funcional hoja 21; fotos E08 22, 26 y a9"
+  },
+  "13SH1": {
+   "zona": "puerta",
+   "subzona": null,
+   "lugar": "Puerta, a la izquierda de la placa (mirando la puerta abierta): selectora OFF/ON",
+   "fuente": "topográfico hoja 04 (tag 13SH1); funcional hoja 13; fotos E08 3 y a0"
+  },
+  "46DB1": {
+   "zona": "puerta",
+   "subzona": null,
+   "lugar": "Puerta, abajo a la izquierda (mirando la puerta abierta): pulsador de shutdown / parada de emergencia Schneider ZBE-101",
+   "fuente": "topográfico hoja 04 (tag 46DB1); funcional hoja 46; foto E08 a4"
+  },
+  "TORNILLO TIERRA PUERTA": {
+   "zona": "puerta",
+   "subzona": null,
+   "lugar": "Puerta: tornillo de tierra",
+   "fuente": "funcional hoja 14 y hoja 11"
+  },
+  "41DS": {
+   "zona": "lateral der",
+   "subzona": null,
+   "lugar": "Lateral DERECHO, riel de arriba, a 95 mm del borde de la puerta: sensor de puerta OMRON HL-5200",
+   "fuente": "topográfico hoja 05 (vista interior del lateral derecho, tag 41DS); funcional hoja 41"
+  },
+  "12PB1": {
+   "zona": "otro",
+   "subzona": "batería",
+   "lugar": "Piso del gabinete, abajo a la izquierda (debajo de 12F2): batería 12 V 68 Ah AGM. Tiene dos bornes + y dos −",
+   "fuente": "topográfico hojas 05 y 07; funcional hoja 12"
+  },
+  "BH-01-ZV": {
+   "zona": "otro",
+   "subzona": "zona hidráulica",
+   "lugar": "Zona hidráulica, abajo a la derecha: contactor de bomba Trombetta 684-1261-212-17, montado sobre el motor de la unidad VIBO",
+   "fuente": "topográfico hoja 07; funcional hojas 12 y 62; foto E08 16"
+  },
+  "BH-01-M": {
+   "zona": "otro",
+   "subzona": "zona hidráulica",
+   "lugar": "Zona hidráulica, abajo a la derecha: motor de la unidad hidráulica VIBO (12 VDC 1,6 kW)",
+   "fuente": "topográfico hoja 07 (tag BH-01-M); funcional hoja 12"
+  },
+  "PT 001": {
+   "zona": "otro",
+   "subzona": "zona hidráulica",
+   "lugar": "Zona hidráulica: transmisor de presión del actuador (NOSHOK, 4-20 mA). No tiene tag en el topográfico",
+   "fuente": "funcional hoja 31 (del lado del tablero, no de campo); lista de materiales PT-001"
+  },
+  "SP-1": {
+   "zona": "otro",
+   "subzona": "zona hidráulica",
+   "lugar": "Zona hidráulica, abajo al centro: solenoide de la válvula 1 (FLOWLINE), atos, con conector DIN. No tiene tag en el topográfico",
+   "fuente": "funcional hoja 62; topográfico hoja 07 (bloque con dos válvulas sin tag); fotos E08 19 y 21"
+  },
+  "SP-2": {
+   "zona": "otro",
+   "subzona": "zona hidráulica",
+   "lugar": "Zona hidráulica, abajo al centro: solenoide de la válvula 2 (GASLIFT), atos, con conector DIN. No tiene tag en el topográfico",
+   "fuente": "funcional hoja 62; fotos E08 19 y 21"
+  },
+  "TIERRA GABINETE": {
+   "zona": "otro",
+   "subzona": "tierra del gabinete",
+   "lugar": "Bulón de tierra interior del gabinete (conexión interior). Ubicación exacta a confirmar",
+   "fuente": "funcional hoja 11"
+  }
+ },
+ "cables": [
+  {
+   "id": "E8-001",
+   "orden": 1,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "",
+   "color": "Rojo (foto)",
+   "seccion": "",
+   "desde": {
+    "texto": "12PS2 PV+",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 1 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hoja 12; en la foto E08 7 lleva la manga 1111 (el número del cable de abajo)"
+  },
+  {
+   "id": "E8-002",
+   "orden": 2,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "",
+   "color": "Negro (foto)",
+   "seccion": "",
+   "desde": {
+    "texto": "12PS2 PV-",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 2 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hoja 12; en la foto E08 7 lleva la manga 1110"
+  },
+  {
+   "id": "E8-003",
+   "orden": 3,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "",
+   "color": "Rojo (foto)",
+   "seccion": "",
+   "desde": {
+    "texto": "12PS2 BAT+",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 3 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hoja 12; en la foto E08 7 lleva la manga 1201"
+  },
+  {
+   "id": "E8-004",
+   "orden": 4,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "",
+   "color": "Negro (foto)",
+   "seccion": "",
+   "desde": {
+    "texto": "12PS2 BAT-",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 4 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hoja 12; en la foto E08 7 lleva la manga 1205"
+  },
+  {
+   "id": "E8-005",
+   "orden": 5,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "",
+   "color": "Rojo (foto)",
+   "seccion": "",
+   "desde": {
+    "texto": "12PS2 LOAD+",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 5 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hoja 12; en la foto E08 7 lleva la manga 1206"
+  },
+  {
+   "id": "E8-006",
+   "orden": 6,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "",
+   "color": "Negro (foto)",
+   "seccion": "",
+   "desde": {
+    "texto": "12PS2 LOAD-",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 6 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hoja 12; en la foto E08 7 lleva la manga 1203"
+  },
+  {
+   "id": "E8-007",
+   "orden": 7,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "B0.32MM",
+   "color": "Blanco",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "12PS2 COM RS485 A",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 7 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir para 0.32 mm²",
+   "nota": "hojas 12 y 81: cable de comunicación del EPEVER (4 hilos 0,32 mm²)"
+  },
+  {
+   "id": "E8-008",
+   "orden": 8,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "AM0.32MM",
+   "color": "Amarillo",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "12PS2 COM RS485 B",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 8 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir para 0.32 mm²",
+   "nota": "hojas 12 y 81"
+  },
+  {
+   "id": "E8-009",
+   "orden": 9,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "N0.32MM",
+   "color": "Negro",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "12PS2 COM RS485 GND",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 9 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir para 0.32 mm²",
+   "nota": "hojas 12 y 81"
+  },
+  {
+   "id": "E8-010",
+   "orden": 10,
+   "etapa": "E8-1",
+   "num": "s/n",
+   "cable": "R0.32MM",
+   "color": "Rojo",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "12PS2 COM RS485 VCC",
+    "zona": "lateral izq",
+    "tag": "12PS2",
+    "lugar": "Lateral izquierdo, arriba: cargador de batería EPEVER Tracer 5210BP"
+   },
+   "hasta": {
+    "texto": "12XPS 10 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir para 0.32 mm²",
+   "nota": "hojas 12 y 81"
+  },
+  {
+   "id": "E8-011",
+   "orden": 11,
+   "etapa": "E8-1",
+   "num": "1101",
+   "cable": "M2.5MM",
+   "color": "Marrón",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "11XP 1 ABAJO",
+    "zona": "lateral izq",
+    "tag": "11XP",
+    "lugar": "Lateral izquierdo, abajo: riel a la derecha de 11MS1, bornes PT 6 de la entrada 220 VAC (1, 2 y tierra)"
+   },
+   "hasta": {
+    "texto": "11MS1 ABAJO",
+    "zona": "lateral izq",
+    "tag": "11MS1",
+    "lugar": "Lateral izquierdo, abajo: llave de corte general Schneider VBF1 (la manija sale por el costado del gabinete)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "pendiente",
+   "puntera_e8": "pino azul"
+  },
+  {
+   "id": "E8-012",
+   "orden": 12,
+   "etapa": "E8-1",
+   "num": "1102",
+   "cable": "B2.5MM",
+   "color": "Blanco",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "11XP 2 ABAJO",
+    "zona": "lateral izq",
+    "tag": "11XP",
+    "lugar": "Lateral izquierdo, abajo: riel a la derecha de 11MS1, bornes PT 6 de la entrada 220 VAC (1, 2 y tierra)"
+   },
+   "hasta": {
+    "texto": "11MS1 ABAJO",
+    "zona": "lateral izq",
+    "tag": "11MS1",
+    "lugar": "Lateral izquierdo, abajo: llave de corte general Schneider VBF1 (la manija sale por el costado del gabinete)"
+   },
+   "tipo": "lateral->lateral",
+   "de_que_lista": "pendiente",
+   "puntera_e8": "pino azul"
+  },
+  {
+   "id": "E8-013",
+   "orden": 13,
+   "etapa": "E8-1",
+   "num": "1103",
+   "cable": "VA2.5MM",
+   "color": "Verde-Amarillo",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "11XP 3 ABAJO",
+    "zona": "lateral izq",
+    "tag": "11XP",
+    "lugar": "Lateral izquierdo, abajo: riel a la derecha de 11MS1, bornes PT 6 de la entrada 220 VAC (1, 2 y tierra)"
+   },
+   "hasta": {
+    "texto": "TIERRA GABINETE (conexión interior)",
+    "zona": "otro",
+    "tag": "TIERRA GABINETE",
+    "subzona": "tierra del gabinete",
+    "lugar": "Bulón de tierra interior del gabinete (conexión interior). Ubicación exacta a confirmar"
+   },
+   "tipo": "lateral->tierra gabinete",
+   "de_que_lista": "pendiente",
+   "puntera_e8": "pino azul",
+   "texto_programa": "? ↔ 11XP 3 ABAJO (corregido en correcciones.json: TIERRA GABINETE)"
+  },
+  {
+   "id": "E8-014",
+   "orden": 14,
+   "etapa": "E8-2",
+   "num": "2130",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "46DB1 1",
+    "zona": "puerta",
+    "tag": "46DB1",
+    "lugar": "Puerta, abajo a la izquierda (mirando la puerta abierta): pulsador de shutdown / parada de emergencia Schneider ZBE-101"
+   },
+   "hasta": {
+    "texto": "21PCB01 30",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "DI8+ (pulsador de shutdown); fila abajo de la placa"
+   },
+   "tipo": "puerta->puerta",
+   "de_que_lista": "pendiente",
+   "puntera_e8": "pino celeste"
+  },
+  {
+   "id": "E8-015",
+   "orden": 15,
+   "etapa": "E8-2",
+   "num": "2131",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "46DB1 2",
+    "zona": "puerta",
+    "tag": "46DB1",
+    "lugar": "Puerta, abajo a la izquierda (mirando la puerta abierta): pulsador de shutdown / parada de emergencia Schneider ZBE-101"
+   },
+   "hasta": {
+    "texto": "21PCB01 31",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "DI8− (pulsador de shutdown); fila abajo de la placa"
+   },
+   "tipo": "puerta->puerta",
+   "de_que_lista": "pendiente",
+   "puntera_e8": "pino celeste"
+  },
+  {
+   "id": "E8-016",
+   "orden": 16,
+   "etapa": "E8-2",
+   "num": "s/n",
+   "cable": "VA1MM",
+   "color": "Verde-Amarillo",
+   "seccion": "1",
+   "desde": {
+    "texto": "21PCB01 (display E2.5) tierra",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69"
+   },
+   "hasta": {
+    "texto": "TORNILLO DE TIERRA DE LA PUERTA",
+    "zona": "puerta",
+    "tag": "TORNILLO TIERRA PUERTA",
+    "lugar": "Puerta: tornillo de tierra"
+   },
+   "tipo": "puerta->puerta",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "pino rojo",
+   "nota": "hoja 14: tierra del display a un tornillo de la puerta"
+  },
+  {
+   "id": "E8-017",
+   "orden": 17,
+   "etapa": "E8-2",
+   "num": "s/n",
+   "cable": "VA",
+   "color": "Verde-Amarillo",
+   "seccion": "",
+   "desde": {
+    "texto": "TIERRA GABINETE (conexión interior)",
+    "zona": "otro",
+    "tag": "TIERRA GABINETE",
+    "subzona": "tierra del gabinete",
+    "lugar": "Bulón de tierra interior del gabinete (conexión interior). Ubicación exacta a confirmar"
+   },
+   "hasta": {
+    "texto": "TIERRA PUERTA GABINETE",
+    "zona": "puerta",
+    "tag": "TORNILLO TIERRA PUERTA",
+    "lugar": "Puerta: tornillo de tierra"
+   },
+   "tipo": "otro->puerta",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hoja 11: tierra de la puerta del gabinete, sin sección; en las fotos E08 0 y 2 es un verde-amarillo largo sujeto con precintos que va del lateral a un bulón de la puerta",
+   "a_confirmar": true
+  },
+  {
+   "id": "E8-018",
+   "orden": 18,
+   "etapa": "E8-3",
+   "num": "2105",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "31AIB1 6",
+    "zona": "bandeja",
+    "tag": "31AIB1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 5",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2105: N0.75MM 31AIB1 6 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 400,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-019",
+   "orden": 19,
+   "etapa": "E8-3",
+   "num": "2106",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "31AIB1 7",
+    "zona": "bandeja",
+    "tag": "31AIB1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 6",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2106: N0.75MM 31AIB1 7 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 400,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-020",
+   "orden": 20,
+   "etapa": "E8-3",
+   "num": "2114",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "46KR2 11",
+    "zona": "bandeja",
+    "tag": "46KR2",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 14",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2114: N0.75MM 46KR2 11 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 720,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-021",
+   "orden": 21,
+   "etapa": "E8-3",
+   "num": "2115",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "46KR2 14",
+    "zona": "bandeja",
+    "tag": "46KR2",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 15",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2115: N0.75MM 46KR2 14 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 730,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-022",
+   "orden": 22,
+   "etapa": "E8-3",
+   "num": "2118",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "43KR1 11",
+    "zona": "bandeja",
+    "tag": "43KR1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 16",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2118: N0.75MM 43KR1 11 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 680,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-023",
+   "orden": 23,
+   "etapa": "E8-3",
+   "num": "2119",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "43KR1 14",
+    "zona": "bandeja",
+    "tag": "43KR1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 17",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2119: N0.75MM 43KR1 14 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 690,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-024",
+   "orden": 24,
+   "etapa": "E8-3",
+   "num": "2116",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "43DIB1 5",
+    "zona": "bandeja",
+    "tag": "43DIB1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 18",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2116: N0.75MM 43DIB1 5 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 420,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-025",
+   "orden": 25,
+   "etapa": "E8-3",
+   "num": "2117",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "43DIB1 6",
+    "zona": "bandeja",
+    "tag": "43DIB1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 19",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2117: N0.75MM 43DIB1 6 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 420,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-026",
+   "orden": 26,
+   "etapa": "E8-3",
+   "num": "2122",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "43KR3 11",
+    "zona": "bandeja",
+    "tag": "43KR3",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 20",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2122: N0.75MM 43KR3 11 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 690,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-027",
+   "orden": 27,
+   "etapa": "E8-3",
+   "num": "2123",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "43KR3 14",
+    "zona": "bandeja",
+    "tag": "43KR3",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 21",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2123: N0.75MM 43KR3 14 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 700,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-028",
+   "orden": 28,
+   "etapa": "E8-3",
+   "num": "2120",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "43DIB2 5",
+    "zona": "bandeja",
+    "tag": "43DIB2",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 22",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2120: N0.75MM 43DIB2 5 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 430,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-029",
+   "orden": 29,
+   "etapa": "E8-3",
+   "num": "2121",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "43DIB2 6",
+    "zona": "bandeja",
+    "tag": "43DIB2",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 23",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2121: N0.75MM 43DIB2 6 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 440,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-030",
+   "orden": 30,
+   "etapa": "E8-3",
+   "num": "2128",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "41DS 1",
+    "zona": "lateral der",
+    "tag": "41DS",
+    "lugar": "Lateral DERECHO, riel de arriba, a 95 mm del borde de la puerta: sensor de puerta OMRON HL-5200"
+   },
+   "hasta": {
+    "texto": "21PCB01 28",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "DI7+ (sensor de puerta); fila abajo de la placa"
+   },
+   "tipo": "lateral der->puerta",
+   "de_que_lista": "pendiente",
+   "puntera_e8": "pino celeste"
+  },
+  {
+   "id": "E8-031",
+   "orden": 31,
+   "etapa": "E8-3",
+   "num": "2129",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "41DS 2",
+    "zona": "lateral der",
+    "tag": "41DS",
+    "lugar": "Lateral DERECHO, riel de arriba, a 95 mm del borde de la puerta: sensor de puerta OMRON HL-5200"
+   },
+   "hasta": {
+    "texto": "21PCB01 29",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "DI7− (sensor de puerta); fila abajo de la placa"
+   },
+   "tipo": "lateral der->puerta",
+   "de_que_lista": "pendiente",
+   "puntera_e8": "pino celeste"
+  },
+  {
+   "id": "E8-032",
+   "orden": 32,
+   "etapa": "E8-3",
+   "num": "2132",
+   "cable": "B0.32MM",
+   "color": "Blanco",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "81XCM 1 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "21PCB01 32",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "RS485 A del Port #2; terminal doble: llegan los dos cables Marlew (de 81XCM 1 y de 81XCM 5); fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "terminal_doble": "21PCB01 32",
+   "puntera_e8": "sin definir para 0.32 mm² (doble)",
+   "linea_e6": "2132: B0.32MM 81XCM 1 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 480,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-033",
+   "orden": 33,
+   "etapa": "E8-3",
+   "num": "2132",
+   "cable": "B0.32MM",
+   "color": "Blanco",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "81XCM 5 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "21PCB01 32",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "RS485 A del Port #2; terminal doble: llegan los dos cables Marlew (de 81XCM 1 y de 81XCM 5); fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "terminal_doble": "21PCB01 32",
+   "puntera_e8": "sin definir para 0.32 mm² (doble)",
+   "linea_e6": "2132: B0.32MM 81XCM 5 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 490,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-034",
+   "orden": 34,
+   "etapa": "E8-3",
+   "num": "2133",
+   "cable": "A0.32MM",
+   "color": "Azul",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "81XCM 2 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "21PCB01 33",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "RS485 B del Port #2; terminal doble: llegan los dos cables Marlew (de 81XCM 2 y de 81XCM 6); fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "terminal_doble": "21PCB01 33",
+   "puntera_e8": "sin definir para 0.32 mm² (doble)",
+   "linea_e6": "2133: A0.32MM 81XCM 2 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 630,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-035",
+   "orden": 35,
+   "etapa": "E8-3",
+   "num": "2133",
+   "cable": "A0.32MM",
+   "color": "Azul",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "81XCM 6 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "21PCB01 33",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "RS485 B del Port #2; terminal doble: llegan los dos cables Marlew (de 81XCM 2 y de 81XCM 6); fila abajo de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "terminal_doble": "21PCB01 33",
+   "puntera_e8": "sin definir para 0.32 mm² (doble)",
+   "linea_e6": "2133: A0.32MM 81XCM 6 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 620,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-036",
+   "orden": 36,
+   "etapa": "E8-3",
+   "num": "2134",
+   "cable": "MALLA",
+   "color": "",
+   "seccion": "",
+   "desde": {
+    "texto": "81XCM 3 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "21PCB01 34",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "Return del Port #2: se unen las mallas de los dos cables Marlew; fila abajo de la placa",
+    "texto_programa": "LI (agregado a mano en correcciones.json, sin la otra punta)"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "terminal_doble": "21PCB01 34",
+   "puntera_e8": "sin definir (malla)",
+   "linea_e6": "2134: MALLA 81XCM 3 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 480,
+   "hecho_en_e6": true,
+   "correccion": "Agregado a mano en correcciones.json con destino LI; hoja 81: la malla del Port #2 termina en 21PCB01 34 (Return), unión de las dos mallas.",
+   "nota": "malla del RS-485 Port #2 (a trazos); la unión es en 21PCB01 34 (puerta). Sección y color a confirmar"
+  },
+  {
+   "id": "E8-037",
+   "orden": 37,
+   "etapa": "E8-3",
+   "num": "2134",
+   "cable": "MALLA",
+   "color": "",
+   "seccion": "",
+   "desde": {
+    "texto": "81XCM 7 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "21PCB01 34",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "Return del Port #2: se unen las mallas de los dos cables Marlew; fila abajo de la placa",
+    "texto_programa": "LI (agregado a mano en correcciones.json, sin la otra punta)"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "terminal_doble": "21PCB01 34",
+   "puntera_e8": "sin definir (malla)",
+   "linea_e6": "2134: MALLA 81XCM 7 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 490,
+   "hecho_en_e6": true,
+   "correccion": "Agregado a mano en correcciones.json con destino LI; hoja 81: unión de las dos mallas en 21PCB01 34.",
+   "nota": "malla del RS-485 Port #2 (a trazos); la unión es en 21PCB01 34 (puerta). Sección y color a confirmar"
+  },
+  {
+   "id": "E8-038",
+   "orden": 38,
+   "etapa": "E8-3",
+   "num": "2135",
+   "cable": "B0.32MM",
+   "color": "Blanco",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "12XPS 7 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "hasta": {
+    "texto": "21PCB01 35",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "RS485 A del Port #1; terminal doble con el tramo que viene de 21PCB01 35; fila abajo de la placa"
+   },
+   "tipo": "lateral->puerta",
+   "de_que_lista": "pendiente",
+   "terminal_doble": "12XPS 7 ABAJO",
+   "puntera_e8": "sin definir para 0.32 mm² (doble)",
+   "nota": "tramo de la unión en 12XPS (3 puntas)"
+  },
+  {
+   "id": "E8-039",
+   "orden": 39,
+   "etapa": "E8-3",
+   "num": "2135",
+   "cable": "B0.32MM",
+   "color": "Blanco",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "81XCM 11 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "12XPS 7 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+    "detalle": "RS485 A del Port #1; terminal doble con el tramo que viene de 21PCB01 35",
+    "texto_programa": "21PCB01 35"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "terminal_doble": "12XPS 7 ABAJO",
+   "puntera_e8": "sin definir para 0.32 mm² (doble)",
+   "linea_e6": "2135: B0.32MM 81XCM 11 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 500,
+   "hecho_en_e6": true,
+   "correccion": "Hoja 81/12: 2135 tiene 3 puntas con la unión en 12XPS 7 ABAJO (el programa lo une directo a 21PCB01 35). Foto E08 15: 2135 en 12XPS 7."
+  },
+  {
+   "id": "E8-040",
+   "orden": 40,
+   "etapa": "E8-3",
+   "num": "2136",
+   "cable": "A0.32MM",
+   "color": "Azul",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "12XPS 8 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)"
+   },
+   "hasta": {
+    "texto": "21PCB01 36",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "RS485 B del Port #1; terminal doble con el tramo que viene de 21PCB01 36; fila abajo de la placa"
+   },
+   "tipo": "lateral->puerta",
+   "de_que_lista": "pendiente",
+   "terminal_doble": "12XPS 8 ABAJO",
+   "puntera_e8": "sin definir para 0.32 mm² (doble)",
+   "nota": "tramo de la unión en 12XPS (3 puntas)"
+  },
+  {
+   "id": "E8-041",
+   "orden": 41,
+   "etapa": "E8-3",
+   "num": "2136",
+   "cable": "A0.32MM",
+   "color": "Azul",
+   "seccion": "0.32",
+   "desde": {
+    "texto": "81XCM 12 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "12XPS 8 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+    "detalle": "RS485 B del Port #1; terminal doble con el tramo que viene de 21PCB01 36",
+    "texto_programa": "21PCB01 36"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "terminal_doble": "12XPS 8 ABAJO",
+   "puntera_e8": "sin definir para 0.32 mm² (doble)",
+   "linea_e6": "2136: A0.32MM 81XCM 12 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 600,
+   "hecho_en_e6": true,
+   "correccion": "Hoja 81/12: 2136 tiene 3 puntas con la unión en 12XPS 8 ABAJO. Foto E08 15: 2136 en 12XPS 8."
+  },
+  {
+   "id": "E8-042",
+   "orden": 42,
+   "etapa": "E8-3",
+   "num": "2137",
+   "cable": "MALLA",
+   "color": "",
+   "seccion": "",
+   "desde": {
+    "texto": "EMPALME DE MALLAS junto a 12XPS",
+    "zona": "lateral izq",
+    "tag": "EMPALME 12XPS",
+    "lugar": "Lateral izquierdo, junto a 12XPS: empalme de las mallas de los dos cables Marlew del RS-485 Port #1"
+   },
+   "hasta": {
+    "texto": "21PCB01 37",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "empalme de mallas (sin borne); fila abajo de la placa"
+   },
+   "tipo": "lateral->puerta",
+   "de_que_lista": "pendiente",
+   "puntera_e8": "sin definir (malla)",
+   "nota": "malla RS-485 Port #1"
+  },
+  {
+   "id": "E8-043",
+   "orden": 43,
+   "etapa": "E8-3",
+   "num": "2137",
+   "cable": "MALLA",
+   "color": "",
+   "seccion": "",
+   "desde": {
+    "texto": "81XCM 13 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "EMPALME DE MALLAS junto a 12XPS",
+    "zona": "lateral izq",
+    "tag": "EMPALME 12XPS",
+    "lugar": "Lateral izquierdo, junto a 12XPS: empalme de las mallas de los dos cables Marlew del RS-485 Port #1",
+    "detalle": "empalme de mallas (sin borne)",
+    "texto_programa": "LI (agregado a mano en correcciones.json, sin la otra punta)"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "sin definir (malla)",
+   "linea_e6": "2137: MALLA 81XCM 13 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 510,
+   "hecho_en_e6": true,
+   "correccion": "Agregado a mano en correcciones.json con destino LI; hoja 81: esta malla se empalma junto a 12XPS con la del cable 21PCB01→12XPS (que va a 21PCB01 37).",
+   "nota": "malla del RS-485 Port #1 (a trazos). Sección y color a confirmar"
+  },
+  {
+   "id": "E8-044",
+   "orden": 44,
+   "etapa": "E8-4",
+   "num": "2139",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "31AIB1 3",
+    "zona": "bandeja",
+    "tag": "31AIB1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 39",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2139: N0.75MM 31AIB1 3 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 390,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-045",
+   "orden": 45,
+   "etapa": "E8-4",
+   "num": "2140",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "31AIB1 4",
+    "zona": "bandeja",
+    "tag": "31AIB1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 40",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2140: N0.75MM 31AIB1 4 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 400,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-046",
+   "orden": 46,
+   "etapa": "E8-4",
+   "num": "2142",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "31XAI 1 ARRIBA",
+    "zona": "bandeja",
+    "tag": "31XAI",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 42",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2142: N0.75MM 31XAI 1 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 620,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-047",
+   "orden": 47,
+   "etapa": "E8-4",
+   "num": "1306",
+   "cable": "R1MM",
+   "color": "Rojo",
+   "seccion": "1",
+   "desde": {
+    "texto": "13XC1 2.4",
+    "zona": "bandeja",
+    "tag": "13XC1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 48",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino rojo",
+   "linea_e6": "1306: R1MM 13XC1 2.4 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 370,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-048",
+   "orden": 48,
+   "etapa": "E8-4",
+   "num": "1307",
+   "cable": "N1MM",
+   "color": "Negro",
+   "seccion": "1",
+   "desde": {
+    "texto": "13XC1 3.3",
+    "zona": "bandeja",
+    "tag": "13XC1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "21PCB01 49",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino rojo",
+   "linea_e6": "1307: N1MM 13XC1 3.3 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 400,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-049",
+   "orden": 49,
+   "etapa": "E8-4",
+   "num": "2150",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "62KR1 A1",
+    "zona": "bandeja",
+    "tag": "62KR1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 50",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2150: N0.75MM 62KR1 A1 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 550,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-050",
+   "orden": 50,
+   "etapa": "E8-4",
+   "num": "2151",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "62KR1 A2",
+    "zona": "bandeja",
+    "tag": "62KR1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 51",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2151: N0.75MM 62KR1 A2 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 540,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-051",
+   "orden": 51,
+   "etapa": "E8-4",
+   "num": "2152",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "62KR2 A1",
+    "zona": "bandeja",
+    "tag": "62KR2",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 52",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2152: N0.75MM 62KR2 A1 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 550,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-052",
+   "orden": 52,
+   "etapa": "E8-4",
+   "num": "2153",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "62KR2 A2",
+    "zona": "bandeja",
+    "tag": "62KR2",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 53",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2153: N0.75MM 62KR2 A2 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 540,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-053",
+   "orden": 53,
+   "etapa": "E8-4",
+   "num": "2154",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "62KR3 A1",
+    "zona": "bandeja",
+    "tag": "62KR3",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 54",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2154: N0.75MM 62KR3 A1 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 560,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-054",
+   "orden": 54,
+   "etapa": "E8-4",
+   "num": "2155",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "62KR3 A2",
+    "zona": "bandeja",
+    "tag": "62KR3",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 55",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2155: N0.75MM 62KR3 A2 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 550,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-055",
+   "orden": 55,
+   "etapa": "E8-4",
+   "num": "2164",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "81XCM 9 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "21PCB01 64",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2164: N0.75MM 81XCM 9 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 500,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-056",
+   "orden": 56,
+   "etapa": "E8-4",
+   "num": "2165",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "81XCM 10 ARRIBA",
+    "zona": "bandeja",
+    "tag": "81XCM",
+    "lugar": "Bandeja (placa de fondo), riel 3"
+   },
+   "hasta": {
+    "texto": "21PCB01 65",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2165: N0.75MM 81XCM 10 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 510,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-057",
+   "orden": 57,
+   "etapa": "E8-4",
+   "num": "2168",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "46KR1 11",
+    "zona": "bandeja",
+    "tag": "46KR1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 68",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2168: N0.75MM 46KR1 11 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 710,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-058",
+   "orden": 58,
+   "etapa": "E8-4",
+   "num": "2169",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "46KR1 14",
+    "zona": "bandeja",
+    "tag": "46KR1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "21PCB01 69",
+    "zona": "puerta",
+    "tag": "21PCB01",
+    "lugar": "Puerta, cara interior: placa electrónica E2.5 con su protector (centro, arriba). Borneras enchufables en dos filas: abajo 1-37, arriba 38-69",
+    "detalle": "fila arriba de la placa"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino celeste",
+   "linea_e6": "2169: N0.75MM 46KR1 14 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 720,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-059",
+   "orden": 59,
+   "etapa": "E8-4",
+   "num": "1301",
+   "cable": "R2.5MM",
+   "color": "Rojo",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "13F3 ABAJO",
+    "zona": "bandeja",
+    "tag": "13F3",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "13SH1 ARRIBA",
+    "zona": "puerta",
+    "tag": "13SH1",
+    "lugar": "Puerta, a la izquierda de la placa (mirando la puerta abierta): selectora OFF/ON",
+    "detalle": "selectora OFF/ON: entrada del contacto (viene de 13F3)"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino azul",
+   "linea_e6": "1301: R2.5MM 13F3 ABAJO → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 410,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-060",
+   "orden": 60,
+   "etapa": "E8-4",
+   "num": "1303",
+   "cable": "R2.5MM",
+   "color": "Rojo",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "13XC1 1.4",
+    "zona": "bandeja",
+    "tag": "13XC1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "13SH1 ABAJO",
+    "zona": "puerta",
+    "tag": "13SH1",
+    "lugar": "Puerta, a la izquierda de la placa (mirando la puerta abierta): selectora OFF/ON",
+    "detalle": "selectora OFF/ON: salida del contacto (va a 13XC1)"
+   },
+   "tipo": "bandeja->puerta",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino azul",
+   "linea_e6": "1303: R2.5MM 13XC1 1.4 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 360,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-061",
+   "orden": 61,
+   "etapa": "E8-5",
+   "num": "1111",
+   "cable": "R2.5MM",
+   "color": "Rojo",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "11PS1 3 (+)",
+    "zona": "bandeja",
+    "tag": "11PS1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "12XPS 1 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+    "detalle": "12PS2 PV+ (entrada del cargador desde la fuente de 24 V)"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino azul",
+   "linea_e6": "1111: R2.5MM 11PS1 3 (+) → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 360,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-062",
+   "orden": 62,
+   "etapa": "E8-5",
+   "num": "1110",
+   "cable": "N2.5MM",
+   "color": "Negro",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "11PS1 1 (-)",
+    "zona": "bandeja",
+    "tag": "11PS1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "12XPS 2 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+    "detalle": "12PS2 PV− (entrada del cargador desde la fuente de 24 V)"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino azul",
+   "linea_e6": "1110: N2.5MM 11PS1 1 (-) → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 340,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-063",
+   "orden": 63,
+   "etapa": "E8-5",
+   "num": "1201",
+   "cable": "R4MM",
+   "color": "Rojo",
+   "seccion": "4",
+   "desde": {
+    "texto": "12F1 ARRIBA",
+    "zona": "bandeja",
+    "tag": "12F1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "12XPS 3 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+    "detalle": "12PS2 BAT+"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino naranja",
+   "linea_e6": "1201: R4MM 12F1 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 590,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-064",
+   "orden": 64,
+   "etapa": "E8-5",
+   "num": "1205",
+   "cable": "N4MM",
+   "color": "Negro",
+   "seccion": "4",
+   "desde": {
+    "texto": "12XP 2.1",
+    "zona": "bandeja",
+    "tag": "12XP",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "12XPS 4 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+    "detalle": "12PS2 BAT−",
+    "texto_programa": "12PS2 4"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino naranja",
+   "linea_e6": "1205: N4MM 12XP 2.1 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 140,
+   "hecho_en_e6": true,
+   "correccion": "Hoja 12: 1205 entra al borne 4 de abajo de 12XPS (BAT−). El lector toma el tag 12PS2 del recuadro de arriba. Foto E08 15: 1205 en 12XPS 4."
+  },
+  {
+   "id": "E8-065",
+   "orden": 65,
+   "etapa": "E8-5",
+   "num": "1206",
+   "cable": "R4MM",
+   "color": "Rojo",
+   "seccion": "4",
+   "desde": {
+    "texto": "13F3 ARRIBA",
+    "zona": "bandeja",
+    "tag": "13F3",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "12XPS 5 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+    "detalle": "12PS2 LOAD+ (alimentación de control +12 VDC)",
+    "texto_programa": "12PS2 5"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino naranja",
+   "linea_e6": "1206: R4MM 13F3 ARRIBA → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 610,
+   "hecho_en_e6": true,
+   "correccion": "Hoja 12: 1206 entra al borne 5 de abajo de 12XPS (LOAD+). Foto E08 15: 1206 en 12XPS 5."
+  },
+  {
+   "id": "E8-066",
+   "orden": 66,
+   "etapa": "E8-5",
+   "num": "1203",
+   "cable": "N4MM",
+   "color": "Negro",
+   "seccion": "4",
+   "desde": {
+    "texto": "13XC1 3.4",
+    "zona": "bandeja",
+    "tag": "13XC1",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "12XPS 6 ABAJO",
+    "zona": "lateral izq",
+    "tag": "12XPS",
+    "lugar": "Lateral izquierdo: riel debajo de 12PS2, 10 bornes PT 6 (1-6 potencia, 7-10 RS-485 del cargador)",
+    "detalle": "12PS2 LOAD− (−0 VDC de control)",
+    "texto_programa": "12PS2 6"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino naranja",
+   "linea_e6": "1203: N4MM 13XC1 3.4 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 380,
+   "hecho_en_e6": true,
+   "correccion": "Hoja 12: 1203 entra al borne 6 de abajo de 12XPS (LOAD−). Foto E08 15: 1203 en 12XPS 6."
+  },
+  {
+   "id": "E8-067",
+   "orden": 67,
+   "etapa": "E8-5",
+   "num": "1104",
+   "cable": "M2.5MM",
+   "color": "Marrón",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "11Q1 F ARRIBA",
+    "zona": "bandeja",
+    "tag": "11Q1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "11MS1 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "11MS1",
+    "lugar": "Lateral izquierdo, abajo: llave de corte general Schneider VBF1 (la manija sale por el costado del gabinete)",
+    "detalle": "polo 1 (fase, marrón) según el funcional; en la foto E08 a7 el marrón está en el polo del medio (L2)"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino azul",
+   "linea_e6": "1104: M2.5MM 11Q1 F ARRIBA → LI",
+   "salida_bandeja": "LI salida de abajo (canaleta entre riel 2 y riel 3)",
+   "largo_bandeja_mm": 630,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-068",
+   "orden": 68,
+   "etapa": "E8-5",
+   "num": "1105",
+   "cable": "B2.5MM",
+   "color": "Blanco",
+   "seccion": "2.5",
+   "desde": {
+    "texto": "11Q1 N ARRIBA",
+    "zona": "bandeja",
+    "tag": "11Q1",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "11MS1 ARRIBA",
+    "zona": "lateral izq",
+    "tag": "11MS1",
+    "lugar": "Lateral izquierdo, abajo: llave de corte general Schneider VBF1 (la manija sale por el costado del gabinete)",
+    "detalle": "polo 2 (neutro, blanco) según el funcional; en la foto E08 a7 el blanco está en el primer polo (L1)"
+   },
+   "tipo": "bandeja->lateral",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino azul",
+   "linea_e6": "1105: B2.5MM 11Q1 N ARRIBA → LI",
+   "salida_bandeja": "LI salida de abajo (canaleta entre riel 2 y riel 3)",
+   "largo_bandeja_mm": 610,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-069",
+   "orden": 69,
+   "etapa": "E8-6",
+   "num": "3141",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "31XAI F1 ABAJO",
+    "zona": "bandeja",
+    "tag": "31XAI",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "PT 001 1",
+    "zona": "otro",
+    "tag": "PT 001",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica: transmisor de presión del actuador (NOSHOK, 4-20 mA). No tiene tag en el topográfico",
+    "detalle": "alimentación +24 VDC por el fusible F1 de 100 mA (borne 1 del transmisor)"
+   },
+   "tipo": "bandeja->zona hidraulica",
+   "de_que_lista": "otra estacion",
+   "puntera_e8": "pino celeste",
+   "linea_guardada": "3141: N0.75MM 31XAI F1 ABAJO → LI (estación E8)",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 440
+  },
+  {
+   "id": "E8-070",
+   "orden": 70,
+   "etapa": "E8-6",
+   "num": "3142",
+   "cable": "N0.75MM",
+   "color": "Negro",
+   "seccion": "0.75",
+   "desde": {
+    "texto": "31XAI 1 ABAJO",
+    "zona": "bandeja",
+    "tag": "31XAI",
+    "lugar": "Bandeja (placa de fondo), riel 1"
+   },
+   "hasta": {
+    "texto": "PT 001 2",
+    "zona": "otro",
+    "tag": "PT 001",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica: transmisor de presión del actuador (NOSHOK, 4-20 mA). No tiene tag en el topográfico",
+    "detalle": "señal 4-20 mA (borne 2 del transmisor)"
+   },
+   "tipo": "bandeja->zona hidraulica",
+   "de_que_lista": "otra estacion",
+   "puntera_e8": "pino celeste",
+   "linea_guardada": "3142: N0.75MM 31XAI 1 ABAJO → LI (estación E8)",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 420
+  },
+  {
+   "id": "E8-071",
+   "orden": 71,
+   "etapa": "E8-6",
+   "num": "6202",
+   "cable": "R1MM",
+   "color": "Rojo",
+   "seccion": "1",
+   "desde": {
+    "texto": "62XDO 1 ABAJO",
+    "zona": "bandeja",
+    "tag": "62XDO",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "BH-01-ZV",
+    "zona": "otro",
+    "tag": "BH-01-ZV",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo a la derecha: contactor de bomba Trombetta 684-1261-212-17, montado sobre el motor de la unidad VIBO",
+    "detalle": "bobina del contactor (borne de control); en la foto E08 16 es el espárrago chico con puntera roja"
+   },
+   "tipo": "bandeja->zona hidraulica",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino rojo",
+   "linea_e6": "6202: R1MM 62XDO 1 ABAJO → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 470,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-072",
+   "orden": 72,
+   "etapa": "E8-6",
+   "num": "s/n",
+   "cable": "",
+   "color": "",
+   "seccion": "",
+   "desde": {
+    "texto": "BH-01-ZV (bobina, lado GND)",
+    "zona": "otro",
+    "tag": "BH-01-ZV",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo a la derecha: contactor de bomba Trombetta 684-1261-212-17, montado sobre el motor de la unidad VIBO"
+   },
+   "hasta": {
+    "texto": "BH-01-M GND",
+    "zona": "otro",
+    "tag": "BH-01-M",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo a la derecha: motor de la unidad hidráulica VIBO (12 VDC 1,6 kW)"
+   },
+   "tipo": "zona hidraulica",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hojas 12 y 62: la bobina del contactor va a GND; en la foto E08 16 hay un cable azul de la bobina al motor. ¿Viene armado con la unidad VIBO?",
+   "a_confirmar": true
+  },
+  {
+   "id": "E8-073",
+   "orden": 73,
+   "etapa": "E8-6",
+   "num": "s/n",
+   "cable": "",
+   "color": "",
+   "seccion": "",
+   "desde": {
+    "texto": "BH-01-ZV (contacto principal, salida)",
+    "zona": "otro",
+    "tag": "BH-01-ZV",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo a la derecha: contactor de bomba Trombetta 684-1261-212-17, montado sobre el motor de la unidad VIBO"
+   },
+   "hasta": {
+    "texto": "BH-01-M +",
+    "zona": "otro",
+    "tag": "BH-01-M",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo a la derecha: motor de la unidad hidráulica VIBO (12 VDC 1,6 kW)"
+   },
+   "tipo": "zona hidraulica",
+   "de_que_lista": "funcional (sin numero)",
+   "puntera_e8": "sin definir (sin sección en el funcional)",
+   "nota": "hoja 12: salida del contactor al motor; parece venir armado con la unidad VIBO (cable con capuchón rojo en la foto E08 16)",
+   "a_confirmar": true
+  },
+  {
+   "id": "E8-074",
+   "orden": 74,
+   "etapa": "E8-6",
+   "num": "6204",
+   "cable": "R1MM",
+   "color": "Rojo",
+   "seccion": "1",
+   "desde": {
+    "texto": "62XDO 3 ABAJO",
+    "zona": "bandeja",
+    "tag": "62XDO",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "SP-1",
+    "zona": "otro",
+    "tag": "SP-1",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo al centro: solenoide de la válvula 1 (FLOWLINE), atos, con conector DIN. No tiene tag en el topográfico",
+    "detalle": "conector DIN de la solenoide: lado +12 V conmutado (viene de 62XDO 3)",
+    "texto_programa": "? (el programa no reconoce el símbolo de esa punta)"
+   },
+   "tipo": "bandeja->zona hidraulica",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino rojo",
+   "linea_e6": "6204: R1MM 62XDO 3 ABAJO → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 480,
+   "hecho_en_e6": true,
+   "correccion": "El programa no reconoce el símbolo de la solenoide (punta \"?\"). Hoja 62: 6204 va de 62XDO 3 a SP-1. Foto E08 19."
+  },
+  {
+   "id": "E8-075",
+   "orden": 75,
+   "etapa": "E8-6",
+   "num": "6205",
+   "cable": "N1MM",
+   "color": "Negro",
+   "seccion": "1",
+   "desde": {
+    "texto": "62XDO 4 ABAJO",
+    "zona": "bandeja",
+    "tag": "62XDO",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "SP-1",
+    "zona": "otro",
+    "tag": "SP-1",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo al centro: solenoide de la válvula 1 (FLOWLINE), atos, con conector DIN. No tiene tag en el topográfico",
+    "detalle": "conector DIN de la solenoide: lado −0 V (vuelve a 62XDO 4)",
+    "texto_programa": "? (el programa no reconoce el símbolo de esa punta)"
+   },
+   "tipo": "bandeja->zona hidraulica",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino rojo",
+   "linea_e6": "6205: N1MM 62XDO 4 ABAJO → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 490,
+   "hecho_en_e6": true,
+   "correccion": "Punta \"?\" en el programa. Hoja 62: 6205 vuelve de SP-1 a 62XDO 4. Foto E08 19."
+  },
+  {
+   "id": "E8-076",
+   "orden": 76,
+   "etapa": "E8-6",
+   "num": "6207",
+   "cable": "R1MM",
+   "color": "Rojo",
+   "seccion": "1",
+   "desde": {
+    "texto": "62XDO 5 ABAJO",
+    "zona": "bandeja",
+    "tag": "62XDO",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "SP-2",
+    "zona": "otro",
+    "tag": "SP-2",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo al centro: solenoide de la válvula 2 (GASLIFT), atos, con conector DIN. No tiene tag en el topográfico",
+    "detalle": "conector DIN de la solenoide: lado +12 V conmutado (viene de 62XDO 5)",
+    "texto_programa": "? (el programa no reconoce el símbolo de esa punta)"
+   },
+   "tipo": "bandeja->zona hidraulica",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino rojo",
+   "linea_e6": "6207: R1MM 62XDO 5 ABAJO → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 480,
+   "hecho_en_e6": true,
+   "correccion": "Punta \"?\" en el programa. Hoja 62: 6207 va de 62XDO 5 a SP-2. Foto E08 19."
+  },
+  {
+   "id": "E8-077",
+   "orden": 77,
+   "etapa": "E8-6",
+   "num": "6208",
+   "cable": "N1MM",
+   "color": "Negro",
+   "seccion": "1",
+   "desde": {
+    "texto": "62XDO 6 ABAJO",
+    "zona": "bandeja",
+    "tag": "62XDO",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "SP-2",
+    "zona": "otro",
+    "tag": "SP-2",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo al centro: solenoide de la válvula 2 (GASLIFT), atos, con conector DIN. No tiene tag en el topográfico",
+    "detalle": "conector DIN de la solenoide: lado −0 V (vuelve a 62XDO 6)",
+    "texto_programa": "? (el programa no reconoce el símbolo de esa punta)"
+   },
+   "tipo": "bandeja->zona hidraulica",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino rojo",
+   "linea_e6": "6208: N1MM 62XDO 6 ABAJO → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 500,
+   "hecho_en_e6": true,
+   "correccion": "Punta \"?\" en el programa. Hoja 62: 6208 vuelve de SP-2 a 62XDO 6. Foto E08 19."
+  },
+  {
+   "id": "E8-078",
+   "orden": 78,
+   "etapa": "E8-7",
+   "num": "1204",
+   "cable": "R35MM",
+   "color": "Rojo",
+   "seccion": "35",
+   "desde": {
+    "texto": "12F2",
+    "zona": "bandeja",
+    "tag": "12F2",
+    "subzona": "placa de fondo fuera de canaletas",
+    "lugar": "Placa de fondo (bandeja), abajo a la izquierda, fuera de rieles y canaletas: base de fusible MEGA 150 A (layout: BANDEJA fila 3, pero está debajo de la canaleta inferior)",
+    "detalle": "borne DERECHO del fusible MEGA (lado BH-01-ZV), según el topográfico y el bornes.json del trabajo; el funcional lo dibuja a la izquierda"
+   },
+   "hasta": {
+    "texto": "BH-01-ZV",
+    "zona": "otro",
+    "tag": "BH-01-ZV",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo a la derecha: contactor de bomba Trombetta 684-1261-212-17, montado sobre el motor de la unidad VIBO",
+    "detalle": "contacto principal (espárrago grande, entrada) del contactor"
+   },
+   "tipo": "35mm2",
+   "de_que_lista": "otra estacion",
+   "puntera_e8": "terminal de ojal para 35 mm² (no está en terminales.json)",
+   "linea_guardada": "1204: R35MM 12F2 → LI (estación E8)",
+   "nota": "No pasa por las canaletas de la bandeja: el fusible 12F2 está debajo de la canaleta inferior y el cable va por abajo (topográfico hoja 07, foto E08 21)"
+  },
+  {
+   "id": "E8-079",
+   "orden": 79,
+   "etapa": "E8-7",
+   "num": "1215",
+   "cable": "R35MM",
+   "color": "Rojo",
+   "seccion": "35",
+   "desde": {
+    "texto": "12F2",
+    "zona": "bandeja",
+    "tag": "12F2",
+    "subzona": "placa de fondo fuera de canaletas",
+    "lugar": "Placa de fondo (bandeja), abajo a la izquierda, fuera de rieles y canaletas: base de fusible MEGA 150 A (layout: BANDEJA fila 3, pero está debajo de la canaleta inferior)",
+    "detalle": "borne IZQUIERDO del fusible MEGA (lado batería), según el topográfico y el bornes.json del trabajo"
+   },
+   "hasta": {
+    "texto": "12PB1 +",
+    "zona": "otro",
+    "tag": "12PB1",
+    "subzona": "batería",
+    "lugar": "Piso del gabinete, abajo a la izquierda (debajo de 12F2): batería 12 V 68 Ah AGM. Tiene dos bornes + y dos −",
+    "detalle": "borne + de la batería"
+   },
+   "tipo": "35mm2",
+   "de_que_lista": "otra estacion",
+   "puntera_e8": "terminal de ojal para 35 mm² (no está en terminales.json)",
+   "linea_guardada": "1215: R35MM 12F2 → LI (estación E8)",
+   "nota": "No pasa por las canaletas de la bandeja: el fusible 12F2 está debajo de la canaleta inferior y el cable va por abajo (topográfico hoja 07, foto E08 21)"
+  },
+  {
+   "id": "E8-080",
+   "orden": 80,
+   "etapa": "E8-7",
+   "num": "1217",
+   "cable": "R4MM",
+   "color": "Rojo",
+   "seccion": "4",
+   "desde": {
+    "texto": "12XP 1.4",
+    "zona": "bandeja",
+    "tag": "12XP",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "12PB1 +",
+    "zona": "otro",
+    "tag": "12PB1",
+    "subzona": "batería",
+    "lugar": "Piso del gabinete, abajo a la izquierda (debajo de 12F2): batería 12 V 68 Ah AGM. Tiene dos bornes + y dos −",
+    "detalle": "borne + de la batería (tiene dos: uno con 1215 de 35 mm² y otro con 1217 de 4 mm²)"
+   },
+   "tipo": "bandeja->bateria",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino naranja",
+   "linea_e6": "1217: R4MM 12XP 1.4 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 330,
+   "hecho_en_e6": true
+  },
+  {
+   "id": "E8-081",
+   "orden": 81,
+   "etapa": "E8-7",
+   "num": "1216",
+   "cable": "N35MM",
+   "color": "Negro",
+   "seccion": "35",
+   "desde": {
+    "texto": "12PB1 -",
+    "zona": "otro",
+    "tag": "12PB1",
+    "subzona": "batería",
+    "lugar": "Piso del gabinete, abajo a la izquierda (debajo de 12F2): batería 12 V 68 Ah AGM. Tiene dos bornes + y dos −",
+    "detalle": "borne − de la batería"
+   },
+   "hasta": {
+    "texto": "BH-01-M",
+    "zona": "otro",
+    "tag": "BH-01-M",
+    "subzona": "zona hidráulica",
+    "lugar": "Zona hidráulica, abajo a la derecha: motor de la unidad hidráulica VIBO (12 VDC 1,6 kW)",
+    "detalle": "GND (negativo) del motor"
+   },
+   "tipo": "35mm2",
+   "de_que_lista": "otra estacion",
+   "puntera_e8": "terminal de ojal para 35 mm² (no está en terminales.json)",
+   "linea_guardada": "1216: N35MM 12PB1 ABAJO → BH-01 (estación E8)",
+   "texto_programa": "instructivo guardado (29/09): 12PB1 ABAJO → BH-01; el programa de hoy lee 12PB1 - → BH-01-M"
+  },
+  {
+   "id": "E8-082",
+   "orden": 82,
+   "etapa": "E8-7",
+   "num": "1218",
+   "cable": "N4MM",
+   "color": "Negro",
+   "seccion": "4",
+   "desde": {
+    "texto": "12XP 2.4",
+    "zona": "bandeja",
+    "tag": "12XP",
+    "lugar": "Bandeja (placa de fondo), riel 2"
+   },
+   "hasta": {
+    "texto": "12PB1 -",
+    "zona": "otro",
+    "tag": "12PB1",
+    "subzona": "batería",
+    "lugar": "Piso del gabinete, abajo a la izquierda (debajo de 12F2): batería 12 V 68 Ah AGM. Tiene dos bornes + y dos −",
+    "detalle": "borne − de la batería (tiene dos: uno con 1216 de 35 mm² y otro con 1218 de 4 mm²)"
+   },
+   "tipo": "bandeja->bateria",
+   "de_que_lista": "linea E6 (punta LI)",
+   "puntera_e8": "pino naranja",
+   "linea_e6": "1218: N4MM 12XP 2.4 → LI",
+   "salida_bandeja": "LI salida de arriba (canaleta entre riel 1 y riel 2)",
+   "largo_bandeja_mm": 340,
+   "hecho_en_e6": true
+  }
+ ],
+ "campo": [
+  {
+   "borne": "11XP 1 ARRIBA, 11XP 2 ARRIBA, 11XP 3 ARRIBA (PE)",
+   "zona": "lateral izq",
+   "que": "Alimentación de red 220 VAC (L, N, tierra): cable W1 3x2,5 mm²",
+   "hoja": "11",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "TIERRA GABINETE (conexión exterior)",
+   "zona": "otro",
+   "que": "Conductor de tierra A-V 6 mm² a la toma de tierra del skid (planchuela)",
+   "hoja": "11",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "31XEX 1 ABAJO, 31XEX 2 ABAJO, 31XEX PE",
+   "zona": "bandeja",
+   "que": "PIT 01D (PAD101C) presión de línea FLOWLINE, 4-20 mA, cable con malla",
+   "hoja": "31",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "31XEX 3 ABAJO, 31XEX 4 ABAJO, 31XEX PE",
+   "zona": "bandeja",
+   "que": "PIT 01B (PAD101B) presión GASLIFT, 4-20 mA, cable con malla",
+   "hoja": "31",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "43XDI 1-4 ABAJO",
+   "zona": "bandeja",
+   "que": "Válvula 1 FLOWLINE: IP-1-ZSO (abierta) e IP-1-ZSC (cerrada), reed switch Ex ia",
+   "hoja": "43",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "43XDI 5-8 ABAJO",
+   "zona": "bandeja",
+   "que": "Válvula 2 GASLIFT: IP-2-ZSO (abierta) e IP-2-ZSC (cerrada), reed switch Ex ia",
+   "hoja": "43",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "43XCS 1-4 ABAJO",
+   "zona": "bandeja",
+   "que": "Feedback de posición válvula abierta (contacto seco NA) FLOWLINE y GASLIFT",
+   "hoja": "43",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "46XC 1-4 ABAJO",
+   "zona": "bandeja",
+   "que": "Comando permisivo externo 1 (reserva) y comando permisivo general, 24 VDC",
+   "hoja": "46",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "81XCM 1-4 ABAJO",
+   "zona": "bandeja",
+   "que": "Comunicación paralelo RS-485 (SCADA) salida",
+   "hoja": "81",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "81XCM 5-8 ABAJO",
+   "zona": "bandeja",
+   "que": "Comunicación paralelo RS-485 (SCADA) entrada",
+   "hoja": "81",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "81XCM 9-10 ABAJO",
+   "zona": "bandeja",
+   "que": "Alarma de falla, contacto seco (sin función / reserva)",
+   "hoja": "81",
+   "se_cablea_en_taller": false
+  },
+  {
+   "borne": "81XCM 11-14 ABAJO",
+   "zona": "bandeja",
+   "que": "Comunicación serie RS-485 maestro → esclavo (resistencia de 120 Ω entre 11 y 12 ABAJO: está en los accesorios de E6)",
+   "hoja": "81",
+   "se_cablea_en_taller": false
+  }
+ ],
+ "dudas": [
+  "LECTOR (hoja 12): 1205, 1206 y 1203 salen del programa como \"12PS2 4/5/6\"; en el funcional y en la foto E08 15 van a 12XPS 4/5/6 ABAJO. El tag 12XPS está una sola vez a la izquierda del borne 1 y el lector toma el recuadro de 12PS2 de arriba. Acá está corregido a mano; falta el arreglo general del lector.",
+  "LECTOR (hoja 62): el programa no reconoce el símbolo de las solenoides SP-1 / SP-2 (punta \"?\") en 6204, 6205, 6207 y 6208. ¿Cómo se escribe la punta: \"SP-1 +\" / \"SP-1 -\", o los pines del conector DIN?",
+  "LECTOR (hojas 12 y 81): 2135 y 2136 tienen 3 puntas con la unión en 12XPS 7/8 ABAJO, pero el programa arma un tramo 81XCM 11/12 ↔ 21PCB01 35/36 directo. correcciones.json agrega el pendiente, pero la punta real de la línea de E6 no sale del programa: acá se escribe 12XPS 7/8 ABAJO (lo confirma la foto E08 15). Lo mismo pasa con las mallas 2134 y 2137, que en correcciones.json tienen destino \"LI\".",
+  "LECTOR (hoja 21): en los conductores aparece una punta falsa \"46DB1 ABAJO\" de la hoja 21 en 2121 y 2128-2137. No sale en el instructivo, pero conviene sacarla antes de armar la vista 3D desde los conductores.",
+  "Terminales dobles de 0,32 mm² (2132 y 2133 en 21PCB01 32/33; 2135 y 2136 en 12XPS 7/8 ABAJO) y punteras de las mallas (2134 en 21PCB01 34; 2137 empalme): no están en terminales.json. En la foto E08 a9, 2132 y 2133 tienen puntera roja. ¿Qué se usa?",
+  "Mallas 2134 y 2137: ¿sección, color y cómo se escribe el empalme de mallas junto a 12XPS (2137)? ¿Va con termocontraíble o a un borne?",
+  "41DS (sensor de puerta) está en el lateral DERECHO (topográfico hoja 05, riel de arriba junto al borde de la puerta) y la bisagra está a la izquierda. ¿Por dónde van 2128 y 2129 hasta la puerta? ¿Por arriba del gabinete, por la canaleta superior de la bandeja o por abajo? ¿Se usa el código LD para 41DS?",
+  "Lateral izquierdo, 12PS2 → 12XPS 1 a 10 ARRIBA: en el funcional no tienen número, color ni sección (la nota general diría negro de 0,75 mm², pero 3 a 6 son de potencia: BAT con fusible de 20 A y 4 mm² del otro lado). En la foto E08 7 llevan la manga del cable de abajo (1111, 1110, 1201, 1205, 1206, 1203) y son rojos y negros. ¿Qué sección llevan y se numeran así? Los 7 a 10 son el cable RS-485 del EPEVER (la hoja 81 lo llama 12PS1; la hoja 12, 12PS2).",
+  "¿El lateral izquierdo (12PS2, 12XPS, 11MS1, 11XP) se arma y se cablea por dentro en E8, o llega armado de otra estación?",
+  "11XP: el funcional pone 1101, 1102 y 1103 del lado ABAJO (derecha del dibujo horizontal), pero en la foto E08 a7 entran por ARRIBA (el campo entra por abajo, desde los prensacables). Es el mismo caso que 62XDIO: ¿se escribe el lado físico o el del funcional?",
+  "11MS1: el funcional pone L (1104 / 1101) en el polo 1 y N (1105 / 1102) en el polo 2. En la foto E08 a7 el blanco (N) está en el primer polo (L1) y el marrón en el segundo (L2). Además, el texto \"11MS1 ARRIBA/ABAJO\" no dice el polo: ¿se agrega (L1 / L2)?",
+  "13SH1 (selectora): el funcional no numera sus bornes. Por eso el texto es \"13SH1 ARRIBA\" / \"13SH1 ABAJO\" (1301 / 1303). ¿Se escriben los números del bloque de contacto?",
+  "Salida de la bandeja hacia la zona hidráulica: E6 rutea 6202 y 6204 a 6208 (y 3141 y 3142) a la salida LI de arriba. En la foto E08 21, los cables de SP-1 y SP-2 bajan por debajo de la bandeja, derecho a las válvulas. ¿Se agrega una salida \"abajo / zona hidráulica\" al ruteo de E6?",
+  "12F2: el funcional dibuja 1204 a la izquierda del fusible y 1215 a la derecha. En el topográfico y en el bornes.json del trabajo es al revés: 1215 va a la izquierda (lado batería) y 1204 a la derecha. Eléctricamente da igual. ¿Cómo se escribe (\"12F2 IZQ\" / \"12F2 DER\")?",
+  "Unidad hidráulica: la bobina del contactor a GND y la salida del contactor al motor no tienen número. ¿Vienen armadas con la unidad VIBO o se hacen en E8? (están en la lista con a_confirmar)",
+  "Batería 12PB1: propongo dejarla para el final (con 12F1 y 12F2 sacados, primero los + y después los −). ¿Es el procedimiento del taller? ¿1216 (35 mm²) y 1218 (4 mm²) van cada uno a un borne − distinto, como en el funcional?",
+  "1103 → \"TIERRA GABINETE (conexión interior)\" y la \"TIERRA PUERTA GABINETE\" (hoja 11, sin sección): ¿dónde está el bulón de tierra interior? En las fotos E08 0 y 2 se ve un verde-amarillo largo que va del lateral a un bulón de la puerta.",
+  "Campo: la alimentación 220 VAC (W1) a 11XP, la tierra exterior de 6 mm², 31XEX, 43XDI, 43XCS, 46XC y 81XCM ABAJO los conecta el cliente en obra. No los puse como cables de E8, sino como lista de referencia (\"campo\"). ¿Alguno se deja preparado en el taller?",
+  "Orden en la placa 21PCB01: propuse primero la fila de abajo (1 a 37) y después la de arriba (38 a 69), porque en las fotos E08 22 y a9 los cables de la fila de arriba pasan por delante de la de abajo. ¿Está bien?",
+  "PT 001 (transmisor de presión del actuador) y SP-1 / SP-2 no tienen tag en el topográfico. Su ubicación sale del funcional (lado tablero) y de las fotos E08 19 y 21. Falta la posición exacta de PT 001 para la vista 3D.",
+  "1216: el instructivo guardado del trabajo (generado el 29/09) dice \"12PB1 ABAJO → BH-01\". El programa de hoy lee \"12PB1 - → BH-01-M\", igual que la verificación contra el funcional. Se actualiza al regenerar el trabajo."
+ ]
+}

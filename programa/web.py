@@ -446,6 +446,7 @@ def gen_instructivo(jid, overrides=None, relayout=False):
             ins['estacion_auto'] = lay['estacion_auto']
             ins['auditoria'] = old.get('auditoria') or {}
             ins['wpc'] = old.get('wpc') or {}     # lista WPC: largos y colores a mano, cortes de etapa, excluidos
+            ins['e8'] = old.get('e8') or {}       # E8 (gabinete): cables marcados y aparatos ubicados a mano
             # conservar las fotos de la version anterior (paso identificado por su primer cable)
             prev = {}
             for p_ in old.get('pasos', []):
@@ -475,7 +476,9 @@ def gen_instructivo(jid, overrides=None, relayout=False):
             ins.update(componentes=componentes_panel(res, lay), overrides=ov or {},
                        generado=datetime.datetime.now().strftime('%d/%m/%Y %H:%M'),
                        topografico=s.get('topo_nombre', 'topografico.pdf'), hoja_topo=lay.get('pag'), editado=False)
-            write_json(P['json'], ins)
+            with E8_LOCK:      # las marcas de E8 hechas mientras se regeneraba (las guarda su visor) no se pierden
+                ins['e8'] = e8_del_disco(P['json'], ins['e8'])
+                write_json(P['json'], ins)
             st.update(estado='terminado', mensaje='Listo', progreso=1.0)
     except Exception as e:
         import traceback
@@ -558,7 +561,9 @@ def guardar_instructivo(jid):
     if not isinstance(data, dict) or not isinstance(data.get('pasos'), list):
         return jsonify(error='Datos inválidos'), 400
     data['editado'] = True
-    write_json(P['json'], data)
+    with E8_LOCK:      # las marcas de E8 las guarda su visor (/e8/marcas): una copia vieja de la pestaña de E6 no las pisa
+        data['e8'] = e8_del_disco(P['json'], data.get('e8') or {})
+        write_json(P['json'], data)
     return jsonify(ok=True)
 
 
@@ -623,6 +628,178 @@ def ver_foto(jid, name):
     if not os.path.exists(fp):
         abort(404)
     return send_file(fp, mimetype='image/jpeg', max_age=86400)
+
+
+# ------------------------------------------------------------------ E8: cableado dentro del gabinete (vista 3D)
+E8 = {}                       # jid -> estado de la lectura del gabinete
+E8_LOCK = threading.Lock()    # leer-cambiar-escribir instructivo.json: marcas de E8, pestaña de E6 y regenerar
+
+
+def e8_del_disco(path, por_defecto=None):
+    """ins['e8'] (marcas de E8 y aparatos ubicados a mano) tal como esta guardado, o por_defecto"""
+    try:
+        with open(path, encoding='utf-8') as f:
+            v = json.load(f).get('e8')
+        return v if isinstance(v, dict) else (por_defecto or {})
+    except (OSError, ValueError, AttributeError):
+        return por_defecto or {}
+
+
+def e8_firma(P, ins):
+    """el modelo del gabinete se vuelve a leer si cambia el topografico, layout.json, los tags del funcional o gabinete.py"""
+    import gabinete, hashlib
+    h = hashlib.md5(gabinete.VERSION.encode())
+    for p in (P['topo'], P['layout']):
+        try:
+            s_ = os.stat(p); h.update(f'{s_.st_size}:{int(s_.st_mtime)}'.encode())
+        except OSError:
+            h.update(b'-')
+    h.update(json.dumps(sorted({c.get('tag') or '' for c in ins.get('componentes') or []})).encode())
+    return h.hexdigest()[:16]
+
+
+def e8_leer(jid):
+    """lee el gabinete del topografico (vistas, aparatos, canaletas) y lo guarda en e8_gabinete.json del trabajo"""
+    st = E8[jid]
+    try:
+        P = ins_paths(jid)
+        with RUN_LOCK:
+            import gabinete
+            st.update(estado='procesando', mensaje='Leyendo el gabinete en el topográfico…', progreso=0.08)
+            with open(P['json'], encoding='utf-8') as f:
+                ins = json.load(f)
+            with open(P['layout'], encoding='utf-8') as f:
+                lay = json.load(f)
+            firma = e8_firma(P, ins)
+            M = gabinete.leer_gabinete(P['topo'], lay, [c.get('tag') for c in ins.get('componentes') or []],
+                                       log=lambda m: st.update(mensaje=m, progreso=min(0.92, st['progreso'] + 0.18)))
+            write_json(os.path.join(P['dir'], 'e8_gabinete.json'), dict(firma=firma, modelo=M))
+            st.update(estado='terminado', mensaje='Listo', progreso=1.0)
+    except Exception as e:
+        import traceback
+        st.update(estado='error', error=str(e), detalle=traceback.format_exc())
+
+
+def e8_modelo(P):
+    try:
+        with open(os.path.join(P['dir'], 'e8_gabinete.json'), encoding='utf-8') as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+@app.get('/api/trabajo/<jid>/e8')
+def ver_e8(jid):
+    """modelo del gabinete + cables de E8 con sus puntas y recorrido en 3D. 202 mientras se lee el gabinete."""
+    P = ins_paths(jid)
+    if (INS.get(jid) or {}).get('estado') in ('procesando', 'en cola'):
+        return jsonify(estado='procesando', mensaje='Se está armando el instructivo…', progreso=(INS[jid].get('progreso') or 0) * 0.5), 202
+    if not os.path.exists(P['json']) or not os.path.exists(P['layout']):
+        return jsonify(estado='sin_instructivo', error='Primero armá el instructivo de E6: cargá el plano topográfico en la pestaña 🧰 Instructivo.')
+    with open(P['json'], encoding='utf-8') as f:
+        ins = json.load(f)
+    c = e8_modelo(P)
+    releer = request.args.get('releer') == '1'
+    st = E8.get(jid) or {}
+    if releer or not c.get('modelo') or c.get('firma') != e8_firma(P, ins):
+        if st.get('estado') == 'error' and not releer:
+            return jsonify(estado='error', error=st.get('error') or 'No se pudo leer el gabinete')
+        if st.get('estado') not in ('procesando', 'en cola'):
+            E8[jid] = dict(estado='en cola', mensaje='En cola…', progreso=0.0)
+            threading.Thread(target=e8_leer, args=(jid,), daemon=True).start()
+        return jsonify({k: v for k, v in E8[jid].items() if k != 'detalle'}), 202
+    import gabinete
+    M = c['modelo']
+    E = gabinete.armar_e8(ins, M, ins.get('e8'))
+    migrar = E.pop('migrar', None) or {}
+    if migrar:
+        # marcas guardadas con la clave de antes ('num|desde|hasta', que cambiaba al ubicar un aparato): a la clave estable
+        with E8_LOCK:
+            try:
+                with open(P['json'], encoding='utf-8') as f:
+                    ins2 = json.load(f)
+                hs = (ins2.get('e8') or {}).get('hechos') or {}
+                cambio = False
+                for vieja, nueva in migrar.items():
+                    if vieja in hs:
+                        hs.setdefault(nueva, hs[vieja]); hs.pop(vieja); cambio = True
+                if cambio:
+                    write_json(P['json'], ins2)
+                    ins['e8'] = ins2.get('e8')
+            except (OSError, ValueError, AttributeError):
+                pass
+    return jsonify(estado='listo', modelo=M, generado=ins.get('generado'), e8=ins.get('e8') or {}, **E)
+
+
+@app.get('/api/trabajo/<jid>/e8/vista/<vid>.png')
+def e8_vista_png(jid, vid):
+    """imagen de una vista del gabinete (recorte del topografico, como topo.png) para la placa en 3D"""
+    P = ins_paths(jid)
+    if not re.fullmatch(r'[a-z_]{2,40}', vid):
+        abort(404)
+    M = e8_modelo(P).get('modelo') or {}
+    v = next((v for v in M.get('vistas') or [] if v.get('id') == vid and v.get('imagen')), None)
+    if not v or not os.path.exists(P['topo']):
+        abort(404)
+    import hashlib
+    box, pag = v['box'], v['pag']
+    rk = hashlib.md5(json.dumps([pag] + [round(x, 1) for x in box]).encode()).hexdigest()[:8]
+    cache = os.path.join(P['dir'], f'e8_{vid}_{rk}.png')
+    with PDFIUM_LOCK:
+        if not os.path.exists(cache) or os.path.getmtime(cache) < os.path.getmtime(P['topo']):
+            import pypdfium2 as pdfium
+            doc = pdfium.PdfDocument(P['topo'])
+            try:
+                pg = doc[pag - 1]
+                try:
+                    W, H = pg.get_size()
+                    k = min(6.0, 2048.0 / max(box[2] - box[0], box[3] - box[1]))
+                    img = pg.render(scale=k, crop=(box[0], box[1], W - box[2], H - box[3])).to_pil().convert('RGB').quantize(colors=96)
+                finally:
+                    pg.close()
+            finally:
+                doc.close()
+            img.save(cache + '.tmp.png', optimize=True); os.replace(cache + '.tmp.png', cache)
+    return send_file(cache, mimetype='image/png', max_age=0)
+
+
+@app.post('/api/trabajo/<jid>/e8/marcas')
+def e8_marcas(jid):
+    """guarda en instructivo.json['e8']: {hechos: {clave: true|false}} (cable cableado en E8) y/o
+    {ubicacion: {tag, vista, pt: [X, Y]}} (aparato ubicado a mano en el visor; {tag, borrar: true} lo saca)"""
+    P = ins_paths(jid)
+    body = request.get_json(silent=True)
+    if not isinstance(body, dict) or not os.path.exists(P['json']):
+        return jsonify(error='Datos inválidos'), 400
+    ahora = datetime.datetime.now().strftime('%d/%m/%Y %H:%M')
+    with E8_LOCK:
+        with open(P['json'], encoding='utf-8') as f:
+            ins = json.load(f)
+        e8 = ins.get('e8') if isinstance(ins.get('e8'), dict) else {}
+        hechos = body.get('hechos')
+        if isinstance(hechos, dict):
+            hs = e8.setdefault('hechos', {})
+            for k, v in hechos.items():
+                if isinstance(k, str) and len(k) <= 400:
+                    if v:
+                        hs[k] = dict(hecho=True, cuando=ahora)
+                    else:
+                        hs.pop(k, None)
+        u = body.get('ubicacion')
+        if isinstance(u, dict) and isinstance(u.get('tag'), str) and 0 < len(u['tag']) <= 80:
+            ub = e8.setdefault('ubicaciones', {})
+            if u.get('borrar'):
+                ub.pop(u['tag'], None)
+            else:
+                try:
+                    if not re.fullmatch(r'[a-z_]{2,40}', u.get('vista') or ''):
+                        raise ValueError
+                    ub[u['tag']] = dict(vista=u['vista'], pt=[round(float(u['pt'][0]), 1), round(float(u['pt'][1]), 1)], cuando=ahora)
+                except (TypeError, ValueError, IndexError, KeyError):
+                    return jsonify(error='Ubicación inválida'), 400
+        ins['e8'] = e8
+        write_json(P['json'], ins)
+    return jsonify(ok=True, e8=e8)
 
 
 def already_running():

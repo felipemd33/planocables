@@ -1,0 +1,3603 @@
+{
+ "version": 1,
+ "producto": "Tablero 75286 (mSafe2AC) · funcional 75287 rev 6 · topográfico 75441 rev 6",
+ "generado": "2026-10-02",
+ "fuente": {
+  "topografico": "3 - Historial web/ac0f0949510a/topografico.pdf (se leyó una copia)",
+  "layout": "layout.json del mismo trabajo (bandeja en la página 8)",
+  "instructivo": "instructivo.json del mismo trabajo (rutas de E6; no se tocó)",
+  "referencia_gabinete": "1 - Planos/66336-1.pdf (gabinete BATFER 800x940x400: bisagras 130°, placas, chapa 1,5 mm)",
+  "fotos": "G:/.../Fotos soporte E08/75286-1 (31 fotos + carpeta \"a\")",
+  "script": "2 - Resultados/E8 75286/relevar_gabinete.py"
+ },
+ "convenciones": {
+  "hoja_pt": "coordenadas del PDF en pt: origen abajo a la izquierda de la hoja, X a la derecha, Y hacia ARRIBA (igual que layout.json e instructivo.json). La página es la del PDF (1 a 9); \"hoja\" es el número del rótulo.",
+  "gabinete_mm": "mm, ejes de mano derecha: x = ancho, de la cara exterior IZQUIERDA (mirando de frente) hacia la derecha (0 a 800); y = alto, del piso exterior hacia arriba (0 a 940, incluye 40 de techo); z = profundidad, de la cara exterior del FONDO hacia la puerta (0 a 400 el cuerpo; la puerta cerrada va de 400 a 430). En three.js: Y arriba y la cámara de frente mira desde +z.",
+  "mapeo": "punto (X, Y) de la hoja -> [x, y, z] = origen_mm + escala * ((X - origen_pt[0]) * eje_X + (Y - origen_pt[1]) * eje_Y). Es lo mismo que [x, y, z] = matriz · [X, Y, 1]. eje_X / eje_Y dicen hacia dónde va en el gabinete la derecha / el arriba de la hoja; normal es hacia dónde mira la cara donde se montan los aparatos.",
+  "puerta": "los mm de la vista \"puerta\" son con la puerta CERRADA; para abrirla se rota todo alrededor de bisagras.puerta.eje_mm",
+  "zonas": "\"zona\" usa el mismo vocabulario que cables_e8.json: bandeja, lateral izq, lateral der, puerta, otro (subzona: batería, zona hidráulica)"
+ },
+ "medidas": {
+  "exterior_mm": {
+   "ancho": 800,
+   "alto": 940,
+   "profundidad": 400,
+   "profundidad_con_puerta": 430,
+   "profundidad_total_con_cerraduras": 475,
+   "fuente": "cotas de la hoja 03 (pág. 4): 800, 940, 400 y 475; puerta de 30 mm en la vista lateral de la hoja 07"
+  },
+  "cuerpo_mm": {
+   "alto_sin_techo": 900,
+   "techo": 40,
+   "fuente": "hoja 03: el frente es un recuadro de 800 x 900 y arriba va la franja del techo; el gabinete BATFER 66336 da 900 + 40"
+  },
+  "interior_mm": {
+   "ancho": 797,
+   "alto": 897,
+   "profundidad": 398.5,
+   "supuesto": true,
+   "fuente": "no está en el plano: exterior menos chapa de 1,5 mm (calibre 16 del 66336)"
+  },
+  "placa_fondo_mm": {
+   "ancho": 740,
+   "alto": 820,
+   "espesor": 1.5,
+   "x": [
+    30.0,
+    770.0
+   ],
+   "y": [
+    59.4,
+    879.5
+   ],
+   "z_cara": 20.0,
+   "fuente": "cotas 740 x 820 (hoja 08); ubicación medida en la hoja 07 contra el contorno del gabinete (centrada); z supuesto"
+  },
+  "placa_lateral_izquierda_mm": {
+   "ancho": 310,
+   "alto": 810,
+   "espesor": 1.5,
+   "x_cara": 25.0,
+   "y": [
+    50.0,
+    860.0
+   ],
+   "z": [
+    89.7,
+    399.6
+   ],
+   "fuente": "cotas 310 x 810 (hoja 08); ubicación medida en las hojas 07 y 05 (arranca en el frente del cuerpo); x supuesto"
+  },
+  "lateral_derecho": "sin placa: el sensor 41DS va en el perfil soldado de arriba y el portadocumentos en la pared",
+  "puerta_mm": {
+   "ancho": 794,
+   "alto": 894,
+   "profundidad": 30,
+   "x": [
+    3.0,
+    797.0
+   ],
+   "y": [
+    3.0,
+    897.0
+   ],
+   "z": [
+    400.0,
+    430.0
+   ],
+   "fuente": "hoja 04 (recuadro de la puerta dentro del contorno de 800 x 940) y vista lateral de la hoja 07"
+  },
+  "sobrepuerta_mm": {
+   "ancho": 400,
+   "alto": 460,
+   "x": [
+    180.0,
+    580.0
+   ],
+   "y": [
+    340.0,
+    800.0
+   ],
+   "fuente": "marco del visor en la hoja 02 (igual a la overdoor 400 x 460 del 66336)"
+  },
+  "escalas_mm_por_pt": {
+   "pagina 3": 2.4638,
+   "pagina 4": 2.3739,
+   "pagina 5": 1.5776,
+   "pagina 6": 2.4691,
+   "pagina 8": 1.4086,
+   "pagina 9": 1.3478
+  }
+ },
+ "vistas": [
+  {
+   "id": "fondo",
+   "nombre": "Placa de fondo (la bandeja de E6)",
+   "zona": "bandeja",
+   "pared": "fondo",
+   "pagina": 8,
+   "hoja": "07",
+   "titulo_plano": "VISTA DE FRENTE (hoja 07 \"Vista detallada de componentes montados\", sin titulo propio)",
+   "escala": 1.4086,
+   "escala_fuente": "placa 740 x 820 (cotas de la hoja 08) contra su recuadro en la hoja 07 (525,3 x 582,2 pt); igual a layout.json; contorno del gabinete 567,9 x 667,3 pt = 800 x 940 mm",
+   "region_pt": [
+    520.1,
+    177.1,
+    1045.4,
+    759.3
+   ],
+   "vista_pt": [
+    498.8,
+    134.9,
+    1066.7,
+    802.2
+   ],
+   "origen_pt": [
+    498.8,
+    134.9
+   ],
+   "origen_mm": [
+    0.0,
+    0.0,
+    20.0
+   ],
+   "eje_X": [
+    1,
+    0,
+    0
+   ],
+   "eje_Y": [
+    0,
+    1,
+    0
+   ],
+   "normal": [
+    0,
+    0,
+    1
+   ],
+   "desde": "de frente, con la puerta abierta (igual que el instructivo de E6): la izquierda de la hoja es la izquierda del gabinete",
+   "placa_mm": {
+    "ancho": 740,
+    "alto": 820,
+    "espesor": 1.5
+   },
+   "matriz": [
+    [
+     1.4086,
+     0.0,
+     -702.61
+    ],
+    [
+     0.0,
+     1.4086,
+     -190.02
+    ],
+    [
+     0.0,
+     0.0,
+     20.0
+    ]
+   ],
+   "otras_hojas": [
+    {
+     "pagina": 9,
+     "hoja": "08",
+     "region_pt": [
+      503.2,
+      162.6,
+      1052.3,
+      771.0
+     ],
+     "escala": 1.3478,
+     "que": "mecanizado de la placa con cotas (rieles, canaletas, agujeros)"
+    },
+    {
+     "pagina": 6,
+     "hoja": "05",
+     "region_pt": [
+      455.3,
+      170.5,
+      755.0,
+      502.6
+     ],
+     "escala": 2.4691,
+     "que": "vista general del interior (VISTA DE FRENTE)"
+    }
+   ]
+  },
+  {
+   "id": "lateral_izquierda",
+   "nombre": "Lateral izquierdo (LI)",
+   "zona": "lateral izq",
+   "pared": "lateral_izquierda",
+   "pagina": 8,
+   "hoja": "07",
+   "titulo_plano": "vista lateral a la izquierda de la hoja 07 (sin titulo); en la hoja 05 la misma pared se titula \"VISTA DERECHA\"",
+   "escala": 1.4086,
+   "escala_fuente": "misma hoja que la bandeja; placa lateral 310 x 810 (cotas hoja 08) = 220,1 x 575,0 pt; cuerpo 400 x 940 = 283,9 x 667,3 pt",
+   "region_pt": [
+    179.8,
+    170.4,
+    399.9,
+    745.4
+   ],
+   "vista_pt": [
+    179.5,
+    134.9,
+    463.4,
+    802.2
+   ],
+   "origen_pt": [
+    179.5,
+    134.9
+   ],
+   "origen_mm": [
+    25.0,
+    0.0,
+    400.0
+   ],
+   "eje_X": [
+    0,
+    0,
+    -1
+   ],
+   "eje_Y": [
+    0,
+    1,
+    0
+   ],
+   "normal": [
+    1,
+    0,
+    0
+   ],
+   "desde": "desde ADENTRO del gabinete mirando la pared izquierda: el frente (puerta) a la izquierda de la hoja y el fondo a la derecha",
+   "placa_mm": {
+    "ancho": 310,
+    "alto": 810,
+    "espesor": 1.5
+   },
+   "matriz": [
+    [
+     0.0,
+     0.0,
+     25.0
+    ],
+    [
+     0.0,
+     1.4086,
+     -190.02
+    ],
+    [
+     -1.4086,
+     0.0,
+     652.844
+    ]
+   ],
+   "otras_hojas": [
+    {
+     "pagina": 9,
+     "hoja": "08",
+     "region_pt": [
+      166.0,
+      155.6,
+      396.0,
+      756.5
+     ],
+     "escala": 1.3478,
+     "que": "mecanizado de la placa lateral con cotas"
+    },
+    {
+     "pagina": 6,
+     "hoja": "05",
+     "region_pt": [
+      261.2,
+      166.7,
+      386.7,
+      494.7
+     ],
+     "escala": 2.4691,
+     "que": "vista general, titulada \"VISTA DERECHA\""
+    }
+   ]
+  },
+  {
+   "id": "lateral_derecha",
+   "nombre": "Lateral derecho (LD)",
+   "zona": "lateral der",
+   "pared": "lateral_derecha",
+   "pagina": 6,
+   "hoja": "05",
+   "titulo_plano": "\"VISTA IZQUIERDA\" de la hoja 05 (a la derecha de la hoja); es la pared derecha vista desde adentro",
+   "escala": 2.4691,
+   "escala_fuente": "contorno de la vista de frente de la hoja 05 = 324,0 x 380,7 pt = 800 x 940; cuerpo lateral 162,0 pt = 400 mm; perfil del riel DIN 14,1 pt = 35 mm",
+   "region_pt": [
+    787.3,
+    146.4,
+    949.3,
+    527.1
+   ],
+   "vista_pt": [
+    787.3,
+    146.4,
+    949.3,
+    527.1
+   ],
+   "origen_pt": [
+    787.3,
+    146.4
+   ],
+   "origen_mm": [
+    775.0,
+    0.0,
+    0.0
+   ],
+   "eje_X": [
+    0,
+    0,
+    1
+   ],
+   "eje_Y": [
+    0,
+    1,
+    0
+   ],
+   "normal": [
+    -1,
+    0,
+    0
+   ],
+   "desde": "desde ADENTRO del gabinete mirando la pared derecha: el fondo a la izquierda de la hoja y el frente (puerta) a la derecha",
+   "placa_mm": null,
+   "matriz": [
+    [
+     0.0,
+     0.0,
+     775.0
+    ],
+    [
+     0.0,
+     2.4691,
+     -361.476
+    ],
+    [
+     2.4691,
+     0.0,
+     -1943.922
+    ]
+   ],
+   "otras_hojas": []
+  },
+  {
+   "id": "puerta",
+   "nombre": "Puerta, cara interior",
+   "zona": "puerta",
+   "pared": "puerta",
+   "pagina": 5,
+   "hoja": "04",
+   "titulo_plano": "VISTA POSTERIOR PUERTA (hoja 04)",
+   "escala": 1.5776,
+   "escala_fuente": "canaleta CD 40x40: 363,7 x 25,3 pt = cotas 574 x 40; contorno 507,1 x 595,8 pt = 800 x 940",
+   "region_pt": [
+    357.2,
+    149.8,
+    860.5,
+    716.5
+   ],
+   "vista_pt": [
+    355.3,
+    147.9,
+    862.4,
+    743.7
+   ],
+   "origen_pt": [
+    355.3,
+    147.9
+   ],
+   "origen_mm": [
+    800.0,
+    0.0,
+    428.0
+   ],
+   "eje_X": [
+    -1,
+    0,
+    0
+   ],
+   "eje_Y": [
+    0,
+    1,
+    0
+   ],
+   "normal": [
+    0,
+    0,
+    -1
+   ],
+   "desde": "desde ADENTRO (la puerta vista por detras): la izquierda de la hoja es la DERECHA del gabinete (espejado); las coordenadas en mm son con la puerta CERRADA",
+   "placa_mm": {
+    "ancho": 794,
+    "alto": 894,
+    "espesor": 1.5
+   },
+   "matriz": [
+    [
+     -1.5776,
+     0.0,
+     1360.521
+    ],
+    [
+     0.0,
+     1.5776,
+     -233.327
+    ],
+    [
+     0.0,
+     0.0,
+     428.0
+    ]
+   ],
+   "otras_hojas": []
+  },
+  {
+   "id": "piso",
+   "nombre": "Piso (vista inferior)",
+   "zona": "otro",
+   "pared": "piso",
+   "pagina": 6,
+   "hoja": "05",
+   "titulo_plano": "VISTA INFERIOR (hoja 05)",
+   "escala": 2.4691,
+   "escala_fuente": "misma hoja 05: 324,0 x 162,0 pt = 800 x 400",
+   "region_pt": [
+    443.1,
+    568.7,
+    767.1,
+    730.7
+   ],
+   "vista_pt": [
+    443.1,
+    568.7,
+    767.1,
+    730.7
+   ],
+   "origen_pt": [
+    443.1,
+    568.7
+   ],
+   "origen_mm": [
+    0.0,
+    1.5,
+    0.0
+   ],
+   "eje_X": [
+    1,
+    0,
+    0
+   ],
+   "eje_Y": [
+    0,
+    0,
+    1
+   ],
+   "normal": [
+    0,
+    1,
+    0
+   ],
+   "desde": "desde ABAJO (primer diedro, va arriba de la vista de frente): el frente (puerta) arriba en la hoja, la izquierda del gabinete a la izquierda",
+   "placa_mm": null,
+   "matriz": [
+    [
+     2.4691,
+     0.0,
+     -1094.058
+    ],
+    [
+     0.0,
+     0.0,
+     1.5
+    ],
+    [
+     0.0,
+     2.4691,
+     -1404.177
+    ]
+   ],
+   "otras_hojas": [
+    {
+     "pagina": 4,
+     "hoja": "03",
+     "region_pt": [
+      436.3,
+      564.0,
+      773.2,
+      732.4
+     ],
+     "escala": 2.3739,
+     "que": "vista inferior exterior con las cotas de los agujeros de prensacables"
+    }
+   ]
+  }
+ ],
+ "vistas_exteriores": [
+  {
+   "id": "frente_exterior",
+   "nombre": "Frente (puerta por fuera)",
+   "pared": "puerta_exterior",
+   "pagina": 3,
+   "hoja": "02",
+   "titulo_plano": "VISTA DE FRENTE (hoja 02)",
+   "escala": 2.4638,
+   "escala_fuente": "contorno 324,7 x 381,5 pt = 800 x 940",
+   "vista_pt": [
+    451.2,
+    142.6,
+    775.9,
+    524.1
+   ],
+   "origen_pt": [
+    451.2,
+    142.6
+   ],
+   "origen_mm": [
+    0.0,
+    0.0,
+    430.0
+   ],
+   "eje_X": [
+    1,
+    0,
+    0
+   ],
+   "eje_Y": [
+    0,
+    1,
+    0
+   ],
+   "normal": [
+    0,
+    0,
+    1
+   ],
+   "desde": "de frente, desde afuera",
+   "matriz": [
+    [
+     2.4638,
+     0.0,
+     -1111.667
+    ],
+    [
+     0.0,
+     2.4638,
+     -351.338
+    ],
+    [
+     0.0,
+     0.0,
+     430.0
+    ]
+   ]
+  },
+  {
+   "id": "lateral_izquierda_exterior",
+   "nombre": "Costado izquierdo por fuera",
+   "pared": "lateral_izquierda_exterior",
+   "pagina": 3,
+   "hoja": "02",
+   "titulo_plano": "\"VISTA IZQUIERDA\" a la derecha de la hoja 02 (manija de 11MS1)",
+   "escala": 2.4638,
+   "escala_fuente": "misma hoja: 174,5 pt = 430 mm (cuerpo 400 + puerta 30)",
+   "vista_pt": [
+    839.5,
+    142.6,
+    1014.1,
+    524.1
+   ],
+   "origen_pt": [
+    839.5,
+    142.6
+   ],
+   "origen_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "eje_X": [
+    0,
+    0,
+    1
+   ],
+   "eje_Y": [
+    0,
+    1,
+    0
+   ],
+   "normal": [
+    -1,
+    0,
+    0
+   ],
+   "desde": "desde afuera, del lado izquierdo: el fondo a la izquierda de la hoja y la puerta a la derecha",
+   "matriz": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     2.4638,
+     -351.338
+    ],
+    [
+     2.4638,
+     0.0,
+     -2068.36
+    ]
+   ]
+  },
+  {
+   "id": "lateral_derecha_exterior",
+   "nombre": "Costado derecho por fuera",
+   "pared": "lateral_derecha_exterior",
+   "pagina": 3,
+   "hoja": "02",
+   "titulo_plano": "\"VISTA IZQUIERDA\" a la izquierda de la hoja 02 (el titulo esta mal: es la derecha)",
+   "escala": 2.4638,
+   "escala_fuente": "misma hoja: 174,5 pt = 430 mm",
+   "vista_pt": [
+    213.0,
+    142.6,
+    387.5,
+    524.1
+   ],
+   "origen_pt": [
+    213.0,
+    142.6
+   ],
+   "origen_mm": [
+    800.0,
+    0.0,
+    430.0
+   ],
+   "eje_X": [
+    0,
+    0,
+    -1
+   ],
+   "eje_Y": [
+    0,
+    1,
+    0
+   ],
+   "normal": [
+    1,
+    0,
+    0
+   ],
+   "desde": "desde afuera, del lado derecho: la puerta a la izquierda de la hoja y el fondo a la derecha",
+   "matriz": [
+    [
+     0.0,
+     0.0,
+     800.0
+    ],
+    [
+     0.0,
+     2.4638,
+     -351.338
+    ],
+    [
+     -2.4638,
+     0.0,
+     954.789
+    ]
+   ]
+  }
+ ],
+ "aparatos": [
+  {
+   "tag": "13PS3",
+   "leido": "13PS3",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    822.9,
+    696.9
+   ],
+   "etiqueta_mm": [
+    456.6,
+    791.7,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    814.1,
+    694.2,
+    831.8,
+    699.6
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "11SK1",
+   "leido": "11SK1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    748.4,
+    696.4
+   ],
+   "etiqueta_mm": [
+    351.5,
+    791.0,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    739.5,
+    693.7,
+    757.2,
+    699.2
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "12PS2",
+   "leido": "?12PS2",
+   "vista": "lateral_izquierda",
+   "pagina": 8,
+   "zona": "lateral izq",
+   "subzona": null,
+   "apoyado_en": "lateral_izquierda",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    245.7,
+    695.4
+   ],
+   "etiqueta_mm": [
+    25.0,
+    789.5,
+    306.8
+   ],
+   "caja_etiqueta_pt": [
+    236.8,
+    692.6,
+    254.6,
+    698.1
+   ],
+   "caja_pt": [
+    194.0,
+    636.1,
+    301.2,
+    745.4
+   ],
+   "centro_mm": [
+    25.0,
+    783.0,
+    304.0
+   ],
+   "tamano_mm": [
+    151.0,
+    154.0
+   ]
+  },
+  {
+   "tag": "11PS1",
+   "leido": "11PS1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    620.7,
+    684.9
+   ],
+   "etiqueta_mm": [
+    171.6,
+    774.7,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    611.8,
+    682.2,
+    629.5,
+    687.6
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "11Q1",
+   "leido": "11Q1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    655.6,
+    684.9
+   ],
+   "etiqueta_mm": [
+    220.9,
+    774.7,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    646.7,
+    682.2,
+    664.5,
+    687.6
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "11Q2",
+   "leido": "11Q2",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    680.5,
+    684.9
+   ],
+   "etiqueta_mm": [
+    255.9,
+    774.7,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    671.6,
+    682.2,
+    689.3,
+    687.6
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "43KR",
+   "leido": "C )1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    836.9,
+    676.6
+   ],
+   "etiqueta_mm": [
+    476.2,
+    763.0,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    834.2,
+    667.7,
+    839.6,
+    685.5
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "46KR",
+   "leido": "46KR",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    861.1,
+    676.6
+   ],
+   "etiqueta_mm": [
+    510.3,
+    763.0,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    858.4,
+    667.7,
+    863.8,
+    685.5
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "62KR",
+   "leido": "62KR",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    876.8,
+    676.6
+   ],
+   "etiqueta_mm": [
+    532.5,
+    763.0,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    874.1,
+    667.7,
+    879.6,
+    685.5
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "31XAI",
+   "leido": "6311XDA0",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    795.7,
+    675.3
+   ],
+   "etiqueta_mm": [
+    418.2,
+    761.2,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    792.9,
+    666.4,
+    798.4,
+    684.2
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "12F1",
+   "leido": "12F1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    773.4,
+    675.2
+   ],
+   "etiqueta_mm": [
+    386.8,
+    761.1,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    770.7,
+    666.3,
+    776.1,
+    684.1
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "13F3",
+   "leido": "000C )",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    785.8,
+    675.2
+   ],
+   "etiqueta_mm": [
+    404.3,
+    761.1,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    783.1,
+    666.3,
+    788.6,
+    684.1
+   ],
+   "fila": 1
+  },
+  {
+   "tag": "12XPS",
+   "leido": "10",
+   "vista": "lateral_izquierda",
+   "pagina": 8,
+   "zona": "lateral izq",
+   "subzona": null,
+   "apoyado_en": "lateral_izquierda",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    229.1,
+    596.5
+   ],
+   "etiqueta_mm": [
+    25.0,
+    650.2,
+    330.1
+   ],
+   "caja_etiqueta_pt": [
+    226.4,
+    585.4,
+    231.9,
+    607.6
+   ],
+   "caja_pt": [
+    225.6,
+    575.0,
+    284.2,
+    614.7
+   ],
+   "centro_mm": [
+    25.0,
+    647.9,
+    293.8
+   ],
+   "tamano_mm": [
+    82.5,
+    55.9
+   ]
+  },
+  {
+   "tag": "43DIB1",
+   "leido": "43DIB1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    799.9,
+    534.1
+   ],
+   "etiqueta_mm": [
+    424.2,
+    562.3,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    797.2,
+    525.2,
+    802.7,
+    543.0
+   ],
+   "fila": 2
+  },
+  {
+   "tag": "43DIB2",
+   "leido": "43DIB2",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    808.9,
+    534.1
+   ],
+   "etiqueta_mm": [
+    436.8,
+    562.3,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    806.2,
+    525.2,
+    811.6,
+    543.0
+   ],
+   "fila": 2
+  },
+  {
+   "tag": "31AIB1",
+   "leido": "31AIB1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    789.4,
+    533.3
+   ],
+   "etiqueta_mm": [
+    409.3,
+    561.1,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    786.7,
+    524.4,
+    792.1,
+    542.1
+   ],
+   "fila": 2
+  },
+  {
+   "tag": "13X24",
+   "leido": "13X24",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    642.7,
+    531.4
+   ],
+   "etiqueta_mm": [
+    202.7,
+    558.5,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    640.0,
+    522.5,
+    645.4,
+    540.3
+   ],
+   "fila": 2
+  },
+  {
+   "tag": "12XP",
+   "leido": "1132XP1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    587.3,
+    531.2
+   ],
+   "etiqueta_mm": [
+    124.7,
+    558.2,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    584.6,
+    522.3,
+    590.0,
+    540.1
+   ],
+   "fila": 2
+  },
+  {
+   "tag": "13XC1",
+   "leido": "13XC1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    609.1,
+    531.2
+   ],
+   "etiqueta_mm": [
+    155.3,
+    558.2,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    606.4,
+    522.3,
+    611.8,
+    540.1
+   ],
+   "fila": 2
+  },
+  {
+   "tag": "62XDIO",
+   "leido": "0 0 0C )",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    664.4,
+    530.3
+   ],
+   "etiqueta_mm": [
+    233.3,
+    557.0,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    661.7,
+    521.4,
+    667.2,
+    539.2
+   ],
+   "fila": 2
+  },
+  {
+   "tag": "62XDO",
+   "leido": "62XD0",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    683.9,
+    530.1
+   ],
+   "etiqueta_mm": [
+    260.8,
+    556.7,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    681.2,
+    521.2,
+    686.7,
+    539.0
+   ],
+   "fila": 2
+  },
+  {
+   "tag": "BH-01",
+   "leido": "BH-01-M",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "otro",
+   "subzona": "zona hidráulica",
+   "apoyado_en": "fondo",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    962.0,
+    519.0
+   ],
+   "etiqueta_mm": [
+    652.4,
+    541.0,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    944.2,
+    516.3,
+    979.7,
+    521.7
+   ],
+   "nota": "motor-bomba con tanque VIBO (etiqueta \"BH-01-M\"), abajo a la derecha, apoyada en el piso contra la placa de fondo. La profundidad (z) no está en el plano: z = cara de la placa.",
+   "caja_pt": [
+    875.1,
+    141.3,
+    1045.4,
+    531.7
+   ],
+   "centro_mm": [
+    650.0,
+    284.0,
+    20.0
+   ],
+   "tamano_mm": [
+    240.0,
+    550.0
+   ],
+   "profundidad_mm": null
+  },
+  {
+   "tag": "43XCS",
+   "leido": "43XCS",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    673.7,
+    403.5
+   ],
+   "etiqueta_mm": [
+    246.4,
+    378.4,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    671.0,
+    394.6,
+    676.4,
+    412.4
+   ],
+   "fila": 3
+  },
+  {
+   "tag": "46XC",
+   "leido": "46XC",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    688.7,
+    403.5
+   ],
+   "etiqueta_mm": [
+    267.5,
+    378.4,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    685.9,
+    394.6,
+    691.4,
+    412.4
+   ],
+   "fila": 3
+  },
+  {
+   "tag": "31XEX",
+   "leido": "31XEX",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    778.9,
+    403.4
+   ],
+   "etiqueta_mm": [
+    394.5,
+    378.3,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    776.1,
+    394.6,
+    781.6,
+    412.3
+   ],
+   "fila": 3
+  },
+  {
+   "tag": "43XDI",
+   "leido": "43XDI",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    798.1,
+    403.4
+   ],
+   "etiqueta_mm": [
+    421.6,
+    378.2,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    795.4,
+    394.5,
+    800.8,
+    412.2
+   ],
+   "fila": 3
+  },
+  {
+   "tag": "81XCM",
+   "leido": "81XCM",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E6",
+   "etiqueta_pt": [
+    703.6,
+    403.0
+   ],
+   "etiqueta_mm": [
+    288.5,
+    377.7,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    700.9,
+    394.1,
+    706.4,
+    411.9
+   ],
+   "fila": 3
+  },
+  {
+   "tag": "11MS1",
+   "leido": "11MS1",
+   "vista": "lateral_izquierda",
+   "pagina": 8,
+   "zona": "lateral izq",
+   "subzona": null,
+   "apoyado_en": "lateral_izquierda",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    237.9,
+    392.3
+   ],
+   "etiqueta_mm": [
+    25.0,
+    362.6,
+    317.8
+   ],
+   "caja_etiqueta_pt": [
+    229.0,
+    389.6,
+    246.8,
+    395.0
+   ],
+   "caja_pt": [
+    214.3,
+    350.2,
+    259.0,
+    402.9
+   ],
+   "centro_mm": [
+    25.0,
+    340.4,
+    319.5
+   ],
+   "tamano_mm": [
+    63.0,
+    74.1
+   ]
+  },
+  {
+   "tag": "11XP",
+   "leido": "10",
+   "vista": "lateral_izquierda",
+   "pagina": 8,
+   "zona": "lateral izq",
+   "subzona": null,
+   "apoyado_en": "lateral_izquierda",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    276.7,
+    377.4
+   ],
+   "etiqueta_mm": [
+    25.0,
+    341.6,
+    263.0
+   ],
+   "caja_etiqueta_pt": [
+    274.0,
+    368.5,
+    279.5,
+    386.3
+   ],
+   "caja_pt": [
+    273.4,
+    358.3,
+    305.4,
+    398.0
+   ],
+   "centro_mm": [
+    25.0,
+    342.6,
+    245.2
+   ],
+   "tamano_mm": [
+    45.0,
+    55.9
+   ]
+  },
+  {
+   "tag": "12F2",
+   "leido": "020012F20",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "bandeja",
+   "subzona": null,
+   "apoyado_en": "fondo",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    602.4,
+    305.0
+   ],
+   "etiqueta_mm": [
+    146.0,
+    239.6,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    593.6,
+    302.3,
+    611.3,
+    307.7
+   ],
+   "nota": "portafusible de 35 mm² en la placa de fondo, debajo de la canaleta de abajo (sus cables 1204 y 1215 son de E8). La profundidad (z) no está en el plano: z = cara de la placa.",
+   "fila_layout": 3,
+   "caja_pt": [
+    572.3,
+    296.4,
+    632.6,
+    313.4
+   ],
+   "centro_mm": [
+    146.0,
+    239.5,
+    20.0
+   ],
+   "tamano_mm": [
+    84.8,
+    24.0
+   ],
+   "profundidad_mm": null
+  },
+  {
+   "tag": "12PB1",
+   "leido": "12PB1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "otro",
+   "subzona": "batería",
+   "apoyado_en": "piso",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    598.2,
+    236.5
+   ],
+   "etiqueta_mm": [
+    140.1,
+    143.2,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    589.4,
+    233.8,
+    607.1,
+    239.2
+   ],
+   "nota": "batería sobre el piso, abajo a la izquierda (dibujada en la vista de frente, de costado en la vista lateral y de abajo en la vista inferior)",
+   "caja_pt": [
+    516.5,
+    136.3,
+    683.4,
+    279.1
+   ],
+   "centro_mm": [
+    142.5,
+    102.6,
+    214.9
+   ],
+   "tamano_mm": [
+    235.0,
+    201.2
+   ],
+   "profundidad_mm": {
+    "z_min": 69.6,
+    "z_max": 360.1,
+    "fuente": "vista lateral de la hoja 07 (de costado, caja [207.8, 135.5, 414.1, 273.7] pt)"
+   }
+  },
+  {
+   "tag": "SP-1",
+   "leido": "SP-1",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "otro",
+   "subzona": "zona hidráulica",
+   "apoyado_en": "piso",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    727.7,
+    225.4
+   ],
+   "etiqueta_mm": [
+    322.5,
+    127.4,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    718.9,
+    222.7,
+    736.6,
+    228.1
+   ],
+   "nota": "solenoide SP-1 del bloque de válvulas apoyado en el piso (cables 6204 y 6205; el lector no lo tiene entre los componentes del funcional). La profundidad (z) no está en el plano: z = cara de la placa.",
+   "caja_pt": [
+    711.4,
+    184.6,
+    744.1,
+    241.3
+   ],
+   "centro_mm": [
+    322.5,
+    109.9,
+    20.0
+   ],
+   "tamano_mm": [
+    46.0,
+    79.9
+   ],
+   "profundidad_mm": null
+  },
+  {
+   "tag": "SP-2",
+   "leido": "SP-2",
+   "vista": "fondo",
+   "pagina": 8,
+   "zona": "otro",
+   "subzona": "zona hidráulica",
+   "apoyado_en": "piso",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    763.2,
+    225.4
+   ],
+   "etiqueta_mm": [
+    372.5,
+    127.4,
+    20.0
+   ],
+   "caja_etiqueta_pt": [
+    754.4,
+    222.7,
+    772.1,
+    228.1
+   ],
+   "nota": "solenoide SP-2 del bloque de válvulas apoyado en el piso (cables 6207 y 6208; el lector no lo tiene entre los componentes del funcional). La profundidad (z) no está en el plano: z = cara de la placa.",
+   "caja_pt": [
+    746.9,
+    184.6,
+    779.6,
+    241.3
+   ],
+   "centro_mm": [
+    372.5,
+    109.9,
+    20.0
+   ],
+   "tamano_mm": [
+    46.0,
+    79.9
+   ],
+   "profundidad_mm": null
+  },
+  {
+   "tag": "46DB1",
+   "leido": "46DB1",
+   "vista": "puerta",
+   "pagina": 5,
+   "zona": "puerta",
+   "subzona": null,
+   "apoyado_en": "puerta",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    555.7,
+    314.8
+   ],
+   "etiqueta_mm": [
+    483.9,
+    263.3,
+    428.0
+   ],
+   "caja_etiqueta_pt": [
+    547.7,
+    312.4,
+    563.6,
+    317.2
+   ],
+   "caja_pt": [
+    545.6,
+    283.0,
+    564.6,
+    309.6
+   ],
+   "centro_mm": [
+    484.8,
+    234.1,
+    428.0
+   ],
+   "tamano_mm": [
+    29.9,
+    42.0
+   ]
+  },
+  {
+   "tag": "13SH1",
+   "leido": "13SH1",
+   "vista": "puerta",
+   "pagina": 5,
+   "zona": "puerta",
+   "subzona": null,
+   "apoyado_en": "puerta",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    534.3,
+    463.7
+   ],
+   "etiqueta_mm": [
+    517.6,
+    498.1,
+    428.0
+   ],
+   "caja_etiqueta_pt": [
+    526.4,
+    461.2,
+    542.3,
+    466.1
+   ],
+   "caja_pt": [
+    524.4,
+    429.2,
+    543.3,
+    455.8
+   ],
+   "centro_mm": [
+    518.4,
+    464.8,
+    428.0
+   ],
+   "tamano_mm": [
+    29.8,
+    42.0
+   ]
+  },
+  {
+   "tag": "41DS",
+   "leido": "41DS (OCR)",
+   "vista": "lateral_derecha",
+   "pagina": 6,
+   "zona": "lateral der",
+   "subzona": null,
+   "apoyado_en": "lateral_derecha",
+   "estacion": "E8",
+   "etiqueta_pt": [
+    940.2,
+    490.2
+   ],
+   "etiqueta_mm": [
+    775.0,
+    848.9,
+    377.5
+   ],
+   "caja_etiqueta_pt": [
+    935.1,
+    488.7,
+    945.3,
+    491.8
+   ],
+   "caja_pt": [
+    925.7,
+    486.2,
+    961.3,
+    500.3
+   ],
+   "centro_mm": [
+    775.0,
+    856.4,
+    385.6
+   ],
+   "tamano_mm": [
+    87.9,
+    35.0
+   ]
+  },
+  {
+   "tag": "21PCB01",
+   "leido": null,
+   "vista": "puerta",
+   "pagina": 5,
+   "zona": "puerta",
+   "subzona": null,
+   "apoyado_en": "puerta",
+   "estacion": "E8",
+   "etiqueta_pt": null,
+   "etiqueta_mm": null,
+   "caja_pt": [
+    553.8,
+    460.1,
+    685.6,
+    580.6
+   ],
+   "centro_mm": [
+    382.9,
+    587.6,
+    428.0
+   ],
+   "tamano_mm": [
+    208.0,
+    190.0
+   ],
+   "nota": "sin etiqueta en el topográfico: es la placa electrónica con su \"PROTECTOR PLACA E2.5\" (76254-1) de la hoja 04; identificada con las fotos E08 (cables 21xx en las borneras AI#1 ... PORT#1)"
+  }
+ ],
+ "canaletas": [
+  {
+   "vista": "fondo",
+   "pt": [
+    555.6,
+    347.5,
+    583.9,
+    730.8
+   ],
+   "horizontal": false,
+   "intrinseca": false,
+   "tipo": "CD 40x80 (gris)",
+   "ancho_mm": 39.9,
+   "largo_mm": 539.9,
+   "profundidad_mm": 80.0,
+   "fuente": "layout.json (ductos) + rótulos CD 40x80 de la hoja 08",
+   "caja_mm": {
+    "min": [
+     80.0,
+     299.5,
+     20.0
+    ],
+    "max": [
+     119.9,
+     839.4,
+     100.0
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "pt": [
+    555.6,
+    730.8,
+    1031.2,
+    759.3
+   ],
+   "horizontal": true,
+   "intrinseca": false,
+   "tipo": "CD 40x80 (gris)",
+   "ancho_mm": 40.1,
+   "largo_mm": 669.9,
+   "profundidad_mm": 80.0,
+   "fuente": "layout.json (ductos) + rótulos CD 40x80 de la hoja 08",
+   "caja_mm": {
+    "min": [
+     80.0,
+     839.4,
+     20.0
+    ],
+    "max": [
+     749.9,
+     879.5,
+     100.0
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "pt": [
+    583.9,
+    588.8,
+    1031.2,
+    617.3
+   ],
+   "horizontal": true,
+   "intrinseca": false,
+   "tipo": "CD 40x80 (gris)",
+   "ancho_mm": 40.1,
+   "largo_mm": 630.1,
+   "profundidad_mm": 80.0,
+   "fuente": "layout.json (ductos) + rótulos CD 40x80 de la hoja 08",
+   "caja_mm": {
+    "min": [
+     119.9,
+     639.4,
+     20.0
+    ],
+    "max": [
+     749.9,
+     679.5,
+     100.0
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "pt": [
+    583.9,
+    446.8,
+    747.2,
+    475.4
+   ],
+   "horizontal": true,
+   "intrinseca": false,
+   "tipo": "CD 40x80 (gris)",
+   "ancho_mm": 40.3,
+   "largo_mm": 230.0,
+   "profundidad_mm": 80.0,
+   "fuente": "layout.json (ductos) + rótulos CD 40x80 de la hoja 08",
+   "caja_mm": {
+    "min": [
+     119.9,
+     439.3,
+     20.0
+    ],
+    "max": [
+     349.9,
+     479.6,
+     100.0
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "pt": [
+    555.6,
+    319.1,
+    747.2,
+    347.5
+   ],
+   "horizontal": true,
+   "intrinseca": false,
+   "tipo": "CD 40x80 (gris)",
+   "ancho_mm": 40.0,
+   "largo_mm": 269.9,
+   "profundidad_mm": 80.0,
+   "fuente": "layout.json (ductos) + rótulos CD 40x80 de la hoja 08",
+   "caja_mm": {
+    "min": [
+     80.0,
+     259.5,
+     20.0
+    ],
+    "max": [
+     349.9,
+     299.5,
+     100.0
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "pt": [
+    775.7,
+    446.8,
+    860.8,
+    475.4
+   ],
+   "horizontal": true,
+   "intrinseca": true,
+   "tipo": "CD 40x80 BU (azul, intrínsecos)",
+   "ancho_mm": 40.3,
+   "largo_mm": 119.9,
+   "profundidad_mm": 80.0,
+   "fuente": "layout.json (ductos) + rótulos CD 40x80 de la hoja 08",
+   "caja_mm": {
+    "min": [
+     390.0,
+     439.3,
+     20.0
+    ],
+    "max": [
+     509.9,
+     479.6,
+     100.0
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "pt": [
+    747.2,
+    319.1,
+    860.8,
+    347.5
+   ],
+   "horizontal": true,
+   "intrinseca": true,
+   "tipo": "CD 40x80 BU (azul, intrínsecos)",
+   "ancho_mm": 40.0,
+   "largo_mm": 160.0,
+   "profundidad_mm": 80.0,
+   "fuente": "layout.json (ductos) + rótulos CD 40x80 de la hoja 08",
+   "caja_mm": {
+    "min": [
+     349.9,
+     259.5,
+     20.0
+    ],
+    "max": [
+     509.9,
+     299.5,
+     100.0
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "pt": [
+    747.2,
+    347.5,
+    775.7,
+    588.8
+   ],
+   "horizontal": false,
+   "intrinseca": true,
+   "tipo": "CD 40x80 BU (azul, intrínsecos)",
+   "ancho_mm": 40.1,
+   "largo_mm": 339.9,
+   "profundidad_mm": 80.0,
+   "fuente": "layout.json (ductos) + rótulos CD 40x80 de la hoja 08",
+   "caja_mm": {
+    "min": [
+     349.9,
+     299.5,
+     20.0
+    ],
+    "max": [
+     390.0,
+     639.4,
+     100.0
+    ]
+   }
+  },
+  {
+   "vista": "lateral_izquierda",
+   "pt": [
+    208.2,
+    521.7,
+    371.5,
+    550.2
+   ],
+   "horizontal": true,
+   "intrinseca": false,
+   "tipo": "canaleta 40 mm (sin rótulo de modelo)",
+   "ancho_mm": 40.2,
+   "largo_mm": 230.0,
+   "profundidad_mm": 40.0,
+   "fuente": "capa CABLECANAL de la hoja 07; ancho 40 y largo 230 = cotas de la hoja 08",
+   "caja_mm": {
+    "min": [
+     25.0,
+     544.9,
+     129.5
+    ],
+    "max": [
+     65.0,
+     585.1,
+     359.5
+    ]
+   }
+  },
+  {
+   "vista": "lateral_izquierda",
+   "pt": [
+    208.2,
+    433.0,
+    371.5,
+    461.4
+   ],
+   "horizontal": true,
+   "intrinseca": false,
+   "tipo": "canaleta 40 mm (sin rótulo de modelo)",
+   "ancho_mm": 40.0,
+   "largo_mm": 230.0,
+   "profundidad_mm": 40.0,
+   "fuente": "capa CABLECANAL de la hoja 07; ancho 40 y largo 230 = cotas de la hoja 08",
+   "caja_mm": {
+    "min": [
+     25.0,
+     419.9,
+     129.5
+    ],
+    "max": [
+     65.0,
+     459.9,
+     359.5
+    ]
+   }
+  },
+  {
+   "vista": "puerta",
+   "pt": [
+    439.6,
+    335.0,
+    803.4,
+    360.3
+   ],
+   "horizontal": true,
+   "intrinseca": false,
+   "tipo": "CD 40x40",
+   "ancho_mm": 40.0,
+   "largo_mm": 573.8,
+   "profundidad_mm": 40.0,
+   "fuente": "capa CABLECANAL de la hoja 04; cotas 574 y 40, rótulo CD40x40",
+   "caja_mm": {
+    "min": [
+     93.1,
+     295.1,
+     388.0
+    ],
+    "max": [
+     667.0,
+     335.1,
+     428.0
+    ]
+   }
+  }
+ ],
+ "rieles": [
+  {
+   "vista": "fondo",
+   "tipo": "riel DIN NS 35/7,5 perforado",
+   "pt": [
+    584.0,
+    662.4,
+    1031.2,
+    687.2
+   ],
+   "eje_pt": 674.8,
+   "caja_mm": {
+    "min": [
+     120.0,
+     743.1,
+     20.0
+    ],
+    "max": [
+     750.0,
+     778.0,
+     27.5
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "tipo": "riel DIN NS 35/7,5 perforado",
+   "pt": [
+    584.0,
+    390.4,
+    747.3,
+    415.2
+   ],
+   "eje_pt": 402.8,
+   "caja_mm": {
+    "min": [
+     120.0,
+     359.9,
+     20.0
+    ],
+    "max": [
+     350.0,
+     394.8,
+     27.5
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "tipo": "riel DIN NS 35/7,5 perforado",
+   "pt": [
+    584.0,
+    518.2,
+    747.3,
+    543.0
+   ],
+   "eje_pt": 530.5,
+   "caja_mm": {
+    "min": [
+     120.0,
+     539.9,
+     20.0
+    ],
+    "max": [
+     350.0,
+     574.8,
+     27.5
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "tipo": "riel DIN NS 35/7,5 perforado",
+   "pt": [
+    775.7,
+    390.4,
+    860.9,
+    415.2
+   ],
+   "eje_pt": 402.8,
+   "caja_mm": {
+    "min": [
+     390.0,
+     359.9,
+     20.0
+    ],
+    "max": [
+     510.0,
+     394.8,
+     27.5
+    ]
+   }
+  },
+  {
+   "vista": "fondo",
+   "tipo": "riel DIN NS 35/7,5 perforado",
+   "pt": [
+    775.7,
+    518.2,
+    860.9,
+    543.0
+   ],
+   "eje_pt": 530.5,
+   "caja_mm": {
+    "min": [
+     390.0,
+     539.9,
+     20.0
+    ],
+    "max": [
+     510.0,
+     574.8,
+     27.5
+    ]
+   }
+  },
+  {
+   "vista": "lateral_izquierda",
+   "tipo": "riel DIN NS 35/7,5 perforado",
+   "pt": [
+    208.2,
+    363.7,
+    265.0,
+    388.5
+   ],
+   "eje_pt": 376.1,
+   "caja_mm": {
+    "min": [
+     25.0,
+     322.3,
+     279.5
+    ],
+    "max": [
+     32.5,
+     357.2,
+     359.5
+    ]
+   }
+  },
+  {
+   "vista": "lateral_izquierda",
+   "tipo": "riel DIN NS 35/7,5 perforado",
+   "pt": [
+    208.2,
+    583.6,
+    371.5,
+    608.3
+   ],
+   "eje_pt": 595.9,
+   "caja_mm": {
+    "min": [
+     25.0,
+     632.0,
+     129.5
+    ],
+    "max": [
+     32.5,
+     666.9,
+     359.5
+    ]
+   }
+  },
+  {
+   "vista": "lateral_izquierda",
+   "tipo": "riel DIN NS 35/7,5 perforado",
+   "pt": [
+    272.1,
+    363.9,
+    370.8,
+    388.6
+   ],
+   "eje_pt": 376.2,
+   "caja_mm": {
+    "min": [
+     25.0,
+     322.5,
+     130.6
+    ],
+    "max": [
+     32.5,
+     357.4,
+     269.5
+    ]
+   }
+  },
+  {
+   "vista": "lateral_izquierda",
+   "tipo": "perfil soldado de la pared (sostiene la placa lateral; 380 x 55)",
+   "pt": [
+    179.5,
+    170.4,
+    449.2,
+    209.4
+   ],
+   "caja_mm": {
+    "min": [
+     5.0,
+     50.0,
+     20.1
+    ],
+    "max": [
+     25.0,
+     105.0,
+     400.1
+    ]
+   }
+  },
+  {
+   "vista": "lateral_izquierda",
+   "tipo": "perfil soldado de la pared (sostiene la placa lateral; 380 x 55)",
+   "pt": [
+    179.5,
+    724.1,
+    449.2,
+    763.2
+   ],
+   "caja_mm": {
+    "min": [
+     5.0,
+     830.0,
+     20.1
+    ],
+    "max": [
+     25.0,
+     885.0,
+     400.1
+    ]
+   }
+  },
+  {
+   "vista": "lateral_derecha",
+   "tipo": "perfil soldado de la pared (sostiene la placa lateral; 380 x 55)",
+   "pt": [
+    795.4,
+    166.7,
+    949.3,
+    189.0
+   ],
+   "caja_mm": {
+    "min": [
+     775.0,
+     50.1,
+     20.0
+    ],
+    "max": [
+     795.0,
+     105.1,
+     400.0
+    ]
+   }
+  },
+  {
+   "vista": "lateral_derecha",
+   "tipo": "perfil soldado de la pared (sostiene la placa lateral; 380 x 55)",
+   "pt": [
+    795.4,
+    482.6,
+    949.3,
+    504.9
+   ],
+   "caja_mm": {
+    "min": [
+     775.0,
+     830.1,
+     20.0
+    ],
+    "max": [
+     795.0,
+     885.1,
+     400.0
+    ]
+   }
+  }
+ ],
+ "salidas_bandeja": [
+  {
+   "destino": "LI",
+   "pt": [
+    543.6,
+    603
+   ],
+   "mm": [
+    63.1,
+    659.4,
+    20.0
+   ],
+   "mm_cable_en_canaleta": [
+    63.1,
+    659.4,
+    60.0
+   ],
+   "canaleta_horizontal_pt": [
+    583.9,
+    588.8,
+    1031.2,
+    617.3
+   ],
+   "canaleta_vertical_pt": [
+    555.6,
+    347.5,
+    583.9,
+    730.8
+   ],
+   "n_lineas": 51,
+   "n_numeros": 48,
+   "cables": [
+    {
+     "num": "1110",
+     "cable": "N2.5MM",
+     "color": "Negro",
+     "secc": "2.5",
+     "origen": "11PS1 1 (-)",
+     "estacion": "E6",
+     "hasta_e8": "12XPS 2 ABAJO"
+    },
+    {
+     "num": "1111",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "11PS1 3 (+)",
+     "estacion": "E6",
+     "hasta_e8": "12XPS 1 ABAJO"
+    },
+    {
+     "num": "1201",
+     "cable": "R4MM",
+     "color": "Rojo",
+     "secc": "4",
+     "origen": "12F1 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "12XPS 3 ABAJO"
+    },
+    {
+     "num": "1206",
+     "cable": "R4MM",
+     "color": "Rojo",
+     "secc": "4",
+     "origen": "13F3 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "12XPS 5 ABAJO"
+    },
+    {
+     "num": "2142",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31XAI 1 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 42"
+    },
+    {
+     "num": "2118",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43KR1 11",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 16"
+    },
+    {
+     "num": "2122",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43KR3 11",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 20"
+    },
+    {
+     "num": "2168",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "46KR1 11",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 68"
+    },
+    {
+     "num": "2114",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "46KR2 11",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 14"
+    },
+    {
+     "num": "2119",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43KR1 14",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 17"
+    },
+    {
+     "num": "2123",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43KR3 14",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 21"
+    },
+    {
+     "num": "2169",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "46KR1 14",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 69"
+    },
+    {
+     "num": "2115",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "46KR2 14",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 15"
+    },
+    {
+     "num": "1301",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "13F3 ABAJO",
+     "estacion": "E6",
+     "hasta_e8": "13SH1 ARRIBA"
+    },
+    {
+     "num": "2151",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "62KR1 A2",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 51"
+    },
+    {
+     "num": "2153",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "62KR2 A2",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 53"
+    },
+    {
+     "num": "2155",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "62KR3 A2",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 55"
+    },
+    {
+     "num": "2150",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "62KR1 A1",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 50"
+    },
+    {
+     "num": "2152",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "62KR2 A1",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 52"
+    },
+    {
+     "num": "2154",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "62KR3 A1",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 54"
+    },
+    {
+     "num": "1205",
+     "cable": "N4MM",
+     "color": "Negro",
+     "secc": "4",
+     "origen": "12XP 2.1",
+     "estacion": "E6",
+     "hasta_e8": "12XPS 4 ABAJO"
+    },
+    {
+     "num": "1217",
+     "cable": "R4MM",
+     "color": "Rojo",
+     "secc": "4",
+     "origen": "12XP 1.4",
+     "estacion": "E6",
+     "hasta_e8": "12PB1 +"
+    },
+    {
+     "num": "1218",
+     "cable": "N4MM",
+     "color": "Negro",
+     "secc": "4",
+     "origen": "12XP 2.4",
+     "estacion": "E6",
+     "hasta_e8": "12PB1 -"
+    },
+    {
+     "num": "1303",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "13XC1 1.4",
+     "estacion": "E6",
+     "hasta_e8": "13SH1 ABAJO"
+    },
+    {
+     "num": "1306",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "13XC1 2.4",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 48"
+    },
+    {
+     "num": "1203",
+     "cable": "N4MM",
+     "color": "Negro",
+     "secc": "4",
+     "origen": "13XC1 3.4",
+     "estacion": "E6",
+     "hasta_e8": "12XPS 6 ABAJO"
+    },
+    {
+     "num": "1307",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "13XC1 3.3",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 49"
+    },
+    {
+     "num": "6202",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "62XDO 1 ABAJO",
+     "estacion": "E6",
+     "hasta_e8": "BH-01-ZV"
+    },
+    {
+     "num": "6204",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "62XDO 3 ABAJO",
+     "estacion": "E6",
+     "hasta_e8": "SP-1"
+    },
+    {
+     "num": "6207",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "62XDO 5 ABAJO",
+     "estacion": "E6",
+     "hasta_e8": "SP-2"
+    },
+    {
+     "num": "6205",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "62XDO 4 ABAJO",
+     "estacion": "E6",
+     "hasta_e8": "SP-1"
+    },
+    {
+     "num": "6208",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "62XDO 6 ABAJO",
+     "estacion": "E6",
+     "hasta_e8": "SP-2"
+    },
+    {
+     "num": "2139",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31AIB1 3",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 39"
+    },
+    {
+     "num": "2140",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31AIB1 4",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 40"
+    },
+    {
+     "num": "2105",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31AIB1 6",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 5"
+    },
+    {
+     "num": "2106",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31AIB1 7",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 6"
+    },
+    {
+     "num": "2116",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43DIB1 5",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 18"
+    },
+    {
+     "num": "2117",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43DIB1 6",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 19"
+    },
+    {
+     "num": "2120",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43DIB2 5",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 22"
+    },
+    {
+     "num": "2121",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43DIB2 6",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 23"
+    },
+    {
+     "num": "2132",
+     "cable": "B0.32MM",
+     "color": "Blanco",
+     "secc": "0.32",
+     "origen": "81XCM 1 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 32"
+    },
+    {
+     "num": "2132",
+     "cable": "B0.32MM",
+     "color": "Blanco",
+     "secc": "0.32",
+     "origen": "81XCM 5 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 32"
+    },
+    {
+     "num": "2134",
+     "cable": "MALLA",
+     "color": "",
+     "secc": "",
+     "origen": "81XCM 3 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 34"
+    },
+    {
+     "num": "2134",
+     "cable": "MALLA",
+     "color": "",
+     "secc": "",
+     "origen": "81XCM 7 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 34"
+    },
+    {
+     "num": "2164",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "81XCM 9 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 64"
+    },
+    {
+     "num": "2135",
+     "cable": "B0.32MM",
+     "color": "Blanco",
+     "secc": "0.32",
+     "origen": "81XCM 11 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 35"
+    },
+    {
+     "num": "2137",
+     "cable": "MALLA",
+     "color": "",
+     "secc": "",
+     "origen": "81XCM 13 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 37"
+    },
+    {
+     "num": "2133",
+     "cable": "A0.32MM",
+     "color": "Azul",
+     "secc": "0.32",
+     "origen": "81XCM 2 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 33"
+    },
+    {
+     "num": "2133",
+     "cable": "A0.32MM",
+     "color": "Azul",
+     "secc": "0.32",
+     "origen": "81XCM 6 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 33"
+    },
+    {
+     "num": "2165",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "81XCM 10 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 65"
+    },
+    {
+     "num": "2136",
+     "cable": "A0.32MM",
+     "color": "Azul",
+     "secc": "0.32",
+     "origen": "81XCM 12 ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "21PCB01 36"
+    }
+   ],
+   "nombre": "LI arriba",
+   "descripcion": "sale por el borde de la canaleta vertical de la izquierda, a la altura de la canaleta horizontal entre el riel 1 y el riel 2",
+   "colores": {
+    "Negro": 32,
+    "Rojo": 10,
+    "Blanco": 3,
+    "(sin color)": 3,
+    "Azul": 3
+   }
+  },
+  {
+   "destino": "LI",
+   "pt": [
+    543.6,
+    461.1
+   ],
+   "mm": [
+    63.1,
+    459.5,
+    20.0
+   ],
+   "mm_cable_en_canaleta": [
+    63.1,
+    459.5,
+    60.0
+   ],
+   "canaleta_horizontal_pt": [
+    583.9,
+    446.8,
+    747.2,
+    475.4
+   ],
+   "canaleta_vertical_pt": [
+    555.6,
+    347.5,
+    583.9,
+    730.8
+   ],
+   "n_lineas": 2,
+   "n_numeros": 2,
+   "cables": [
+    {
+     "num": "1105",
+     "cable": "B2.5MM",
+     "color": "Blanco",
+     "secc": "2.5",
+     "origen": "11Q1 N ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "11MS1 ARRIBA"
+    },
+    {
+     "num": "1104",
+     "cable": "M2.5MM",
+     "color": "Marrón",
+     "secc": "2.5",
+     "origen": "11Q1 F ARRIBA",
+     "estacion": "E6",
+     "hasta_e8": "11MS1 ARRIBA"
+    }
+   ],
+   "nombre": "LI abajo",
+   "descripcion": "sale por el borde de la canaleta vertical de la izquierda, a la altura de la canaleta horizontal entre el riel 2 y el riel 3",
+   "colores": {
+    "Blanco": 1,
+    "Marrón": 1
+   }
+  }
+ ],
+ "salidas_otra_estacion": [
+  {
+   "destino": "LI",
+   "pt": [
+    543.6,
+    603
+   ],
+   "mm": [
+    63.1,
+    659.4,
+    20.0
+   ],
+   "cables": [
+    {
+     "num": "3142",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31XAI 1 ABAJO",
+     "estacion": "E8"
+    },
+    {
+     "num": "3141",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31XAI F1 ABAJO",
+     "estacion": "E8"
+    },
+    {
+     "num": "1204",
+     "cable": "R35MM",
+     "color": "Rojo",
+     "secc": "35",
+     "origen": "12F2",
+     "estacion": "E8"
+    },
+    {
+     "num": "1215",
+     "cable": "R35MM",
+     "color": "Rojo",
+     "secc": "35",
+     "origen": "12F2",
+     "estacion": "E8"
+    }
+   ],
+   "nota": "rutas que el programa manda a la salida LI pero se cablean en E8 (otra estación). Los de 35 mm² (1204, 1215) van en realidad a la zona hidráulica y a la batería, no al lateral."
+  }
+ ],
+ "bisagras": {
+  "puerta": {
+   "lado": "izquierdo (mirando el gabinete de frente)",
+   "bisagras": [
+    {
+     "pt": [
+      854.1,
+      233.5,
+      859.2,
+      252.5
+     ],
+     "mm": {
+      "min": [
+       5.0,
+       135.0,
+       428.0
+      ],
+      "max": [
+       13.0,
+       165.0,
+       428.0
+      ]
+     }
+    },
+    {
+     "pt": [
+      854.1,
+      613.8,
+      859.2,
+      632.8
+     ],
+     "mm": {
+      "min": [
+       5.0,
+       735.0,
+       428.0
+      ],
+      "max": [
+       13.0,
+       765.0,
+       428.0
+      ]
+     }
+    }
+   ],
+   "y_mm": [
+    150.0,
+    750.0
+   ],
+   "eje_mm": {
+    "x": 5.0,
+    "z": 430.0,
+    "direccion": [
+     0,
+     1,
+     0
+    ]
+   },
+   "apertura": "hacia afuera girando sobre el eje vertical izquierdo (rotación sobre +y de 0 a -130°: el borde libre, x = 800, va hacia +z)",
+   "angulo_max_grados": 130,
+   "fuente": "hoja 04 (vista posterior de puerta): 2 bisagras en el borde DERECHO de la hoja, que mirando de frente es el izquierdo; las cerraduras están del otro lado (hoja 03). Fotos E08 20 y 23: puerta abierta hacia la izquierda y el mazo espiral cruza por ese lado. 130° es de las bisagras del gabinete BATFER 66336 (supuesto)"
+  },
+  "sobrepuerta": {
+   "lado": "izquierdo (supuesto)",
+   "marco_mm": {
+    "x": [
+     180.0,
+     580.0
+    ],
+    "y": [
+     340.0,
+     800.0
+    ],
+    "z": 430.0
+   },
+   "fuente": "marco del visor 400 x 460 en la hoja 02 (como la \"overdoor\" del 66336); la cerradura con llave está a la derecha del marco (hoja 03), así que las bisagras van a la izquierda"
+  },
+  "cerraduras": [
+   {
+    "que": "arriba al centro",
+    "pagina": 4,
+    "pt": [
+     604.7,
+     500.0
+    ],
+    "mm": [
+     399.8,
+     845.3,
+     430.0
+    ]
+   },
+   {
+    "que": "derecha arriba (con llave)",
+    "pagina": 4,
+    "pt": [
+     747.4,
+     460.5
+    ],
+    "mm": [
+     738.5,
+     751.6,
+     430.0
+    ]
+   },
+   {
+    "que": "derecha abajo",
+    "pagina": 4,
+    "pt": [
+     747.4,
+     207.9
+    ],
+    "mm": [
+     738.5,
+     151.9,
+     430.0
+    ]
+   },
+   {
+    "que": "abajo al centro",
+    "pagina": 4,
+    "pt": [
+     604.7,
+     167.4
+    ],
+    "mm": [
+     399.8,
+     55.8,
+     430.0
+    ]
+   },
+   {
+    "que": "sobrepuerta / visor (con llave)",
+    "pagina": 4,
+    "pt": [
+     664.7,
+     384.2
+    ],
+    "mm": [
+     542.2,
+     570.4,
+     430.0
+    ]
+   }
+  ]
+ },
+ "objetos": [
+  {
+   "que": "bloque de válvulas (base de SP-1 / SP-2)",
+   "vista": "fondo",
+   "apoyado_en": "piso",
+   "pt": [
+    703.2,
+    135.2,
+    859.2,
+    184.8
+   ],
+   "caja_mm": {
+    "min": [
+     287.9,
+     0.4,
+     20.0
+    ],
+    "max": [
+     507.7,
+     70.3,
+     20.0
+    ]
+   },
+   "nota": "recuadro tomado del dibujo; profundidad desconocida"
+  },
+  {
+   "que": "fusibles de repuesto",
+   "vista": "lateral_izquierda",
+   "pt": [
+    265.0,
+    461.4,
+    314.6,
+    493.4
+   ],
+   "caja_mm": {
+    "min": [
+     25.0,
+     459.9,
+     209.7
+    ],
+    "max": [
+     25.0,
+     505.0,
+     279.6
+    ]
+   }
+  },
+  {
+   "que": "protección 220 V (pieza U 76251-1) sobre 11MS1",
+   "vista": "lateral_izquierda",
+   "pt": [
+    208.2,
+    338.1,
+    314.7,
+    409.1
+   ],
+   "caja_mm": {
+    "min": [
+     25.0,
+     286.2,
+     209.6
+    ],
+    "max": [
+     25.0,
+     386.2,
+     359.6
+    ]
+   }
+  },
+  {
+   "que": "portadocumentos",
+   "vista": "lateral_derecha",
+   "pt": [
+    829.0,
+    332.7,
+    929.0,
+    425.9
+   ],
+   "caja_mm": {
+    "min": [
+     775.0,
+     460.0,
+     103.0
+    ],
+    "max": [
+     775.0,
+     690.1,
+     349.9
+    ]
+   }
+  },
+  {
+   "que": "etiqueta de conexionado a campo",
+   "vista": "puerta",
+   "pt": [
+    449.7,
+    203.1,
+    556.1,
+    247.3
+   ],
+   "caja_mm": {
+    "min": [
+     483.2,
+     87.1,
+     428.0
+    ],
+    "max": [
+     651.1,
+     156.8,
+     428.0
+    ]
+   }
+  },
+  {
+   "que": "perfiles verticales soldados de la puerta",
+   "vista": "puerta",
+   "pt": [
+    404.7,
+    179.0,
+    439.6,
+    687.3
+   ],
+   "caja_mm": {
+    "min": [
+     667.0,
+     49.1,
+     428.0
+    ],
+    "max": [
+     722.1,
+     851.0,
+     428.0
+    ]
+   }
+  },
+  {
+   "que": "perfiles verticales soldados de la puerta",
+   "vista": "puerta",
+   "pt": [
+    803.4,
+    179.0,
+    838.3,
+    687.3
+   ],
+   "caja_mm": {
+    "min": [
+     38.0,
+     49.1,
+     428.0
+    ],
+    "max": [
+     93.1,
+     851.0,
+     428.0
+    ]
+   }
+  }
+ ],
+ "prensacables": {
+  "vista": "piso",
+  "pagina": 6,
+  "grupos": [
+   {
+    "que": "9 prensacables M16",
+    "zona": "adelante a la derecha"
+   },
+   {
+    "que": "4 prensacables grandes en placa (fila)",
+    "zona": "centro, adelante"
+   },
+   {
+    "que": "5 prensacables M16 + 1 M32",
+    "zona": "centro, atrás"
+   },
+   {
+    "que": "3 prensacables M25",
+    "zona": "atrás a la izquierda"
+   }
+  ],
+  "nota": "posiciones exactas con cotas en la vista inferior exterior (hoja 03, pág. 4); coinciden con los grupos de prensacables que asoman abajo en la vista lateral de la hoja 07 (adelante z 250-360 y atrás z 30-120)"
+ },
+ "techo": {
+  "aparatos": [],
+  "nota": "el plano no tiene vista del techo ni aparatos ahí: es la franja de 40 mm de arriba (techo/visera, y = 900 a 940) con los cáncamos de izaje en las esquinas (hoja 02)"
+ },
+ "verificaciones": [
+  {
+   "que": "placa de fondo (hoja 07)",
+   "pagina": 8,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    739.9,
+    820.1
+   ],
+   "esperado_mm": [
+    740,
+    820
+   ]
+  },
+  {
+   "que": "contorno del gabinete en la vista de frente (hoja 07)",
+   "pagina": 8,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    799.9,
+    940.0
+   ],
+   "esperado_mm": [
+    800,
+    940
+   ]
+  },
+  {
+   "que": "placa lateral izquierda (hoja 07)",
+   "pagina": 8,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    310.0,
+    809.9
+   ],
+   "esperado_mm": [
+    310,
+    810
+   ]
+  },
+  {
+   "que": "placa de fondo (hoja 08, con cotas)",
+   "pagina": 9,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    740.1,
+    820.0
+   ],
+   "esperado_mm": [
+    740,
+    820
+   ]
+  },
+  {
+   "que": "placa lateral (hoja 08, con cotas)",
+   "pagina": 9,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    310.0,
+    809.9
+   ],
+   "esperado_mm": [
+    310,
+    810
+   ]
+  },
+  {
+   "que": "contorno en la vista posterior de puerta (hoja 04)",
+   "pagina": 5,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    800.0,
+    939.9
+   ],
+   "esperado_mm": [
+    800,
+    940
+   ]
+  },
+  {
+   "que": "contorno de la vista de frente (hoja 05)",
+   "pagina": 6,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    800.0,
+    940.0
+   ],
+   "esperado_mm": [
+    800,
+    940
+   ]
+  },
+  {
+   "que": "vista inferior (hoja 05)",
+   "pagina": 6,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    800.0,
+    400.0
+   ],
+   "esperado_mm": [
+    800,
+    400
+   ]
+  },
+  {
+   "que": "vista inferior exterior (hoja 03)",
+   "pagina": 4,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    799.8,
+    399.8
+   ],
+   "esperado_mm": [
+    800,
+    400
+   ]
+  },
+  {
+   "que": "vista de frente exterior (hoja 02)",
+   "pagina": 3,
+   "encontrado_en_pdf": true,
+   "medida_mm": [
+    800.0,
+    939.9
+   ],
+   "esperado_mm": [
+    800,
+    940
+   ]
+  },
+  {
+   "que": "11MS1 (llave general) en el lateral izquierdo contra el agujero de su manija por fuera",
+   "relevado_mm": {
+    "y": 340.4,
+    "z": 319.5
+   },
+   "plano_mm": {
+    "y": 345,
+    "z": 320,
+    "fuente": "hoja 03: 345 del piso y 80 del frente (320 desde el fondo)"
+   }
+  },
+  {
+   "que": "46DB1 (parada de emergencia) en la puerta contra su agujero Ø22 por fuera",
+   "relevado_mm": {
+    "x": 484.8,
+    "y": 234.1
+   },
+   "plano_mm": {
+    "x": 485,
+    "y": 231,
+    "fuente": "hoja 03: cotas 290 + 110 + 85 = 485 desde la izquierda; altura medida"
+   }
+  },
+  {
+   "que": "13SH1 (selectora) en la puerta contra la perilla que asoma en el frente (hoja 02)",
+   "relevado_mm": {
+    "x": 518.4,
+    "y": 464.8
+   },
+   "plano_mm": {
+    "x": 508,
+    "y": 473,
+    "fuente": "hoja 02: perilla al borde derecho del panel, bajo el cartel (1); medida en el dibujo, ±10 mm"
+   }
+  },
+  {
+   "que": "bisagras de la puerta contra las cerraduras del lado opuesto",
+   "relevado_mm": {
+    "bisagras_y": [
+     150.0,
+     750.0
+    ]
+   },
+   "plano_mm": {
+    "cerraduras_y": [
+     751.6,
+     151.9
+    ]
+   }
+  },
+  {
+   "que": "lateral izquierdo de la hoja 07 contra el de la hoja 05 (misma pared, otra escala)",
+   "relevado_mm": {
+    "rieles_y": [
+     649.4,
+     339.9
+    ],
+    "placa_y": [
+     50.0,
+     860.0
+    ]
+   },
+   "plano_mm": {
+    "rieles_y": [
+     649.4,
+     339.7
+    ],
+    "placa_y": [
+     50.1,
+     860.0
+    ]
+   }
+  },
+  {
+   "que": "fotos E08 del 75286-1 (disco G:)",
+   "resultado": "la puerta abre hacia la izquierda (fotos 0, 2, 20, 23); la pared con 12PS2, 12XPS, repuesto de fusibles, 11MS1 y 11XP es la que está junto a la bisagra = lateral IZQUIERDO (fotos 7, 12, 20, 34, 36, 38); 13SH1 a la izquierda de la placa vista desde adentro (31-33); 46DB1 abajo junto a la etiqueta de conexionado a campo (35); válvulas SP-1/SP-2 abajo en el piso (19, 21); motor de la bomba con el contactor (16)"
+  }
+ ],
+ "supuestos": [
+  "Placa de fondo: cara de montaje a z = 20.0 mm de la cara exterior del fondo. El plano no lo acota; es donde terminan los perfiles soldados de las paredes (hojas 05 y 07) y en el 66336 la placa va pegada al fondo.",
+  "Placa lateral izquierda: cara de montaje a x = 25.0 mm (pared 1,5 + perfil soldado + placa 1,5). Sin cota.",
+  "Lateral derecho: aparatos a x = 775.0 mm (sobre el perfil soldado). Sin cota.",
+  "Puerta: cara interior de la chapa a z = 428.0 mm con la puerta cerrada (puerta de 30 mm de 400 a 430, medida en la vista lateral de la hoja 07; chapa de 1,5 mm supuesta).",
+  "Interior del gabinete (797 x 897 x 398,5) = exterior menos chapa de 1,5 mm: no está en el plano.",
+  "Ángulo máximo de la puerta 130°: es de las bisagras del gabinete BATFER 66336, el plano del 75441 no lo dice.",
+  "Sobrepuerta (visor) con bisagras a la izquierda: se deduce de la cerradura con llave a la derecha del marco.",
+  "Profundidad de las canaletas: 80 mm en la placa de fondo (rótulo CD 40x80), 40 en la puerta (CD 40x40) y 40 supuesto en el lateral izquierdo (sin rótulo).",
+  "La profundidad (z) de los aparatos no está en el plano (salvo la batería, que se ve de costado): etiqueta_mm y centro_mm van en la cara de su placa.",
+  "Batería 12PB1: x e y de la vista de frente; z de la vista lateral de la hoja 07 (85 a 352). La vista inferior de la hoja 05 la dibuja ~20 mm más adelante (101 a 371).",
+  "Títulos de las vistas: en la hoja 05 \"VISTA DERECHA\" es la pared IZQUIERDA vista desde adentro y \"VISTA IZQUIERDA\" la DERECHA; en la hoja 02 las dos vistas exteriores dicen \"VISTA IZQUIERDA\". Se tomó la pared por la geometría (dónde está la puerta en cada vista, agujero de 11MS1 a 80 del frente) y por las fotos E08.",
+  "Cotas 95, 50 y 250 del lateral derecho (hoja 05) no coinciden con la escala del dibujo (dan 60, 42 y 242): se usó la geometría. 41DS queda a 0-60 mm del frente del cuerpo (la cota diría 95).",
+  "21PCB01 (placa de la puerta) no tiene etiqueta en el topográfico: se ubicó por el dibujo \"PROTECTOR PLACA E2.5\" y las fotos.",
+  "Vistas exteriores (hoja 02): se incluyen solo para texturas o carteles; los aparatos se ubican con las vistas interiores."
+ ],
+ "dudas": [
+  "PT 001 (transmisor de presión, cables 3141/3142) y BH-01-ZV (contactor de la bomba, cables 1204 y 6202) no tienen etiqueta en el topográfico: por las fotos, BH-01-ZV va sobre el motor de BH-01-M; PT 001 no se ubicó.",
+  "SP-1 y SP-2 están etiquetados en el topográfico (solenoides del bloque de válvulas, abajo en el piso) pero el lector del funcional no los tiene entre sus componentes (ver dudas de cables_e8.json).",
+  "¿Las placas lateral y de fondo están a las profundidades supuestas (x = 25, z = 20)? Si en el taller se mide, se cambian las constantes del script y se regenera."
+ ]
+}

@@ -16,9 +16,10 @@ from textdec import bbox
 TAG_RE = re.compile(r'(?<![A-Z0-9])(?!\d+V(?:DC|AC|CC)?(?![A-Z0-9]))(\d{2}[A-Z][A-Z0-9]{1,7}|X[A-Z]{0,2}\d{1,2})(?![A-Z0-9])')
 # referencia a otra hoja: '(Sh13:D5)', '(Sh15:B2/D2/E2)' (una flecha que va a varias zonas), '(Sh: 61:E4)'
 SHREF_RE = re.compile(r'\(\s*Sh\s*:?\s*(\d+)[A-Z]?\s*[:;.]\s*([A-F]\d)(?:\s*/\s*[A-F]\d)*\s*\)', re.I)
-# equipos de campo con tag de planta: 'BH-01-ZV', 'BH-01-M', 'PT 001' / 'PT-001' (numero de lazo con 0 adelante),
+# equipos de campo con tag de planta: 'BH-01-ZV', 'BH-01-M', 'SP-1' (solenoide de la valvula 1, 75287 hoja 62),
+# 'PT 001' / 'PT-001' (numero de lazo con 0 adelante),
 # valvula 'ZY(N/C)' / 'ZY(N/O)' (la fuente SHX dibuja la O y el 0 con el mismo trazo: 'ZY(N/0)')
-FIELD_RE = re.compile(r'^(?:[A-Z]{2}-\d{2}(?:-[A-Z]{1,2})?|[A-Z]{2,3}[ -]0\d{2}|[A-Z]{2,3}\s?\(N\s?/\s?[CO0]\))$')
+FIELD_RE = re.compile(r'^(?:[A-Z]{2}-\d{2}(?:-[A-Z]{1,2})?|[A-Z]{2}-[1-9]|[A-Z]{2,3}[ -]0\d{2}|[A-Z]{2,3}\s?\(N\s?/\s?[CO0]\))$')
 ISA_ESTADO_RE = re.compile(r'\s?\(N\s?/\s?[CO0]\)$')   # 'ZY(N/C)' -> tag 'ZY' (el estado del contacto no es parte del tag)
 # rotulos de borne; ademas de los numeros y '+Vo': los que llevan el signo al final ('V+', 'V-', 'D1+', 'D1-' del MOXA)
 LABEL_RE = re.compile(r'^([+-]|\d{1,3}|[A-Z]\d{1,2}|N|L|PE|F\d?|[+-]V[a-zA-Z]{0,3}\d?|\([+-]\)|[A-Z]{1,2}\(\d{1,2}\)?|L-\d|N-\d|\d{1,3}\s*\([+-]\)|[A-Z]\d?[+-])$')
@@ -217,6 +218,9 @@ def describe_end(pg, sym, p, direction, cable_nums):
         p, direction = q
     circ = sym.circle_at(p)
     center = (circ[0], circ[1]) if circ else p
+    # polo / pin redondo grande (bateria 12PB1, pines de la placa 21PCB01 del 75287): no es un borne de bornera, pero
+    # la punta es un pin del aparato igual que un circulo
+    rnd = None if circ else sym.round_at(p)
     # componente: referencia (TAG) mas cercana, tambien dentro de textos largos "(21PCB01)"
     tags = []; campo = []; kr_mod = {}
     if '_sint' not in pg:   # tags armados con dos textos: burbuja 'PT'/'001', 'BH-01' + '-M'
@@ -225,7 +229,7 @@ def describe_end(pg, sym, p, direction, cable_nums):
         pg['_pistas'] = pistas_de_flecha(lines, sym)
     for l in lines + pg['_sint']:
         t = l['text'].strip()
-        if ':' in t or (circ and id(l) in pg['_pistas']):
+        if ':' in t or ((circ or rnd) and id(l) in pg['_pistas']):
             continue      # (la pista de una flecha, '43DIB1' encima de '(Sh43:A4)', nombra el destino, no este borne)
         t2 = re.sub(r'^(\d{2}) ([A-Z][A-Z0-9]{1,7})$', r'\1\2', t)    # '31 AIB1': la fuente SHX deja un espacio
         mkr = re.fullmatch(r'(\d{2}[A-Z]{0,3}KR)\.(\d{1,2})', t2)     # '61KR.3': modulo 3 del rele 61KR
@@ -251,11 +255,13 @@ def describe_end(pg, sym, p, direction, cable_nums):
         # o de una bornera se escribe una sola vez arriba de la columna, aunque quede lejos de los ultimos bornes)
         tag = tag_de_columna(sym, center, tags, u) or ''
     tag_cercano = tag
+    por_recuadro = False
     # referencia dentro del recuadro (aparato o marco) mas chico que contiene la punta
     for bx in sym.boxes_around(p):
         inside = [t for t in tags if bx[0] <= t[2]['bbox'][0] and t[2]['bbox'][2] <= bx[2] and bx[1] <= t[2]['bbox'][1] and t[2]['bbox'][3] <= bx[3]]
         if inside:
             tag = min(inside, key=lambda t: t[0])[1]
+            por_recuadro = True
             break
     else:
         borde = not circ and sym.on_box_edge(p)   # llega al borde de un recuadro sin referencia dentro
@@ -282,6 +288,23 @@ def describe_end(pg, sym, p, direction, cable_nums):
                     entre = [t for t in tags if t is not best and abs(cx(t) - center[0]) < 45 * u and center[1] < cy(t) < cy(best)]
                     if not entre:
                         tag = best[1]
+    if circ and not por_recuadro and not is_terminal_block(tag):
+        # bornera dibujada en FILA (un borne al lado del otro): su rotulo va una sola vez a la IZQUIERDA del primero, a la
+        # altura de los bornes, y nombra los de su DERECHA hasta el proximo tag (regla del taller). 75287 hoja 12: '12XPS'
+        # a la izquierda del borne 1; los bornes 4 a 10 tomaban el cargador 12PS2 de arriba (el tag mas cercano) o nada
+        cy = lambda t: (t[2]['bbox'][1] + t[2]['bbox'][3]) / 2
+        ys = [k[1] for k in sym.column(circ, True)]
+        if len(ys) > 2:
+            ys = [circ[1]]
+        y0f, y1f = min(ys) - 4 * u, max(ys) + 4 * u
+        fila = [t for t in tags if is_terminal_block(t[1]) and y0f <= cy(t) <= y1f and t[2]['bbox'][2] < center[0] - circ[2]
+                and center[0] - t[2]['bbox'][2] < 900 * u]
+        if fila:
+            best = max(fila, key=lambda t: t[2]['bbox'][2])
+            entre = [t for t in tags if t is not best and best[2]['bbox'][2] < t[2]['bbox'][0] and t[2]['bbox'][2] < center[0]
+                     and y0f - 8 * u <= cy(t) <= y1f + 8 * u]
+            if not entre:
+                tag = best[1]
     if not tag:   # hoja de distribucion de una placa: 'Placa electronica E2.5 (21PCB01)'
         m = re.search(r'\((\d{2}[A-Z][A-Z0-9]{1,7})\)', pg['meta'].get('title', ''))
         if m:
@@ -304,8 +327,8 @@ def describe_end(pg, sym, p, direction, cable_nums):
                 col = [circ]
     anchors = [(k[0], k[1]) for k in col] if len(col) == 4 and is_terminal_block(tag) else [center]
     # polo redondo grande (bateria 12PB1 del 75287, 11.5 pt): su '+'/'-' se mide desde el centro (del lado opuesto al
-    # cable queda a mas de 22u de la punta). Solo el polo: los pines redondos de una placa siguen con la punta
-    rnd = None if circ else sym.round_at(p)
+    # cable queda a mas de 22u de la punta). Los pines redondos de una placa siguen con la punta, salvo su NUMERO alineado
+    # con el pin (justo arriba o abajo: 75287 hoja 21, el '34' del pin queda a 22,08 pt de la punta y a 15 del centro)
     Hn = 7.93 * u   # alto de los numeros de cable de este plano
     # rotulo del borne: texto corto valido mas cercano (sin confundir el circulito con un '0')
     cands = []
@@ -327,7 +350,7 @@ def describe_end(pg, sym, p, direction, cable_nums):
         if any(dist(bc, (k[0], k[1])) < k[2] + 0.8 and max(b[2] - b[0], b[3] - b[1]) < 2 * k[2] + 1.5 for k in sym.circles + ([rnd] if rnd else [])):
             continue   # es el propio simbolo del borne
         d = min(box_dist(a, b) for a in anchors)
-        if rnd and t2 in ('+', '-'):
+        if rnd and (t2 in ('+', '-') or (re.fullmatch(r'\d{1,3}', t2) and (b[0] <= rnd[0] <= b[2] or b[1] <= rnd[1] <= b[3]))):
             d = min(d, box_dist((rnd[0], rnd[1]), b))
         if t2 in ('+', '-') and any(bbox_gap(b, tr) < min(d, 8 * u) for tr in sym.tris):
             continue   # el '+' de una flecha de alimentacion (triangulo) que esta al lado, no el polo de esta punta
@@ -404,9 +427,9 @@ def describe_end(pg, sym, p, direction, cable_nums):
     if re.fullmatch(r'\d{2}Q\d+', tag) and borne in ('1', '2', '3', '4'):
         borne = 'F' if borne in ('1', '2') else 'N'
     tit = re.search(r'\((\d{2}[A-Z][A-Z0-9]{1,7})\)', pg['meta'].get('title', ''))
-    if circ and tit and borne and not punto and not modulo and tag == tag_cercano and tag != tit.group(1) and (not tags or tags[0][0] > 80 * u):
-        # hoja de distribucion de una placa ('Electronic Board (21PCB01)'): sus pines numerados (circulos) son de ese
-        # aparato aunque haya otro tag a media distancia (la descripcion de un canal, '12PB1 Power Battery')
+    if (circ or rnd) and tit and borne and not punto and not modulo and tag == tag_cercano and tag != tit.group(1) and (not tags or tags[0][0] > 80 * u):
+        # hoja de distribucion de una placa ('Electronic Board (21PCB01)'): sus pines numerados (circulos o pines redondos)
+        # son de ese aparato aunque haya otro tag a media distancia (la descripcion de un canal, '12PB1 Power Battery')
         tag = tit.group(1)
     return dict(tipo='borne', tag=tag + modulo, tag_base=tag, borne=borne, borde=borde, punto=punto, lado=lado,
                 vertical=vertical, circulo=bool(circ), p=[round(p[0], 1), round(p[1], 1)])
@@ -867,6 +890,26 @@ def pin_box_on_chain(pg, sym, g, c, tol=1.0):
     return None
 
 
+def circulo_en_cadena(sym, g, c, tol=0.8):
+    """borne (circulo) que la cadena c atraviesa en el MEDIO: el cable llega al borne y del mismo circulo sigue hacia
+    otro (75287 hoja 81: 2135 baja en diagonal a 12XPS 7 y de ese circulo sale hacia 81XCM 11; la union es en el borne).
+    -> (punto, direccion hacia el cable) o None"""
+    puntas = [g.nodes[k] for k in g.chain_end_keys(c)]
+    segs = [g.segs[s][:2] for s in g.chains[c]]
+    for a, b in segs:
+        for p in (a, b):
+            if any(dist(p, q) <= 1.5 for q in puntas):
+                continue
+            k = sym.circle_at(p, tol)
+            if not k or dist(p, (k[0], k[1])) > k[2] + tol:
+                continue
+            inc = [(q2[0] - p[0], q2[1] - p[1]) for s0, s1 in segs for p2, q2 in ((s0, s1), (s1, s0))
+                   if dist(p2, p) < 0.3 and dist(q2, p) > 0.3]
+            rectos = [v for v in inc if abs(v[0]) < 0.3 or abs(v[1]) < 0.3]     # el tramo recto que sale del borne
+            return p, (rectos or inc or [(0.0, 0.0)])[0]
+    return None
+
+
 def unidad(res, pg, cable_nums):
     """escala del dibujo respecto del plano con que se calibraron los umbrales en pt (A1 75287): core la mide como la
     altura del texto de los numeros de cable / 7.93 pt (res.k: 1.0 en el A1, ~0.54 en un A3). Respaldo si no esta:
@@ -1187,7 +1230,24 @@ def conductors(res):
                         ns.append(f'{pg["index"]}:paso{q[0]:.1f},{q[1]:.1f}')
                 if len(ns) == 2 and ns[0] and ns[1] and ns[0] != ns[1]:
                     bx = pin_box_on_chain(pg, sym, g, c)
-                    if bx:        # el recorrido pasa por el borde de un pin: ese pin es un borne en el medio (puente)
+                    cm = None if bx else circulo_en_cadena(sym, g, c)
+                    dm = None
+                    if cm:        # el recorrido pasa por un borne (circulo): ese borne es la union (puente)
+                        nid_c = f'{pg["index"]}:{cm[0][0]:.1f},{cm[0][1]:.1f}'
+                        dm = nodes.get(nid_c)
+                        if dm is None:
+                            dm = describe_end(pg, sym, cm[0], cm[1], cable_nums)
+                            dm.update(hoja=pg['meta'].get('sheet', str(pg['index'])), pag=pg['index'], alt=alternativa(pg, cm[0]))
+                        # (si una punta de la cadena ya es ese mismo borne, no es una union: 75287 hoja 62, 1308 pasa
+                        # por C(11) de 62KR1 y sigue hasta el punto del puente FBS del mismo borne)
+                        if dm.get('tipo') != 'borne' or not dm.get('borne') or any(
+                                (nodes.get(x) or {}).get('tag') == dm.get('tag') and (nodes.get(x) or {}).get('borne') == dm.get('borne') for x in ns):
+                            dm = None
+                        else:
+                            nodes[nid_c] = dm
+                    if dm is not None:
+                        edges += [(ns[0], nid_c), (nid_c, ns[1])]
+                    elif bx:      # el recorrido pasa por el borde de un pin: ese pin es un borne en el medio (puente)
                         nid = f'{pg["index"]}:pin{bx[0]:.1f},{bx[1]:.1f}'
                         if nid not in nodes:
                             c0 = ((bx[0] + bx[2]) / 2, (bx[1] + bx[3]) / 2)
@@ -1226,11 +1286,17 @@ def conductors(res):
                     adj[nid].add(nid2); adj[nid2].add(nid)
         terms = [n for n, d in nodes.items() if d['tipo'] == 'borne']
         # mismo borne dibujado en dos hojas -> un solo nodo
-        canon = {}
+        # (el nodo que representa al borne es el primero dibujado con su simbolo, circulo o borde de pin, si hay: el pin
+        # redondo de la hoja de distribucion de una placa no cambia el nodo de siempre)
+        clave = lambda d: (d['tag'], d['borne'], d['punto'], d['lado']) if d['tag'] and d['borne'] else None
+        clases = collections.defaultdict(list)
         for n in terms:
-            d = nodes[n]
-            key = (d['tag'], d['borne'], d['punto'], d['lado']) if d['tag'] and d['borne'] else None
-            canon[n] = next((m for m in canon.values() if key and (nodes[m]['tag'], nodes[m]['borne'], nodes[m]['punto'], nodes[m]['lado']) == key), n)
+            clases[clave(nodes[n]) or ('', n)].append(n)
+        canon = {}
+        for ms in clases.values():
+            rep = next((m for m in ms if nodes[m].get('circulo') or nodes[m].get('borde')), ms[0])
+            for m in ms:
+                canon[m] = rep
         # mismo borne de rele dibujado en dos hojas con el numero de modulo leido en una sola: '61KR A1' (sin modulo) es
         # el '61KRn A1' de ESTE cable si hay uno solo con ese borne
         for n in terms:
@@ -1588,6 +1654,8 @@ def build(res, lay, max_lineas=7):
             if not ta and not tb:
                 desc, col, sec = desc_de(ea, eb)
                 pendientes.append(dict(num=num, cable=desc, color=col, secc=sec, a=fmt_terminal(ea), b=fmt_terminal(eb)))
+                if ea.get('fuera') or eb.get('fuera'):
+                    pendientes[-1]['destino_campo'] = True      # (EPLAN: una punta de campo, 'LI'; no es de E8)
                 if nota_alt:
                     pendientes[-1]['alternativa'] = nota_alt
                 if confirmar_montaje:
@@ -1619,6 +1687,13 @@ def build(res, lay, max_lineas=7):
                 # la otra punta es un aparato que se cablea en otra estacion (ej. la zona hidraulica en E8): en la
                 # lista de esa estacion va su texto real, no 'LI'
                 lineas[-1]['_dreal'] = base_txt(d, num)[1]
+            if not bandeja(d) and not d.get('fuera'):
+                # E8 (gabinete): la otra punta del cable que en E6 dice 'LI' / 'LD' (se conecta en el gabinete)
+                lineas[-1]['destino_e8'] = base_txt(d, num)[1]
+            elif not bandeja(d):
+                # la otra punta esta fuera de todo (cable de campo de EPLAN: ROTORK, PIT01F...): lo conecta el cliente en
+                # la obra; E8 no lo cuenta como 'sin la otra punta'
+                lineas[-1]['destino_campo'] = True
             if con_lista:
                 # EPLAN: cada renglon de la lista de conexiones es un tramo real (aunque dos tramos de la misma punta
                 # de la bandeja a dos puntos distintos de afuera se escriban igual, 'X 1 -> LI')
@@ -1628,6 +1703,7 @@ def build(res, lay, max_lineas=7):
     def sintetico(txt):
         """punta armada desde su texto ('XPE 1 ARRIBA', '13XC1 2.1', '11PS1 L-3'): fmt_terminal(e) == txt"""
         return punta_sintetica(txt, comp)
+    a_li = []                      # agregados a mano a 'LI' (la otra punta para E8 se busca abajo)
     for a in lay.get('agregar') or []:
         eo = sintetico(a['origen']); ed = None if a['destino'] in ('LI', 'LD') else sintetico(a['destino'])
         if not bandeja(eo):
@@ -1641,6 +1717,10 @@ def build(res, lay, max_lineas=7):
                            componente=eo['tag'], fila=bandeja(eo)['fila'], zona=zona(eo['tag_base']), lado='arriba' if lado(eo, num) == 0 else 'abajo',
                            orden=key(eo, num), puente=sum(1 for x in lay.get('agregar') or [] if x['num'] == num) > 1,
                            hojas=[a['hoja']] if a.get('hoja') else [], agregado=a.get('nota') or 'agregado a mano', **funcional(eo, ed, num)))
+        if ed and not bandeja(ed):
+            lineas[-1]['destino_e8'] = a['destino']        # E8: la otra punta del 'LI' (se conecta en el gabinete)
+        elif not ed:
+            a_li.append((lineas[-1], a))
     # pendientes fantasma: las dos puntas en el mismo aparato y una sin borne (ej. '21PCB01 48 <-> 21PCB01')
     pendientes = [x for x in pendientes if not (x['a'].split(' ')[0] == x['b'].split(' ')[0] and (' ' not in x['a'] or ' ' not in x['b']))]
     quitar = set(lay.get('pendientes_quitar') or [])
@@ -1648,10 +1728,40 @@ def build(res, lay, max_lineas=7):
     for num, t in (lay.get('pendientes_texto') or {}).items():
         for x in pendientes:
             if x['num'] == num:
-                x.update({k: v for k, v in t.items() if k in ('a', 'b')})
+                nuevo = {k: v for k, v in t.items() if k in ('a', 'b')}
+                if len(nuevo) == 1:
+                    # una sola punta corregida ('41DS' -> '41DS 1'): va en la punta del MISMO aparato, aunque el lector
+                    # la haya dejado del otro lado del pendiente
+                    k, v = next(iter(nuevo.items()))
+                    otro = 'b' if k == 'a' else 'a'
+                    ap = lambda s: (s or '').split(' ')[0]
+                    if ap(x[k]) != ap(v) and ap(x[otro]) == ap(v):
+                        nuevo = {otro: v}
+                x.update(nuevo)
     for x in lay.get('pendientes_agregar') or []:
+        # (si el lector ya arma ese mismo tramo, queda el agregado a mano, con su nota: no se repite)
+        par_x = (x['num'], frozenset((x['a'], x['b'])))
+        pendientes = [p_ for p_ in pendientes if p_.get('agregado') or (p_['num'], frozenset((p_['a'], p_['b']))) != par_x]
         pendientes.append(dict(num=x['num'], cable=x.get('cable', ''), color=x.get('color', ''), secc=x.get('secc', ''), a=x['a'], b=x['b'],
                                agregado=x.get('nota') or 'agregado a mano'))
+    # E8: la otra punta de un cable agregado a mano a 'LI' (una malla a trazos que el lector no sigue). Si el funcional
+    # tiene UNA sola punta de ese numero fuera de la bandeja que no esta en ningun tramo (75287 hoja 21: la malla 2134
+    # sale del pin 34 de 21PCB01, la union de las dos mallas), es esa; y si esa punta esta en un pendiente del mismo
+    # numero, el agregado llega a la otra punta del pendiente (2137: 81XCM 13 -> empalme junto a 12XPS <-> 21PCB01 37)
+    for l, a in a_li:
+        c = cs.get(a['num'])
+        if not c:
+            continue
+        en_tramo = {n for par in c['pares'] for n in par}
+        propias = {a['origen'], a['destino']}
+        sueltas = sorted({fmt_terminal(c['nodes'][n]) for n in c['bornes'] if n not in en_tramo and not bandeja(c['nodes'][n])} - propias)
+        sueltas = [t for t in sueltas if not t.startswith('?')]
+        if len(sueltas) != 1:
+            continue
+        x_ = sueltas[0]
+        otra = [p_['b'] if p_['a'] == x_ else p_['a'] for p_ in pendientes if p_['num'] == a['num'] and x_ in (p_['a'], p_['b'])]
+        l['destino_e8'] = otra[0] if len(otra) == 1 else x_
+        l['destino_e8_de'] = 'funcional'
     sq = set(lay.get('sueltos_quitar') or [])
     sueltos = [x for x in sueltos if x['num'] not in sq]
     # ---- ruteo por los cablecanales del topografico
@@ -1820,7 +1930,37 @@ def build(res, lay, max_lineas=7):
                      if (n, t) in vivos]
     return dict(pasos=pasos, pendientes=sorted(pendientes, key=lambda x: natk(x['num'])),
                 sueltos=sueltos, otra_estacion=otra, componentes=comp, topo=topo, accesorios=lay.get('accesorios') or [],
-                alternativas=alts, lado_fisico=lado_fisico_l)
+                alternativas=alts, lado_fisico=lado_fisico_l, filas_pin=filas_de_pines(cs, en_bandeja, comp))
+
+
+def filas_de_pines(cs, en_bandeja, comp):
+    """filas de pines numerados de los aparatos de AFUERA de la bandeja, como estan dibujados en el funcional: en la hoja
+    donde el aparato tiene dos o mas filas de pines (3 o mas pines cada una, numerados de izquierda a derecha), de abajo
+    hacia arriba. 75287 hoja 21: 21PCB01 abajo 1-37, arriba 38-69. -> {tag: [[min, max] fila de abajo, [min, max], ...]}
+    E8 los cablea fila por fila (la de abajo primero) y los dibuja cada uno en su fila."""
+    pins = collections.defaultdict(dict)          # (tag, pag) -> {numero: (x, y)}
+    for c in cs.values():
+        for e in c['nodes'].values():
+            if e.get('tipo') != 'borne' or not e.get('p') or e.get('texto') or is_terminal_block(e.get('tag_base')):
+                continue
+            if not re.fullmatch(r'\d{1,3}', e.get('borne') or '') or en_bandeja(comp.get(e.get('tag_base'))):
+                continue
+            pins[(e['tag'], e.get('pag'))][int(e['borne'])] = tuple(e['p'])
+    out = {}
+    for (tag, pag), ps in pins.items():
+        filas = []
+        for n, (x, y) in sorted(ps.items(), key=lambda kv: kv[1][1]):
+            if filas and abs(y - filas[-1][-1][2]) < 6:
+                filas[-1].append((n, x, y))
+            else:
+                filas.append([(n, x, y)])
+        filas = [f for f in filas if len(f) >= 3]
+        ok = len(filas) >= 2 and all([q[0] for q in sorted(f, key=lambda q: q[1])] == sorted(q[0] for q in f) for f in filas)
+        rangos = [[min(q[0] for q in f), max(q[0] for q in f)] for f in filas]
+        if ok and all(a[1] < b[0] or b[1] < a[0] for i, a in enumerate(rangos) for b in rangos[i + 1:]):
+            if tag not in out or sum(r[1] - r[0] for r in rangos) > sum(r[1] - r[0] for r in out[tag]):
+                out[tag] = rangos
+    return out
 
 
 def linea_txt(l):
