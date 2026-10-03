@@ -2,7 +2,8 @@
 Hace lo mismo que web.py gen_instructivo (overrides, correcciones.json, mapeo automatico de bornes, bornes.json,
 bornes_usuario), sin escribir en el trabajo salvo el cache del mapeo (bornes_auto.json).
 uso: python volcar_trabajo.py <carpeta_trabajo> <salida.json> [--relayout] [--sin-mapeo] [--sin-cache]
-  --relayout:  vuelve a leer el topografico (topo.layout) en vez de usar layout.json
+  --relayout:  vuelve a leer el topografico (topo.layout) en vez de usar layout.json. Como en la web, tambien se
+               vuelve a leer (sin escribir layout.json) si layout.json es de otra version del lector (topo.layout_al_dia)
   --sin-mapeo: como antes de integrar el mapeo automatico (solo bornes.json / correcciones.json)
   --sin-cache: calcula el mapeo de nuevo y no escribe bornes_auto.json"""
 import os, sys, json, os, glob, time
@@ -18,7 +19,8 @@ t_func = time.time() - t0
 TOPO = os.path.join(JOB, 'topografico.pdf')
 if not os.path.exists(TOPO) and getattr(res, 'eplan', False):
     TOPO = os.path.join(JOB, est['archivo'])        # EPLAN: la hoja de bandejas viene en el mismo PDF
-if '--relayout' in sys.argv or not os.path.exists(os.path.join(JOB, 'layout.json')):
+if ('--relayout' in sys.argv or not os.path.exists(os.path.join(JOB, 'layout.json'))
+        or not topo.layout_al_dia(os.path.join(JOB, 'layout.json'))):     # (como web.gen_instructivo)
     lay = topo.layout(TOPO, known_tags(res), log=lambda m: None)
 else:
     lay = json.load(open(os.path.join(JOB, 'layout.json'), encoding='utf-8'))
@@ -38,6 +40,11 @@ corr = json.load(open(cj, encoding='utf-8')) if os.path.exists(cj) else None
 if corr:
     for tag, c in (corr.get('componentes') or {}).items():
         lay['comp'][tag] = dict(lay['comp'].get(tag) or {}, ubic='BANDEJA', fila=c['fila'], x=c['x'], y=c['y'], leido=tag)
+    # (antes del mapeo, como gen_instructivo: los conductores agregados a mano tambien se ubican en el topografico)
+    for k in ('agregar', 'pendientes_agregar', 'pendientes_texto', 'pendientes_quitar', 'sueltos_quitar', 'accesorios'):
+        lay[k] = corr.get(k) or ([] if k != 'pendientes_texto' else {})
+# (antes del mapeo, como gen_instructivo: los puntos ajustados en el visor mandan y su texto no se renombra)
+lay['bornes_usuario'] = old.get('bornes_usuario') or {}
 t1 = time.time()
 mapeo = None
 if '--sin-mapeo' in sys.argv:
@@ -55,10 +62,6 @@ else:
     import bornes as mapeo_bornes
     mapeo = mapeo_bornes.aplicar_al_layout(res, lay, JOB, TOPO, cache='--sin-cache' not in sys.argv)
 t_mapeo = time.time() - t1
-if corr:
-    for k in ('agregar', 'pendientes_agregar', 'pendientes_texto', 'pendientes_quitar', 'sueltos_quitar', 'accesorios'):
-        lay[k] = corr.get(k) or ([] if k != 'pendientes_texto' else {})
-lay['bornes_usuario'] = old.get('bornes_usuario') or {}
 lay['estaciones'] = old.get('estaciones') or {}; lay['estacion'] = old.get('estacion') or 'E6'
 lay['estacion_auto'] = old.get('estacion_auto') or {'seccion_min': 35, 'estacion': 'E8'}
 ins = build(res, lay)

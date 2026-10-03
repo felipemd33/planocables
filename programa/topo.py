@@ -5,7 +5,9 @@ Cada estandar de dibujo llama distinto a las capas y dibuja distinto las cosas; 
 - las capas se reconocen por patron (RX_*): 'RIEL DIN' / '_IGV_Riel DIN', 'TABLERO' / '_IGV_Envolvente', ...
 - los rieles DIN se leen como TRAMOS DE PERFIL: un rectangulo cerrado (el perfil es el lado corto) o un grupo de
   lineas paralelas de todo el largo (el perfil es el alto del grupo). Los aparatos tapan el riel: a veces solo
-  asoma un tramo corto entre dos aparatos, y eso alcanza.
+  asoma un tramo corto entre dos aparatos, y eso alcanza. Los tramos dibujados como rectangulo en OTRAS capas se
+  reconocen por el perfil (rieles_geometria), y la bandeja son todos los rieles que caen dentro de su placa.
+- las etiquetas verticales partidas ('1', '1', 'XP' = 11XP) se unen antes de buscar los componentes (unir_partidas).
 - la medida de referencia del dibujo es el PERFIL DEL RIEL H (riel TS35 = 35 mm): todas las distancias van en
   perfiles, no en puntos fijos (en el 75441, 1:4, H = 24.8 pt; en el 66817, 1:5, H = 19.6 pt).
 - la escala mm/pt sale de las cotas contra la placa si coincide con la del riel (+-3 %); si no, del riel mismo
@@ -16,6 +18,12 @@ from pdfvec import page_strokes, layer_names
 from textdec import Decoder, page_text, bbox, DSU
 
 TAG_TXT = re.compile(r'\d{2}[A-Z][A-Z0-9]{0,7}')
+
+# Version del LECTOR del topografico (topo.layout y ruteo.ducts; la de las hojas de bandejas de EPLAN esta en
+# eplan.VERSION_LECTOR). Se guarda en layout.json ('version_lector') y, si cambia, web.gen_instructivo vuelve a leer el
+# topografico de un trabajo existente al regenerar (lo del usuario esta en instructivo.json y se conserva).
+# SUBIRLA cada vez que cambie la lectura: rieles, etiquetas, placa, canaletas, escala...
+VERSION_LECTOR = '2026.10.02-r3'
 
 # capas por patron
 RX_RIEL = re.compile(r'RIEL|\bDIN\b', re.I)                        # 'RIEL DIN', '_IGV_Riel DIN'
@@ -38,6 +46,14 @@ APOYO_H = 0.6         # etiqueta apoyada en el riel: |dy| <= 0.6 H
 SALTO_H = 2.4         # etiquetas contiguas de un riel (saltos <= 2.4 H) y margen del largo del riel
 PLACA_MIN_H = 8.0     # placa: lado minimo > 200 pt
 PLACA_MX_H = 3.2      # el centro de la vista cae en la placa (+-80 pt)
+PLACA_RIEL_H = 0.25   # un riel es de la placa si cae dentro de ella (+-0.25 perfil)
+GEO_TOL = 0.03        # riel dibujado en otra capa: su perfil difiere del de la capa del riel en menos del 3 %
+GEO_ESC_TOL = 0.02    # sin capa de riel: el perfil es 35 mm a una escala normalizada (+-2 %)
+GEO_LARGO_H = 2.0     # y el tramo mide al menos 2 perfiles de largo
+GEO_LARGO_MAX_H = 60  # (sin capa de riel) y a lo sumo 60 perfiles (un riel de 2 m)
+GEO_MIN_COMP = 3      # (sin capa de riel) la vista de esos tramos tiene al menos 3 componentes apoyados en ellos
+RX_NO_RIEL = re.compile(r'CANAL|DUCTO|SEGURA|INTRINSEC|TABLERO|ENVOLVENTE|PLACA|BANDEJA|COTA|(?<![A-Z])DIM|ROTULO|MARCO', re.I)
+PARTIDA_GAP = 1.0     # etiqueta vertical partida: el '1' suelto esta a menos de un alto de letra de la etiqueta
 
 
 def norm(t):
@@ -190,6 +206,130 @@ def rail_bands(strokes):
     return bands
 
 
+def rieles_geometria(strokes, bands=()):
+    """tramos de riel DIN dibujados como RECTANGULO cerrado en CUALQUIER capa (en el 72887 el tramo izquierdo del riel
+    1 esta en la capa '01' y los del lateral derecho en '0', no en '_IGV_Riel DIN'), reconocidos por el perfil:
+    rectangulo horizontal con el lado corto igual al perfil H de los rieles de la capa del riel (+-3 %) y de largo
+    >= 2 perfiles. Si la hoja no tiene capa de riel, el lado corto tiene que ser 35 mm a una escala normalizada
+    (+-2 %) y repetirse en dos rectangulos o mas. Quedan afuera las capas de canaletas, placas, cotas y rotulo, lo que
+    ya es un tramo de 'bands' y lo que cae dentro de otro rectangulo de riel (ranuras, el canal del perfil)."""
+    H = perfil(bands)
+    cand = []
+    for l, o, p, *_ in strokes:
+        if RX_RIEL.search(l) or RX_NO_RIEL.search(l) or len(p) < 4:
+            continue
+        r = rect_of(p, o)
+        if not r:
+            continue
+        x0, y0, x1, y1 = r
+        h = y1 - y0
+        if h <= 2 or x1 - x0 < GEO_LARGO_H * h:
+            continue
+        if H:
+            if abs(h / H - 1) > GEO_TOL:
+                continue
+        else:
+            # escala de una bandeja (1:1 a 1:10) y largo de un riel (hasta 2 m = 57 perfiles): una raya de una tabla
+            # o del rotulo no es un riel
+            n = RIEL_MM / h / PT_MM
+            if min(abs(e / n - 1) for e in ESCALAS if 1 <= e <= 10) > GEO_ESC_TOL or x1 - x0 > GEO_LARGO_MAX_H * h:
+                continue
+        cand.append(dict(x0=x0, x1=x1, y0=y0, y1=y1, H=h, eje=(y0 + y1) / 2, forma='rect'))
+    if not H:   # sin capa de riel: el perfil tiene que repetirse (+-1 %)
+        cand = [c for c in cand if sum(abs(d['H'] / c['H'] - 1) <= 0.01 for d in cand) >= 2]
+    igual = lambda a, b: all(abs(a[k] - b[k]) < 0.5 for k in ('x0', 'x1', 'y0', 'y1'))
+    dentro = lambda a, b: (b['x0'] - 0.5 <= a['x0'] and a['x1'] <= b['x1'] + 0.5 and b['y0'] - 0.5 <= a['y0']
+                           and a['y1'] <= b['y1'] + 0.5)
+    out = []
+    for c in cand:
+        if any(igual(c, b) or dentro(c, b) for b in list(bands) + out):   # repetido (relleno + borde) o ya leido
+            continue
+        if any(q is not c and not igual(q, c) and dentro(c, q) for q in cand):
+            continue
+        out.append(c)
+    return out
+
+
+def etiquetas_hoja(pdf_path, pi, lines, known_tags, dec):
+    """etiquetas de componentes de la hoja: [dict(tag, leido, x, y)] (las chicas giradas de la capa de etiquetas se
+    leen con OCR si hace falta)"""
+    hits = []
+    for l in lines:
+        k = match_tag(l['text'], known_tags)
+        if not k and 'ETIQUETA' in l.get('layer', '').upper() and re.search(r'\d', l['text']) and dec.use_ocr:
+            k = match_tag(ocr_crop(pdf_path, pi, l['bbox'], l['ang'], dec), known_tags)   # etiqueta chica girada
+        if k:
+            b = l['bbox']
+            hits.append(dict(tag=k, leido=l['text'], x=(b[0] + b[2]) / 2, y=(b[1] + b[3]) / 2))
+    return hits
+
+
+def geo_con_etiquetas(tramos, hits):
+    """(hojas SIN capa de riel) los tramos de rieles_geometria que son rieles de verdad: con etiquetas de componentes
+    apoyadas (|dy| <= APOYO_H perfiles, a lo largo del tramo estirado por la cadena de etiquetas, como el largo de los
+    rieles de la bandeja) y en una vista (tramos que se solapan en x) que junta al menos GEO_MIN_COMP componentes
+    apoyados. Una tabla, un recuadro o una vista con uno o dos aparatos no es una bandeja (en el FCS 75992 la vista
+    interior derecha armaba una bandeja falsa con 60DS y 60VN1)."""
+    def apoyados(t):
+        m = SALTO_H * t['H']
+        on = sorted((h['x'], h['tag']) for h in hits if abs(h['y'] - t['eje']) <= APOYO_H * t['H'])
+        lo, hi = t['x0'], t['x1']
+        for xs in (on, on[::-1]):
+            for x, _ in xs:
+                if lo - m <= x <= hi + m:
+                    lo, hi = min(lo, x), max(hi, x)
+        return {tag for x, tag in on if lo - m <= x <= hi + m}
+    con = [(t, apoyados(t)) for t in tramos]
+    con = [(t, a) for t, a in con if a]
+    if not con:
+        return []
+    d = DSU(len(con))
+    for i, (a, _) in enumerate(con):
+        for j, (b, _) in enumerate(con[:i]):
+            H = max(a['H'], b['H'])
+            if a['x0'] < b['x1'] + VISTA_SOLAPE_H * H and b['x0'] < a['x1'] + VISTA_SOLAPE_H * H:
+                d.u(i, j)
+    vistas = collections.defaultdict(list)
+    for i in range(len(con)):
+        vistas[d.f(i)].append(con[i])
+    return [t for v in vistas.values() if len(set().union(*(a for _, a in v))) >= GEO_MIN_COMP for t, _ in v]
+
+
+def unir_partidas(lines):
+    """une las etiquetas VERTICALES partidas: en el 72887 la etiqueta '11XP' girada 90 grados sale como '1', '1' y
+    'XP' (el '1' girado es una raya horizontal y se lee aparte, con angulo 0). Los '1' sueltos que estan justo antes
+    del comienzo de la etiqueta (abajo si se lee de abajo hacia arriba, arriba si se lee de arriba hacia abajo),
+    alineados con ella y a menos de un alto de letra, se pegan adelante. Devuelve las lineas nuevas."""
+    sueltos = [l for l in lines if l['text'].strip() == '1' and l['ang'] == 0]
+    usados = set()
+    out = []
+    for l in lines:
+        if id(l) in usados:
+            continue
+        if l['ang'] not in (90, 270) or not re.search(r'[A-Z]', l['text']) or l['text'].strip() == '1':
+            out.append(l)
+            continue
+        b = list(l['bbox']); w = b[2] - b[0]          # w = alto de letra (la etiqueta esta girada)
+        txt = l['text'].strip()
+        while w > 0:
+            def antes(f):
+                fb = f['bbox']
+                if id(f) in usados or f.get('layer') != l.get('layer'):
+                    return False
+                if abs(fb[0] - b[0]) > 0.3 * w or abs(fb[2] - b[2]) > 0.3 * w:
+                    return False
+                gap = b[1] - fb[3] if l['ang'] == 90 else fb[1] - b[3]
+                return -0.1 * w <= gap <= PARTIDA_GAP * w
+            f = next((f for f in sueltos if antes(f)), None)
+            if f is None:
+                break
+            usados.add(id(f)); txt = '1' + txt
+            fb = f['bbox']
+            b = [min(b[0], fb[0]), min(b[1], fb[1]), max(b[2], fb[2]), max(b[3], fb[3])]
+        out.append(dict(l, text=txt, bbox=tuple(b)) if txt != l['text'].strip() else l)
+    return [l for l in out if id(l) not in usados]
+
+
 def rails_of(strokes):
     """(x0, x1, y) de cada borde de los tramos de riel (compatibilidad)"""
     return [(b['x0'], b['x1'], y) for b in rail_bands(strokes) for y in (b['y0'], b['y1'])]
@@ -202,20 +342,64 @@ def snap_escala(mm_pt, tol=0.05):
     return round(k * PT_MM, 4) if abs(k / n - 1) < tol else round(mm_pt, 4)
 
 
+def version_lector(de_eplan=False):
+    """version del lector que arma el layout: la de topo (AutoCAD) o la de las hojas de bandejas de EPLAN"""
+    if de_eplan:
+        import eplan
+        return f'eplan {getattr(eplan, "VERSION_LECTOR", "?")}'
+    return f'topo {VERSION_LECTOR}'
+
+
+def layout_al_dia(lay):
+    """True si el layout (dict, o ruta de layout.json) se leyo con la version actual del lector. Un layout.json viejo
+    (sin 'version_lector'), ilegible o de otra version hay que volver a leerlo."""
+    if isinstance(lay, str):
+        try:
+            import json
+            with open(lay, encoding='utf-8') as f:
+                lay = json.load(f)
+        except (OSError, ValueError):
+            return False
+    if not isinstance(lay, dict):
+        return False
+    return lay.get('version_lector') == version_lector(bool(lay.get('eplan')))
+
+
 def layout(pdf_path, known_tags, log=print, dec=None):
+    """lee el topografico y devuelve el layout de la bandeja (lo que se guarda en layout.json), con la version del
+    lector en 'version_lector'"""
     import eplan
     if eplan.es_eplan(pdf_path):      # PDF de EPLAN: la hoja de bandejas del mismo plano
-        return eplan.layout(pdf_path, known_tags, log=log)
+        lay = eplan.layout(pdf_path, known_tags, log=log)
+        if isinstance(lay, dict):
+            lay['version_lector'] = version_lector(bool(lay.get('eplan')))
+        return lay
+    lay = _layout(pdf_path, known_tags, log=log, dec=dec)
+    lay['version_lector'] = version_lector(False)
+    return lay
+
+
+def _layout(pdf_path, known_tags, log=print, dec=None):
     reader = pypdf.PdfReader(pdf_path); names = layer_names(reader)
     dec = dec or Decoder()
     best = None; cotas = []
     for pi in range(len(reader.pages)):
         st = page_strokes(reader, pi, names)
         bands = rail_bands(st)
+        geo = rieles_geometria(st, bands)                # tramos de riel dibujados en otras capas
+        lines = hits = None
+        if geo and not bands:
+            # hoja SIN capa de riel: los tramos salen solo de la geometria y valen si tienen etiquetas de componentes
+            # apoyadas y su vista junta al menos GEO_MIN_COMP componentes; si no, la hoja sigue sin bandeja
+            lines = unir_partidas(page_text(st, dec, ('WATERMARK',)))
+            hits = etiquetas_hoja(pdf_path, pi, lines, known_tags, dec)
+            geo = geo_con_etiquetas(geo, hits)
+        bands = bands + geo
         if not bands:
             continue
         H = perfil(bands)
-        lines = page_text(st, dec, ('WATERMARK',))
+        if lines is None:
+            lines = unir_partidas(page_text(st, dec, ('WATERMARK',)))
         for l in lines:   # cotas (mm) para calcular la escala del dibujo
             if RX_COTA.search(l.get('layer', '')) and re.fullmatch(r'\d{2,4}', l['text'].strip()):
                 cotas.append((int(l['text'].strip()), l['ang']))
@@ -223,14 +407,8 @@ def layout(pdf_path, known_tags, log=print, dec=None):
             # dibujo AMPLIADO (escala mayor que 1:1): es un detalle (ej. 'Detalle de etiquetado'), no la bandeja
             log(f'Topográfico hoja {pi + 1}: detalle ampliado (perfil del riel {H:.0f} pt), no es la bandeja')
             continue
-        hits = []
-        for l in lines:
-            k = match_tag(l['text'], known_tags)
-            if not k and 'ETIQUETA' in l.get('layer', '').upper() and re.search(r'\d', l['text']) and dec.use_ocr:
-                k = match_tag(ocr_crop(pdf_path, pi, l['bbox'], l['ang'], dec), known_tags)   # etiqueta chica girada
-            if k:
-                b = l['bbox']
-                hits.append(dict(tag=k, leido=l['text'], x=(b[0] + b[2]) / 2, y=(b[1] + b[3]) / 2))
+        if hits is None:
+            hits = etiquetas_hoja(pdf_path, pi, lines, known_tags, dec)
         log(f'Topográfico hoja {pi + 1}: {len({h["tag"] for h in hits})} componentes reconocidos')
         if best is None or len({h['tag'] for h in hits}) > len({h['tag'] for h in best['hits']}):
             plates = [r for r in (rect_of(p_, o_) for l_, o_, p_ in st if RX_PLACA.search(l_))
@@ -253,8 +431,7 @@ def layout(pdf_path, known_tags, log=print, dec=None):
     groups = collections.defaultdict(list)
     for i in range(len(bands)):
         groups[d.f(i)].append(bands[i])
-    views = []
-    for g in groups.values():
+    def vista(g):
         x0 = min(b['x0'] for b in g) - VISTA_MX_H * H; x1 = max(b['x1'] for b in g) + VISTA_MX_H * H
         y0 = min(b['y0'] for b in g) - VISTA_MY_H * H; y1 = max(b['y1'] for b in g) + VISTA_MY_H * H
         # filas: tramos con el mismo eje = un riel (cortado por una canaleta vertical o tapado por los aparatos)
@@ -264,8 +441,9 @@ def layout(pdf_path, known_tags, log=print, dec=None):
                 rows[-1]['ejes'].append(b['eje']); rows[-1]['tramos'].append((b['x0'], b['x1']))
             else:
                 rows.append(dict(ejes=[b['eje']], tramos=[(b['x0'], b['x1'])]))
-        views.append(dict(box=[x0, y0, x1, y1], rails=[round(sum(r['ejes']) / len(r['ejes']), 1) for r in rows],
-                          tramos=[r['tramos'] for r in rows]))
+        return dict(box=[x0, y0, x1, y1], rails=[round(sum(r['ejes']) / len(r['ejes']), 1) for r in rows],
+                    tramos=[r['tramos'] for r in rows], bands=g)
+    views = [vista(g) for g in groups.values()]
     def view_of(h):
         for k, v in enumerate(views):
             b = v['box']
@@ -276,6 +454,26 @@ def layout(pdf_path, known_tags, log=print, dec=None):
         h['vista'] = view_of(h)
     count = collections.Counter(h['vista'] for h in best['hits'] if h['vista'] is not None)
     tray = count.most_common(1)[0][0] if count else None
+    # placa de la bandeja: el recuadro mas chico que contiene el centro de la vista con mas componentes
+    plate = None
+    if tray is not None:
+        vb = views[tray]['box']
+        m = PLACA_MX_H * H
+        inside = [b for b in best['plates'] if b[0] - m <= (vb[0] + vb[2]) / 2 <= b[2] + m and b[1] - m <= (vb[1] + vb[3]) / 2 <= b[3] + m]
+        plate = min(inside, key=lambda b: (b[2] - b[0]) * (b[3] - b[1])) if inside else None
+    # la bandeja son TODOS los rieles que caen dentro de su placa, aunque esten lejos en x de los demas (72887: el
+    # riel 2 de la zona intrinseca, abajo a la izquierda, separado del riel 1 por la canaleta)
+    if plate:
+        mr = PLACA_RIEL_H * H
+        en_placa = lambda b: (plate[0] - mr <= b['x0'] and b['x1'] <= plate[2] + mr and plate[1] - mr <= b['y0']
+                              and b['y1'] <= plate[3] + mr)
+        juntar = [k for k, v in enumerate(views) if k != tray and all(en_placa(b) for b in v['bands'])]
+        if juntar:
+            nueva = vista(views[tray]['bands'] + [b for k in juntar for b in views[k]['bands']])
+            views = [nueva] + [v for k, v in enumerate(views) if k != tray and k not in juntar]
+            tray = 0
+            for h in best['hits']:
+                h['vista'] = view_of(h)
     # largo de cada riel de la bandeja: sus tramos visibles estirados por las etiquetas apoyadas en el y contiguas
     # (los aparatos tapan el riel); lo que esta en la vista pero fuera de ese largo (motor, valvula, bateria...) no
     # esta montado en el riel
@@ -291,9 +489,8 @@ def layout(pdf_path, known_tags, log=print, dec=None):
                         lo, hi = min(lo, x), max(hi, x)
             largo.append((lo - SALTO_H * H, hi + SALTO_H * H))
     comp = {}
+    exacta = lambda tag, leido: norm(str(leido or '').replace(' ', '')) == norm(tag.replace(' ', ''))
     for h in best['hits']:
-        if h['tag'] in comp and comp[h['tag']]['ubic'] == 'BANDEJA':
-            continue
         c = dict(ubic='LI', fila=None, x=round(h['x'], 1), y=round(h['y'], 1), leido=h['leido'])
         if h['vista'] == tray and tray is not None:
             rs = views[tray]['rails']
@@ -302,6 +499,12 @@ def layout(pdf_path, known_tags, log=print, dec=None):
                 c.update(ubic='BANDEJA', fila=fila + 1)
             else:
                 c['nota'] = 'en la vista de la bandeja pero fuera del largo de su riel'
+        v = comp.get(h['tag'])
+        # dos lecturas del mismo tag en la bandeja: manda la que coincide exacto con el tag (no '43XD阳DIB1' para
+        # 43DIB1, un texto mal partido que se le parece)
+        if v and v['ubic'] == 'BANDEJA' and not (c['ubic'] == 'BANDEJA' and exacta(h['tag'], h['leido'])
+                                                  and not exacta(h['tag'], v.get('leido'))):
+            continue
         comp[h['tag']] = c
     # lateral de lo que no esta en la bandeja, por los titulos de las vistas ('VISTA LATERAL DERECHA'): el titulo
     # que esta arriba del componente y mas cerca en x. Sin titulos no se marca (se toma como lateral izquierdo, LI).
@@ -320,9 +523,6 @@ def layout(pdf_path, known_tags, log=print, dec=None):
     region, escala, fuente = None, None, None
     if tray is not None:
         vb = views[tray]['box']
-        m = PLACA_MX_H * H
-        inside = [b for b in best['plates'] if b[0] - m <= (vb[0] + vb[2]) / 2 <= b[2] + m and b[1] - m <= (vb[1] + vb[3]) / 2 <= b[3] + m]
-        plate = min(inside, key=lambda b: (b[2] - b[0]) * (b[3] - b[1])) if inside else None
         region = [round(v, 1) for v in (plate if plate else vb)]
         riel = RIEL_MM / H
         # 1) cotas mayores del plano contra la placa (convencion Digito: 740 x 820 de las hojas 7 y 9 del 75441),

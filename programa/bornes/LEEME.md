@@ -7,6 +7,16 @@ Cuando se genera el instructivo de cableado, el programa ubica **cada borne en e
 1. Del **funcional** sale qué bornes usa cada cable: `instructivo.usos_bandeja`. También sale la **lista de materiales**, si el funcional la trae (`instructivo.materiales_funcional`, la hoja con PHOENIX, SCHNEIDER, MEAN WELL...).
 2. El **motor** (`motor.py`) mira el dibujo a la derecha de cada etiqueta amarilla. Con el modelo del aparato (`catalogo.json`) reconoce sus bocas y las nombra.
 3. El modelo sale de la lista de materiales. Si no figura, sale de la forma del dibujo.
+   - Si la lista nombra un modelo (esté o no en el catálogo), la forma del dibujo **solo puede elegir un modelo de la
+     misma familia** (tipo de aparato: bornera, relé, barrera, termomagnética, diferencial, base de fusible, fuente,
+     módulo de E/S, toma...). La familia es la del modelo del catálogo que nombra la lista o, si no está, la que dice
+     la descripción del renglón (patrones de `familias` en `catalogo.json`; un renglón sin familia reconocible de un tag
+     de bornera, con X, cuenta como bornera).
+   - Si el catálogo no tiene ningún modelo de esa familia (ej. el módulo MOXA ioLogik del TPT), el aparato queda **sin
+     puntos** (en la etiqueta, confianza baja) con el aviso de modelo faltante. Antes se ubicaba como otro aparato
+     (barrera) y sus bornes caían sobre la bornera de la fuente vecina.
+   - Un modelo que no encontró su dibujo en la zona (ninguna pieza) no explica nada: sus bornes «desbordados» no le
+     suman puntaje (antes una bornera con diodo sin piezas le ganaba a la bornera de la lista).
 4. El resultado queda guardado en `bornes_auto.json`, en la carpeta del trabajo. Si no cambia nada (contenido del topográfico, funcional, lista de materiales, catálogo, código del motor —`motor.py`, `primitivas.py` y su versión—, componentes de la bandeja), la próxima vez no se vuelve a calcular. Cambiar solo la fecha del topográfico no lo recalcula.
 5. Si **todos** los bornes del trabajo ya tienen punto manual (`bornes.json`, `correcciones.json` o ajustados en el visor), el motor no se corre: no cambiaría nada. La línea del mapeo dice «todos los bornes tienen punto verificado a mano en este trabajo».
 
@@ -31,8 +41,20 @@ Si el mapeo falla, el instructivo se arma igual, como antes (sin puntos exactos)
 
 En la pestaña del instructivo, la línea **«Mapeo automático de bornes: …»** se despliega y muestra los avisos. Ahí aparecen los modelos elegidos por la geometría, las bocas compartidas y los textos corregidos. También:
 
-- **Modelos que no están en el catálogo**: la lista de materiales nombra para un tag un modelo que `catalogo.json` no tiene (por ejemplo `MOXA ioLogik E1240 (32AI1)`); sus bornes se ubicaron por la geometría como otro modelo o quedaron en la etiqueta. Es la lista de modelos para agregar al catálogo (queda en `ins['mapeo']['modelos_faltantes']`).
+- **Modelos que no están en el catálogo**: la lista de materiales nombra para un tag un modelo que `catalogo.json` no tiene (por ejemplo `MOXA ioLogik E1240 (32AI1)`); sus bornes se ubicaron por la geometría como otro modelo **de la misma familia** o quedaron en la etiqueta. Es la lista de modelos para agregar al catálogo (queda en `ins['mapeo']['modelos_faltantes']`, con la familia de cada uno).
 - **Textos con el lado físico distinto del dibujo del funcional**: puntas cuyo ARRIBA/ABAJO cambió por el punto real del borne (barreras 1/2 ABAJO → ARRIBA, 61XDIO) o por el lado forzado en «Componentes y orden». En el visor, pasando el mouse sobre el texto subrayado se ve lo que dice el funcional.
+
+**Red de seguridad.** Un borne no puede caer sobre otro aparato. Antes de dar el resultado, el motor descarta (pasa a
+confianza baja, en la etiqueta, con aviso «punto(s) descartado(s)…») los puntos que caen **dentro del cuerpo de otro
+aparato** (el contorno cerrado más chico que contiene la etiqueta de ese aparato y alguno de sus bornes, o el cuerpo que
+usó su modelo) y los que quedan **encima de un borne de otro tag** (a menos de `distancia_otro_tag_mm` del catálogo,
+1,5 mm): de dos puntos encimados se descarta el de menor confianza, o los dos si tienen la misma. No cuentan los puntos
+que el motor pasó a propósito al bloque vecino (desborde, boca compartida).
+
+**Dos pisos del mismo borne en el mismo punto.** Si dos pisos (`N ARRIBA` / `N ABAJO`) o pines distintos del mismo
+borne quedaron en el mismo punto con confianza media, ese punto no distingue el lado: el texto queda como en el
+funcional (no se pasa al lado físico). Con confianza alta, o con el lado forzado en «Componentes y orden», sigue la
+regla de siempre.
 
 **Textos corregidos.** Si el punto quedó en otro bloque o en otro módulo, el texto de la línea se cambia por el que corresponde a donde quedó. Por ejemplo, `62XDIO 3` pasa a `62XDO 3` y `43KR2 A2` pasa a `43KR1 A2`, porque el A2 es común con puente FBS. El cambio también se avisa. Un texto corregido a mano en `bornes.json` (`renombrar`) manda sobre el automático, y un texto cuyo punto se ajustó en el visor con 📍 no se corrige. Un relé único sin número de módulo en el texto (`43KR 11`) queda como lo dice el funcional: solo se corrige el módulo si el bloque tiene más de un módulo o si es un común puenteado.
 
@@ -49,6 +71,9 @@ No se toca el código: se agrega una entrada en `catalogo.json`. Todas las medid
    El json de usos se puede sacar con `instructivo.usos_bandeja`, o copiar de una prueba anterior.
 2. **Copiar la entrada de un modelo parecido.** Para una bornera, `PT2.5-DIO` o `PTT2.5`; para un aparato modular, `DF101`; para una fuente, `MEANWELL-DDR`. Cambiar estos campos:
    - `id`;
+   - `familia`: el tipo de aparato (una de las `familias` de `general`: `bornera`, `rele`, `barrera`, `termomagnetica`,
+     `diferencial`, `portafusible`, `fuente`, `modulo_es`, `toma`...). Si es un tipo nuevo, agregar también su
+     patrón en `familias` (el orden importa: gana el primero que aparece en el renglón);
    - `alias`: los textos de la lista de materiales, como el código comercial o el código de pedido;
    - `paso_mm` y `alto_mm`: salen de la hoja de datos;
    - `boca`: primitiva y rango de tamaño, el que dio `medir.py` ±10 %;

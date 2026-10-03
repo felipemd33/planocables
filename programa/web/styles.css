@@ -421,6 +421,11 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .ins-mapeo > summary:hover { color: var(--text, inherit); }
 .ins-mapeo ul { margin: 6px 0 6px 18px; padding: 0; max-height: 220px; overflow: auto; }
 .ins-mapeo li { margin: 1px 0; }
+/* alternativas del plano (hojas 'ALTERNATIVA n') y punta con el texto del funcional distinto (lado fisico) */
+.pill.alt { background: transparent; color: var(--muted); border: 1px dotted currentColor; padding: 0 7px; font-weight: 500; cursor: help; }
+.cv-od .pill.alt { font-size: 11px; vertical-align: middle; margin-left: 4px; }
+.ins-alt .warn-t, .ins-mapeo .warn-t { color: var(--warn); }
+.cab-od .func { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
 
 /* ---- lista WPC ---- */
 .wpc-modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:900;display:grid;place-items:center}

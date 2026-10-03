@@ -25,12 +25,40 @@
     "distancia_max_etiqueta_mm": 20.0,
     "margen_etiqueta_riel_mm": 21.0,
     "nota_margenes": "margen_der_mm: se deja antes de la etiqueta siguiente; margen_alto_mm: se suma a la mitad del alto del modelo para la altura de la zona; distancia_max_etiqueta_mm: distancia maxima entre la posicion que trae usos_por_componente.json y la etiqueta amarilla del dibujo; margen_etiqueta_riel_mm: una etiqueta pertenece a un riel si su centro esta dentro de la banda del riel mas este margen.",
-    "puentes": "rellenos de color saturado (rojo, azul) dibujados sobre las piezas: son los puentes FBS"
+    "puentes": "rellenos de color saturado (rojo, azul) dibujados sobre las piezas: son los puentes FBS",
+    "cuerpo_max_mm": 250.0,
+    "distancia_otro_tag_mm": 1.5,
+    "nota_red_de_seguridad": "Red de seguridad del motor: un punto que cae dentro del cuerpo de OTRO aparato (contorno cerrado mas chico, de hasta cuerpo_max_mm de lado, con su etiqueta y alguno de sus bornes) o a menos de distancia_otro_tag_mm de un borne de otro tag se descarta (queda en la etiqueta, confianza baja).",
+    "familias": [
+      {"familia": "rele", "nombre": "relé / temporizador", "patron": "(?i)\\brel[eé]s?\\b|\\brelays?\\b|temporizad|\\btimers?\\b"},
+      {"familia": "bornera", "nombre": "bornera", "patron": "(?i)\\bbornes?\\b|\\bbornera|terminal\\s*blocks?|\\bterminals?\\b|\\bclemas?\\b"},
+      {"familia": "barrera", "nombre": "barrera de seguridad intrínseca", "patron": "(?i)\\bbarreras?\\b|\\bbarriers?\\b"},
+      {"familia": "diferencial", "nombre": "interruptor diferencial", "patron": "(?i)diferencial|\\bRCCB\\b|\\bRCBO\\b|\\bRCD\\b|residual"},
+      {"familia": "termomagnetica", "nombre": "interruptor termomagnético", "patron": "(?i)termomagn|t[eé]rmic|magnetot[eé]rm|circuit\\s*breaker|\\bMCB\\b|interruptor\\s+autom[aá]tico"},
+      {"familia": "seccionador", "nombre": "seccionador", "patron": "(?i)seccionador|disconnector|\\bisolator"},
+      {"familia": "portafusible", "nombre": "base de fusible", "patron": "(?i)fusible|fusilera|\\bfuses?\\b"},
+      {"familia": "cargador", "nombre": "cargador de baterías", "patron": "(?i)cargador|charger|\\bMPPT\\b"},
+      {"familia": "modulo_es", "nombre": "módulo de E/S", "patron": "(?i)m[oó]dulo|\\bmodules?\\b|io\\s*logik|\\bI/O\\b|\\bE/S\\b"},
+      {"familia": "fuente", "nombre": "fuente / conversor", "patron": "(?i)\\bfuente|power\\s*(?:supply|source)|conversor|converter|\\b(?:AC|DC)\\s*/\\s*DC\\b"},
+      {"familia": "toma", "nombre": "toma corriente", "patron": "(?i)toma\\s*-?\\s*corriente|tomacorriente|\\btoma\\b|\\bsockets?\\b|receptacle"},
+      {"familia": "placa", "nombre": "placa electrónica", "patron": "(?i)placa\\s+electr|electronic\\s+board|\\bPCB\\b"},
+      {"familia": "contactor", "nombre": "contactor", "patron": "(?i)contactor"},
+      {"familia": "mando", "nombre": "botón / selector / piloto / fin de carrera", "patron": "(?i)bot[oó]n|pulsador|push\\s*button|selector|piloto|pilot\\s*light|interruptor\\s+l[ií]mite|fin\\s+de\\s+carrera|door\\s*sw|limit\\s*switch"},
+      {"familia": "sensor", "nombre": "transmisor / sensor", "patron": "(?i)transmisor|transmitter|sensor|presostato|termostato"},
+      {"familia": "bateria", "nombre": "batería", "patron": "(?i)bater[ií]a|batter(?:y|ies)"},
+      {"familia": "motor", "nombre": "motor / arrancador", "patron": "(?i)\\bmotor|arrancador|starter"},
+      {"familia": "valvula", "nombre": "válvula", "patron": "(?i)v[aá]lvula|solenoid|\\bvalves?\\b"},
+      {"familia": "ventilador", "nombre": "ventilador", "patron": "(?i)ventilador|ventilaci[oó]n|\\bfans?\\b|extractor"},
+      {"familia": "luz", "nombre": "luz / iluminación", "patron": "(?i)\\bluz\\b|\\bluces\\b|l[aá]mpara|\\blights?\\b|iluminaci"},
+      {"familia": "comunicacion", "nombre": "comunicación (gateway, router)", "patron": "(?i)gateway|iot[-\\s]*gate|router|\\bmodem\\b|ethernet\\s+switch|switch\\s+ethernet"}
+    ],
+    "nota_familias": "Familia (tipo de aparato) de cada modelo ('familia' de cada modelo) y patrones para sacarla del renglon de la lista de materiales. Se prueban en este orden y gana el primero que aparece en la descripcion (por eso 'Borne rele' es rele, 'Bornes fusible' es bornera y 'Fuente de alimentacion' es fuente pero 'Bornes de alimentacion' es bornera). Si la lista de materiales nombra un modelo que no esta en el catalogo, la geometria solo puede elegir un modelo de la MISMA familia; si no hay ninguno, el aparato queda sin puntos (en la etiqueta) con el aviso de modelo faltante. Un renglon sin familia reconocible de un tag de bornera (con X) cuenta como bornera."
   },
 
   "modelos": [
     {
       "id": "PT6-QUATTRO",
+      "familia": "bornera",
       "es_bornera": true,
       "tipo": "borne de riel por piezas (1 piso, 4 conexiones push-in)",
       "fabricante": "PHOENIX CONTACT",
@@ -52,6 +80,7 @@
     },
     {
       "id": "PTT2.5",
+      "familia": "bornera",
       "es_bornera": true,
       "tipo": "borne de riel por piezas (doble piso, 4 conexiones push-in)",
       "fabricante": "PHOENIX CONTACT",
@@ -71,6 +100,7 @@
     },
     {
       "id": "PTT2.5-2MT",
+      "familia": "bornera",
       "es_bornera": true,
       "tipo": "borne de riel por piezas (doble piso seccionable, gris)",
       "fabricante": "PHOENIX CONTACT",
@@ -91,6 +121,7 @@
     },
     {
       "id": "PTT2.5-2MT-BU",
+      "familia": "bornera",
       "es_bornera": true,
       "tipo": "borne de riel por piezas (doble piso seccionable, azul)",
       "fabricante": "PHOENIX CONTACT",
@@ -109,6 +140,7 @@
     },
     {
       "id": "PT2.5-DIO",
+      "familia": "bornera",
       "es_bornera": true,
       "tipo": "borne de riel por piezas con diodo (1 piso, 1 entrada por extremo)",
       "fabricante": "PHOENIX CONTACT",
@@ -130,6 +162,7 @@
     },
     {
       "id": "PTTB4-HESI",
+      "familia": "bornera",
       "es_bornera": true,
       "tipo": "borne de riel por piezas (doble piso con fusible 5x20, negro)",
       "fabricante": "PHOENIX CONTACT",
@@ -153,6 +186,7 @@
     },
     {
       "id": "RIF-0-RPT",
+      "familia": "rele",
       "tipo": "rele modular (base + rele enchufable, push-in)",
       "fabricante": "PHOENIX CONTACT",
       "alias": ["RIF-0-RPT", "RIF-0", "2903370", "2900958"],
@@ -179,6 +213,7 @@
     },
     {
       "id": "FINDER-80.01",
+      "familia": "rele",
       "tipo": "temporizador modular multifuncion 17,5 mm (1 contacto conmutado)",
       "fabricante": "FINDER",
       "alias": ["80.01", "8001", "80.01.0.240"],
@@ -207,6 +242,7 @@
     },
     {
       "id": "EASY9-RCCB-2P",
+      "familia": "diferencial",
       "tipo": "modular DIN (disyuntor diferencial 2 polos)",
       "fabricante": "SCHNEIDER",
       "alias": ["DIFERENCIAL", "EZ9R", "RCCB", "F202", "FH202"],
@@ -229,6 +265,7 @@
     },
     {
       "id": "MCB-2P",
+      "familia": "termomagnetica",
       "tipo": "modular DIN (termomagnetica 2 polos)",
       "fabricante": "SCHNEIDER / ABB",
       "alias": ["TERMOMAGN", "EZ9F", "S202", "IC60"],
@@ -250,6 +287,7 @@
     },
     {
       "id": "DF101",
+      "familia": "portafusible",
       "tipo": "modular DIN (portafusible 10x38, 1 polo)",
       "fabricante": "SCHNEIDER",
       "alias": ["DF101", "DF 101"],
@@ -269,6 +307,7 @@
     },
     {
       "id": "MEANWELL-NDR",
+      "familia": "fuente",
       "tipo": "fuente de riel DIN (AC/DC)",
       "fabricante": "MEAN WELL",
       "alias": ["NDR-", "NDR "],
@@ -296,6 +335,7 @@
     },
     {
       "id": "MEANWELL-DDR",
+      "familia": "fuente",
       "tipo": "fuente de riel DIN (conversor DC/DC)",
       "fabricante": "MEAN WELL",
       "alias": ["DDR-", "DDR "],
@@ -322,6 +362,7 @@
     },
     {
       "id": "GS8512-EX",
+      "familia": "barrera",
       "tipo": "barrera de seguridad intrinseca (carcasa angosta, enchufes escalonados)",
       "fabricante": "CHENZHU",
       "alias": ["GS8512"],
@@ -362,6 +403,7 @@
     },
     {
       "id": "GS8536-EX",
+      "familia": "barrera",
       "tipo": "barrera de seguridad intrinseca (entrada analogica, enchufes de 3 bornes)",
       "fabricante": "CHENZHU",
       "alias": ["GS8536"],
@@ -399,6 +441,7 @@
     },
     {
       "id": "TOMA-IRAM-DIN",
+      "familia": "toma",
       "tipo": "toma corriente de riel DIN (bloque simbolico sin tornillos)",
       "fabricante": "VIVION",
       "alias": ["TOMA CORRIENTE", "TOMACORRIENTE", "TOMA IRAM", "AC30"],
@@ -423,6 +466,7 @@
     },
     {
       "id": "MEGA-BASE",
+      "familia": "portafusible",
       "tipo": "portafusible MEGA de esparragos (fuera del riel, horizontal)",
       "fabricante": "-",
       "alias": ["MEGA"],

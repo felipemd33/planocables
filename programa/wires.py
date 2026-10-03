@@ -613,8 +613,9 @@ class WireGraph:
                 best = (dist, i)
         return best[1] if best else None
 
-    def seg_parallel_near(self, pt, direction, maxd, prefer_side=None):
-        """segmento paralelo a 'direction' (0=horizontal, 1=vertical) mas cercano a pt"""
+    def seg_parallel_near(self, pt, direction, maxd, prefer_side=None, tol_lado=0.5):
+        """segmento paralelo a 'direction' (0=horizontal, 1=vertical) mas cercano a pt; con prefer_side, del lado
+        pedido (o metido en el texto menos de tol_lado pt)"""
         best = None
         for i in self.near_segs(pt, maxd + 2):
             a, b, _ = self.segs[i]
@@ -629,7 +630,7 @@ class WireGraph:
                 continue   # segmento degenerado (trazo de una letra sin decodificar): no es un cable
             if prefer_side is not None:
                 side = (a[1] - pt[1]) if direction == 0 else (a[0] - pt[0])
-                if side * prefer_side < -0.5:
+                if side * prefer_side < -tol_lado:
                     continue
             if best is None or dist < best[0]:
                 best = (dist, i)
@@ -768,6 +769,12 @@ def assign(graph, text_lines, H=7.93):
             if seg is None:  # cable perpendicular al lado del texto
                 cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2
                 seg = graph.seg_parallel_near((cx, cy), 1 - direction, 0.5 * (bb[2] - bb[0] if direction == 0 else bb[3] - bb[1]) + 2.5 * H)
+            if seg is None:
+                # cable pegado a la base del texto que se mete apenas en su recuadro (TPT hoja 21: el 8104 vertical
+                # junto al cable que baja a la flecha de la hoja 81, con el cable 0,6 pt adentro): hasta 1/5 del alto
+                # de la letra. Solo para los numeros que si no quedan sin cable
+                alto = (bb[2] - bb[0]) if direction == 1 else (bb[3] - bb[1])
+                seg = graph.seg_parallel_near(anchor, direction, 1.8 * H, side, tol_lado=max(0.5, 0.2 * alto))
         if seg is not None and 'tick' not in n and graph.lone_short(seg):
             seg = None   # la raya de corte suelta de un cable en linea discontinua no es el cable (66817 hoja 81: 8101/8102)
         n['seg'] = seg

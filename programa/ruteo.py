@@ -4,6 +4,10 @@
   y se une con las que toca. Se dibujan rellenas (75441: relleno + borde) o solo con el contorno (66817).
 - Un cable sale del borne hacia la canaleta del lado del aparato (parte de arriba -> canaleta de arriba del riel;
   parte de abajo -> canaleta de abajo), recorre la red por el camino mas corto y entra al destino de la misma forma.
+  Del borne sale en vertical, hacia afuera del riel: si se engancha en una canaleta vertical (intrinsecos), primero
+  sube (o baja) hasta el borde de la canaleta de ese lado y recien ahi va en horizontal (no pasa por encima de los
+  bornes vecinos); si la canaleta termina antes de la x del borne, corre por el borde de la canaleta hasta esa x (no
+  entra en diagonal).
 - Canaletas de circuitos intrinsecamente seguros: rellenas de azul (75441) o en la capa de zona segura (66817,
   '_Zona Segura', rayadas). Los cables azules van por ellas y el resto no.
 - Salida a LI (regla del taller): por el lateral, arriba; los marrones y blancos (220 VAC) por abajo; los
@@ -23,6 +27,8 @@ FILL_OPS = ('f', 'F', 'f*', 'B', 'B*', 'b', 'b*')
 TOQUE_W = 0.105       # dos canaletas se tocan: 3 pt
 SALIDA_W = 0.42       # tramo que sale de la canaleta hacia el lateral: 12 pt
 BORDE_W = 0.5         # una canaleta llega al borde de la red si termina a menos de medio ancho de el
+FUERA_W = 0.15        # un cable que corre por fuera de una canaleta va pegado a su borde: 4.3 pt (75441), 3.4 (66817)
+SUBIDA_W = 1.0        # salida vertical del borne cuando de ese lado no hay canaleta horizontal que la limite
 
 
 def is_blue(c):
@@ -142,11 +148,60 @@ class Net:
           canaleta comun mas cercana;
         - un cable intrinseco que del lado pedido no tiene canaleta intrinseca horizontal se engancha en una
           vertical intrinseca que llegue a ese lado, si esta mas cerca que la comun."""
-        _, i, q = self._elegir(p, side, ex)
+        return self.enganche(p, side, ex)[0]
+
+    def enganche(self, p, side, ex=None):
+        """como attach -> (nodo, via): via = puntos del tramo borne -> canaleta (del borne hacia la canaleta, sin los
+        extremos), para que ese tramo no tenga diagonales ni pase por encima de otros bornes:
+        - canaleta VERTICAL: el cable sale vertical del borne hacia afuera del riel hasta el borde de la canaleta
+          horizontal de ese lado y recien ahi va horizontal hasta la vertical (codo en (x del borne, y de enganche));
+        - canaleta horizontal que TERMINA antes de la x del borne: sale por el extremo, corre pegado al borde de la
+          canaleta hasta la x del borne y baja (o sube) vertical al borne."""
+        _, i, q, rama = self._elegir(p, side, ex)
+        if rama == 'v':
+            q = self._salida_a_vertical(p, side, i)
+        # la canaleta horizontal termina antes de la x del borne (el enganche quedo en el extremo del eje, no sobre el
+        # borne; un nodo que ya estaba a menos de 0.5 pt no cuenta)
+        pasado = rama == 'h' and abs(q[0] - p[0]) > 0.5
         k = self._node(q)
         if k not in self.pts[i]:
             self.pts[i].append(k); self._link_all()
-        return k
+        q = self.nodes[k]                                 # (el nodo puede ser uno que ya estaba a menos de 0.5)
+        via = []
+        if rama == 'v':
+            via = [(p[0], q[1])]
+        elif pasado:
+            via = self._por_el_borde(p, side, i, q)
+        return k, via
+
+    def _salida_a_vertical(self, p, side, i):
+        """borne p -> canaleta vertical i: primero un tramo vertical que sale del borne hacia afuera del riel (hacia
+        arriba con side=0, hacia abajo con side=1) hasta quedar pegado al borde de la canaleta horizontal de ese lado que
+        pasa sobre el borne (la que limita el espacio de los aparatos), y recien ahi en horizontal hasta el eje de la
+        vertical: asi no pasa por encima de los bornes vecinos. Sin canaleta horizontal de ese lado, sale SUBIDA_W.
+        -> punto de enganche en el eje de la vertical"""
+        _, c, lo, hi = self.axis(self.d[i])
+        f = FUERA_W * self.w
+        arriba = side == 0
+        bordes = [d['b'][1] if arriba else d['b'][3] for d in self.d
+                  if d['h'] and d['b'][0] <= p[0] <= d['b'][2] and (d['b'][1] >= p[1] if arriba else d['b'][3] <= p[1])]
+        if bordes:
+            e = min(bordes) if arriba else max(bordes)
+            y = e - f if arriba else e + f
+            if (y < p[1]) if arriba else (y > p[1]):    # borne pegado a la canaleta: a mitad de camino
+                y = (p[1] + e) / 2
+        else:
+            y = p[1] + SUBIDA_W * self.w if arriba else p[1] - SUBIDA_W * self.w
+        return (c, min(max(y, lo + 0.2), hi - 0.2))      # dentro del largo de la vertical
+
+    def _por_el_borde(self, p, side, i, q):
+        """borne p mas alla del extremo de la canaleta horizontal i (enganche q, en el extremo del eje): el cable sale
+        por el extremo, corre en horizontal pegado al borde de la canaleta (el del lado del borne) hasta la x del borne
+        y recien ahi va vertical al borne. -> [puntos del borne hacia la canaleta]"""
+        x0, y0, x1, y1 = self.d[i]['b']
+        f = FUERA_W * self.w
+        y = max(y0 - f, p[1]) if side == 0 else min(y1 + f, p[1])   # borde de abajo (canaleta arriba) o de arriba
+        return [(p[0], y), (q[0], y)]
 
     def zona(self, p, side):
         """tipo de la zona del borne p del lado side: True si un cable intrinseco que sale de ahi entra a una canaleta
@@ -157,7 +212,8 @@ class Net:
         return bool(self.d[self._elegir(p, side, True)[1]]['ex'])
 
     def _elegir(self, p, side, ex):
-        """(costo, canaleta, punto de enganche) para attach"""
+        """(costo, canaleta, punto de enganche, rama) para attach; rama: 'h' horizontal de ese lado, 'v' vertical
+        intrinseca, 'c' la mas cercana"""
         todas = range(len(self.d))
         def horizontal(pool):
             best = None
@@ -168,7 +224,7 @@ class Net:
                 x = min(max(p[0], lo + 0.2), hi - 0.2)
                 cost = abs(c - p[1]) + 3 * abs(x - p[0])
                 if best is None or cost < best[0]:
-                    best = (cost, i, (x, c))
+                    best = (cost, i, (x, c), 'h')
             return best
         def vertical(pool):
             best = None
@@ -179,7 +235,7 @@ class Net:
                 y = min(max(p[1], lo + 0.2), hi - 0.2)
                 cost = abs(c - p[0]) + 3 * abs(y - p[1])
                 if best is None or cost < best[0]:
-                    best = (cost, i, (c, y))
+                    best = (cost, i, (c, y), 'v')
             return best
         def cercana(pool):   # sin canaleta de ese lado: la mas cercana
             best = None
@@ -188,7 +244,7 @@ class Net:
                 q = (min(max(p[0], lo), hi), c) if t == 'h' else (c, min(max(p[1], lo), hi))
                 cost = math.dist(p, q)
                 if best is None or cost < best[0]:
-                    best = (cost, i, q)
+                    best = (cost, i, q, 'c')
             return best
         best = None
         if ex is not None:
@@ -271,19 +327,19 @@ class Net:
 
 def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='izq'):
     """polilinea del cable: borne -> canaleta -> ... -> canaleta -> borne (o salida a LI)"""
-    a = net.attach(o_pt, o_side, ex)
+    a, via_o = net.enganche(o_pt, o_side, ex)
     if to_li:
         b = net.li_exit(abajo_li, ex, lado_li)
         tail = []
     else:
-        b = net.attach(d_pt, d_side, ex)
-        tail = [d_pt]
+        b, via_d = net.enganche(d_pt, d_side, ex)
+        tail = via_d[::-1] + [d_pt]
     if a is None or b is None:
         return None
     mid = net.path(a, b, ex)
     if mid is None:
         return None
-    pts = [o_pt] + mid + tail
+    pts = [o_pt] + via_o + mid + tail
     clean = [pts[0]]
     for q in pts[1:]:
         if math.dist(q, clean[-1]) > 0.3:

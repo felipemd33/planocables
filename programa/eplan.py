@@ -37,6 +37,9 @@ LATERAL_RE = re.compile(r'LATERAL\s+(IZQ|DER)', re.I)
 LISTA_RE = re.compile(r'(?i)lista\s+de\s+conexiones|connection\s+list|verbindungsliste|conexiones')
 CAB_DOC = re.compile(r'(?i)^(doc\.?|documento:?|document:?)$')
 VERSION = 1
+# version del lector de la hoja de bandejas (layout): se guarda en layout.json y, si cambia, web.gen_instructivo vuelve
+# a leer el topografico de los trabajos existentes (ver topo.VERSION_LECTOR). SUBIRLA cuando cambie layout().
+VERSION_LECTOR = '2026.10.02-r3'
 
 _CACHE = collections.OrderedDict()          # firma del PDF -> textos de las hojas
 _COPIAS = {}                                 # firma -> copia de proceso sin proteccion
@@ -1584,9 +1587,12 @@ def aplicar_puntos(res, lay, dir_trabajo):
     if mapeo and (str(le.get('documento') or '').upper() != str(mapeo.get('documento')).upper()
                   or (mapeo.get('pagina_bandejas') and lay.get('pag') != mapeo.get('pagina_bandejas'))):
         mapeo = None              # el topografico no es la hoja de bandejas de ese documento: los puntos no sirven
-    manual, ren_m = mb.leer_manuales(dir_trabajo)
-    hay_bj = os.path.exists(os.path.join(dir_trabajo, 'bornes.json'))
-    avisos = list(le.get('avisos') or lay.get('avisos') or [])
+    avisos_man = []           # un bornes.json / correcciones.json ilegible se ignora, pero con aviso (no en silencio)
+    manual, ren_m = mb.leer_manuales(dir_trabajo, avisos_man)
+    # (un bornes.json ilegible se ignora: no tapa el mapeo verificado)
+    hay_bj = (os.path.exists(os.path.join(dir_trabajo, 'bornes.json'))
+              and not any(str(a).startswith('bornes.json ilegible') for a in avisos_man))
+    avisos = avisos_man + list(le.get('avisos') or lay.get('avisos') or [])
     if sin_bandejas and not avisos:
         avisos.append('no se encontró la hoja de bandejas en el PDF: sin ella todos los cables quedan como pendientes')
     bornes, conf, nota = {}, {}, {}

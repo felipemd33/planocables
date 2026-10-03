@@ -88,8 +88,13 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   Tiene que dar como `pruebas/bases/base_76884.json`: 143 líneas E6, 31 pendientes, 16 en otra estación (E8), 0 sueltos,
   igual al Excel del mapeo verificado.
 - **TPT** (72715; trabajo de prueba `pruebas/trabajos/tpt`, el del usuario `e548b195eb2a` ya no está en el historial): `pruebas/bases/base_tpt.json` es el estado ANTES de corregir el
-  lector (con errores).
-- `--sin-cache` no escribe nada en el trabajo.
+  lector (con errores). Con `--relayout`, el estado actual es `pruebas/bases/base_tpt_ronda3.json` (2026-10-02 noche).
+- `--sin-cache` no escribe nada en el trabajo. Como la web, `volcar_trabajo.py` vuelve a leer el topográfico si
+  `layout.json` es de otra versión del lector (`topo.VERSION_LECTOR` / `eplan.VERSION_LECTOR`: subirlas al cambiar la
+  lectura del topográfico; al regenerar, la web relee los trabajos viejos y conserva lo del usuario).
+- Pruebas de arreglos: `python pruebas/probar_arreglos_pae.py`, `python pruebas/probar_ronda2_topo.py` y
+  `python pruebas/probar_ronda3.py` (familias del catálogo, red de seguridad del mapeo, topográfico sin capa de riel,
+  versión del lector) tienen que dar TODO OK.
 
 ## Productos trabajados
 
@@ -200,8 +205,22 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
     - salidas a CAMPO por la línea de trazo y punto: estación 'CAMPO', sin confirmar con el usuario;
     - EMPALME en ramas sin número;
     - rótulos `V+`, `NC(12)`.
-  - Falta: el topográfico del TPT (layout sin el riel 1 izquierdo ni el riel 2 intrínseco, 11XP sin detectar → muchos
-    pendientes); 'Puntas' del listado (1313/1314 = 6); 1204 con un 'Rojo 35' falso; mostrar las alternativas en la interfaz.
+  - Rondas 2 y 3 (2026-10-02, hechas y verificadas):
+    - **Topográfico:** rieles por geometría (con capa de riel, o con 3 o más etiquetas apoyadas si no hay capa), etiquetas
+      partidas ('1','1','XP'), versión del lector `VERSION_LECTOR` (Regenerar relee el topográfico si cambió).
+    - **Listado:** 'Puntas' sin alternativas ni flechas de la misma hoja; 1204 sin el 35 falso; 8104 asociado.
+    - **Mapeo:** familia del modelo (no se elige un modelo de otra familia; lo que no está en el catálogo queda aproximado
+      con aviso); red de seguridad (puntos sobre otro aparato se descartan); arreglos que estaban pausados (a-o).
+    - **Alternativas:** se ven en la interfaz.
+    - **Marcas al regenerar:** se pasan por número solo si las puntas siguen en los mismos aparatos.
+    - **Base TPT:** `pruebas/bases/base_tpt_ronda3.json` (83 líneas, 16 pendientes, 0 sueltos). Pruebas:
+      `pruebas/probar_ronda2_topo.py` y `pruebas/probar_ronda3.py`.
+    - **`base_66817.json` regenerada:** 32XAIB/43XDIB aparato por aparato.
+  - **Modelos que faltan en el catálogo de bornes** (para el Excel de aparamenta):
+    - TPT: ABB SH 202 C10, Phoenix PT 4, ABB E 91/32, MOXA ioLogik R1240-T.
+    - Varios productos: EPEVER Tracer, Schneider VBF1, ODOT, EXEMYS, PSR-SCP, ABB DS201, Red Lion E3, P+F KCD2, OMRON
+      HL-5200, ZBE-101, etc.
+    - Detalle: `scratchpad` del 2026-10-02 (`reg3/faltantes.json`), a rehacer con el Excel.
 - (Historia) La corrección del TPT se había diagnosticado y pausado antes; el diagnóstico sigue en `pendiente/tpt_diagnostico/`.
   - En `pendiente/tpt_diagnostico/` están:
     - `LEEME.md`: cada error con la verdad del funcional, la causa en el código y el arreglo propuesto;

@@ -6,7 +6,8 @@ El programa (web.py, gen_instructivo) lo usa asi:
     mats = instructivo.materiales_funcional(res)                 # lista de materiales del funcional (o None)
     sal = mapear_trabajo(topo_pdf, usos, mats, cache=<trabajo>/bornes_auto.json)
     auto = puntos_automaticos(sal)                               # puntos de confianza alta y media
-    componer_bornes(lay, auto, manual_puntos, manual_renombrar)  # bornes.json / correcciones.json mandan
+    componer_bornes(lay, auto, manual_puntos, manual_renombrar, usuario)   # bornes.json / correcciones.json mandan,
+                                                                 # y sobre todo los ajustados en el visor (usuario)
 """
 import os
 import json
@@ -17,26 +18,33 @@ from .motor import Motor, VERSION, materiales_de_lineas, leer_materiales  # noqa
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CATALOGO = os.path.join(AQUI, 'catalogo.json')
+CODIGO = [os.path.join(AQUI, 'motor.py'), os.path.join(AQUI, 'primitivas.py')]   # el codigo que calcula los puntos
 
 
 def _sha(b):
     return hashlib.sha1(b).hexdigest()[:16]
 
 
+def _sha_archivo(path):
+    """sha1 del CONTENIDO del archivo (None si no se puede leer). Un PDF de unos MB se lee en milisegundos."""
+    try:
+        h = hashlib.sha1()
+        with open(path, 'rb') as f:
+            for bloque in iter(lambda: f.read(1 << 20), b''):
+                h.update(bloque)
+        return h.hexdigest()[:16]
+    except (OSError, TypeError):
+        return None
+
+
 def firma(topo_pdf, usos, materiales, catalogo_path=CATALOGO):
-    """Firma del calculo: si no cambia nada de esto, el resultado guardado en bornes_auto.json sirve."""
-    try:
-        st = os.stat(topo_pdf)
-        topo = [st.st_size, int(st.st_mtime)]
-    except OSError:
-        topo = None
-    try:
-        with open(catalogo_path, 'rb') as f:
-            cat = _sha(f.read())
-    except OSError:
-        cat = None
+    """Firma del calculo: si no cambia nada de esto, el resultado guardado en bornes_auto.json sirve.
+    Entra el CONTENIDO del topografico (no su tamano ni su fecha: un topografico reemplazado por otro con el mismo
+    tamano y la misma fecha no reusa el calculo viejo), el catalogo, el codigo del motor (motor.py, primitivas.py)
+    y su VERSION, los usos (componentes de la bandeja y sus bornes) y la lista de materiales."""
     u = {k: v for k, v in (usos or {}).items() if k != 'topografico'}       # la ruta del archivo no importa
-    return dict(version=VERSION, catalogo=cat, topografico=topo,
+    return dict(version=VERSION, catalogo=_sha_archivo(catalogo_path), topografico=_sha_archivo(topo_pdf),
+                codigo={os.path.basename(p): _sha_archivo(p) for p in CODIGO},
                 pagina=u.get('pagina_pdf'), region=u.get('region_bandeja'), escala=u.get('escala_mm_por_pt'),
                 usos=_sha(json.dumps(u, sort_keys=True, ensure_ascii=False, default=str).encode('utf-8')),
                 materiales=_sha('\n'.join(materiales or []).encode('utf-8')) if materiales else None)
@@ -100,15 +108,33 @@ def puntos_automaticos(sal, confianzas=('alta', 'media')):
     return out
 
 
-def componer_bornes(lay, auto, manual=None, renombrar_manual=None):
+def _flip(t):
+    """'X 1 ARRIBA' <-> 'X 1 ABAJO' (el visor guarda el punto con el texto que muestra, que puede llevar el lado fisico)"""
+    t = str(t or '')
+    for a, b in ((' ARRIBA', ' ABAJO'), (' ABAJO', ' ARRIBA')):
+        if t.endswith(a):
+            return t[:-len(a)] + b
+    return t
+
+
+def ajustado(usuario, texto, num):
+    """True si el usuario ajusto en el visor (bornes_usuario) el punto de ese texto, o del mismo texto con el otro
+    lado, para ese cable"""
+    return any(k in (usuario or {}) for t in (texto, _flip(texto)) for k in (f'{t}#{num}', t))
+
+
+def componer_bornes(lay, auto, manual=None, renombrar_manual=None, usuario=None):
     """Arma lay['bornes'] y lay['renombrar'] con los puntos automaticos y los MANUALES (bornes.json del trabajo y
     correcciones.json), que mandan: un punto automatico se descarta si el mismo texto (con o sin '#cable', el del
     funcional o el corregido) ya tiene un punto manual, o si bornes.json corrige ese texto a otro bloque.
+    'usuario' (bornes_usuario, los puntos ajustados con el visor; si no se pasa, lay['bornes_usuario']) manda sobre
+    todo: si el usuario ajusto el punto con el texto del FUNCIONAL, el mapeo no le cambia el texto (no se renombra).
     Ademas deja lay['bornes_conf'] (clave -> 'alta' | 'media', solo de los automaticos), lay['bornes_nota']
     (clave -> por que, de los 'media') y lay['renombrar_auto'] (los textos que corrigio el mapeo).
     Devuelve (usados, descartados_por_manual, renombres_automaticos)."""
     manual = dict(manual or {})
     ren_m = dict(renombrar_manual or {})
+    usuario = (lay.get('bornes_usuario') if usuario is None else usuario) or {}
     bornes = dict(manual)
     ren = dict(ren_m)
     conf, nota, ren_auto = {}, {}, {}
@@ -121,6 +147,9 @@ def componer_bornes(lay, auto, manual=None, renombrar_manual=None):
         k0 = f'{t0}#{n}'
         if k0 in ren_m and ren_m[k0] != t1:
             descartados += 1
+            continue
+        if t1 != t0 and ajustado(usuario, t0, n) and not ajustado(usuario, t1, n):
+            descartados += 1             # el usuario eligio el borne con el texto del funcional: manda el suyo
             continue
         key = f'{t1}#{n}'
         bornes[key] = [round(a['x'], 2), round(a['y'], 2), a.get('r')]
@@ -139,13 +168,15 @@ def componer_bornes(lay, auto, manual=None, renombrar_manual=None):
     return usados, descartados, ren_auto
 
 
-def resumen(sal, usados=0, descartados=0, ren_auto=None):
-    """lo que se guarda en el instructivo (ins['mapeo']) para mostrar en la pestana"""
+def resumen(sal, usados=0, descartados=0, ren_auto=None, avisos_previos=None, manual=None):
+    """lo que se guarda en el instructivo (ins['mapeo']) para mostrar en la pestana. 'avisos_previos': los de los
+    archivos del trabajo (bornes.json / correcciones.json ilegibles), que van primero. 'manual': los puntos manuales
+    del trabajo (un borne que el motor no ubico pero tiene punto manual no se avisa)."""
     import re
     sal = sal or {}
     n = {c: sum(1 for p in sal.get('puntos') or [] if p.get('confianza') == c) for c in ('alta', 'media', 'baja')}
     # 'X: no figura en la lista de materiales; por la geometria es M' (uno por componente) -> un solo aviso
-    avisos, geo = [], []
+    avisos, geo = list(avisos_previos or []), []
     for a in sal.get('avisos') or []:
         m = re.match(r'^(\S+): no figura en la lista de materiales; por la geometria es (\S+)$', a)
         if m:
@@ -153,39 +184,36 @@ def resumen(sal, usados=0, descartados=0, ren_auto=None):
         else:
             avisos.append(a)
     if geo:
-        avisos.insert(0, ('sin lista de materiales en el funcional' if not (sal.get('materiales') or '').startswith('lista') else
-                          'no figuran en la lista de materiales') + f'; modelo por la geometria: {", ".join(geo)}')
+        avisos.insert(len(avisos_previos or []), ('sin lista de materiales en el funcional' if not (sal.get('materiales') or '').startswith('lista') else
+                                                  'no figuran en la lista de materiales') + f'; modelo por la geometria: {", ".join(geo)}')
+    sin_ubicar = {}                      # componente -> puntos 'baja' sin punto manual
     for p in sal.get('puntos') or []:
-        if p.get('confianza') == 'baja':
+        if p.get('confianza') == 'baja' and not ({p.get('texto'), f"{p.get('texto')}#{(p.get('cables') or [''])[0]}"} & set(manual or {})):
+            sin_ubicar.setdefault(p.get('componente'), []).append(p)
+    for comp, ps in sin_ubicar.items():
+        if len(ps) >= 4:                 # un aparato entero sin ubicar (ej. modelo que no esta en el catalogo): un solo aviso
+            ej = ', '.join(f"'{p.get('texto')}' #{','.join(p.get('cables') or [])}" for p in ps[:6])
+            avisos.append(f"{comp}: {len(ps)} bornes sin ubicar ({ej}{'…' if len(ps) > 6 else ''}); quedan con el punto aproximado")
+            continue
+        for p in ps:
             avisos.append(f"'{p.get('texto')}' #{','.join(p.get('cables') or [])}: no se pudo ubicar el borne; queda el punto aproximado")
     for k0, t1 in sorted((ren_auto or {}).items()):
         t0, _, num = k0.rpartition('#')
         avisos.append(f"cable {num}: el funcional dice '{t0}' pero el borne quedo en '{t1}' (se corrigio el texto; revisar)")
+    avisos = list(dict.fromkeys(avisos))                                   # sin repetidos, en el mismo orden
     return dict(version=sal.get('version', VERSION), modelos=sal.get('modelos') or {}, avisos=avisos,
                 segundos=sal.get('segundos'), de_cache=bool(sal.get('de_cache')), error=sal.get('error'),
-                materiales=sal.get('materiales'), n_puntos=n, usados=usados, manuales=descartados)
+                materiales=sal.get('materiales'), n_puntos=n, usados=usados, manuales=descartados,
+                modelos_faltantes=list(sal.get('modelos_faltantes') or []))
 
 
-def leer_manuales(dir_trabajo):
+def leer_manuales(dir_trabajo, avisos=None):
     """Puntos y textos corregidos A MANO en el trabajo: bornes.json ({puntos: {texto: {xy, r}}, renombrar:
     {'texto#cable': texto}}, o el formato viejo {texto: [x, y]}) + los 'bornes' de correcciones.json.
+    Un archivo ilegible (JSON invalido) se ignora y deja el aviso en 'avisos' ('bornes.json ilegible, se ignora').
     Devuelve (puntos, renombrar)."""
-    puntos, ren = {}, {}
-    bj = os.path.join(dir_trabajo, 'bornes.json')
-    if os.path.exists(bj):
-        with open(bj, encoding='utf-8') as f:
-            bd = json.load(f)
-        if 'puntos' in bd:
-            puntos = {k: (v['xy'] + [v.get('r')]) if isinstance(v, dict) else v for k, v in bd['puntos'].items()}
-            ren = dict(bd.get('renombrar') or {})
-        else:
-            puntos = dict(bd)
-    cj = os.path.join(dir_trabajo, 'correcciones.json')
-    if os.path.exists(cj):
-        with open(cj, encoding='utf-8') as f:
-            corr = json.load(f)
-        puntos.update(corr.get('bornes') or {})
-    return puntos, ren
+    from instructivo import leer_bornes_manuales
+    return leer_bornes_manuales(dir_trabajo, avisos)
 
 
 def mapeo_del_trabajo(res, lay, dir_trabajo, topo_pdf, cache=True):
@@ -202,10 +230,14 @@ def mapeo_del_trabajo(res, lay, dir_trabajo, topo_pdf, cache=True):
     return mapear_trabajo(topo_pdf, usos, mats, cache=os.path.join(dir_trabajo, 'bornes_auto.json') if cache else None)
 
 
-def aplicar_al_layout(res, lay, dir_trabajo, topo_pdf, cache=True):
+def aplicar_al_layout(res, lay, dir_trabajo, topo_pdf, cache=True, usuario=None):
     """Todo junto, como lo hace web.py: mapeo automatico + puntos manuales del trabajo (mandan) en lay['bornes'],
-    lay['renombrar'], lay['bornes_conf'], lay['bornes_nota']. Devuelve el resumen para ins['mapeo']."""
+    lay['renombrar'], lay['bornes_conf'], lay['bornes_nota']. 'usuario': los puntos ajustados en el visor
+    (bornes_usuario; si no se pasa, lay['bornes_usuario']), que mandan sobre todo. Los conductores agregados a mano
+    (lay['agregar'], de correcciones.json) tienen que estar cargados antes, para que el motor tambien los ubique.
+    Devuelve el resumen para ins['mapeo']."""
     sal = mapeo_del_trabajo(res, lay, dir_trabajo, topo_pdf, cache=cache)
-    manual, ren_m = leer_manuales(dir_trabajo)
-    usados, descartados, ren_auto = componer_bornes(lay, puntos_automaticos(sal), manual, ren_m)
-    return resumen(sal, usados, descartados, ren_auto)
+    avisos = []
+    manual, ren_m = leer_manuales(dir_trabajo, avisos)
+    usados, descartados, ren_auto = componer_bornes(lay, puntos_automaticos(sal), manual, ren_m, usuario)
+    return resumen(sal, usados, descartados, ren_auto, avisos, manual)

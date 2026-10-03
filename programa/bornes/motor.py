@@ -44,7 +44,7 @@ except ImportError:                            # suelto: python motor.py ...
     import primitivas as P  # noqa: E402
 
 # version del motor: si cambia, el programa vuelve a calcular el mapeo aunque haya cache (bornes_auto.json)
-VERSION = '2026.10.02-1'
+VERSION = '2026.10.02-3'
 
 LADOS = ('ARRIBA', 'ABAJO')
 
@@ -213,6 +213,11 @@ def norm(s):
 
 
 PAT_TAG = re.compile(r'^\d{2}[A-Z]+\d*$')
+# fabricantes de aparamenta (para separar marca y modelo en un renglon de la lista de materiales)
+FABRICANTES_RE = re.compile(r'(?i)\b(phoenix|schneider|mean\s*well|finder|chenzhu|weidm(?:u|ü|ue)ller|omron|abb|siemens|wago|'
+                            r'epever|legrand|hager|eaton|moeller|allen[\s-]*bradley|rockwell|telemecanique|steute|'
+                            r'pilz|murr|turck|pepperl|sick|ifm|lovato|chint|wieland|entrelec|conexel|vivion|trombetta|moxa|'
+                            r'advantech|gefran|brevini)\b')
 
 
 def leer_materiales(path):
@@ -355,7 +360,16 @@ class Motor:
                         self.mm(self.g.get('margen_etiqueta_riel_mm', 21)), self.mm(self.g.get('riel_hueco_max_mm', 40.0)),
                         self.mm(self.g.get('riel_ancho_max_trazo_mm', 30.0)))
         self.materiales = materiales
+        # familias (tipo de aparato) del catalogo, en orden: para saber de la lista de materiales que es cada aparato
+        self.familias = []
+        for f in self.g.get('familias', []):
+            try:
+                self.familias.append((f['familia'], f.get('nombre') or f['familia'], re.compile(f['patron'])))
+            except (KeyError, TypeError, re.error):
+                continue
         self.avisos = [aviso_escala] if aviso_escala else []
+        self.faltantes = []          # [{tag, texto_de_la_lista}]: la lista de materiales nombra un modelo que no esta en el catalogo
+        self.sin_resolver = {}       # (componente, indice, texto, cable del uso) -> (modelo, por que quedo sin punto)
         if self.monocromo:
             self.avisos.append('plano monocromo: no se usan los colores del catalogo (PE verde, pieza azul, bocas grises)')
         self._asociar()
@@ -385,16 +399,33 @@ class Motor:
         return out if out else oscuros
 
     # ------------------------------------------------------------------ etiquetas y rieles
+    @staticmethod
+    def posicion_etiqueta(c):
+        """(x, y) de la etiqueta del componente segun los usos, o None si no la trae (sin etiqueta_topografico, o con
+        x / y vacios o que no son numeros)"""
+        e = c.get('etiqueta_topografico') if isinstance(c, dict) else None
+        if not isinstance(e, dict):
+            return None
+        try:
+            x, y = float(e.get('x')), float(e.get('y'))
+        except (TypeError, ValueError):
+            return None
+        return (x, y) if math.isfinite(x) and math.isfinite(y) else None
+
     def _asociar(self):
         dmax = self.mm(self.g.get('distancia_max_etiqueta_mm', 20))
         pares = []
         comps = self.usos['componentes']
+        # componentes sin la posicion de su etiqueta (x / y vacios): no se puede saber cual es su zona; sus bornes
+        # quedan sin punto (confianza baja, con aviso) y los demas siguen
+        self.sin_posicion = set()
         for k, c in comps.items():
-            e = c.get('etiqueta_topografico') or {}
-            if 'x' not in e:
+            pe = self.posicion_etiqueta(c)
+            if pe is None:
+                self.sin_posicion.add(k)
                 continue
             for i, t in enumerate(self.etiquetas):
-                d = math.hypot(t['cx'] - e['x'], t['cy'] - e['y'])
+                d = math.hypot(t['cx'] - pe[0], t['cy'] - pe[1])
                 if d <= dmax:
                     pares.append((d, k, i))
         usados_k, usados_i = set(), set()
@@ -406,14 +437,23 @@ class Motor:
             usados_i.add(i)
             self.tag[k] = dict(self.etiquetas[i], leida=True)
         for k, c in comps.items():
-            if k not in self.tag:
-                e = c.get('etiqueta_topografico') or {'x': self.region[0], 'y': self.region[1]}
-                h, w = 2.4, 8.5
-                self.tag[k] = dict(x0=e['x'] - w, x1=e['x'] + w, y0=e['y'] - h, y1=e['y'] + h, cx=e['x'], cy=e['y'], leida=False)
-                self.avisos.append(f'{k}: no encontre su etiqueta amarilla, uso la posicion de usos_por_componente.json')
+            if k in self.tag:
+                continue
+            h, w = 2.4, 8.5
+            if k in self.sin_posicion:
+                x, y = self.region[0], self.region[1]
+                self.tag[k] = dict(x0=x - w, x1=x + w, y0=y - h, y1=y + h, cx=x, cy=y, leida=False, sin_posicion=True)
+                self.avisos.append(f'{k}: no tiene la posicion de su etiqueta en el topografico; sus bornes quedan sin punto exacto')
+                continue
+            x, y = self.posicion_etiqueta(c)
+            self.tag[k] = dict(x0=x - w, x1=x + w, y0=y - h, y1=y + h, cx=x, cy=y, leida=False)
+            self.avisos.append(f'{k}: no encontre su etiqueta amarilla, uso la posicion de usos_por_componente.json')
         # riel de cada componente: el tramo de riel que contiene la etiqueta (con margen vertical)
         self.riel = {}
         for k, t in self.tag.items():
+            if t.get('sin_posicion'):
+                self.riel[k] = None
+                continue
             mv = self.mm(self.g.get('margen_etiqueta_riel_mm', 21))
             cand = [r for r in self.rieles if r['x0'] - 5 <= t['cx'] <= r['x1'] + 5 and r['y0'] - mv <= t['cy'] <= r['y1'] + mv]
             self.riel[k] = min(cand, key=lambda r: abs(r['yc'] - t['cy'])) if cand else None
@@ -422,7 +462,7 @@ class Motor:
         for k, t in self.tag.items():
             if self.riel[k] is not None:
                 self.delims[id(self.riel[k])].append(dict(t, comp=k))
-        propias = {(round(t['x0'], 1), round(t['y0'], 1)) for t in self.tag.values()}
+        propias = {(round(t['x0'], 1), round(t['y0'], 1)) for t in self.tag.values() if not t.get('sin_posicion')}
         for t in self.etiquetas:
             if (round(t['x0'], 1), round(t['y0'], 1)) in propias:
                 continue
@@ -750,20 +790,33 @@ class Motor:
                 # pieza
                 pv = regla.get('pieza', 1)
                 nota_comun = ''
+                renombra_modulo = False        # el texto se corrige al modulo donde quedo el punto
                 if pv == 'modulo':
                     suf = str(u.get('tag') or '')[len(k):]
                     borne_u = str(u.get('borne') or '').strip().upper()
                     if borne_u in comunes:
                         npz, conf = 1, 'media'
+                        renombra_modulo = True     # comun puenteado real: entra por el primer modulo del grupo
                         nota_comun = (f" | {borne_u} es un comun puenteado (cableado en {comunes[borne_u][0]} modulo(s) y "
                                       f"{comunes[borne_u][1]} en {comunes[borne_u][2]}): el cable entra por el primer modulo"
                                       + (f" (el texto dice modulo {suf})" if suf.isdigit() and int(suf) != 1 else ''))
                     elif suf.isdigit():
                         npz = int(suf)
                         conf = 'alta'
+                    elif len(pz) == 1 and not est.get('descartadas'):
+                        # rele UNICO sin numero de modulo en el texto ('43KR 11'): no hay otro modulo y el texto queda
+                        # como esta (no se renombra a '43KR1 11')
+                        npz, conf = 1, 'alta'
                     else:
+                        # texto sin numero de modulo en un bloque de varios modulos ('46KR A2'): el de su pareja de
+                        # bobina; si no hay pareja, el modulo queda a revisar (sin punto)
                         npz = self.modulo_por_pareja(k, u, usos_k, nom)
                         conf = 'media'
+                        if npz is None:
+                            self.sin_resolver[(k, i, u.get('texto'), str(u.get('cable')))] = (m['id'], f"{m['id']}: '{u.get('texto')}' no dice el numero de modulo y "
+                                                                  f"el bloque tiene {len(pz)} modulos; modulo a revisar (queda en la etiqueta)")
+                            continue
+                        renombra_modulo = len(pz) > 1
                 elif isinstance(pv, int):
                     npz, conf = pv, 'alta'
                 elif pv == '$1':
@@ -829,7 +882,7 @@ class Motor:
                 b = lista[boca]
                 res[i] = dict(x=b['x'], y=b['y'], r=b['r'], confianza=conf, bloque=k,
                               como=f"{m['id']}: pieza {npz} de {len(pz)}, lado {lado}, boca {boca} ({'extremo' if boca == 0 else 'interior'})" + nota_comun + nota_num)
-                if pv == 'modulo':
+                if pv == 'modulo' and renombra_modulo:
                     res[i]['modulo'] = npz          # modulo donde quedo el punto (43KR2 A2 comun -> modulo 1)
         elif est['tipo'] == 'filas':
             pines = nom.get('pines', {})
@@ -1091,27 +1144,83 @@ class Motor:
                                    f"se paso a {sig} {u.get('borne')} (revisar la etiqueta en el instructivo)")
 
     def modulo_por_pareja(self, k, u, usos_k, nom):
-        """Modulo de un uso sin numero de modulo ('46KR A2'): el del otro borne de bobina con cable vecino."""
+        """Modulo de un uso sin numero de modulo ('46KR A2'): el del otro borne de bobina con cable vecino.
+        None si no hay pareja: el modulo queda a revisar (antes se tomaba el 1 sin avisar)."""
         c = num_cable(u.get('cable'))
         for _, v in usos_k:
             suf = str(v.get('tag') or '')[len(k):]
             if suf.isdigit() and str(v.get('borne')).upper() in ('A1', 'A2') and abs(num_cable(v.get('cable')) - c) == 1:
                 return int(suf)
-        return 1
+        return None
 
     # ------------------------------------------------------------------ eleccion del modelo
     def candidatos(self, k):
+        """Modelo de k segun la lista de materiales: (modelo del catalogo o None, tag de la lista de donde salio).
+        Si k no figura con un modelo del catalogo, se prueba con los tags de la misma raiz (43KR -> 43KR1)."""
         mats = self.materiales
-        listado = None
         if k in mats:
             listado = modelo_por_materiales(mats[k], self.modelos)
-        if listado is None:
-            for tg, tx in mats.items():
-                if raiz(tg) == raiz(k) and tg != k:
-                    listado = modelo_por_materiales(tx, self.modelos)
-                    if listado:
-                        break
-        return listado
+            if listado is not None:
+                return listado, k
+        for tg, tx in mats.items():
+            if raiz(tg) == raiz(k) and tg != k:
+                listado = modelo_por_materiales(tx, self.modelos)
+                if listado:
+                    return listado, tg
+        return None, None
+
+    @staticmethod
+    def texto_lista(texto):
+        """el renglon de la lista de materiales en una linea ('Interruptor termomagnetico 2x10A | SCHNEIDER | EZ9F34210'
+        -> 'Interruptor termomagnetico 2x10A SCHNEIDER EZ9F34210'; sin las letras sueltas de la grilla de la hoja)"""
+        return re.sub(r'\s+', ' ', ' '.join(c.strip() for c in str(texto or '').split('|') if len(c.strip()) > 1)).strip()
+
+    def modelo_lista(self, texto):
+        """marca y modelo del renglon de la lista de materiales (desde el campo del fabricante hasta el final):
+        '... | Base de fusible ... | ABB | E 91/32' -> 'ABB E 91/32'. Sin fabricante conocido, el renglon entero."""
+        campos = [c.strip() for c in str(texto or '').split('|') if len(c.strip()) > 1]
+        fabs = {norm(f) for m in self.modelos for f in str(m.get('fabricante') or '').split('/') if len(f.strip()) > 1}
+        for i, c in enumerate(campos):
+            if FABRICANTES_RE.search(c) or any(f and f in norm(c) for f in fabs):
+                return ' '.join(campos[i:])
+        return self.texto_lista(texto)
+
+    @staticmethod
+    def tipo_corto(m):
+        """lo que es el modelo, para los avisos: 'modular DIN (termomagnetica 2 polos)' -> 'termomagnetica 2 polos';
+        'barrera de seguridad intrinseca (carcasa angosta...)' -> 'barrera de seguridad intrinseca'"""
+        t = str(m.get('tipo') or '').strip()
+        mo = re.match(r'^(.*?)\s*\(([^)]*)\)\s*$', t)
+        if mo:
+            pre, par = mo.group(1).strip(), mo.group(2).strip()
+            return par if (not pre or re.match(r'(?i)^modular\b', pre) and len(pre.split()) <= 2) else pre
+        return t or m.get('id', '?')
+
+    def familia_de_texto(self, texto):
+        """familia (tipo de aparato) de un renglon de la lista de materiales: la del primer patron de 'familias' del
+        catalogo que aparece en el renglon (sin el tag): 'Interruptor termico de control AC | ABB | SH 202' ->
+        'termomagnetica', 'Modulo de entradas analogicas | MOXA' -> 'modulo_es'. None si no se reconoce."""
+        t = ' '.join(c.strip() for c in str(texto or '').split('|'))
+        for fam, _, rx in self.familias:
+            if rx.search(t):
+                return fam
+        return None
+
+    def nombre_familia(self, fam):
+        return next((n for f, n, _ in self.familias if f == fam), None) or str(fam)
+
+    def familia_de(self, k, c, listado, texto_k):
+        """familia del aparato k segun la lista de materiales: la del modelo que nombra (si esta en el catalogo) o la
+        de la descripcion de su renglon; un renglon sin familia reconocible de un tag de bornera cuenta como bornera.
+        None si k no figura en la lista (o el renglon no dice que es)."""
+        if listado is not None and listado.get('familia'):
+            return listado['familia']
+        if texto_k is None:
+            return None
+        fam = self.familia_de_texto(texto_k)
+        if fam is None and c.get('es_bornera'):
+            fam = 'bornera'
+        return fam
 
     def mapear(self):
         """Ubica cada uso. Si un componente falla (dibujo raro, modelo mal cargado), ese componente queda sin punto
@@ -1122,6 +1231,11 @@ class Motor:
         self.estructuras = {}
         pendientes_desborde = []
         for k, c in comps.items():
+            if k in self.sin_posicion:                               # sin etiqueta: sus bornes quedan con confianza baja
+                self.elegido[k] = dict(id='?')
+                self.estructuras[k] = None
+                self.resultado[k] = {}
+                continue
             try:
                 m, est, res, desb = self._elegir_modelo(k, c)
             except Exception as e:                                   # noqa: BLE001
@@ -1160,13 +1274,40 @@ class Motor:
     def _elegir_modelo(self, k, c):
         """prueba los modelos del catalogo en la zona de k y devuelve (modelo, estructura, resultado, desbordes)"""
         usos_k = list(enumerate(c.get('usos', [])))
-        listado = self.candidatos(k)
+        listado, de_tag = self.candidatos(k)
+        # la lista de materiales nombra a k con un modelo que NO esta en el catalogo: se avisa claro (el taller arma el
+        # catalogo con la lista de materiales y necesita saber que modelos faltan)
+        texto_k = self.materiales.get(k)
+        faltante = texto_k is not None and modelo_por_materiales(texto_k, self.modelos) is None
+        # la geometria solo puede elegir un modelo de la MISMA familia (tipo de aparato) que dice la lista de
+        # materiales: un modulo de E/S que no esta en el catalogo no se ubica como barrera, ni una termomagnetica como
+        # toma corriente (antes sus bornes caian sobre el dibujo de otro aparato)
+        familia = self.familia_de(k, c, listado, texto_k)
+        if faltante:
+            self.faltantes.append(dict(tag=k, modelo=self.modelo_lista(texto_k), texto_de_la_lista=self.texto_lista(texto_k),
+                                       familia=self.nombre_familia(familia) if familia else None))
         pruebas = []
-        modelos = self.modelos
-        if 'es_bornera' in c:
-            modelos = [m for m in self.modelos if bool(m.get('es_bornera', False)) == bool(c['es_bornera'])] or self.modelos
-        if listado is not None and listado not in modelos:
-            modelos = modelos + [listado]
+        if familia:
+            modelos = [m for m in self.modelos if m.get('familia') == familia]
+            if listado is not None and listado not in modelos:
+                modelos = modelos + [listado]
+            if not modelos:
+                # ningun modelo del catalogo es de esa familia: no se adivina con otro tipo de aparato; sus bornes
+                # quedan sin punto (en la etiqueta) con el aviso del modelo faltante
+                que = self.modelo_lista(texto_k) if texto_k else k
+                motivo = (f"{que} ({k}) es {self.nombre_familia(familia)} y el catalogo no tiene ningun modelo de esa familia; "
+                          "sus bornes quedan sin punto exacto (punto aproximado en la etiqueta)")
+                self.avisos.append(f"{que} ({k}): no esta en el catalogo y no hay ningun modelo de {self.nombre_familia(familia)}; "
+                                   "sus bornes quedan sin punto (punto aproximado en la etiqueta)")
+                for i, u in usos_k:
+                    self.sin_resolver[(k, i, u.get('texto'), str(u.get('cable')))] = ('?', motivo)
+                return dict(id='?', familia=familia), None, {}, []
+        else:
+            modelos = self.modelos
+            if 'es_bornera' in c:
+                modelos = [m for m in self.modelos if bool(m.get('es_bornera', False)) == bool(c['es_bornera'])] or self.modelos
+            if listado is not None and listado not in modelos:
+                modelos = modelos + [listado]
         for m in modelos:
             try:
                 est = self.estructura(k, m)
@@ -1176,9 +1317,15 @@ class Motor:
                     self.avisos.append(f"{k}: el modelo {m['id']} de la lista de materiales no se pudo probar ({type(e).__name__}: {e})")
                 continue
             n = max(1, len(usos_k))
-            score = (len(res) + 0.5 * len(desb)) / n + (0.05 if m is listado else 0) + 0.01 * (est['validas'] > 0)
+            # los bornes que 'desbordan' (numero mayor que las piezas: van al bloque vecino) solo cuentan si el modelo
+            # encontro su dibujo en la zona: un modelo sin ninguna pieza no explica nada (antes una bornera con diodo
+            # sin piezas le ganaba a la bornera de la lista de materiales porque desbordaban todos sus bornes)
+            score = (len(res) + (0.5 * len(desb) if est['validas'] > 0 else 0.0)) / n + (0.05 if m is listado else 0) + 0.01 * (est['validas'] > 0)
             pruebas.append((score, m, est, res, desb))
         if not pruebas:
+            if faltante:
+                self.avisos.append(f"{self.modelo_lista(texto_k)} ({k}): no esta en el catalogo; no se pudo ubicar por la "
+                                   "geometria: quedo en la etiqueta")
             raise ValueError('ningun modelo del catalogo se pudo probar en su zona')
         # 1) el modelo de la lista de materiales se respeta si su firma aparece en la zona y explica al menos
         #    la mitad de los usos; 2) si no, gana el modelo del catalogo que mejor explica los usos
@@ -1189,18 +1336,84 @@ class Motor:
             if q[1] is listado and q[2]['validas'] > 0 and q[0] - 0.06 >= 0.5:
                 mejor = q
         empatados = [q for q in pruebas if abs(q[0] - mejor[0]) < 1e-6]
+        dudosos = {}                   # indice del uso -> modelos empatados que lo ubican en otro lugar
         if len(empatados) > 1 and mejor[1] is not listado:
             # desempate: color del dibujo; despues, el modelo mas chico que explica los usos (menos pines con
             # nombre: entre GS8512 de 10 bornes y GS8536 de 14, si los usos van del 1 al 10, el GS8512)
             def n_pines(q):
                 nm = q[1].get('nombres', {})
                 return len(nm.get('pines', {})) or len(nm.get('reglas', [])) or 99
-            mejor = max(empatados, key=lambda q: (self.afinidad_color(q[2]), -n_pines(q)))
+            afin = {id(q): self.afinidad_color(q[2]) for q in empatados}
+            mejor = max(empatados, key=lambda q: (afin[id(q)], -n_pines(q)))
+            # modelos que nada distingue (mismo puntaje, mismo color y mismo tamano: la eleccion es arbitraria) pero
+            # que ubican DISTINTO los mismos usos (sin lista de materiales, diferencial y termomagnetica de 2 polos: el
+            # mismo dibujo con F y N cruzados): no hay como saber cual es; esos puntos bajan a 'media' para
+            # confirmarlos en el visor. (Si el desempate es por el tamano, GS8512 contra GS8536, se respeta.)
+            tol = max(0.5, 0.25 * self.mm(mejor[1].get('paso_mm', 6)))
+            for q in empatados:
+                if q is mejor or abs(afin[id(q)] - afin[id(mejor)]) > 1e-6 or n_pines(q) != n_pines(mejor):
+                    continue
+                for i, p in mejor[3].items():
+                    p2 = q[3].get(i)
+                    if p2 is not None and math.hypot(p2['x'] - p['x'], p2['y'] - p['y']) > tol:
+                        dudosos.setdefault(i, []).append(q[1])
         score, m, est, res, desb = mejor
-        if listado is not None and m is not listado:
+        if dudosos:
+            otros = []
+            for lst in dudosos.values():
+                for q in lst:
+                    if q not in otros:
+                        otros.append(q)
+            bornes_d = sorted({str(usos_k[i][1].get('borne') or '?').strip() for i in dudosos}, key=lambda b: (len(b), b))
+            nb = '/'.join(bornes_d)
+            # interruptores (modelos con 'polos'): 'confirmar polos F/N'
+            que = f"polos {nb}" if all(x.get('polos') for x in [m] + otros) else nb
+            if faltante:
+                razon = 'el modelo de la lista de materiales no esta en el catalogo'
+            elif listado is not None:
+                razon = f'la lista de materiales dice {listado["id"]} pero su dibujo no coincide'
+            else:
+                razon = 'sin lista de materiales'
+            tipos = ' o '.join(dict.fromkeys(self.tipo_corto(x) for x in [m] + otros))
+            ids = ' y '.join(x['id'] for x in [m] + otros)
+            nota = f"confirmar {que}: {tipos} ({razon}; el dibujo coincide igual con {ids}, que los ubican distinto)"
+            for i in dudosos:
+                res[i]['confianza'] = 'media'
+                res[i]['como'] = nota + ' | ' + res[i]['como']
+            self.avisos.append(f"{k}: {razon} y el dibujo coincide igual con {ids}, que ubican distinto {nb}; "
+                               f"se tomo {m['id']}: confirmar {que} en el visor")
+        if est['validas'] == 0:
+            desb = []                  # sin dibujo del modelo en la zona no hay bloque del que 'desbordar'
+        if faltante:
+            tl = self.modelo_lista(texto_k)
+            if not res and not desb:
+                como = 'quedo en la etiqueta (no se pudo ubicar por la geometria)'
+            elif listado is not None and m is listado:
+                como = f'se tomo el modelo de {de_tag} en la lista ({m["id"]})'
+            elif familia:
+                como = f'se ubico por la geometria como {m["id"]} (misma familia: {self.nombre_familia(familia)})'
+            else:
+                # el renglon no dice que tipo de aparato es: el modelo de la geometria puede ser de otra familia, asi
+                # que sus puntos quedan 'a confirmar'
+                como = f'se ubico por la geometria como {m["id"]} (el renglon no dice que tipo de aparato es: a confirmar)'
+                for p in res.values():
+                    if p.get('confianza') == 'alta':
+                        p['confianza'] = 'media'
+                    p['como'] = (f"{tl}: la lista de materiales nombra un modelo que no esta en el catalogo y no dice que tipo de "
+                                 f"aparato es; se ubico como {m['id']}: confirmar | " + p['como'])
+            self.avisos.append(f"{tl} ({k}): no esta en el catalogo; {como}")
+        elif listado is not None and m is not listado:
             self.avisos.append(f"{k}: la lista de materiales dice {listado['id']} pero el dibujo coincide mejor con {m['id']}")
-        elif listado is None:
+        elif listado is not None and not res and not desb and usos_k:
+            self.avisos.append(f"{k}: no se encontro en el dibujo el modelo de la lista de materiales ({m['id']}) ni otro de la "
+                               "misma familia; sus bornes quedan sin punto exacto")
+        elif listado is None and (res or desb or not usos_k):
             self.avisos.append(f"{k}: no figura en la lista de materiales; por la geometria es {m['id']}")
+        elif listado is None:
+            self.avisos.append(f"{k}: " + ('su renglon de la lista de materiales no nombra un modelo del catalogo' if texto_k is not None
+                                           else 'no figura en la lista de materiales')
+                               + ' y no se encontro en el dibujo ningun modelo del catalogo' + (f' de la familia {self.nombre_familia(familia)}' if familia else '')
+                               + '; sus bornes quedan sin punto exacto')
         return m, est, res, desb
 
     def afinidad_color(self, est):
@@ -1229,6 +1442,86 @@ class Motor:
                 return None
         return None
 
+    def cuerpos(self, puntos):
+        """cuerpo (x0, y0, x1, y1) de cada aparato ubicado: el que uso su modelo (barreras, toma) o, si no, el contorno
+        cerrado mas chico que contiene su etiqueta y alguno de sus puntos (la carcasa de una fuente, de una
+        termomagnetica). No cuenta un contorno con la etiqueta de otro aparato adentro (placa, riel) ni uno mas grande
+        que 'cuerpo_max_mm'."""
+        etiquetas = {k: (t['cx'], t['cy']) for k, t in self.tag.items() if not t.get('sin_posicion')}
+        lim = self.mm(self.g.get('cuerpo_max_mm', 250.0))
+        out = {}
+        for k, est in self.estructuras.items():
+            if est is None or k not in etiquetas:
+                continue
+            propios = [p for p in puntos if p['confianza'] != 'baja' and (p.get('ubicado_en') or p['componente']) == k]
+            if not propios:
+                continue
+            ajena = lambda b: any(j != k and b[0] < x < b[2] and b[1] < y < b[3] for j, (x, y) in etiquetas.items())
+            if est.get('cuerpo') is not None:
+                b = tuple(est['cuerpo'])
+                if not ajena(b):
+                    out[k] = b
+                continue
+            cx, cy = etiquetas[k]
+            cand = [b for b in self.esc_.cerrados()
+                    if b[0] <= cx <= b[2] and b[1] <= cy <= b[3] and b[2] - b[0] <= lim and b[3] - b[1] <= lim
+                    and any(b[0] <= p['x'] <= b[2] and b[1] <= p['y'] <= b[3] for p in propios) and not ajena(b)]
+            if cand:
+                out[k] = min(cand, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]))
+        return out
+
+    def red_de_seguridad(self, puntos):
+        """Red de seguridad: un borne no puede caer sobre OTRO aparato. Baja a 'baja' (sin punto: queda en la etiqueta,
+        con aviso) los puntos que caen dentro del cuerpo de otro aparato y los que quedan encima (a menos de
+        'distancia_otro_tag_mm') de un punto de otro tag; de dos puntos encimados se descarta el de menor confianza,
+        o los dos si tienen la misma (no hay como saber cual es). No cuentan los puntos que el motor paso a propósito
+        al bloque vecino (desborde, boca compartida): esos son del bloque donde quedaron."""
+        bloque = lambda p: p.get('ubicado_en') or p['componente']
+        rango = {'alta': 2, 'media': 1}
+
+        def descartar(p, motivo):
+            k = p['componente']
+            t = self.tag.get(k) or {}
+            p['como'] = f"DESCARTADO: {motivo}; queda en la etiqueta (el modelo lo ubicaba en ({p['x']}, {p['y']})) | {p['como']}"
+            p['confianza'] = 'baja'
+            if t.get('cx') is not None:
+                p.update(x=round(float(t['cx']), 2), y=round(float(t['cy']), 2), r=2.0)
+            for c in ('ubicado_en', 'tag_ubicado', 'texto_ubicado'):
+                p.pop(c, None)
+            avisos.setdefault((k, motivo.split(':')[0]), []).append(p)
+
+        avisos = {}
+        cuerpos = self.cuerpos(puntos)
+        for p in puntos:
+            if p['confianza'] == 'baja':
+                continue
+            for j, b in cuerpos.items():
+                if j in (bloque(p), p['componente']):
+                    continue
+                if b[0] < p['x'] < b[2] and b[1] < p['y'] < b[3]:
+                    descartar(p, f"cae dentro del cuerpo de {j} (otro aparato)")
+                    break
+        dmin = self.mm(self.g.get('distancia_otro_tag_mm', 1.5))
+        vivos = [p for p in puntos if p['confianza'] != 'baja']
+        malos = {}
+        for i, p in enumerate(vivos):
+            for q in vivos[i + 1:]:
+                if bloque(p) == bloque(q) or p['componente'] == q['componente']:
+                    continue
+                if math.hypot(p['x'] - q['x'], p['y'] - q['y']) >= dmin:
+                    continue
+                rp, rq = rango.get(p['confianza'], 0), rango.get(q['confianza'], 0)
+                if rp <= rq:
+                    malos.setdefault(id(p), (p, bloque(q)))
+                if rq <= rp:
+                    malos.setdefault(id(q), (q, bloque(p)))
+        for p, j in malos.values():
+            descartar(p, f"queda encima de un borne de {j} (otro aparato)")
+        for (k, motivo), lst in avisos.items():
+            self.avisos.append(f"{k}: {len(lst)} punto(s) descartado(s) porque {motivo} "
+                               f"({', '.join(str(q['texto']) + ' #' + ','.join(q['cables']) for q in lst[:6])}"
+                               + ('…' if len(lst) > 6 else '') + "); quedan en la etiqueta")
+
     def salida(self):
         puntos = []
         for k, c in self.usos['componentes'].items():
@@ -1238,8 +1531,11 @@ class Motor:
                 p = (self.resultado.get(k) or {}).get(i)
                 base = dict(texto=u.get('texto'), cables=[str(u.get('cable'))] if u.get('cable') else [], componente=k, modelo=m['id'])
                 if p is None:
-                    base.update(x=round(float(t['cx']), 2), y=round(float(t['cy']), 2), r=2.0, confianza='baja',
-                                como=f"{m['id']}: no pude resolver '{u.get('borne')}' {lado_de_uso(u) or ''}; queda en la etiqueta")
+                    sr = self.sin_resolver.get((k, i, u.get('texto'), str(u.get('cable'))))
+                    como = (f"{k}: no tiene la posicion de su etiqueta en el topografico; queda sin punto" if t.get('sin_posicion') else
+                            sr[1] if sr and sr[0] == m['id'] else
+                            f"{m['id']}: no pude resolver '{u.get('borne')}' {lado_de_uso(u) or ''}; queda en la etiqueta")
+                    base.update(x=round(float(t['cx']), 2), y=round(float(t['cy']), 2), r=2.0, confianza='baja', como=como)
                 else:
                     base.update(x=round(float(p['x']), 2), y=round(float(p['y']), 2), r=round(float(p['r']), 2), confianza=p['confianza'], como=p['como'])
                     if p.get('bloque') and p['bloque'] != k:
@@ -1257,6 +1553,10 @@ class Motor:
                         base['tag_ubicado'] = nuevo
                         base['texto_ubicado'] = nuevo + texto[len(tag_u):]
                 puntos.append(base)
+        try:
+            self.red_de_seguridad(puntos)
+        except Exception as e:                                       # noqa: BLE001
+            self.avisos.append(f"no se pudo revisar los puntos que caen sobre otro aparato ({type(e).__name__}: {e})")
         # dos cables distintos en la misma boca: puede ser un puente o una derivacion a proposito, pero tambien
         # un error del instructivo (etiqueta del bloque vecino, extremo repetido). Se avisa y se baja a 'media'.
         vistos = defaultdict(list)
@@ -1285,7 +1585,7 @@ class Motor:
         return dict(descripcion='Puntos de conexion de los bornes (mapeo automatico: catalogo de modelos + detector geometrico). Coordenadas en puntos PDF, origen abajo a la izquierda; r = radio de la boca en pt.',
                     version=VERSION, pagina_pdf=self.pagina + 1, escala_mm_por_pt=self.esc,
                     modelos={k: m['id'] for k, m in self.elegido.items()},
-                    avisos=self.avisos, puntos=puntos, segundos=round(time.time() - self.t0, 2))
+                    avisos=self.avisos, puntos=puntos, modelos_faltantes=self.faltantes, segundos=round(time.time() - self.t0, 2))
 
 
 # ============================================================================================ control

@@ -196,6 +196,14 @@ def build_cable_list(res):
                 bb = lb['bbox']
                 review.append(dict(tipo='Etiqueta de color/sección sin cable asociado', texto=lb['raw'], pag=pg['index'], bbox=bb,
                                    hoja=sheet_name(pg), zona=zone_of(pg['meta'], (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2, pg['w'], pg['h'])))
+    # numeros de cada tramo: al heredar la etiqueta por el tramo recto contiguo no se pasa a un tramo de OTRO numero
+    # (TPT hoja 12: 1204 baja al + de la bateria y en la union en T con diagonal sigue recto el tramo de 1205, que
+    # tiene su propia etiqueta 'Red/35mm2'; 1204 es rojo 4 por su otra aparicion en la hoja)
+    num_tramo = collections.defaultdict(set)
+    for pg in res.pages:
+        for nm in pg['nums']:
+            if nm['chain'] is not None:
+                num_tramo[(pg['index'], nm['chain'])].add(nm['num'])
     for pg in res.pages:
         g = pg['graph']
         for nm in pg['nums']:
@@ -214,7 +222,10 @@ def build_cable_list(res):
                     for c in frontier:
                         for c2 in g.straight_neighbors(c):
                             if c2 not in seen:
-                                seen.add(c2); nxt.append(c2)
+                                seen.add(c2)
+                                if num_tramo.get((pg['index'], c2), {nm['num']}) - {nm['num']}:
+                                    continue      # tramo con otro numero: es otro conductor
+                                nxt.append(c2)
                     found = [lb for c2 in nxt for lb in chain_labels.get((pg['index'], c2), [])]
                     if found:
                         lbs = found; via = 'recto'; break
@@ -239,7 +250,9 @@ def build_cable_list(res):
                 if len(set(d['etiquetas'])) > 1:
                     d['origen'] += ' (hay varias: ' + ', '.join(f'{c} {s}' for c, s in sorted(set(d['etiquetas']))) + ')'
             elif own:
-                (c, s), _ = own.most_common(1)[0]
+                # la etiqueta del mismo numero en la MISMA hoja, si tiene; si no, la mas comun de las otras hojas
+                misma = collections.Counter(e for x in occ if x['pag'] == d['pag'] and not x['via'] for e in x['etiquetas'])
+                (c, s), _ = (misma or own).most_common(1)[0]
                 src_pg = sorted({x['hoja'] for x in occ if (c, s) in x['etiquetas']}, key=natkey)
                 d['color'], d['sec'] = c, s
                 d['origen'] = 'Etiqueta en otra aparición (hoja ' + ', '.join(src_pg) + ')'
@@ -251,6 +264,7 @@ def build_cable_list(res):
                 d['origen'] = 'Sin indicar en el plano'
     build_routes(res, detail, chain_labels)
     route_refs(res, detail)
+    puntas_reales(res)
     for d in detail:
         d['puntas'] = res.pages_by_index[d['pag']]['routes'].get(d['num'], {}).get('puntas', 0)
     cables = []
@@ -368,6 +382,57 @@ def build_routes(res, detail, chain_labels):
                                      uniones=[[round(p[0], 1), round(p[1], 1)] for p in joins])
 
 
+def puntas_reales(res):
+    """'Puntas' del listado (y del visor): las puntas del recorrido de cada numero en la hoja, SIN contar
+    - las de las ALTERNATIVAS que no se cablean: un circuito dibujado varias veces con otro aparato (TPT hoja 15: la
+      barrera 43DIB1 en tres alternativas; 1313 y 1314 daban 6 puntas). Se elige la alternativa igual que en el
+      instructivo (instructivo.alternativas: la de la lista de materiales o la primera);
+    - las flechas que siguen en la MISMA hoja: el cable cortado con dos flechas que se apuntan entre si dentro de la
+      hoja (TPT 1319 en la hoja 13 daba 4 puntas). Las flechas a OTRAS hojas se siguen contando, como antes.
+    Deja las puntas del dibujo en rt['puntas_dibujo'] si cambian."""
+    try:
+        from instructivo import alternativas, alternativa, alternativas_del_cable, hoja_base
+        alts = alternativas(res)
+    except Exception:          # sin el modulo del instructivo: las puntas del dibujo, como antes
+        return
+    k = res.k
+    fuera = set()              # (pag, x, y) de las puntas de alternativas que no se cablean
+    try:
+        if alts:
+            por_num = collections.defaultdict(dict)
+            for pg in res.pages:
+                for num, rt in (pg.get('routes') or {}).items():
+                    for e in rt.get('fines') or []:
+                        a = alternativa(pg, e)
+                        if a:
+                            por_num[num][(pg['index'], e[0], e[1])] = dict(alt=a, tipo='punta')
+            for num, nodes in por_num.items():
+                fuera |= set(alternativas_del_cable(nodes, alts)[0])
+    except Exception:          # (si cambia la interfaz de las alternativas: se cuentan todas, como antes)
+        fuera = set()
+    for pg in res.pages:
+        rts = pg.get('routes') or {}
+        hoja = hoja_base(sheet_name(pg))
+        for num, rt in rts.items():
+            # (si todas las puntas de la hoja son de una alternativa que no se cablea, la hoja entera es esa
+            # alternativa, 61B: se dejan, el listado toma el maximo de las hojas)
+            fines = [e for e in rt.get('fines') or [] if (pg['index'], e[0], e[1]) not in fuera] or rt.get('fines') or []
+            misma = []
+            for e in fines:
+                # referencia de la flecha: el rotulo apilado (flecha vertical) o el (ShNN:XX) mas cercano a menos de
+                # 30 pt escalados (flecha horizontal, con la referencia al costado)
+                l = stacked_ref(pg['lines'], e, k)
+                if l is None:
+                    cerca = [(box_dist(x['bbox'], e), x) for x in pg['lines'] if SHREF_RE.search(x['text'])]
+                    cerca = [t for t in cerca if t[0] < 30 * k]
+                    l = min(cerca, key=lambda t: t[0])[1] if cerca else None
+                if l is not None and any(m.group(1).lstrip('0') == hoja for m in SHREF_RE.finditer(l['text'])):
+                    misma.append(e)
+            n = len(fines) - (len(misma) if len(misma) >= 2 else 0)
+            if n != rt['puntas']:
+                rt['puntas_dibujo'] = rt['puntas']; rt['puntas'] = n
+
+
 def sheet_refs(pg, ends, k):
     """referencias '(Sh62:D6)' de las puntas de un tramo: rotulos a menos de 45 pt (escalados por k) de una punta"""
     out = set()
@@ -430,6 +495,11 @@ def route_refs(res, detail):
         for d in detail:
             if d['pag'] == pg['index'] and d['num'] in por_num:
                 d['refs'] = por_num[d['num']]
+
+
+def box_dist(bb, p):
+    dx = max(bb[0] - p[0], 0, p[0] - bb[2]); dy = max(bb[1] - p[1], 0, p[1] - bb[3])
+    return math.hypot(dx, dy)
 
 
 def near(bb, p, r):

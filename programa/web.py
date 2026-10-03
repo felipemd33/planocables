@@ -357,12 +357,17 @@ def gen_instructivo(jid, overrides=None, relayout=False):
         P = ins_paths(jid); s = load_state(jid) or {}
         with RUN_LOCK:
             from core import process
-            from instructivo import build, componentes_panel, known_tags
+            from instructivo import build, componentes_panel, known_tags, leer_json_trabajo, leer_bornes_manuales
             import topo
             st.update(estado='procesando', mensaje='Leyendo el plano eléctrico…', progreso=0.05)
             def lg(m):
                 st['mensaje'] = m; st['progreso'] = min(0.5, st['progreso'] + 0.025)
             res = process(os.path.join(P['dir'], s['archivo']), log=lg)
+            # un layout.json leido con otra version del lector del topografico se vuelve a leer, para que el trabajo
+            # tome los arreglos del lector sin volver a subir el topografico (lo del usuario: 'Componentes y orden',
+            # puntos ajustados en el visor y marcas, esta en instructivo.json y se aplica igual)
+            if not relayout and os.path.exists(P['layout']) and not topo.layout_al_dia(P['layout']):
+                relayout = True
             if relayout or not os.path.exists(P['layout']):
                 st.update(mensaje='Leyendo el topográfico…', progreso=0.55)
                 lay = topo.layout(P['topo'], known_tags(res), log=lambda m: st.update(mensaje=m))
@@ -383,17 +388,28 @@ def gen_instructivo(jid, overrides=None, relayout=False):
                         c['x'] = float(o['x'])
                     if o.get('lado') in ('ARRIBA', 'ABAJO'):     # todos sus bornes se cablean por ese lado
                         c['lado'] = o['lado']
-            # correcciones de la verificacion contra el funcional (correcciones.json del trabajo)
-            cj = os.path.join(P['dir'], 'correcciones.json')
-            corr = None
-            if os.path.exists(cj):
-                with open(cj, encoding='utf-8') as f:
-                    corr = json.load(f)
+            # correcciones de la verificacion contra el funcional (correcciones.json del trabajo). Un archivo roto
+            # (JSON invalido) no frena el instructivo: se ignora con el aviso 'correcciones.json ilegible, se ignora'
+            avisos_archivos = []
+            corr = leer_json_trabajo(os.path.join(P['dir'], 'correcciones.json'), avisos_archivos)
+            if corr is not None and not isinstance(corr, dict):
+                avisos_archivos.append('correcciones.json ilegible, se ignora (no es un objeto JSON)')
+                corr = None
+            if corr:
                 for tag, c in (corr.get('componentes') or {}).items():
-                    lay['comp'][tag] = dict(lay['comp'].get(tag) or {}, ubic='BANDEJA', fila=c['fila'], x=c['x'], y=c['y'], leido=tag)
+                    try:
+                        lay['comp'][tag] = dict(lay['comp'].get(tag) or {}, ubic='BANDEJA', fila=int(c['fila']), x=float(c['x']),
+                                                y=float(c['y']), leido=tag)
+                    except (TypeError, KeyError, ValueError):
+                        avisos_archivos.append(f"correcciones.json: el componente '{tag}' no tiene fila, x e y; se ignora")
+                # (antes del mapeo: los conductores agregados a mano tambien se ubican en el topografico)
+                for k in ('agregar', 'pendientes_agregar', 'pendientes_texto', 'pendientes_quitar', 'sueltos_quitar', 'accesorios'):
+                    lay[k] = corr.get(k) or ([] if k != 'pendientes_texto' else {})
+            # (antes del mapeo: un punto ajustado a mano en el visor manda, y su texto no se renombra)
+            lay['bornes_usuario'] = old.get('bornes_usuario') or {}
             # puntos exactos de bornes: 1) el mapeo automatico (bornes/, con cache en bornes_auto.json);
             # 2) mandan los manuales del trabajo: bornes.json y los 'bornes' de correcciones.json;
-            # 3) en build mandan los ajustados a mano en el visor (bornes_usuario)
+            # 3) mandan sobre todo los ajustados a mano en el visor (bornes_usuario)
             st.update(mensaje='Ubicando cada borne en el topográfico…', progreso=0.7)
             try:
                 if getattr(res, 'eplan', False) and lay.get('eplan'):   # EPLAN con sus bandejas: mapeo verificado del producto (dato)
@@ -401,35 +417,25 @@ def gen_instructivo(jid, overrides=None, relayout=False):
                     mapeo = eplan.aplicar_puntos(res, lay, P['dir'])
                 else:
                     import bornes as mapeo_bornes
-                    mapeo = mapeo_bornes.aplicar_al_layout(res, lay, P['dir'], P['topo'])
+                    mapeo = mapeo_bornes.aplicar_al_layout(res, lay, P['dir'], P['topo'], usuario=lay['bornes_usuario'])
             except Exception as e:      # el mapeo nunca frena el instructivo: se arma como sin mapeo
                 import traceback
                 mapeo = dict(error=f'{type(e).__name__}: {e}', detalle=traceback.format_exc(), avisos=[f'el mapeo automatico de bornes fallo ({e})'],
                              n_puntos={}, modelos={}, usados=0)
                 for k in ('bornes', 'renombrar', 'bornes_conf', 'bornes_nota', 'renombrar_auto'):
                     lay.pop(k, None)
-                bd = None
-                bj = os.path.join(P['dir'], 'bornes.json')
-                if os.path.exists(bj):
-                    with open(bj, encoding='utf-8') as f:
-                        bd = json.load(f)
-                if bd and 'puntos' in bd:      # {puntos: {texto: {xy, r}}, renombrar: {'texto#cable': texto}}
-                    lay['bornes'] = {k: (v['xy'] + [v.get('r')]) if isinstance(v, dict) else v for k, v in bd['puntos'].items()}
-                    lay['renombrar'] = bd.get('renombrar') or {}
-                elif bd:
-                    lay['bornes'] = bd
-                if corr:
-                    lay['bornes'] = dict(lay.get('bornes') or {}); lay['bornes'].update(corr.get('bornes') or {})
-            if corr:
-                for k in ('agregar', 'pendientes_agregar', 'pendientes_texto', 'pendientes_quitar', 'sueltos_quitar', 'accesorios'):
-                    lay[k] = corr.get(k) or ([] if k != 'pendientes_texto' else {})
-            lay['bornes_usuario'] = old.get('bornes_usuario') or {}
+                # solo los manuales del trabajo (bornes.json y los 'bornes' de correcciones.json); un archivo roto se ignora
+                lay['bornes'], lay['renombrar'] = leer_bornes_manuales(P['dir'], mapeo['avisos'], corr=corr if corr else {})
+            mapeo = mapeo if isinstance(mapeo, dict) else {}
+            mapeo['avisos'] = list(dict.fromkeys(avisos_archivos + list(mapeo.get('avisos') or [])))
             lay['estaciones'] = old.get('estaciones') or {}
             lay['estacion'] = old.get('estacion') or 'E6'
             lay['estacion_auto'] = old.get('estacion_auto') or {'seccion_min': 35, 'estacion': 'E8'}   # 35 mm2 -> gabinete
             st.update(mensaje='Armando el instructivo…', progreso=0.92)
             ins = build(res, lay)
             ins['bornes_usuario'] = lay['bornes_usuario']
+            # textos con el ARRIBA/ABAJO cambiado respecto del funcional (lado fisico del borne): van con el mapeo
+            mapeo['lado_fisico'] = ins.pop('lado_fisico', None) or []
             ins['mapeo'] = mapeo
             hechos_acc = {a.get('id') for a in old.get('accesorios') or [] if a.get('hecho')}
             for a in ins.get('accesorios') or []:
@@ -458,9 +464,13 @@ def gen_instructivo(jid, overrides=None, relayout=False):
             nuevas = [l for p_ in ins['pasos'] for l in p_['lineas']]
             cuenta = lambda ls, n: sum(1 for l in ls if l['num'] == n)
             hechos = {(l['num'], par(l)) for l in viejas if l.get('hecho')}
-            hechos_num = {l['num'] for l in viejas if l.get('hecho') and cuenta(viejas, l['num']) == 1}
+            # por numero solo si las puntas siguen en los mismos aparatos (cambio de pin o de lado): si una punta cambio
+            # de aparato, de modulo de rele o entre LI/LD y la bandeja, el cable hay que volver a cablearlo
+            tags = lambda l: frozenset(t.split(' ')[0] for t in (l['origen'] or '', l['destino'] or ''))
+            hechos_num = {l['num']: tags(l) for l in viejas if l.get('hecho') and cuenta(viejas, l['num']) == 1}
             for l in nuevas:
-                if (l['num'], par(l)) in hechos or (l['num'] in hechos_num and cuenta(nuevas, l['num']) == 1):
+                if (l['num'], par(l)) in hechos or (l['num'] in hechos_num and cuenta(nuevas, l['num']) == 1
+                                                     and tags(l) == hechos_num[l['num']]):
                     l['hecho'] = True
             ins.update(componentes=componentes_panel(res, lay), overrides=ov or {},
                        generado=datetime.datetime.now().strftime('%d/%m/%Y %H:%M'),

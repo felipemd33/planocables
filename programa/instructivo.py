@@ -490,6 +490,36 @@ def empalme_en_rama(pg, sym, g, chains, k, cable_nums):
     return None
 
 
+def tierra_junto(pg, p, u, radio=30):
+    """True si junto a la punta p (a menos de radio*u) esta dibujado el simbolo de TIERRA: 3 o mas rayas paralelas,
+    centradas en el mismo eje, con la misma separacion y cada vez mas cortas (TPT hoja 11: la flecha de campo de 1103,
+    sin rotulo 'L' / 'N', con la tierra al lado)"""
+    rayas = []
+    for _, op, q in pg.get('strokes', []):
+        if op not in ('S', 's') or len(q) != 2:
+            continue
+        (x0, y0), (x1, y1) = q[0], q[1]
+        L = math.hypot(x1 - x0, y1 - y0)
+        if not (1.5 * u <= L <= 40 * u) or box_dist(p, (min(x0, x1), min(y0, y1), max(x0, x1), max(y0, y1))) > radio * u:
+            continue
+        if abs(y1 - y0) < 0.05 * L:
+            rayas.append(('h', (y0 + y1) / 2, (x0 + x1) / 2, L))      # (orientacion, posicion, centro, largo)
+        elif abs(x1 - x0) < 0.05 * L:
+            rayas.append(('v', (x0 + x1) / 2, (y0 + y1) / 2, L))
+    for r in rayas:
+        g = sorted((t for t in rayas if t[0] == r[0] and abs(t[2] - r[2]) < 0.6 * max(u, 0.5)), key=lambda t: t[1])
+        if len(g) < 3:
+            continue
+        for i in range(len(g) - 2):
+            a, b, c = g[i:i + 3]
+            s1, s2 = b[1] - a[1], c[1] - b[1]
+            if min(s1, s2) < 0.8 * u or max(s1, s2) > 10 * u or max(s1, s2) > 1.4 * min(s1, s2):
+                continue
+            if a[3] > b[3] + 0.3 * u and b[3] > c[3] + 0.3 * u or a[3] < b[3] - 0.3 * u and b[3] < c[3] - 0.3 * u:
+                return True
+    return False
+
+
 def limites_de_hoja(pg):
     """lineas de trazo y punto que marcan el limite del tablero (lo de afuera es campo): rayas finas alineadas (rellenas
     o de trazo) que cubren mas de 150 pt -> [('v', x, y0, y1) | ('h', y, x0, x1)]"""
@@ -939,33 +969,42 @@ def alternativas(res):
 
 
 def alternativas_del_cable(nodes, alts):
-    """-> (nodos de las alternativas que NO se cablean, notas para el taller). En un cable dibujado en varias
-    alternativas del mismo grupo quedan solo las puntas de la elegida; un cable que existe solo en otra alternativa se
-    deja, con la nota para confirmar"""
+    """-> (nodos de las alternativas que NO se cablean, notas para el taller, confirmar_montaje). En un cable dibujado
+    en varias alternativas del mismo grupo quedan solo las puntas de la elegida; un cable que existe solo en otras
+    alternativas (no en la elegida) se deja, con la nota y confirmar_montaje = True ('a confirmar si se monta')"""
     grupos = collections.defaultdict(set)
     for d in nodes.values():
         if d.get('alt'):
             grupos[d['alt'][0]].add(d['alt'][1])
-    fuera, notas = set(), []
+    fuera, notas, confirmar = set(), [], False
     for g, ns in sorted(grupos.items()):
         info = alts.get(g)
         if not info or len(info['ns']) < 2:
             continue
         marca = lambda n: f" ({info['marcas'].get(n)})" if info['marcas'].get(n) else ''
+        elegida = info['elegida']
         if len(ns) > 1:
-            keep = info['elegida'] if info['elegida'] in ns else min(ns)
+            keep = elegida if elegida in ns else min(ns)
             fuera |= {nid for nid, d in nodes.items() if d.get('alt') and d['alt'][0] == g and d['alt'][1] != keep}
             txt = lambda n: {fmt_terminal(d) for d in nodes.values() if d['tipo'] == 'borne' and d.get('alt') == (g, n)}
             otras = [f"en la {n}{marca(n)}: {', '.join(sorted(txt(n) - txt(keep)))}" for n in sorted(ns) if n != keep and txt(n) - txt(keep)]
-            if otras:     # (si todas las alternativas lo dibujan igual no hay nada que avisar)
-                notas.append(f"hoja {g}: ALTERNATIVA {keep}{marca(keep)}, {info['por'] if keep == info['elegida'] else 'la unica donde esta este cable'}; "
-                             + '; '.join(otras))
+            if keep == elegida:
+                if otras:     # (si todas las alternativas lo dibujan igual no hay nada que avisar)
+                    notas.append(f"hoja {g}: ALTERNATIVA {keep}{marca(keep)}, {info['por']}; " + '; '.join(otras))
+            else:
+                # esta en 2 o mas alternativas y en ninguna es la elegida: no se sabe si se monta
+                confirmar = True
+                lista = ', '.join(f'{n}{marca(n)}' for n in sorted(ns))
+                notas.append(f"hoja {g}: este cable esta solo en las ALTERNATIVAS {lista} y la elegida es la "
+                             f"{elegida}{marca(elegida)}: confirmar si se monta; aca va como en la {keep}{marca(keep)}"
+                             + (f"; {'; '.join(otras)}" if otras else ''))
         else:
             n = next(iter(ns))
-            if n != info['elegida']:
+            if n != elegida:
+                confirmar = True
                 notas.append(f"hoja {g}: este cable esta solo en la ALTERNATIVA {n}{marca(n)} y la elegida es la "
-                             f"{info['elegida']}{marca(info['elegida'])}: confirmar si se monta")
-    return fuera, notas
+                             f"{elegida}{marca(elegida)}: confirmar si se monta")
+    return fuera, notas, confirmar
 
 
 def arbol(nodes, adj, canon, terms):
@@ -1163,7 +1202,7 @@ def conductors(res):
         # ALTERNATIVAS: hojas o franjas 'ALTERNATIVA n' que dibujan el mismo circuito con otro aparato (TPT: tres
         # barreras 43DIB1 en la hoja 15 y en las 43A/43B/43C, dos unidades hidraulicas en la 61A/61B). Se monta UNA (la
         # de la lista de materiales o, si no se sabe, la primera): las puntas de las otras no son puntas de este cable
-        fuera_alt, notas_alt = alternativas_del_cable(nodes, alternativas(res))
+        fuera_alt, notas_alt, confirmar_alt = alternativas_del_cable(nodes, alternativas(res))
         for n in fuera_alt:
             nodes.pop(n, None)
         edges = [(a, b) for a, b in edges if a not in fuera_alt and b not in fuera_alt]
@@ -1214,11 +1253,13 @@ def conductors(res):
                     canon[n] = canon[same[0]]
         pairs = arbol(nodes, adj, canon, terms)
         # un tramo que se lee igual que otro (el mismo borne dibujado en dos hojas sin unirse en un nodo) es el mismo;
-        # uno que se lee igual de los dos lados es un borne consigo mismo, no un conductor
+        # uno que se lee igual de los dos lados es un borne consigo mismo, no un conductor, pero solo si las dos puntas
+        # tienen borne y el mismo tag (dos puntas sin numero de borne que se leen igual pueden ser bornes distintos)
         por_texto = {}
         for a, b in sorted(pairs):
             k = tuple(sorted((fmt_terminal(nodes[a]), fmt_terminal(nodes[b]))))
-            if k[0] != k[1]:
+            mismo = k[0] == k[1] and nodes[a].get('borne') and nodes[b].get('borne') and nodes[a].get('tag') == nodes[b].get('tag')
+            if not mismo:
                 por_texto.setdefault(k, (a, b))
         pairs = set(por_texto.values())
         if not pairs and len({canon[n] for n in terms}) == 1:
@@ -1235,13 +1276,25 @@ def conductors(res):
             sueltas = [a for a in arrows if not a[2] and not any(nodes.get(v, {}).get('tipo') == 'flecha' for v in adj[a[0]]) and al_campo(a)]
             if sueltas:
                 nid = sueltas[0][0]
-                nodes[nid].update(tipo='borne', tag='CAMPO', tag_base='CAMPO', borne=nodes[nid].get('rotulo') or '', punto=None,
+                rot = nodes[nid].get('rotulo') or ''
+                if not rot:
+                    # sin rotulo 'L' / 'N': si la flecha tiene el simbolo de tierra pegado, es la tierra del cliente (PE)
+                    pg_ = res.pages_by_index.get(nodes[nid]['pag']) if hasattr(res, 'pages_by_index') else None
+                    try:
+                        xy = tuple(float(v) for v in nid.split(':', 1)[1].split(','))
+                    except (IndexError, ValueError):
+                        xy = None
+                    if pg_ and xy and tierra_junto(pg_, xy, unidad(res, pg_, cable_nums)):
+                        rot = 'PE'
+                nodes[nid].update(tipo='borne', tag='CAMPO', tag_base='CAMPO', borne=rot, punto=None,
                                   lado='', vertical=False, circulo=False, borde=False, campo=True)
                 canon[nid] = nid; terms.append(nid)
                 pairs = {tuple(sorted((canon[terms[0]], nid)))}
         out[num] = dict(nodes=nodes, pares=sorted(pairs), bornes=sorted({canon[n] for n in terms}))
         if notas_alt:
             out[num]['alternativas'] = notas_alt
+        if confirmar_alt:
+            out[num]['confirmar_montaje'] = True
     # interruptor ('11Q1') dibujado sin numeros de borne: los polos por su posicion en el simbolo (regla del taller:
     # 1/2 = F, 3/4 = N; el polo de la izquierda es el 1/2). Solo con dos polos en vertical.
     polos = collections.defaultdict(list)
@@ -1297,18 +1350,40 @@ def cable_desc(res, num, e, e2=None):
     return f'{ini}{sec}MM', d['color'], sec
 
 
+def punta_sintetica(txt, comp):
+    """punta armada desde su texto ('XPE 1 ARRIBA', '13XC1 2.1', '11PS1 L-3'), para los conductores agregados a mano
+    (correcciones.json 'agregar'): fmt_terminal(e) == txt. 'comp': componentes del layout (para el tag_base)."""
+    tag, _, rest = str(txt or '').partition(' ')
+    base = tag if tag in comp else re.sub(r'\d+$', '', tag) if re.sub(r'\d+$', '', tag) in comp else tag
+    e = dict(tipo='borne', tag=tag, tag_base=base, borne=rest, punto=None, lado='ARRIBA', vertical=False, circulo=True, p=None, hoja=None, pag=None)
+    m = re.match(r'^(.*) (ARRIBA|ABAJO)$', rest)
+    if m:
+        e.update(borne=m.group(1), lado=m.group(2), vertical=True)
+    m2 = re.fullmatch(r'(\d+)\.(\d)', rest)
+    if m2 and is_terminal_block(base):
+        e.update(borne=m2.group(1), punto=int(m2.group(2)))
+    return e
+
+
 def build(res, lay, max_lineas=7):
     """lay: layout del topografico + opcionales:
        bornes          texto (o 'texto#cable') -> [x, y] o [x, y, r]  punto exacto del borne (mapeo)
-       bornes_usuario  idem, ajustados a mano en el visor (mandan sobre el mapeo)
+       bornes_usuario  idem, ajustados a mano en el visor: mandan SIEMPRE (se buscan con el texto corregido y con el
+                       del funcional, y con el lado cambiado)
        renombrar       'texto#cable' -> texto correcto (modulo del rele, bornera vecina mal leida...)
-       estaciones      cable -> estacion donde se cablea si NO es esta (ej. {'3141': 'E8'})"""
+       renombrar_auto  los de 'renombrar' que puso el mapeo automatico: no se aplican si el usuario ajusto el punto
+                       con el texto del funcional
+       estaciones      cable -> estacion donde se cablea si NO es esta (ej. {'3141': 'E8'})
+    Devuelve ademas 'lado_fisico': [{num, funcional, instructivo}] de las puntas cuyo ARRIBA/ABAJO cambio respecto del
+    funcional (por el punto fisico del borne o el lado forzado), y en cada linea func_o / func_d = el texto del
+    funcional de la punta cuando el instructivo dice otra cosa."""
     cs = conductors(res)
     con_lista = getattr(res, 'conductores', None) is not None      # EPLAN: conductores de la lista de conexiones
     comp = lay.get('comp', {})
     bornes = lay.get('bornes') or {}
     usuario = lay.get('bornes_usuario') or {}
     renombrar = lay.get('renombrar') or {}
+    ren_auto = lay.get('renombrar_auto') or {}      # los de 'renombrar' que puso el mapeo automatico (no bornes.json)
     bornes_conf = lay.get('bornes_conf') or {}      # clave de 'bornes' -> 'alta' | 'media' (mapeo automatico)
     bornes_nota = lay.get('bornes_nota') or {}      # clave -> por que (puntos 'media' del mapeo)
     estaciones = lay.get('estaciones') or {}
@@ -1327,12 +1402,21 @@ def build(res, lay, max_lineas=7):
         """'LD' si la punta esta en el lateral derecho segun el topografico; si no 'LI' (lateral izquierdo, puerta...)"""
         c = comp.get(e.get('tag_base')) if e else None
         return 'LD' if c and c.get('lateral') == 'DERECHO' else 'LI'
+    # un componente marcado en la bandeja SIN posicion (x / y vacios: forzado a BANDEJA sin poner la x) no se puede
+    # ubicar: sus puntas quedan como de afuera en vez de tumbar el instructivo entero
+    en_bandeja = lambda c: bool(c) and c.get('ubic') == 'BANDEJA' and isinstance(c.get('x'), (int, float)) and isinstance(c.get('y'), (int, float))
     def bandeja(e):
         c = comp.get(e.get('tag_base'))
-        return c if c and c.get('ubic') == 'BANDEJA' else None
+        return c if en_bandeja(c) else None
     def base_txt(e, num):
+        """(texto del funcional, texto corregido). Un punto ajustado a mano en el visor manda: si el usuario ajusto el
+        texto del funcional, el renombre AUTOMATICO de ese texto#cable no se aplica (el borne es el que el eligio)"""
         t = fmt_terminal(e)
-        return t, renombrar.get(f'{t}#{num}', t)
+        k = f'{t}#{num}'
+        tn = renombrar.get(k, t)
+        if tn != t and ren_auto.get(k) == tn and buscar(usuario, (t, flip(t)), num) and not buscar(usuario, (tn, flip(tn)), num):
+            tn = t
+        return t, tn
     def buscar(dic, ts, num):
         for t in ts:
             for k in (f'{t}#{num}', t):
@@ -1345,7 +1429,7 @@ def build(res, lay, max_lineas=7):
     def exacto(e, num):
         """(x, y, r, de_usuario) del borne, o None"""
         t, tn = base_txt(e, num)
-        u = buscar(usuario, (tn, flip(tn)), num)
+        u = buscar(usuario, (tn, flip(tn), t, flip(t)), num)
         v = u or buscar(bornes, (tn, t), num)
         if not v:
             return None
@@ -1356,7 +1440,7 @@ def build(res, lay, max_lineas=7):
         if not e or not bandeja(e):
             return None, None
         t, tn = base_txt(e, num)
-        if buscar(usuario, (tn, flip(tn)), num):
+        if buscar(usuario, (tn, flip(tn), t, flip(t)), num):
             return 'usuario', None
         for x in (tn, t):
             for k in (f'{x}#{num}', x):
@@ -1379,23 +1463,67 @@ def build(res, lay, max_lineas=7):
     def lado(e, num):
         f = lado_fisico(e, num)
         return side_of(e) if f is None else f
+    # dos pisos (N ARRIBA / N ABAJO) o pines distintos del MISMO borne que el mapeo automatico dejo en el MISMO punto
+    # con confianza media: ese punto no distingue el lado, asi que su texto queda como en el funcional (no se pasa al
+    # lado fisico). Claves de 'bornes' (texto#cable) de esos puntos.
+    sin_lado = lambda k: re.sub(r' (ARRIBA|ABAJO)$', '', k.rsplit('#', 1)[0])
+    mismo_punto = set()
+    auto_ = [(k, v) for k, v in bornes.items() if k in bornes_conf and isinstance(v, (list, tuple)) and len(v) >= 2]
+    for i_, (k1, v1) in enumerate(auto_):
+        for k2, v2 in auto_[i_ + 1:]:
+            if k1.rsplit('#', 1)[0] == k2.rsplit('#', 1)[0] or sin_lado(k1) != sin_lado(k2):
+                continue             # el mismo texto (otro cable en la misma boca) o bornes distintos
+            if bornes_conf[k1] == 'alta' and bornes_conf[k2] == 'alta':
+                continue
+            try:
+                d_ = math.hypot(float(v1[0]) - float(v2[0]), float(v1[1]) - float(v2[1]))
+            except (TypeError, ValueError):
+                continue
+            if d_ < 0.3:
+                mismo_punto.update(k for k in (k1, k2) if bornes_conf[k] != 'alta')
+    def de_mismo_punto(e, num):
+        """True si el punto (automatico, no ajustado en el visor) de la punta es uno de esos puntos compartidos"""
+        if not mismo_punto:
+            return False
+        t, tn = base_txt(e, num)
+        if buscar(usuario, (tn, flip(tn), t, flip(t)), num):
+            return False
+        return any(k in mismo_punto for x in (tn, t) for k in (f'{x}#{num}', x))
+    lado_cambiado = {}                                  # (cable, texto del funcional) -> texto con el lado fisico
     def texto(e, num):
-        t = base_txt(e, num)[1]
+        t0, t = base_txt(e, num)
+        tn = t
         f = lado_fisico(e, num)
         m = re.match(r'^(.*) (ARRIBA|ABAJO)$', t)
+        if f is not None and m and (bandeja(e) or {}).get('lado') not in ('ARRIBA', 'ABAJO') and de_mismo_punto(e, num):
+            f = None                 # el punto no distingue el piso: queda el lado del funcional
         if f is not None and m:
             t = f"{m.group(1)} {'ARRIBA' if f == 0 else 'ABAJO'}"
+        if t != tn:                  # el ARRIBA/ABAJO del instructivo no es el del dibujo del funcional
+            lado_cambiado[(num, t0)] = t
         return t
+    def funcional(o, d, num):
+        """el texto del FUNCIONAL de cada punta cuando el instructivo dice otra cosa (texto corregido o lado fisico):
+        {func_o, func_d}, para mostrarlo en el title de la punta ('En el funcional: 32AIB1 1 ABAJO')"""
+        out = {}
+        for w, e in (('o', o), ('d', d)):
+            if e and bandeja(e):
+                t0 = fmt_terminal(e)
+                if texto(e, num) != t0:
+                    out['func_' + w] = t0
+        return out
     # ORDEN DE CABLEADO (regla del taller): primero los cables que quedan DEBAJO de otros. En una columna de bornes
     # el de afuera (el mas cerca de la canaleta) va primero: rele 11 (C) -> 14 (NO) -> 12 (NC); A2 -> A1; QUATTRO
     # 1 -> 2 arriba y 4 -> 3 abajo; doble piso impar -> par; barreras enchufe de afuera -> de adentro.
     # Los modulos iguales pegados (banco de reles, banco de barreras) se cablean capa por capa en todo el banco;
     # el resto, aparato por aparato (como las etapas del WPC 75286-1).
-    familia = lambda t: 'KR' if 'KR' in (t or '') else 'IB' if re.search(r'[A-Z]IB\d*$', t or '') else None
+    # (familia IB = banco de barreras de seguridad intrinseca: 32AIB1, 43DIB2... Una bornera azul que termina en IB,
+    # como 32XAIB o 43XDIB, no es una barrera: se cablea bornera por bornera)
+    familia = lambda t: 'KR' if 'KR' in (t or '') else 'IB' if re.search(r'[A-Z]IB\d*$', t or '') and not is_terminal_block(t) else None
     banco = {}
-    for f_ in {c.get('fila') for c in comp.values() if c.get('ubic') == 'BANDEJA'}:
+    for f_ in {c.get('fila') for c in comp.values() if en_bandeja(c)}:
         prev = None
-        for t_, c_ in sorted(((t, c) for t, c in comp.items() if c.get('ubic') == 'BANDEJA' and c.get('fila') == f_), key=lambda tc: tc[1]['x']):
+        for t_, c_ in sorted(((t, c) for t, c in comp.items() if en_bandeja(c) and c.get('fila') == f_), key=lambda tc: tc[1]['x']):
             fm = familia(t_)
             banco[t_] = prev[1] if fm and prev and prev[0] == fm else c_['x']
             prev = (fm, banco[t_]) if fm else None
@@ -1433,21 +1561,24 @@ def build(res, lay, max_lineas=7):
     lineas, pendientes, sueltos = [], [], []
     for num, c in cs.items():
         nodes = c['nodes']
-        if not c['pares']:
+        # tramos reales: sin los 'tramos' de un borne a si mismo (el mismo borne leido distinto en dos hojas, o dos
+        # puntas que con el texto corregido se escriben igual): no son conductores. El grado de cada punta (donde se
+        # hace la union de un cable de 3 puntas) y si es puente se cuentan con los que quedan (pares_ok)
+        pares_ok = [(a, b) for a, b in c['pares'] if con_lista or base_txt(nodes[a], num)[1] != base_txt(nodes[b], num)[1]]
+        if not pares_ok:
             tray = [n for n in c['bornes'] if bandeja(nodes[n])]
             fuera = [n for n in c['bornes'] if not bandeja(nodes[n])]
             if len(tray) == 1 and fuera:
-                c['pares'] = [(tray[0], fuera[0])]
+                c['pares'] = pares_ok = [(tray[0], fuera[0])]
             else:
                 if c['bornes']:
                     sueltos.append(dict(num=num, extremos=[fmt_terminal(nodes[n]) for n in c['bornes']]))
                 continue
-        grado = collections.Counter(n for par in c['pares'] for n in par)
+        grado = collections.Counter(n for par in pares_ok for n in par)
         nota_alt = '; '.join(c.get('alternativas') or []) or None
-        for a, b in c['pares']:
+        confirmar_montaje = bool(c.get('confirmar_montaje'))   # existe solo en alternativas que no son la elegida
+        for a, b in pares_ok:
             ea, eb = nodes[a], nodes[b]
-            if not con_lista and base_txt(ea, num)[1] == base_txt(eb, num)[1]:
-                continue      # 'tramo' de un borne a si mismo (el mismo borne leido distinto en dos hojas): no es un conductor
             ta, tb = bandeja(ea), bandeja(eb)
             # derivacion (3+ puntas): el borne donde se hace la union es comun a varios tramos; la seccion de cada
             # tramo es la de la etiqueta mas cerca de su otra punta (la parte del dibujo que es solo de ese tramo)
@@ -1459,6 +1590,8 @@ def build(res, lay, max_lineas=7):
                 pendientes.append(dict(num=num, cable=desc, color=col, secc=sec, a=fmt_terminal(ea), b=fmt_terminal(eb)))
                 if nota_alt:
                     pendientes[-1]['alternativa'] = nota_alt
+                if confirmar_montaje:
+                    pendientes[-1]['confirmar_montaje'] = True
                 if est_par(ea, eb):
                     pendientes[-1]['_est'] = est_par(ea, eb)
                 elif ea.get('campo') or eb.get('campo'):
@@ -1474,10 +1607,12 @@ def build(res, lay, max_lineas=7):
                                destino=texto(d, num) if bandeja(d) else lateral(d),
                                componente=origen.split(' ')[0] if base_txt(o, num)[1] != base_txt(o, num)[0] else (o.get('tag') or ''),
                                fila=bandeja(o)['fila'], zona=zona(o.get('tag_base')), lado='arriba' if lado(o, num) == 0 else 'abajo',
-                               orden=key(o, num), puente=len(c['pares']) > 1,
-                               hojas=sorted({ea.get('hoja'), eb.get('hoja')} - {None}, key=natk)))
+                               orden=key(o, num), puente=len(pares_ok) > 1,
+                               hojas=sorted({ea.get('hoja'), eb.get('hoja')} - {None}, key=natk), **funcional(o, d, num)))
             if nota_alt:      # el cable cambia segun la ALTERNATIVA que se monte (hojas 'ALTERNATIVA n'): cual se tomo
                 lineas[-1]['alternativa'] = nota_alt
+            if confirmar_montaje:     # el cable esta solo en alternativas que no son la elegida: confirmar si se monta
+                lineas[-1]['confirmar_montaje'] = True
             if est_par(ea, eb):
                 lineas[-1]['_est'] = est_par(ea, eb)
             if not bandeja(d) and est_par(d):
@@ -1492,16 +1627,7 @@ def build(res, lay, max_lineas=7):
     # programa no lee solo (tierras sin numero, mallas a trazos), pendientes mal armados
     def sintetico(txt):
         """punta armada desde su texto ('XPE 1 ARRIBA', '13XC1 2.1', '11PS1 L-3'): fmt_terminal(e) == txt"""
-        tag, _, rest = txt.partition(' ')
-        base = tag if tag in comp else re.sub(r'\d+$', '', tag) if re.sub(r'\d+$', '', tag) in comp else tag
-        e = dict(tipo='borne', tag=tag, tag_base=base, borne=rest, punto=None, lado='ARRIBA', vertical=False, circulo=True, p=None, hoja=None, pag=None)
-        m = re.match(r'^(.*) (ARRIBA|ABAJO)$', rest)
-        if m:
-            e.update(borne=m.group(1), lado=m.group(2), vertical=True)
-        m2 = re.fullmatch(r'(\d+)\.(\d)', rest)
-        if m2 and is_terminal_block(base):
-            e.update(borne=m2.group(1), punto=int(m2.group(2)))
-        return e
+        return punta_sintetica(txt, comp)
     for a in lay.get('agregar') or []:
         eo = sintetico(a['origen']); ed = None if a['destino'] in ('LI', 'LD') else sintetico(a['destino'])
         if not bandeja(eo):
@@ -1514,7 +1640,7 @@ def build(res, lay, max_lineas=7):
                            _o=eo, _d=ed or dict(fuera=True), destino=texto(ed, num) if ed and bandeja(ed) else (lateral(ed) if ed else a['destino']),
                            componente=eo['tag'], fila=bandeja(eo)['fila'], zona=zona(eo['tag_base']), lado='arriba' if lado(eo, num) == 0 else 'abajo',
                            orden=key(eo, num), puente=sum(1 for x in lay.get('agregar') or [] if x['num'] == num) > 1,
-                           hojas=[a['hoja']] if a.get('hoja') else [], agregado=a.get('nota') or 'agregado a mano'))
+                           hojas=[a['hoja']] if a.get('hoja') else [], agregado=a.get('nota') or 'agregado a mano', **funcional(eo, ed, num)))
     # pendientes fantasma: las dos puntas en el mismo aparato y una sin borne (ej. '21PCB01 48 <-> 21PCB01')
     pendientes = [x for x in pendientes if not (x['a'].split(' ')[0] == x['b'].split(' ')[0] and (' ' not in x['a'] or ' ' not in x['b']))]
     quitar = set(lay.get('pendientes_quitar') or [])
@@ -1649,7 +1775,8 @@ def build(res, lay, max_lineas=7):
     for x in pendientes:
         if estacion_de(x['num'], x.get('secc'), x.get('_est')):
             otra.append(dict(num=x['num'], cable=x.get('cable', ''), color=x.get('color', ''), secc=x.get('secc', ''),
-                             origen=x['a'], destino=x['b'], estacion=estacion_de(x['num'], x.get('secc'), x.get('_est')), pendiente=True))
+                             origen=x['a'], destino=x['b'], estacion=estacion_de(x['num'], x.get('secc'), x.get('_est')), pendiente=True,
+                             **{k: x[k] for k in ('alternativa', 'confirmar_montaje', 'agregado') if x.get(k)}))
     pendientes = [x for x in pendientes if not estacion_de(x['num'], x.get('secc'), x.get('_est'))]
     for l in otra:          # en la otra estacion se escribe adonde va de verdad (ej. 'PT001 x1'), no 'LI'
         if l.get('_dreal') and l['destino'] in ('LI', 'LD'):
@@ -1683,13 +1810,17 @@ def build(res, lay, max_lineas=7):
         for l in p['lineas']:
             l.pop('orden', None)
     topo = dict(pag=lay.get('pag'), region=lay.get('region'), escala=lay.get('escala'), ductos=lay.get('ductos', []), filas=filas,
-                comp={k: dict(x=v['x'], y=v['y'], fila=v.get('fila')) for k, v in comp.items() if v.get('ubic') == 'BANDEJA'})
+                comp={k: dict(x=v['x'], y=v['y'], fila=v.get('fila')) for k, v in comp.items() if en_bandeja(v)})
     # alternativas del plano (hojas / franjas 'ALTERNATIVA n'): cual se tomo para el instructivo y por que
     alts = [dict(hoja=g, elegida=a['elegida'], por=a['por'], opciones={str(n): a['marcas'].get(n, '') for n in a['ns']})
             for g, a in sorted((alternativas(res) if not con_lista else {}).items()) if len(a['ns']) > 1]
+    # textos cuyo ARRIBA/ABAJO cambio respecto del dibujo del funcional (el instructivo lleva el lado fisico del borne)
+    vivos = {(l['num'], t) for l in [x for p in pasos for x in p['lineas']] + otra for t in (l.get('origen'), l.get('destino'))}
+    lado_fisico_l = [dict(num=n, funcional=t0, instructivo=t) for (n, t0), t in sorted(lado_cambiado.items(), key=lambda kv: (natk(kv[0][0]), kv[0][1]))
+                     if (n, t) in vivos]
     return dict(pasos=pasos, pendientes=sorted(pendientes, key=lambda x: natk(x['num'])),
                 sueltos=sueltos, otra_estacion=otra, componentes=comp, topo=topo, accesorios=lay.get('accesorios') or [],
-                alternativas=alts)
+                alternativas=alts, lado_fisico=lado_fisico_l)
 
 
 def linea_txt(l):
@@ -1722,7 +1853,10 @@ def usos_bandeja(res, lay, topo_pdf=None):
     texto, tag, borne, punto, lado, parte, hoja_funcional, orden_funcional}]}}}.
     'orden_funcional': posicion del borne entre los del mismo nombre en el SIMBOLO del funcional (1 = el primero, de
     izquierda a derecha; de arriba hacia abajo si el simbolo los tiene en columna). Sirve para los pines repetidos
-    (DDR: -Vo -Vo +Vo +Vo): el n-esimo de ese nombre en el simbolo va al n-esimo tornillo de ese nombre."""
+    (DDR: -Vo -Vo +Vo +Vo): el n-esimo de ese nombre en el simbolo va al n-esimo tornillo de ese nombre.
+    Entran las mismas puntas que cablea build: las de los pares de cada conductor; las de los conductores sin pares con
+    una sola punta en la bandeja y otra afuera (build les arma el par); y las de los conductores agregados a mano
+    (lay['agregar'], de correcciones.json) que caen en la bandeja."""
     cs = conductors(res)
     comp = lay.get('comp') or {}
     comps = {}
@@ -1734,7 +1868,12 @@ def usos_bandeja(res, lay, topo_pdf=None):
     vistos = set()
     pos = {}                       # (tag_base, cable, texto) -> [(pag, x, y)] de ese borne en las hojas del funcional
     for num, c in cs.items():
-        for par in c['pares']:
+        pares = c['pares']
+        if not pares:              # la misma regla que build: 1 punta en la bandeja + otra afuera
+            tray = [n for n in c['bornes'] if c['nodes'][n].get('tag_base') in comps]
+            fuera = [n for n in c['bornes'] if c['nodes'][n].get('tag_base') not in comps]
+            pares = [(tray[0], fuera[0])] if len(tray) == 1 and fuera else []
+        for par in pares:
             for n in par:
                 e = c['nodes'][n]
                 tb = e.get('tag_base')
@@ -1751,6 +1890,23 @@ def usos_bandeja(res, lay, topo_pdf=None):
                 pos[(tb, num, texto)] = [(d.get('pag'), d['p'][0], d['p'][1]) for d in c['nodes'].values()
                                          if d.get('tipo') == 'borne' and d.get('p') and d.get('tag') == e.get('tag')
                                          and d.get('borne') == e.get('borne') and d.get('punto') == e.get('punto')]
+    # conductores agregados a mano en la verificacion contra el funcional (tierras sin numero, mallas...)
+    for a in lay.get('agregar') or []:
+        num = str(a.get('num') or '')
+        for txt in (a.get('origen'), a.get('destino')):
+            if not txt or txt in ('LI', 'LD'):
+                continue
+            e = punta_sintetica(txt, comp)
+            tb = e.get('tag_base')
+            if tb not in comps:
+                continue
+            texto = fmt_terminal(e)
+            if (num, texto) in vistos:
+                continue
+            vistos.add((num, texto))
+            comps[tb]['usos'].append(dict(cable=num, texto=texto, tag=e.get('tag'), borne=e.get('borne'), punto=e.get('punto'),
+                                          lado=e.get('lado'), parte='ARRIBA' if side_of(e) == 0 else 'ABAJO',
+                                          hoja_funcional=a.get('hoja'), orden_funcional=None))
     # orden dentro del simbolo de los bornes con el mismo nombre (el mismo texto, distintos cables)
     for tb, cc in comps.items():
         cc['usos'].sort(key=lambda u: (u['texto'], natk(u['cable'])))
@@ -1817,3 +1973,64 @@ def materiales_funcional(res, min_fabricantes=8):
             if len(campos) >= 2:
                 out.append(' | '.join(campos))
     return out or None
+
+
+# ------------------------------------------------------------------ archivos de correcciones del trabajo
+def leer_json_trabajo(path, avisos=None):
+    """Lee un json del trabajo (bornes.json, correcciones.json). Si no existe devuelve None; si esta roto (JSON
+    invalido, no se puede leer) tambien devuelve None y deja el aviso '<archivo> ilegible, se ignora': el instructivo
+    se arma igual, sin ese archivo."""
+    import os, json
+    if not path or not os.path.exists(path):
+        return None
+    try:
+        with open(path, encoding='utf-8') as f:
+            return json.load(f)
+    except (OSError, ValueError) as e:                     # ValueError: JSON invalido o texto que no es UTF-8
+        if avisos is not None:
+            avisos.append(f'{os.path.basename(path)} ilegible, se ignora ({type(e).__name__}: {e})')
+        return None
+
+
+def leer_bornes_manuales(dir_trabajo, avisos=None, corr=None):
+    """Puntos y textos corregidos A MANO en el trabajo: bornes.json ({puntos: {texto: {xy, r}}, renombrar:
+    {'texto#cable': texto}}, o el formato viejo {texto: [x, y]}) + los 'bornes' de correcciones.json ('corr', si ya
+    se leyo; si no, se lee del trabajo). Un archivo ilegible o una entrada rota se ignoran con un aviso.
+    Devuelve (puntos, renombrar)."""
+    import os
+    puntos, ren = {}, {}
+    bd = leer_json_trabajo(os.path.join(dir_trabajo, 'bornes.json'), avisos)
+    if isinstance(bd, dict):
+        crudo = bd['puntos'] if isinstance(bd.get('puntos'), dict) else bd
+        if isinstance(bd.get('puntos'), dict) and isinstance(bd.get('renombrar'), dict):
+            ren = {str(k): str(v) for k, v in bd['renombrar'].items()}
+        malos = 0
+        for k, v in crudo.items():
+            if isinstance(v, str):                          # texto de descripcion ('fuente', 'nota'...), no es un punto
+                continue
+            if isinstance(v, dict):
+                v = list(v.get('xy') or []) + [v.get('r')]
+            try:
+                if not isinstance(v, (list, tuple)) or len(v) < 2:
+                    raise ValueError
+                float(v[0]), float(v[1])
+                puntos[k] = list(v)
+            except (TypeError, ValueError):
+                malos += 1
+        if malos and avisos is not None:
+            avisos.append(f'bornes.json: {malos} punto(s) sin coordenadas validas, se ignoran')
+    elif bd is not None and avisos is not None:
+        avisos.append('bornes.json ilegible, se ignora (no es un objeto JSON)')
+    if corr is None:
+        corr = leer_json_trabajo(os.path.join(dir_trabajo, 'correcciones.json'), avisos)
+    if isinstance(corr, dict) and isinstance(corr.get('bornes'), dict):
+        for k, v in corr['bornes'].items():
+            try:
+                float(v[0]), float(v[1])
+                puntos[k] = list(v)
+            except (TypeError, ValueError, IndexError, KeyError):
+                if avisos is not None:
+                    avisos.append(f"correcciones.json: el punto de '{k}' no tiene coordenadas validas, se ignora")
+    elif corr is not None and not isinstance(corr, dict) and avisos is not None:
+        avisos.append('correcciones.json ilegible, se ignora (no es un objeto JSON)')
+    return puntos, ren

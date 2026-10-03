@@ -189,7 +189,8 @@ const Ins = (() => {
     const w = (cls === 'sib' ? 1.3 : 1.8) * k;
     const ro = (l.marca_o || [])[2], rd = (l.marca_d || [])[2];
     const st = pts[0], end = pts[n - 1], sec = secTxt(l), secM = secCorto(l);
-    let s = `<g class="rt ${cls}"><title>${esc(l.num)} (${esc(sec)}): ${esc(l.origen)} → ${esc(l.destino)}${l.largo_mm ? ' · ≈' + l.largo_mm + ' mm' : ''}</title>`;
+    const fz = [funcTxt(l, 'o') && `Origen: ${funcTxt(l, 'o')}`, funcTxt(l, 'd') && `Destino: ${funcTxt(l, 'd')}`].filter(Boolean);
+    let s = `<g class="rt ${cls}"><title>${esc(l.num)} (${esc(sec)}): ${esc(l.origen)} → ${esc(l.destino)}${l.largo_mm ? ' · ≈' + l.largo_mm + ' mm' : ''}${fz.length ? '\n' + esc(fz.join('\n')) : ''}</title>`;
     if (cls === 'cur') s += `<path d="${d}" class="halo" stroke-width="${6 * k}"/>`;
     if (white) s += `<path d="${d}" stroke="#333" stroke-width="${w + 1 * k}"/>`;
     s += `<path d="${d}" stroke="${col}" stroke-width="${w}"${cls === 'sib' ? ` stroke-dasharray="${f2(4 * k)} ${f2(1.6 * k)}"` : ''}/>`;
@@ -220,6 +221,17 @@ const Ins = (() => {
   const motivoConf = (l, w) => (w === 'o' ? l.nota_o : l.nota_d) || 'punto ubicado por el mapeo automático con confianza media';
   const confPill = (l, w) => aConfirmar(l, w)
     ? ` <span class="pill conf" title="${esc('A confirmar: ' + motivoConf(l, w) + '. Si no es ese borne, ajustalo con 📍')}">a confirmar</span>` : '';
+  // texto del FUNCIONAL de la punta cuando el instructivo dice otra cosa (lado físico del borne o texto corregido)
+  const sinLado = t => String(t || '').replace(/ (ARRIBA|ABAJO)$/, '');
+  const funcTxt = (l, w) => {
+    const f = w === 'o' ? l.func_o : l.func_d, t = w === 'o' ? l.origen : l.destino;
+    if (!f || f === t) return '';
+    return sinLado(f) === sinLado(t) ? `En el funcional: ${f} (el instructivo lleva el lado físico del borne en el topográfico)` : `En el funcional: ${f}`;
+  };
+  // ALTERNATIVAS (hojas 'ALTERNATIVA n' del funcional): el cable cambia según la que se monte
+  const altPill = (x, corto) => x.confirmar_montaje
+    ? ` <span class="pill conf" title="${esc((x.alternativa || 'Este cable está solo en una alternativa que no es la elegida') + '. Confirmá si se monta antes de cablearlo')}">${corto ? '¿se monta?' : 'a confirmar si se monta'}</span>`
+    : (x.alternativa ? ` <span class="pill alt" title="${esc(x.alternativa)}">alternativa</span>` : '');
 
   /* ---- lista (un cable por paso) ---- */
   function cardHtml(l, g, i, n) {
@@ -235,10 +247,10 @@ const Ins = (() => {
           ${l.puente ? '<span class="pill puntas" title="Cable de 3 o más puntas (puente/derivación): el visor muestra todos sus tramos">3 puntas</span>' : ''}
           ${aprox ? '<span class="pill warn" title="Punto del borne aproximado: ajustalo en el visor con 📍">punto aprox.</span>' : ''}
           ${conf.length ? `<span class="pill conf" title="${esc('A confirmar en el visor (mapeo automático, confianza media)\n' + confTit)}">a confirmar</span>` : ''}
-          ${l.agregado ? `<span class="pill agr" title="${esc(l.agregado)}">agregado (verificación con el funcional)</span>` : ''}
+          ${l.agregado ? `<span class="pill agr" title="${esc(l.agregado)}">agregado (verificación con el funcional)</span>` : ''}${altPill(l)}
           ${l.largo_mm ? `<span class="muted small">≈${l.largo_mm} mm</span>` : ''}</div>
-        <div class="cab-od mono"><span contenteditable="true" spellcheck="false" data-f="origen" title="Origen (editable)">${esc(l.origen)}</span>
-          <span class="arr">→</span><span contenteditable="true" spellcheck="false" data-f="destino" title="Destino (editable)">${esc(l.destino)}</span></div>
+        <div class="cab-od mono"><span contenteditable="true" spellcheck="false" data-f="origen" class="${funcTxt(l, 'o') ? 'func' : ''}" title="${esc(['Origen (editable)', funcTxt(l, 'o')].filter(Boolean).join('\n'))}">${esc(l.origen)}</span>
+          <span class="arr">→</span><span contenteditable="true" spellcheck="false" data-f="destino" class="${funcTxt(l, 'd') ? 'func' : ''}" title="${esc(['Destino (editable)', funcTxt(l, 'd')].filter(Boolean).join('\n'))}">${esc(l.destino)}</span></div>
         <div class="cab-term small">${termChip(terminal(l, 'o'))}${!LAT(l.destino) ? ` <span class="arr">→</span> ${termChip(terminal(l, 'd'))}` : ` <span class="muted">→ ${esc(l.destino)} (se termina después)</span>`}</div>
       </div>
       <div class="cab-acts">
@@ -272,13 +284,13 @@ const Ins = (() => {
     const pend = D.pendientes || [];
     $('#insPend').innerHTML = `<div class="card-h"><h2>Pendientes: LI → LI (${pend.length})</h2></div>
       <p class="muted small">Estos cables tienen los dos extremos fuera de la bandeja: se dejan tirados donde salen los cables a LI y se cablean después de montar la bandeja en el gabinete.</p>
-      <div class="plist">${pend.map(x => `<div class="mono small">${esc(x.num)}: <b>${esc(x.cable)}</b> ${x.secc ? `<span class="secc">${esc(fmtSec(x.secc))}</span>` : ''} &nbsp; ${esc(x.a)} ↔ ${esc(x.b)}</div>`).join('') || '<span class="muted">Ninguno</span>'}</div>`;
+      <div class="plist">${pend.map(x => `<div class="mono small">${esc(x.num)}: <b>${esc(x.cable)}</b> ${x.secc ? `<span class="secc">${esc(fmtSec(x.secc))}</span>` : ''} &nbsp; ${esc(x.a)} ↔ ${esc(x.b)}${altPill(x)}</div>`).join('') || '<span class="muted">Ninguno</span>'}</div>`;
     const ot = D.otra_estacion || [];
     $('#insOtra').hidden = !ot.length;
     $('#insOtra').innerHTML = `<div class="card-h"><h2>Se cablean en otra estación (${ot.length})</h2></div>
       <p class="muted small">No se cablean en ${esc(est())}: quedan fuera de los pasos, del visor y de la auditoría. Se recuerdan al regenerar.</p>
       <div class="plist">${ot.map(l => `<div class="mono small ot-row">${esc(l.num)}: <b>${esc(l.cable)}</b> <span class="secc">${esc(secTxt(l))}</span> &nbsp; ${esc(l.origen)} → ${esc(l.destino)}
-        <span class="pill">${esc(l.estacion)}</span> <button class="linkbtn" data-volver="${esc(l.num)}">volver a ${esc(est())}</button></div>`).join('')}</div>`;
+        <span class="pill">${esc(l.estacion)}</span>${altPill(l)} <button class="linkbtn" data-volver="${esc(l.num)}">volver a ${esc(est())}</button></div>`).join('')}</div>`;
     const acc = D.accesorios || [];
     $('#insAcc').hidden = !acc.length;
     $('#insAcc').innerHTML = `<div class="card-h"><h2>Puentes y accesorios (${acc.filter(a => a.hecho).length}/${acc.length})</h2></div>
@@ -296,18 +308,44 @@ const Ins = (() => {
   function renderMapeo() {
     let mp = $('#insMapeo');
     if (!mp) { mp = document.createElement('details'); mp.id = 'insMapeo'; mp.className = 'ins-mapeo small'; $('#insInfo').after(mp); }
+    renderAlternativas();
     const m = D.mapeo, av = (m && m.avisos) || [];
-    mp.hidden = !m || (!av.length && !m.error);
+    const falt = (m && m.modelos_faltantes) || [], lf = (m && m.lado_fisico) || [];
+    mp.hidden = !m || (!av.length && !m.error && !falt.length && !lf.length);
     if (mp.hidden) { mp.innerHTML = ''; return; }
     const n = m.n_puntos || {}, tot = (n.alta || 0) + (n.media || 0) + (n.baja || 0);
     const partes = [`alta ${n.alta || 0}`, `media ${n.media || 0}`].concat(n.baja ? [`sin ubicar ${n.baja}`] : []);
     const verif = m.materiales === 'mapeo verificado del producto';
     if (m.sin_bandejas) mp.open = true;          // PDF de EPLAN sin hoja de bandejas: el aviso tiene que verse
-    mp.innerHTML = `<summary>${esc(m.titulo || 'Mapeo automático de bornes')}: ${m.error ? 'no se pudo calcular' : `${tot} puntos (${partes.join(', ')})`}${m.manuales ? ` · ${m.manuales} con punto manual del trabajo` : ''} · ver avisos (${av.length})</summary>
+    mp.innerHTML = `<summary>${esc(m.titulo || 'Mapeo automático de bornes')}: ${m.error ? 'no se pudo calcular' : `${tot} puntos (${partes.join(', ')})`}${m.manuales ? ` · ${m.manuales} con punto manual del trabajo` : ''}${falt.length ? ` · ${falt.length} modelo${falt.length > 1 ? 's' : ''} fuera del catálogo` : ''}${lf.length ? ` · ${lf.length} con el lado cambiado` : ''} · ver avisos (${av.length})</summary>
       <ul>${av.map(a => `<li>${esc(a)}</li>`).join('')}</ul>
+      ${falt.length ? `<div><b>Modelos de la lista de materiales que no están en el catálogo de bornes</b> (cargalos en el catálogo para ubicarlos por su modelo):</div>
+      <ul>${falt.map(f => `<li><span class="mono">${esc(f.tag)}</span>: ${esc(f.modelo || f.texto_de_la_lista || '')}${f.familia ? ` · <b>${esc(f.familia)}</b>` : ''}${f.modelo && f.texto_de_la_lista && f.texto_de_la_lista !== f.modelo ? ` <span class="muted">(${esc(f.texto_de_la_lista)})</span>` : ''}</li>`).join('')}</ul>` : ''}
+      ${lf.length ? `<div><b>ARRIBA/ABAJO distinto del funcional</b> (el instructivo lleva el lado físico del borne en el topográfico):</div>
+      <ul>${lf.map(x => `<li class="mono">${esc(x.num)}: ${esc(x.funcional)} → ${esc(x.instructivo)}</li>`).join('')}</ul>` : ''}
       <div class="muted">${verif ? 'puntos del mapeo verificado del producto · media = punto con una duda anotada: confirmalo en el visor (marca «a confirmar»)'
         : `alta = el borne se vio en el dibujo · media = medida del catálogo o regla de corrección: confirmalo en el visor (marca «a confirmar») ·
         ${m.de_cache ? 'resultado guardado (no cambió nada desde el último cálculo)' : `calculado en ${esc(m.segundos ?? '?')} s`}`}</div>`;
+  }
+  // ALTERNATIVAS del plano (hojas 'ALTERNATIVA n' del funcional: se monta una): cuál se tomó en cada hoja y por qué,
+  // y los cables que cambian según la alternativa (los que están solo en una que no es la elegida: confirmar si se montan)
+  function renderAlternativas() {
+    let el = $('#insAlt');
+    const alts = D.alternativas || [];
+    const conNota = [];
+    for (const p of D.pasos || []) for (const l of p.lineas) if (l.alternativa) conNota.push({ x: l, txt: `${l.origen} → ${l.destino}` });
+    for (const x of D.pendientes || []) if (x.alternativa) conNota.push({ x, txt: `${x.a} ↔ ${x.b} (pendiente)` });
+    for (const x of D.otra_estacion || []) if (x.alternativa) conNota.push({ x, txt: `${x.origen} → ${x.destino} (${x.estacion || 'otra estación'})` });
+    if (!alts.length && !conNota.length) { if (el) { el.hidden = true; el.innerHTML = ''; } return; }
+    const conf = conNota.filter(c => c.x.confirmar_montaje);
+    // abierto si hay cables a confirmar (despues queda como lo deje el usuario)
+    if (!el) { el = document.createElement('details'); el.id = 'insAlt'; el.className = 'ins-mapeo ins-alt small'; el.open = conf.length > 0; ($('#insMapeo') || $('#insInfo')).after(el); }
+    el.hidden = false;
+    const opc = a => Object.entries(a.opciones || {}).filter(([n]) => String(n) !== String(a.elegida))
+      .map(([n, m]) => `${esc(n)}${m ? ' (' + esc(m) + ')' : ''}`).join(', ');
+    el.innerHTML = `<summary>Alternativas del plano (se cablea una por hoja): ${alts.map(a => `hoja ${esc(a.hoja)} → <b>ALTERNATIVA ${esc(a.elegida)}</b>`).join(', ') || 'ver los cables'}${conf.length ? ` · <b class="warn-t">${conf.length} cable${conf.length > 1 ? 's' : ''} a confirmar si se monta${conf.length > 1 ? 'n' : ''}</b>` : ''}${conNota.length ? ` · ${conNota.length} cable${conNota.length > 1 ? 's' : ''} que cambian según la alternativa` : ''}</summary>
+      <ul>${alts.map(a => `<li>Hoja ${esc(a.hoja)}: se tomó la <b>ALTERNATIVA ${esc(a.elegida)}</b>${(a.opciones || {})[String(a.elegida)] ? ' (' + esc(a.opciones[String(a.elegida)]) + ')' : ''}, ${esc(a.por === 'la primera' ? 'la primera (la lista de materiales no dice cuál)' : a.por)}${opc(a) ? ` · las otras: ${opc(a)}` : ''}</li>`).join('')}</ul>
+      ${conNota.length ? `<ul>${conNota.map(c => `<li><span class="mono">${esc(c.x.num)}: ${esc(c.txt)}</span>${c.x.confirmar_montaje ? ' <b class="warn-t">a confirmar si se monta</b>' : ''} <span class="muted">— ${esc(c.x.alternativa)}</span></li>`).join('')}</ul>` : ''}`;
   }
   function renderComps() {
     const filas = Math.max(3, ...D.componentes.map(c => c.fila || 0));
@@ -402,7 +440,8 @@ const Ins = (() => {
     $('#cvPos').textContent = `${V.k + 1} / ${F.length}`;
     $('#cvGrp').textContent = D.pasos[g].titulo || '';
     $('#cvNum').innerHTML = `<span class="mono">${esc(l.num)}</span> ${swatch(l.color)} <span class="secc big">${esc(secTxt(l))}</span>`;
-    $('#cvOrig').innerHTML = esc(l.origen) + confPill(l, 'o'); $('#cvDest').innerHTML = esc(l.destino) + confPill(l, 'd');
+    $('#cvOrig').innerHTML = esc(l.origen) + confPill(l, 'o'); $('#cvDest').innerHTML = esc(l.destino) + confPill(l, 'd') + altPill(l, true);
+    $('#cvOrig').title = funcTxt(l, 'o'); $('#cvDest').title = funcTxt(l, 'd');
     $('#cvLen').textContent = l.largo_mm ? `≈ ${l.largo_mm} mm por canaleta` : '';
     $('#cvOk').checked = !!l.hecho;
     $('#cvAdjD').disabled = LAT(l.destino);
