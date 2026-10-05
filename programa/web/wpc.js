@@ -7,7 +7,12 @@ const Wpc = (() => {
   const cfgListo = fetch('/static/wpc.json', { cache: 'no-cache' }).then(r => r.json()).then(c => { CFG = c; }).catch(() => { CFG = {}; });
   const NCOL = 49;
   const key = l => `${l.num}|${l.origen ?? l.a}|${l.destino ?? l.b}`;
-  const W = () => D.wpc || (D.wpc = { largo: {}, color: {}, excluir: [], incluir: [], cfg: {} });
+  // al regenerar el instructivo puede quedar wpc = {} (o a medias): se completa lo que falte
+  const W = () => {
+    const w = D.wpc || (D.wpc = {});
+    w.largo ??= {}; w.color ??= {}; w.excluir ??= []; w.incluir ??= []; w.cfg ??= {};
+    return w;
+  };
   const P = k => { const c = W().cfg; return c[k] != null && c[k] !== '' ? +c[k] : +(CFG[k] ?? 0); };
   const LAT = d => d === 'LI' || d === 'LD';
   const secNum = l => String(l.secc || ((l.cable || '').match(/(\d+(?:[.,]\d+)?)MM/i) || [])[1] || '').replace(',', '.');
