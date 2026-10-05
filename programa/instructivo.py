@@ -815,7 +815,7 @@ def quattro_gemelas(pg, sym, u, tag, num, col, lines):
     def tag_de(x, y):          # el rotulo de bornera mas cercano (la bornera puede estar rotulada mas de una vez)
         best = None
         for l in lines:
-            t = re.sub(r'^(\d{2}) ([A-Z][A-Z0-9]{1,7})$', r'', l['text'].strip())
+            t = re.sub(r'^(\d{2}) ([A-Z][A-Z0-9]{1,7})$', r'\1\2', l['text'].strip())
             if TAG_RE.fullmatch(t) and is_terminal_block(t):
                 d = box_dist((x, y), l['bbox'])
                 if best is None or d < best[0]:
