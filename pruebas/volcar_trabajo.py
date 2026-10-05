@@ -64,6 +64,7 @@ else:
 t_mapeo = time.time() - t1
 lay['estaciones'] = old.get('estaciones') or {}; lay['estacion'] = old.get('estacion') or 'E6'
 lay['estacion_auto'] = old.get('estacion_auto') or {'seccion_min': 35, 'estacion': 'E8'}
+lay['salidas'] = old.get('salidas') or {}      # salidas a LI / LD elegidas a mano (editor de salidas)
 ins = build(res, lay)
 cs = conductors(res)
 out = dict(

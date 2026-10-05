@@ -20,7 +20,7 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/bornes/` | Mapeo automático del **punto exacto de cada borne**: `motor.py` + `catalogo.json` (modelos en mm) + `primitivas.py`. Ver `programa/bornes/LEEME.md`. |
 | `programa/eplan.py` | Planos de **EPLAN** (PDF con texto real): `es_eplan`, `process` (lista de conexiones → conductores y listado, misma interfaz que `core.process`), `layout` (hoja de bandejas: rieles, canaletas, placas, etiquetas → mismo formato que `topo.layout`) y `aplicar_puntos` (mapeo verificado). `core.process` y `topo.layout` derivan solos a este módulo. |
 | `programa/mapeos_verificados/` | **Dato** por producto EPLAN: `<documento>_rev<revisión>.json` con el punto exacto y el texto del taller de cada punta (`'<designación EPLAN>#<cable>'`), la zona hidráulica (E8) y las canaletas de intrínsecos. Se elige por el documento y la revisión del rótulo. Se arma con `2 - Resultados/76884 mSafe2+ PAE/mapeo/exportar_al_programa.py`. |
-| `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`. |
+| `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`, `salidas.js` (editor de salidas a LI / LD). |
 | `programa/gabinete.py`, `web/e8.js`, `web/e8.css` | **E8 (gabinete en 3D)**: `leer_gabinete` (contorno, laterales desplegados, puerta, aparatos y canaletas de cada vista del topográfico; cache `e8_gabinete.json` del trabajo) y `armar_e8` (cables de E8 con puntas y recorrido 3D). Visor con three.js (cdnjs, import map de `index.html`). Marcas en `instructivo.json['e8']`. |
 | `1 - Planos/` | Planos originales. `Catalogo (referencia)/`: 8 productos con su orden de montaje SAP. `Producto nuevo/`: mSafe2+ PAE (EPLAN). |
 | `2 - Resultados/` | Salidas. `76884 mSafe2+ PAE/`: mapeo verificado del producto EPLAN (ver abajo). |
@@ -39,6 +39,14 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
   Más ejemplos: `1106: M2.5MM 11Q2 F ARRIBA → 11Q1 F ABAJO`, `2118: N0.75MM 43KR1 11 → LI`.
 - **LI** = lateral izquierdo, puerta, campo: todo lo que no está en la bandeja. **LD** = lateral derecho.
   - Cables LI↔LI: no van en el instructivo de la bandeja. Van a "pendientes" y se cablean al montar.
+  - **Salida a LI / LD:** sin elegir, la regla del taller (`ruteo.li_exit`: por el lateral, arriba; marrón y blanco
+    de 220 VAC por abajo; intrínsecos por su canaleta). En la web se elige a mano por grupo (botón 🧭 Salidas LI / LD,
+    o 🧭 Salida / tecla S en el visor): «Todos los LI», «Todos los LD» o un grupo de cables elegidos (manda sobre el de
+    su lateral). Recorrido = puntos por donde pasan y, el último, por donde salen. Se guarda en `ins['salidas']`, se
+    conserva al regenerar (`instructivo.grupo_salida`) y la vista previa usa `/instructivo/salidas`
+    (`instructivo.rutear_salidas`, sin rearmar). Los intrínsecos no entran en «todos»: se cambian eligiéndolos en un grupo.
+    Al cargar un topográfico (o las bandejas del mismo PDF de EPLAN) se borran las salidas viejas y queda
+    `salidas.preguntar`: la primera vez que se abre el instructivo, un asistente pregunta una sola vez la salida de LI y la de LD.
 - **Un tag nombra los bornes que tiene a su DERECHA** hasta el próximo tag. En el funcional, con la bornera en columna,
   vale para los de abajo.
 - **QUATTRO:** `N.p`, con 1 y 2 arriba (1 = extremo, 2 = interior) y 3 y 4 abajo (3 = interior, 4 = extremo).

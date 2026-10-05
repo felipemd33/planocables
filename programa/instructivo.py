@@ -1431,6 +1431,65 @@ def punta_sintetica(txt, comp):
     return e
 
 
+# ---- SALIDAS A LI / LD elegidas a mano (editor de salidas de la web): ins['salidas'] = {'grupos': [grupo, ...]}
+# grupo = {id, nombre, aplica: 'LI' | 'LD' (todos los cables de ese lateral) | 'seleccion' (los de 'cables'),
+#          cables: [numeros], puntos: [[x, y], ...] en pt del topografico: por donde pasan y, el ultimo, por donde salen}
+def puntos_salida(g):
+    """recorrido valido de un grupo de salidas ([] si no tiene o esta roto)"""
+    try:
+        return [[float(p[0]), float(p[1])] for p in (g.get('puntos') or [])]
+    except (TypeError, ValueError, IndexError, AttributeError):
+        return []
+
+
+def grupo_salida(l, grupos):
+    """grupo de salidas que manda en el recorrido del cable l (que sale a LI o LD), o None (regla del taller):
+    primero un grupo de cables elegidos que lo tenga, despues el de todos los cables de su lateral. Los intrinsecos
+    no entran en 'todos': salen por su canaleta (regla del taller), salvo que se los elija en un grupo.
+    Solo cuentan los grupos con recorrido."""
+    con = [g for g in grupos or [] if isinstance(g, dict) and puntos_salida(g)]
+    for g in con:
+        if g.get('aplica') == 'seleccion' and l.get('num') in (g.get('cables') or []):
+            return g
+    if not l.get('intrinseco'):
+        lat = l.get('lateral') or l.get('destino')
+        for g in con:
+            if g.get('aplica') == lat:
+                return g
+    return None
+
+
+def sale_abajo(l):
+    """regla del taller: los de 220 VAC (marron y blanco de potencia) salen a LI por la salida de abajo"""
+    try:
+        sec = float(str(l.get('secc') or 0).replace(',', '.'))
+    except ValueError:
+        sec = 0
+    return l.get('color') in ('Marrón', 'Blanco') and sec >= 1.0
+
+
+def rutear_salidas(lineas, topo, grupos):
+    """vuelve a rutear los cables que salen a LI / LD con las salidas elegidas a mano, sin rearmar el instructivo
+    (vista previa del editor de salidas): sale del punto del borne de origen (marca_o) por el lado de su paso, igual
+    que en build. lineas: las del instructivo (num, destino o lateral, marca_o, lado, color, secc, intrinseco).
+    -> [{ruta, largo_mm, salida}] en el mismo orden (ruta None si no se pudo)"""
+    from ruteo import Net, route_line, length
+    net = Net(topo['ductos']) if topo.get('ductos') else None
+    out = []
+    for l in lineas:
+        lat = l.get('lateral') or l.get('destino')
+        po = l.get('marca_o')
+        if not net or lat not in ('LI', 'LD') or not po:
+            out.append(dict(ruta=None, largo_mm=None, salida=None)); continue
+        ex = l['intrinseco'] if 'intrinseco' in l else l.get('color') == 'Azul'   # (instructivo viejo: por el color)
+        g = grupo_salida(dict(l, lateral=lat, intrinseco=ex), grupos)
+        ruta = route_line(net, (float(po[0]), float(po[1])), 0 if l.get('lado') == 'arriba' else 1, None, None, ex, True,
+                          sale_abajo(l), lado_li='der' if lat == 'LD' else 'izq', por=puntos_salida(g) if g else None)
+        largo = int(round(length(ruta) * topo['escala'] / 10.0) * 10) if ruta and topo.get('escala') else None
+        out.append(dict(ruta=ruta, largo_mm=largo, salida=g.get('id') if g else None))
+    return out
+
+
 def build(res, lay, max_lineas=7):
     """lay: layout del topografico + opcionales:
        bornes          texto (o 'texto#cable') -> [x, y] o [x, y, r]  punto exacto del borne (mapeo)
@@ -1440,6 +1499,7 @@ def build(res, lay, max_lineas=7):
        renombrar_auto  los de 'renombrar' que puso el mapeo automatico: no se aplican si el usuario ajusto el punto
                        con el texto del funcional
        estaciones      cable -> estacion donde se cablea si NO es esta (ej. {'3141': 'E8'})
+       salidas         {'grupos': [...]}: salidas a LI / LD elegidas a mano en la web (ver grupo_salida)
     Devuelve ademas 'lado_fisico': [{num, funcional, instructivo}] de las puntas cuyo ARRIBA/ABAJO cambio respecto del
     funcional (por el punto fisico del borne o el lado forzado), y en cada linea func_o / func_d = el texto del
     funcional de la punta cuando el instructivo dice otra cosa."""
@@ -1835,14 +1895,17 @@ def build(res, lay, max_lineas=7):
         if de_campo(l, o, d):
             zs = zonas[id(l)]
             tipo[id(l)] = True if any(zs) or (o.get('tag'), o.get('borne')) in borne_ex else (False if zs else None)
+    grupos_sal = (lay.get('salidas') or {}).get('grupos') or []
     for l, o, d, so, sd, po, pd, to_li in a_rutear:
-        try:
-            sec = float(l['secc'] or 0)
-        except ValueError:
-            sec = 0
         # 220 VAC (marron y blanco de potencia) salen a LI por la salida de abajo; el resto por la de arriba
-        abajo = l['color'] in ('Marrón', 'Blanco') and sec >= 1.0
-        ruta = route_line(net, po[:2], so, None if to_li else pd[:2], sd, tipo[id(l)], to_li, abajo, lado_li='der' if l['destino'] == 'LD' else 'izq')
+        abajo = sale_abajo(l)
+        por = None
+        if to_li:      # para volver a rutear la salida sin rearmar el instructivo (rutear_salidas)
+            l['lateral'], l['intrinseco'] = l['destino'], tipo[id(l)]
+            g = grupo_salida(l, grupos_sal)            # salida elegida a mano para este cable (o su lateral)
+            if g:
+                l['salida'], por = g.get('id'), puntos_salida(g)
+        ruta = route_line(net, po[:2], so, None if to_li else pd[:2], sd, tipo[id(l)], to_li, abajo, lado_li='der' if l['destino'] == 'LD' else 'izq', por=por)
         if ruta:
             l['ruta'] = ruta
             if lay.get('escala'):

@@ -12,6 +12,8 @@
   '_Zona Segura', rayadas). Los cables azules van por ellas y el resto no.
 - Salida a LI (regla del taller): por el lateral, arriba; los marrones y blancos (220 VAC) por abajo; los
   intrinsecos por su canaleta si llega al borde.
+- Salida elegida a mano (editor de salidas de la web, por grupo de cables): puntos por donde pasa el cable y, el
+  ultimo, por donde sale de la bandeja (salida_a_mano).
 - Las tolerancias van en anchos de canaleta (W, medido en el plano: 28.5 pt en el 75441, 22.7 pt en el 66817;
   las dos son de 40 mm) o en perfiles de riel H, no en puntos fijos.
 """
@@ -324,21 +326,69 @@ class Net:
         i, (t, c, lo, hi) = (min if abajo else max)(hs, key=lambda t: t[1][1])
         return self._node((lo + 0.1, c) if izq else (hi - 0.1, c))
 
+    def en_red(self, p):
+        """punto p elegido a mano (clic en el topografico) -> (nodo, canaleta): el punto del eje de la canaleta que lo
+        contiene (o de la mas cercana, si cae afuera de todas), agregado a la red; (None, None) sin canaletas"""
+        best = None
+        for i, d in enumerate(self.d):
+            t, c, lo, hi = self.axis(d)
+            q = (min(max(p[0], lo + 0.1), hi - 0.1), c) if t == 'h' else (c, min(max(p[1], lo + 0.1), hi - 0.1))
+            x0, y0, x1, y1 = d['b']
+            cost = (0 if x0 <= p[0] <= x1 and y0 <= p[1] <= y1 else 1, math.dist(p, q))
+            if best is None or cost < best[0]:
+                best = (cost, i, q)
+        if best is None:
+            return None, None
+        _, i, q = best
+        k = self._node(q)
+        if k not in self.pts[i]:
+            self.pts[i].append(k); self._link_all()
+        return k, i
 
-def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='izq'):
-    """polilinea del cable: borne -> canaleta -> ... -> canaleta -> borne (o salida a LI)"""
+    def salida_a_mano(self, p):
+        """salida a LI / LD elegida a mano (p = por donde salen los cables de la bandeja) -> (nodo, tramo final): el
+        cable va por las canaletas hasta el eje de la canaleta de p y sale derecho hasta p: siguiendo el eje si p esta
+        mas alla de la punta de la canaleta, o perpendicular si esta al costado. Con p adentro de la canaleta, el cable
+        termina ahi."""
+        k, i = self.en_red(p)
+        if k is None:
+            return None, []
+        q = self.nodes[k]
+        t, c, lo, hi = self.axis(self.d[i])
+        x0, y0, x1, y1 = self.d[i]['b']
+        a = p[0] if t == 'h' else p[1]
+        if a < lo or a > hi:                                   # mas alla de la punta: sigue el eje
+            fin = (p[0], c) if t == 'h' else (c, p[1])
+        elif not (x0 <= p[0] <= x1 and y0 <= p[1] <= y1):      # al costado: sale perpendicular
+            fin = (q[0], p[1]) if t == 'h' else (p[0], q[1])
+        else:
+            fin = None
+        return k, ([fin] if fin and math.dist(fin, q) > 0.3 else [])
+
+
+def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='izq', por=None):
+    """polilinea del cable: borne -> canaleta -> ... -> canaleta -> borne (o salida a LI).
+    por = recorrido elegido a mano para la salida a LI / LD: puntos por donde pasa el cable, en orden, y el ultimo
+    por donde sale de la bandeja (sin por: la regla del taller, li_exit)"""
     a, via_o = net.enganche(o_pt, o_side, ex)
-    if to_li:
+    paradas = []
+    if to_li and por:
+        paradas = [net.en_red(p)[0] for p in por[:-1]]
+        b, tail = net.salida_a_mano(por[-1])
+    elif to_li:
         b = net.li_exit(abajo_li, ex, lado_li)
         tail = []
     else:
         b, via_d = net.enganche(d_pt, d_side, ex)
         tail = via_d[::-1] + [d_pt]
-    if a is None or b is None:
+    if a is None or b is None or None in paradas:
         return None
-    mid = net.path(a, b, ex)
-    if mid is None:
-        return None
+    mid = []
+    for u, v in zip([a] + paradas, paradas + [b]):
+        tramo = net.path(u, v, ex)
+        if tramo is None:
+            return None
+        mid += tramo[1:] if mid else tramo
     pts = [o_pt] + via_o + mid + tail
     clean = [pts[0]]
     for q in pts[1:]:

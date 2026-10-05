@@ -142,6 +142,7 @@
           <button class="btn sm" id="insAudit" title="Auditoría cruzada: verificar la bandeja por secciones (sin seguir cable por cable)">🔍 Auditoría</button>
           <label class="small ins-est" title="Estación donde se cablea esta bandeja">Estación <input id="insEstacion" type="text" size="4" autocomplete="off" aria-label="Estación"></label>
           <button class="btn sm" id="insBtnComps">Componentes y orden</button>
+          <button class="btn sm" id="insSalidas" title="Por dónde salen de la bandeja los cables que van a LI y LD: elegilo por grupo de cables">🧭 Salidas LI / LD</button>
           <button class="btn sm" id="insPrint">🖨 Imprimir / PDF</button>
           <button class="btn sm" id="insWpc" title="Lista de cables en orden de cableado y .csv para el centro de cableado WPC">📋 Lista WPC</button>
           <button class="btn sm" id="insJson" title="Para importarlo después a nuestra app">⭳ JSON</button>
@@ -232,6 +233,7 @@
     <button class="btn ghost sm" id="cvSideBtn" aria-pressed="true" title="Mostrar u ocultar el listado de cables (L)">☰ Listado</button>
     <button class="btn ghost sm" id="cvAdjO" title="Ajustar el punto del borne de ORIGEN: clic y después clic en el dibujo">📍 Origen</button>
     <button class="btn ghost sm" id="cvAdjD" title="Ajustar el punto del borne de DESTINO: clic y después clic en el dibujo">📍 Destino</button>
+    <button class="btn ghost sm" id="cvSal" hidden title="Por dónde sale de la bandeja este cable a LI / LD, y los de su grupo (S)">🧭 Salida</button>
     <button class="icon" id="cvFocus" aria-label="Centrar en el cable" title="Centrar en el cable (F)">⌖</button>
     <button class="icon" id="cvFit" aria-label="Ver toda la bandeja" title="Toda la bandeja (0)">⤢</button>
     <button class="btn ghost sm swap" id="cvAudit" title="Auditoría cruzada de la bandeja, por secciones (A)">🔍 Auditoría</button>
@@ -253,7 +255,7 @@
         <div class="cv-lupa ori"><b id="cvLupaOt">Origen</b><svg id="cvLupaO" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
         <div class="cv-lupa des" id="cvLupaDw"><b id="cvLupaDt">Destino</b><svg id="cvLupaD" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
       </div>
-      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · A: auditoría · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
+      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · A: auditoría · S: salida a LI / LD · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
     </div>
   </div>
 </div>
@@ -284,6 +286,31 @@
       <div class="v-hint muted small">Mirá que cada borne marcado tenga su cable con ese número · Clic en un cable (en el dibujo o en la lista): queda translúcido = chequeado · ⚠ en la lista para anotar un problema · Espacio: sección verificada y seguir · ← → secciones · Rueda: zoom · Esc: cerrar</div>
     </div>
     <aside class="au-ends" id="auEnds" aria-label="Bornes de la sección"></aside>
+  </div>
+</div>
+
+<!-- SALIDAS A LI / LD: por donde salen de la bandeja los cables que van a los laterales, por grupo de cables -->
+<div class="viewer salv" id="salViewer" hidden>
+  <div class="v-top">
+    <div class="v-title"><span>🧭 Salidas a LI y LD</span><span class="muted small">Por dónde salen de la bandeja los cables que van al lateral izquierdo (LI) y al derecho (LD): elegilo para todos los de un lateral o para un grupo de cables.</span></div>
+    <button class="icon" id="salFit" aria-label="Ver toda la bandeja" title="Toda la bandeja (0)">⤢</button>
+    <button class="btn ghost sm swap" id="salVolver" title="Volver al visor de cablear de a uno">▶ Volver al visor</button>
+    <button class="icon" id="salClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="v-body">
+    <aside class="v-side sal-side">
+      <div class="sal-asis" id="salAsis" hidden></div>
+      <div class="sal-grupos" id="salGrupos"></div>
+      <div class="vs-h">
+        <input id="salQ" type="search" placeholder="Buscar cable o aparato…" autocomplete="off" aria-label="Buscar cable">
+        <div class="vs-info muted small"><span id="salCnt"></span></div>
+        <div class="small" id="salListAct" hidden><button class="linkbtn" id="salTodos">Sumar los de la lista</button> · <button class="linkbtn" id="salNinguno">Sacar los de la lista</button></div>
+      </div>
+      <div class="vs-list" id="salList" aria-label="Cables que salen a LI o LD"></div>
+    </aside>
+    <div class="stage cv-stage"><svg id="salSvg" class="tsvg sal-svg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="v-hint muted small" id="salHint"></div>
+    </div>
   </div>
 </div>
 
@@ -329,6 +356,7 @@
 <div class="toast" id="toast" hidden></div>
 <script src="/static/app.js"></script>
 <script src="/static/instructivo.js"></script>
+<script src="/static/salidas.js"></script>
 <script src="/static/auditoria.js"></script>
 <script src="/static/wpc.js"></script>
 <script src="/static/e8.js"></script>

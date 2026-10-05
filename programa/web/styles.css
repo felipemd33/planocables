@@ -440,3 +440,47 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .wpc-g td{font-weight:700;background:rgba(31,95,191,.08);padding-top:6px}
 .wpc-corte td{border-top:3px solid #1f5fbf}
 .wpc-fuera{opacity:.4}
+
+/* salidas a LI / LD (editor por grupo de cables) */
+.salv .v-body { min-height: 0; }
+.salv .v-top { flex-wrap: nowrap; gap: 8px; }
+.salv .v-title { min-width: 0; flex: 1 1 200px; overflow: hidden; }
+.salv .v-title span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sal-side { width: 340px; }
+.sal-grupos { padding: 8px; display: grid; gap: 6px; align-content: start; border-bottom: 1px solid var(--border); max-height: 52%; overflow: auto; flex: none; }
+.sal-g { border: 1px solid var(--border); border-radius: 10px; padding: 7px 10px; cursor: pointer; display: grid; gap: 3px; background: var(--surface); }
+.sal-g:hover { border-color: var(--accent); }
+.sal-g.on { border-color: var(--hl); box-shadow: 0 0 0 2px rgba(255,106,0,.22); cursor: default; }
+.sal-gh { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.sal-nom { flex: 1; min-width: 0; font: inherit; font-weight: 700; border: 1px solid transparent; border-radius: 6px; padding: 2px 5px; margin-left: -5px; background: transparent; color: var(--text); }
+.sal-nom:hover, .sal-nom:focus { border-color: var(--border); background: var(--surface2); outline: none; }
+.sal-eleg { color: var(--ok); font-weight: 600; }
+.sal-acts { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.sal-acts .btn.on { background: var(--hl); border-color: var(--hl); color: #fff; }
+.sal-nuevo { justify-self: start; }
+.sal-it { grid-template-columns: 16px 46px 1fr auto; cursor: pointer; }
+.sal-it .od { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sal-it.act { border-left-color: rgba(255,106,0,.45); }
+.sal-it.act .n { color: var(--hl); }
+.sal-chip { font-size: 11px; padding: 0 6px; border-radius: 99px; border: 1px solid var(--border); color: var(--muted); white-space: nowrap; max-width: 110px; overflow: hidden; text-overflow: ellipsis; }
+.sal-chip.eleg { border-color: var(--ok); color: var(--ok); }
+#salSvg { width: 100%; height: 100%; touch-action: none; }
+#salSvg.pick { cursor: crosshair; }
+#salSvg.cab { cursor: cell; }
+#salSvg.drag { cursor: grabbing; }
+.tsvg g.rt.otro { opacity: .28; }
+.sal-svg g.rt.cur .halo { animation: none; stroke: rgba(255,106,0,.3); }
+.sal-pt circle { fill: #1565c0; stroke: #fff; opacity: .55; }
+.sal-pt.on circle { opacity: 1; }
+.sal-pt.fin circle { fill: #ff6a00; }
+.sal-pt text { fill: #fff; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; pointer-events: none; }
+.sal-orden { fill: none; stroke: #1565c0; opacity: .35; }
+.sal-orden.on { opacity: .8; }
+.sal-rect { fill: rgba(21,101,192,.1); stroke: #1565c0; }
+.pill.sal { background: var(--ok-bg); color: var(--ok); }
+.cv-od .pill.sal { font-size: 11px; vertical-align: middle; margin-left: 4px; }
+.sal-asis { margin: 8px 8px 0; background: var(--surface); color: var(--text); border: 2px solid var(--hl); border-radius: 12px;
+  padding: 9px 11px; display: grid; gap: 5px; box-shadow: 0 4px 16px rgba(255,106,0,.18); flex: none; }
+.sal-asis[hidden] { display: none; }
+.sal-asis-t { font-size: 15px; }
+.sal-asis-b { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; margin-top: 2px; }

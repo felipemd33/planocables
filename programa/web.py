@@ -141,7 +141,7 @@ def usar_mismo_pdf(jid):
     else:
         s['topo_nombre'] = nombre; write_json(os.path.join(P['dir'], 'estado.json'), s)
     INS[jid] = dict(estado='en cola', mensaje='En cola…', progreso=0.0)
-    threading.Thread(target=gen_instructivo, args=(jid, None, True), daemon=True).start()
+    threading.Thread(target=gen_instructivo, args=(jid, None, True, True), daemon=True).start()
 
 
 @app.before_request
@@ -351,7 +351,9 @@ def write_json(path, data):
     os.replace(path + '.tmp', path)
 
 
-def gen_instructivo(jid, overrides=None, relayout=False):
+def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
+    """topo_nuevo: se acaba de cargar el topografico. Las salidas a LI / LD elegidas con el anterior no sirven (son
+    puntos de otro dibujo): se borran y la web pregunta una vez por donde salen ('preguntar')"""
     st = INS[jid]
     try:
         P = ins_paths(jid); s = load_state(jid) or {}
@@ -431,6 +433,8 @@ def gen_instructivo(jid, overrides=None, relayout=False):
             lay['estaciones'] = old.get('estaciones') or {}
             lay['estacion'] = old.get('estacion') or 'E6'
             lay['estacion_auto'] = old.get('estacion_auto') or {'seccion_min': 35, 'estacion': 'E8'}   # 35 mm2 -> gabinete
+            # salidas a LI / LD elegidas a mano (editor de salidas)
+            lay['salidas'] = {'grupos': [], 'preguntar': True} if topo_nuevo else (old.get('salidas') or {})
             st.update(mensaje='Armando el instructivo…', progreso=0.92)
             ins = build(res, lay)
             ins['bornes_usuario'] = lay['bornes_usuario']
@@ -444,6 +448,7 @@ def gen_instructivo(jid, overrides=None, relayout=False):
             ins['estaciones'] = lay['estaciones']
             ins['estacion'] = lay['estacion']
             ins['estacion_auto'] = lay['estacion_auto']
+            ins['salidas'] = lay['salidas']
             ins['auditoria'] = old.get('auditoria') or {}
             ins['wpc'] = old.get('wpc') or {}     # lista WPC: largos y colores a mano, cortes de etapa, excluidos
             ins['e8'] = old.get('e8') or {}       # E8 (gabinete): cables marcados y aparatos ubicados a mano
@@ -506,7 +511,7 @@ def subir_topografico(jid):
     else:
         write_json(os.path.join(P['dir'], 'estado.json'), s)
     INS[jid] = dict(estado='en cola', mensaje='En cola…', progreso=0.0)
-    threading.Thread(target=gen_instructivo, args=(jid, None, True), daemon=True).start()
+    threading.Thread(target=gen_instructivo, args=(jid, None, True, True), daemon=True).start()
     return jsonify(ok=True)
 
 
@@ -565,6 +570,25 @@ def guardar_instructivo(jid):
         data['e8'] = e8_del_disco(P['json'], data.get('e8') or {})
         write_json(P['json'], data)
     return jsonify(ok=True)
+
+
+@app.post('/api/trabajo/<jid>/instructivo/salidas')
+def rutas_salidas(jid):
+    """vista previa del editor de salidas a LI / LD: el recorrido de los cables que salen a un lateral con las salidas
+    elegidas a mano (no guarda nada: la pestaña guarda el instructivo con las rutas y las salidas)"""
+    P = ins_paths(jid)
+    if not os.path.exists(P['json']):
+        abort(404)
+    body = request.get_json(silent=True) or {}
+    lineas, salidas = body.get('lineas'), body.get('salidas') or {}
+    if not isinstance(lineas, list) or not all(isinstance(l, dict) for l in lineas) or not isinstance(salidas, dict):
+        return jsonify(error='Datos inválidos'), 400
+    with open(P['json'], encoding='utf-8') as f:
+        topo = json.load(f).get('topo') or {}
+    if not topo.get('ductos'):
+        return jsonify(error='El topográfico no tiene cablecanales para rutear'), 400
+    from instructivo import rutear_salidas
+    return jsonify(rutas=rutear_salidas(lineas, topo, salidas.get('grupos') or []))
 
 
 @app.get('/api/trabajo/<jid>/topo.png')

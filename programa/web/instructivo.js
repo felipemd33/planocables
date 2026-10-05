@@ -233,6 +233,10 @@ const Ins = (() => {
     ? ` <span class="pill conf" title="${esc((x.alternativa || 'Este cable está solo en una alternativa que no es la elegida') + '. Confirmá si se monta antes de cablearlo')}">${corto ? '¿se monta?' : 'a confirmar si se monta'}</span>`
     : (x.alternativa ? ` <span class="pill alt" title="${esc(x.alternativa)}">alternativa</span>` : '');
 
+  // salida a LI / LD elegida a mano (editor de salidas): el grupo que manda en el recorrido
+  const salPill = l => { const g = LAT(l.destino) && l.salida && typeof Sal !== 'undefined' ? Sal.grupoDe(l) : null;
+    return g ? ` <span class="pill sal" title="${esc(`Sale de la bandeja por el recorrido elegido para «${g.nombre}» (🧭 Salida para cambiarlo)`)}">salida elegida</span>` : ''; };
+
   /* ---- lista (un cable por paso) ---- */
   function cardHtml(l, g, i, n) {
     const warn = /\?/.test(l.origen + l.destino);
@@ -303,6 +307,8 @@ const Ins = (() => {
       <p class="muted small">No se encontró el otro extremo de estos cables en el funcional: revisalos en el plano.</p>
       ${su.map(x => `<div class="mono small">${esc(x.num)}: ${esc((x.extremos || []).join(' · '))}</div>`).join('')}`;
     renderComps();
+    // topografico recien cargado: preguntar una sola vez por donde salen los cables a LI / LD
+    if (D.salidas && D.salidas.preguntar && typeof Sal !== 'undefined' && $('#cabViewer').hidden) setTimeout(() => Sal.asistente(), 0);
   }
   // linea plegable con el resultado del mapeo automatico de bornes (ins.mapeo) y sus avisos para revisar
   function renderMapeo() {
@@ -426,6 +432,12 @@ const Ins = (() => {
     renderList(); drawViewer(true);
   }
   function closeViewer() { $('#cabViewer').hidden = true; document.body.style.overflow = ''; if (!W().hidden) render(); }
+  // boton 🧭 Salida del visor (cables a LI / LD): por donde salen de la bandeja este cable y los de su grupo
+  function aSalidas() {
+    const l = flat()[V.k].l; if (!LAT(l.destino)) return;
+    $('#cabViewer').hidden = true;
+    Sal.open({ num: l.num, volver: V.k });
+  }
   // boton 🔍 Auditoria del visor: pasa a la auditoria cruzada, en la seccion donde esta este cable
   function aAuditoria() {
     const F = flat(); const l = F.length ? F[V.k].l : null;
@@ -440,11 +452,12 @@ const Ins = (() => {
     $('#cvPos').textContent = `${V.k + 1} / ${F.length}`;
     $('#cvGrp').textContent = D.pasos[g].titulo || '';
     $('#cvNum').innerHTML = `<span class="mono">${esc(l.num)}</span> ${swatch(l.color)} <span class="secc big">${esc(secTxt(l))}</span>`;
-    $('#cvOrig').innerHTML = esc(l.origen) + confPill(l, 'o'); $('#cvDest').innerHTML = esc(l.destino) + confPill(l, 'd') + altPill(l, true);
+    $('#cvOrig').innerHTML = esc(l.origen) + confPill(l, 'o'); $('#cvDest').innerHTML = esc(l.destino) + confPill(l, 'd') + altPill(l, true) + salPill(l);
     $('#cvOrig').title = funcTxt(l, 'o'); $('#cvDest').title = funcTxt(l, 'd');
     $('#cvLen').textContent = l.largo_mm ? `≈ ${l.largo_mm} mm por canaleta` : '';
     $('#cvOk').checked = !!l.hecho;
     $('#cvAdjD').disabled = LAT(l.destino);
+    $('#cvAdjD').hidden = LAT(l.destino); $('#cvSal').hidden = !LAT(l.destino);   // a LI / LD: en su lugar, la salida
     V.adjust = null; $('#cvSvg').classList.remove('pick'); $('#cvAdjO').classList.remove('on'); $('#cvAdjD').classList.remove('on');
     $('#cvPuente').hidden = !(l.puente || sibs.length);
     $('#cvDeriv').hidden = !sibs.length;
@@ -695,6 +708,8 @@ const Ins = (() => {
     $('#cvOk').addEventListener('change', () => toggleOk(true));
     $('#cvPlano').addEventListener('click', aFuncional);
     $('#cvAudit').addEventListener('click', aAuditoria);
+    $('#cvSal').addEventListener('click', aSalidas);
+    $('#insSalidas').addEventListener('click', () => Sal.open({}));
     $('#cvSideBtn').addEventListener('click', () => setSide($('#cvSide').hidden));
     { let on = true; try { on = localStorage.getItem('listadoCablear') !== '0'; } catch (e) { } $('#cvSide').hidden = !on; $('#cvSideBtn').classList.toggle('on', on); }
     $('#cvList').addEventListener('click', e => {
@@ -733,13 +748,13 @@ const Ins = (() => {
       if (e.target.isContentEditable || e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') return;
       if (e.key === 'Escape' && V.adjust) { e.preventDefault(); return startAdjust(null); }
       const keys = { ArrowRight: () => go(1), ArrowLeft: () => go(-1), Escape: closeViewer, ' ': () => toggleOk(true), Enter: () => toggleOk(true),
-        '0': () => camera(vbOf(D.topo.region), 350), f: () => drawViewer(), l: () => setSide($('#cvSide').hidden), a: aAuditoria };
+        '0': () => camera(vbOf(D.topo.region), 350), f: () => drawViewer(), l: () => setSide($('#cvSide').hidden), a: aAuditoria, s: aSalidas };
       if (keys[e.key]) { e.preventDefault(); keys[e.key](); }
     });
   }
   return { open, init, hide: () => { W().hidden = true; clearTimeout(poll); }, desdeFuncional,
     // para la auditoria
     get D() { return D; }, get job() { return job; }, load, flat, dirty, imgTag, LC, mark, label, vbOf, secTxt, est, PRINT_CSS, render, fontFor,
-    terminal, ferrule, termLen, termChip, labelLen, LAT, secCorto, openViewer };
+    terminal, ferrule, termLen, termChip, labelLen, LAT, secCorto, openViewer, routeG };
 })();
 Ins.init();
