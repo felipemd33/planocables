@@ -342,7 +342,8 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .btn.swap:hover { background: var(--hl); color: #fff; }
 .ins-est { display: inline-flex; align-items: center; gap: 4px; }
 .ins-est input { width: 48px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); font: 700 12px var(--mono); text-transform: uppercase; }
-.ot-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 2px 0; }
+.ot-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 2px 0; break-inside: avoid; }
+.quit-vueltos { color: var(--warn); }
 .linkbtn { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; font: inherit; text-decoration: underline; }
 /* ---- auditoria cruzada ---- */
 .audv .v-title span:first-child { font-size: 15px; }

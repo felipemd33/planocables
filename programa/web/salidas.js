@@ -16,9 +16,11 @@ const Sal = (() => {
   const pts = g => (g && Array.isArray(g.puntos)) ? g.puntos : [];
   const lat = l => l.lateral || l.destino;
   const intr = l => ('intrinseco' in l) ? !!l.intrinseco : norm(l.color) === 'azul';    // (instructivo viejo: por el color)
-  // cables de la bandeja que salen a un lateral, y los de otra estación (E8) que arrancan en la bandeja
+  // cables de la bandeja que salen a un lateral, y los de otra estación (E8) o quitados del instructivo que arrancan en
+  // la bandeja (se rutean igual: si vuelven al instructivo, ya salen por donde se eligió)
   const cables = () => Ins.flat().map(x => x.l).filter(l => Ins.LAT(l.destino));
-  const deOtra = () => ((D() || {}).otra_estacion || []).filter(l => Ins.LAT(l.lateral) && l.ruta && l.marca_o);
+  const deOtra = () => [...((D() || {}).otra_estacion || []), ...((D() || {}).quitados || []).filter(l => !l.pendiente)]
+    .filter(l => Ins.LAT(l.lateral) && l.ruta && l.marca_o);
   function grupos() {
     const d = D();
     if (!d.salidas || typeof d.salidas !== 'object') d.salidas = {};

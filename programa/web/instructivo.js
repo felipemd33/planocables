@@ -265,7 +265,7 @@ const Ins = (() => {
           <button class="mini" data-a="est" title="Se cablea en otra estación (ej. E8, gabinete): sacarlo de ${esc(est())}">⇄</button>
           <button class="mini" data-a="up" title="Subir">↑</button>
           <button class="mini" data-a="down" title="Bajar">↓</button>
-          <button class="mini" data-a="del" title="Quitar">✕</button>
+          <button class="mini" data-a="del" title="${esc(`Quitar del instructivo: no se cablea en ${est()} (se puede volver desde «Quitados del instructivo»)`)}">🗑</button>
         </div>
       </div></div>`;
   }
@@ -288,7 +288,9 @@ const Ins = (() => {
     const pend = D.pendientes || [];
     $('#insPend').innerHTML = `<div class="card-h"><h2>Pendientes: LI → LI (${pend.length})</h2></div>
       <p class="muted small">Estos cables tienen los dos extremos fuera de la bandeja: se dejan tirados donde salen los cables a LI y se cablean después de montar la bandeja en el gabinete.</p>
-      <div class="plist">${pend.map(x => `<div class="mono small">${esc(x.num)}: <b>${esc(x.cable)}</b> ${x.secc ? `<span class="secc">${esc(fmtSec(x.secc))}</span>` : ''} &nbsp; ${esc(x.a)} ↔ ${esc(x.b)}${altPill(x)}</div>`).join('') || '<span class="muted">Ninguno</span>'}</div>`;
+      <div class="plist">${pend.map((x, i) => `<div class="mono small">${esc(x.num)}: <b>${esc(x.cable)}</b> ${x.secc ? `<span class="secc">${esc(fmtSec(x.secc))}</span>` : ''} &nbsp; ${esc(x.a)} ↔ ${esc(x.b)}${altPill(x)}
+        <button class="linkbtn" data-quitar-p="${i}" title="No se cablea: quitarlo de los pendientes (se puede volver)">quitar</button></div>`).join('') || '<span class="muted">Ninguno</span>'}</div>`;
+    renderQuitados();
     const ot = D.otra_estacion || [];
     $('#insOtra').hidden = !ot.length;
     $('#insOtra').innerHTML = `<div class="card-h"><h2>Se cablean en otra estación (${ot.length})</h2></div>
@@ -382,12 +384,96 @@ const Ins = (() => {
     D.estaciones = D.estaciones || {}; D.estaciones[num] = est();     // se queda en esta estacion (aunque una regla lo mande a otra)
     const vuelve = (D.otra_estacion || []).filter(l => l.num === num);
     D.otra_estacion = (D.otra_estacion || []).filter(l => l.num !== num);
-    for (const l of vuelve) {
-      delete l.estacion;
-      const p = D.pasos.find(p => p.fila === l.fila && p.lado === l.lado) || D.pasos[D.pasos.length - 1];
-      if (p) p.lineas.push(l); else D.pasos.push({ fila: l.fila, lado: l.lado, titulo: 'Vueltos', etapa: 'Etapa 1', lineas: [l] });
+    let exacto = true;
+    for (const l of vuelve) { delete l.estacion; exacto = aSuLugar(l) && exacto; }
+    dirty(); render(); toast(`Cable ${num} de vuelta en ${est()}${lugarTxt(exacto)}`, 4000);
+  }
+  const lugarTxt = exacto => exacto ? ', en su lugar' : ' (al final de su grupo; ↻ Regenerar lo pone en orden)';
+  // vuelve una linea a los pasos en su lugar del orden de cableado (seq = posicion en el armado del instructivo):
+  // despues del cable anterior o antes del siguiente si estan en su mismo riel y lado; si no, en un paso propio
+  // entre los dos. Sin seq (instructivo armado antes): al final del paso de su riel y lado. -> true si quedo en su lugar
+  function aSuLugar(l) {
+    const F = flat(), suyo = p => p && p.fila === l.fila && p.lado === l.lado && (p.zona ?? null) === (l.zona ?? null);
+    const nuevo = () => ({ fila: l.fila, zona: l.zona, lado: l.lado, titulo: `Riel ${l.fila} · parte de ${l.lado} · ${l.componente || ''}`, etapa: 'Etapa 1', foto: null, lineas: [l] });
+    if (l.seq != null) {
+      let ant = null, sig = null;
+      for (const x of F) {
+        if (x.l.seq == null) continue;
+        if (x.l.seq < l.seq && (!ant || x.l.seq > ant.l.seq)) ant = x;
+        if (x.l.seq > l.seq && (!sig || x.l.seq < sig.l.seq)) sig = x;
+      }
+      // (otro tramo del mismo cable al lado: van seguidos en el mismo paso, como al armar el instructivo)
+      if (ant && (suyo(D.pasos[ant.g]) || ant.l.num === l.num)) D.pasos[ant.g].lineas.splice(ant.i + 1, 0, l);
+      else if (sig && (suyo(D.pasos[sig.g]) || sig.l.num === l.num)) D.pasos[sig.g].lineas.splice(sig.i, 0, l);
+      else {
+        const p = nuevo(); p.etapa = ((ant || sig) && D.pasos[(ant || sig).g].etapa) || p.etapa;
+        D.pasos.splice(ant ? ant.g + 1 : sig ? sig.g : D.pasos.length, 0, p);
+      }
+      return true;
     }
-    dirty(); render(); toast(`Cable ${num} de vuelta en ${est()} (al final de su grupo; ↻ Regenerar lo pone en orden)`, 4000);
+    const p = D.pasos.find(suyo) || D.pasos.find(p => p.fila === l.fila && p.lado === l.lado);
+    if (p) p.lineas.push(l); else D.pasos.push(nuevo());
+    return false;
+  }
+
+  /* ---- quitar: cables que se ven en el instructivo pero no se cablean en esta estacion ---- */
+  // van a D.quitados (la linea entera, para volverla a su lugar) y el servidor los deja afuera al regenerar
+  // (instructivo.separar_quitados). Los pendientes LI ↔ LI quitados llevan pendiente: true
+  const tramoTxt = x => x.pendiente ? `${x.a} ↔ ${x.b}` : `${x.origen} → ${x.destino}`;
+  function quitar(l) {
+    if (!confirm(`¿Quitar el cable ${l.num} (${l.origen} → ${l.destino}) del instructivo de ${est()}?\n\n` +
+      `Es para los cables que no se cablean en ${est()}: sale de los pasos, del visor, de la auditoría y de la lista WPC. ` +
+      `Queda en «Quitados del instructivo», de donde se puede volver, y se recuerda al regenerar.`)) return false;
+    const sacar = [l], otros = siblings(l);
+    if (otros.length && confirm(`El cable ${l.num} tiene ${otros.length === 1 ? 'otro tramo' : otros.length + ' tramos más'} en ${est()}:\n` +
+      otros.map(tramoTxt).join('\n') + `\n\n¿Quitar${otros.length === 1 ? 'lo' : 'los'} también?`)) sacar.push(...otros);
+    D.quitados = D.quitados || [];
+    for (const x of sacar) {
+      for (const p of D.pasos) { const i = p.lineas.indexOf(x); if (i >= 0) p.lineas.splice(i, 1); }
+      D.quitados.push(x);
+    }
+    D.pasos = D.pasos.filter(p => p.lineas.length);
+    dirty();
+    toast(`Cable ${l.num} quitado de ${est()}${sacar.length > 1 ? ` (${sacar.length} tramos)` : ''}: está en «Quitados del instructivo», abajo de todo`, 4500);
+    return true;
+  }
+  function quitarPendiente(i) {
+    const x = (D.pendientes || [])[i]; if (!x) return;
+    if (!confirm(`¿Quitar el cable ${x.num} (${x.a} ↔ ${x.b}) de los pendientes LI ↔ LI?\n\n` +
+      `Es para los cables que no se cablean al montar la bandeja. Queda en «Quitados del instructivo», de donde se puede volver, y se recuerda al regenerar.`)) return;
+    D.pendientes.splice(i, 1);
+    (D.quitados = D.quitados || []).push({ ...x, pendiente: true });
+    dirty(); render(); toast(`Cable ${x.num} quitado de los pendientes`, 3500);
+  }
+  function devolver(i) {
+    const x = (D.quitados || [])[i]; if (!x) return;
+    const vuelven = [x];
+    const otros = x.pendiente ? [] : D.quitados.filter(y => y !== x && !y.pendiente && y.num === x.num);
+    if (otros.length && confirm(`El cable ${x.num} tiene ${otros.length === 1 ? 'otro tramo quitado' : otros.length + ' tramos quitados más'}:\n` +
+      otros.map(tramoTxt).join('\n') + `\n\n¿Volver${otros.length === 1 ? 'lo' : 'los'} también?`)) vuelven.push(...otros);
+    D.quitados = D.quitados.filter(y => !vuelven.includes(y));
+    let exacto = true;
+    for (const y of vuelven) {
+      if (y.pendiente) {
+        const p = { ...y }; delete p.pendiente;
+        D.pendientes = D.pendientes || [];
+        const k = D.pendientes.findIndex(z => natKey(z.num) > natKey(p.num));
+        D.pendientes.splice(k < 0 ? D.pendientes.length : k, 0, p);
+      } else exacto = aSuLugar(y) && exacto;
+    }
+    dirty(); render();
+    toast(x.pendiente ? `Cable ${x.num} de vuelta en los pendientes` : `Cable ${x.num} de vuelta en ${est()}${vuelven.length > 1 ? ` (${vuelven.length} tramos)` : ''}${lugarTxt(exacto)}`, 4000);
+  }
+  function renderQuitados() {
+    const qu = D.quitados || [], vu = D.quitados_vueltos || [], el = $('#insQuit');
+    el.hidden = !qu.length && !vu.length;
+    el.innerHTML = el.hidden ? '' : `<div class="card-h"><h2>Quitados del instructivo (${qu.length})</h2></div>
+      <p class="muted small">Se quitaron a mano porque no se cablean en ${esc(est())}: quedan fuera de los pasos, del visor, de la auditoría y de la lista WPC.
+        El listado de cables del plano no cambia. Se recuerdan al regenerar.</p>
+      <div class="plist">${qu.map((x, i) => `<div class="mono small ot-row">${esc(x.num)}: <b>${esc(x.cable)}</b> <span class="secc">${esc(secTxt(x))}</span> &nbsp; ${esc(tramoTxt(x))}
+        ${x.pendiente ? '<span class="pill">pendiente LI ↔ LI</span>' : ''}${altPill(x)} <button class="linkbtn" data-devolver="${i}">volver a ${x.pendiente ? 'los pendientes' : esc(est())}</button></div>`).join('')}</div>
+      ${vu.length ? `<p class="small quit-vueltos">Volvieron al instructivo porque cambiaron en el plano y ya no se reconocen (revisalos y quitalos de nuevo si no se cablean en ${esc(est())}):
+        ${vu.map(x => `<span class="mono">${esc(x.num)}: ${esc(tramoTxt(x))}</span>`).join(' · ')} <button class="linkbtn" data-vueltos-ok>entendido</button></p>` : ''}`;
   }
 
   /* ---- visor "cablear de a uno" ---- */
@@ -438,6 +524,16 @@ const Ins = (() => {
     $('#cabViewer').hidden = true;
     Sal.open({ num: l.num, volver: V.k });
   }
+  // boton 🗑 Quitar del visor (tecla Supr): el cable no se cablea en esta estacion. Sigue con el que venia despues
+  function quitarVisor() {
+    const F = flat(); if (!F.length) return;
+    const despues = F.slice(V.k + 1).map(x => x.l);
+    if (!quitar(F[V.k].l)) return;
+    const N = flat(); if (!N.length) return closeViewer();
+    const k = N.findIndex(x => despues.includes(x.l));
+    V.k = k < 0 ? N.length - 1 : k;
+    renderList(); drawViewer();
+  }
   // boton 🔍 Auditoria del visor: pasa a la auditoria cruzada, en la seccion donde esta este cable
   function aAuditoria() {
     const F = flat(); const l = F.length ? F[V.k].l : null;
@@ -458,6 +554,7 @@ const Ins = (() => {
     $('#cvOk').checked = !!l.hecho;
     $('#cvAdjD').disabled = LAT(l.destino);
     $('#cvAdjD').hidden = LAT(l.destino); $('#cvSal').hidden = !LAT(l.destino);   // a LI / LD: en su lugar, la salida
+    $('#cvQuitar').title = `Este cable no se cablea en ${est()}: quitarlo del instructivo (Supr). Se puede volver desde «Quitados del instructivo»`;
     V.adjust = null; $('#cvSvg').classList.remove('pick'); $('#cvAdjO').classList.remove('on'); $('#cvAdjD').classList.remove('on');
     $('#cvPuente').hidden = !(l.puente || sibs.length);
     $('#cvDeriv').hidden = !sibs.length;
@@ -583,7 +680,9 @@ const Ins = (() => {
     let k = v && v.job === job && F[v.k] && F[v.k].l.num === num ? v.k : F.findIndex(x => x.l.num === num);
     if (k < 0) {
       const ot = (D.otra_estacion || []).find(l => l.num === num), pe = (D.pendientes || []).find(x => x.num === num);
-      return toast(ot ? `El cable ${num} se cablea en ${ot.estacion}, no en ${est()}` : pe ? `El cable ${num} es LI → LI: se cablea al montar la bandeja` : `El cable ${num} no está en el instructivo de la bandeja`, 5000);
+      const qu = (D.quitados || []).find(x => x.num === num);
+      return toast(ot ? `El cable ${num} se cablea en ${ot.estacion}, no en ${est()}` : pe ? `El cable ${num} es LI → LI: se cablea al montar la bandeja`
+        : qu ? `El cable ${num} se quitó del instructivo de ${est()} (está en «Quitados del instructivo»)` : `El cable ${num} no está en el instructivo de la bandeja`, 5000);
     }
     $('#viewer').hidden = true;
     openViewer(k);
@@ -603,7 +702,7 @@ const Ins = (() => {
     if (a === 'est') return moverEstacion(L.num);
     if (a === 'up') { if (i > 0) [P.lineas[i - 1], P.lineas[i]] = [P.lineas[i], P.lineas[i - 1]]; else if (g > 0) { P.lineas.splice(i, 1); D.pasos[g - 1].lineas.push(L); } }
     if (a === 'down') { if (i < P.lineas.length - 1) [P.lineas[i + 1], P.lineas[i]] = [P.lineas[i], P.lineas[i + 1]]; else if (g < D.pasos.length - 1) { P.lineas.splice(i, 1); D.pasos[g + 1].lineas.unshift(L); } }
-    if (a === 'del') { if (!confirm(`¿Quitar el cable ${L.num} del instructivo?`)) return; P.lineas.splice(i, 1); }
+    if (a === 'del') { if (quitar(L)) render(); return; }
     D.pasos = D.pasos.filter(p => p.lineas.length); render(); dirty();
   }
   function onEdit(e) {
@@ -625,7 +724,7 @@ const Ins = (() => {
       if (ubic !== c.ubic || (ubic === 'BANDEJA' && (fila !== c.fila || String(x) !== String(c.x ?? '') || lado)))
         ov[c.tag] = { ubic, fila, x: x === '' ? null : +x, ...(lado ? { lado } : {}) };
     });
-    if (D.editado && !confirm('Regenerar vuelve a armar el instructivo. Se conservan las marcas de cableado, los puntos ajustados, las estaciones y la auditoría; se pierden los textos editados a mano. ¿Continuar?')) return;
+    if (D.editado && !confirm('Regenerar vuelve a armar el instructivo. Se conservan las marcas de cableado, los puntos ajustados, las estaciones, los cables quitados y la auditoría; se pierden los textos editados a mano. ¿Continuar?')) return;
     regenerar({ overrides: ov });
   }
   function textoPlano() {
@@ -654,6 +753,7 @@ const Ins = (() => {
       <h2>Pendientes LI → LI (se cablean al montar la bandeja)</h2>
       <div class="t">${(D.pendientes || []).map(x => `${esc(x.num)}: ${esc(x.cable)} ${esc(x.a)} ↔ ${esc(x.b)}`).join('<br>')}</div>
       ${(D.otra_estacion || []).length ? `<h2>Se cablean en otra estación</h2><div class="t">${D.otra_estacion.map(l => `${esc(l.num)}: ${esc(l.cable)} ${esc(l.origen)} → ${esc(l.destino)} (${esc(l.estacion)})`).join('<br>')}</div>` : ''}
+      ${(D.quitados || []).length ? `<h2>Quitados del instructivo (no se cablean en ${esc(est())})</h2><div class="t">${D.quitados.map(x => `${esc(x.num)}: ${esc(x.cable)} ${esc(tramoTxt(x))}${x.pendiente ? ' (pendiente LI ↔ LI)' : ''}`).join('<br>')}</div>` : ''}
       <script>window.onload=()=>setTimeout(()=>print(),600)<\/script></body></html>`);
     w.document.close();
   }
@@ -663,7 +763,7 @@ const Ins = (() => {
       cables: D.pasos.flatMap(p => p.lineas.map(l => ({ paso: ++n, grupo: p.titulo, etapa: p.etapa, cable: l.num, tipo: l.cable, color: l.color, seccion_mm2: l.secc,
         origen: l.origen, destino: l.destino, terminal_origen: terminal(l, 'o'), terminal_destino: terminal(l, 'd'), punto_origen_pt: l.marca_o, punto_destino_pt: l.marca_d || null, largo_mm: l.largo_mm, ruta_pt: l.ruta, hecho: !!l.hecho,
         texto: `${l.num}: ${l.cable} ${l.origen} → ${l.destino}` }))),
-      pendientes_LI: D.pendientes, otra_estacion: D.otra_estacion || [], auditoria: D.auditoria || {} };
+      pendientes_LI: D.pendientes, otra_estacion: D.otra_estacion || [], quitados: D.quitados || [], auditoria: D.auditoria || {} };
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' }));
     a.download = (S.res.nombre || 'plano').replace(/\.pdf$/i, '') + ' - instructivo.json'; a.click();
@@ -683,6 +783,11 @@ const Ins = (() => {
     $('#insPasos').addEventListener('change', e => { if (!e.target.matches('[data-a=ok]')) onEdit(e); });
     $('#insPasos').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.isContentEditable) { e.preventDefault(); e.target.blur(); } });
     $('#insOtra').addEventListener('click', e => { const b = e.target.closest('[data-volver]'); if (b) volverEstacion(b.dataset.volver); });
+    $('#insPend').addEventListener('click', e => { const b = e.target.closest('[data-quitar-p]'); if (b) quitarPendiente(+b.dataset.quitarP); });
+    $('#insQuit').addEventListener('click', e => {
+      const b = e.target.closest('[data-devolver]'); if (b) return devolver(+b.dataset.devolver);
+      if (e.target.closest('[data-vueltos-ok]')) { D.quitados_vueltos = []; dirty(); renderQuitados(); }
+    });
     $('#insAcc').addEventListener('change', e => { const i = e.target.dataset.acc; if (i == null) return; D.accesorios[+i].hecho = e.target.checked; dirty(); render(); });
     $('#insEstacion').addEventListener('change', e => { D.estacion = e.target.value.trim().toUpperCase() || 'E6'; dirty(); render(); });
     $('#insBtnComps').addEventListener('click', () => { $('#insComps').hidden = !$('#insComps').hidden; });
@@ -693,7 +798,7 @@ const Ins = (() => {
     $('#insWpc').addEventListener('click', () => D && Wpc.abrir(D, dirty));
     $('#insCopy').addEventListener('click', async () => { try { await navigator.clipboard.writeText(textoPlano()); toast('Instructivo copiado como texto'); } catch (e) { toast('No se pudo copiar'); } });
     $('#insRegen').addEventListener('click', () => {
-      if (!confirm('¿Volver a armar el instructivo desde los planos? Se conservan las marcas de cableado, los puntos ajustados, las estaciones y la auditoría; se pierden los textos editados a mano.')) return;
+      if (!confirm('¿Volver a armar el instructivo desde los planos? Se conservan las marcas de cableado, los puntos ajustados, las estaciones, los cables quitados y la auditoría; se pierden los textos editados a mano.')) return;
       regenerar({});
     });
     $('#insNewTopo').addEventListener('click', () => $('#insTopoFile').click());
@@ -709,6 +814,7 @@ const Ins = (() => {
     $('#cvPlano').addEventListener('click', aFuncional);
     $('#cvAudit').addEventListener('click', aAuditoria);
     $('#cvSal').addEventListener('click', aSalidas);
+    $('#cvQuitar').addEventListener('click', quitarVisor);
     $('#insSalidas').addEventListener('click', () => Sal.open({}));
     $('#cvSideBtn').addEventListener('click', () => setSide($('#cvSide').hidden));
     { let on = true; try { on = localStorage.getItem('listadoCablear') !== '0'; } catch (e) { } $('#cvSide').hidden = !on; $('#cvSideBtn').classList.toggle('on', on); }
@@ -748,7 +854,8 @@ const Ins = (() => {
       if (e.target.isContentEditable || e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') return;
       if (e.key === 'Escape' && V.adjust) { e.preventDefault(); return startAdjust(null); }
       const keys = { ArrowRight: () => go(1), ArrowLeft: () => go(-1), Escape: closeViewer, ' ': () => toggleOk(true), Enter: () => toggleOk(true),
-        '0': () => camera(vbOf(D.topo.region), 350), f: () => drawViewer(), l: () => setSide($('#cvSide').hidden), a: aAuditoria, s: aSalidas };
+        '0': () => camera(vbOf(D.topo.region), 350), f: () => drawViewer(), l: () => setSide($('#cvSide').hidden), a: aAuditoria, s: aSalidas,
+        Delete: quitarVisor };
       if (keys[e.key]) { e.preventDefault(); keys[e.key](); }
     });
   }

@@ -75,6 +75,12 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     - el cableado entre bandejas, placa, puerta, botones y selectora;
     - los **cables de 35 mm²**;
     - la **zona hidráulica** (MEGA, bomba, válvula, PT001, nivel) y los empalmes del sensor de nivel.
+- **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
+  tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
+  pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
+  su lugar (`seq`). Al regenerar los respeta `instructivo.separar_quitados` (mismas puntas, sin ARRIBA/ABAJO, o único
+  tramo en los mismos aparatos); los que ya no se reconocen vuelven al instructivo y se avisan en `quitados_vueltos`.
+  El listado de cables del funcional no cambia.
 - **Toma 11SK1 del 75286:** todos sus cables se cablean por abajo.
 - **No escribir coordenadas ni tags de un plano en el código.** Todo tiene que ser general; los modelos se cargan en
   `programa/bornes/catalogo.json`, en mm.

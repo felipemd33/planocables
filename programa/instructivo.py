@@ -1490,6 +1490,44 @@ def rutear_salidas(lineas, topo, grupos):
     return out
 
 
+def separar_quitados(lineas, pendientes, quitados):
+    """cables QUITADOS a mano del instructivo (boton ✕ / 🗑 Quitar de la web: se ven en el instructivo pero no se
+    cablean en esta estacion). quitados: lo guardado en instructivo.json, tramos {num, origen, destino} o pendientes
+    {num, a, b, pendiente: True}. Cada uno se reconoce en el armado nuevo por el numero y sus puntas; despues, sin
+    ARRIBA/ABAJO (el lado puede cambiar con el punto exacto); y si es el unico tramo del cable (antes y ahora), por el
+    numero mientras las puntas sigan en los mismos aparatos (como las marcas de cableado).
+    -> (lineas, pendientes, quitados, vueltos): quitados = los tramos del armado nuevo que se sacan; vueltos = los
+    guardados que ya no se reconocen y el cable sigue en esta estacion (cambio en el plano: vuelve al instructivo)"""
+    sin_lado = lambda t: re.sub(r' (ARRIBA|ABAJO)$', '', t or '')
+    pts = lambda x: (x.get('a'), x.get('b')) if x.get('pendiente') else (x.get('origen'), x.get('destino'))
+    tags = lambda x: frozenset(str(t or '').split(' ')[0] for t in pts(x))
+    viejos = [q for q in quitados or [] if isinstance(q, dict) and q.get('num') and all(isinstance(t, str) and t for t in pts(q))]
+    # (tramo del armado nuevo, como se compara: los pendientes con la marca 'pendiente')
+    nuevos = [(l, l) for l in lineas] + [(x, dict(x, pendiente=True)) for x in pendientes]
+    tipo = lambda x: (x['num'], bool(x.get('pendiente')))
+    sacar, hallados = set(), set()        # id del tramo nuevo que se saca / id del guardado que se reconocio
+    def emparejar(clave):
+        for q in viejos:
+            if id(q) in hallados:
+                continue
+            for o, v in nuevos:
+                if id(o) not in sacar and tipo(v) == tipo(q) and clave(v) == clave(q):
+                    sacar.add(id(o)); hallados.add(id(q)); break
+    emparejar(lambda x: frozenset(pts(x)))                          # mismas puntas
+    emparejar(lambda x: frozenset(sin_lado(t) for t in pts(x)))     # el lado cambio
+    for q in viejos:                                                # unico tramo del cable: en los mismos aparatos
+        if id(q) in hallados or sum(1 for x in viejos if x['num'] == q['num']) != 1:
+            continue
+        mismos = [(o, v) for o, v in nuevos if v['num'] == q['num']]
+        if len(mismos) == 1 and id(mismos[0][0]) not in sacar and tipo(mismos[0][1]) == tipo(q) and tags(mismos[0][1]) == tags(q):
+            sacar.add(id(mismos[0][0])); hallados.add(id(q))
+    hay = {v['num'] for o, v in nuevos if id(o) not in sacar}
+    vueltos = [{k: q[k] for k in ('num', 'cable', 'origen', 'destino', 'a', 'b', 'pendiente') if k in q}
+               for q in viejos if id(q) not in hallados and q['num'] in hay]
+    quitados_n = [v for o, v in nuevos if id(o) in sacar]
+    return ([l for l in lineas if id(l) not in sacar], [x for x in pendientes if id(x) not in sacar], quitados_n, vueltos)
+
+
 def build(res, lay, max_lineas=7):
     """lay: layout del topografico + opcionales:
        bornes          texto (o 'texto#cable') -> [x, y] o [x, y, r]  punto exacto del borne (mapeo)
@@ -1499,6 +1537,7 @@ def build(res, lay, max_lineas=7):
        renombrar_auto  los de 'renombrar' que puso el mapeo automatico: no se aplican si el usuario ajusto el punto
                        con el texto del funcional
        estaciones      cable -> estacion donde se cablea si NO es esta (ej. {'3141': 'E8'})
+       quitados        tramos y pendientes quitados a mano en la web (no se cablean en esta estacion: separar_quitados)
        salidas         {'grupos': [...]}: salidas a LI / LD elegidas a mano en la web (ver grupo_salida)
     Devuelve ademas 'lado_fisico': [{num, funcional, instructivo}] de las puntas cuyo ARRIBA/ABAJO cambio respecto del
     funcional (por el punto fisico del borne o el lado forzado), y en cada linea func_o / func_d = el texto del
@@ -1896,6 +1935,8 @@ def build(res, lay, max_lineas=7):
         for i, x in enumerate([l] + [x for x in lineas if x is not l and x['num'] == l['num'] and id(x) not in puestos]):
             puestos.add(id(x)); x['_sigue'] = i > 0; seguidos.append(x)
     lineas = seguidos
+    for i, l in enumerate(lineas):      # lugar en el orden de cableado (la web vuelve a su lugar un cable quitado)
+        l['seq'] = i
     # cables que se cablean en otra estacion (ej. en el gabinete, E8): fuera de los pasos de esta estacion.
     # Marcados a mano por cable, o por regla de seccion (los de 35 mm2 van en E8). Marcado con esta misma estacion = se queda.
     propia = lay.get('estacion') or 'E6'
@@ -1926,6 +1967,10 @@ def build(res, lay, max_lineas=7):
         l.pop('_est', None); l.pop('_dreal', None)
     for l in otra:
         l.pop('orden', None)
+    # cables quitados a mano del instructivo de esta estacion (no se cablean aca): fuera de los pasos y de los pendientes
+    lineas, pendientes, quitados, vueltos = separar_quitados(lineas, pendientes, lay.get('quitados'))
+    for l in quitados:
+        l.pop('orden', None); l.pop('_sigue', None)
     # pasos: cambia de paso al cambiar de riel o de lado, o al llenarse (sin partir un componente)
     pasos = []
     for l in lineas:
@@ -1960,8 +2005,8 @@ def build(res, lay, max_lineas=7):
     lado_fisico_l = [dict(num=n, funcional=t0, instructivo=t) for (n, t0), t in sorted(lado_cambiado.items(), key=lambda kv: (natk(kv[0][0]), kv[0][1]))
                      if (n, t) in vivos]
     return dict(pasos=pasos, pendientes=sorted(pendientes, key=lambda x: natk(x['num'])),
-                sueltos=sueltos, otra_estacion=otra, componentes=comp, topo=topo, accesorios=lay.get('accesorios') or [],
-                alternativas=alts, lado_fisico=lado_fisico_l)
+                sueltos=sueltos, otra_estacion=otra, quitados=quitados, quitados_vueltos=vueltos, componentes=comp, topo=topo,
+                accesorios=lay.get('accesorios') or [], alternativas=alts, lado_fisico=lado_fisico_l)
 
 
 def linea_txt(l):

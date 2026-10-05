@@ -435,6 +435,8 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
             lay['estacion_auto'] = old.get('estacion_auto') or {'seccion_min': 35, 'estacion': 'E8'}   # 35 mm2 -> gabinete
             # salidas a LI / LD elegidas a mano (editor de salidas)
             lay['salidas'] = {'grupos': [], 'preguntar': True} if topo_nuevo else (old.get('salidas') or {})
+            # cables quitados a mano del instructivo (no se cablean en esta estacion): siguen afuera
+            lay['quitados'] = old.get('quitados') if isinstance(old.get('quitados'), list) else []
             st.update(mensaje='Armando el instructivo…', progreso=0.92)
             ins = build(res, lay)
             ins['bornes_usuario'] = lay['bornes_usuario']

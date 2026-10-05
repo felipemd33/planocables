@@ -65,6 +65,7 @@ t_mapeo = time.time() - t1
 lay['estaciones'] = old.get('estaciones') or {}; lay['estacion'] = old.get('estacion') or 'E6'
 lay['estacion_auto'] = old.get('estacion_auto') or {'seccion_min': 35, 'estacion': 'E8'}
 lay['salidas'] = old.get('salidas') or {}      # salidas a LI / LD elegidas a mano (editor de salidas)
+lay['quitados'] = old.get('quitados') if isinstance(old.get('quitados'), list) else []    # quitados a mano en la web
 ins = build(res, lay)
 cs = conductors(res)
 out = dict(
@@ -84,6 +85,10 @@ out = dict(
                  nota_o=l.get('nota_o'), nota_d=l.get('nota_d'), ruta=l.get('ruta')) for p in ins['pasos'] for l in p['lineas']],
     mapeo=mapeo, renombrar_auto=lay.get('renombrar_auto') or {},
     tiempos=dict(funcional=round(t_func, 1), mapeo=round(t_mapeo, 2), total=round(time.time() - t0, 1)))
+if ins.get('quitados') or ins.get('quitados_vueltos'):     # (solo si el trabajo tiene cables quitados a mano)
+    out['quitados'] = [dict(num=x['num'], origen=x.get('origen', x.get('a')), destino=x.get('destino', x.get('b')),
+                            pendiente=bool(x.get('pendiente'))) for x in ins['quitados']]
+    out['quitados_vueltos'] = ins.get('quitados_vueltos') or []
 json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 m = mapeo or {}
 print(f"{len(out['lineas'])} lineas ({sum(l['ruta'] for l in out['lineas'])} con ruta), {len(out['pendientes'])} pendientes, {len(out['sueltos'])} sueltos, "

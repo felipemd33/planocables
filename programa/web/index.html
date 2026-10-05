@@ -153,6 +153,7 @@
         <div id="insPasos"></div>
         <div id="insPend" class="card"></div>
         <div id="insOtra" class="card" hidden></div>
+        <div id="insQuit" class="card" hidden></div>
         <div id="insAcc" class="card" hidden></div>
         <div id="insSueltos" class="card"></div>
       </div>
@@ -224,6 +225,7 @@
     <button class="btn ghost sm" id="cvAdjO" title="Ajustar el punto del borne de ORIGEN: clic y después clic en el dibujo">📍 Origen</button>
     <button class="btn ghost sm" id="cvAdjD" title="Ajustar el punto del borne de DESTINO: clic y después clic en el dibujo">📍 Destino</button>
     <button class="btn ghost sm" id="cvSal" hidden title="Por dónde sale de la bandeja este cable a LI / LD, y los de su grupo (S)">🧭 Salida</button>
+    <button class="btn ghost sm" id="cvQuitar" title="Este cable no se cablea en esta estación: quitarlo del instructivo (Supr). Se puede volver desde «Quitados del instructivo»">🗑 Quitar</button>
     <button class="icon" id="cvFocus" aria-label="Centrar en el cable" title="Centrar en el cable (F)">⌖</button>
     <button class="icon" id="cvFit" aria-label="Ver toda la bandeja" title="Toda la bandeja (0)">⤢</button>
     <button class="btn ghost sm swap" id="cvAudit" title="Auditoría cruzada de la bandeja, por secciones (A)">🔍 Auditoría</button>
@@ -245,7 +247,7 @@
         <div class="cv-lupa ori"><b id="cvLupaOt">Origen</b><svg id="cvLupaO" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
         <div class="cv-lupa des" id="cvLupaDw"><b id="cvLupaDt">Destino</b><svg id="cvLupaD" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
       </div>
-      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · A: auditoría · S: salida a LI / LD · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
+      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · A: auditoría · S: salida a LI / LD · Supr: quitar (no se cablea acá) · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
     </div>
   </div>
 </div>
