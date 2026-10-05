@@ -21,7 +21,6 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/eplan.py` | Planos de **EPLAN** (PDF con texto real): `es_eplan`, `process` (lista de conexiones → conductores y listado, misma interfaz que `core.process`), `layout` (hoja de bandejas: rieles, canaletas, placas, etiquetas → mismo formato que `topo.layout`) y `aplicar_puntos` (mapeo verificado). `core.process` y `topo.layout` derivan solos a este módulo. |
 | `programa/mapeos_verificados/` | **Dato** por producto EPLAN: `<documento>_rev<revisión>.json` con el punto exacto y el texto del taller de cada punta (`'<designación EPLAN>#<cable>'`), la zona hidráulica (E8) y las canaletas de intrínsecos. Se elige por el documento y la revisión del rótulo. Se arma con `2 - Resultados/76884 mSafe2+ PAE/mapeo/exportar_al_programa.py`. |
 | `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`, `salidas.js` (editor de salidas a LI / LD). |
-| `programa/gabinete.py`, `web/e8.js`, `web/e8.css` | **E8 (gabinete en 3D)**: `leer_gabinete` (contorno, laterales desplegados, puerta, aparatos y canaletas de cada vista del topográfico; cache `e8_gabinete.json` del trabajo) y `armar_e8` (cables de E8 con puntas y recorrido 3D). Visor con three.js (cdnjs, import map de `index.html`). Marcas en `instructivo.json['e8']`. |
 | `1 - Planos/` | Planos originales. `Catalogo (referencia)/`: 8 productos con su orden de montaje SAP. `Producto nuevo/`: mSafe2+ PAE (EPLAN). |
 | `2 - Resultados/` | Salidas. `76884 mSafe2+ PAE/`: mapeo verificado del producto EPLAN (ver abajo). |
 | `3 - Historial web/<id>/` | Trabajos de la web (plano, `layout.json`, `instructivo.json` con las marcas del usuario, `bornes.json` manual, `correcciones.json`, `bornes_auto.json`). **No pisar las marcas del usuario.** |
@@ -89,6 +88,9 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/66817 salida_66817.json --sin-
 python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-cache --relayout     # PAE (EPLAN)
 ```
 
+- **75287**: el trabajo `ac0f0949510a` está en git, pero el usuario lo borró del historial el 2026-10-05. Si no está en la
+  carpeta, sacarlo a una carpeta temporal (`git archive HEAD "3 - Historial web/ac0f0949510a" | tar -x -C <tmp>`) y
+  correr `volcar_trabajo.py` sobre esa copia; no volver a ponerlo en el historial del usuario sin preguntar.
 - **75287** (mSafe2AC, tablero 75286): verificado por el taller. Líneas, pendientes, sueltos, otra estación y extremos
   tienen que dar **IGUAL** a `pruebas/bases/base_75287.json`.
 - **66817** (mSafe NC): tiene que dar como `pruebas/bases/base_66817.json`: 75/75 puntas exactas y 104/104 bornes contra
@@ -181,21 +183,12 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   - el usuario va a pasar un **Excel de aparamenta** de todos los productos, que se retroalimenta solo: usarlo como referencia;
   - **no** armar el catálogo desde los planos;
   - `catalogo/productos/` tiene lecturas parciales de 7 órdenes SAP, solo para comparar.
-- **E8 en 3D** (hecho el 2026-10-03, piloto 75286; para revisar con el usuario):
-  - botones **E6 · Bandeja** / **E8 · Gabinete** en la página del trabajo; E8 abre el visor 3D (`#/trabajo/<id>/e8[/<n>]`);
-  - el otro extremo de cada «→ LI» sale de `destino_e8` (nuevo en `instructivo.build`): un instructivo viejo pide ↻ Regenerar;
-  - lo que el topográfico no etiqueta (21PCB01, 41DS) se deduce (recuadro sin etiqueta de la puerta, «a confirmar») o se
-    ubica a mano con 📍 (`ins['e8']['ubicaciones']`);
-  - supuestos: caras de montaje (fondo 20 mm, laterales 25 mm), puerta 30 mm, bisagras del lado contrario a la cerradura;
-  - faltan: conductores sin número del funcional (12PS2 → 12XPS, tierras de puerta) y el orden fino del relevamiento
-    (`2 - Resultados/E8 75286/cables_e8.json`).
-  - Arreglos del 2026-10-03 (verificador): 66 de los 68 numerados del relevamiento con las dos puntas iguales (los 2 que
-    faltan son el texto del empalme de mallas de 2137). Lector: bornera en FILA (tag a la izquierda del borne 1: 12XPS 4-10
-    en la hoja 12), borne atravesado por el recorrido = union (12XPS 7/8 en la hoja 81), pines redondos de la placa con su
-    numero (hoja 21) y solenoides `SP-1`/`SP-2` (FIELD_RE). `base_75287.json` regenerada solo en `extremos` (42 cables,
-    lista en el reporte). E8: zona hidráulica ADENTRO (abajo; lo sin etiqueta junto a lo ubicado del mismo equipo), clave
-    estable de las marcas (`num|origen E6` o `num|par ordenado`; las viejas se migran al leer), descarte solo con UN
-    recuadro libre, `filas_pin` (build) para el orden y el dibujo de 21PCB01, `destino_campo` (EPLAN) fuera de E8.
+- **E8 en 3D: ELIMINADO el 2026-10-05 a pedido del usuario** (visor del gabinete, `gabinete.py`, `web/e8.js`, `e8.css`,
+  endpoints `/e8`, botones E6/E8 y `destino_e8` / `filas_pin` / `destino_campo` del instructivo). Está en git (commit
+  `5698cf0`). No volver a proponerlo sin que el usuario lo pida. La estación E8 sigue: «Se cablean en otra estación».
+  Del mismo trabajo quedan los arreglos del lector: bornera en FILA (tag a la izquierda del borne 1: 12XPS 4-10 en la
+  hoja 12), borne atravesado por el recorrido = unión (12XPS 7/8 en la hoja 81), pines redondos de la placa con su número
+  (hoja 21) y solenoides `SP-1`/`SP-2` (FIELD_RE); `base_75287.json` regenerada solo en `extremos` (42 cables).
 - **Para confirmar con el usuario:**
   - escribir el pin en textos repetidos (`13PS2 -Vo (1)`);
   - barreras `1 ABAJO` (el texto viene del funcional, el enchufe está arriba);

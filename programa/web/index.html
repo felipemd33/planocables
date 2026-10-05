@@ -6,10 +6,6 @@
 <title>Listado de cables</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fbf'/%3E%3Cpath d='M6 11h9v10h11M6 21h5M22 7v8' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="/static/styles.css">
-<link rel="stylesheet" href="/static/e8.css">
-<!-- E8 (gabinete en 3D): three.js de cdnjs; OrbitControls de los ejemplos de three (jsdelivr). Sin internet, e8.js avisa -->
-<script type="importmap">{"imports": {"three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head>
 <body>
 <header class="topbar">
@@ -82,12 +78,6 @@
       </div>
     </div>
     <div class="note" id="resNota" hidden></div>
-    <div class="e8-est" role="group" aria-label="Estación de cableado">
-      <button class="e8-estbtn e6" id="e8BtnE6" type="button" title="Instructivo de cableado de la bandeja (lo de siempre)">
-        <span class="e8-esttag">E6</span><span><b>Bandeja</b><small>Instructivo de la bandeja: cablear de a uno y auditoría</small></span></button>
-      <button class="e8-estbtn e8" id="e8BtnE8" type="button" title="Cableado dentro del gabinete, en 3D">
-        <span class="e8-esttag">E8</span><span><b>Gabinete</b><small>Dentro del gabinete en 3D: laterales, placa, puerta, botones y selectora</small></span></button>
-    </div>
     <div class="kpis" id="kpis"></div>
 
     <div class="tabs" role="tablist" id="tabs">
@@ -314,51 +304,11 @@
   </div>
 </div>
 
-<!-- E8: CABLEADO DENTRO DEL GABINETE (3D, de a un cable) -->
-<div class="viewer e8v" id="e8Viewer" hidden>
-  <div class="v-top">
-    <span class="e8-esttag sm" title="Estación E8: gabinete">E8</span>
-    <div class="v-title"><span id="e8Tit">Gabinete</span><span class="muted small" id="e8Grp"></span></div>
-    <div class="cv-od mono e8-od"><span id="e8Desde" class="e8-d"></span><span class="arr">→</span><span id="e8Hasta" class="e8-h"></span></div>
-    <div class="v-nav">
-      <button class="icon" id="e8Prev" aria-label="Cable anterior" title="Cable anterior (←)">‹</button>
-      <span class="mono" id="e8Pos">–</span>
-      <button class="icon" id="e8Next" aria-label="Siguiente cable (marca este como cableado)" title="Siguiente (→): marca este cable como cableado">›</button>
-    </div>
-    <label class="chk cv-ok"><input type="checkbox" id="e8Ok"> Cableado</label>
-    <button class="btn ghost sm" id="e8SideBtn" aria-pressed="true" title="Mostrar u ocultar el listado de cables (L)">☰ Listado</button>
-    <button class="btn ghost sm" id="e8Puerta" title="Abrir o cerrar la puerta (P)">🚪 Cerrar puerta</button>
-    <button class="btn ghost sm on" id="e8Todos" aria-pressed="true" title="Ver todos los cables de E8 o solo el actual (T)">Todos los cables</button>
-    <button class="btn ghost sm" id="e8Ubicar" title="Ubicar a mano un aparato que no está en el topográfico: elegilo y hacé clic en su lugar">📍 Ubicar</button>
-    <button class="icon" id="e8Fit" aria-label="Ver todo el gabinete" title="Todo el gabinete (0)">⤢</button>
-    <button class="btn ghost sm swap" id="e8E6" title="Volver a E6: el instructivo de la bandeja">E6 · Bandeja</button>
-    <button class="icon" id="e8Close" aria-label="Cerrar">✕</button>
-  </div>
-  <div class="bar thin cv-bar"><i id="e8Bar"></i></div>
-  <div class="e8-avisos small" id="e8Avisos" hidden></div>
-  <div class="v-body">
-    <aside class="v-side e8-side" id="e8Side">
-      <div class="vs-h">
-        <input id="e8Q" type="search" placeholder="Buscar cable o aparato…" autocomplete="off" aria-label="Buscar cable de E8">
-        <div class="vs-info muted small"><span id="e8Cnt"></span></div>
-      </div>
-      <div class="vs-list" id="e8List" aria-label="Cables de E8"></div>
-    </aside>
-    <div class="stage e8-stage" id="e8Stage">
-      <div class="e8-msg" id="e8Msg" hidden></div>
-      <div class="e8-ubi small" id="e8UbiBox" hidden></div>
-      <div class="e8-info small" id="e8Info"></div>
-      <div class="v-hint muted small">Rueda: zoom · Arrastrar: girar · Clic derecho: mover · Clic en un cable: elegirlo · → siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar · P: puerta · T: todos · F: encuadrar · 0: todo el gabinete · L: listado · Esc: cerrar</div>
-    </div>
-  </div>
-</div>
-
 <div class="toast" id="toast" hidden></div>
 <script src="/static/app.js"></script>
 <script src="/static/instructivo.js"></script>
 <script src="/static/salidas.js"></script>
 <script src="/static/auditoria.js"></script>
 <script src="/static/wpc.js"></script>
-<script src="/static/e8.js"></script>
 </body>
 </html>

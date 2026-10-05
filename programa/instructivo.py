@@ -1714,8 +1714,6 @@ def build(res, lay, max_lineas=7):
             if not ta and not tb:
                 desc, col, sec = desc_de(ea, eb)
                 pendientes.append(dict(num=num, cable=desc, color=col, secc=sec, a=fmt_terminal(ea), b=fmt_terminal(eb)))
-                if ea.get('fuera') or eb.get('fuera'):
-                    pendientes[-1]['destino_campo'] = True      # (EPLAN: una punta de campo, 'LI'; no es de E8)
                 if nota_alt:
                     pendientes[-1]['alternativa'] = nota_alt
                 if confirmar_montaje:
@@ -1747,13 +1745,6 @@ def build(res, lay, max_lineas=7):
                 # la otra punta es un aparato que se cablea en otra estacion (ej. la zona hidraulica en E8): en la
                 # lista de esa estacion va su texto real, no 'LI'
                 lineas[-1]['_dreal'] = base_txt(d, num)[1]
-            if not bandeja(d) and not d.get('fuera'):
-                # E8 (gabinete): la otra punta del cable que en E6 dice 'LI' / 'LD' (se conecta en el gabinete)
-                lineas[-1]['destino_e8'] = base_txt(d, num)[1]
-            elif not bandeja(d):
-                # la otra punta esta fuera de todo (cable de campo de EPLAN: ROTORK, PIT01F...): lo conecta el cliente en
-                # la obra; E8 no lo cuenta como 'sin la otra punta'
-                lineas[-1]['destino_campo'] = True
             if con_lista:
                 # EPLAN: cada renglon de la lista de conexiones es un tramo real (aunque dos tramos de la misma punta
                 # de la bandeja a dos puntos distintos de afuera se escriban igual, 'X 1 -> LI')
@@ -1763,7 +1754,6 @@ def build(res, lay, max_lineas=7):
     def sintetico(txt):
         """punta armada desde su texto ('XPE 1 ARRIBA', '13XC1 2.1', '11PS1 L-3'): fmt_terminal(e) == txt"""
         return punta_sintetica(txt, comp)
-    a_li = []                      # agregados a mano a 'LI' (la otra punta para E8 se busca abajo)
     for a in lay.get('agregar') or []:
         eo = sintetico(a['origen']); ed = None if a['destino'] in ('LI', 'LD') else sintetico(a['destino'])
         if not bandeja(eo):
@@ -1777,10 +1767,6 @@ def build(res, lay, max_lineas=7):
                            componente=eo['tag'], fila=bandeja(eo)['fila'], zona=zona(eo['tag_base']), lado='arriba' if lado(eo, num) == 0 else 'abajo',
                            orden=key(eo, num), puente=sum(1 for x in lay.get('agregar') or [] if x['num'] == num) > 1,
                            hojas=[a['hoja']] if a.get('hoja') else [], agregado=a.get('nota') or 'agregado a mano', **funcional(eo, ed, num)))
-        if ed and not bandeja(ed):
-            lineas[-1]['destino_e8'] = a['destino']        # E8: la otra punta del 'LI' (se conecta en el gabinete)
-        elif not ed:
-            a_li.append((lineas[-1], a))
     # pendientes fantasma: las dos puntas en el mismo aparato y una sin borne (ej. '21PCB01 48 <-> 21PCB01')
     pendientes = [x for x in pendientes if not (x['a'].split(' ')[0] == x['b'].split(' ')[0] and (' ' not in x['a'] or ' ' not in x['b']))]
     quitar = set(lay.get('pendientes_quitar') or [])
@@ -1804,24 +1790,6 @@ def build(res, lay, max_lineas=7):
         pendientes = [p_ for p_ in pendientes if p_.get('agregado') or (p_['num'], frozenset((p_['a'], p_['b']))) != par_x]
         pendientes.append(dict(num=x['num'], cable=x.get('cable', ''), color=x.get('color', ''), secc=x.get('secc', ''), a=x['a'], b=x['b'],
                                agregado=x.get('nota') or 'agregado a mano'))
-    # E8: la otra punta de un cable agregado a mano a 'LI' (una malla a trazos que el lector no sigue). Si el funcional
-    # tiene UNA sola punta de ese numero fuera de la bandeja que no esta en ningun tramo (75287 hoja 21: la malla 2134
-    # sale del pin 34 de 21PCB01, la union de las dos mallas), es esa; y si esa punta esta en un pendiente del mismo
-    # numero, el agregado llega a la otra punta del pendiente (2137: 81XCM 13 -> empalme junto a 12XPS <-> 21PCB01 37)
-    for l, a in a_li:
-        c = cs.get(a['num'])
-        if not c:
-            continue
-        en_tramo = {n for par in c['pares'] for n in par}
-        propias = {a['origen'], a['destino']}
-        sueltas = sorted({fmt_terminal(c['nodes'][n]) for n in c['bornes'] if n not in en_tramo and not bandeja(c['nodes'][n])} - propias)
-        sueltas = [t for t in sueltas if not t.startswith('?')]
-        if len(sueltas) != 1:
-            continue
-        x_ = sueltas[0]
-        otra = [p_['b'] if p_['a'] == x_ else p_['a'] for p_ in pendientes if p_['num'] == a['num'] and x_ in (p_['a'], p_['b'])]
-        l['destino_e8'] = otra[0] if len(otra) == 1 else x_
-        l['destino_e8_de'] = 'funcional'
     sq = set(lay.get('sueltos_quitar') or [])
     sueltos = [x for x in sueltos if x['num'] not in sq]
     # ---- ruteo por los cablecanales del topografico
@@ -1993,37 +1961,7 @@ def build(res, lay, max_lineas=7):
                      if (n, t) in vivos]
     return dict(pasos=pasos, pendientes=sorted(pendientes, key=lambda x: natk(x['num'])),
                 sueltos=sueltos, otra_estacion=otra, componentes=comp, topo=topo, accesorios=lay.get('accesorios') or [],
-                alternativas=alts, lado_fisico=lado_fisico_l, filas_pin=filas_de_pines(cs, en_bandeja, comp))
-
-
-def filas_de_pines(cs, en_bandeja, comp):
-    """filas de pines numerados de los aparatos de AFUERA de la bandeja, como estan dibujados en el funcional: en la hoja
-    donde el aparato tiene dos o mas filas de pines (3 o mas pines cada una, numerados de izquierda a derecha), de abajo
-    hacia arriba. 75287 hoja 21: 21PCB01 abajo 1-37, arriba 38-69. -> {tag: [[min, max] fila de abajo, [min, max], ...]}
-    E8 los cablea fila por fila (la de abajo primero) y los dibuja cada uno en su fila."""
-    pins = collections.defaultdict(dict)          # (tag, pag) -> {numero: (x, y)}
-    for c in cs.values():
-        for e in c['nodes'].values():
-            if e.get('tipo') != 'borne' or not e.get('p') or e.get('texto') or is_terminal_block(e.get('tag_base')):
-                continue
-            if not re.fullmatch(r'\d{1,3}', e.get('borne') or '') or en_bandeja(comp.get(e.get('tag_base'))):
-                continue
-            pins[(e['tag'], e.get('pag'))][int(e['borne'])] = tuple(e['p'])
-    out = {}
-    for (tag, pag), ps in pins.items():
-        filas = []
-        for n, (x, y) in sorted(ps.items(), key=lambda kv: kv[1][1]):
-            if filas and abs(y - filas[-1][-1][2]) < 6:
-                filas[-1].append((n, x, y))
-            else:
-                filas.append([(n, x, y)])
-        filas = [f for f in filas if len(f) >= 3]
-        ok = len(filas) >= 2 and all([q[0] for q in sorted(f, key=lambda q: q[1])] == sorted(q[0] for q in f) for f in filas)
-        rangos = [[min(q[0] for q in f), max(q[0] for q in f)] for f in filas]
-        if ok and all(a[1] < b[0] or b[1] < a[0] for i, a in enumerate(rangos) for b in rangos[i + 1:]):
-            if tag not in out or sum(r[1] - r[0] for r in rangos) > sum(r[1] - r[0] for r in out[tag]):
-                out[tag] = rangos
-    return out
+                alternativas=alts, lado_fisico=lado_fisico_l)
 
 
 def linea_txt(l):
