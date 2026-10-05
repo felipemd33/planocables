@@ -299,10 +299,12 @@ function setTab(t) {
   }
   S.tab = t; S.sort = { key: null, desc: false };
   document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
-  const isSheets = t === 'hojas', isIns = t === 'instructivo';
-  $('#tableWrap').hidden = isSheets || isIns; $('#sheets').hidden = !isSheets; $('#toolbar').hidden = isSheets || isIns;
+  const isSheets = t === 'hojas', isIns = t === 'instructivo', isE8 = t === 'e8';
+  $('#tableWrap').hidden = isSheets || isIns || isE8; $('#sheets').hidden = !isSheets; $('#toolbar').hidden = isSheets || isIns || isE8;
+  if (!isE8 && typeof E8 !== 'undefined') E8.hide();
   if (isIns) { if (typeof Ins !== 'undefined') Ins.open(); return; }
   if (typeof Ins !== 'undefined') Ins.hide();
+  if (isE8) { if (typeof E8 !== 'undefined') E8.open(); return; }
   $('#fColor').hidden = $('#fSec').hidden = !['cables', 'detalle', 'sinnum'].includes(t);
   $('#fRevWrap').hidden = !TABS[t]?.rev;
   if (!isSheets && ['cables', 'detalle', 'sinnum'].includes(t)) fillFilters(TABS[t].rows());

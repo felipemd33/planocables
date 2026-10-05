@@ -39,7 +39,7 @@ CAB_DOC = re.compile(r'(?i)^(doc\.?|documento:?|document:?)$')
 VERSION = 1
 # version del lector de la hoja de bandejas (layout): se guarda en layout.json y, si cambia, web.gen_instructivo vuelve
 # a leer el topografico de los trabajos existentes (ver topo.VERSION_LECTOR). SUBIRLA cuando cambie layout().
-VERSION_LECTOR = '2026.10.02-r3'
+VERSION_LECTOR = '2026.10.05-e8'
 
 _CACHE = collections.OrderedDict()          # firma del PDF -> textos de las hojas
 _COPIAS = {}                                 # firma -> copia de proceso sin proteccion
@@ -1495,7 +1495,10 @@ def layout(pdf_path, known_tags, log=print, dec=None):
         avisos.append('sin mapeo verificado para este documento: los puntos de los bornes son aproximados (ajustalos en el visor con 📍)')
     log(f'Bandejas: hoja {best["pag"]}, {len(ejes)} rieles, {len(dl)} canaletas ({sum(d["ex"] for d in dl)} de intrínsecos'
         + (f', {fuente_ex}' if fuente_ex else '') + f'), escala {escala} mm/pt')
-    vistas = [dict(box=[round(v, 2) for v in t['region']], rails=[round(b['eje'], 2) for b in t['rieles']], titulo=t['titulo']) for t in bandejas]
+    # (las canaletas de cada vista: la estacion E8 rutea los cables de las bandejas laterales)
+    vistas = [dict(box=[round(v, 2) for v in t['region']], rails=[round(b['eje'], 2) for b in t['rieles']], titulo=t['titulo'],
+                   ductos=dl if t is principal else [dict(b=[round(v, 2) for v in d['b']], h=d['h'], ex=False) for d in t['ductos']])
+              for t in bandejas]
     return dict(pag=best['pag'], comp=comp, vistas=vistas, bandeja=bandejas.index(principal), size=[pg['w'], pg['h']], region=region,
                 escala=escala, escala_fuente='riel DIN 35 mm', perfil_riel_pt=round(H, 2), ductos=dl, filas=ejes,
                 eplan=dict(documento=doc, revision=rev, mapeo=(mapeo or {}).get('_archivo'), ex=fuente_ex, avisos=avisos))

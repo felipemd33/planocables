@@ -87,6 +87,7 @@
       <button role="tab" data-tab="revisar">A revisar <span class="cnt warn" id="cntRevisar"></span></button>
       <button role="tab" data-tab="hojas">Hojas <span class="cnt" id="cntHojas"></span></button>
       <button role="tab" data-tab="instructivo">🧰 Instructivo de cableado</button>
+      <button role="tab" data-tab="e8" title="Estación 8: lo que se cablea en el gabinete, con la bandeja montada">🗄 Estación 8 (gabinete)</button>
     </div>
 
     <div class="toolbar" id="toolbar">
@@ -158,6 +159,24 @@
         <div id="insSueltos" class="card"></div>
       </div>
       <input type="file" id="insTopoFile" accept="application/pdf,.pdf" hidden>
+    </div>
+
+    <!-- ESTACION 8 (gabinete): bandejas laterales y puerta / placa -->
+    <div id="e8Wrap" hidden>
+      <div id="e8Empty" class="card ins-empty" hidden></div>
+      <div id="e8Main" hidden>
+        <div class="ins-bar">
+          <div class="seg" id="e8Vistas" role="tablist" aria-label="Vista de la estación 8"></div>
+          <button class="btn primary" id="e8Cablear" title="Visor a pantalla completa: un cable por vez en la bandeja lateral">▶ Cablear de a uno</button>
+          <button class="btn sm" id="e8Print">🖨 Imprimir / PDF</button>
+          <span class="grow"></span>
+        </div>
+        <div class="muted small" id="e8Info"></div>
+        <div class="bar thin"><i id="e8Bar"></i></div>
+        <div id="e8Avisos"></div>
+        <div id="e8Lat" class="e8-lat"></div>
+        <div id="e8Afuera" class="e8-afuera"></div>
+      </div>
     </div>
   </section>
 </main>
@@ -252,6 +271,46 @@
   </div>
 </div>
 
+<!-- VISOR DE LA ESTACION 8 (bandeja lateral, de a un cable) -->
+<div class="viewer cabv" id="e8Viewer" hidden>
+  <div class="v-top">
+    <div class="v-title">
+      <span id="e8vNum">—</span>
+      <span class="muted small" id="e8vGrp"></span>
+    </div>
+    <div class="cv-od mono"><span id="e8vOrig"></span><span class="arr">→</span><span id="e8vDest"></span></div>
+    <span class="muted small" id="e8vLen"></span>
+    <div class="v-nav">
+      <button class="icon" id="e8vPrev" aria-label="Cable anterior" title="Cable anterior (←)">‹</button>
+      <span class="mono" id="e8vPos">1 / 1</span>
+      <button class="icon" id="e8vNext" aria-label="Siguiente cable (marca este como cableado)" title="Siguiente (→): marca este cable como cableado">›</button>
+    </div>
+    <label class="chk cv-ok"><input type="checkbox" id="e8vOk"> Cableado</label>
+    <button class="btn ghost sm" id="e8vSideBtn" aria-pressed="true" title="Mostrar u ocultar el listado de cables (L)">☰ Listado</button>
+    <button class="icon" id="e8vFocus" aria-label="Centrar en el cable" title="Centrar en el cable (F)">⌖</button>
+    <button class="icon" id="e8vFit" aria-label="Ver toda la bandeja" title="Toda la bandeja (0)">⤢</button>
+    <button class="btn ghost sm swap" id="e8vPlano" title="Ver este cable en el plano eléctrico (funcional)">⚡ Funcional</button>
+    <button class="icon" id="e8vClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="bar thin cv-bar"><i id="e8vBar"></i></div>
+  <div class="v-body">
+    <aside class="v-side" id="e8vSide">
+      <div class="vs-h">
+        <input id="e8vQ" type="search" placeholder="Buscar cable…" autocomplete="off" aria-label="Buscar cable en el listado">
+        <div class="vs-info muted small"><span id="e8vCnt"></span></div>
+      </div>
+      <div class="vs-list" id="e8vList" aria-label="Cables de la bandeja lateral"></div>
+    </aside>
+    <div class="stage cv-stage"><svg id="e8vSvg" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="cv-lupas">
+        <div class="cv-lupa ori"><b id="e8vLupaOt">Borne</b><svg id="e8vLupaO" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
+        <div class="cv-lupa des" id="e8vLupaDw"><b id="e8vLupaDt">Destino</b><svg id="e8vLupaD" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
+      </div>
+      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
+    </div>
+  </div>
+</div>
+
 <!-- AUDITORIA CRUZADA (por secciones de la bandeja) -->
 <div class="viewer audv" id="audViewer" hidden>
   <div class="v-top">
@@ -312,5 +371,6 @@
 <script src="/static/salidas.js"></script>
 <script src="/static/auditoria.js"></script>
 <script src="/static/wpc.js"></script>
+<script src="/static/estacion8.js"></script>
 </body>
 </html>

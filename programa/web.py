@@ -7,7 +7,7 @@ sys.path.insert(0, HERE)
 from flask import Flask, request, jsonify, send_file, abort
 
 ROOT = os.path.dirname(HERE)
-WORK = os.path.join(ROOT, '3 - Historial web')
+WORK = os.environ.get('PLANOCABLES_HISTORIAL') or os.path.join(ROOT, '3 - Historial web')    # (otra carpeta: pruebas)
 os.makedirs(WORK, exist_ok=True)
 PORT = int(os.environ.get('PLANOCABLES_PORT', '8765'))
 
@@ -447,6 +447,17 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
             for a in ins.get('accesorios') or []:
                 if a.get('id') in hechos_acc:
                     a['hecho'] = True
+            # estacion E8 (gabinete): bandejas laterales y puerta / placa; se conservan sus marcas de cableado
+            try:
+                import estacion8
+                e8 = estacion8.build(res, lay, ins)
+                vivas = {l['clave'] for L in e8['laterales'] for p in L['pasos'] for l in p['lineas']} | {x['clave'] for g in e8['afuera'] for x in g['cables']}
+                e8['hechos'] = [k for k in ((old.get('estacion8') or {}).get('hechos') or []) if k in vivas]
+            except Exception as e:      # E8 nunca frena el instructivo de E6
+                import traceback
+                e8 = dict(version=0, laterales=[], afuera=[], hechos=(old.get('estacion8') or {}).get('hechos') or [],
+                          avisos=[f'no se pudo armar la estación E8 ({type(e).__name__}: {e})'], detalle=traceback.format_exc())
+            ins['estacion8'] = e8
             ins['estaciones'] = lay['estaciones']
             ins['estacion'] = lay['estacion']
             ins['estacion_auto'] = lay['estacion_auto']
@@ -597,7 +608,23 @@ def topo_png(jid):
         abort(404)
     with open(P['json'], encoding='utf-8') as f:
         topo = json.load(f).get('topo') or {}
-    reg, pag = topo.get('region'), topo.get('pag')
+    return region_png(P, topo.get('pag'), topo.get('region'))
+
+
+@app.get('/api/trabajo/<jid>/e8/lateral/<int:i>.png')
+def lateral_png(jid, i):
+    """imagen de una bandeja lateral (estacion E8) del topografico, para dibujar sus cables encima"""
+    P = ins_paths(jid)
+    if not os.path.exists(P['json']) or not os.path.exists(P['topo']):
+        abort(404)
+    with open(P['json'], encoding='utf-8') as f:
+        lats = (json.load(f).get('estacion8') or {}).get('laterales') or []
+    if not 0 <= i < len(lats):
+        abort(404)
+    return region_png(P, lats[i].get('pag'), lats[i].get('region'))
+
+
+def region_png(P, pag, reg):
     if not reg or not pag:
         abort(404)
     hd = request.args.get('hd') == '1'          # alta resolucion para las lupas del visor

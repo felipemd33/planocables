@@ -485,3 +485,30 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .sal-asis[hidden] { display: none; }
 .sal-asis-t { font-size: 15px; }
 .sal-asis-b { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; margin-top: 2px; }
+
+/* estacion 8 (gabinete): bandejas laterales y puerta / placa */
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 9px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; border-right: 1px solid var(--border); background: none; color: var(--muted); font: inherit; font-weight: 600; padding: 7px 12px; cursor: pointer; }
+.seg button:last-child { border-right: 0; }
+.seg button.on { background: var(--accent); color: var(--accent-t); }
+.seg button.on .cnt { background: rgba(255,255,255,.25); color: inherit; }
+.e8-lat { display: grid; grid-template-columns: minmax(300px, 44%) 1fr; gap: 16px; align-items: start; margin-top: 8px; }
+.e8-mapa { position: sticky; top: 64px; padding: 12px; }
+.e8-mapa .tsvg { height: min(72vh, 820px); background: #fff; border: 1px solid var(--border); border-radius: 8px; }
+.e8-mapa .card-h h2 { font-size: 15px; margin: 0; }
+.e8-pasos .grp-h { top: 0; }
+.e8-pt { font-size: 14px; }
+.pill.e8-e6 { background: var(--ok-bg); color: var(--ok); } .pill.e8-fuera { background: var(--accent-2); color: var(--accent); }
+.e8-zona { font-size: 16px; margin: 18px 0 2px; }
+.e8-aps { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 12px; margin-top: 8px; }
+.e8-ap { padding: 12px; }
+.e8-ap h3 { margin: 0; font-size: 16px; }
+.e8-tab { width: 100%; border-collapse: collapse; font-size: 13px; }
+.e8-tab th { position: static; cursor: default; padding: 4px 6px; }
+.e8-tab td { padding: 4px 6px; vertical-align: middle; }
+.e8-tab tbody tr { cursor: default; }
+.e8-tab tr.ok td { opacity: .5; }
+.e8-tab input { width: 15px; height: 15px; accent-color: var(--ok); }
+#e8Avisos .note { margin: 6px 0; }
+#e8vSvg { width: 100%; height: 100%; touch-action: none; }
+@media (max-width: 900px) { .e8-lat { grid-template-columns: 1fr; } .e8-mapa { position: static; } .e8-aps { grid-template-columns: 1fr; } }

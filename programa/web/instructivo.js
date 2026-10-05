@@ -860,6 +860,7 @@ const Ins = (() => {
     });
   }
   return { open, init, hide: () => { W().hidden = true; clearTimeout(poll); }, desdeFuncional,
+    reset: () => { D = null; },         // (la estacion 8 regenero el instructivo: se vuelve a cargar)
     // para la auditoria
     get D() { return D; }, get job() { return job; }, load, flat, dirty, imgTag, LC, mark, label, vbOf, secTxt, est, PRINT_CSS, render, fontFor,
     terminal, ferrule, termLen, termChip, labelLen, LAT, secCorto, openViewer, routeG };
