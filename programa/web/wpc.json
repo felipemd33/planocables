@@ -3,6 +3,8 @@
   "margen_bandeja": 100,
   "extra_LI": 1500,
   "extra_LD": 400,
+  "margen_LI": 200,
+  "extra_puerta": 1500,
   "largo_pendiente": 2000,
   "largo_sin_ruta": 1000,
   "redondeo": 50,
