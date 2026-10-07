@@ -3,7 +3,8 @@ capa de riel, version del lector del topografico y avisos de bornes.json en EPLA
 (lo que necesita escribir lo hace en una copia temporal). Termina con error si alguna falla.
 uso: python pruebas/probar_ronda3.py
   A. familias del catalogo: el tipo de aparato sale del renglon de la lista de materiales.
-  B. TPT (72715 + 72887): 33MX01 (MOXA, modulo de E/S, no esta en el catalogo) queda sin puntos y no cae sobre 13PS3;
+  B. TPT (72715 + 72887): 33MX01 (MOXA, modulo de E/S) con un catalogo SIN su modelo queda sin puntos y no cae sobre
+     13PS3; con el modelo MOXA-R1240 (2026-10-06) sus 20 bornes van a la columna del frente;
      11Q1 (ABB SH 202, termomagnetica) no sale como toma corriente; 43XDIB sale con el modelo de la lista
      (PTT 2,5-2MT BU), no como bornera con diodo; ningun punto cae dentro del cuerpo de otro aparato.
   C. red de seguridad: sin la lista de materiales, los puntos de 33MX01 que caen sobre la bornera TB2 de 13PS3 se
@@ -77,16 +78,29 @@ TOPO = os.path.join(JOB, 'topografico.pdf')
 lay0 = topo.layout(TOPO, instructivo.known_tags(res), log=lambda m: None)
 usos = instructivo.usos_bandeja(res, json.loads(json.dumps(lay0)), TOPO)
 mats = instructivo.materiales_funcional(res)
+# (2026-10-06) el MOXA ioLogik R1240 ya esta en el catalogo (MOXA-R1240): lo de un modulo de E/S que NO esta en el
+# catalogo se prueba con una copia del catalogo sin ese modelo
+CAT_SIN_MOXA = dict(CAT, modelos=[m for m in CAT['modelos'] if m['id'] != 'MOXA-R1240'])
+mo_sm = Motor(TOPO, copy.deepcopy(usos), CAT_SIN_MOXA, materiales_de_lineas(mats))
+sal_sm = mo_sm.mapear()
+p33 = [p for p in sal_sm['puntos'] if p['componente'] == '33MX01']
+chequear(sal_sm['modelos'].get('33MX01') == '?' and all(p['confianza'] == 'baja' for p in p33),
+         f"(catalogo sin el MOXA) 33MX01 (modulo de E/S) sin modelo y sin puntos: modelo {sal_sm['modelos'].get('33MX01')}, "
+         f"{collections.Counter(p['confianza'] for p in p33)}")
+falt = {f['tag']: f for f in sal_sm.get('modelos_faltantes') or []}
+chequear((falt.get('33MX01') or {}).get('familia') == 'módulo de E/S' and 'MOXA' in (falt.get('33MX01') or {}).get('modelo', ''),
+         f"(catalogo sin el MOXA) 33MX01 en los modelos faltantes con su familia: {falt.get('33MX01')}")
 mo = Motor(TOPO, copy.deepcopy(usos), CAT, materiales_de_lineas(mats))
 sal = mo.mapear()
 pts = collections.defaultdict(list)
 for p in sal['puntos']:
     pts[p['componente']].append(p)
-chequear(sal['modelos'].get('33MX01') == '?' and all(p['confianza'] == 'baja' for p in pts['33MX01']),
-         f"33MX01 (modulo de E/S) sin modelo y sin puntos: modelo {sal['modelos'].get('33MX01')}, {collections.Counter(p['confianza'] for p in pts['33MX01'])}")
-falt = {f['tag']: f for f in sal.get('modelos_faltantes') or []}
-chequear((falt.get('33MX01') or {}).get('familia') == 'módulo de E/S' and 'MOXA' in (falt.get('33MX01') or {}).get('modelo', ''),
-         f"33MX01 en los modelos faltantes con su familia: {falt.get('33MX01')}")
+p1 = next((p for p in pts['33MX01'] if p['texto'] == '33MX01 1'), None)
+chequear(sal['modelos'].get('33MX01') == 'MOXA-R1240' and len(pts['33MX01']) == 20 and all(p['confianza'] == 'media' for p in pts['33MX01'])
+         and p1 is not None and abs(p1['x'] - 561.0) < 0.5 and abs(p1['y'] - 588.1) < 0.5,
+         f"33MX01 con el modelo MOXA-R1240: los 20 bornes con la hoja de datos (pin 1 en el primer cuadradito de la columna, "
+         f"561.0 / 588.1): {sal['modelos'].get('33MX01')}, {collections.Counter(p['confianza'] for p in pts['33MX01'])}, "
+         f"pin 1 {p1 and (p1['x'], p1['y'])}")
 fam_mod = {m['id']: m.get('familia') for m in CAT['modelos']}
 chequear(fam_mod.get(sal['modelos'].get('11Q1')) == 'termomagnetica', f"11Q1 (ABB SH 202) solo puede ser termomagnetica: {sal['modelos'].get('11Q1')}")
 chequear(sal['modelos'].get('43XDIB') == 'PTT2.5-2MT-BU', f"43XDIB con el modelo de la lista (PTT 2,5-2MT BU), no PT2.5-DIO: {sal['modelos'].get('43XDIB')}")

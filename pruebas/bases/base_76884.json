@@ -305,14 +305,6 @@
    "exacto": true
   },
   {
-   "num": "1202",
-   "cable": "R6MM",
-   "origen": "12F3 ABAJO",
-   "destino": "LI",
-   "ruta": true,
-   "exacto": true
-  },
-  {
    "num": "1301",
    "cable": "R6MM",
    "origen": "13F4 ABAJO",
@@ -621,54 +613,6 @@
    "cable": "N1MM",
    "origen": "13X24V 3.4",
    "destino": "42XC 1 ARRIBA",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "6152",
-   "cable": "R1MM",
-   "origen": "61XDO 2.4",
-   "destino": "LI",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "6153",
-   "cable": "R1MM",
-   "origen": "61XDO 3.4",
-   "destino": "LI",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "6154",
-   "cable": "R1MM",
-   "origen": "61XDO 4.4",
-   "destino": "LI",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "6162",
-   "cable": "N1MM",
-   "origen": "61X0V 1.4",
-   "destino": "LI",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "6164",
-   "cable": "N1MM",
-   "origen": "61X0V 2.4",
-   "destino": "LI",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "6163",
-   "cable": "N1MM",
-   "origen": "61X0V 2.3",
-   "destino": "LI",
    "ruta": true,
    "exacto": true
   },
@@ -1197,11 +1141,6 @@
    "b": "11X220V 2.4"
   },
   {
-   "num": "1206",
-   "a": "12PB1 -",
-   "b": "12XPS 6 ABAJO"
-  },
-  {
    "num": "1221",
    "a": "12PS1 +Pan",
    "b": "12XPS 3 ARRIBA"
@@ -1305,6 +1244,11 @@
  "sueltos": [],
  "otra_estacion": [
   {
+   "num": "1202",
+   "origen": "12F3 ABAJO",
+   "destino": "12PB1 +"
+  },
+  {
    "num": "3222",
    "origen": "32XAI 1 ABAJO",
    "destino": "PT001 x2"
@@ -1330,6 +1274,36 @@
    "destino": "BH_01_ZV A1"
   },
   {
+   "num": "6152",
+   "origen": "61XDO 2.4",
+   "destino": "SP_1 x1"
+  },
+  {
+   "num": "6153",
+   "origen": "61XDO 3.4",
+   "destino": "SP_2 x1"
+  },
+  {
+   "num": "6154",
+   "origen": "61XDO 4.4",
+   "destino": "SP_3 x1"
+  },
+  {
+   "num": "6162",
+   "origen": "61X0V 1.4",
+   "destino": "SP_1 x2"
+  },
+  {
+   "num": "6164",
+   "origen": "61X0V 2.4",
+   "destino": "SP_3 x2"
+  },
+  {
+   "num": "6163",
+   "origen": "61X0V 2.3",
+   "destino": "SP_2 x2"
+  },
+  {
    "num": "1208",
    "origen": "BH-01-M 1",
    "destino": "BH_01_ZV 2"
@@ -1353,6 +1327,11 @@
    "num": "1218",
    "origen": "BH-01-M 2",
    "destino": "BH_01_ZV A2"
+  },
+  {
+   "num": "1206",
+   "origen": "12PB1 -",
+   "destino": "12XPS 6 ABAJO"
   },
   {
    "num": "2166",
@@ -2383,6 +2362,30 @@
     "leido": ""
    },
    "X1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "leido": ""
+   },
+   "12PB1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "leido": ""
+   },
+   "SP_1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "leido": ""
+   },
+   "SP_2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "leido": ""
+   },
+   "SP_3": {
     "ubic": "LI",
     "fila": null,
     "x": null,
@@ -4171,37 +4174,6 @@
    ]
   },
   {
-   "num": "1202",
-   "origen": "12F3 ABAJO",
-   "destino": "LI",
-   "marca_o": [
-    775.56,
-    627.41,
-    2.5
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "alta",
-   "conf_d": null,
-   "nota_o": null,
-   "nota_d": null,
-   "ruta": [
-    [
-     775.6,
-     627.4
-    ],
-    [
-     775.6,
-     582.8
-    ],
-    [
-     575.7,
-     582.8
-    ]
-   ]
-  },
-  {
    "num": "1301",
    "origen": "13F4 ABAJO",
    "destino": "LI",
@@ -5655,240 +5627,6 @@
     [
      706.5,
      419.0
-    ]
-   ]
-  },
-  {
-   "num": "6152",
-   "origen": "61XDO 2.4",
-   "destino": "LI",
-   "marca_o": [
-    709.73,
-    487.81,
-    2.5
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "alta",
-   "conf_d": null,
-   "nota_o": null,
-   "nota_d": null,
-   "ruta": [
-    [
-     709.7,
-     487.8
-    ],
-    [
-     709.7,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
-     582.8
-    ],
-    [
-     575.7,
-     582.8
-    ]
-   ]
-  },
-  {
-   "num": "6153",
-   "origen": "61XDO 3.4",
-   "destino": "LI",
-   "marca_o": [
-    715.5,
-    487.81,
-    2.5
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "alta",
-   "conf_d": null,
-   "nota_o": null,
-   "nota_d": null,
-   "ruta": [
-    [
-     715.5,
-     487.8
-    ],
-    [
-     715.5,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
-     582.8
-    ],
-    [
-     575.7,
-     582.8
-    ]
-   ]
-  },
-  {
-   "num": "6154",
-   "origen": "61XDO 4.4",
-   "destino": "LI",
-   "marca_o": [
-    721.28,
-    487.81,
-    2.5
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "alta",
-   "conf_d": null,
-   "nota_o": null,
-   "nota_d": null,
-   "ruta": [
-    [
-     721.3,
-     487.8
-    ],
-    [
-     721.3,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
-     582.8
-    ],
-    [
-     575.7,
-     582.8
-    ]
-   ]
-  },
-  {
-   "num": "6162",
-   "origen": "61X0V 1.4",
-   "destino": "LI",
-   "marca_o": [
-    735.35,
-    487.81,
-    2.5
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "alta",
-   "conf_d": null,
-   "nota_o": null,
-   "nota_d": null,
-   "ruta": [
-    [
-     735.4,
-     487.8
-    ],
-    [
-     735.4,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
-     582.8
-    ],
-    [
-     575.7,
-     582.8
-    ]
-   ]
-  },
-  {
-   "num": "6164",
-   "origen": "61X0V 2.4",
-   "destino": "LI",
-   "marca_o": [
-    741.12,
-    487.81,
-    2.5
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "alta",
-   "conf_d": null,
-   "nota_o": null,
-   "nota_d": null,
-   "ruta": [
-    [
-     741.1,
-     487.8
-    ],
-    [
-     741.1,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
-     582.8
-    ],
-    [
-     575.7,
-     582.8
-    ]
-   ]
-  },
-  {
-   "num": "6163",
-   "origen": "61X0V 2.3",
-   "destino": "LI",
-   "marca_o": [
-    741.12,
-    499.43,
-    2.5
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "alta",
-   "conf_d": null,
-   "nota_o": null,
-   "nota_d": null,
-   "ruta": [
-    [
-     741.1,
-     499.4
-    ],
-    [
-     741.1,
-     448.2
-    ],
-    [
-     601.8,
-     448.2
-    ],
-    [
-     601.8,
-     582.8
-    ],
-    [
-     575.7,
-     582.8
     ]
    ]
   },

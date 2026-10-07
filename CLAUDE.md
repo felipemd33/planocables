@@ -17,10 +17,11 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/core.py`, `wires.py`, `textdec.py`, `pdfvec.py` | Lector del funcional: textos SHX, cables, números, uniones en T y flechas a otras hojas. |
 | `programa/instructivo.py` | Puntas (`describe_end`), conductores (`conductors`), textos (`fmt_terminal`) e instructivo (`build`): orden, pasos, pendientes LI↔LI y estaciones. Además `usos_bandeja` y `materiales_funcional`. |
 | `programa/topo.py`, `ruteo.py` | Topográfico (página de la bandeja, rieles, canaletas, escala, componentes) y ruteo por canaletas (Dijkstra). |
-| `programa/bornes/` | Mapeo automático del **punto exacto de cada borne**: `motor.py` + `catalogo.json` (modelos en mm) + `primitivas.py`. Ver `programa/bornes/LEEME.md`. |
+| `programa/bornes/` | Mapeo automático del **punto exacto de cada borne**: `motor.py` + `catalogo.json` (modelos en mm, con sus códigos SAP) + `primitivas.py`. `aparamenta.json` / `aparamenta.py`: el Excel de SAP «BOMs por estación» con lo que es cada material. Ver `programa/bornes/LEEME.md`. |
 | `programa/eplan.py` | Planos de **EPLAN** (PDF con texto real): `es_eplan`, `process` (lista de conexiones → conductores y listado, misma interfaz que `core.process`), `layout` (hoja de bandejas: rieles, canaletas, placas, etiquetas → mismo formato que `topo.layout`) y `aplicar_puntos` (mapeo verificado). `core.process` y `topo.layout` derivan solos a este módulo. |
-| `programa/mapeos_verificados/` | **Dato** por producto EPLAN: `<documento>_rev<revisión>.json` con el punto exacto y el texto del taller de cada punta (`'<designación EPLAN>#<cable>'`), la zona hidráulica (E8) y las canaletas de intrínsecos. Se elige por el documento y la revisión del rótulo. Se arma con `2 - Resultados/76884 mSafe2+ PAE/mapeo/exportar_al_programa.py`. |
+| `programa/mapeos_verificados/` | **Dato** por producto EPLAN: `<documento>_rev<revisión>.json` con el punto exacto y el texto del taller de cada punta (`'<designación EPLAN>#<cable>'`), los aparatos que se cablean en E8 (zona hidráulica, batería, solenoides) y las canaletas de intrínsecos. Se elige por el documento y la revisión del rótulo. Se arma con `2 - Resultados/76884 mSafe2+ PAE/mapeo/exportar_al_programa.py`. |
 | `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`, `salidas.js` (editor de salidas a LI / LD). |
+| `programa/proyector.py`, `web/proyector.html`, `proyector.js`, `proyector.css` | **Pestaña 📽 Proyector** (`/proyector/<id>`, botón 📽 en el instructivo y en el visor, tecla P): proyecta sobre la bandeja REAL solo las canaletas y el cable actual (origen verde lima, destino cian). Sigue al visor «cablear de a uno» por `BroadcastChannel('planocables')` y le devuelve las teclas → ← Espacio. Calibración por homografía (`matrix3d`) con los 4 **orificios de montaje** de la placa: `proyector.orificios` los busca en el dibujo (símbolo de cada esquina; centro = mediana de las mediatrices de sus segmentos), con 🎯 en el visor se marcan a mano. Ventana de texto (puntas, terminal, a dónde va) movible y de tamaño ajustable, que arranca en la parte vacía de la bandeja. Todo se guarda en `ins['proyector']` por `GET/PUT /api/trabajo/<id>/proyector` (la ventana principal no pisa esa sección). |
 | `1 - Planos/` | Planos originales. `Catalogo (referencia)/`: 8 productos con su orden de montaje SAP. `Producto nuevo/`: mSafe2+ PAE (EPLAN). |
 | `2 - Resultados/` | Salidas. `76884 mSafe2+ PAE/`: mapeo verificado del producto EPLAN (ver abajo). |
 | `3 - Historial web/<id>/` | Trabajos de la web (plano, `layout.json`, `instructivo.json` con las marcas del usuario, `bornes.json` manual, `correcciones.json`, `bornes_auto.json`). **No pisar las marcas del usuario.** |
@@ -74,7 +75,10 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
   - **E8** = gabinete. Incluye:
     - el cableado entre bandejas, placa, puerta, botones y selectora;
     - los **cables de 35 mm²**;
-    - la **zona hidráulica** (MEGA, bomba, válvula, PT001, nivel) y los empalmes del sensor de nivel.
+    - la **zona hidráulica** (MEGA, bomba, válvula, PT001, nivel) y los empalmes del sensor de nivel;
+    - la **batería** (12PB1) y las **solenoides** (SP_1/2/3) del PAE (2026-10-06, pedido del usuario): sus cables no se
+      cablean en E6 ni van a la lista WPC. Mecanismo: `estaciones_tag` del mapeo verificado (`ZONA_E8` en
+      `exportar_al_programa.py`); en los planos de AutoCAD las solenoides `SP-n` ya salen como campo (`FIELD_RE`).
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -82,6 +86,33 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
   tramo en los mismos aparatos); los que ya no se reconocen vuelven al instructivo y se avisan en `quitados_vueltos`.
   El listado de cables del funcional no cambia.
 - **Toma 11SK1 del 75286:** todos sus cables se cablean por abajo.
+- **Lista WPC (2026-10-05 / 06):** los que quedan en la bandeja: recorrido por canaletas + sobrante (`wpc.json`:
+  `margen_bandeja` 100) + agregado del taller (`agregado_bandeja` 75; después se ajusta el largo y se suma un factor de
+  corrección). **Los que salen a LI** (regla del taller del 2026-10-06, con la estación E8 para saber adónde van de verdad;
+  «canaleta» = la parte de la ruta que corre DENTRO de las canaletas, sin la acometida del borne: `wpc.js canaleta()`):
+  - muere en la bandeja lateral (ej. 1161 → 12XPS 4): `acometida` 75 (borne → canaleta) + canaleta de la bandeja +
+    `curva_LI` 100 (curva posterior → LI) + canaleta de la lateral + `acometida_LI` 150 (canaleta → borne). 1161 = 75 + 297 +
+    100 + 269 + 150 = 891 → 900;
+  - sigue a la puerta / placa (21PCB01, 13MS1, 42DB1…): `acometida` 75 + canaleta de la bandeja + `puerta` 1850.
+  Pendientes de la lateral y planos sin E8 (sin la lateral dibujada): como antes (`margen_LI` / `extra_puerta` / `extra_LI` +
+  `agregado_*`). La WPC **solo corta**: columnas fijas sin pelar ni crimpar (`fijos` en 0). **Reemplazos por producto**
+  (`wpc.json → reemplazos[documento]`, solo en la lista, el instructivo no cambia): PAE (ZPL-76884) negro 4 mm² → violeta 2,5
+  y rojo 4 mm² → naranja 2,5 (la WPC no tiene slots de 4 mm²; en la rev 1 del PAE no hay cables de 4 mm², así que hoy no toca
+  ninguno). El documento sale de `ins['producto']` (rótulo de EPLAN).
+  **Termos (señalizadores):** columna 22 del CSV («Labeling Position», en el .wpc `Col22="giro origen|giro destino"` en
+  grados): una punta aguas arriba y otra aguas abajo → `0|0`; las dos aguas abajo → `180|0` (gira el primero); las dos
+  aguas arriba → `0|180` (gira el segundo). Lado = arriba / abajo del eje del riel por el punto exacto (`lado`, `marca_*`,
+  `topo.comp[tag].fila`), o por el texto; la punta que sale a LI / LD se toma como aguas abajo (coincide con lo que el
+  taller puso a mano en los .wpc del 66817). **Fuera del arnés** (destildados, con el motivo, `wpc.json → fuera`): 35 mm²,
+  comunicación (≤ 0,5 mm² o XCM / RS-485), solenoides (SP-n, ZV, YV), campo (CAMPO, ROTORK, PIT, IP_). Formato de la WPC
+  (Weidmüller): plantilla `Template_5.0.11.xlsm` y archivos `.wpc` (zip con XML, `Col1..Col49`) en
+  `G:\...\4-Instructivos de montaje de VECTOR\WPC\`; «sin terminal» = pelado, proceso y crimpado en 0 (col. 24-26, 28, 46, 47).
+- **Proyector (2026-10-05, pedido del usuario):** se proyecta sobre la bandeja solo lo necesario (canaletas y el cable, nunca
+  la imagen del topográfico); la referencia para escalar son los **orificios de las esquinas de la placa** (PAE: tuercas a
+  17,5 mm de los lados y 12,5 mm de arriba/abajo, 700 × 845 mm entre centros; AutoCAD: círculos con cruz a ~12 mm). La
+  calibración y la ventana se guardan por trabajo (`instructivo.json` → `proyector`). **La bandeja se cablea acostada
+  (en horizontal):** el encuadre inicial va girado 90° en sentido horario (opción `giro`, ⚙ Ver o tecla G: 0 / 90 / 180 / 270;
+  al cambiarlo hay que calibrar de nuevo). Los textos (mangas, «← LI») se dan vuelta solos para leerse en la pantalla.
 - **No escribir coordenadas ni tags de un plano en el código.** Todo tiene que ser general; los modelos se cargan en
   `programa/bornes/catalogo.json`, en mm.
 - **Preguntar al usuario antes de cambiar una convención del taller.**
@@ -102,16 +133,20 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 - **66817** (mSafe NC): tiene que dar como `pruebas/bases/base_66817.json`: 75/75 puntas exactas y 104/104 bornes contra
   `prototipos/_referencia_66817/bornes_referencia.json` (`python pruebas/evaluar_bornes.py <puntos.json> --ref ...`).
 - **PAE** (ZPL-76884, EPLAN): `pruebas/trabajos/76884` usa el PDF original de `1 - Planos/Producto nuevo/` (no lo copia).
-  Tiene que dar como `pruebas/bases/base_76884.json`: 143 líneas E6, 31 pendientes, 16 en otra estación (E8), 0 sueltos,
-  igual al Excel del mapeo verificado.
+  Tiene que dar como `pruebas/bases/base_76884.json`: 136 líneas E6, 30 pendientes, 24 en otra estación (E8), 0 sueltos
+  (desde el 2026-10-06, con la batería y las solenoides en E8; antes 143 / 31 / 16, igual al Excel del mapeo verificado).
 - **TPT** (72715; trabajo de prueba `pruebas/trabajos/tpt`, el del usuario `e548b195eb2a` ya no está en el historial): `pruebas/bases/base_tpt.json` es el estado ANTES de corregir el
-  lector (con errores). Con `--relayout`, el estado actual es `pruebas/bases/base_tpt_ronda3.json` (2026-10-02 noche).
+  lector (con errores). Con `--relayout`, el estado actual es `pruebas/bases/base_tpt_ronda3.json` (2026-10-02 noche;
+  regenerada el 2026-10-06 con el catálogo nuevo: mismas líneas, solo pasan a punto exacto 11Q1 —ABB SH 202, verificado
+  con fotos— y 33MX01 —MOXA—).
 - `--sin-cache` no escribe nada en el trabajo. Como la web, `volcar_trabajo.py` vuelve a leer el topográfico si
   `layout.json` es de otra versión del lector (`topo.VERSION_LECTOR` / `eplan.VERSION_LECTOR`: subirlas al cambiar la
   lectura del topográfico; al regenerar, la web relee los trabajos viejos y conserva lo del usuario).
 - Pruebas de arreglos: `python pruebas/probar_arreglos_pae.py`, `python pruebas/probar_ronda2_topo.py` y
   `python pruebas/probar_ronda3.py` (familias del catálogo, red de seguridad del mapeo, topográfico sin capa de riel,
   versión del lector) tienen que dar TODO OK.
+- Proyector: `python pruebas/probar_proyector.py` (orificios del PAE = rectángulo de 700 × 845 mm, mediatrices, placa sin
+  orificios, endpoints `/proyector`) tiene que dar TODO OK.
 
 ## Productos trabajados
 
@@ -136,8 +171,9 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   - Las dudas a confirmar están en la hoja "Dudas a confirmar" del Excel.
   - **Cargado en el programa (2026-10-02):** se sube el PDF como plano eléctrico y sale el listado, el Excel (con la hoja
     "Lista de conexiones (EPLAN)") y el instructivo E6 solo, con la hoja 8 del mismo PDF como topográfico (botón «Usar las
-    bandejas de este mismo PDF» si hace falta). Da 143 líneas E6, 31 pendientes LI↔LI, 16 en E8, 0 sueltos: igual que el
-    Excel del mapeo, con cada punta en el punto verificado y ruta por las canaletas.
+    bandejas de este mismo PDF» si hace falta). Daba 143 líneas E6, 31 pendientes LI↔LI, 16 en E8, 0 sueltos, igual que el
+    Excel del mapeo; desde el 2026-10-06 son 136 / 30 / 24 (batería 12PB1 y solenoides SP_x en E8), con cada punta en el
+    punto verificado y ruta por las canaletas.
   - Lo general (sirve para otros EPLAN): lista de conexiones leída por contenido (número, destino 1/2, color, sección),
     renglones sin número con nombre propio (`⏚11PS1`, `MALLA 21PCB01 34`, `s/n ROTORK 1`), `-61KR1 -61KR1` = unión interna
     (no es cable), rieles DIN por el patrón de líneas del perfil, canaletas = franjas vacías de ancho normalizado, placas,
@@ -185,10 +221,20 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   - 32XAIB/43XDIB no son banco de barreras;
   - avisos de lado físico;
   - azules intrínsecos que salen en horizontal por encima de otros bornes (`ruteo.py`).
-- **Catálogo de aparatos:**
-  - el usuario va a pasar un **Excel de aparamenta** de todos los productos, que se retroalimenta solo: usarlo como referencia;
-  - **no** armar el catálogo desde los planos;
-  - `catalogo/productos/` tiene lecturas parciales de 7 órdenes SAP, solo para comparar.
+- **Catálogo de aparatos (Excel de aparamenta, 2026-10-06):** el usuario pasó `BOMs Por Estación .xlsx` (164 materiales SAP
+  de los mSafe SHELL / PP / 2 PAE / TECPE / 2 Vista / YPF, con estación y productos; se retroalimenta solo).
+  - Está en `programa/bornes/aparamenta.json`: cada código SAP con clase, fabricante, modelo comercial, código del
+    fabricante y el modelo del catálogo (`catalogo`) o `motivo_sin_modelo`. Al llegar el Excel nuevo:
+    `python programa/bornes/aparamenta.py "<Excel>"` (conserva lo identificado, marca los nuevos con `revisar` y da el
+    informe). Excel para el taller: `2 - Resultados/Aparamenta (BOMs por estación)/`.
+  - Catálogo de bornes: 25 modelos, cada uno con sus códigos SAP en `sap`. Nuevos: PT4 (+PT 4-PE), PT6, PSR-SCP (relé de
+    seguridad, familia `rele_seguridad`), ABB-SH202, EO-I-UT (toma Phoenix), DF141, MOXA-R1240 (disposición `cuerpo`)
+    y EXEMYS-EGW1. `solo_por_lista: true` = el modelo se usa solo si la lista de materiales lo nombra (aparatos puntuales:
+    nunca se adivinan por el dibujo). Los modelos nuevos van al final de `modelos`.
+  - Sin modelo: ODOT B32-MR-3B-00 (sin plano acotado; el funcional del PP no nombra sus bornes). A propósito: Tracer BP
+    (va en la lateral; no tiene bornera, salen cables propios), bornes y barra de tierra (cables sin número).
+  - **no** armar el catálogo desde los planos; `catalogo/productos/` tiene lecturas parciales de 7 órdenes SAP, solo para
+    comparar.
 - **E8 en 3D: ELIMINADO el 2026-10-05 a pedido del usuario** (visor del gabinete, `gabinete.py`, `web/e8.js`, `e8.css`,
   endpoints `/e8`, botones E6/E8 y `destino_e8` / `filas_pin` / `destino_campo` del instructivo). Está en git (commit
   `5698cf0`). No volver a proponerlo sin que el usuario lo pida. La estación E8 sigue: «Se cablean en otra estación».
@@ -201,6 +247,17 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   - 61XDIO/62XDIO: ¿lado físico o del funcional?;
   - código `LD` para el lateral derecho;
   - en el RS-485, los blanco/azul de 0,32 mm² no salen por la salida de abajo.
+  - (2026-10-06, del Excel de aparamenta; detalle en la hoja «Para confirmar» del Excel de `2 - Resultados/Aparamenta
+    (BOMs por estación)/`):
+    - toma 11SK1 del PAE (Phoenix EO-I/UT): la foto de Phoenix dice N – PE – L de izquierda a derecha, y el mapeo
+      verificado tiene L a la izquierda («a confirmar»). Si se confirma, se intercambian 1181 y 1182; no se tocó;
+    - EXEMYS EGW1 (2026-10-07, del taller: «3 niveles, todos abajo»): tres enchufes abajo. El de adelante es el de más
+      abajo (1-4, verificado con la foto 1.6 del 76572), detrás 5-8 y más atrás HART. Falta una foto del rótulo del
+      costado para el orden de HTa / HGND. El lector del funcional no lee los nombres de borne escritos en tablas
+      (PP: 1317, 3301, 3302 sin borne; 2135/2136 no llegan al 33EXM).
+  - Resuelto el 2026-10-07: PSR-SCP en AutoCAD, 13/14 en el enchufe de adentro de abajo (foto 1.6 del 76572: 2114 / 2115);
+    parada de emergencia del mSafe1 PP = NC (ZBE102): **cuando la lista de materiales y el dibujo del funcional no
+    coinciden, manda el dibujo del funcional** (regla del taller).
 
 ## Estado (2026-10-02)
 
@@ -234,11 +291,9 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
     - **Base TPT:** `pruebas/bases/base_tpt_ronda3.json` (83 líneas, 16 pendientes, 0 sueltos). Pruebas:
       `pruebas/probar_ronda2_topo.py` y `pruebas/probar_ronda3.py`.
     - **`base_66817.json` regenerada:** 32XAIB/43XDIB aparato por aparato.
-  - **Modelos que faltan en el catálogo de bornes** (para el Excel de aparamenta):
-    - TPT: ABB SH 202 C10, Phoenix PT 4, ABB E 91/32, MOXA ioLogik R1240-T.
-    - Varios productos: EPEVER Tracer, Schneider VBF1, ODOT, EXEMYS, PSR-SCP, ABB DS201, Red Lion E3, P+F KCD2, OMRON
-      HL-5200, ZBE-101, etc.
-    - Detalle: `scratchpad` del 2026-10-02 (`reg3/faltantes.json`), a rehacer con el Excel.
+  - **Modelos que faltaban en el catálogo de bornes:** cargados el 2026-10-06 con el Excel de aparamenta (ver
+    «Catálogo de aparatos» en Pendientes). Quedan afuera los de productos que no están en el Excel (FCS / dFRAC: ABB
+    DS201, Red Lion E3, P+F KCD2, Turck...) y los de puerta (VBF1, ZBE10x, HL-5200), que se cablean en E8.
 - (Historia) La corrección del TPT se había diagnosticado y pausado antes; el diagnóstico sigue en `pendiente/tpt_diagnostico/`.
   - En `pendiente/tpt_diagnostico/` están:
     - `LEEME.md`: cada error con la verdad del funcional, la causa en el código y el arreglo propuesto;

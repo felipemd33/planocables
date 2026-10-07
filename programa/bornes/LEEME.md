@@ -80,6 +80,11 @@ No se toca el código: se agrega una entrada en `catalogo.json`. Todas las medid
    - `disposicion`;
    - `nombres`;
    - `fuente`: de dónde salió la información.
+   - `sap`: los códigos de material SAP del taller que corresponden a ese modelo (ver «Aparamenta» abajo). Un mismo
+     código puede estar en dos modelos si el taller lo compra de dos marcas (la termomagnética 2x10A es Easy9 o ABB).
+   - En las `filas` de un aparato con enchufes (relé de seguridad, módulos), `paso_mm` en el grupo hace que el motor
+     busque la serie de tornillos con ese paso más cercana a la etiqueta: no mezcla el enchufe del aparato vecino y, si
+     un tornillo está dibujado distinto y no se reconoce, lo completa con el paso (confianza media).
 3. **Barrera u otro aparato que el bloque no dibuja.** Si el bloque del plano es de otra biblioteca y no dibuja un tornillo por borne, se agrega `cuerpo`:
    - `pines`, cada uno con `dx_mm` desde el centro y `dy_mm` desde el borde de arriba o de abajo (`desde`), en el aparato real;
    - el motor busca las **filas dibujadas** del bloque, como tornillos, ranuras o lengüetas;
@@ -92,6 +97,28 @@ No se toca el código: se agrega una entrada en `catalogo.json`. Todas las medid
 
 Si un modelo necesita una forma de boca que no existe todavía, hay que agregar una primitiva en `primitivas.py`. Es el único caso en que se toca código. Al cambiar el motor, hay que subir `VERSION` en `motor.py` para que los trabajos recalculen el cache.
 
+Los modelos nuevos van **al final** de `modelos`: sin lista de materiales, si dos modelos explican igual un dibujo, gana el
+que está primero, y así un modelo nuevo no le cambia el resultado a un plano que ya andaba.
+
+## Aparamenta (Excel «BOMs por estación» de SAP)
+
+`aparamenta.json` tiene cada material del Excel del taller (código SAP, texto, estación, productos donde aparece) con lo
+que es: clase (bornera, aparato, accesorio de bornera, fusible, componente, puerta, campo, cable, electrónica,
+hidráulica, mecánica, etiqueta), fabricante, modelo comercial, código del fabricante y el modelo del catálogo que ubica
+sus bornes (`catalogo`). Si un aparato con bornes no necesita modelo (va en la lateral, borne de tierra sin número),
+`motivo_sin_modelo` dice por qué.
+
+Cuando llega el Excel actualizado:
+
+```
+python aparamenta.py "C:\...\BOMs Por Estación .xlsx"
+```
+
+Actualiza texto, estación y productos, conserva lo identificado y deja los códigos nuevos con `revisar`. Después da el
+informe: aparatos de la bandeja sin modelo en el catálogo, códigos SAP que faltan en el `sap` de su modelo y códigos para
+revisar. Sin argumento solo da el informe. Para un código nuevo: identificarlo (hoja de datos), completar su renglón y,
+si tiene bornes en la bandeja, cargar su modelo en `catalogo.json` (con el código en `sap`).
+
 ## Archivos
 
 | archivo | qué es |
@@ -99,7 +126,14 @@ Si un modelo necesita una forma de boca que no existe todavía, hay que agregar 
 | `__init__.py` | Lo que usa el programa: `aplicar_al_layout` (todo junto), `mapear_trabajo` (motor con cache), `componer_bornes` (automático + manual). |
 | `motor.py` | El motor (`Motor(pdf, usos, catalogo, materiales).mapear()`). Se puede correr suelto para pruebas. |
 | `primitivas.py` | Formas genéricas: círculo, contorno, tornillo cortado, caja. |
-| `catalogo.json` | Los modelos de bornes y aparatos (17 hoy), con sus medidas en mm y las reglas de nombres. |
+| `catalogo.json` | Los modelos de bornes y aparatos (25 hoy), con sus medidas en mm, las reglas de nombres y sus códigos SAP. |
+| `aparamenta.json`, `aparamenta.py` | El Excel «BOMs por estación» de SAP con lo que es cada material y su modelo del catálogo (ver «Aparamenta»). |
 | `medir.py` | Ayuda para medir un bloque y agregar un modelo. |
 
 Probado con el 75286/75287 (140 de 140 puntos con la lista de materiales del funcional; el instructivo sale igual al verificado) y con el 66817 (104 de 104).
+
+Modelos agregados el 2026-10-06 con el Excel de aparamenta y las hojas de datos: PT4, PT6, PSR-SCP (relé de seguridad), ABB-SH202, EO-I-UT (toma Phoenix), DF141, MOXA-R1240 y EXEMYS-EGW1. Probados con el mSafe1 PP (76425/76426: 46KR, 33EXM) y el TPT (72715/72887: 11Q1 verificado con fotos, 33MX01). Los que tienen `solo_por_lista: true` se usan solo si la lista de materiales los nombra; nunca se eligen por el dibujo para otro aparato de su familia.
+
+Corregido el 2026-10-07 con las fotos E06 del mSafe1 PP 76572 (`1.6.jpeg`, `1.2.jpeg`):
+- **EXEMYS-EGW1:** tres enchufes, todos abajo; arriba no tiene bornes. El de adelante es el de más abajo (fila 0, el que dibuja el bloque): 1 +VIN, 2 PGND, 3 RGND, 4 IGND (1316 y 1317 en la foto). Detrás, hacia el riel: 5-8 (TXa, RXa, TRb+, TRb−) y el puerto HART (HTa, HGND). Al revés que en los Phoenix, acá el enchufe de afuera es el de adelante. El orden HTa / HGND y los corrimientos de 9 y 18 mm son supuestos: falta una foto del rótulo del costado.
+- **PSR-SCP:** 13 y 14 en el enchufe de adentro de abajo (2114 / 2115 del 46KR1), como estaba.

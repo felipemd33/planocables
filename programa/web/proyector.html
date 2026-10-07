@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proyector · Listado de cables</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23b6ff00' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%2300e5ff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/proyector.css">
+</head>
+<body>
+<!-- fondo negro: lo que no se dibuja no se proyecta. En calibración, arrastrarlo mueve toda la proyección -->
+<div id="fondo"></div>
+<!-- capa proyectada: la bandeja en pt del topográfico (1 pt = 1 px antes de la homografía) -->
+<div id="capa"><svg id="svg" xmlns="http://www.w3.org/2000/svg"><g id="gFijo"></g><g id="gCable"></g></svg></div>
+<!-- miras de calibración: una por orificio de montaje de la placa, se arrastran hasta el orificio real -->
+<div id="pins" hidden></div>
+
+<!-- ventana de texto: origen y destino del cable con su terminal. Se mueve por el título y se agranda por la esquina -->
+<div id="ventana" class="ventana" hidden>
+  <div class="v-h" id="vH">
+    <span class="num" id="vNum">—</span><i class="sw" id="vSw"></i><span class="col" id="vCol"></span><span class="sec" id="vSec"></span>
+    <span class="pos" id="vPos"></span>
+    <span class="v-acts">
+      <button class="vb" id="vMenos" title="Letra más chica">A−</button><button class="vb" id="vMas" title="Letra más grande">A+</button>
+      <button class="vb" id="vLugar" title="Volver a ponerla en la parte vacía de la bandeja">⤓</button>
+      <button class="vb" id="vCerrar" title="Ocultar la ventana (V para volver a verla)">✕</button>
+    </span>
+  </div>
+  <div class="v-b" id="vB"></div>
+</div>
+
+<!-- panel de calibración -->
+<div id="calib" class="calib" hidden>
+  <b>🎯 Calibrar con los orificios de la placa</b>
+  <div class="small">Arrastrá cada mira (1 a 4) hasta el <b>orificio real</b> de esa esquina de la bandeja. Las canaletas proyectadas tienen que caer sobre las de verdad.</div>
+  <div class="small muted">Arrastrar el fondo: mover todo · Rueda: agrandar / achicar todo · 1-4: elegir mira · Flechas: moverla de a 1 px (Shift: 10, Alt: fino) · G: girar la bandeja 90° · R: reiniciar · Enter: listo</div>
+  <div class="small" id="calibOrif"></div>
+  <div class="small" id="calibGiro"></div>
+  <div class="calib-acts"><button class="btn" id="calibReset">↺ Reiniciar</button><button class="btn primary" id="calibOk">✔ Listo</button></div>
+</div>
+
+<!-- barra de botones (se esconde sola cuando no se mueve el mouse) -->
+<div id="barra" class="barra">
+  <button class="btn" id="bPrev" title="Cable anterior (←)">‹ Anterior</button>
+  <button class="btn" id="bOk" title="Marcar / desmarcar como cableado (Espacio)">☐ Cableado</button>
+  <button class="btn primary" id="bNext" title="Siguiente cable: marca este como cableado (→)">Siguiente ›</button>
+  <span class="sep"></span>
+  <button class="btn" id="bCalib" title="Calibrar la proyección con los orificios de la placa (C)">🎯 Calibrar</button>
+  <button class="btn" id="bFull" title="Pantalla completa (F)">⛶ Pantalla completa</button>
+  <button class="btn" id="bVent" title="Mostrar / ocultar la ventana de texto (V)">🪟 Ventana</button>
+  <details class="opc" id="opc">
+    <summary class="btn" title="Opciones de lo que se proyecta">⚙ Ver</summary>
+    <div class="opc-m">
+      <label><input type="checkbox" id="oRotulos"> Rótulos con el número (L)</label>
+      <label><input type="checkbox" id="oRieles"> Rieles (R)</label>
+      <label><input type="checkbox" id="oBorde"> Borde de la placa (B)</label>
+      <label><input type="checkbox" id="oColor"> Recorrido del color del cable</label>
+      <label><input type="checkbox" id="oExtremos"> Marcar también las puntas de los otros tramos</label>
+      <div class="opc-r">Grosor <button class="vb" id="oGrosorMenos">−</button><span id="oGrosor">1</span><button class="vb" id="oGrosorMas">+</button></div>
+      <div class="opc-r">Brillo <button class="vb" id="oBrilloMenos">−</button><span id="oBrillo">100 %</span><button class="vb" id="oBrilloMas">+</button></div>
+      <div class="opc-r" title="Cómo está puesta la bandeja en la mesa respecto del dibujo (G: girar 90° más). Al cambiarlo hay que calibrar de nuevo">Giro de la bandeja
+        <span class="giros" id="oGiro"><button class="vb" data-g="0">0°</button><button class="vb" data-g="90">90°</button><button class="vb" data-g="180">180°</button><button class="vb" data-g="270">270°</button></span></div>
+    </div>
+  </details>
+  <span class="sep"></span>
+  <span class="estado" id="estado"></span>
+</div>
+
+<!-- sin cable todavía -->
+<div id="espera" class="espera">
+  <div class="esp-c">
+    <h1>📽 Proyector del instructivo</h1>
+    <p>Esta pestaña proyecta sobre la bandeja real las canaletas y el recorrido del cable que se está cableando.</p>
+    <ol>
+      <li><b>Llevala a la pantalla del proyector</b>: arrastrá la pestaña fuera de la ventana y soltala en el proyector (pantalla extendida). Después <b>F</b> o ⛶ para pantalla completa.</li>
+      <li><b>Calibrá</b> con <b>C</b> o 🎯: arrastrá cada mira hasta el orificio real de esa esquina de la placa.</li>
+      <li>En la ventana principal abrí <b>▶ Cablear de a uno</b>: acá se ve el mismo cable. Con <b>→</b> y <b>←</b> (también acá, o con un control de presentaciones) pasás al siguiente y lo marcás como cableado.</li>
+    </ol>
+    <p class="small muted" id="espMsg">Esperando a la ventana principal…</p>
+  </div>
+</div>
+<div id="toast" class="toast" hidden></div>
+<script src="/static/proyector.js"></script>
+</body>
+</html>

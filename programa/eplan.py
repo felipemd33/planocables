@@ -39,7 +39,7 @@ CAB_DOC = re.compile(r'(?i)^(doc\.?|documento:?|document:?)$')
 VERSION = 1
 # version del lector de la hoja de bandejas (layout): se guarda en layout.json y, si cambia, web.gen_instructivo vuelve
 # a leer el topografico de los trabajos existentes (ver topo.VERSION_LECTOR). SUBIRLA cuando cambie layout().
-VERSION_LECTOR = '2026.10.05-e8'
+VERSION_LECTOR = '2026.10.06-e8-bateria'    # estaciones_tag del mapeo: bateria y solenoides en E8 (regla del taller)
 
 _CACHE = collections.OrderedDict()          # firma del PDF -> textos de las hojas
 _COPIAS = {}                                 # firma -> copia de proceso sin proteccion

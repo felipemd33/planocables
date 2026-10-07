@@ -5,7 +5,7 @@
  "pagina_bandejas": 8,
  "escala_mm_por_pt": 1.41111,
  "fuente": "2 - Resultados/76884 mSafe2+ PAE/mapeo (conexiones.json, puntos_*.json + correcciones_*.json, bandejas.json), verificado por agentes el 2026-10-02",
- "exportado": "2026-10-02 17:51",
+ "exportado": "2026-10-06 07:12",
  "unidades": "x, y, r en pt de la hoja de bandejas (pagina PDF 8), origen abajo a la izquierda",
  "clave": "<designacion EPLAN tal cual en la lista de conexiones>#<numero de cable> (\"#s/n\" si el renglon no tiene numero)",
  "estaciones_tag": {
@@ -15,7 +15,11 @@
   "BH-01-M": "E8",
   "PT001": "E8",
   "LS001A": "E8",
-  "X1": "E8"
+  "X1": "E8",
+  "12PB1": "E8",
+  "SP_1": "E8",
+  "SP_2": "E8",
+  "SP_3": "E8"
  },
  "canaletas_intrinsecas": [
   [
@@ -2715,8 +2719,12 @@
   "-12F2:2#1209": "12F2 2",
   "-BH_01_ZV:1#1209": "BH_01_ZV 1",
   "-12F2:1#1211": "12F2 1",
+  "-12PB1:(+)#1211": "12PB1 (+)",
   "-BH-01-M:2#1218": "BH-01-M 2",
+  "-12PB1:(-)#1218": "12PB1 (-)",
   "-BH_01_ZV:A2#1218": "BH_01_ZV A2",
+  "-12PB1:-#1206": "12PB1 -",
+  "-12PB1:+#1202": "12PB1 +",
   "-X1:1#1339": "empalme con LS001A 1 Marron (+)",
   "-X1:1#1340": "empalme con LS001A 2 Azul (-)",
   "-X1:1#2166": "empalme con LS001A 3 Negro",
@@ -2731,6 +2739,12 @@
   "-LS001A:2#s/n": "LS001A 2",
   "-LS001A:3#s/n": "LS001A 3",
   "-LS001A:4#s/n": "LS001A 4",
-  "-BH_01_ZV:A1#6151": "BH_01_ZV A1"
+  "-BH_01_ZV:A1#6151": "BH_01_ZV A1",
+  "-SP_1:x2#6162": "SP_1 x2",
+  "-SP_2:x2#6163": "SP_2 x2",
+  "-SP_3:x2#6164": "SP_3 x2",
+  "-SP_1:x1#6152": "SP_1 x1",
+  "-SP_2:x1#6153": "SP_2 x1",
+  "-SP_3:x1#6154": "SP_3 x1"
  }
 }

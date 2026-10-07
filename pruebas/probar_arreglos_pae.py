@@ -114,7 +114,7 @@ _, lineas3, _ = armar(res3, lay)
 n_antes = sum(1 for l in lineas if l['num'] == '2135' and l['origen'] == '81XCM 7 ARRIBA')
 n3 = sum(1 for l in lineas3 if l['num'] == '2135' and l['origen'] == '81XCM 7 ARRIBA')
 chequear(n_antes == 1 and n3 == 2, f'2135 con un segundo tramo 81XCM 7 ARRIBA -> LI (otro punto de afuera): {n_antes} -> {n3} lineas')
-chequear(len(lineas) == 143, f'PAE sin cambios: {len(lineas)} lineas E6')
+chequear(len(lineas) == 136, f'PAE sin cambios: {len(lineas)} lineas E6 (136: bateria 12PB1 y solenoides SP_x en E8 desde el 2026-10-06)')
 
 print('C. otra estacion (E8): texto real del destino')
 otra = {(l['num'], l['origen']): l['destino'] for l in ins['otra_estacion'] if not l.get('pendiente')}
@@ -122,7 +122,7 @@ esperado = {('3221', '32XAI F1 ABAJO'): 'PT001 x1', ('3222', '32XAI 1 ABAJO'): '
             ('1339', '13X24V 2.2'): 'empalme con LS001A 1 Marron (+)', ('1340', '13X24V 4.3'): 'empalme con LS001A 2 Azul (-)'}
 for k, v in esperado.items():
     chequear(otra.get(k) == v, f'{k[0]}: {k[1]} -> {otra.get(k)} (esperado {v})')
-chequear(len(ins['otra_estacion']) == 16, f"16 en otra estacion: {len(ins['otra_estacion'])}")
+chequear(len(ins['otra_estacion']) == 24, f"24 en otra estacion (16 + bateria y solenoides): {len(ins['otra_estacion'])}")
 base = json.load(open(os.path.join(RAIZ, 'pruebas', 'bases', 'base_76884.json'), encoding='utf-8'))
 chequear([(l['num'], l['origen'], l['destino']) for l in lineas] == [(l['num'], l['origen'], l['destino']) for l in base['lineas']],
          'lineas E6 iguales a la base (siguen con LI donde corresponde)')

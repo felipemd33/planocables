@@ -1,0 +1,2249 @@
+{
+ "descripcion": "Aparamenta del taller (Excel 'BOMs por estacion' de SAP): cada material con su estacion, los productos donde aparece y lo que es (clase, fabricante, modelo comercial, codigo del fabricante). 'catalogo' = modelo de catalogo.json que ubica sus bornes en el topografico; 'motivo_sin_modelo' = por que no lo necesita. Se actualiza con: python programa/bornes/aparamenta.py \"<Excel>\" (conserva lo identificado; los codigos nuevos quedan con 'revisar').",
+ "clases": {
+  "bornera": "borne de riel que se cablea (lleva modelo en el catalogo)",
+  "accesorio de bornera": "tapa final, extremo, puente: no se cablea",
+  "aparato": "aparato con bornes que se cablea en la bandeja o en la lateral (lleva modelo en el catalogo)",
+  "fusible": "cartucho que va dentro de un portafusible o borne: no se cablea",
+  "componente": "resistencia o diodo que se monta en un borne",
+  "puerta": "se monta en la puerta (E1) y se cablea en E8",
+  "campo": "sensor, valvula, motor o conector de la zona hidraulica: se cablea en E8",
+  "cable": "cable, terminal o cubre terminal",
+  "electronica": "placa de control y su frente (E4)",
+  "hidraulica": "fittings, mangueras, manifolds, tapones (E7 / E9)",
+  "mecanica": "gabinete, soportes, separadores, prensacables, protecciones",
+  "etiqueta": "etiquetas, carteles y placas de identificacion"
+ },
+ "materiales": {
+  "51228-1": {
+   "texto": "FRENTE DE ALUMINIO CONT. ELECTRONICO E2",
+   "estacion": "E4",
+   "pickeo": "Caja para E4",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "electronica",
+   "modelo": "Frente de aluminio del controlador electronico",
+   "catalogo": null
+  },
+  "61583-1": {
+   "texto": "SOPORTE PARA BATERIA 12V 7AH- SAE 1010",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "62028-1": {
+   "texto": "ETIQUETA AUTOAD. ACOMETIDA ELECT.-mSafe",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe YPF"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "65940-1": {
+   "texto": "CONJ. SOPORTE P-BATERIAS mSand-E2",
+   "estacion": "E10",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "66031-1": {
+   "texto": "SOPORTE BOMBA HIDRÁULICA",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "66336-1": {
+   "texto": "GABINETE 800x940x400 C/CONTRATAP BATFER",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "69112-1": {
+   "texto": "SOPORTE FUSIBLES DE REPUESTO - IMP 3D",
+   "estacion": "E8",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "71158-1": {
+   "texto": "GABINETE CHAPA PINTADA 600x800x350",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "71787-1": {
+   "texto": "SOPORTE PARA TRACER 5210BP",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "72926-1": {
+   "texto": "ETIQUETA CONEXION A CAMPO 72715",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe TECPE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "73087-1": {
+   "texto": "SOPORTE DOOR SWITCH OMRON",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "mecanica",
+   "modelo": "Soporte del door switch OMRON",
+   "catalogo": null
+  },
+  "73821-1": {
+   "texto": "CARTEL ACRÍLICO OFF/ON",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "75028-1": {
+   "texto": "MANIFOLD 3 EST. CETOP 3 PUERTO \"A\"",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "75229-1": {
+   "texto": "ETIQUETA AUTOAD. ACOMETIDA ELECT.-mSafe",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe SHELL"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "75587-1": {
+   "texto": "MANIFOLD DE CONEXIÓN mSafe2/3 AC",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "76056-1": {
+   "texto": "GABINETE STD mSafe 800x940x500",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76057-1": {
+   "texto": "CONJ. SOPORTE P-BATERIAS mSafe STD",
+   "estacion": "E10",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76239-1": {
+   "texto": "PROTECCION 220V - mSAFE3 PP",
+   "estacion": "E10",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76242-1": {
+   "texto": "PROTECCION 220V + BONERAS - mSAFE3 PP",
+   "estacion": "E10",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76247-1": {
+   "texto": "FRENTE AUTOAD. DIGITO",
+   "estacion": "E4",
+   "pickeo": "Caja para E4",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "electronica",
+   "modelo": "Frente autoadhesivo Digito",
+   "catalogo": null
+  },
+  "76254-1": {
+   "texto": "PROTECCION TRASERA PARA PLACA E2.5",
+   "estacion": "E8",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76260-1": {
+   "texto": "VENTEO Y DESAGOTE PARA GABINETE",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76343-1": {
+   "texto": "PLACA IDENT. \"PARADA DE EMERGENCIA\" ROJO",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76343-2": {
+   "texto": "PLACA IDENT. \"ENCENDIDO / APAGADO\" B/N",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76343-3": {
+   "texto": "PLACA IDENT. \"ALIMENTACION / CARGA\" B/N",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76343-4": {
+   "texto": "PLACA IDENT. \"VSS 1\" B/N",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76343-6": {
+   "texto": "PLACA IDENT. \"VSM\" B/N",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76343-7": {
+   "texto": "PLACA IDENT. \"VSS 2\" B/N",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76345-1": {
+   "texto": "CARTEL NIVEL DE ACEITE MAXIMO",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76345-2": {
+   "texto": "CARTEL NIVEL DE ACEITE MÍNIMO",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76346-1": {
+   "texto": "CARTEL TAG POZO B/N (A COMPLETAR)",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76347-1": {
+   "texto": "ETIQUETA RIESGO ELÉCTRICO",
+   "estacion": "E10",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76348-1": {
+   "texto": "ETIQUETA AUTOAD. BANDERA ARGENTINA",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76358-1": {
+   "texto": "ETIQUETA AUTOAD. FRENTE - \"DIGITO\"",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76380-1": {
+   "texto": "ETIQUETA AUTOAD. \"MSAFE\"",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76391-1": {
+   "texto": "ETIQUETA CONEXION A CAMPO mSafe2 AC",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76411-1": {
+   "texto": "SEPARADOR 145MM AISI 1010/20 ZINC.",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76515-1": {
+   "texto": "JUEGO DE PLACAS DE IDENT. - mSafe2 AC",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76591-1": {
+   "texto": "MANIFOLD DE CONEXIÓN mSafe1 EST",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "76601-1": {
+   "texto": "CHAPA ADAPTACIÓN MANIFOLD",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "76656-1": {
+   "texto": "PROTECCION 220V - mSafe EST YPF",
+   "estacion": "E10",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76657-1": {
+   "texto": "SEPARADOR 110MM AISI 1010/20 ZINC.",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "76870-1": {
+   "texto": "ETIQUETA CONEXION A CAMPO mSafe2+PAE",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "76936-1": {
+   "texto": "ETIQUETA CONEXION A CAMPO mSafe1 PP EST",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "etiqueta",
+   "catalogo": null
+  },
+  "AB0120601": {
+   "texto": "DESFOGUE MANUAL A CARTUCHO",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB0130035": {
+   "texto": "ADAPTADOR 1/4\"NPT H-1/4\"BSP M-ADN2-2-316",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB1202653": {
+   "texto": "FUENTE SWITCHING 110/220VAC - 24VCC 10A",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "aparato",
+   "fabricante": "MEAN WELL",
+   "modelo": "NDR-240-24 (fuente 110/220 VAC a 24 VDC 10 A)",
+   "codigo_fabricante": "NDR-240-24",
+   "catalogo": "MEANWELL-NDR",
+   "nota": "63 x 125,2 mm. TB2 arriba: -V -V +V +V; TB1 abajo: FG N L."
+  },
+  "AB12026561": {
+   "texto": "INTERRUPTOR TERMOMAGNETICO 2X10A CURVA C",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "aparato",
+   "fabricante": "SCHNEIDER / ABB",
+   "modelo": "Termomagnetica 2P 10 A curva C: Schneider Easy9 EZ9F34210 (PP, PAE) o ABB SH 202 C10 (TPT)",
+   "codigo_fabricante": "EZ9F34210 / 2CDS212001R0104",
+   "catalogo": "MCB-2P",
+   "nota": "El mismo codigo SAP se compro de dos marcas: el modelo lo dice la lista de materiales del plano (ABB SH 202 -> modelo ABB-SH202). Polos F izquierda, N derecha."
+  },
+  "AB1202717": {
+   "texto": "BORNERA REPARTIDORA DE TIERRA X7",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "bornera",
+   "fabricante": "ZOLODA",
+   "modelo": "BRC112507VE/N (bornera repartidora unipolar 7 conexiones, verde)",
+   "codigo_fabricante": "810.012",
+   "catalogo": null,
+   "motivo_sin_modelo": "barra de tierra de la lateral: cables de tierra sin numero",
+   "nota": "Barra de tierra de 7 tornillos (98,5 x 33,7 x 15 mm), en la lateral. Los cables de tierra van sin numero."
+  },
+  "AB1202838": {
+   "texto": "CONECTOR ETHERNET RJ45 AMPHENOL",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe YPF"
+   ],
+   "clase": "puerta",
+   "fabricante": "AMPHENOL",
+   "modelo": "Conector Ethernet RJ45 de panel",
+   "catalogo": null
+  },
+  "AB1202844": {
+   "texto": "EXTREMO ZOLODA EKN1",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "ZOLODA",
+   "modelo": "EKN1 (extremo / tope de bornera)",
+   "codigo_fabricante": "095.016",
+   "catalogo": null,
+   "nota": "Tope de riel NS 35 con tornillo; no tiene bornes. En el dibujo es el bloque con el tornillo con cruz junto a cada bornera."
+  },
+  "AB1202907": {
+   "texto": "Fusible 1A Vidrio - 5x20mm - F1AL250V",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "fusible",
+   "modelo": "Fusible 1 A vidrio 5x20 F1AL250V",
+   "catalogo": null,
+   "nota": "Va en el borne PTTB 4-HESI."
+  },
+  "AB1202912": {
+   "texto": "PORTAFUSIBLE 1X32A, 10x38mm - P/RIEL DIN",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "SCHNEIDER / ABB",
+   "modelo": "Portafusible 1P 10x38: Schneider DF101 o ABB E 91/32",
+   "codigo_fabricante": "DF101 / 2CSM200923R1801",
+   "catalogo": "DF101",
+   "nota": "Borne 1 arriba, 2 abajo. En el TPT la lista dice ABB E 91/32 (17,5 x 85 mm, misma disposicion)."
+  },
+  "AB12029122": {
+   "texto": "PORTAFUSIBLE 1P 14x51mm - SECCIONABLE",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "aparato",
+   "fabricante": "SCHNEIDER",
+   "modelo": "DF141 (portafusible 1P 14x51 seccionable)",
+   "codigo_fabricante": "DF141",
+   "catalogo": "DF141",
+   "nota": "26,5 x 107 mm; borne 1 arriba, 2 abajo."
+  },
+  "AB1202913": {
+   "texto": "FUSIBLE 6A - 10x38mm",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "fusible",
+   "modelo": "Fusible 6 A 10x38",
+   "catalogo": null,
+   "nota": "Va en el portafusible 10x38."
+  },
+  "AB1202914": {
+   "texto": "FUSIBLE 25A - 10x38mm",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "fusible",
+   "modelo": "Fusible 25 A 10x38",
+   "catalogo": null,
+   "nota": "Va en el portafusible 10x38."
+  },
+  "AB1202959": {
+   "texto": "FUSIBLE 20A - 10x38mm",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "fusible",
+   "modelo": "Fusible 20 A 10x38",
+   "catalogo": null,
+   "nota": "Va en el portafusible 10x38."
+  },
+  "AB12029592": {
+   "texto": "FUSIBLE gG 32A - 14x51mm",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "fusible",
+   "fabricante": "SCHNEIDER",
+   "modelo": "Fusible gG 32 A 14x51 (DF2EA32)",
+   "codigo_fabricante": "DF2EA32",
+   "catalogo": null,
+   "nota": "Va en el DF141."
+  },
+  "AB1202989": {
+   "texto": "RELE TEMPORIZADO FINDER 80.01 12-240V",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "FINDER",
+   "modelo": "80.01 (temporizador multifuncion 12-240 V)",
+   "codigo_fabricante": "80.01.0.240.0000",
+   "catalogo": "FINDER-80.01",
+   "nota": "A1/A2 y B1 arriba, 15/18 y 16 abajo."
+  },
+  "AB1203305": {
+   "texto": "DISYUNTOR DIFERENCIAL 2x25A 30mA",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "aparato",
+   "fabricante": "SCHNEIDER",
+   "modelo": "Easy9 RCCB EZ9R36225 (diferencial 2P 25 A 30 mA)",
+   "codigo_fabricante": "EZ9R36225",
+   "catalogo": "EASY9-RCCB-2P",
+   "nota": "N a la IZQUIERDA (al reves que la termomagnetica)."
+  },
+  "AB138111": {
+   "texto": "ACUMULADOR HD DE MEMBRANA 0.7Ltrs.210BAR",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB139861": {
+   "texto": "ioLogik R1240-T - 8AI - RS485 - MOXA",
+   "estacion": "E4",
+   "pickeo": "Caja para E4",
+   "productos": [
+    "mSafe TECPE"
+   ],
+   "clase": "aparato",
+   "fabricante": "MOXA",
+   "modelo": "ioLogik R1240-T (8 AI, RS-485)",
+   "codigo_fabricante": "ioLogik R1240-T",
+   "catalogo": "MOXA-R1240",
+   "nota": "27,8 x 124 mm. Frente: columna de 20 bornes (1/2 = AI0+/AI0- ... 15/16 = AI7+/AI7-); alimentacion (FG, V-, V+) y RS-485 (D1+, D1-, GND, D2+, D2-) en la cara de arriba. Para 4-20 mA hay que mover un jumper interno (viene en tension). El Excel lo pone en E4, pero en el TPT va en la bandeja (33MX01)."
+  },
+  "AB139867": {
+   "texto": "ELEVADOR 12V-24VCC MEAN WELL DDR-120A-24",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "MEAN WELL",
+   "modelo": "DDR-120A-24 (conversor 12 a 24 VDC)",
+   "codigo_fabricante": "DDR-120A-24",
+   "catalogo": "MEANWELL-DDR",
+   "nota": "32 x 125,2 mm. TB2 arriba: -Vo -Vo +Vo +Vo; TB1 abajo: FG -Vin +Vin."
+  },
+  "AB160581": {
+   "texto": "PRENSACABLE METÁLICO M16 SS304",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "AB160582": {
+   "texto": "PRENSACABLE METÁLICO M20 SS304",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "AB160583": {
+   "texto": "BORNE DE PASO PUSH-IN PT 4",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PT 4",
+   "codigo_fabricante": "3211757",
+   "catalogo": "PT4",
+   "nota": "Borne de paso push-in, 1 piso, una entrada por extremo; 6,2 x 56 mm."
+  },
+  "AB160584": {
+   "texto": "TAPA BORNE DE PASO PUSH-IN D-ST 4",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "D-ST 4 (tapa final)",
+   "codigo_fabricante": "3030420",
+   "catalogo": null,
+   "nota": "Tapa del PT 4 / PT 4-PE (2,2 mm)."
+  },
+  "AB2000012": {
+   "texto": "CUBRE TERMINAL ROJO 35MM",
+   "estacion": "E5",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "cable",
+   "modelo": "Cubre terminal rojo 35 mm",
+   "catalogo": null
+  },
+  "AB2000013": {
+   "texto": "CUBRE TERMINAL NEGRO 35MM",
+   "estacion": "E5",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "cable",
+   "modelo": "Cubre terminal negro 35 mm",
+   "catalogo": null
+  },
+  "AB2000017": {
+   "texto": "PORTAPLANOS PLÁSTICO A4 NSYDPA4",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "AB20000172": {
+   "texto": "RESISTENCIA 1 OHM 10W 5%",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe YPF"
+   ],
+   "clase": "componente",
+   "modelo": "Resistencia 1 ohm 10 W 5 %",
+   "catalogo": null
+  },
+  "AB2000022": {
+   "texto": "FINAL DE CARRERA NAC METALICO",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "puerta",
+   "fabricante": "OMRON",
+   "modelo": "HL-5200 (final de carrera de puerta)",
+   "codigo_fabricante": "HL-5200",
+   "catalogo": null,
+   "nota": "Doble ruptura: NC = 1-2, NO = 3-4 (no tiene COM)."
+  },
+  "AB2000029": {
+   "texto": "MPPT TRACER5210BP - Cargador solar",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "EPEVER",
+   "modelo": "Tracer 5210BP (cargador solar MPPT 50 A)",
+   "codigo_fabricante": "Tracer5210BP",
+   "catalogo": null,
+   "motivo_sin_modelo": "va en la bandeja lateral (LI): en el instructivo de la bandeja sus cables salen a LI",
+   "nota": "NO tiene bornera: es IP68 y le salen cables propios por un extremo corto (sensor de temperatura, PV +/-, BAT +/-, LOAD +/-, RS-485 en conector M12 de 4 pines). 153 x 105 x 52 mm, agujeros a 120 x 94 mm. Va en la LATERAL (LI) con el soporte 71787-1: en E6 sus cables salen a LI."
+  },
+  "AB20000291": {
+   "texto": "MPPT TRACER7810BP - CARGADOR SOLAR",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "aparato",
+   "fabricante": "EPEVER",
+   "modelo": "Tracer 7810BP (cargador solar MPPT)",
+   "codigo_fabricante": "Tracer7810BP",
+   "catalogo": null,
+   "motivo_sin_modelo": "va en la bandeja lateral (LI): en el instructivo de la bandeja sus cables salen a LI",
+   "nota": "Igual que el 5210BP (cables propios de 6 mm2, IP68). Va en la LATERAL (LI). En el PAE (EPLAN) lo cubre el mapeo verificado."
+  },
+  "AB2000033": {
+   "texto": "SECCIONADOR PARO EMERGENCIA P/PUERTA 20A",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "puerta",
+   "fabricante": "SCHNEIDER",
+   "modelo": "TeSys Vario VCF01 (seccionador de emergencia 20 A, manija roja / frente amarillo)",
+   "codigo_fabricante": "VCF01",
+   "catalogo": null,
+   "nota": "Polos 1/L1-2/T1, 3/L2-4/T2, 5/L3-6/T3."
+  },
+  "AB20000331": {
+   "texto": "SECCIONADOR ROTATIVO NEGRO P/PUERTA 32A",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "puerta",
+   "fabricante": "SCHNEIDER",
+   "modelo": "TeSys Vario VBF1 (seccionador rotativo 32 A, manija negra)",
+   "codigo_fabricante": "VBF1",
+   "catalogo": null,
+   "nota": "El mSafe1 PP lo nombra 11MS1 (VBF1). Polos 1/L1-2/T1, 3/L2-4/T2, 5/L3-6/T3."
+  },
+  "AB2000044": {
+   "texto": "I/O MODULO 8AI 4-20MA A MODBUS RTU ODOT",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "aparato",
+   "fabricante": "ODOT",
+   "modelo": "BOXIO B32-MR-3B-00 (placa BN-8011 Modbus RTU + modulo BT-3238 de 8 AI 4-20 mA)",
+   "codigo_fabricante": "B32-MR-3B-00",
+   "catalogo": null,
+   "nota": "28 x 110 mm. Frente: enchufe push-in de 20 polos (paso 3,5 mm, dos columnas de 10): 1-8 AI0..AI7, 11-18 GND. Arriba: bornera de la placa BN-8011 (24V, 0V, PE, A+, B-, GND). No hay plano acotado y el funcional del mSafe1 PP no nombra sus bornes: por eso no tiene modelo todavia (sus cables quedan en la etiqueta)."
+  },
+  "AB2000050": {
+   "texto": "PROTECCION P/PULS.EMERG.TIPO HONGO Ø22",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "puerta",
+   "fabricante": "SCHNEIDER",
+   "modelo": "ZBZ1605 (guarda para hongo de 40 mm)",
+   "codigo_fabricante": "ZBZ1605",
+   "catalogo": null,
+   "nota": "Sin contactos."
+  },
+  "AB2000051": {
+   "texto": "PULSADOR HONGO 22 ROJO C/RETENCION 1/4 G",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "puerta",
+   "fabricante": "SCHNEIDER",
+   "modelo": "Harmony XB4BS8442 (hongo rojo 40 mm, girar para soltar, 1 NC)",
+   "codigo_fabricante": "XB4BS8442",
+   "catalogo": null
+  },
+  "AB2000061": {
+   "texto": "SOPORTE MODULO TOMA CORRIENTE P/RIEL DIN",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "aparato",
+   "fabricante": "VIVION",
+   "modelo": "Soporte de modulo toma corriente para riel DIN",
+   "catalogo": "TOMA-IRAM-DIN",
+   "nota": "Junto con AB2000062."
+  },
+  "AB2000062": {
+   "texto": "MODULO TOMA CORRIENTE IRAM",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "aparato",
+   "fabricante": "VIVION",
+   "modelo": "Modulo toma corriente IRAM",
+   "catalogo": "TOMA-IRAM-DIN",
+   "nota": "Bornes N - PE - L abajo, de izquierda a derecha; todo se cablea por abajo."
+  },
+  "AB2000067": {
+   "texto": "BORNE DOBLE PISO C/CUCHILLA PTT 2,5-2MT",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2MT",
+   "codigo_fabricante": "3210258",
+   "catalogo": "PTT2.5-2MT",
+   "nota": "Doble piso con cuchilla seccionable en cada piso, gris (5,2 x 92,4 mm)."
+  },
+  "AB2000068": {
+   "texto": "BORNE DOBLE PISO AZUL CON CUCHILLA",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PTT 2,5-2MT BU",
+   "codigo_fabricante": "3210265",
+   "catalogo": "PTT2.5-2MT-BU",
+   "nota": "Igual que el gris, azul (intrinsecos)."
+  },
+  "AB2000069": {
+   "texto": "TAPA PARA BORNE DOBLE PISO SECCIONABLE",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "D-PTT 2,5-2MT-0,8 (tapa final)",
+   "codigo_fabricante": "3210300",
+   "catalogo": null,
+   "nota": "Tapa del PTT 2,5-2MT (0,8 mm)."
+  },
+  "AB2000070": {
+   "texto": "PILAS CR2032",
+   "estacion": "E4",
+   "pickeo": "Caja para E4",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "electronica",
+   "modelo": "Pila CR2032",
+   "catalogo": null
+  },
+  "AB2000072": {
+   "texto": "RESISTENCIA 120 OHM 1W 5%",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "componente",
+   "modelo": "Resistencia 120 ohm 1 W 5 %",
+   "catalogo": null,
+   "nota": "Terminacion de la linea RS-485 (borne de comunicacion)."
+  },
+  "AB2000079": {
+   "texto": "SELECTORA ARO METALICO D22 2POS 1NA 10A",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "puerta",
+   "fabricante": "SCHNEIDER",
+   "modelo": "Selectora de 2 posiciones 1 NA aro metalico 22 mm (probable XB4BD21)",
+   "codigo_fabricante": "XB4BD21",
+   "catalogo": null,
+   "nota": "Modelo deducido de la descripcion, sin confirmar."
+  },
+  "AB2000080": {
+   "texto": "BORNE CON DIODO INTEGRADO",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PT 2,5-DIO/L-R",
+   "codigo_fabricante": "3210224",
+   "catalogo": "PT2.5-DIO",
+   "nota": "Borne con diodo (supresion de las solenoides)."
+  },
+  "AB2000081": {
+   "texto": "TAPA PARA BORNE CON DIODO INTEGRADO",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "D-ST 2,5 (tapa final)",
+   "codigo_fabricante": "3030417",
+   "catalogo": null,
+   "nota": "Tapa del borne con diodo PT 2,5-DIO."
+  },
+  "AB2000101": {
+   "texto": "MANIFOLD C/ROSCA P/PT VIBO HYDRAULICS",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000102": {
+   "texto": "VALV. SOLENOIDE 12VCC NA 2/2",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe TECPE"
+   ],
+   "clase": "campo",
+   "modelo": "Valvula solenoide 12 VCC NA 2/2",
+   "catalogo": null,
+   "nota": "Solenoide: E8."
+  },
+  "AB2000105": {
+   "texto": "UNIDAD HIDRÁULICA 12VCC 0.75cc/Rev VIBO",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "campo",
+   "fabricante": "VIBO",
+   "modelo": "Unidad hidraulica 12 VCC 0,75 cc/rev",
+   "catalogo": null,
+   "nota": "Motor de bomba BH-01-M / BH-01-ZV: E8."
+  },
+  "AB2000134": {
+   "texto": "BARRERA SEG. INTRINSECA 4-20mA CHENZU",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "CHENZHU",
+   "modelo": "GS8536-EX (barrera de seguridad intrinseca, entrada analogica 4-20 mA / HART)",
+   "codigo_fabricante": "GS8536-EX",
+   "catalogo": "GS8536-EX",
+   "nota": "Enchufes de 3 bornes: arriba [1 2] afuera, [3 4 5], [6 7 8] adentro; abajo [9 10 11] adentro, [12 13 14] afuera."
+  },
+  "AB2000135": {
+   "texto": "BARRERA SEGURIDAD INTRINSECA DI CHENZU",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "CHENZHU",
+   "modelo": "GS8512-EX.22 (barrera de seguridad intrinseca, 2 entradas digitales)",
+   "codigo_fabricante": "GS8512-EX.22",
+   "catalogo": "GS8512-EX",
+   "nota": "Arriba [1 2], [3 4], [5 6]; abajo [9 10] afuera, [7 8] adentro."
+  },
+  "AB2000142": {
+   "texto": "MANÓM. 1/4\"NPT 0-4000PSI CONEX. INFERIOR",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000144": {
+   "texto": "TRANS.ELEC.PRESION 0-250 BAR 1/4\"M BSP",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "campo",
+   "modelo": "Transmisor de presion 0-250 bar 1/4\" BSP (PT-001)",
+   "catalogo": null,
+   "nota": "Zona hidraulica: E8. Marca segun el producto (NOSHOK, GEFRAN KS, ifm PT-250)."
+  },
+  "AB2000150": {
+   "texto": "PRENSACABLE METÁLICO M25 SS304",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "AB2000151": {
+   "texto": "MANG.R2 3/8\"L0.35M HG3/4\"JIC-MG 3/8\"BSP",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000152": {
+   "texto": "VALV. DE RETENCION 20 L/MIN CV08-P-05",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000198": {
+   "texto": "CONECT VALV SOLENOIDE PT 3101/3102",
+   "estacion": "E8",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "campo",
+   "modelo": "Conector de valvula solenoide PT 3101/3102",
+   "catalogo": null,
+   "nota": "E8."
+  },
+  "AB2000214": {
+   "texto": "CORREA C/VELCRO VELSTRAP NEGRO",
+   "estacion": "E10",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe YPF"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "AB2000215": {
+   "texto": "DIODO 10A 150V",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe YPF"
+   ],
+   "clase": "componente",
+   "modelo": "Diodo 10 A 150 V",
+   "catalogo": null
+  },
+  "AB2000219": {
+   "texto": "FUSIBLE 10A - 10x38mm",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "fusible",
+   "modelo": "Fusible 10 A 10x38",
+   "catalogo": null,
+   "nota": "Va en el portafusible 10x38."
+  },
+  "AB2000232": {
+   "texto": "PASACHAPA M 3/4\"UNF JIC x H 3/8\"NPT",
+   "estacion": "E8",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000234": {
+   "texto": "PASTILLA RELÉ 12V DC PHOENIX CONTACT",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "REL-MR-12DC/21 (pastilla de rele 12 V)",
+   "codigo_fabricante": "2961150",
+   "catalogo": "RIF-0-RPT",
+   "nota": "Va en el zocalo RIF-0-BPT/21; modulo completo RIF-0-RPT-12DC/21 = 2903371."
+  },
+  "AB2000235": {
+   "texto": "PASTILLA RELÉ 24V DC PHOENIX CONTACT",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "REL-MR-24DC/21 (pastilla de rele 24 V)",
+   "codigo_fabricante": "2961105",
+   "catalogo": "RIF-0-RPT",
+   "nota": "Va en el zocalo RIF-0-BPT/21; modulo completo RIF-0-RPT-24DC/21 = 2903370."
+  },
+  "AB2000273": {
+   "texto": "TAPON CIEGO D22MM P/CUBRIR ORIFICIOS",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "puerta",
+   "fabricante": "SCHNEIDER",
+   "modelo": "ZB5SZ3 (tapon ciego 22 mm)",
+   "codigo_fabricante": "ZB5SZ3",
+   "catalogo": null
+  },
+  "AB2000310": {
+   "texto": "FILTRO AIRE 1/2\" BSP 10µm 450 l/min",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000314": {
+   "texto": "TAPA FINAL D-PTTB 2,5",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe TECPE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "D-PTTB 2,5 (tapa final)",
+   "codigo_fabricante": "3211634",
+   "catalogo": null,
+   "nota": "Tapa del PTTB 2,5 (2,2 mm)."
+  },
+  "AB2000315": {
+   "texto": "BORNE DE PASO DOBLE PISO PUENTEABLE PUSH",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe TECPE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PTTB 2,5",
+   "codigo_fabricante": "3210567",
+   "catalogo": "PTT2.5",
+   "nota": "Doble piso push-in puenteable (5,2 x 68,2 mm). Impar = piso de abajo (boca del extremo)."
+  },
+  "AB2000319": {
+   "texto": "VALV. SOLENOIDE 12VCC NC VIBO HYDRAULICS",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe YPF"
+   ],
+   "clase": "campo",
+   "fabricante": "VIBO",
+   "modelo": "Valvula solenoide 12 VCC NC",
+   "catalogo": null,
+   "nota": "Solenoide: E8."
+  },
+  "AB2000320": {
+   "texto": "CONECT VALV SOLENOIDE 6201/6202",
+   "estacion": "E8",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "campo",
+   "modelo": "Conector de valvula solenoide 6201/6202",
+   "catalogo": null,
+   "nota": "E8."
+  },
+  "AB2000369": {
+   "texto": "BORNE DE PASO PT 6-QUATTRO",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PT 6-QUATTRO",
+   "codigo_fabricante": "3212934",
+   "catalogo": "PT6-QUATTRO",
+   "nota": "Borne de paso, 4 entradas (2 por extremo); texto N.p del taller."
+  },
+  "AB20003691": {
+   "texto": "BORNE DE PASO DOBLE PT 2.5-QUATTRO-PE",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PT 2,5-QUATTRO-PE",
+   "codigo_fabricante": "3209594",
+   "catalogo": null,
+   "motivo_sin_modelo": "borne de tierra: los cables de tierra no llevan numero y no entran al instructivo",
+   "nota": "Borne de TIERRA de 4 entradas (5,2 x 72,2 mm). Los cables de tierra no llevan numero: no entran al instructivo."
+  },
+  "AB2000370": {
+   "texto": "TAPA FINAL D-PT 6-QUATTRO",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "D-PT 6-QUATTRO (tapa final)",
+   "codigo_fabricante": "3212963",
+   "catalogo": null,
+   "nota": "Tapa del PT 6-QUATTRO (2,2 mm)."
+  },
+  "AB20003701": {
+   "texto": "TAPA FINAL D-ST 2,5-QUATTRO",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "D-ST 2,5-QUATTRO (tapa final)",
+   "codigo_fabricante": "3030514",
+   "catalogo": null,
+   "nota": "Tapa del PT 2,5-QUATTRO-PE (2,2 mm)."
+  },
+  "AB2000379": {
+   "texto": "TAPA FINAL D-PT 6",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "D-PT 6 (tapa final)",
+   "codigo_fabricante": "3212044",
+   "catalogo": null,
+   "nota": "Tapa del PT 6 (2,2 mm)."
+  },
+  "AB2000381": {
+   "texto": "BORNE DE PASO PT 6",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PT 6",
+   "codigo_fabricante": "3211813",
+   "catalogo": "PT6",
+   "nota": "Borne de paso push-in, 1 piso, una entrada por extremo; 8,2 x 57,7 mm."
+  },
+  "AB2000391": {
+   "texto": "CABLE COMUNICACION MPPT TRACER 5210BP",
+   "estacion": "E8",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe YPF"
+   ],
+   "clase": "cable",
+   "fabricante": "EPEVER",
+   "modelo": "Cable de comunicacion del Tracer 5210BP (M12 a RJ45, CC-4M12(M)-RJ45(J))",
+   "catalogo": null
+  },
+  "AB2000405": {
+   "texto": "BLOQUE CONTACTO 1NC",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "puerta",
+   "fabricante": "SCHNEIDER",
+   "modelo": "ZBE102 (bloque de contacto 1 NC)",
+   "codigo_fabricante": "ZBE102",
+   "catalogo": null
+  },
+  "AB2000408": {
+   "texto": "VALV.SOLENOIDE POPPET 30W 12VDC ATOS",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "campo",
+   "fabricante": "ATOS",
+   "modelo": "Valvula solenoide poppet 30 W 12 VDC (SP_1..3)",
+   "catalogo": null,
+   "nota": "Solenoides SP_x del PAE: E8."
+  },
+  "AB2000419": {
+   "texto": "ZÓCALO DE RELÉ PHOENIX CONTACT",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "aparato",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "RIF-0-BPT/21 (zocalo de rele push-in)",
+   "codigo_fabricante": "2900958",
+   "catalogo": "RIF-0-RPT",
+   "nota": "Contactos 11 / 14 / 12 desde el extremo (bajo la palanca); bobina A2 afuera y A1 adentro (lado del LED). 6,2 x 93 mm."
+  },
+  "AB2000435": {
+   "texto": "FUSIBLE MEGA 150A",
+   "estacion": "E8",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "fusible",
+   "fabricante": "LITTELFUSE",
+   "modelo": "Fusible MEGA 150 A (0298150.ZXEH)",
+   "codigo_fabricante": "0298150.ZXEH",
+   "catalogo": null,
+   "nota": "Va en el soporte MEGA (E8)."
+  },
+  "AB2000436": {
+   "texto": "BORNE CON FUSIBLE DOBLE PISO PTTB 4-HESI",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PTTB 4-HESI (5X20)",
+   "codigo_fabricante": "3211886",
+   "catalogo": "PTTB4-HESI",
+   "nota": "Doble piso con portafusible 5x20 (fusibles AB1202907 / AB2002917)."
+  },
+  "AB2000438": {
+   "texto": "TAPA PARA BORNE DOBLE PISO CON FUSIBLE",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "accesorio de bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "tapa final del PTTB 4-HESI",
+   "catalogo": null,
+   "nota": "Tapa del borne doble piso con fusible."
+  },
+  "AB2000440": {
+   "texto": "UNIDAD HIDRAULICA 12VDC-8L-1,8 l/m 3kpsi",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "campo",
+   "modelo": "Unidad hidraulica 12 VDC 8 L 1,8 l/min 3 kpsi",
+   "catalogo": null,
+   "nota": "Motor de bomba: E8."
+  },
+  "AB2000441": {
+   "texto": "SOPORTE PARA FUSIBLE MEGA TAPA ACRILICA",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "aparato",
+   "fabricante": "LITTELFUSE",
+   "modelo": "Soporte para fusible MEGA con tapa acrilica",
+   "catalogo": "MEGA-BASE",
+   "nota": "Dos esparragos (M8, unos 51 mm entre centros) fuera del riel; se cablea con 35 mm2 (E8)."
+  },
+  "AB2000444": {
+   "texto": "RELÉ DE SEGURIDAD SIL 3 - 4NA 1NC",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "aparato",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PSR-SCP-24UC/ESA2/4X1/1X2/B (rele de seguridad SIL 3, 4 NA + 1 NC)",
+   "codigo_fabricante": "2963802",
+   "catalogo": "PSR-SCP",
+   "nota": "22,5 x 99 mm. Arriba A1 S34 S33 S11 (afuera) y S12 51 52 A2 (adentro); abajo 43 44 13 14 (adentro) y 33 34 23 24 (afuera)."
+  },
+  "AB2000445": {
+   "texto": "MÓDULO EXEMYS EGW1-110-1-IA3-MB-HT",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "aparato",
+   "fabricante": "EXEMYS",
+   "modelo": "EGW1-110-1-IA3-MB-HT (gateway HART a Modbus)",
+   "codigo_fabricante": "EGW1-110-1-IA3-MB-HT",
+   "catalogo": "EXEMYS-EGW1",
+   "nota": "22,5 mm. Tres enchufes de 4 tornillos, todos abajo, escalonados hacia atras (arriba no tiene bornes). Adelante (el de mas abajo, el que se ve de frente): 1 +VIN, 2 PGND, 3 RGND, 4 IGND, verificado con la foto 1.6 del 76572; detras 5 TXa, 6 RXa, 7 TRb+, 8 TRb-; mas atras el puerto HART (HTa, HGND). El orden HTa / HGND y los corrimientos de los enchufes de atras son supuestos: falta una foto del rotulo del costado."
+  },
+  "AB2000447": {
+   "texto": "MANG.R2 3/8\"L0.4M 3/4\"UNF-1/4\"BSP C/MANG",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000449": {
+   "texto": "ORIFICIO CALIBRADO 0.5mm",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000454": {
+   "texto": "CABLE COM. MPPT TRACER 5210BP L: 0,2m",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe TECPE"
+   ],
+   "clase": "cable",
+   "fabricante": "EPEVER",
+   "modelo": "Cable de comunicacion del Tracer 5210BP (0,2 m)",
+   "catalogo": null
+  },
+  "AB2000455": {
+   "texto": "MANÓM. 1/4\"NPT 0-4000PSI CONEX. POST.",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000492": {
+   "texto": "BORNE DE TIERRA PT 4-PE",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "bornera",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "PT 4-PE",
+   "codigo_fabricante": "3211766",
+   "catalogo": "PT4",
+   "nota": "Borne de tierra (verde-amarillo), mismo cuerpo que el PT 4. En los planos a color sus bocas no se cuentan para numerar."
+  },
+  "AB2000494": {
+   "texto": "RESISTENCIA 250 OHM 1/2 W 1%",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "componente",
+   "modelo": "Resistencia 250 ohm 1/2 W 1 %",
+   "catalogo": null,
+   "nota": "Resistencia HART en la entrada 4-20 mA (R1 de 33AIB1 en el mSafe1 PP)."
+  },
+  "AB2000505": {
+   "texto": "SENSOR SWITCH NIVEL CAPACITIVO",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "campo",
+   "fabricante": "XKC",
+   "modelo": "Sensor de nivel capacitivo (XKC-Y28-NO, LS001A)",
+   "codigo_fabricante": "XKC-Y28-NO",
+   "catalogo": null,
+   "nota": "Zona hidraulica: E8, con empalmes."
+  },
+  "AB2000518": {
+   "texto": "BLOQUE CONTACTO 1 NC ZBE102",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "puerta",
+   "fabricante": "SCHNEIDER",
+   "modelo": "ZBE102 (bloque de contacto 1 NC)",
+   "codigo_fabricante": "ZBE102",
+   "catalogo": null,
+   "nota": "Parada de emergencia 46DB1 del mSafe1 PP: contacto NC, como dibuja el funcional (el taller, 2026-10-07: el funcional manda). La lista de materiales del funcional dice ZBE-101 (1 NA): es un error de la lista; va este ZBE102."
+  },
+  "AB2000522": {
+   "texto": "TERMINALES DE BATERIA COBRE + PROTECCION",
+   "estacion": "E5",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "cable",
+   "modelo": "Terminales de bateria de cobre + proteccion",
+   "catalogo": null,
+   "nota": "Puntas del cable de 35 mm2."
+  },
+  "AB2000574": {
+   "texto": "CONECT VALV SOLENOIDE SIN TAG",
+   "estacion": "E8",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "campo",
+   "modelo": "Conector de valvula solenoide sin tag",
+   "catalogo": null,
+   "nota": "E8."
+  },
+  "AB2000578": {
+   "texto": "PRENSACABLE METÁLICO M32 SS304",
+   "estacion": "E1",
+   "pickeo": "Cajón/Pallet E1",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "mecanica",
+   "catalogo": null
+  },
+  "AB2000580": {
+   "texto": "TAPA CETOP 3 CON ORINGS - HY FORCE",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000584": {
+   "texto": "ARANDELA SELLO METAL/GOMA - M33",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000591": {
+   "texto": "MANG.R2 3/8\"L0,96M 3/4\"UNF-1/4\"BSPP",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "AB2000593": {
+   "texto": "TOMA CORRIENTE TIPO I 250VAC 10A PHOENIX",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "aparato",
+   "fabricante": "PHOENIX CONTACT",
+   "modelo": "EO-I/UT (toma tipo I 250 VAC 10 A, riel DIN)",
+   "codigo_fabricante": "0804087",
+   "catalogo": "EO-I-UT",
+   "nota": "45 x 75 mm, tornillo M3. Bornes N - PE - L abajo, de izquierda a derecha (rotulo moldeado)."
+  },
+  "AB2002917": {
+   "texto": "Fusible 0,1A Rápido - 5x20mm",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "fusible",
+   "modelo": "Fusible 0,1 A rapido 5x20",
+   "catalogo": null,
+   "nota": "Va en el borne PTTB 4-HESI."
+  },
+  "AB500269": {
+   "texto": "TAPA CIEGA CETOP 3 CON ORINGS",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "ABB001ZZZ": {
+   "texto": "TAPON PARA RACOR 1/2 AISI 316 ABAC",
+   "estacion": "E9",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "B2M5T51A": {
+   "texto": "RECTO 3/8\" NPT-M x 3/8\"TUBO MWP 7500 PSI",
+   "estacion": "E8",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe TECPE",
+    "mSafe YPF"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "B2M6T61A": {
+   "texto": "RECTO 1/2\"NPT-M x 1/2\"TUBO MWP 6700 PSI",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "B2U11T51A": {
+   "texto": "RECTO 9/16 UNF-M x 3/8\"TUBO MWP 3000 PSI",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "BB1CC16000": {
+   "texto": "CODO 90º 1/4\"NPT-MX1/4\" NPT-H S5000 316",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "BF8HF00000": {
+   "texto": "ADAPTADOR 3/4 UNF C/ORING M x 1/2\" NPT H",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "BN00E10000": {
+   "texto": "TAPON PARA RACOR 3/8 AISI 316 ABAC",
+   "estacion": "E9",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "BN6C020000": {
+   "texto": "TAPÓN CAB. CIL. ALLEN 1/4\" BSPP",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "BN8H000000": {
+   "texto": "TAPON CABEZA HEXAGONAL 3/4\"UNF C/ORING",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "E2130267": {
+   "texto": "ARANDELA METAL CON GOMA 04 1/4 BSP",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "G0000028": {
+   "texto": "CABLE UNIPOLAR S=35mm^2 COLOR NEGRO",
+   "estacion": "E5",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "cable",
+   "modelo": "Cable unipolar 35 mm2 negro",
+   "catalogo": null,
+   "nota": "Potencia de bateria: estacion E8 (regla del taller)."
+  },
+  "G0000096": {
+   "texto": "CABLE RS485 1x2x22AWG (0,32mm2)",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe 2 PAE"
+   ],
+   "clase": "cable",
+   "modelo": "Cable RS-485 1x2x22 AWG (0,32 mm2)",
+   "catalogo": null,
+   "nota": "Comunicacion: fuera del arnes WPC."
+  },
+  "G0000138": {
+   "texto": "CABLE MULTIPAR 2x2x18AWG MALLADO",
+   "estacion": "E6",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "cable",
+   "modelo": "Cable multipar 2x2x18 AWG mallado",
+   "catalogo": null,
+   "nota": "Senales de campo (pares mallados)."
+  },
+  "G0000233": {
+   "texto": "CABLE COMUNICACION CRB MALLADO AL2X0,75",
+   "estacion": "E6",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP"
+   ],
+   "clase": "cable",
+   "modelo": "Cable de comunicacion CRB mallado 2 x 0,75",
+   "catalogo": null
+  },
+  "J0012025": {
+   "texto": "ORING 2-025 NITRILO 70 Sh A",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "J0022015": {
+   "texto": "ORING 2-015 NITRILO 90 Sh A",
+   "estacion": "E7",
+   "pickeo": "Pallet para E3",
+   "productos": [
+    "mSafe 2 PAE",
+    "mSafe 2 Vista"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "J0022025": {
+   "texto": "ORING 2-025 NITRILO 90 Sh A",
+   "estacion": "E7",
+   "pickeo": "Separado por cajón para E3",
+   "productos": [
+    "mSafe PP"
+   ],
+   "clase": "hidraulica",
+   "catalogo": null
+  },
+  "L03-60591-01": {
+   "texto": "PCB ARMADO E2.5",
+   "estacion": "E4",
+   "pickeo": "Caja para E4",
+   "productos": [
+    "mSafe SHELL",
+    "mSafe PP",
+    "mSafe 2 PAE",
+    "mSafe TECPE",
+    "mSafe 2 Vista",
+    "mSafe YPF"
+   ],
+   "clase": "electronica",
+   "fabricante": "MMA / DIGITO",
+   "modelo": "Placa E2.5 armada (21PCB01)",
+   "codigo_fabricante": "L03-60591-01",
+   "catalogo": null,
+   "nota": "Placa de control: va en la puerta / caja E4; sus cables son los 21xx."
+  }
+ },
+ "importado": {
+  "archivo": "BOMs Por Estación .xlsx",
+  "fecha": "2026-10-06",
+  "materiales": 164
+ }
+}

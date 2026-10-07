@@ -5,13 +5,110 @@
   "extra_LD": 400,
   "margen_LI": 200,
   "extra_puerta": 1500,
+  "_nota_agregados": "Agregados del taller (2026-10-05), A MÁS de los márgenes de arriba: 75 mm a los cables que quedan en la bandeja. Los 200 mm a LI / LD y los 350 mm a puerta / placa quedan solo para los pendientes de la bandeja lateral y para los planos sin estación E8 (sin la lateral dibujada): desde el 2026-10-06 los cables que salen de la bandeja a LI van por la regla de abajo (acometida, curva_LI, acometida_LI, puerta).",
+  "agregado_bandeja": 75,
+  "agregado_LI": 200,
+  "agregado_puerta": 350,
+  "_nota_salen_a_LI": "Regla del taller (2026-10-06) para los cables que salen de la bandeja a LI, con la estación E8 (adónde van de verdad). Muere en la bandeja lateral: acometida (borne → canaleta) + lo que corre DENTRO de las canaletas de la bandeja + curva_LI (curva entre la posterior y LI) + canaleta de la lateral + acometida_LI (canaleta → borne de destino). Sigue a la puerta / placa (pasa por LI): acometida + canaletas de la bandeja + puerta. La acometida real del plano no se mide: va el fijo. Ej. 1161 del PAE: 75 + 297 + 100 + 269 + 150 = 891 → 900.",
+  "acometida": 75,
+  "curva_LI": 100,
+  "acometida_LI": 150,
+  "puerta": 1850,
   "largo_pendiente": 2000,
   "largo_sin_ruta": 1000,
   "redondeo": 50,
-  "fijos": { "pelado_origen": 10, "proceso_origen": 1, "proceso_destino": 1, "crimpado_origen": 8, "dimension_origen": 10, "crimpado_destino": 8 },
-  "colores": {
-    "Negro": "BK", "Rojo": "RD", "Blanco": "WH", "Marrón": "BN", "Azul": "BU", "Gris": "GY", "Verde": "GN",
-    "Amarillo": "YE", "Verde-Amarillo": "GNYE", "Naranja": "OG", "Violeta": "VT", "Celeste": "HBL", "Rosa": "PK"
+  "_nota_fuera": "No van al arnés de la WPC (quedan en la lista destildados, con el motivo; se pueden tildar a mano): los de 35 mm² o más, los de comunicación (sección fina, o aparato / borne de comunicación), los que van a solenoides y los que van a campo. Las expresiones regulares se aplican a los textos de origen y destino.",
+  "fuera": {
+    "seccion_desde": 35,
+    "comunicacion_seccion_hasta": 0.5,
+    "comunicacion_re": "\\bXCM\\b|RS-?485|MODBUS|\\bCOM\\b",
+    "solenoide_re": "\\bSP-?\\d|_ZV\\b|\\bZV\\b|SOLEN|\\bYV\\d",
+    "campo_re": "\\bCAMPO\\b|\\bROTORK\\b|\\bPIT ?\\d|\\bIP_\\d"
   },
-  "codigos": ["BK", "BN", "RD", "OG", "YE", "GN", "BU", "BW", "HBL", "VT", "GY", "WH", "PK", "GD", "TQ", "SR", "GNYE", "GNGY", "RW", "DB"]
+  "_nota_termos": "Giro de los termos (señalizadores) de cada punta, columna 22 del CSV («Labeling Position», en el .wpc Col22 = \"giro origen|giro destino\" en grados). Regla del taller (2026-10-05): una punta aguas arriba y otra aguas abajo → ninguno gira (0|0); las dos aguas abajo → gira el primero (180|0); las dos aguas arriba → gira el segundo (0|180). La punta que sale a LI / LD se toma como aguas abajo.",
+  "termos": {
+    "mixto": "0|0",
+    "abajo_abajo": "180|0",
+    "arriba_arriba": "0|180",
+    "sin_dato": "0|0",
+    "opciones": [
+      "0|0",
+      "180|0",
+      "0|180",
+      "180|180"
+    ]
+  },
+  "_nota_fijos": "Columnas fijas del CSV. Desde el 2026-10-05 la WPC solo corta: sin pelar ni crimpar en ninguna punta (antes: pelado_origen 10, proceso_origen 1, proceso_destino 1, crimpado_origen 8, dimension_origen 10, crimpado_destino 8).",
+  "fijos": {
+    "pelado_origen": 0,
+    "proceso_origen": 0,
+    "proceso_destino": 0,
+    "crimpado_origen": 0,
+    "dimension_origen": 0,
+    "crimpado_destino": 0
+  },
+  "colores": {
+    "Negro": "BK",
+    "Rojo": "RD",
+    "Blanco": "WH",
+    "Marrón": "BN",
+    "Azul": "BU",
+    "Gris": "GY",
+    "Verde": "GN",
+    "Amarillo": "YE",
+    "Verde-Amarillo": "GNYE",
+    "Naranja": "OG",
+    "Violeta": "VT",
+    "Celeste": "HBL",
+    "Rosa": "PK"
+  },
+  "codigos": [
+    "BK",
+    "BN",
+    "RD",
+    "OG",
+    "YE",
+    "GN",
+    "BU",
+    "BW",
+    "HBL",
+    "VT",
+    "GY",
+    "WH",
+    "PK",
+    "GD",
+    "TQ",
+    "SR",
+    "GNYE",
+    "GNGY",
+    "RW",
+    "DB"
+  ],
+  "_nota_reemplazos": "Solo para la lista WPC (el instructivo no cambia). Por producto (documento del rótulo de EPLAN, ins['producto']): un color y sección se cortan con otro color y sección. PAE: la WPC no tiene slots de 4 mm², los negros de 4 van en violeta de 2,5 y los rojos de 4 en naranja de 2,5.",
+  "reemplazos": {
+    "ZPL-76884": [
+      {
+        "de": {
+          "color": "Negro",
+          "secc": 4
+        },
+        "a": {
+          "color": "Violeta",
+          "secc": 2.5
+        },
+        "motivo": "la WPC no tiene slots de 4 mm²"
+      },
+      {
+        "de": {
+          "color": "Rojo",
+          "secc": 4
+        },
+        "a": {
+          "color": "Naranja",
+          "secc": 2.5
+        },
+        "motivo": "la WPC no tiene slots de 4 mm²"
+      }
+    ]
+  }
 }

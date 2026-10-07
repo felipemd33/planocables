@@ -30,6 +30,7 @@
     "distancia_otro_tag_mm": 1.5,
     "nota_red_de_seguridad": "Red de seguridad del motor: un punto que cae dentro del cuerpo de OTRO aparato (contorno cerrado mas chico, de hasta cuerpo_max_mm de lado, con su etiqueta y alguno de sus bornes) o a menos de distancia_otro_tag_mm de un borne de otro tag se descarta (queda en la etiqueta, confianza baja).",
     "familias": [
+      {"familia": "rele_seguridad", "nombre": "relé de seguridad", "patron": "(?i)rel[eé]s?\\s+de\\s+seguridad|safety\\s+relays?|\\bPSR-SCP"},
       {"familia": "rele", "nombre": "relé / temporizador", "patron": "(?i)\\brel[eé]s?\\b|\\brelays?\\b|temporizad|\\btimers?\\b"},
       {"familia": "bornera", "nombre": "bornera", "patron": "(?i)\\bbornes?\\b|\\bbornera|terminal\\s*blocks?|\\bterminals?\\b|\\bclemas?\\b"},
       {"familia": "barrera", "nombre": "barrera de seguridad intrínseca", "patron": "(?i)\\bbarreras?\\b|\\bbarriers?\\b"},
@@ -52,7 +53,8 @@
       {"familia": "luz", "nombre": "luz / iluminación", "patron": "(?i)\\bluz\\b|\\bluces\\b|l[aá]mpara|\\blights?\\b|iluminaci"},
       {"familia": "comunicacion", "nombre": "comunicación (gateway, router)", "patron": "(?i)gateway|iot[-\\s]*gate|router|\\bmodem\\b|ethernet\\s+switch|switch\\s+ethernet"}
     ],
-    "nota_familias": "Familia (tipo de aparato) de cada modelo ('familia' de cada modelo) y patrones para sacarla del renglon de la lista de materiales. Se prueban en este orden y gana el primero que aparece en la descripcion (por eso 'Borne rele' es rele, 'Bornes fusible' es bornera y 'Fuente de alimentacion' es fuente pero 'Bornes de alimentacion' es bornera). Si la lista de materiales nombra un modelo que no esta en el catalogo, la geometria solo puede elegir un modelo de la MISMA familia; si no hay ninguno, el aparato queda sin puntos (en la etiqueta) con el aviso de modelo faltante. Un renglon sin familia reconocible de un tag de bornera (con X) cuenta como bornera."
+    "nota_familias": "Familia (tipo de aparato) de cada modelo ('familia' de cada modelo) y patrones para sacarla del renglon de la lista de materiales. Se prueban en este orden y gana el primero que aparece en la descripcion (por eso 'Rele de seguridad' es rele_seguridad y no se ubica como un rele RIF, 'Borne rele' es rele, 'Bornes fusible' es bornera y 'Fuente de alimentacion' es fuente pero 'Bornes de alimentacion' es bornera). Si la lista de materiales nombra un modelo que no esta en el catalogo, la geometria solo puede elegir un modelo de la MISMA familia; si no hay ninguno, el aparato queda sin puntos (en la etiqueta) con el aviso de modelo faltante. Un renglon sin familia reconocible de un tag de bornera (con X) cuenta como bornera.",
+    "nota_modelos": "Campos de cada modelo agregados el 2026-10-06: 'sap' = codigos de material SAP del taller que son ese modelo (Excel BOMs por estacion, ver aparamenta.json; un mismo codigo puede estar en dos modelos si se compra de dos marcas); 'solo_por_lista': true = el modelo se usa solo si la lista de materiales del plano lo nombra, nunca para adivinar por el dibujo otro aparato de su familia (aparatos puntuales: rele de seguridad, modulos, toma Phoenix). Los modelos nuevos van al final: sin lista de materiales, si dos modelos explican igual un dibujo gana el que esta primero."
   },
 
   "modelos": [
@@ -63,6 +65,7 @@
       "tipo": "borne de riel por piezas (1 piso, 4 conexiones push-in)",
       "fabricante": "PHOENIX CONTACT",
       "alias": ["PT 6 QUATTRO", "PT 6-QUATTRO", "PT6-QUATTRO", "3212934"],
+      "sap": ["AB2000369"],
       "anclaje": "izquierda",
       "margen_izq_mm": 1.0,
       "alto_mm": 90.5,
@@ -85,6 +88,7 @@
       "tipo": "borne de riel por piezas (doble piso, 4 conexiones push-in)",
       "fabricante": "PHOENIX CONTACT",
       "alias": ["PTT 2,5", "PTTB 2,5", "PTT 2.5", "3210567", "3210172"],
+      "sap": ["AB2000315"],
       "anclaje": "izquierda",
       "margen_izq_mm": 1.0,
       "alto_mm": 90.0,
@@ -105,6 +109,7 @@
       "tipo": "borne de riel por piezas (doble piso seccionable, gris)",
       "fabricante": "PHOENIX CONTACT",
       "alias": ["PTT 2,5-2MT", "PTT 2,5-2 MT", "PTT 2.5-2MT", "3210258"],
+      "sap": ["AB2000067"],
       "anclaje": "izquierda",
       "margen_izq_mm": 1.0,
       "alto_mm": 92.4,
@@ -126,6 +131,7 @@
       "tipo": "borne de riel por piezas (doble piso seccionable, azul)",
       "fabricante": "PHOENIX CONTACT",
       "alias": ["PTT 2,5-2MT BU", "PTT 2,5-2 MT BU", "PTT 2.5-2MT BU", "3210265"],
+      "sap": ["AB2000068"],
       "anclaje": "izquierda",
       "margen_izq_mm": 1.0,
       "alto_mm": 92.4,
@@ -145,6 +151,7 @@
       "tipo": "borne de riel por piezas con diodo (1 piso, 1 entrada por extremo)",
       "fabricante": "PHOENIX CONTACT",
       "alias": ["PT 2,5-DIO", "PT 2.5-DIO", "3210224"],
+      "sap": ["AB2000080"],
       "anclaje": "izquierda",
       "margen_izq_mm": 1.0,
       "alto_mm": 60.0,
@@ -167,6 +174,7 @@
       "tipo": "borne de riel por piezas (doble piso con fusible 5x20, negro)",
       "fabricante": "PHOENIX CONTACT",
       "alias": ["PTTB 4-HESI", "HESI", "3211886", "BORNE FUSIBLE"],
+      "sap": ["AB2000436"],
       "anclaje": "izquierda",
       "margen_izq_mm": 1.0,
       "alto_mm": 102.9,
@@ -189,7 +197,8 @@
       "familia": "rele",
       "tipo": "rele modular (base + rele enchufable, push-in)",
       "fabricante": "PHOENIX CONTACT",
-      "alias": ["RIF-0-RPT", "RIF-0", "2903370", "2900958"],
+      "alias": ["RIF-0-RPT", "RIF-0", "2903370", "2900958", "2903371", "RIF-0-BPT", "REL-MR-12DC/21", "REL-MR-24DC/21", "2961150", "2961105"],
+      "sap": ["AB2000234", "AB2000235", "AB2000419"],
       "anclaje": "izquierda",
       "margen_izq_mm": 1.0,
       "alto_mm": 93.0,
@@ -217,6 +226,7 @@
       "tipo": "temporizador modular multifuncion 17,5 mm (1 contacto conmutado)",
       "fabricante": "FINDER",
       "alias": ["80.01", "8001", "80.01.0.240"],
+      "sap": ["AB1202989"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 90.0,
@@ -246,6 +256,7 @@
       "tipo": "modular DIN (disyuntor diferencial 2 polos)",
       "fabricante": "SCHNEIDER",
       "alias": ["DIFERENCIAL", "EZ9R", "RCCB", "F202", "FH202"],
+      "sap": ["AB1203305"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 85.0,
@@ -269,6 +280,7 @@
       "tipo": "modular DIN (termomagnetica 2 polos)",
       "fabricante": "SCHNEIDER / ABB",
       "alias": ["TERMOMAGN", "EZ9F", "S202", "IC60"],
+      "sap": ["AB12026561", "AB1202656"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 85.0,
@@ -290,7 +302,8 @@
       "familia": "portafusible",
       "tipo": "modular DIN (portafusible 10x38, 1 polo)",
       "fabricante": "SCHNEIDER",
-      "alias": ["DF101", "DF 101"],
+      "alias": ["DF101", "DF 101", "E 91/32", "E91/32", "2CSM200923R1801"],
+      "sap": ["AB1202912"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 81.0,
@@ -311,6 +324,7 @@
       "tipo": "fuente de riel DIN (AC/DC)",
       "fabricante": "MEAN WELL",
       "alias": ["NDR-", "NDR "],
+      "sap": ["AB1202653"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 125.4,
@@ -339,6 +353,7 @@
       "tipo": "fuente de riel DIN (conversor DC/DC)",
       "fabricante": "MEAN WELL",
       "alias": ["DDR-", "DDR "],
+      "sap": ["AB139867"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 125.2,
@@ -366,6 +381,7 @@
       "tipo": "barrera de seguridad intrinseca (carcasa angosta, enchufes escalonados)",
       "fabricante": "CHENZHU",
       "alias": ["GS8512"],
+      "sap": ["AB2000135"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 114.5,
@@ -407,6 +423,7 @@
       "tipo": "barrera de seguridad intrinseca (entrada analogica, enchufes de 3 bornes)",
       "fabricante": "CHENZHU",
       "alias": ["GS8536"],
+      "sap": ["AB2000134"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 114.5,
@@ -445,6 +462,7 @@
       "tipo": "toma corriente de riel DIN (bloque simbolico sin tornillos)",
       "fabricante": "VIVION",
       "alias": ["TOMA CORRIENTE", "TOMACORRIENTE", "TOMA IRAM", "AC30"],
+      "sap": ["AB2000062", "AB2000061"],
       "anclaje": "sobre",
       "margen_izq_mm": 3.5,
       "alto_mm": 75.0,
@@ -470,6 +488,7 @@
       "tipo": "portafusible MEGA de esparragos (fuera del riel, horizontal)",
       "fabricante": "-",
       "alias": ["MEGA"],
+      "sap": ["AB2000441"],
       "anclaje": "libre",
       "margen_izq_mm": 0.0,
       "ancho_mm": 80.0,
@@ -483,6 +502,251 @@
         "nota": "Montado horizontal: el lado ABAJO del esquema es el esparrago izquierdo (bateria) y ARRIBA el derecho (carga). Confirmar con el recorrido del cable de potencia en cada tablero."
       },
       "fuente": "Hoja 12 del funcional + recorrido del cable de 35 mm2 en el topografico"
+    },
+    {
+      "id": "PT4",
+      "familia": "bornera",
+      "es_bornera": true,
+      "tipo": "borne de riel por piezas (1 piso, 2 conexiones push-in: una por extremo)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PT 4", "PT4", "3211757", "PT 4-PE", "3211766"],
+      "sap": ["AB160583", "AB2000492"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 56.0,
+      "paso_mm": 6.2,
+      "boca": {"primitiva": "circulo", "r_mm": [2.6, 3.2], "cob_min": 250, "sin_x": true,
+               "nota": "entrada push-in dibujada como octogono de unos 5,8 mm (r 2,9 mm en el bloque del 76426, XPE y 12XPS rotulados PT 4)"},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 1, "abajo": 1}},
+      "nombres": {
+        "reglas": [{"patron": "^(\\d+)$", "pieza": "$1", "boca": 0, "lado": "texto"}],
+        "nota": "Pieza N = borne N contando desde la etiqueta; ARRIBA/ABAJO del texto = extremo de la pieza (una entrada por extremo). El PT 4-PE (verde-amarillo, 3211766) es igual; en los planos a color sus bocas no se cuentan (colores_excluidos)."
+      },
+      "fuente": "Ficha Phoenix 3211757 (6,2 x 56 x 35,3 mm, 2 conexiones push-in, 1 piso) y 3211766 (PT 4-PE); tapa D-ST 4 = 3030420; bloque medido en el topografico 76426 (mSafe1 PP, hoja 08); fotos E06 72715-1"
+    },
+    {
+      "id": "PT6",
+      "familia": "bornera",
+      "es_bornera": true,
+      "tipo": "borne de riel por piezas (1 piso, 2 conexiones push-in: una por extremo)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PT 6", "PT6", "3211813"],
+      "sap": ["AB2000381"],
+      "anclaje": "izquierda",
+      "margen_izq_mm": 1.0,
+      "alto_mm": 57.7,
+      "paso_mm": 8.2,
+      "boca": {"primitiva": "contorno", "w_mm": [6.4, 7.9], "h_mm": [7.0, 8.7], "curvos_min": 0, "sin_x": true,
+               "nota": "entrada push-in de unos 7 x 8 mm: rectangulo redondeado (bloque Batfer, igual que el PT 6-QUATTRO) u octogono (macro EPLAN del PAE, 5,2 x 5,5 pt)"},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 1, "abajo": 1}},
+      "nombres": {
+        "reglas": [{"patron": "^(\\d+)$", "pieza": "$1", "boca": 0, "lado": "texto"}],
+        "nota": "Igual que PT 4: pieza N = borne N, ARRIBA/ABAJO = extremo. Se distingue del PT 6-QUATTRO (misma entrada dibujada) porque tiene UNA boca por extremo y no dos."
+      },
+      "fuente": "Ficha Phoenix 3211813 (8,2 x 57,7 x 42,2 mm, 2 conexiones push-in); tapa D-PT 6 = 3212044; 11XPVAC y 12XPS del mapeo verificado del PAE (ZPL-76884, una boca por extremo)"
+    },
+    {
+      "id": "PSR-SCP",
+      "familia": "rele_seguridad",
+      "solo_por_lista": true,
+      "tipo": "rele de seguridad modular 22,5 mm (4 enchufes de 4 tornillos: dos filas arriba y dos abajo)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["PSR-SCP-24UC/ESA2", "PSR-SCP-24UC", "PSR-SCP", "2963802"],
+      "sap": ["AB2000444"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 9.0,
+      "alto_mm": 112.0,
+      "boca": {"primitiva": "circulo", "r_mm": [0.75, 2.2], "cob_min": 250, "sin_x": true,
+               "nota": "tornillo del enchufe: circulo chico (r 1,0 mm en el bloque generico del 76426; octogono de r 2 mm en la macro EPLAN del PAE)"},
+      "disposicion": {"tipo": "filas", "grupos": [
+        {"nombre": "SUP", "lado": "arriba", "n": 4, "filas_mm": [0.0, 9.2], "tornillos_por_fila": [4, 4], "paso_mm": 5.0},
+        {"nombre": "INF", "lado": "abajo", "n": 4, "filas_mm": [0.0, 10.1], "tornillos_por_fila": [4, 4], "paso_mm": 5.0}
+      ]},
+      "nombres": {
+        "pines": {
+          "A1": {"grupo": "SUP", "fila": 0, "pin": 1}, "S34": {"grupo": "SUP", "fila": 0, "pin": 2},
+          "S33": {"grupo": "SUP", "fila": 0, "pin": 3}, "S11": {"grupo": "SUP", "fila": 0, "pin": 4},
+          "S12": {"grupo": "SUP", "fila": 1, "pin": 1}, "51": {"grupo": "SUP", "fila": 1, "pin": 2},
+          "52": {"grupo": "SUP", "fila": 1, "pin": 3}, "A2": {"grupo": "SUP", "fila": 1, "pin": 4},
+          "33": {"grupo": "INF", "fila": 0, "pin": 1}, "34": {"grupo": "INF", "fila": 0, "pin": 2},
+          "23": {"grupo": "INF", "fila": 0, "pin": 3}, "24": {"grupo": "INF", "fila": 0, "pin": 4},
+          "43": {"grupo": "INF", "fila": 1, "pin": 1}, "44": {"grupo": "INF", "fila": 1, "pin": 2},
+          "13": {"grupo": "INF", "fila": 1, "pin": 3}, "14": {"grupo": "INF", "fila": 1, "pin": 4}
+        },
+        "ignorar_lado_del_texto": true,
+        "nota": "Rotulo de la carcasa y fotos del aparato real: ARRIBA fila de afuera (enchufe trasero) A1 S34 S33 S11 y fila de adentro (delantero) S12 51 52 A2; ABAJO fila de adentro 43 44 13 14 y fila de afuera 33 34 23 24, de izquierda a derecha. Los contactos 13..44 van TODOS abajo (no como en el esquema de caja). El bloque del plano dibuja solo el enchufe de afuera de cada lado (fila 0); la fila de adentro se corre 9,2 mm (arriba) y 10,1 mm (abajo) hacia el riel, medido en la macro EPLAN del PAE: confianza media. El ARRIBA/ABAJO del texto viene del simbolo del funcional y no se usa."
+      },
+      "cuerpo": {
+        "w_mm": [20.0, 25.0], "h_mm": [90.0, 125.0], "r_borne_mm": 1.0,
+        "pines": {
+          "A1": {"dx_mm": -7.5, "desde": "arriba", "dy_mm": 7.6}, "S34": {"dx_mm": -2.5, "desde": "arriba", "dy_mm": 7.6},
+          "S33": {"dx_mm": 2.5, "desde": "arriba", "dy_mm": 7.6}, "S11": {"dx_mm": 7.5, "desde": "arriba", "dy_mm": 7.6},
+          "S12": {"dx_mm": -7.5, "desde": "arriba", "dy_mm": 16.8}, "51": {"dx_mm": -2.5, "desde": "arriba", "dy_mm": 16.8},
+          "52": {"dx_mm": 2.5, "desde": "arriba", "dy_mm": 16.8}, "A2": {"dx_mm": 7.5, "desde": "arriba", "dy_mm": 16.8},
+          "33": {"dx_mm": -7.5, "desde": "abajo", "dy_mm": 6.7}, "34": {"dx_mm": -2.5, "desde": "abajo", "dy_mm": 6.7},
+          "23": {"dx_mm": 2.5, "desde": "abajo", "dy_mm": 6.7}, "24": {"dx_mm": 7.5, "desde": "abajo", "dy_mm": 6.7},
+          "43": {"dx_mm": -7.5, "desde": "abajo", "dy_mm": 16.8}, "44": {"dx_mm": -2.5, "desde": "abajo", "dy_mm": 16.8},
+          "13": {"dx_mm": 2.5, "desde": "abajo", "dy_mm": 16.8}, "14": {"dx_mm": 7.5, "desde": "abajo", "dy_mm": 16.8}
+        },
+        "nota": "Bloque de otra biblioteca que no dibuja los tornillos: carcasa de 22,5 x 99 mm, enchufes con paso de 5,0 mm centrados; distancias desde el borde medidas en la macro EPLAN del PAE (42KS1, hoja 8). Confianza media."
+      },
+      "fuente": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B (SIL 3, 4 NA + 1 NC, 22,5 x 99 mm); disposicion del mapeo verificado del PAE (fotos del aparato 2963802 y rotulo frontal); bloque generico del topografico 76426 (46KR1)"
+    },
+    {
+      "id": "ABB-SH202",
+      "familia": "termomagnetica",
+      "solo_por_lista": true,
+      "tipo": "modular DIN (termomagnetica 2 polos ABB SH/S 200)",
+      "fabricante": "ABB",
+      "alias": ["SH 202", "SH202", "2CDS212001R"],
+      "sap": ["AB12026561"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 95.0,
+      "paso_mm": 17.5,
+      "polos": 2,
+      "boca": {"primitiva": "circulo", "r_mm": [3.1, 3.9], "cob_min": 250, "sin_x": true},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 1, "abajo": 1}},
+      "nombres": {
+        "reglas": [
+          {"patron": "^F$|^L\\d?$", "pieza": 1, "lado": "texto", "boca": 0},
+          {"patron": "^N$", "pieza": 2, "lado": "texto", "boca": 0}
+        ],
+        "nota": "Igual que MCB-2P (F a la izquierda, N a la derecha; en el aparato los polos son 1-2 y 3-4). alto_mm mas grande porque el bloque del 72887 (TPT, 11Q1) esta corrido 13 mm del riel y sus tornillos de abajo quedan a 47,6 mm del eje: con 85 mm quedaban fuera de la zona."
+      },
+      "fuente": "ABB SH 202 C10 (lista de materiales del 72715); bloque del topografico 72887 (hoja 03); verificado con las fotos E06 72715-1 (Cableado, 2026-07-29 16.14.03 (1) y (2)): 1104 F y 1105 N arriba, 1106 F y 1107 N abajo, F a la izquierda"
+    },
+    {
+      "id": "EO-I-UT",
+      "familia": "toma",
+      "solo_por_lista": true,
+      "tipo": "toma corriente tipo I de riel DIN Phoenix (45 x 75 mm, bornes a tornillo abajo)",
+      "fabricante": "PHOENIX CONTACT",
+      "alias": ["EO-I/UT", "EO-I", "0804087", "TOMA CORRIENTE TIPO I"],
+      "sap": ["AB2000593"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 75.0,
+      "r_borne_mm": 2.3,
+      "boca": {"primitiva": "caja", "w_mm": [38.0, 52.0], "h_mm": [65.0, 85.0],
+               "nota": "se toma el cuerpo (rectangulo cerrado de unos 45 x 75 mm que contiene la etiqueta)"},
+      "disposicion": {"tipo": "caja"},
+      "nombres": {
+        "pines": {
+          "N": {"fx": 0.290, "desde": "abajo", "dy_mm": 7.6},
+          "PE": {"fx": 0.501, "desde": "abajo", "dy_mm": 7.6},
+          "L": {"fx": 0.713, "desde": "abajo", "dy_mm": 7.6}
+        },
+        "ignorar_lado_del_texto": true,
+        "confianza": "media",
+        "nota": "Los 3 tornillos M3 van ABAJO, rotulados N - PE - L de izquierda a derecha (foto oficial Phoenix 240214, con la ranura de tierra arriba). Posiciones en fraccion del ancho y distancia al borde de abajo medidas en la macro EPLAN del PAE (11SK1, hoja 8): 0,290 / 0,501 / 0,713 y 7,6 mm. Todo el cableado de la toma va por abajo."
+      },
+      "fuente": "Ficha Phoenix EO-I/UT 0804087 (45 x 75 x 58,9 mm, tornillo M3, 250 VAC 10 A); foto 240214; macro EPLAN del PAE (ZPL-76884)"
+    },
+    {
+      "id": "DF141",
+      "familia": "portafusible",
+      "solo_por_lista": true,
+      "tipo": "modular DIN (portafusible 14x51, 1 polo, 1,5 modulos)",
+      "fabricante": "SCHNEIDER",
+      "alias": ["DF141", "DF 141", "DF14", "E 90/50"],
+      "sap": ["AB12029122"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 3.5,
+      "alto_mm": 107.0,
+      "paso_mm": 26.5,
+      "polos": 1,
+      "boca": {"primitiva": "circulo", "r_mm": [2.45, 3.9], "cob_min": 250, "sin_x": true,
+               "nota": "tornillo de borne arriba y abajo, centrado en el ancho (a unos 6,7 mm de cada borde del cuerpo de 107 mm). Sin dibujo de AutoCAD para medirlo todavia: rango de radio ampliado desde el del DF101."},
+      "disposicion": {"tipo": "piezas", "bocas": {"arriba": 1, "abajo": 1}},
+      "nombres": {
+        "reglas": [{"patron": "^$|^[12]$", "pieza": 1, "lado": "texto", "boca": 0}],
+        "nota": "Un polo: ARRIBA = borne 1 (entrada, tornillo de arriba), ABAJO = borne 2. Igual que el DF101 pero de 26,5 mm de ancho."
+      },
+      "fuente": "Ficha Schneider DF141 (26,5 x 110,8 x 76,5 mm; cuerpo 107 + traba 3,8 mm; eje del riel a 48,5 mm del borde de arriba), catalogo 9080CT0801 pag. 5; 12F3 del mapeo verificado del PAE (borne 1 arriba / 2 abajo). ABB E 90/50 (14x51, 26,7 x 96,5 mm) tiene la misma disposicion."
+    },
+    {
+      "id": "MOXA-R1240",
+      "familia": "modulo_es",
+      "solo_por_lista": true,
+      "tipo": "modulo de E/S de riel DIN (8 AI, RS-485) con la bornera en columna al frente",
+      "fabricante": "MOXA",
+      "alias": ["ioLogik R1240", "R1240-T", "R1240"],
+      "sap": ["AB139861"],
+      "anclaje": "libre",
+      "margen_izq_mm": 0.0,
+      "ancho_mm": 28.0,
+      "alto_mm": 124.0,
+      "boca": {"primitiva": "caja", "w_mm": [25.0, 31.0], "h_mm": [115.0, 135.0]},
+      "disposicion": {"tipo": "cuerpo"},
+      "cuerpo": {
+        "w_mm": [25.0, 31.0], "h_mm": [115.0, 135.0], "r_borne_mm": 1.2, "filas_dibujadas": false,
+        "pines": {
+          "1": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 42.3}, "2": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 46.1},
+          "3": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 49.9}, "4": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 53.7},
+          "5": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 57.5}, "6": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 61.3},
+          "7": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 65.2}, "8": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 69.0},
+          "9": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 72.8}, "10": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 76.6},
+          "11": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 80.4}, "12": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 84.2},
+          "13": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 89.1}, "14": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 92.9},
+          "15": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 96.7}, "16": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 100.5},
+          "17": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 104.3}, "18": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 108.1},
+          "19": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 112.0}, "20": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 115.8},
+          "AI0+": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 42.3}, "AI0-": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 46.1},
+          "AI1+": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 49.9}, "AI1-": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 53.7},
+          "AI2+": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 57.5}, "AI2-": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 61.3},
+          "AI3+": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 65.2}, "AI3-": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 69.0},
+          "AI4+": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 72.8}, "AI4-": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 76.6},
+          "AI5+": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 80.4}, "AI5-": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 84.2},
+          "AI6+": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 89.1}, "AI6-": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 92.9},
+          "AI7+": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 96.7}, "AI7-": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 100.5},
+          "FG": {"dx_mm": 0.0, "desde": "arriba", "dy_mm": 0.0}, "V-": {"dx_mm": 0.0, "desde": "arriba", "dy_mm": 0.0},
+          "V+": {"dx_mm": 0.0, "desde": "arriba", "dy_mm": 0.0}, "D1+": {"dx_mm": 0.0, "desde": "arriba", "dy_mm": 0.0},
+          "D1-": {"dx_mm": 0.0, "desde": "arriba", "dy_mm": 0.0}, "GND": {"dx_mm": 0.0, "desde": "arriba", "dy_mm": 0.0},
+          "D2+": {"dx_mm": 0.0, "desde": "arriba", "dy_mm": 0.0}, "D2-": {"dx_mm": 0.0, "desde": "arriba", "dy_mm": 0.0}
+        },
+        "nota": "Cuerpo de 27,8 x 124 mm (sin la traba del riel). Frente: una columna de 20 bornes (enchufes Euroblock de 12 y 8 polos, paso 3,81 mm) a 4,8 mm a la izquierda del centro; pin 1 a 42,3 mm del borde de arriba, pin 12 a 84,2, pin 13 a 89,1 y pin 20 a 115,8 (hoja de datos, igual que el bloque del 72887). Pines 1/2 = AI0+/AI0- ... 15/16 = AI7+/AI7-, 17-20 sin usar. La alimentacion (FG, V-, V+) y el RS-485 (D1+, D1-, GND, D2+, D2-) estan en la CARA DE ARRIBA: en la vista de frente salen por el borde de arriba, en el centro. Confianza media."
+      },
+      "nombres": {
+        "superpuestos": [["FG", "V-", "V+", "D1+", "D1-", "GND", "D2+", "D2-"]],
+        "nota": "El funcional del TPT nombra los bornes 1..16, V+, V-, D1+ y D1-. Los de la cara de arriba quedan en el mismo punto (borde de arriba): no es una boca compartida."
+      },
+      "fuente": "MOXA ioLogik R1200 (manual v1.0, apendice C; hoja de datos v1.0); bloque del topografico 72887 (hoja 03): cuerpo de 27,7 x 124 mm y 20 cuadraditos a 9,2 mm del borde izquierdo con paso 3,83 mm"
+    },
+    {
+      "id": "EXEMYS-EGW1",
+      "familia": "modulo_es",
+      "solo_por_lista": true,
+      "tipo": "gateway HART a Modbus de riel DIN 22,5 mm (tres enchufes escalonados, todos abajo; arriba no tiene bornes)",
+      "fabricante": "EXEMYS",
+      "alias": ["EGW1-110-1-IA3-MB-HT", "EGW1-MB-HT", "EGW1"],
+      "sap": ["AB2000445"],
+      "anclaje": "sobre",
+      "margen_izq_mm": 9.0,
+      "alto_mm": 112.0,
+      "boca": {"primitiva": "circulo", "r_mm": [0.75, 2.2], "cob_min": 250, "sin_x": true,
+               "nota": "tornillo del enchufe: circulo chico (r 1,0 mm en el bloque generico del 76426, el mismo que el del rele de seguridad)"},
+      "disposicion": {"tipo": "filas", "grupos": [
+        {"nombre": "INF", "lado": "abajo", "n": 4, "filas_mm": [0.0, 9.0, 18.0], "tornillos_por_fila": [4, 4, 4], "paso_mm": 5.0}
+      ]},
+      "nombres": {
+        "pines": {
+          "1": {"grupo": "INF", "fila": 0, "pin": 1}, "2": {"grupo": "INF", "fila": 0, "pin": 2},
+          "3": {"grupo": "INF", "fila": 0, "pin": 3}, "4": {"grupo": "INF", "fila": 0, "pin": 4},
+          "5": {"grupo": "INF", "fila": 1, "pin": 1}, "6": {"grupo": "INF", "fila": 1, "pin": 2},
+          "7": {"grupo": "INF", "fila": 1, "pin": 3}, "8": {"grupo": "INF", "fila": 1, "pin": 4},
+          "+VIN": {"grupo": "INF", "fila": 0, "pin": 1}, "PGND": {"grupo": "INF", "fila": 0, "pin": 2},
+          "RGND": {"grupo": "INF", "fila": 0, "pin": 3}, "IGND": {"grupo": "INF", "fila": 0, "pin": 4},
+          "TXA": {"grupo": "INF", "fila": 1, "pin": 1}, "RXA": {"grupo": "INF", "fila": 1, "pin": 2},
+          "TRB+": {"grupo": "INF", "fila": 1, "pin": 3}, "TRB-": {"grupo": "INF", "fila": 1, "pin": 4},
+          "HTA": {"grupo": "INF", "fila": 2, "pin": 1}, "HGND": {"grupo": "INF", "fila": 2, "pin": 2}
+        },
+        "alias": {"VIN+": "+VIN", "V+": "+VIN", "GND": "PGND", "V-": "PGND"},
+        "ignorar_lado_del_texto": true,
+        "confianza": "alta",
+        "nota": "Tres enchufes de 4 tornillos, TODOS ABAJO, escalonados hacia atras (manual EGW1-MB-HT, instructivo de Digito 24-0021 y el taller, 2026-10-07: 'son 3 niveles aguas abajo'); arriba no tiene bornes (foto 1.2 del 76572). El de ADELANTE es el de mas abajo, el que se ve de frente y el que dibuja el bloque (fila 0): 1 +VIN, 2 PGND, 3 RGND, 4 IGND; verificado con la foto 1.6 del 76572 (1316 en el 1, 1317 en el 2). Detras y mas arriba (mas cerca del riel), 5 TXa, 6 RXa, 7 TRb+, 8 TRb- (fila 1) y el puerto HART (fila 2): HTa y HGND. Los corrimientos de 9 y 18 mm hacia el riel son supuestos, y el orden HTa, HGND en el enchufe HART sale del manual (no hay foto del rotulo del costado): esas dos filas quedan con confianza media."
+      },
+      "fuente": "Manual EXEMYS EGW1-MB-HT (ingles rev 9 / castellano rev 11), hoja de datos EGW1 IA3 HART (22,5 mm, riel DIN), instructivo de Digito 24-0021 CONFIG EXEMYS HART; fotos E06 del 76572 (mSafe1 PP); bloque generico del topografico 76426 (33EXM)"
     }
   ]
 }

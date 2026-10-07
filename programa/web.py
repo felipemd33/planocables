@@ -154,16 +154,20 @@ def solo_local():
         abort(403)
 
 
-@app.get('/')
-def index():
+def html_estatico(nombre):
     # version en los .js/.css (fecha del archivo): al actualizar el programa el navegador no usa lo viejo guardado
-    with open(os.path.join(HERE, 'web', 'index.html'), encoding='utf-8') as f:
+    with open(os.path.join(HERE, 'web', nombre), encoding='utf-8') as f:
         html = f.read()
     ver = lambda m: f"/static/{m.group(1)}?v={int(os.path.getmtime(os.path.join(HERE, 'web', m.group(1))))}"
     html = re.sub(r'/static/([\w.-]+\.(?:js|css))(?=")', lambda m: ver(m) if os.path.exists(os.path.join(HERE, 'web', m.group(1))) else m.group(0), html)
     r = app.response_class(html, mimetype='text/html')
     r.headers['Cache-Control'] = 'no-cache'
     return r
+
+
+@app.get('/')
+def index():
+    return html_estatico('index.html')
 
 
 @app.post('/api/procesar')
@@ -351,6 +355,18 @@ def write_json(path, data):
     os.replace(path + '.tmp', path)
 
 
+def leer_json(path):
+    """el JSON del archivo, o None si no existe o esta roto"""
+    try:
+        with open(path, encoding='utf-8') as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return None
+
+
+PROY_LOCK = threading.Lock()   # escritura de instructivo.json desde la pestaña del proyector y desde la ventana principal
+
+
 def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
     """topo_nuevo: se acaba de cargar el topografico. Las salidas a LI / LD elegidas con el anterior no sirven (son
     puntos de otro dibujo): se borran y la web pregunta una vez por donde salen ('preguntar')"""
@@ -464,6 +480,8 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
             ins['salidas'] = lay['salidas']
             ins['auditoria'] = old.get('auditoria') or {}
             ins['wpc'] = old.get('wpc') or {}     # lista WPC: largos y colores a mano, cortes de etapa, excluidos
+            ins['proyector'] = old.get('proyector') or {}   # pestaña 📽 Proyector: orificios marcados, calibración y ventana
+            ins['producto'] = producto_de(lay)              # documento del rótulo (EPLAN): reglas por producto de la lista WPC
             # conservar las fotos de la version anterior (paso identificado por su primer cable)
             prev = {}
             for p_ in old.get('pasos', []):
@@ -561,12 +579,22 @@ def estado_instructivo(jid):
     return jsonify(st)
 
 
+def producto_de(lay):
+    """documento y revision del rotulo (planos de EPLAN), para las reglas por producto de la lista WPC (wpc.json →
+    reemplazos[documento]); en los planos de AutoCAD no hay"""
+    e = ((lay or {}).get('eplan') or {}) if isinstance(lay, dict) else {}
+    return dict(documento=e.get('documento'), revision=e.get('revision'))
+
+
 @app.get('/api/trabajo/<jid>/instructivo')
 def ver_instructivo(jid):
     P = ins_paths(jid)
-    if not os.path.exists(P['json']):
+    ins = leer_json(P['json'])
+    if not isinstance(ins, dict):
         abort(404)
-    return send_file(P['json'], mimetype='application/json', max_age=0)
+    if 'producto' not in ins:        # instructivo armado antes de las reglas por producto: se completa al leerlo (no se escribe)
+        ins['producto'] = producto_de(leer_json(P['layout']))
+    return jsonify(ins)
 
 
 @app.put('/api/trabajo/<jid>/instructivo')
@@ -577,7 +605,15 @@ def guardar_instructivo(jid):
         return jsonify(error='Datos inválidos'), 400
     data['editado'] = True
     data.pop('e8', None)          # (marcas de la vista 3D del gabinete, que ya no existe)
-    write_json(P['json'], data)
+    with PROY_LOCK:
+        # la seccion 'proyector' (orificios, calibracion y ventana de la pestaña 📽) la escribe solo /proyector, desde la
+        # otra pestaña: se conserva la del disco, no la copia (vieja) que trae la ventana principal
+        viejo = leer_json(P['json'])
+        if isinstance(viejo, dict) and 'proyector' in viejo:
+            data['proyector'] = viejo['proyector']
+        else:
+            data.pop('proyector', None)
+        write_json(P['json'], data)
     return jsonify(ok=True)
 
 
@@ -677,6 +713,69 @@ def ver_foto(jid, name):
     if not os.path.exists(fp):
         abort(404)
     return send_file(fp, mimetype='image/jpeg', max_age=86400)
+
+
+# ------------------------------------------------------------------ pestaña 📽 Proyector (proyectar el ruteo sobre la bandeja real)
+@app.get('/proyector/<jid>')
+def proyector_html(jid):
+    """pestaña aparte (para llevarla a la pantalla del proyector): web/proyector.html"""
+    job_dir(jid)
+    return html_estatico('proyector.html')
+
+
+PROY_CLAVES = ('orificios_usuario', 'calibracion', 'ventana', 'opciones')   # lo que guarda la pestaña en ins['proyector']
+
+
+@app.get('/api/trabajo/<jid>/proyector')
+def ver_proyector(jid):
+    """lo que necesita la pestaña: la bandeja (region, canaletas, rieles, escala), los orificios de montaje de la placa
+    (los del dibujo, calculados una vez y guardados en instructivo.json; y los marcados a mano, si los hay), la
+    calibracion y la ventana guardadas, y los aparatos con su posicion (para ubicar la ventana en la parte vacia)"""
+    P = ins_paths(jid); s = load_state(jid) or {}
+    ins = leer_json(P['json'])
+    if not isinstance(ins, dict):
+        abort(404)
+    topo = ins.get('topo') or {}
+    pr = ins.get('proyector') or {}
+    auto = pr.get('orificios_auto')
+    clave = [topo.get('pag'), topo.get('region')]
+    if not isinstance(auto, dict) or auto.get('clave') != clave:      # (otra bandeja u otra lectura del topografico)
+        import proyector
+        auto = proyector.orificios(P['topo'], topo.get('pag'), topo.get('region'), topo.get('escala'))
+        auto['clave'] = clave
+        with PROY_LOCK:
+            ins2 = leer_json(P['json'])
+            if isinstance(ins2, dict):
+                ins2.setdefault('proyector', {})['orificios_auto'] = auto
+                write_json(P['json'], ins2)
+    lay = leer_json(P['layout']) or {}
+    comp = {t: dict(x=c.get('x'), y=c.get('y'), ubic=c.get('ubic'), estacion=c.get('estacion'))
+            for t, c in (lay.get('comp') or {}).items() if isinstance(c, dict) and c.get('x') is not None}
+    return jsonify(nombre=s.get('nombre'), estacion=ins.get('estacion') or 'E6', topo=topo, orificios=auto,
+                   orificios_usuario=pr.get('orificios_usuario'), calibracion=pr.get('calibracion'), ventana=pr.get('ventana'),
+                   opciones=pr.get('opciones') or {}, comp=comp)
+
+
+@app.put('/api/trabajo/<jid>/proyector')
+def guardar_proyector(jid):
+    """guarda en ins['proyector'] solo las claves de la pestaña (null borra una); el resto del instructivo no se toca"""
+    P = ins_paths(jid)
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify(error='Datos inválidos'), 400
+    with PROY_LOCK:
+        ins = leer_json(P['json'])
+        if not isinstance(ins, dict):
+            abort(404)
+        pr = ins.setdefault('proyector', {})
+        for k in PROY_CLAVES:
+            if k in data:
+                if data[k] is None:
+                    pr.pop(k, None)
+                else:
+                    pr[k] = data[k]
+        write_json(P['json'], ins)
+    return jsonify(ok=True)
 
 
 def already_running():

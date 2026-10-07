@@ -38,7 +38,9 @@ for f in sorted(glob.glob(os.path.join(D, 'puntos_*.json'))):
 # - las de la zona hidraulica (E8): la designacion tal cual ('-PT001:x1' -> 'PT001 x1', '-12F2:1' -> '12F2 1').
 # Asi la lista de otra estacion (E8) dice el destino real. Si varios renglones comparten la clave '<d>#<cable>' con
 # distinto texto (los 4 empalmes '-X1:2' sin numero), la clave lleva la otra punta: '<d>#<cable>@<otra designacion>'.
-ZONA_E8 = ('12F2', 'BH', 'BH_01_ZV', 'BH-01-M', 'PT001', 'LS001A', 'X1')
+# Zona hidraulica y empalmes (E8). Desde el 2026-10-06 (regla del taller) tambien la bateria (12PB1) y las solenoides
+# (SP_1, SP_2, SP_3): sus cables no se cablean en E6, van con la estacion E8.
+ZONA_E8 = ('12F2', 'BH', 'BH_01_ZV', 'BH-01-M', 'PT001', 'LS001A', 'X1', '12PB1', 'SP_1', 'SP_2', 'SP_3')
 
 
 def texto_desig(d):

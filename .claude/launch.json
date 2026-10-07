@@ -29,6 +29,15 @@
       "port": 8766
     },
     {
+      "name": "listado-cables-e8",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-c",
+        "import os, sys, runpy; os.environ['PLANOCABLES_PORT'] = '8768'; os.environ['PLANOCABLES_HISTORIAL'] = r'C:/Users/Taller/AppData/Local/Temp/claude/C--Buscar-Termos-en-plano/7a876ce8-6fff-4c4a-854f-6a01e0a3034e/scratchpad/hist'; d = r'C:/Buscar Termos en plano/programa'; sys.path.insert(0, d); sys.argv = [d + '/web.py', '--no-abrir']; runpy.run_path(d + '/web.py', run_name='__main__')"
+      ],
+      "port": 8768
+    },
+    {
       "name": "ductos-rieles",
       "runtimeExecutable": "python",
       "runtimeArgs": [
@@ -44,6 +53,24 @@
         "import os, sys, runpy; os.environ['PLANOCABLES_PORT'] = '8767'; d = r'C:/Buscar Termos en plano/programa'; sys.path.insert(0, d); sys.argv = [d + '/web.py', '--no-abrir']; runpy.run_path(d + '/web.py', run_name='__main__')"
       ],
       "port": 8767
+    },
+    {
+      "name": "listado-cables-proyector",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-c",
+        "import os, sys, runpy; os.environ['PLANOCABLES_PORT'] = '8769'; os.environ['PLANOCABLES_HISTORIAL'] = r'C:/Users/Taller/AppData/Local/Temp/claude/C--Buscar-Termos-en-plano/2a62bcba-25c9-479b-aed6-12cbfd2094ce/scratchpad/hist'; d = r'C:/Buscar Termos en plano/programa'; sys.path.insert(0, d); sys.argv = [d + '/web.py', '--no-abrir']; runpy.run_path(d + '/web.py', run_name='__main__')"
+      ],
+      "port": 8769
+    },
+    {
+      "name": "listado-cables-wpc-li",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-c",
+        "import os, sys, runpy; os.environ['PLANOCABLES_PORT'] = '8771'; os.environ['PLANOCABLES_HISTORIAL'] = r'C:/Users/Taller/AppData/Local/Temp/claude/C--Buscar-Termos-en-plano/df086520-e173-41db-8ee0-13f45d302fa1/scratchpad/hist'; d = r'C:/Buscar Termos en plano/programa'; sys.path.insert(0, d); sys.argv = [d + '/web.py', '--no-abrir']; runpy.run_path(d + '/web.py', run_name='__main__')"
+      ],
+      "port": 8771
     }
   ]
 }

@@ -1,0 +1,114 @@
+/* Pestaña 📽 Proyector: fondo negro (lo que no se dibuja no se proyecta), colores muy brillantes.
+   Origen = verde lima, destino = cian, recorrido = amarillo, canaletas = celeste. */
+:root {
+  --ori: #b6ff00; --des: #00e5ff; --ruta: #ffe600; --can: #7fd0ff; --ex: #6f8dff; --riel: #ff9fe0; --borde: #ffffff;
+  --panel: rgba(18, 22, 28, .92); --texto: #f2f5f8; --muted: #9aa7b6; --borde-p: #3a4654; --acento: #4f9bff;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #000; color: var(--texto); overflow: hidden;
+  font: 14px/1.4 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; user-select: none; }
+[hidden] { display: none !important; }
+.small { font-size: 12.5px; } .muted { color: var(--muted); }
+body.idle, body.idle * { cursor: none !important; }
+body.idle .barra, body.idle .v-acts { opacity: 0; pointer-events: none; }
+
+#fondo { position: fixed; inset: 0; background: #000; }
+body.calib #fondo { cursor: move; }
+#capa { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; pointer-events: none; }
+#capa svg { display: block; overflow: visible; }
+
+/* lo proyectado (unidades: pt del topográfico) */
+svg path, svg rect, svg line, svg circle { vector-effect: none; }
+svg .can { fill: none; stroke: var(--can); stroke-linejoin: round; }
+svg .can.ex { stroke: var(--ex); stroke-dasharray: 6 3; }
+svg .riel { stroke: var(--riel); opacity: .8; }
+svg .borde { fill: none; stroke: var(--borde); opacity: .6; stroke-dasharray: 4 3; }
+svg .orif { stroke: #fff; fill: none; } svg .orif .pt { fill: #fff; stroke: none; }
+svg .rt path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+svg .rt .halo { stroke: rgba(255, 230, 0, .22); }
+svg .rt.sib path { opacity: .85; }
+svg .rt .sib-end { fill: none; stroke: #fff; opacity: .7; }
+svg .ori .anillo { fill: none; stroke: var(--ori); } svg .ori .punto { fill: var(--ori); }
+svg .des .anillo { fill: none; stroke: var(--des); } svg .des .punto { fill: var(--des); }
+svg .des .lat { fill: var(--des); font-weight: 800; font-family: "Segoe UI", Arial, sans-serif; }
+svg .manga rect { fill: #000; stroke: #fff; stroke-width: .5; }
+svg .manga text { fill: #fff; font-weight: 700; font-family: "Segoe UI", Arial, sans-serif; }
+svg .manga .sub { fill: var(--can); }
+
+/* miras de calibración (una por orificio) */
+.pin { position: fixed; width: 54px; height: 54px; margin: -27px 0 0 -27px; border-radius: 50%; border: 3px solid #fff; cursor: grab;
+  box-shadow: 0 0 0 2px #000, 0 0 18px rgba(255,255,255,.5); touch-action: none; }
+.pin::before, .pin::after { content: ""; position: absolute; background: #fff; left: 50%; top: 50%; }
+.pin::before { width: 90px; height: 2px; margin: -1px 0 0 -45px; } .pin::after { width: 2px; height: 90px; margin: -45px 0 0 -1px; }
+.pin span { position: absolute; left: 34px; top: -28px; font: 800 20px/1 "Segoe UI", Arial, sans-serif; color: #fff; text-shadow: 0 0 6px #000, 0 0 2px #000; }
+.pin.on { border-color: var(--ori); box-shadow: 0 0 0 2px #000, 0 0 26px var(--ori); }
+.pin.on::before, .pin.on::after { background: var(--ori); }
+.pin:active { cursor: grabbing; }
+
+/* ventana de texto (movible, con tamaño ajustable) */
+.ventana { position: fixed; left: 24px; top: 24px; width: 520px; height: 280px; min-width: 220px; min-height: 120px; resize: both; overflow: hidden;
+  background: #000; border: 2px solid #fff; border-radius: 14px; display: flex; flex-direction: column; font-size: 28px; z-index: 5;
+  box-shadow: 0 0 0 1px #000; }
+.ventana.hecho { border-color: #5fd08f; }
+.v-h { display: flex; align-items: center; gap: .45em; padding: .25em .55em; background: #fff; color: #000; cursor: move; font-weight: 800; flex: none;
+  font-size: .95em; line-height: 1.2; }
+.v-h .num { font-family: var(--mono); font-size: 1.25em; letter-spacing: .02em; }
+.v-h .sw { width: .9em; height: .9em; border-radius: .2em; border: 1px solid #0006; flex: none; }
+.v-h .col { font-weight: 600; } .v-h .sec { font-weight: 700; white-space: nowrap; }
+.v-h .pos { margin-left: auto; font-weight: 600; opacity: .7; font-size: .8em; white-space: nowrap; }
+.v-acts { display: flex; gap: 4px; margin-left: 8px; opacity: 0; transition: opacity .15s; }
+.ventana:hover .v-acts { opacity: 1; }
+.vb { border: 1px solid #0003; background: #fff; color: #000; border-radius: 6px; font: 600 13px/1 "Segoe UI", Arial, sans-serif; padding: 4px 7px; cursor: pointer; }
+.vb:hover { border-color: #000; }
+.v-b { flex: 1; min-height: 0; padding: .35em .6em .45em; display: flex; flex-direction: column; gap: .3em; overflow: hidden; }
+.punta { display: grid; grid-template-columns: auto 1fr; gap: 0 .6em; align-items: baseline; border-left: .28em solid; padding-left: .45em; line-height: 1.2; }
+.punta.ori { border-color: var(--ori); color: var(--ori); }
+.punta.des { border-color: var(--des); color: var(--des); }
+.punta .rot { font-size: .55em; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .9; }
+.punta .txt { font-family: var(--mono); font-weight: 800; font-size: 1.1em; word-break: break-word; }
+.punta .term { grid-column: 2; display: flex; align-items: center; gap: .4em; color: #fff; font-size: .72em; }
+.punta .term i { width: 1.2em; height: .75em; border-radius: .15em; border: 1px solid #fff8; flex: none; display: inline-block; }
+.punta .term.lat { color: var(--muted); font-style: italic; }
+.punta .va { grid-column: 2; color: #fff; font-size: .72em; }
+.punta .va b { font-family: var(--mono); }
+.punta.ori .va b { color: var(--des); } .punta.des .va b { color: var(--ori); }
+.nota { color: #fff; font-size: .62em; opacity: .85; }
+.nota.warn { color: #ffb74d; }
+
+/* panel de calibración */
+.calib { position: fixed; left: 16px; top: 16px; max-width: 460px; background: var(--panel); border: 1px solid var(--borde-p); border-radius: 12px;
+  padding: 12px 14px; display: grid; gap: 6px; z-index: 6; }
+.calib-acts { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+
+/* barra de botones */
+.barra { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: center;
+  background: var(--panel); border: 1px solid var(--borde-p); border-radius: 12px; padding: 8px 10px; z-index: 6; transition: opacity .25s; max-width: calc(100vw - 24px); }
+.btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--borde-p); background: #232b36; color: var(--texto); padding: 7px 12px; border-radius: 9px;
+  font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.btn:hover { border-color: var(--acento); }
+.btn.primary { background: var(--acento); border-color: var(--acento); color: #06101d; }
+.btn.on { background: var(--ori); border-color: var(--ori); color: #000; }
+.sep { width: 1px; height: 24px; background: var(--borde-p); margin: 0 4px; }
+.estado { font-size: 12.5px; max-width: 360px; color: var(--muted); }
+.estado.ok { color: #5fd08f; } .estado.no { color: #ffb74d; }
+.opc { position: relative; }
+.opc summary { list-style: none; } .opc summary::-webkit-details-marker { display: none; }
+.opc-m { position: absolute; bottom: calc(100% + 8px); left: 0; background: var(--panel); border: 1px solid var(--borde-p); border-radius: 10px; padding: 10px 12px;
+  display: grid; gap: 7px; min-width: 300px; }
+.opc-m label { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+.opc-m input { accent-color: var(--acento); width: 16px; height: 16px; }
+.opc-r { display: flex; gap: 8px; align-items: center; }
+.opc-r .vb { background: #232b36; color: var(--texto); border-color: var(--borde-p); }
+.opc-r span { min-width: 44px; text-align: center; font-variant-numeric: tabular-nums; }
+.opc-r .giros { display: flex; gap: 4px; min-width: 0; }
+.giros .vb.on, #calibGirar { background: var(--ori); color: #000; border-color: var(--ori); }
+#calibGirar { background: #232b36; color: var(--texto); border-color: var(--borde-p); margin-left: 4px; }
+
+/* pantalla de espera */
+.espera { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.85); z-index: 4; }
+.esp-c { max-width: 640px; background: var(--panel); border: 1px solid var(--borde-p); border-radius: 14px; padding: 18px 24px; }
+.esp-c h1 { font-size: 22px; margin: 0 0 8px; } .esp-c p, .esp-c ol { margin: 8px 0; } .esp-c li { margin: 4px 0; }
+
+.toast { position: fixed; left: 50%; top: 18px; transform: translateX(-50%); background: #fff; color: #000; padding: 9px 14px; border-radius: 10px; font-weight: 600;
+  z-index: 9; max-width: min(760px, 92vw); text-align: center; }

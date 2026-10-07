@@ -517,7 +517,7 @@ const Ins = (() => {
     if (document.activeElement) document.activeElement.blur();
     renderList(); drawViewer(true);
   }
-  function closeViewer() { $('#cabViewer').hidden = true; document.body.style.overflow = ''; if (!W().hidden) render(); }
+  function closeViewer() { $('#cabViewer').hidden = true; document.body.style.overflow = ''; if (!W().hidden) render(); emitirEstado(false); }
   // boton 🧭 Salida del visor (cables a LI / LD): por donde salen de la bandeja este cable y los de su grupo
   function aSalidas() {
     const l = flat()[V.k].l; if (!LAT(l.destino)) return;
@@ -567,9 +567,11 @@ const Ins = (() => {
     const target = vbOf(roomForLupas(routeBox([l, ...sibs], 40, 220, 150)));
     const fs = fontFor('#cvSvg', target, 14);
     $('#cvSvg').innerHTML = imgTag(true) + sibs.map((s, j) => routeG(s, 'sib', 1.3, { lab: fs, al: ladoDe(l, 1.6, 1.3, j) })).join('') + routeG(l, 'cur', 1.6, { lab: fs, pulse: true });
+    if (V.orif) orifDibujar();
     lupas(l, sibs);
     camera(target, first ? 0 : 420);
     markList();
+    emitir();
   }
   // tamaño de letra (en pt del plano) para que el rotulo se vea de ~px pixeles con ese encuadre
   function fontFor(sel, vb, px) {
@@ -770,6 +772,84 @@ const Ins = (() => {
     setTimeout(() => URL.revokeObjectURL(a.href), 2000);
   }
 
+  /* ---- 📽 proyector: pestaña aparte (web/proyector.js) que proyecta el cable actual sobre la bandeja real ---- */
+  // La pestaña sigue a este visor por BroadcastChannel: acá se le manda el cable actual (con sus terminales) cada vez que
+  // se dibuja, y ella devuelve las teclas → ← Espacio (que avanzan y marcan como en el visor) y pide el cable al abrirse.
+  const BC = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('planocables') : null;
+  const TIT_PROY = 'Proyectar este cable sobre la bandeja real: pestaña aparte para la pantalla del proyector (P)';
+  function abrirProyector() {
+    if (!D || !D.topo || !D.topo.region) return toast('El proyector necesita la bandeja del topográfico: cargalo primero', 4000);
+    const w = window.open(`/proyector/${job}`, `proyector_${job}`);
+    if (!w) return toast('El navegador bloqueó la pestaña del proyector: permití las ventanas emergentes para este sitio', 5000);
+    toast('Pestaña del proyector abierta: arrastrala a la pantalla del proyector, F para pantalla completa y C para calibrar con los orificios', 7000);
+  }
+  // el cable actual del visor (o el primero sin cablear, si el visor está cerrado), con los terminales de sus puntas
+  function msgCable(abierto) {
+    const F = flat(); if (!F.length) return null;
+    const k = abierto ? V.k : Math.max(0, F.findIndex(x => !x.l.hecho));
+    const { g, l } = F[k], sibs = siblings(l);
+    return { t: 'cable', job, k, n: k + 1, total: F.length, hechos: F.filter(x => x.l.hecho).length, titulo: D.pasos[g].titulo || '', estacion: est(),
+      l, sibs, to: terminal(l, 'o'), td: LAT(l.destino) ? null : terminal(l, 'd'), abierto: !!abierto };
+  }
+  function emitir() { if (!BC || !D) return; const m = msgCable(!$('#cabViewer').hidden); if (m) BC.postMessage(m); }
+  function emitirEstado(abierto) { if (BC && job) BC.postMessage({ t: 'estado', job, abierto }); }
+  function proyConectado() {
+    const b = $('#cvProy'); if (!b) return;
+    b.classList.add('on'); b.title = 'Pestaña del proyector conectada (clic: traerla al frente)';
+    clearTimeout(proyConectado.t); proyConectado.t = setTimeout(() => { b.classList.remove('on'); b.title = TIT_PROY; }, 9000);
+  }
+  if (BC) BC.onmessage = async e => {
+    const m = e.data || {}; if (!m.t || m.job !== S.job) return;
+    if (!D) { if (m.t !== 'hola') return; try { await load(); } catch (err) { return; } }
+    if (!D || m.job !== job) return;
+    proyConectado();
+    if (m.t === 'hola') return emitir();
+    if (m.t === 'tecla') {
+      if ($('#cabViewer').hidden) { if (!flat().length) return; openViewer(m.k ?? null); }      // la pestaña arranca el visor
+      const acc = { ArrowRight: () => go(1), ArrowLeft: () => go(-1), ' ': () => toggleOk(true), Enter: () => toggleOk(true) };
+      if (acc[m.key]) acc[m.key](); else emitir();
+    }
+  };
+
+  /* ---- 🎯 orificios de montaje de la placa (la pestaña del proyector calibra con ellos): marcarlos en el dibujo ---- */
+  // Los busca programa/proyector.py en el dibujo de la bandeja; si no están o están mal, acá se marcan a mano: 4 clics en
+  // el topográfico, en orden (arriba-izq, arriba-der, abajo-der, abajo-izq). Van a instructivo.json (proyector.orificios_usuario).
+  const ORIF_NOMBRES = ['arriba a la izquierda', 'arriba a la derecha', 'abajo a la derecha', 'abajo a la izquierda'];
+  const putProyector = body => api(`/api/trabajo/${job}/proyector`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  async function marcarOrificios() {
+    if (V.orif) return orifFin();
+    let info; try { info = await api(`/api/trabajo/${job}/proyector`); } catch (e) { return toast('No se pudieron leer los orificios: ' + e.message, 4000); }
+    const usuario = !!(info.orificios_usuario && info.orificios_usuario.length === 4), o = info.orificios || {};
+    V.orif = { pts: [], act: usuario ? info.orificios_usuario : (o.puntos || []), usuario };
+    $('#cvSvg').classList.add('pick'); $('#cvOrif').classList.add('on');
+    camera(vbOf(D.topo.region), 350); orifDibujar();
+    toast(`Orificios de la placa en violeta (${usuario ? 'marcados a mano' : o.fuente === 'dibujo' ? 'encontrados en el dibujo' : 'esquinas de la placa: no se encontraron en el dibujo'}). ` +
+      `Si están bien: Esc. Si no, hacé clic en el orificio ${ORIF_NOMBRES[0]}${usuario ? ' (Supr: volver a los del dibujo)' : ''}`, 9000);
+  }
+  function orifClic(p) {
+    const o = V.orif; o.pts.push([Math.round(p[0] * 100) / 100, Math.round(p[1] * 100) / 100]); orifDibujar();
+    if (o.pts.length < 4) return toast(`Orificio ${o.pts.length} de 4 marcado. Ahora el de ${ORIF_NOMBRES[o.pts.length]}`, 5000);
+    const pts = o.pts; orifFin();
+    putProyector({ orificios_usuario: pts })
+      .then(() => { toast('Orificios guardados: la pestaña del proyector calibra con ellos', 5000); if (BC) BC.postMessage({ t: 'orificios', job }); })
+      .catch(e => toast('No se pudieron guardar los orificios: ' + e.message, 5000));
+  }
+  function orifAuto() {
+    if (!V.orif) return; orifFin();
+    putProyector({ orificios_usuario: null })
+      .then(() => { toast('Se vuelve a los orificios encontrados en el dibujo', 4000); if (BC) BC.postMessage({ t: 'orificios', job }); })
+      .catch(e => toast('No se pudo: ' + e.message, 5000));
+  }
+  function orifFin() { V.orif = null; $('#cvSvg').classList.remove('pick'); $('#cvOrif').classList.remove('on'); const g = $('#cvOrifG'); if (g) g.remove(); }
+  function orifDibujar() {
+    const o = V.orif; if (!o) return;
+    let g = $('#cvOrifG');
+    if (!g) { g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.id = 'cvOrifG'; $('#cvSvg').appendChild(g); }
+    const mira = (p, i, cls) => `<g class="orif ${cls}"><circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="7"/><line x1="${f2(p[0] - 11)}" y1="${f2(-p[1])}" x2="${f2(p[0] + 11)}" y2="${f2(-p[1])}"/>
+      <line x1="${f2(p[0])}" y1="${f2(-p[1] - 11)}" x2="${f2(p[0])}" y2="${f2(-p[1] + 11)}"/><text x="${f2(p[0] + 8)}" y="${f2(-p[1] - 8)}" font-size="9">${i + 1}</text></g>`;
+    g.innerHTML = (o.pts.length ? [] : o.act).map((p, i) => mira(p, i, 'act')).join('') + o.pts.map((p, i) => mira(p, i, 'nuevo')).join('');
+  }
+
   function init() {
     const dz = $('#insDrop'), fi = $('#insTopoFile');
     dz.addEventListener('click', () => fi.click());
@@ -815,6 +895,9 @@ const Ins = (() => {
     $('#cvAudit').addEventListener('click', aAuditoria);
     $('#cvSal').addEventListener('click', aSalidas);
     $('#cvQuitar').addEventListener('click', quitarVisor);
+    $('#cvProy').addEventListener('click', abrirProyector); $('#cvProy').title = TIT_PROY;
+    $('#cvOrif').addEventListener('click', marcarOrificios);
+    $('#insProy').addEventListener('click', abrirProyector);
     $('#insSalidas').addEventListener('click', () => Sal.open({}));
     $('#cvSideBtn').addEventListener('click', () => setSide($('#cvSide').hidden));
     { let on = true; try { on = localStorage.getItem('listadoCablear') !== '0'; } catch (e) { } $('#cvSide').hidden = !on; $('#cvSideBtn').classList.toggle('on', on); }
@@ -841,6 +924,7 @@ const Ins = (() => {
       V.vb = [d.vb[0] - (e.clientX - d.x) * d.s, d.vb[1] - (e.clientY - d.y) * d.s, d.vb[2], d.vb[3]]; svg.setAttribute('viewBox', V.vb.join(' ')); });
     svg.addEventListener('pointerup', e => {
       const d = V.drag; V.drag = null; svg.classList.remove('drag');
+      if (V.orif && d && Math.hypot(e.clientX - d.x, e.clientY - d.y) < 5) { const [x, y] = svgPoint(e); return orifClic([x, -y]); }
       if (V.adjust && d && Math.hypot(e.clientX - d.x, e.clientY - d.y) < 5) {   // clic (sin arrastre) en modo ajuste
         const [x, y] = svgPoint(e); const l = flat()[V.k].l;
         setPoint(V.adjust === 'o' ? l.origen : l.destino, l.num, [x, -y]);
@@ -852,10 +936,14 @@ const Ins = (() => {
     document.addEventListener('keydown', e => {
       if ($('#cabViewer').hidden) return;
       if (e.target.isContentEditable || e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') return;
+      if (V.orif) {
+        if (e.key === 'Escape') { e.preventDefault(); return orifFin(); }
+        if (e.key === 'Delete' || e.key === 'Backspace') { e.preventDefault(); return orifAuto(); }
+      }
       if (e.key === 'Escape' && V.adjust) { e.preventDefault(); return startAdjust(null); }
       const keys = { ArrowRight: () => go(1), ArrowLeft: () => go(-1), Escape: closeViewer, ' ': () => toggleOk(true), Enter: () => toggleOk(true),
         '0': () => camera(vbOf(D.topo.region), 350), f: () => drawViewer(), l: () => setSide($('#cvSide').hidden), a: aAuditoria, s: aSalidas,
-        Delete: quitarVisor };
+        Delete: quitarVisor, p: abrirProyector };
       if (keys[e.key]) { e.preventDefault(); keys[e.key](); }
     });
   }

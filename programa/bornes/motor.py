@@ -44,7 +44,7 @@ except ImportError:                            # suelto: python motor.py ...
     import primitivas as P  # noqa: E402
 
 # version del motor: si cambia, el programa vuelve a calcular el mapeo aunque haya cache (bornes_auto.json)
-VERSION = '2026.10.02-3'
+VERSION = '2026.10.07-1'
 
 LADOS = ('ARRIBA', 'ABAJO')
 
@@ -243,8 +243,9 @@ def materiales_de_lineas(lineas):
 
 
 def modelo_por_materiales(texto, modelos):
-    """El modelo del catalogo cuyo alias mas largo aparece en el texto de la lista de materiales."""
-    t = norm(texto)
+    """El modelo del catalogo cuyo alias mas largo aparece en el texto de la lista de materiales. Se ignoran los
+    separadores de celda ('|'): el modelo puede venir partido en celdas ('ABB | SH | 202 | C10' = SH 202)."""
+    t = norm(texto).replace('|', '')
     mejor, largo = None, 0
     for m in modelos:
         for a in m.get('alias', []):
@@ -556,6 +557,17 @@ class Motor:
                 est['cuerpo'] = min(cand, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]))
                 est['validas'] = est['total'] = 1
             return est
+        if disp['tipo'] == 'cuerpo':
+            # aparato cuyos bornes no se reconocen en el dibujo (columna de bornes al frente, enchufes en la cara de
+            # arriba): se toma el cuerpo y cada borne va donde dice la hoja de datos ('cuerpo' del modelo)
+            est['total'] = 1
+            cu = m['cuerpo']
+            cuerpo = self.cuerpo_del_tag(t, cu)
+            if cuerpo is not None:
+                est['cuerpo'] = cuerpo
+                est['validas'] = 1
+                est['filas_cuerpo'] = self.filas_del_cuerpo(cuerpo, yc, cu) if cu.get('filas_dibujadas', True) else {}
+            return est
         bocas = self.bocas(m, caja)
         est['bocas'] = bocas
         if disp['tipo'] == 'piezas':
@@ -615,6 +627,11 @@ class Motor:
             for gspec in disp['grupos']:
                 n = int(gspec['n'])
                 lado = gspec.get('lado', 'centro')
+                if gspec.get('paso_mm') and not gspec.get('alineado_con'):
+                    bs = self.serie_con_paso(filas, gspec, n, lado, yc, t['cx'])
+                    if bs:
+                        est['grupos'][gspec['nombre']] = dict(spec=gspec, b=bs, y=sum(b['y'] for b in bs) / n)
+                    continue
                 cand = [f for f in filas if len(f['b']) >= n and (lado == 'centro' or (lado == 'arriba') == (f['y'] > yc))]
                 if not cand:
                     continue
@@ -658,16 +675,52 @@ class Motor:
             # de datos, desde el borde de arriba o de abajo del cuerpo
             cu = m.get('cuerpo')
             if cu and est['validas'] < est['total']:
-                wmin, wmax = [self.mm(v) for v in cu['w_mm']]
-                hmin, hmax = [self.mm(v) for v in cu['h_mm']]
-                cc = [b for b in self.esc_.cerrados() if b[0] - 0.5 <= t['cx'] <= b[2] + 0.5 and b[1] - 0.5 <= t['cy'] <= b[3] + 0.5
-                      and wmin <= b[2] - b[0] <= wmax and hmin <= b[3] - b[1] <= hmax]
-                if cc:
-                    est['cuerpo'] = min(cc, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]))
+                cuerpo = self.cuerpo_del_tag(t, cu)
+                if cuerpo is not None:
+                    est['cuerpo'] = cuerpo
                     est['tipo'] = 'cuerpo'
                     est['validas'] = est['total']
                     est['filas_cuerpo'] = self.filas_del_cuerpo(est['cuerpo'], yc, cu)
         return est
+
+    def cuerpo_del_tag(self, t, cu):
+        """contorno cerrado mas chico que contiene la etiqueta t con el ancho y alto del 'cuerpo' del modelo, o None"""
+        wmin, wmax = [self.mm(v) for v in cu['w_mm']]
+        hmin, hmax = [self.mm(v) for v in cu['h_mm']]
+        cc = [b for b in self.esc_.cerrados() if b[0] - 0.5 <= t['cx'] <= b[2] + 0.5 and b[1] - 0.5 <= t['cy'] <= b[3] + 0.5
+              and wmin <= b[2] - b[0] <= wmax and hmin <= b[3] - b[1] <= hmax]
+        return min(cc, key=lambda b: (b[2] - b[0]) * (b[3] - b[1])) if cc else None
+
+    def serie_con_paso(self, filas, gspec, n, lado, yc, cx):
+        """Grupo de n tornillos con paso fijo ('paso_mm' del grupo: enchufes de los modulos). En cada fila del lado se
+        busca la serie de n posiciones con ese paso que mas tornillos dibujados explica (desempate: la mas cercana a la
+        etiqueta); asi no se mezcla el enchufe del aparato vecino ni se corre la serie si un tornillo esta dibujado de
+        otra forma. Los que faltan se completan con el paso ('inferido': confianza media). Hacen falta al menos
+        'min_vistos' tornillos vistos (por defecto n-1, minimo 2). Devuelve la lista de bocas o None."""
+        paso = self.mm(float(gspec['paso_mm']))
+        tol = 0.3 * paso
+        min_vistos = int(gspec.get('min_vistos', max(2, n - 1)))
+        mejor = None
+        for f in filas:
+            if not (lado == 'centro' or (lado == 'arriba') == (f['y'] > yc)):
+                continue
+            for b0 in f['b']:
+                for j in range(n):
+                    xs = [b0['x'] + (q - j) * paso for q in range(n)]
+                    hits = []
+                    for x in xs:
+                        c = min(f['b'], key=lambda b: abs(b['x'] - x))
+                        hits.append(c if abs(c['x'] - x) <= tol and all(c is not h for h in hits) else None)
+                    nh = sum(h is not None for h in hits)
+                    clave = (nh, -abs(sum(xs) / n - cx))
+                    if mejor is None or clave > mejor[0]:
+                        mejor = (clave, f, xs, hits)
+        if mejor is None or mejor[0][0] < min_vistos:
+            return None
+        _, f, xs, hits = mejor
+        vistos = [h for h in hits if h is not None]
+        r = sum(h['r'] for h in vistos) / len(vistos)
+        return [h if h is not None else dict(x=x, y=f['y'], r=r, peso=0, inferido=True) for x, h in zip(xs, hits)]
 
     @staticmethod
     def dy_por_lado(cu):
@@ -935,9 +988,14 @@ class Motor:
                     fila = int(spec.get('fila', 0))
                     bs = gr['b']
                     gspec = gr['spec']
+                    nota_inf = ''
                     if fila == 0 and len(bs) >= pin and gspec.get('tornillos_por_fila', [len(bs)])[0] == len(bs):
                         b = bs[pin - 1]
                         x, y, r = b['x'], b['y'], b['r']
+                        if b.get('inferido'):
+                            # tornillo que no se reconocio en el dibujo: se completo con el paso de los vecinos
+                            conf = 'media'
+                            nota_inf = f" (tornillo no reconocido en el dibujo: ubicado con el paso de {gspec['paso_mm']} mm)"
                     else:
                         nfila = gspec.get('tornillos_por_fila', [len(bs)] * (fila + 1))[fila]
                         cx = sum(b['x'] for b in bs) / len(bs)
@@ -948,7 +1006,7 @@ class Motor:
                         r = sum(b['r'] for b in bs) / len(bs)
                         conf = 'media'
                     res[i] = dict(x=x, y=y, r=r, confianza=conf,
-                                  como=f"{m['id']}: grupo {spec.get('grupo')} pin {pin}" + (f" fila {fila} (no dibujada, corrida {gspec.get('filas_mm')[fila]} mm)" if fila else ''))
+                                  como=f"{m['id']}: grupo {spec.get('grupo')} pin {pin}" + (f" fila {fila} (no dibujada, corrida {gspec.get('filas_mm')[fila]} mm)" if fila else '') + nota_inf)
         elif est['tipo'] == 'cuerpo' and est['cuerpo']:
             bx0, by0, bx1, by1 = est['cuerpo']
             cu = m['cuerpo']
@@ -972,8 +1030,8 @@ class Motor:
                             f"{nombre_fila} de {lado} (enchufe a {spec.get('dy_mm')} mm del borde en el aparato real){pos_x}")
                 else:
                     y = by1 - self.mm(spec['dy_mm']) if lado == 'arriba' else by0 + self.mm(spec['dy_mm'])
-                    como = (f"{m['id']}: el bloque no dibuja sus bornes; {u.get('borne')} ubicado con la hoja de datos a "
-                            f"{spec.get('dy_mm')} mm del borde {lado} del cuerpo{pos_x}")
+                    como = (f"{m['id']}: " + ('' if m['disposicion']['tipo'] == 'cuerpo' else 'el bloque no dibuja sus bornes; ')
+                            + f"{u.get('borne')} ubicado con la hoja de datos a {spec.get('dy_mm')} mm del borde {lado} del cuerpo{pos_x}")
                 res[i] = dict(x=x, y=y, r=self.mm(cu.get('r_borne_mm', 1.5)), confianza='media', como=como)
         elif est['tipo'] == 'caja' and est['cuerpo']:
             bx0, by0, bx1, by1 = est['cuerpo']
@@ -1287,25 +1345,34 @@ class Motor:
             self.faltantes.append(dict(tag=k, modelo=self.modelo_lista(texto_k), texto_de_la_lista=self.texto_lista(texto_k),
                                        familia=self.nombre_familia(familia) if familia else None))
         pruebas = []
+        # los modelos de un aparato puntual (rele de seguridad, modulos, toma Phoenix...) tienen 'solo_por_lista': se
+        # usan cuando la lista de materiales los nombra, nunca para adivinar por el dibujo otro aparato de su familia
+        # (un modulo de E/S que no esta en el catalogo no se ubica con los bornes de otro modulo)
+        elegibles = [m for m in self.modelos if not m.get('solo_por_lista')]
         if familia:
-            modelos = [m for m in self.modelos if m.get('familia') == familia]
+            modelos = [m for m in elegibles if m.get('familia') == familia]
             if listado is not None and listado not in modelos:
                 modelos = modelos + [listado]
             if not modelos:
-                # ningun modelo del catalogo es de esa familia: no se adivina con otro tipo de aparato; sus bornes
-                # quedan sin punto (en la etiqueta) con el aviso del modelo faltante
+                # ningun modelo del catalogo es de esa familia (o solo los que se usan si la lista de materiales los
+                # nombra): no se adivina con otro tipo de aparato; sus bornes quedan sin punto (en la etiqueta) con el
+                # aviso del modelo faltante
                 que = self.modelo_lista(texto_k) if texto_k else k
-                motivo = (f"{que} ({k}) es {self.nombre_familia(familia)} y el catalogo no tiene ningun modelo de esa familia; "
+                solo = [m['id'] for m in self.modelos if m.get('familia') == familia and m.get('solo_por_lista')]
+                nada = (f"solo tiene {', '.join(solo)}, que se usa(n) cuando la lista de materiales lo(s) nombra" if solo
+                        else 'no tiene ningun modelo de esa familia')
+                motivo = (f"{que} ({k}) es {self.nombre_familia(familia)} y el catalogo {nada}; "
                           "sus bornes quedan sin punto exacto (punto aproximado en la etiqueta)")
-                self.avisos.append(f"{que} ({k}): no esta en el catalogo y no hay ningun modelo de {self.nombre_familia(familia)}; "
-                                   "sus bornes quedan sin punto (punto aproximado en la etiqueta)")
+                self.avisos.append(f"{que} ({k}): no esta en el catalogo y no hay ningun modelo de {self.nombre_familia(familia)}"
+                                   + (f" que se pueda elegir por el dibujo ({', '.join(solo)} solo con la lista de materiales)" if solo else '')
+                                   + "; sus bornes quedan sin punto (punto aproximado en la etiqueta)")
                 for i, u in usos_k:
                     self.sin_resolver[(k, i, u.get('texto'), str(u.get('cable')))] = ('?', motivo)
                 return dict(id='?', familia=familia), None, {}, []
         else:
-            modelos = self.modelos
+            modelos = elegibles
             if 'es_bornera' in c:
-                modelos = [m for m in self.modelos if bool(m.get('es_bornera', False)) == bool(c['es_bornera'])] or self.modelos
+                modelos = [m for m in elegibles if bool(m.get('es_bornera', False)) == bool(c['es_bornera'])] or elegibles
             if listado is not None and listado not in modelos:
                 modelos = modelos + [listado]
         for m in modelos:

@@ -131,6 +131,7 @@
         <div class="ins-bar">
           <button class="btn primary" id="insCablear" title="Visor a pantalla completa: un cable por vez, la cámara sigue su recorrido">▶ Cablear de a uno</button>
           <button class="btn sm" id="insAudit" title="Auditoría cruzada: verificar la bandeja por secciones (sin seguir cable por cable)">🔍 Auditoría</button>
+          <button class="btn sm" id="insProy" title="Proyectar el cableado sobre la bandeja real: abre una pestaña aparte para llevar a la pantalla del proyector (solo las canaletas y el cable, calibrado con los orificios de la placa)">📽 Proyector</button>
           <label class="small ins-est" title="Estación donde se cablea esta bandeja">Estación <input id="insEstacion" type="text" size="4" autocomplete="off" aria-label="Estación"></label>
           <button class="btn sm" id="insBtnComps">Componentes y orden</button>
           <button class="btn sm" id="insSalidas" title="Por dónde salen de la bandeja los cables que van a LI y LD: elegilo por grupo de cables">🧭 Salidas LI / LD</button>
@@ -245,6 +246,8 @@
     <button class="btn ghost sm" id="cvAdjD" title="Ajustar el punto del borne de DESTINO: clic y después clic en el dibujo">📍 Destino</button>
     <button class="btn ghost sm" id="cvSal" hidden title="Por dónde sale de la bandeja este cable a LI / LD, y los de su grupo (S)">🧭 Salida</button>
     <button class="btn ghost sm" id="cvQuitar" title="Este cable no se cablea en esta estación: quitarlo del instructivo (Supr). Se puede volver desde «Quitados del instructivo»">🗑 Quitar</button>
+    <button class="btn ghost sm" id="cvProy" title="Proyectar este cable sobre la bandeja real: pestaña aparte para la pantalla del proyector (P)">📽 Proyector</button>
+    <button class="icon" id="cvOrif" aria-label="Marcar los orificios de la placa" title="Marcar en el dibujo los 4 orificios de montaje de la placa (la pestaña del proyector calibra con ellos)">🎯</button>
     <button class="icon" id="cvFocus" aria-label="Centrar en el cable" title="Centrar en el cable (F)">⌖</button>
     <button class="icon" id="cvFit" aria-label="Ver toda la bandeja" title="Toda la bandeja (0)">⤢</button>
     <button class="btn ghost sm swap" id="cvAudit" title="Auditoría cruzada de la bandeja, por secciones (A)">🔍 Auditoría</button>
@@ -266,7 +269,7 @@
         <div class="cv-lupa ori"><b id="cvLupaOt">Origen</b><svg id="cvLupaO" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
         <div class="cv-lupa des" id="cvLupaDw"><b id="cvLupaDt">Destino</b><svg id="cvLupaD" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
       </div>
-      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · A: auditoría · S: salida a LI / LD · Supr: quitar (no se cablea acá) · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
+      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · A: auditoría · S: salida a LI / LD · Supr: quitar (no se cablea acá) · P: proyector · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
     </div>
   </div>
 </div>
