@@ -565,7 +565,7 @@ Cambiar un valor de `taller.json` es cambiar una convención del taller: **hay q
 | 66817-1 | mSafe1 NC YPF | **74676** rev 7 | 75775 rev 8 | el plano no es 66817 |
 | 72715-1 | mSafe1 TPT | 72715 rev 8 | 72887 rev 7 | |
 | **76857-1** | mSafe2 PAE | ZPL-76884 rev 1 | mismo PDF, hoja 8 | confirmado por el usuario (2026-10-07). **No está en el PDF**: la portada dice «Conjunto 76860-1» y la carpeta de G: dice «76884-1». Se carga a mano y queda en `productos.json` |
-| **¿76571-1 o 76572-1?** | mSafe1 PP STD | 76739 rev 4 | 76740 rev 4 | el rótulo dice 76571-1; el taller usa 76572-1 |
+| **76572-1** | mSafe1 PP STD | 76739 rev 4 | 76740 rev 4 | confirmado (2026-10-07). El rótulo dice 76571-1, así que se confirma a mano |
 | ¿76244-1 o 76222-1? | mSafe1 PP | 76425 rev 0 | 76426 rev 0 | la orden dice 76244-1; el plano, 76222-1 |
 | 75206-1 | mSafe NA SHELL | 75206 rev 2 | 75208 rev 2 | |
 | 75902-1 | FCS | 75733 rev 1 | 75992 rev 1 | |
@@ -638,7 +638,7 @@ Si falta `producto` (instructivos viejos), la web lo completa antes de llamar, c
 | `termos.*` | `0\|0`, `180\|0`, `0\|180` | giro de los termos (columna 22) |
 | `fijos.*` | todos 0 | columnas fijas (solo corta) |
 | `colores` / `codigos` | 13 / 20 | color → código WPC |
-| `reemplazos` | PAE: negro 4 → violeta 2,5; rojo 4 → naranja 2,5 | solo en la lista |
+| `reemplazos` | **todos los productos** (decidido el 2026-10-07; hoy solo el PAE): negro 4 → violeta 2,5; rojo 4 → naranja 2,5 | **solo en la lista WPC**; el instructivo no cambia |
 | `marcador` (nuevo) | **por sección** (decidido el 2026-10-07; 5.5) | columna 21 del `.wpc`; también se puede dejar vacío |
 
 **En pantalla:**
@@ -713,7 +713,7 @@ Para que el CSV dé byte a byte igual:
 
 - **`ETAPA 3 75286-1(REV1BH).wpc` (vigente) tiene un error:** la columna 20 (marca de destino) está vacía en las 20 filas, y el número del cable quedó en la 22 (giro de los termos). Viene del CSV hecho a mano: el número quedó una columna corrido.
 - **Los largos del programa a LI y a la puerta salen bastante más largos que lo que se cortó** en 75286 y 66817 antes de la regla del 06/10. Ejemplos: 1203 da 2200 contra 600 cortados; 1104 y 1105, 2450 contra 950. Antes de usar la WPC en un producto que ya se cortó a mano, el taller tiene que validar los largos.
-- **El reemplazo de 4 mm² por 2,5** (rojo → naranja, negro → violeta) también se hizo a mano en 75286 y 66817. Hoy `wpc.json` lo aplica solo al PAE. Con los parámetros por producto, el taller puede ponerlo donde quiera (sección 12).
+- **El reemplazo de 4 mm² por 2,5** (rojo → naranja, negro → violeta) también se hizo a mano en 75286 y 66817. **Decidido el 2026-10-07:** pasa a valer en todos los productos, **solo en la lista WPC** (el instructivo sigue diciendo 4 mm²). Desde el panel de parámetros se puede apagar en un producto.
 - **Control 1161 → 900:** vale con la regla de salida del taller. En el trabajo del PAE da 1100 porque la salida a LI se eligió a mano. El golden tiene que tener los dos casos.
 
 ---
@@ -852,7 +852,7 @@ Resultados esperados:
 | **0** | **Red de seguridad, sin tocar `programa/`.** (a) ✅ Commit del estado actual (`93d7947`, 2026-10-07), sin los borrados de tus datos. (b) Worktree aparte. (c) `comparar_bases.py`; `--puntos` en `volcar_trabajo`. (d) Bases nuevas, sacadas **antes** de mover nada: listado completo (extendiendo `volcar_cables.py`), layout y E8. (e) **Instructivos completos congelados**, generados con `web.gen_instructivo` sobre copias temporales de los 4 trabajos (el `instructivo.json` del TPT de `pruebas/` es viejo y no sirve); más una copia de solo lectura del instructivo del PAE con marcas reales (`ce9fc4d9fcbd`) y la del 75287 (111 líneas con «hecho»). (f) **Golden de la WPC y del terminal:** `wpc.js` de hoy corrido en Node sobre esos instructivos, con pendientes y otra estación activadas y sin activar, con la salida del taller y con salidas elegidas a mano, y con casos sintéticos (reemplazo de 4 mm², `cfg` con textos, ediciones a mano). (g) **Con tu OK:** copia del `.wpc` real del PAE (de G:) en `pruebas/`, con su instructivo congelado. (h) `probar_web_humo.py` (`test_client` sobre una copia, más el arranque con `pythonw`). (i) B con `PYTHONHASHSEED=0` y `=1`. (j) Regresión A/B sobre **todos** los PDF de `1 - Planos/` | B da como hoy; las bases nuevas quedan en `pruebas/bases/` | bajo |
 | **1** | **Esqueleto y `base/`.** `pyproject.toml`; `planocables/base/*` (incluidos `fmt_terminal`, `is_terminal_block`, `FIELD_RE`, `COLOR_INI`, `norm_label`, `cable_desc(detalle)` y `lado`); `PDFIUM_LOCK` en `base`; numpy y cv2 se cargan solo dentro de `render_line`; memoria OCR **en solo lectura** opcional; `probar_capas.py` | B + capas | bajo |
 | **2** | **Producto (5.1):** `producto_del_plano` (rótulo `CODE`, `/Title`, nombre del archivo; en EPLAN la portada); `producto.json` del trabajo y `programa/productos.json`; `gen_instructivo` combina en lugar de pisar; la línea «Producto» y el asistente en pantalla | B igual (no toca `page_meta`) + `probar_producto.py` sobre los 14 planos de `1 - Planos/` (código, plano y revisión esperados) | bajo |
-| **3** | **WPC en módulo JS compartido (5.2-5.7):** `nucleo/wpc_core.js` + `nucleo/zip.js`; `wpc.js` solo pantalla; panel **⚙ Parámetros** (trabajo / producto / todos) armado desde `wpc.json → parametros`; `PUT /api/config/wpc` con copia de respaldo; botón **⭳ .wpc** con el nombre `<código> - <plano> Rev <rev>` | `node --test`: CSV **byte a byte** igual al golden en todos los casos; XML del PAE **idéntico** al `.wpc` real; 1161 → 900 con la regla del taller; los valores de hoy, sin tocar, dan lo mismo. **Prueba en la máquina con el taller:** abrir el `.wpc` generado y cortar 1 o 2 cables | bajo (mismo código) y medio para el `.wpc` hasta probarlo en la máquina |
+| **3** | **WPC en módulo JS compartido (5.2-5.7):** `nucleo/wpc_core.js` + `nucleo/zip.js`; `wpc.js` solo pantalla; panel **⚙ Parámetros** (trabajo / producto / todos) armado desde `wpc.json → parametros`; `PUT /api/config/wpc` con copia de respaldo; botón **⭳ .wpc** con el nombre `<código> - <plano> Rev <rev>` | `node --test`: CSV **byte a byte** igual al golden en todos los casos; XML del PAE **idéntico** al `.wpc` real; 1161 → 900 con la regla del taller; los valores de hoy, sin tocar, dan lo mismo. Después se activa el reemplazo de 4 mm² para todos (pedido del 2026-10-07): solo cambian esas filas. **Prueba en la máquina con el taller:** abrir el `.wpc` generado y cortar 1 o 2 cables | bajo (mismo código) y medio para el `.wpc` hasta probarlo en la máquina |
 | **4** | **Cortar los ciclos:** `eplan` usa `base` (`zone_of`, `natkey`, `snap_escala`, `is_terminal_block`, `COLOR_INI`, `norm_color`); `funcional/alternativas`; `topografico/canaletas` (puente `ruteo.ducts`, `ruteo` sin pypdf); `lectura.py`, a la que delegan `core.process` y `topo.layout`; `proyector` usa `pdf/abrir`. Mientras tanto, el `except` amplio de `core.py:396,411` **anota** el error | B + listado + layout con la misma `version_lector` | medio-bajo |
 | **5** | **Mover los motores:** `pdfvec` → `pdf/vectores`, `ocr_raster` → `ocr/`, `textdec` → `shx/decoder` (con recursos inyectados y `memoria_nueva`; la escritura de la memoria pasa a `trabajo/`), `ruteo` → `ruteo/red`. Los puentes conservan todos los nombres de 2.4, incluido el reemplazo de `route_line` | B + `probar_arreglos_pae` (que el reemplazo se siga llamando) | medio (OCR determinista) |
 | **6** | **Bytes en lugar de rutas:** `pdf/abrir` (desprotección en memoria; PDFium siempre dentro de un `with`; nunca tomar un lock de caché con `PDFIUM_LOCK` tomado); cachés de `eplan` con lock | B; PAE (PDF protegido); nada en `%TEMP%\planocables_eplan` | medio (bloqueos y claves de caché) |
@@ -889,8 +889,9 @@ Ninguna etapa los hace. Se proponen después, de a uno, mostrando qué líneas c
 9. Sumar el celeste del neutro a la regla de salida (pendiente de EPLAN).
 10. Que la regeneración respete la opción de OCR del trabajo (`web.py:383`).
 11. Pasar la caché `_ES` de `eplan` a sha1.
-12. **WPC:** el reemplazo de 4 mm² por 2,5 en otros productos además del PAE (el taller ya lo hizo a mano en 75286 y 66817). Con los parámetros por producto lo puede activar el taller desde la pantalla; acá solo se decide el valor por defecto.
-13. **WPC:** la rama de `agregado_puerta` que nunca se alcanza.
+12. **WPC:** la rama de `agregado_puerta` que nunca se alcanza (el usuario no sabe si es a propósito: queda como está, pendiente de confirmar con quien arma los largos).
+
+*Decidido el 2026-10-07 (ya no necesita OK): el reemplazo de 4 mm² por 2,5 en todos los productos, solo en la lista WPC (etapa 3).*
 
 ---
 
@@ -919,31 +920,28 @@ Ninguna etapa los hace. Se proponen después, de a uno, mostrando qué líneas c
 - Clave de producto: **código de producto**, aclarando el plano y su revisión (5.1).
 - La otra app: **Node**, asumido hasta tener acceso (secciones 6 y 7).
 - Código del PAE: **76857-1**, plano ZPL-76884. No está en el PDF: se carga a mano.
+- Código del PP STD: **76572-1** (el rótulo dice 76571-1).
 - **Un `.wpc` por producto**, no por etapa.
 - Marcador (columna 21): **por sección**.
-
-**Para contestar ahora:**
-1. **PP STD:** ¿**76571-1** (rótulo del plano) o **76572-1** (lo que usa el taller en G:)? En el mSafe1 PP pasa lo mismo: la orden dice 76244-1 y el plano 76222-1.
-2. **Reemplazo de 4 mm² por 2,5:** ¿lo dejo activado por defecto en todos los productos, o solo en el PAE como hoy, y el taller lo activa donde quiera?
-3. ¿Puedo copiar el `.wpc` real del PAE de G: a `pruebas/`, como dato fijo para la prueba de regresión?
-4. `agregado_puerta` (350) nunca se suma a los que salen a la puerta sin E8, porque esa rama del JS nunca se alcanza. ¿Es un error o está bien así? Por ahora se copia igual.
+- Reemplazo de 4 mm² por 2,5: **en todos los productos, solo en la lista WPC**; el instructivo no cambia.
+- Copiar el `.wpc` real del PAE a `pruebas/` como dato fijo: **sí**.
+- `agregado_puerta` (la rama que nunca se alcanza): el usuario **no sabe**. Queda como está y pendiente (sección 10).
 
 **Avisos para el taller** (no hace falta contestar):
 - `ETAPA 3 75286-1(REV1BH).wpc` (vigente) tiene el número del cable en la columna 22 y la 20 vacía (5.8).
 - Los largos del programa a LI y a la puerta dan más que lo que se cortó a mano en 75286 y 66817. Hay que validarlos antes de usar la WPC en esos productos (5.8).
 
 **Sobre la otra app** (cuando tengas acceso):
-
-5. ¿Corre en la misma PC que tiene los PDF?
-6. ¿Solo **muestra** lo que arma este programa, o tiene que **generar** desde los PDF (C1 o C2, sección 7.1)?
-7. ¿Qué consume hoy: el «⭳ JSON» del instructivo, `resultado.json` o el Excel? Una muestra alcanza.
-8. ¿Qué tamaño tiene su servidor? Contar las líneas sin `node_modules` y mirar el `package.json` decide si conviene pasarla a Python (7.4).
+1. ¿Corre en la misma PC que tiene los PDF?
+2. ¿Solo **muestra** lo que arma este programa, o tiene que **generar** desde los PDF (C1 o C2, sección 7.1)?
+3. ¿Qué consume hoy: el «⭳ JSON» del instructivo, `resultado.json` o el Excel? Una muestra alcanza.
+4. ¿Qué tamaño tiene su servidor? Contar las líneas sin `node_modules` y mirar el `package.json` decide si conviene pasarla a Python (7.4).
 
 **Para más adelante** (no frenan las etapas 0 a 3):
 
-9. La memoria del OCR (`ocr_cache.json`), ¿sigue en git dentro de `programa/`?
-10. Los archivos de datos (`glyphdict.json`, `catalogo.json`, `wpc.json`, `terminales.json`), ¿quedan donde están (recomendado) o se mueven al paquete?
-11. ¿Qué hacemos con `pendiente/arreglos_mapeo_parciales/`?
-12. ¿El terminal en E8 sigue la regla del instructivo (la mayor sección de los tramos del borne) o la de E8 (la sección propia)?
-13. Las ediciones en el navegador (quitar, mover de estación, mover una punta), ¿quedan instantáneas como hoy? Es lo recomendado.
-14. Con un topográfico nuevo se borran las salidas, pero se conservan `bornes_usuario`, los overrides y la calibración. ¿Es el criterio que querés?
+5. La memoria del OCR (`ocr_cache.json`), ¿sigue en git dentro de `programa/`?
+6. Los archivos de datos (`glyphdict.json`, `catalogo.json`, `wpc.json`, `terminales.json`), ¿quedan donde están (recomendado) o se mueven al paquete?
+7. ¿Qué hacemos con `pendiente/arreglos_mapeo_parciales/`?
+8. ¿El terminal en E8 sigue la regla del instructivo (la mayor sección de los tramos del borne) o la de E8 (la sección propia)?
+9. Las ediciones en el navegador (quitar, mover de estación, mover una punta), ¿quedan instantáneas como hoy? Es lo recomendado.
+10. Con un topográfico nuevo se borran las salidas, pero se conservan `bornes_usuario`, los overrides y la calibración. ¿Es el criterio que querés?
