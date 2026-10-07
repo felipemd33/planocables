@@ -6846,8 +6846,59 @@
  "wpc": {},
  "proyector": {},
  "producto": {
-  "documento": null,
-  "revision": null
+  "codigo": "72715-1",
+  "nombre": "mSafe1 TPT",
+  "funcional": {
+   "numero": "72715",
+   "revision": "8",
+   "fuente": "titulo_pdf"
+  },
+  "topografico": {
+   "numero": "72887",
+   "revision": "7",
+   "fuente": "titulo_pdf",
+   "hoja": 4
+  },
+  "codigo_rotulo": "72715-1",
+  "documento": "72715",
+  "revision": "8",
+  "confirmado": true,
+  "confianza": "alta",
+  "fuente": "catalogo",
+  "avisos": [],
+  "detectado": {
+   "funcional": {
+    "numero": "72715",
+    "revision": "8",
+    "fuente": "titulo_pdf"
+   },
+   "codigo": {
+    "rotulo": "72715-1",
+    "hojas": 20,
+    "portada": null,
+    "archivo": null
+   },
+   "fuentes": {
+    "titulo_pdf": {
+     "texto": "72715 ZPL -Rev8-Functional Diagram - mSafeTecpetrol.pdf",
+     "numero": "72715",
+     "revision": "8"
+    },
+    "rotulo": {
+     "numero": "72715",
+     "revision": "8",
+     "hojas": 20
+    },
+    "archivo": {
+     "texto": "72715 DIAGRAMA ELECTRICOmSafe expansor - REV.8.pdf",
+     "numero": "72715",
+     "revision": "8"
+    }
+   },
+   "eplan": false,
+   "avisos": []
+  },
+  "preguntar": false
  },
  "overrides": {},
  "topografico": "72887 DIAGRAMA CONSTRUCTIVO MSAFE CEXPA - REV.7.pdf",

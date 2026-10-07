@@ -303,7 +303,21 @@
    ["(White/1,31mm2)", "43", "C6", "Blanco", "1,31"],
    ["(Black/1,31mm2)", "43", "C6", "Negro", "1,31"],
    ["(White/1,31mm2)", "43", "C6", "Blanco", "1,31"]
-  ]
+  ],
+  "producto": {
+   "codigo": "75206-1",
+   "nombre": null,
+   "funcional": {"numero": "75206", "revision": "2", "fuente": "titulo_pdf"},
+   "topografico": {"numero": null, "revision": null, "fuente": null},
+   "codigo_rotulo": "75206-1",
+   "documento": "75206",
+   "revision": "2",
+   "confirmado": false,
+   "confianza": "alta",
+   "fuente": "rotulo",
+   "avisos": [],
+   "detectado": {"funcional": {"numero": "75206", "revision": "2", "fuente": "titulo_pdf"}, "codigo": {"rotulo": "75206-1", "hojas": 14, "portada": null, "archivo": null}, "fuentes": {"titulo_pdf": {"texto": "75206  ZPL-REV2- Functional Diagram - mSafe NA - 220V - SHELL.pdf", "numero": "75206", "revision": "2"}, "rotulo": {"numero": "75206", "revision": "2", "hojas": 14}, "archivo": {"texto": "75206  ZPL-REV2- Functional Diagram - mSafe NA - 220V - SHELL.pdf", "numero": "75206", "revision": "2"}}, "eplan": false, "avisos": []}
+  }
  },
  "layout": {
   "huella": "89651d581b823487",

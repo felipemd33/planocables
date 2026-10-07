@@ -6,7 +6,8 @@ uso: python pruebas/probar_web_humo.py [--crear] [--sin-pythonw]
   A. Flask test_client sobre copias del 75287 (ac0f0949510a) y del TPT: paginas, estado, resultado, imagen de la hoja,
      regenerar el instructivo (comparado con el golden y con la base de regresion), una marca 'hecho' de ida y vuelta
      (y que sobrevive a otro regenerar), vista previa de salidas a LI / LD, pestaña y API del proyector, topo.png y los
-     estaticos (wpc.json, terminales.json y los .js / .css de las paginas).
+     estaticos (wpc.json, terminales.json y los .js / .css de las paginas). El producto (etapa 2) sale con el catalogo
+     fijo pruebas/fixtures/productos.json, y GET /producto tiene que dar el mismo que el instructivo.
   B. Arranque como en el taller (pythonw, sin consola) en el puerto 8791 con un historial temporal; cierre con
      POST /api/salir y el proceso tiene que terminar.
   C. Nada cambio fuera de pruebas/ (git status), ni en '3 - Historial web' ni en pruebas/trabajos."""
@@ -14,6 +15,7 @@ import os, sys, io, json, re, time, shutil, socket, hashlib, tarfile, tempfile, 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROG = os.path.join(RAIZ, 'programa')
 GOLD = os.path.join(RAIZ, 'pruebas', 'bases', 'web')
+PRODUCTOS = os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json')   # catalogo de productos de los golden
 sys.stdout.reconfigure(encoding='utf-8')
 sys.dont_write_bytecode = True          # (nada de __pycache__ nuevo en programa/)
 CREAR = '--crear' in sys.argv
@@ -150,6 +152,7 @@ def parte_a(tmp):
     # el historial y el puerto se leen al importar web
     os.environ['PLANOCABLES_HISTORIAL'] = hist
     os.environ['PLANOCABLES_PORT'] = str(PUERTO_A)
+    os.environ['PLANOCABLES_PRODUCTOS'] = PRODUCTOS     # catalogo fijo (el de programa/ lo cambia el taller); solo se lee
     sys.path.insert(0, PROG)
     import web
     chequear(os.path.normcase(os.path.abspath(web.WORK)) == os.path.normcase(hist), f'la web usa el historial temporal ({web.WORK})')
@@ -228,6 +231,13 @@ def parte_a(tmp):
                  f'{len(ins["pendientes"])} pendientes, {len(ins["sueltos"])} sueltos, {len(ins["otra_estacion"])} en otra estación')
         tp = ins.get('topo') or {}
         chequear(tp.get('ductos') and tp.get('region') and tp.get('escala') and tp.get('pag'), 'topo con bandeja, canaletas y escala')
+        # producto (etapa 2): el del instructivo y el de GET /producto son el mismo (catalogo fijo de las pruebas)
+        pr = ins.get('producto') or {}
+        r = get(u + '/producto')
+        jp = (r.get_json() or {}).get('producto') or {} if r.status_code == 200 else {}
+        chequear(pr.get('codigo') and (jp.get('codigo'), jp.get('funcional'), jp.get('topografico')) == (pr.get('codigo'), pr.get('funcional'), pr.get('topografico')),
+                 f'producto {pr.get("codigo")} · funcional {(pr.get("funcional") or {}).get("numero")} rev {(pr.get("funcional") or {}).get("revision")}'
+                 f' · topográfico {(pr.get("topografico") or {}).get("numero")} rev {(pr.get("topografico") or {}).get("revision")}; GET /producto da el mismo')
         chequear(ins.get('editado') is False and not (ins.get('mapeo') or {}).get('error') and not (ins.get('estacion8') or {}).get('detalle'),
                  f'sin errores del mapeo ni de E8 ({(ins.get("mapeo") or {}).get("error")})')
         # mismo resultado que volcar_trabajo.py (la base de regresion de ese trabajo)

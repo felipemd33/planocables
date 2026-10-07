@@ -14161,5 +14161,58 @@
    "refs": "Sh11:D3",
    "texto": "(Green/2,5mm2)"
   }
- ]
+ ],
+ "producto": {
+  "codigo": "66817-1",
+  "nombre": "mSafe1 NC YPF",
+  "funcional": {
+   "numero": "74676",
+   "revision": "7",
+   "fuente": "titulo_pdf"
+  },
+  "topografico": {
+   "numero": null,
+   "revision": null,
+   "fuente": null
+  },
+  "codigo_rotulo": "66817-1",
+  "documento": "74676",
+  "revision": "7",
+  "confirmado": true,
+  "confianza": "alta",
+  "fuente": "catalogo",
+  "avisos": [],
+  "detectado": {
+   "funcional": {
+    "numero": "74676",
+    "revision": "7",
+    "fuente": "titulo_pdf"
+   },
+   "codigo": {
+    "rotulo": "66817-1",
+    "hojas": 16,
+    "portada": null,
+    "archivo": "66817-1"
+   },
+   "fuentes": {
+    "titulo_pdf": {
+     "texto": "74676 ZPL-REV7- Funcional Diagram - mSafe NC.pdf",
+     "numero": "74676",
+     "revision": "7"
+    },
+    "rotulo": {
+     "numero": "74676",
+     "revision": "7",
+     "hojas": 16
+    },
+    "archivo": {
+     "texto": "Diagrama eléctrico funcional 66817-1.07.pdf",
+     "numero": null,
+     "revision": null
+    }
+   },
+   "eplan": false,
+   "avisos": []
+  }
+ }
 }

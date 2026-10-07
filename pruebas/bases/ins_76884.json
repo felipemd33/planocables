@@ -11899,8 +11899,60 @@
  "wpc": {},
  "proyector": {},
  "producto": {
+  "codigo": "76857-1",
+  "nombre": "mSafe2 PAE",
+  "funcional": {
+   "numero": "ZPL-76884",
+   "revision": "1",
+   "fuente": "rotulo"
+  },
+  "topografico": {
+   "numero": "ZPL-76884",
+   "revision": "1",
+   "fuente": "mismo_pdf",
+   "mismo_pdf": true,
+   "hoja": 8
+  },
+  "codigo_rotulo": "76860-1",
   "documento": "ZPL-76884",
-  "revision": "1"
+  "revision": "1",
+  "confirmado": true,
+  "confianza": "alta",
+  "fuente": "catalogo",
+  "avisos": [],
+  "detectado": {
+   "funcional": {
+    "numero": "ZPL-76884",
+    "revision": "1",
+    "fuente": "rotulo"
+   },
+   "codigo": {
+    "rotulo": null,
+    "hojas": 0,
+    "portada": "76860-1",
+    "archivo": null
+   },
+   "fuentes": {
+    "titulo_pdf": {
+     "texto": "mSafe2 PAE - Rev 1",
+     "numero": null,
+     "revision": "1"
+    },
+    "rotulo": {
+     "numero": "ZPL-76884",
+     "revision": "1",
+     "hojas": 50
+    },
+    "archivo": {
+     "texto": "ZPL-76884 - mSafe2+ PAE - Rev 1 - FABRIC.pdf",
+     "numero": "76884",
+     "revision": "1"
+    }
+   },
+   "eplan": true,
+   "avisos": []
+  },
+  "preguntar": false
  },
  "overrides": {},
  "topografico": "ZPL-76884 - mSafe2+ PAE - Rev 1 - FABRIC.pdf (hoja de bandejas)",

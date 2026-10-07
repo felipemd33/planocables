@@ -17,12 +17,15 @@ uso: python pruebas/volcar_bases_nuevas.py <trabajo_dir> <dir_salida> --nombre <
   PDF» (web.usar_mismo_pdf: copia el PDF como topografico y regenera con el topografico nuevo; siempre relee).
   Un 'archivo' relativo en estado.json (../../../1 - Planos/...) se resuelve contra la carpeta ORIGINAL del trabajo.
   Las rutas de la carpeta temporal y de la raiz del repo se escriben como <trabajo> y <raiz>.
-  La memoria OCR (programa/ocr_cache.json) la puede reescribir el lector si lee un renglon nuevo: si pasa, se avisa."""
+  La memoria OCR (programa/ocr_cache.json) la puede reescribir el lector si lee un renglon nuevo: si pasa, se avisa.
+  El producto (listado_ e ins_: clave 'producto', desde la etapa 2) sale con el catalogo fijo de las pruebas,
+  pruebas/fixtures/productos.json, no con programa/productos.json (ese lo cambia el taller al confirmar productos)."""
 import os, sys, json, copy, shutil, tempfile, threading, hashlib, time
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROGRAMA = os.path.join(RAIZ, 'programa')
 JID = 'b0b0b0b0b0b0'          # fijo: el id del trabajo no tiene que cambiar las bases
+PRODUCTOS = os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json')   # catalogo de productos de las bases (solo se lee)
 
 # campos que cambian solos de una corrida a otra (no van en las bases)
 VOLATILES_LISTADO = ('nombre', 'fecha', 'opciones', 'segundos', 'stats')
@@ -82,6 +85,8 @@ def main():
     historial = os.path.join(tmp, 'historial')
     os.makedirs(historial)
     os.environ['PLANOCABLES_HISTORIAL'] = historial      # (antes de importar web: nunca el historial del usuario)
+    # catalogo de productos fijo (pruebas/fixtures/productos.json): el de programa/ lo cambia el taller al confirmar
+    os.environ['PLANOCABLES_PRODUCTOS'] = PRODUCTOS
     sys.path.insert(0, PROGRAMA)
     try:
         d = os.path.join(historial, JID)

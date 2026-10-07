@@ -1,9 +1,10 @@
 """planocables: listado de cables e instructivo de cableado del taller Batfer, como paquete (PLAN_MODULAR.md).
 
-Se arma por etapas. Hoy (etapa 1) el paquete tiene solo la capa base/; el resto sigue en los modulos viejos de
-programa/ (core, wires, textdec, topo, ruteo, eplan, instructivo, estacion8, bornes/, web), que importan de base/ lo
-que se movio con el MISMO nombre de siempre (core.natkey, instructivo.fmt_terminal, topo.snap_escala...). Nada de
-planocables importa un modulo viejo ni toca sys.path (pruebas/probar_capas.py).
+Se arma por etapas. Hoy (etapa 2) el paquete tiene la capa base/ y producto (codigo de producto SAP, plano y revision);
+el resto sigue en los modulos viejos de programa/ (core, wires, textdec, topo, ruteo, eplan, instructivo, estacion8,
+bornes/, web), que importan de base/ lo que se movio con el MISMO nombre de siempre (core.natkey,
+instructivo.fmt_terminal, topo.snap_escala...). Nada de planocables importa un modulo viejo ni toca sys.path
+(pruebas/probar_capas.py).
 
 QUE TOCAR (tabla «que tocar» del plan, seccion 3.9, con lo que existe hoy; [viejo] = todavia en el modulo viejo)
 
@@ -34,6 +35,9 @@ QUE TOCAR (tabla «que tocar» del plan, seccion 3.9, con lo que existe hoy; [vi
                                              [viejos]
   Terminal o pollera                         web/instructivo.js (copia distinta en estacion8.js)    web/terminales.json
   Largos, giros, «fuera» de la WPC           web/wpc.js                                             web/wpc.json
+  Codigo de producto, plano y revision       planocables.producto (deteccion y combinacion);        programa/productos.json,
+                                             web.py (archivos, GET/PUT /producto); web/producto.js  producto.json del trabajo
+                                                                                                    (pruebas: PLANOCABLES_PRODUCTOS)
   Secciones de la auditoria                  web/auditoria.js                                       -
   Candado de PDFium (uno solo)               planocables.base.pdfium_lock                           -
   Frases que se comparan entre modulos       tabla de protocolos (PLAN_MODULAR 1.2.8)               -

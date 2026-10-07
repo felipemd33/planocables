@@ -11,7 +11,7 @@ uso: python pruebas/probar_capas.py
      (trabajo/ escribe; datos/ solo lee).
   C. sin dependencias pesadas, en subprocesos: con numpy, cv2, pypdf y pypdfium2 bloqueados se importan todos los
      modulos de planocables.base (y ninguno carga un modulo viejo); con numpy y cv2 bloqueados cargan textdec y wires;
-     con los cuatro bloqueados cargan instructivo y estacion8."""
+     con los cuatro bloqueados cargan instructivo y estacion8, y planocables.producto."""
 import os, sys, ast, json, subprocess
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -233,7 +233,8 @@ try:
     chequear(not r['viejos'], 'y no cargan ningún módulo viejo' + ('' if not r['viejos'] else f": {', '.join(r['viejos'])}"))
 except (ValueError, IndexError, KeyError):
     chequear(False, f'planocables.base sin numpy, cv2, pypdf ni pypdfium2: código {cod}\n{out[-2000:]}')
-for bloq, mods in ((('numpy', 'cv2'), ('textdec', 'wires')), (('numpy', 'cv2', 'pypdf', 'pypdfium2'), ('instructivo', 'estacion8'))):
+for bloq, mods in ((('numpy', 'cv2'), ('textdec', 'wires')), (('numpy', 'cv2', 'pypdf', 'pypdfium2'), ('instructivo', 'estacion8')),
+                   (('numpy', 'cv2', 'pypdf', 'pypdfium2'), ('planocables.producto',))):
     cod, out = sub(bloq, f'import {", ".join(mods)}\nprint("ok")')
     chequear(cod == 0 and out.endswith('ok'), f'sin {", ".join(bloq)} cargan {" y ".join(mods)}' + ('' if cod == 0 else f'\n{out[-1500:]}'))
 

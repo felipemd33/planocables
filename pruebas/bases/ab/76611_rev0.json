@@ -239,7 +239,21 @@
   "sin_numero": [
    ["(A-V/6mm2)", "11", "E2", "Verde-Amarillo", "6"],
    ["(A-V/6mm2)", "11", "D4", "Verde-Amarillo", "6"]
-  ]
+  ],
+  "producto": {
+   "codigo": "76610-1",
+   "nombre": null,
+   "funcional": {"numero": "76611", "revision": "0", "fuente": "titulo_pdf"},
+   "topografico": {"numero": null, "revision": null, "fuente": null},
+   "codigo_rotulo": "76610-1",
+   "documento": "76611",
+   "revision": "0",
+   "confirmado": false,
+   "confianza": "alta",
+   "fuente": "rotulo",
+   "avisos": [],
+   "detectado": {"funcional": {"numero": "76611", "revision": "0", "fuente": "titulo_pdf"}, "codigo": {"rotulo": "76610-1", "hojas": 5, "portada": null, "archivo": null}, "fuentes": {"titulo_pdf": {"texto": "76611 ZPL-Rev0-DIAGRAMA ELECTRICO TABLERO DE DISTRIBUCIÓN 220V - dFRAC.pdf", "numero": "76611", "revision": "0"}, "rotulo": {"numero": "76611", "revision": "0", "hojas": 5}, "archivo": {"texto": "76611 ZPL-Rev0-DIAGRAMA ELECTRICO TABLERO DE DISTRIBUCIÓN 220V - dFRAC.pdf", "numero": "76611", "revision": "0"}}, "eplan": false, "avisos": []}
+  }
  },
  "layout": {
   "huella": "e0bf87ea9d5d7772",

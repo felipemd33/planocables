@@ -6701,8 +6701,59 @@
    }
   ],
   "producto": {
-   "documento": null,
-   "revision": null
+   "avisos": [],
+   "codigo": "72715-1",
+   "codigo_rotulo": "72715-1",
+   "confianza": "alta",
+   "confirmado": true,
+   "detectado": {
+    "avisos": [],
+    "codigo": {
+     "archivo": null,
+     "hojas": 20,
+     "portada": null,
+     "rotulo": "72715-1"
+    },
+    "eplan": false,
+    "fuentes": {
+     "archivo": {
+      "numero": "72715",
+      "revision": "8",
+      "texto": "72715 DIAGRAMA ELECTRICOmSafe expansor - REV.8.pdf"
+     },
+     "rotulo": {
+      "hojas": 20,
+      "numero": "72715",
+      "revision": "8"
+     },
+     "titulo_pdf": {
+      "numero": "72715",
+      "revision": "8",
+      "texto": "72715 ZPL -Rev8-Functional Diagram - mSafeTecpetrol.pdf"
+     }
+    },
+    "funcional": {
+     "fuente": "titulo_pdf",
+     "numero": "72715",
+     "revision": "8"
+    }
+   },
+   "documento": "72715",
+   "fuente": "catalogo",
+   "funcional": {
+    "fuente": "titulo_pdf",
+    "numero": "72715",
+    "revision": "8"
+   },
+   "nombre": "mSafe1 TPT",
+   "preguntar": false,
+   "revision": "8",
+   "topografico": {
+    "fuente": "titulo_pdf",
+    "hoja": 4,
+    "numero": "72887",
+    "revision": "7"
+   }
   },
   "proyector": {},
   "quitados": [],

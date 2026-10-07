@@ -730,7 +730,21 @@
    ["s/n 81XCM 9: — → -81XCM:9:2", "108.c", "C5", "Verde/amarillo c", ""],
    ["s/n ROTORK 28: +Campo-R2:x2 → +Campo-ROTORK:28", "108.c", "C2", "", ""],
    ["s/n ROTORK 27: +Campo-R2:x1 → +Campo-ROTORK:27", "108.c", "C2", "", ""]
-  ]
+  ],
+  "producto": {
+   "codigo": "76857-1",
+   "nombre": "mSafe2 PAE",
+   "funcional": {"numero": "ZPL-76884", "revision": "0", "fuente": "rotulo"},
+   "topografico": {"numero": null, "revision": null, "fuente": null},
+   "codigo_rotulo": "76860-1",
+   "documento": "ZPL-76884",
+   "revision": "0",
+   "confirmado": true,
+   "confianza": "alta",
+   "fuente": "catalogo",
+   "avisos": ["La revisión no coincide: título del PDF 0, rótulo 0, nombre del archivo 0A"],
+   "detectado": {"funcional": {"numero": "ZPL-76884", "revision": "0", "fuente": "rotulo"}, "codigo": {"rotulo": null, "hojas": 0, "portada": "76860-1", "archivo": null}, "fuentes": {"titulo_pdf": {"texto": "mSafe2 PAE - Rev 0", "numero": null, "revision": "0"}, "rotulo": {"numero": "ZPL-76884", "revision": "0", "hojas": 50}, "archivo": {"texto": "ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf", "numero": "76884", "revision": "0A"}}, "eplan": true, "avisos": ["La revisión no coincide: título del PDF 0, rótulo 0, nombre del archivo 0A"]}
+  }
  },
  "layout": {
   "huella": "2c576ce00cc3c06d",

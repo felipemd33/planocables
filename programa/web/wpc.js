@@ -191,6 +191,7 @@ const Wpc = (() => {
 
   function render() {
     const fs = filas(), w = W(), M = $('#wpcModal');
+    if (typeof Prod !== 'undefined') Prod.mostrarEn('#wpcProd', D.producto);     // línea «Producto» (web/producto.js)
     const faltan = fs.filter(f => !f.fuera && (f.calc.falta || !f.color || !f.sec)).length;
     M.querySelector('.wpc-cfg').innerHTML = [['margen_bandeja', 'Sobrante en bandeja (mm)'], ['agregado_bandeja', '+ agregado en bandeja (mm)'],
       ['acometida', 'Borne → canaleta (mm)'], ['curva_LI', 'Curva posterior → LI (mm)'], ['acometida_LI', 'Canaleta → borne en LI (mm)'], ['puerta', 'Sigue a puerta / placa (mm)'],
@@ -257,6 +258,7 @@ const Wpc = (() => {
       M.innerHTML = `<div class="wpc-box" role="dialog" aria-label="Lista de cables para WPC">
         <div class="wpc-h"><h2>Lista de cables para WPC</h2><span class="muted small">En el orden del instructivo. Todo en un solo CSV. El largo editado a mano queda en negrita.</span>
           <span class="grow"></span><button class="btn ghost sm" data-cerrar>✕ Cerrar</button></div>
+        <div class="small prod-linea" id="wpcProd" hidden></div>
         <div class="wpc-cfg"></div><div class="wpc-exp"></div>
         <div class="wpc-t"><table><thead><tr><th></th><th>#</th><th>Cable</th><th>Color</th><th>mm²</th><th>Largo</th><th>Origen → destino</th><th title="Giro de los termos (señalizadores): origen|destino en grados. Una punta arriba y otra abajo: 0|0 · las dos abajo: 180|0 · las dos arriba: 0|180">Termos</th><th title="Recorrido por las canaletas">Canaleta</th></tr></thead><tbody></tbody></table></div></div>`;
       document.body.appendChild(M);

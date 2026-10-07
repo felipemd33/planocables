@@ -481,7 +481,21 @@
    ["(Negro/0.32mm2)", "81", "E2", "Negro", "0,32"],
    ["(Amarillo/0.32mm2)", "81", "E2", "Amarillo", "0,32"],
    ["(Blanco/0.32mm2)", "81", "E2", "Blanco", "0,32"]
-  ]
+  ],
+  "producto": {
+   "codigo": "76222-1",
+   "nombre": null,
+   "funcional": {"numero": "76425", "revision": "0", "fuente": "titulo_pdf"},
+   "topografico": {"numero": null, "revision": null, "fuente": null},
+   "codigo_rotulo": "76222-1",
+   "documento": "76425",
+   "revision": "0",
+   "confirmado": false,
+   "confianza": "alta",
+   "fuente": "rotulo",
+   "avisos": [],
+   "detectado": {"funcional": {"numero": "76425", "revision": "0", "fuente": "titulo_pdf"}, "codigo": {"rotulo": "76222-1", "hojas": 21, "portada": null, "archivo": null}, "fuentes": {"titulo_pdf": {"texto": "76425 ZPL Functional Diagram mSafe1 PP REV0.pdf", "numero": "76425", "revision": "0"}, "rotulo": {"numero": "76425", "revision": "0", "hojas": 21}, "archivo": {"texto": "76425 FUNCTIONAL DIAGRAM MSAFE.pdf", "numero": "76425", "revision": null}}, "eplan": false, "avisos": []}
+  }
  },
  "layout": {
   "huella": "2da2928065103e1b",

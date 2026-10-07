@@ -69,6 +69,7 @@
       <div>
         <h1 id="resNombre">—</h1>
         <div class="muted small" id="resInfo"></div>
+        <div class="small prod-linea" id="resProd" hidden></div>
       </div>
       <div class="dl">
         <a class="btn primary" id="dlPdf" href="#">⭳ PDF buscable</a>
@@ -143,6 +144,7 @@
           <button class="btn ghost sm" id="insNewTopo">Cambiar topográfico</button>
           <button class="btn ghost sm" id="insRegen">↻ Regenerar</button>
         </div>
+        <div class="small prod-linea" id="insProd" hidden></div>
         <div class="muted small" id="insInfo"></div>
         <div class="bar thin"><i id="insProgBar"></i></div>
         <div class="small ins-save" id="insSave" aria-live="polite"></div>
@@ -370,6 +372,7 @@
 
 <div class="toast" id="toast" hidden></div>
 <script src="/static/app.js"></script>
+<script src="/static/producto.js"></script>
 <script src="/static/instructivo.js"></script>
 <script src="/static/salidas.js"></script>
 <script src="/static/auditoria.js"></script>

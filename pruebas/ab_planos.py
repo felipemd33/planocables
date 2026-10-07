@@ -4,6 +4,8 @@ Para cada par funcional + topografico arma, con el mismo camino que la web y SIN
   -> mapeo automatico de bornes (bornes.aplicar_al_layout, o eplan.aplicar_puntos en EPLAN) -> instructivo.build
 y guarda un JSON compacto por plano (<salida>/<clave>.json): cables, lineas E6, pendientes, sueltos, otra estacion,
 extremos, resumen del layout y del mapeo. Lo que cambia solo (tiempos, OCR en vivo) va en 'meta' y no se compara.
+Desde la etapa 2 el listado trae tambien 'producto' (el de web.result_json: codigo, plano y revision), entero y fuera
+de la huella, con el catalogo fijo pruebas/fixtures/productos.json.
 uso:
   python pruebas/ab_planos.py <dir_salida> [--programa <carpeta programa>] [--solo clave1,clave2] [-j N]
                               [--memoria-ocr <ocr_cache.json>] [--semilla 0|aleatoria]
@@ -23,6 +25,7 @@ import os, sys, re, json, time, glob, hashlib, subprocess, tempfile, argparse, i
 sys.dont_write_bytecode = True          # no deja __pycache__ dentro de programa/
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PLANOS = os.path.join(RAIZ, '1 - Planos')
+PRODUCTOS = os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json')     # catalogo de productos (solo se lee)
 ESTE = os.path.abspath(__file__)
 try:
     sys.stdout.reconfigure(encoding='utf-8')
@@ -201,6 +204,9 @@ def resumen_listado(res, meta):
         meta['resultado_json'] = f'copia local ({type(e).__name__})'
     rj = {k: v for k, v in rj.items() if k not in VOLATILES_LISTADO}
     rj = json.loads(json.dumps(rj, ensure_ascii=False, default=str))      # como resultado.json
+    # producto (codigo, plano y revision; desde la etapa 2): va aparte, entero, al final, y la huella del listado sigue
+    # siendo la de siempre (una copia vieja del programa no lo trae: no aparece la clave)
+    producto = rj.pop('producto', None)
     g = lambda d, *ks: [d.get(k) for k in ks]
     return dict(
         huella=huella(rj), huella_rutas=huella(rj.get('rutas')), nota=rj.get('nota'),
@@ -209,7 +215,8 @@ def resumen_listado(res, meta):
         cables=[g(c, 'num', 'color', 'sec', 'puntas', 'n', 'hojas', 'ubic', 'refs', 'obs') for c in rj.get('cables') or []],
         detalle=[g(d, 'num', 'pag', 'zona', 'color', 'sec', 'puntas', 'origen', 'texto', 'src') for d in rj.get('detalle') or []],
         revisar=[g(r, 'tipo', 'texto', 'hoja', 'zona') for r in rj.get('revisar') or []],
-        sin_numero=[g(s, 'texto', 'hoja', 'zona', 'color', 'sec') for s in rj.get('sin_numero') or []])
+        sin_numero=[g(s, 'texto', 'hoja', 'zona', 'color', 'sec') for s in rj.get('sin_numero') or []],
+        **({'producto': producto} if producto is not None else {}))
 
 
 def resumen_layout(lay):
@@ -300,6 +307,9 @@ def correr_plano(clave, funcional, topografico, salida, prog, memoria_ocr=None):
     sys.path.insert(0, prog)
     tmp = tempfile.mkdtemp(prefix='ab_planos_')
     os.environ.setdefault('PLANOCABLES_HISTORIAL', os.path.join(tmp, 'historial'))     # (por si se importa web.py)
+    # producto del listado (web.result_json, desde la etapa 2) con el catalogo fijo de las pruebas: el de programa/ lo
+    # cambia el taller cuando confirma un producto
+    os.environ['PLANOCABLES_PRODUCTOS'] = PRODUCTOS
     fpath = os.path.join(RAIZ, funcional)
     tpath = os.path.join(RAIZ, topografico) if topografico else None
     out = dict(plano=clave, archivos=dict(funcional=funcional, topografico=topografico, sha_funcional=sha_archivo(fpath),

@@ -182,6 +182,7 @@ async function loadResult(id, st) {
   $('#resNota').hidden = !!res.rutas;
   $('#resNota').innerHTML = 'Este plano se procesó con una versión anterior del programa: pulsa <b>↻ Reprocesar</b> para ver el recorrido coloreado de cada cable y sus puntas.';
   $('#resInfo').textContent = `Procesado ${res.fecha} · ${res.paginas.length} páginas · ${res.segundos} s` + (res.nota ? ` · Nota del plano: “${res.nota}”` : '');
+  if (typeof Prod !== 'undefined') Prod.enTrabajo(id);      // línea «Producto: 75286-1 · ... ✎» (web/producto.js)
   const dlp = $('#dlPdf'), dle = $('#dlExcel');
   dlp.href = `/api/trabajo/${id}/descargar/pdf`; dlp.classList.toggle('disabled', !st.pdf);
   dle.href = `/api/trabajo/${id}/descargar/excel`; dle.classList.toggle('disabled', !st.excel);

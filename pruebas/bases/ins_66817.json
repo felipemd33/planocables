@@ -5675,8 +5675,59 @@
  "wpc": {},
  "proyector": {},
  "producto": {
-  "documento": null,
-  "revision": null
+  "codigo": "66817-1",
+  "nombre": "mSafe1 NC YPF",
+  "funcional": {
+   "numero": "74676",
+   "revision": "7",
+   "fuente": "titulo_pdf"
+  },
+  "topografico": {
+   "numero": "75775",
+   "revision": "8",
+   "fuente": "titulo_pdf",
+   "hoja": 4
+  },
+  "codigo_rotulo": "66817-1",
+  "documento": "74676",
+  "revision": "7",
+  "confirmado": true,
+  "confianza": "alta",
+  "fuente": "catalogo",
+  "avisos": [],
+  "detectado": {
+   "funcional": {
+    "numero": "74676",
+    "revision": "7",
+    "fuente": "titulo_pdf"
+   },
+   "codigo": {
+    "rotulo": "66817-1",
+    "hojas": 16,
+    "portada": null,
+    "archivo": "66817-1"
+   },
+   "fuentes": {
+    "titulo_pdf": {
+     "texto": "74676 ZPL-REV7- Funcional Diagram - mSafe NC.pdf",
+     "numero": "74676",
+     "revision": "7"
+    },
+    "rotulo": {
+     "numero": "74676",
+     "revision": "7",
+     "hojas": 16
+    },
+    "archivo": {
+     "texto": "Diagrama eléctrico funcional 66817-1.07.pdf",
+     "numero": null,
+     "revision": null
+    }
+   },
+   "eplan": false,
+   "avisos": []
+  },
+  "preguntar": false
  },
  "overrides": {},
  "topografico": "topografico.pdf",

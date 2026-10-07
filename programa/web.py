@@ -1,7 +1,7 @@
 """Interfaz web local: http://127.0.0.1:8765
 Sube un plano PDF, genera el PDF buscable y el listado de cables, y permite
 explorar el listado y ver cada cable resaltado sobre el plano."""
-import os, sys, json, uuid, threading, time, datetime, shutil, subprocess, re, io
+import os, sys, json, uuid, threading, time, datetime, shutil, subprocess, re, io, collections
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from flask import Flask, request, jsonify, send_file, abort
@@ -16,6 +16,10 @@ app.config['MAX_CONTENT_LENGTH'] = 300 * 1024 * 1024
 JOBS = {}
 RUN_LOCK = threading.Lock()   # un plano a la vez (el proceso usa toda la CPU)
 from ocr_raster import PDFIUM_LOCK   # pdfium no admite uso simultaneo desde varios hilos
+from planocables import producto as PR   # codigo de producto, plano y revision (sin disco: los archivos los lee la web)
+# catalogo de productos del taller (crece cuando se confirma el producto de un trabajo). Otra ruta: pruebas
+PRODUCTOS = os.environ.get('PLANOCABLES_PRODUCTOS') or os.path.join(HERE, 'productos.json')
+CATALOGO_LOCK = threading.Lock()
 
 
 def job_dir(jid):
@@ -57,18 +61,25 @@ def load_state(jid):
     return None
 
 
-def result_json(res, name, opts):
+def result_json(res, name, opts, confirmado=None):
+    """resultado.json. 'producto' (codigo, plano y revision): lo detectado en el plano con el catalogo y lo confirmado a
+    mano en el trabajo (producto.json), sin el topografico (todavia no se cargo)"""
     from core import sheet_name
     pages = [dict(index=p['index'], sheet=sheet_name(p), title=p['meta'].get('title', ''), w=p['w'] - p.get('x0', 0), h=p['h'] - p.get('y0', 0),
                   x0=p.get('x0', 0), y0=p.get('y0', 0),
                   cables=sum(1 for n in p['nums'] if n['chain'] is not None)) for p in res.pages]
     clean = lambda d: {k: v for k, v in d.items() if k not in ('chain', 'etiquetas', 'via')}
+    try:
+        det = detectar_producto(res, name)
+        producto = dict(PR.combinar(det, None, leer_catalogo(), confirmado), detectado=det)
+    except Exception as e:      # el producto nunca frena el listado
+        producto = dict(error=f'{type(e).__name__}: {e}', avisos=[f'no se pudo leer el producto del plano ({e})'])
     return dict(
         nombre=name, fecha=datetime.datetime.now().strftime('%d/%m/%Y %H:%M'), segundos=round(res.seconds, 1),
         nota=res.default[2] if res.default else None, paginas=pages, opciones=opts,
         cables=res.cables, detalle=[clean(d) for d in res.detail], revisar=res.review,
         rutas={str(p['index']): p.get('routes', {}) for p in res.pages if p.get('routes')},
-        sin_numero=getattr(res, 'unnumbered', []), stats=res.stats)
+        sin_numero=getattr(res, 'unnumbered', []), stats=res.stats, producto=producto)
 
 
 def run_job(jid, pdf_path, opts):
@@ -106,7 +117,7 @@ def run_job(jid, pdf_path, opts):
                     eplan.excel_extra(res, os.path.join(d, base + ' - LISTADO DE CABLES.xlsx'))
                 j['excel'] = base + ' - LISTADO DE CABLES.xlsx'
             with open(os.path.join(d, 'resultado.json'), 'w', encoding='utf-8') as f:
-                json.dump(result_json(res, j['nombre'], opts), f, ensure_ascii=False)
+                json.dump(result_json(res, j['nombre'], opts, confirmado=leer_confirmado(d)), f, ensure_ascii=False)
             j['cables'] = len({c['num'] for c in res.cables}); j['revisar'] = len(res.review)
             j['segundos'] = round(res.seconds, 1)
             j['estado'] = 'terminado'; j['progreso'] = 1.0
@@ -481,7 +492,9 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
             ins['auditoria'] = old.get('auditoria') or {}
             ins['wpc'] = old.get('wpc') or {}     # lista WPC: largos y colores a mano, cortes de etapa, excluidos
             ins['proyector'] = old.get('proyector') or {}   # pestaña 📽 Proyector: orificios marcados, calibración y ventana
-            ins['producto'] = producto_de(lay)              # documento del rótulo (EPLAN): reglas por producto de la lista WPC
+            # producto (código SAP, plano y revisión): lo detectado con el catálogo y lo confirmado a mano (producto.json
+            # manda: no se pisa al regenerar). 'documento' sigue siendo el de las reglas por producto de la lista WPC
+            ins['producto'] = producto_nuevo(P, s, res, lay, old, topo_nuevo)
             # conservar las fotos de la version anterior (paso identificado por su primer cable)
             prev = {}
             for p_ in old.get('pasos', []):
@@ -581,9 +594,191 @@ def estado_instructivo(jid):
 
 def producto_de(lay):
     """documento y revision del rotulo (planos de EPLAN), para las reglas por producto de la lista WPC (wpc.json →
-    reemplazos[documento]); en los planos de AutoCAD no hay"""
+    reemplazos[documento]); en los planos de AutoCAD no hay. (Lo que habia antes del producto: queda si falla la deteccion)"""
     e = ((lay or {}).get('eplan') or {}) if isinstance(lay, dict) else {}
     return dict(documento=e.get('documento'), revision=e.get('revision'))
+
+
+# ------------------------------------------------------------------ producto: codigo SAP, plano y revision (planocables.producto)
+def leer_catalogo():
+    """catalogo de productos del taller (programa/productos.json); {} si no esta o esta roto"""
+    c = leer_json(PRODUCTOS)
+    return c if isinstance(c, dict) else {}
+
+
+def leer_confirmado(d):
+    """producto.json del trabajo (el producto confirmado a mano) o None"""
+    c = leer_json(os.path.join(d, 'producto.json'))
+    return c if isinstance(c, dict) and PR.codigo_valido(c.get('codigo')) else None
+
+
+def titulo_pdf(path):
+    """/Title de los metadatos del PDF, o None (barato: no lee las hojas)"""
+    try:
+        import pypdf
+        r = pypdf.PdfReader(path)
+        if r.is_encrypted:
+            r.decrypt('')
+        t = (r.metadata or {}).get('/Title')
+        return (str(t).strip() or None) if t is not None else None
+    except Exception:
+        return None
+
+
+def detectar_producto(res, nombre):
+    """lo que dice el plano funcional ya leido sobre el producto: rotulo de cada hoja, /Title y nombre del archivo"""
+    pags = [dict(index=p['index'], lines=p.get('lines') or [], cajetin=(p.get('meta') or {}).get('cajetin')) for p in res.pages]
+    ep = dict(documento=getattr(res, 'documento', None), revision=getattr(res, 'revision', None)) if getattr(res, 'eplan', False) else None
+    return PR.producto_del_plano(pags, titulo_pdf(res.path), os.path.basename(nombre or res.path), eplan=ep)
+
+
+def topografico_de(P, s, lay):
+    """{numero, revision, fuente, hoja} del topografico del trabajo (None si todavia no se cargo). EPLAN: el rotulo de
+    las bandejas ('mismo_pdf' si es el PDF del funcional: «Usar las bandejas de este mismo PDF»)"""
+    if not os.path.exists(P['topo']):
+        return None
+    lay = lay if isinstance(lay, dict) else {}
+    e = lay.get('eplan') if isinstance(lay.get('eplan'), dict) else None
+    if e:
+        fun = os.path.join(P['dir'], s.get('archivo') or '')
+        mismo = os.path.isfile(fun) and os.path.getsize(fun) == os.path.getsize(P['topo'])
+        t = dict(numero=e.get('documento'), revision=e.get('revision'), fuente='mismo_pdf' if mismo else 'rotulo')
+        if mismo:
+            t['mismo_pdf'] = True
+    else:
+        t = PR.topografico_del_pdf(titulo_pdf(P['topo']), s.get('topo_nombre'))
+    if lay.get('pag'):
+        t['hoja'] = lay['pag']
+    return t
+
+
+def marcar_pregunta(prod, preguntado):
+    """'preguntar': el asistente de la web pregunta una sola vez (sin confirmar y con una deteccion dudosa o avisos)"""
+    if preguntado:
+        prod['preguntado'] = True
+    prod['preguntar'] = PR.hay_que_preguntar(prod) and not preguntado
+    return prod
+
+
+def producto_nuevo(P, s, res, lay, old, topo_nuevo):
+    """ins['producto'] al regenerar: lo detectado en el plano recien leido, el topografico, el catalogo y producto.json.
+    Ya se pregunto una vez: no se vuelve a preguntar (salvo con un topografico nuevo, como las salidas)"""
+    try:
+        det = detectar_producto(res, s.get('nombre') or s.get('archivo'))
+        prod = dict(PR.combinar(det, topografico_de(P, s, lay), leer_catalogo(), leer_confirmado(P['dir'])), detectado=det)
+    except Exception as e:      # el producto nunca frena el instructivo
+        return dict(producto_de(lay), error=f'{type(e).__name__}: {e}', avisos=[f'no se pudo leer el producto del plano ({e})'])
+    return marcar_pregunta(prod, bool((old.get('producto') or {}).get('preguntado')) and not topo_nuevo)
+
+
+def producto_actual(P, s, ins=None):
+    """el producto con lo que ya esta en el disco, sin volver a leer el plano: lo detectado (instructivo.json o
+    resultado.json; en un trabajo viejo, solo el /Title y el nombre del archivo), el topografico, el catalogo y
+    producto.json. Sin 'preguntar' (lo pone quien lo llama)"""
+    ins = ins if isinstance(ins, dict) else (leer_json(P['json']) or {})
+    det = (ins.get('producto') or {}).get('detectado') if isinstance(ins.get('producto'), dict) else None
+    if not isinstance(det, dict):
+        det = (((leer_json(os.path.join(P['dir'], 'resultado.json')) or {}).get('producto')) or {}).get('detectado')
+    lay = leer_json(P['layout'])
+    if not isinstance(det, dict):
+        e = (lay or {}).get('eplan') if isinstance(lay, dict) and isinstance(lay.get('eplan'), dict) else None
+        fun = os.path.join(P['dir'], s.get('archivo') or '')
+        det = PR.producto_del_plano([], titulo_pdf(fun) if os.path.isfile(fun) else None,
+                                    os.path.basename(s.get('nombre') or s.get('archivo') or ''),
+                                    eplan=dict(documento=e.get('documento'), revision=e.get('revision')) if e else None)
+    return dict(PR.combinar(det, topografico_de(P, s, lay), leer_catalogo(), leer_confirmado(P['dir'])), detectado=det)
+
+
+def texto_catalogo(cat):
+    """productos.json legible: un producto por renglon (el diff de git se lee)"""
+    prods = cat.get('productos') or {}
+    otras = [f' {json.dumps(k, ensure_ascii=False)}: {json.dumps(v, ensure_ascii=False)}' for k, v in cat.items() if k != 'productos']
+    filas = [f'  {json.dumps(k, ensure_ascii=False)}: {json.dumps(v, ensure_ascii=False)}' for k, v in prods.items()]
+    return '{\n' + ''.join(o + ',\n' for o in otras) + ' "productos": {\n' + ',\n'.join(filas) + '\n }\n}\n'
+
+
+def sumar_al_catalogo(codigo, nombre, prod):
+    """el producto confirmado queda en el catalogo con los alias de este trabajo: el plano funcional (o el documento de
+    EPLAN), el topografico y el codigo que dice el plano si no es el del producto. El plano funcional, el documento y
+    el codigo del plano se sacan de otro producto que los tuviera (el taller los confirmo para este)"""
+    eplan = bool((prod.get('detectado') or {}).get('eplan'))
+    fun, top = prod.get('funcional') or {}, prod.get('topografico') or {}
+    mueve = collections.defaultdict(list)       # alias que pasan a este producto
+    if fun.get('numero'):
+        mueve['documentos' if eplan else 'planos'].append(fun['numero'] if eplan else PR.nucleo(fun['numero']))
+    rot = prod.get('codigo_rotulo')
+    if PR.codigo_valido(rot) and rot != codigo:
+        mueve['codigo_rotulo'].append(rot)
+    suma = collections.defaultdict(list, {k: list(v) for k, v in mueve.items()})
+    if top.get('numero') and not top.get('mismo_pdf'):      # el topografico se suma (lo pueden compartir dos productos)
+        suma['documentos' if top.get('fuente') == 'rotulo' else 'planos'].append(
+            top['numero'] if top.get('fuente') == 'rotulo' else PR.nucleo(top['numero']))
+    clave = lambda k, x: PR.nucleo(x) if k == 'planos' else str(x).strip().upper()
+    with CATALOGO_LOCK:
+        cat = leer_catalogo()
+        prods = cat['productos'] if isinstance(cat.get('productos'), dict) else PR.productos_de(cat)
+        cat = {k: v for k, v in cat.items() if k == '_nota' or not PR.codigo_valido(k)} | {'productos': prods}
+        e = prods.setdefault(codigo, {'nombre': None, 'alias': {}})
+        if nombre:
+            e['nombre'] = nombre
+        a = e.setdefault('alias', {})
+        for k in ('planos', 'documentos', 'codigo_rotulo'):
+            a[k] = list(a.get(k) or [])
+        for c, o in prods.items():
+            oa = (o.get('alias') or {}) if c != codigo else {}
+            for k, vs in mueve.items():
+                if isinstance(oa.get(k), list):
+                    oa[k] = [x for x in oa[k] if clave(k, x) not in {clave(k, v) for v in vs}]
+        for k, vs in suma.items():
+            for v in vs:
+                if clave(k, v) not in {clave(k, x) for x in a[k]}:
+                    a[k].append(v)
+        with open(PRODUCTOS + '.tmp', 'w', encoding='utf-8') as f:
+            f.write(texto_catalogo(cat))
+        os.replace(PRODUCTOS + '.tmp', PRODUCTOS)
+
+
+@app.get('/api/trabajo/<jid>/producto')
+def ver_producto(jid):
+    """el producto del trabajo (como queda hoy), las sugerencias de codigo y los productos del catalogo"""
+    P = ins_paths(jid); s = load_state(jid) or {}
+    ins = leer_json(P['json'])
+    prod = producto_actual(P, s, ins)
+    viejo = (ins or {}).get('producto') if isinstance(ins, dict) else None
+    marcar_pregunta(prod, bool(isinstance(viejo, dict) and viejo.get('preguntado')))
+    cat = leer_catalogo()
+    return jsonify(producto=prod, sugerencias=PR.sugerencias(prod, cat),
+                   catalogo=[dict(codigo=c, nombre=e.get('nombre')) for c, e in sorted(PR.productos_de(cat).items())])
+
+
+@app.put('/api/trabajo/<jid>/producto')
+def guardar_producto(jid):
+    """{codigo, nombre}: confirma el producto del trabajo. Guarda producto.json (manda al regenerar), suma los alias al
+    catalogo y actualiza ins['producto'] en instructivo.json (con el lock del PUT del instructivo: el visor lo ve sin
+    regenerar). {preguntado: true} (sin codigo): el asistente ya pregunto y se cerro sin confirmar"""
+    P = ins_paths(jid); s = load_state(jid) or {}
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict) or ('codigo' not in data and data.get('preguntado') is not True):
+        return jsonify(error='Datos inválidos'), 400
+    confirma = 'codigo' in data
+    if confirma:
+        codigo = str(data.get('codigo') or '').strip()
+        nombre = re.sub(r'\s+', ' ', str(data.get('nombre') or '')).strip()[:80] or None
+        if not PR.codigo_valido(codigo):
+            return jsonify(error='El código de producto es el número de SAP con su sufijo, como 75286-1'), 400
+        write_json(os.path.join(P['dir'], 'producto.json'), dict(codigo=codigo, nombre=nombre, confirmado=True,
+                                                               fecha=datetime.datetime.now().strftime('%d/%m/%Y %H:%M')))
+    with PROY_LOCK:
+        ins = leer_json(P['json'])
+        prod = producto_actual(P, s, ins)
+        if confirma:
+            sumar_al_catalogo(codigo, nombre, prod)
+            prod = producto_actual(P, s, ins)       # (con el catalogo nuevo)
+        marcar_pregunta(prod, True)
+        if isinstance(ins, dict):
+            ins['producto'] = prod
+            write_json(P['json'], ins)
+    return jsonify(ok=True, producto=prod)
 
 
 @app.get('/api/trabajo/<jid>/instructivo')
@@ -592,8 +787,22 @@ def ver_instructivo(jid):
     ins = leer_json(P['json'])
     if not isinstance(ins, dict):
         abort(404)
-    if 'producto' not in ins:        # instructivo armado antes de las reglas por producto: se completa al leerlo (no se escribe)
-        ins['producto'] = producto_de(leer_json(P['layout']))
+    prod = ins.get('producto')
+    if not isinstance(prod, dict) or 'funcional' not in prod:
+        # instructivo armado antes del producto (sin 'producto', o solo con documento y revision del rotulo de EPLAN):
+        # se completa al leerlo (no se escribe); el asistente pregunta si hace falta
+        try:
+            ins['producto'] = marcar_pregunta(producto_actual(P, load_state(jid) or {}, ins), False)
+        except Exception:
+            ins['producto'] = producto_de(leer_json(P['layout']))
+    else:
+        # producto.json manda: si el instructivo tiene otro (se confirmo mientras se regeneraba), se completa al leerlo
+        conf = leer_confirmado(P['dir'])
+        if conf and (prod.get('fuente') != 'confirmado' or prod.get('codigo') != conf['codigo'].strip()):
+            try:
+                ins['producto'] = marcar_pregunta(producto_actual(P, load_state(jid) or {}, ins), bool(prod.get('preguntado')))
+            except Exception:
+                pass
     return jsonify(ins)
 
 
@@ -613,6 +822,9 @@ def guardar_instructivo(jid):
             data['proyector'] = viejo['proyector']
         else:
             data.pop('proyector', None)
+        # el producto lo escriben solo el servidor (al regenerar) y PUT /producto: se conserva el del disco
+        if isinstance(viejo, dict) and isinstance(viejo.get('producto'), dict) and 'funcional' in viejo['producto']:
+            data['producto'] = viejo['producto']
         write_json(P['json'], data)
     return jsonify(ok=True)
 

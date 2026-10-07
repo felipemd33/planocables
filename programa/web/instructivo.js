@@ -309,9 +309,17 @@ const Ins = (() => {
       <p class="muted small">No se encontró el otro extremo de estos cables en el funcional: revisalos en el plano.</p>
       ${su.map(x => `<div class="mono small">${esc(x.num)}: ${esc((x.extremos || []).join(' · '))}</div>`).join('')}`;
     renderComps();
-    // topografico recien cargado: preguntar una sola vez por donde salen los cables a LI / LD
-    if (D.salidas && D.salidas.preguntar && typeof Sal !== 'undefined' && $('#cabViewer').hidden) setTimeout(() => Sal.asistente(), 0);
+    mostrarProducto();
+    // la primera vez, de a una pregunta: el producto (si no está confirmado y la detección no es segura) y, con el
+    // topografico recien cargado, por donde salen los cables a LI / LD
+    if (D.producto && D.producto.preguntar && typeof Prod !== 'undefined' && $('#cabViewer').hidden) {
+      if (!Prod.abierto()) setTimeout(() => Prod.asistente(job, D.producto, productoGuardado), 0);
+    }
+    else if (D.salidas && D.salidas.preguntar && typeof Sal !== 'undefined' && $('#cabViewer').hidden) setTimeout(() => Sal.asistente(), 0);
   }
+  // linea «Producto: 75286-1 · ... ✎» (web/producto.js); el servidor guarda el producto (PUT /producto) y lo devuelve
+  function mostrarProducto() { if (typeof Prod !== 'undefined' && D) Prod.mostrarEn('#insProd', D.producto); }
+  function productoGuardado(p) { if (!D) return; D.producto = p; render(); }
   // linea plegable con el resultado del mapeo automatico de bornes (ins.mapeo) y sus avisos para revisar
   function renderMapeo() {
     let mp = $('#insMapeo');
@@ -761,7 +769,9 @@ const Ins = (() => {
   }
   function descargarJSON() {
     let n = 0;
-    const out = { plano: S.res.nombre, estacion: est(), generado: D.generado, topografico: D.topografico, escala_mm_por_pt: D.topo?.escala,
+    // producto: código SAP, plano funcional y topográfico con su revisión (sin lo detectado en cada fuente)
+    const producto = D.producto ? Object.fromEntries(Object.entries(D.producto).filter(([k]) => !['detectado', 'preguntar', 'preguntado'].includes(k))) : null;
+    const out = { plano: S.res.nombre, producto, estacion: est(), generado: D.generado, topografico: D.topografico, escala_mm_por_pt: D.topo?.escala,
       cables: D.pasos.flatMap(p => p.lineas.map(l => ({ paso: ++n, grupo: p.titulo, etapa: p.etapa, cable: l.num, tipo: l.cable, color: l.color, seccion_mm2: l.secc,
         origen: l.origen, destino: l.destino, terminal_origen: terminal(l, 'o'), terminal_destino: terminal(l, 'd'), punto_origen_pt: l.marca_o, punto_destino_pt: l.marca_d || null, largo_mm: l.largo_mm, ruta_pt: l.ruta, hecho: !!l.hecho,
         texto: `${l.num}: ${l.cable} ${l.origen} → ${l.destino}` }))),
@@ -870,6 +880,7 @@ const Ins = (() => {
     });
     $('#insAcc').addEventListener('change', e => { const i = e.target.dataset.acc; if (i == null) return; D.accesorios[+i].hecho = e.target.checked; dirty(); render(); });
     $('#insEstacion').addEventListener('change', e => { D.estacion = e.target.value.trim().toUpperCase() || 'E6'; dirty(); render(); });
+    $('#insProd').addEventListener('click', e => { if (e.target.closest('[data-prod-editar]') && D) Prod.abrir(job, { alGuardar: productoGuardado }); });
     $('#insBtnComps').addEventListener('click', () => { $('#insComps').hidden = !$('#insComps').hidden; });
     $('#insCompsBody').addEventListener('change', e => { const tr = e.target.closest('tr'); if (e.target.dataset.c === 'ubic') tr.querySelectorAll('[data-c=fila],[data-c=x],[data-c=lado]').forEach(x => x.disabled = e.target.value !== 'BANDEJA'); });
     $('#insApply').addEventListener('click', applyComps);
@@ -950,7 +961,7 @@ const Ins = (() => {
   return { open, init, hide: () => { W().hidden = true; clearTimeout(poll); }, desdeFuncional,
     reset: () => { D = null; },         // (la estacion 8 regenero el instructivo: se vuelve a cargar)
     // para la auditoria
-    get D() { return D; }, get job() { return job; }, load, flat, dirty, imgTag, LC, mark, label, vbOf, secTxt, est, PRINT_CSS, render, fontFor,
+    get D() { return D; }, get job() { return job; }, load, flat, dirty, imgTag, LC, mark, label, vbOf, secTxt, est, PRINT_CSS, render, fontFor, mostrarProducto,
     terminal, ferrule, termLen, termChip, labelLen, LAT, secCorto, openViewer, routeG };
 })();
 Ins.init();

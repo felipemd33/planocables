@@ -4,8 +4,9 @@ uso: python pruebas/bateria.py [--ab] [--semillas] [--dejar]
    1. volcar_trabajo.py --sin-cache de los 4 trabajos: 75287 sin --relayout (el trabajo ac0f0949510a; si no esta en la
       carpeta, se saca de git con git archive), 66817 / PAE / TPT con --relayout; el 66817 con --puntos.
    2. evaluar_bornes.py --no-guardar sobre los puntos del 66817: 104/104 bornes; y 75/75 puntas exactas.
-   3. todas las pruebas/probar_*.py que haya (arreglos_pae, capas, proyector, puentes, ronda2_topo, ronda3, web_humo...):
-      TODO OK. (probar_capas: capas de planocables; probar_puentes: los nombres de los modulos viejos siguen.)
+   3. todas las pruebas/probar_*.py que haya (arreglos_pae, capas, producto, proyector, puentes, ronda2_topo, ronda3,
+      web_humo...): TODO OK. (probar_capas: capas de planocables; probar_puentes: los nombres de los modulos viejos
+      siguen; probar_producto: codigo de producto, plano y revision de los planos de 1 - Planos y la API /producto.)
    4. volcar_bases_nuevas.py de los 4 trabajos, si existe (listado_, layout_, e8_, ins_).
    5. comparar_bases.py <tmp> --bases pruebas/bases.
    6. node --test pruebas/js/, si existe la carpeta.
@@ -13,9 +14,11 @@ uso: python pruebas/bateria.py [--ab] [--semillas] [--dejar]
    8. con --semillas: el paso 1 corre con PYTHONHASHSEED=0 y se repite con PYTHONHASHSEED=1; las dos corridas se
       comparan entre si (comparar_bases.py --entre): si difieren, el resultado depende del orden de los sets.
   Antes de empezar guarda una copia de programa/ocr_cache.json; al final dice si cambio (= hubo OCR en vivo) y la
-  restaura. Tambien verifica que no cambio nada mas en programa/, en 1 - Planos/ ni en las carpetas de los trabajos.
-  Todo corre con PLANOCABLES_MEMORIA_OCR=solo-lectura, PLANOCABLES_HISTORIAL en la carpeta temporal y
-  PLANOCABLES_PORT=8798 (nunca el 8765 del taller).
+  restaura. Tambien verifica que no cambio nada mas en programa/, en 1 - Planos/, en pruebas/fixtures/ ni en las
+  carpetas de los trabajos.
+  Todo corre con PLANOCABLES_MEMORIA_OCR=solo-lectura, PLANOCABLES_HISTORIAL en la carpeta temporal,
+  PLANOCABLES_PORT=8798 (nunca el 8765 del taller) y PLANOCABLES_PRODUCTOS=pruebas/fixtures/productos.json (el
+  catalogo de productos de las bases; el de programa/ lo cambia el taller al confirmar productos).
   --dejar: no borra la carpeta temporal (si algo falla no se borra nunca, para mirar las salidas y los logs).
   Resumen final: OK / FALLA / AVISO por paso, y «TODO OK» si todo pasa. Exit 0 / 1."""
 import os, sys, json, time, shutil, tempfile, subprocess, hashlib, glob, io, tarfile
@@ -23,6 +26,7 @@ import os, sys, json, time, shutil, tempfile, subprocess, hashlib, glob, io, tar
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PRUEBAS = os.path.join(RAIZ, 'pruebas')
 OCR = os.path.join(RAIZ, 'programa', 'ocr_cache.json')
+PRODUCTOS = os.path.join(PRUEBAS, 'fixtures', 'productos.json')    # catalogo de productos fijo de las pruebas
 J75287 = os.path.join('3 - Historial web', 'ac0f0949510a')
 # (nombre, carpeta del trabajo relativa a la raiz, --relayout)
 TRABAJOS = [('75287', J75287, False), ('66817', os.path.join('pruebas', 'trabajos', '66817'), True),
@@ -120,14 +124,16 @@ def main():
     sal = os.path.join(tmp, 'salidas')
     print(f'Batería B  ({RAIZ})\ncarpeta temporal: {tmp}', flush=True)
     env = dict(os.environ, PYTHONIOENCODING='utf-8', PLANOCABLES_MEMORIA_OCR='solo-lectura',
-               PLANOCABLES_HISTORIAL=os.path.join(tmp, 'historial'), PLANOCABLES_PORT='8798')
+               PLANOCABLES_HISTORIAL=os.path.join(tmp, 'historial'), PLANOCABLES_PORT='8798',
+               PLANOCABLES_PRODUCTOS=PRODUCTOS)
     if semillas:
         env['PYTHONHASHSEED'] = '0'
     # copia de la memoria OCR y firma de lo que la bateria no tiene que tocar
     with open(OCR, 'rb') as f:
         ocr_antes = f.read()
     dirs = {t: trabajo_dir(rel, tmp) for t, rel, _ in TRABAJOS}
-    vigilar = [os.path.join(RAIZ, 'programa'), os.path.join(RAIZ, '1 - Planos')] + [d for d in dirs.values() if d.startswith(RAIZ)]
+    vigilar = [os.path.join(RAIZ, 'programa'), os.path.join(RAIZ, '1 - Planos'), os.path.join(PRUEBAS, 'fixtures')] + \
+              [d for d in dirs.values() if d.startswith(RAIZ)]
     firma_antes = {}
     for d in vigilar:
         firma_antes.update(firma_carpeta(d, sin=(os.path.abspath(OCR),)))

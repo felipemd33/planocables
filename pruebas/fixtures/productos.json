@@ -1,0 +1,10 @@
+{
+ "_nota": "Catálogo de productos del taller (PLAN_MODULAR 5.1). La clave es el código de producto SAP con su sufijo (75286-1). alias: los planos (funcional y topográfico), los documentos de EPLAN y los códigos que dice el plano (rótulo o portada) cuando no son el código del producto. Lo actualiza la web cuando el taller confirma el producto de un trabajo (✎ en la línea «Producto»).",
+ "productos": {
+  "75286-1": {"nombre": "mSafe2AC VISTA", "alias": {"planos": ["75287", "75441"], "documentos": [], "codigo_rotulo": []}},
+  "66817-1": {"nombre": "mSafe1 NC YPF", "alias": {"planos": ["74676", "75775"], "documentos": [], "codigo_rotulo": []}},
+  "72715-1": {"nombre": "mSafe1 TPT", "alias": {"planos": ["72715", "72887"], "documentos": [], "codigo_rotulo": []}},
+  "76857-1": {"nombre": "mSafe2 PAE", "alias": {"planos": [], "documentos": ["ZPL-76884"], "codigo_rotulo": ["76860-1"]}},
+  "76572-1": {"nombre": "mSafe1 PP STD", "alias": {"planos": ["76739", "76740"], "documentos": [], "codigo_rotulo": ["76571-1"]}}
+ }
+}

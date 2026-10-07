@@ -832,7 +832,21 @@
    ["(G-Y/1mm2)", "15", "C4", "Verde-Amarillo", "1"],
    ["(G-Y/1mm2)", "15", "C6", "Verde-Amarillo", "1"],
    ["(G-Y/1mm2)", "60", "B7", "Verde-Amarillo", "1"]
-  ]
+  ],
+  "producto": {
+   "codigo": "75902-1",
+   "nombre": null,
+   "funcional": {"numero": "75733", "revision": "1", "fuente": "titulo_pdf"},
+   "topografico": {"numero": null, "revision": null, "fuente": null},
+   "codigo_rotulo": "75902-1",
+   "documento": "75733",
+   "revision": "1",
+   "confirmado": false,
+   "confianza": "alta",
+   "fuente": "rotulo",
+   "avisos": [],
+   "detectado": {"funcional": {"numero": "75733", "revision": "1", "fuente": "titulo_pdf"}, "codigo": {"rotulo": "75902-1", "hojas": 25, "portada": null, "archivo": null}, "fuentes": {"titulo_pdf": {"texto": "75733 ZPL-Rev1-PI&D+Functional Diagram dFRAC - Panel FCS.pdf", "numero": "75733", "revision": "1"}, "rotulo": {"numero": "75733", "revision": "1", "hojas": 25}, "archivo": {"texto": "75733 ZPL-Rev1-PI&D+Functional Diagram dFRAC - Panel FCS.pdf", "numero": "75733", "revision": "1"}}, "eplan": false, "avisos": []}
+  }
  },
  "layout": {
   "huella": "e0bf87ea9d5d7772",

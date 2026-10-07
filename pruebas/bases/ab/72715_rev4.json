@@ -594,7 +594,21 @@
    ["(Green/2.5mm2)", "11", "C5", "Verde", "2,5"],
    ["(Green/2.5mm2)", "13", "B7", "Verde", "2,5"],
    ["(Green/1mm2)", "14", "D5", "Verde", "1"]
-  ]
+  ],
+  "producto": {
+   "codigo": "72715-1",
+   "nombre": "mSafe1 TPT",
+   "funcional": {"numero": "72715", "revision": "4", "fuente": "titulo_pdf"},
+   "topografico": {"numero": null, "revision": null, "fuente": null},
+   "codigo_rotulo": "72715-1",
+   "documento": "72715",
+   "revision": "4",
+   "confirmado": true,
+   "confianza": "alta",
+   "fuente": "catalogo",
+   "avisos": [],
+   "detectado": {"funcional": {"numero": "72715", "revision": "4", "fuente": "titulo_pdf"}, "codigo": {"rotulo": "72715-1", "hojas": 20, "portada": null, "archivo": null}, "fuentes": {"titulo_pdf": {"texto": "50000000000000072715-Rev4-PI&D + Functional Diagram - mSafeTecpetrol.pdf", "numero": "72715", "revision": "4"}, "rotulo": {"numero": "72715", "revision": "4", "hojas": 20}, "archivo": {"texto": "50000000000000072715-Rev4-PI&D + Functional Diagram - mSafeTecpetrol.pdf", "numero": "72715", "revision": "4"}}, "eplan": false, "avisos": []}
+  }
  },
  "layout": {
   "huella": "dfd16f67f5cfb0b2",

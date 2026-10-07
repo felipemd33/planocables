@@ -8286,8 +8286,59 @@
  "wpc": {},
  "proyector": {},
  "producto": {
-  "documento": null,
-  "revision": null
+  "codigo": "75286-1",
+  "nombre": "mSafe2AC VISTA",
+  "funcional": {
+   "numero": "75287",
+   "revision": "6",
+   "fuente": "titulo_pdf"
+  },
+  "topografico": {
+   "numero": "75441",
+   "revision": "6",
+   "fuente": "titulo_pdf",
+   "hoja": 8
+  },
+  "codigo_rotulo": "75286-1",
+  "documento": "75287",
+  "revision": "6",
+  "confirmado": true,
+  "confianza": "alta",
+  "fuente": "catalogo",
+  "avisos": [],
+  "detectado": {
+   "funcional": {
+    "numero": "75287",
+    "revision": "6",
+    "fuente": "titulo_pdf"
+   },
+   "codigo": {
+    "rotulo": "75286-1",
+    "hojas": 19,
+    "portada": null,
+    "archivo": null
+   },
+   "fuentes": {
+    "titulo_pdf": {
+     "texto": "75287 ZPL Functional Diagram mSafe2 REV6.pdf",
+     "numero": "75287",
+     "revision": "6"
+    },
+    "rotulo": {
+     "numero": "75287",
+     "revision": "6",
+     "hojas": 19
+    },
+    "archivo": {
+     "texto": "75287 DIAGRAMA ELECTRICO mSafe2AC - REV.6.pdf",
+     "numero": "75287",
+     "revision": "6"
+    }
+   },
+   "eplan": false,
+   "avisos": []
+  },
+  "preguntar": false
  },
  "overrides": {
   "11SK1": {

@@ -524,3 +524,21 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 #e8Avisos .note { margin: 6px 0; }
 #e8vSvg { width: 100%; height: 100%; touch-action: none; }
 @media (max-width: 900px) { .e8-lat { grid-template-columns: 1fr; } .e8-mapa { position: static; } .e8-aps { grid-template-columns: 1fr; } }
+/* producto del tablero (web/producto.js): la línea «Producto» y el diálogo para confirmarlo */
+.prod-linea { margin: 2px 0 6px; color: var(--muted); }
+.prod-linea b, .prod-linea .mono { color: var(--text); }
+.prod-linea .pill { margin-left: 4px; cursor: help; }
+.prod-linea .linkbtn { text-decoration: none; margin-left: 4px; font-size: 14px; }
+.prod-av { color: var(--warn); margin-left: 4px; cursor: help; }
+.prod-modal { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 950; display: grid; place-items: center; }
+.prod-modal[hidden] { display: none; }
+.prod-box { background: var(--surface); color: var(--text); width: min(520px, 94vw); border-radius: 10px; padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 8px; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.prod-box h2 { margin: 0; font-size: 17px; }
+.prod-box p { margin: 0; }
+.prod-avisos { margin: 0; padding-left: 4px; list-style: none; color: var(--warn); }
+.prod-avisos:empty { display: none; }
+.prod-f { display: flex; flex-direction: column; gap: 3px; }
+.prod-f input { font: 14px var(--mono); padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); }
+.prod-err { color: var(--warn); min-height: 1em; }
+.prod-b { display: flex; justify-content: flex-end; gap: 8px; }
