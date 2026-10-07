@@ -20,6 +20,9 @@ from planocables import producto as PR   # codigo de producto, plano y revision 
 # catalogo de productos del taller (crece cuando se confirma el producto de un trabajo). Otra ruta: pruebas
 PRODUCTOS = os.environ.get('PLANOCABLES_PRODUCTOS') or os.path.join(HERE, 'productos.json')
 CATALOGO_LOCK = threading.Lock()
+# parametros de la lista WPC (los cambia el taller con el panel ⚙ Parametros; respaldos en respaldos_wpc/ al lado). Otra ruta: pruebas
+CONFIG_WPC = os.environ.get('PLANOCABLES_CONFIG_WPC') or os.path.join(HERE, 'web', 'wpc.json')
+CONFIG_WPC_LOCK = threading.Lock()
 
 
 def job_dir(jid):
@@ -170,7 +173,8 @@ def html_estatico(nombre):
     with open(os.path.join(HERE, 'web', nombre), encoding='utf-8') as f:
         html = f.read()
     ver = lambda m: f"/static/{m.group(1)}?v={int(os.path.getmtime(os.path.join(HERE, 'web', m.group(1))))}"
-    html = re.sub(r'/static/([\w.-]+\.(?:js|css))(?=")', lambda m: ver(m) if os.path.exists(os.path.join(HERE, 'web', m.group(1))) else m.group(0), html)
+    # (tambien los de una subcarpeta: /static/nucleo/wpc_core.js)
+    html = re.sub(r'/static/((?:[\w.-]+/)*[\w.-]+\.(?:js|css))(?=")', lambda m: ver(m) if os.path.exists(os.path.join(HERE, 'web', m.group(1))) else m.group(0), html)
     r = app.response_class(html, mimetype='text/html')
     r.headers['Cache-Control'] = 'no-cache'
     return r
@@ -779,6 +783,156 @@ def guardar_producto(jid):
             ins['producto'] = prod
             write_json(P['json'], ins)
     return jsonify(ok=True, producto=prod)
+
+
+# ------------------------------------------------------------------ parametros de la lista WPC (wpc.json)
+TIPOS_WPC = {'numero', 'si_no', 'texto', 'regex', 'opcion', 'lista', 'colores', 'reemplazos', 'marcador'}
+_FALTA = object()
+
+
+def version_config_wpc(datos):
+    """version del archivo (para no pisar lo que otro guardo mientras tanto): sha1 de los bytes"""
+    import hashlib
+    return hashlib.sha1(datos).hexdigest()[:16]
+
+
+def _ruta(o, clave):
+    for k in clave.split('.'):
+        if not isinstance(o, dict) or k not in o:
+            return _FALTA
+        o = o[k]
+    return o
+
+
+def _invalido_wpc(p, v, todos):
+    """que tiene de malo el valor v del parametro p (None si esta bien). todos: nivel «todos los productos»"""
+    num = lambda x: isinstance(x, (int, float)) and not isinstance(x, bool) and x == x and abs(x) != float('inf')
+    num_o_nada = lambda x: x is None or num(x)
+    t = p['tipo']
+    if t == 'numero':
+        if not num(v):
+            return f'tiene que ser un número ({v!r})'
+        if num(p.get('minimo')) and v < p['minimo']:
+            return f"tiene que ser {p['minimo']} o más ({v})"
+    elif t == 'si_no':
+        if not isinstance(v, bool):
+            return f'tiene que ser sí o no ({v!r})'
+    elif t in ('texto', 'regex'):
+        if not isinstance(v, str) or len(v) > 2000:
+            return 'tiene que ser un texto'
+    elif t == 'opcion':
+        ops = [o.get('valor') if isinstance(o, dict) else o for o in p['opciones']] if isinstance(p.get('opciones'), list) else None
+        if not isinstance(v, str) or (ops is not None and v not in ops):
+            return f'opción desconocida ({v!r})'
+    elif t == 'lista':
+        if not isinstance(v, list) or not all(isinstance(x, str) for x in v):
+            return 'tiene que ser una lista de textos'
+    elif t == 'colores':
+        if not isinstance(v, dict) or not all(isinstance(k, str) and isinstance(x, str) for k, x in v.items()):
+            return 'tiene que ser una tabla color → código'
+    elif t == 'reemplazos':
+        regla = lambda r: (isinstance(r, dict) and all(isinstance(r.get(k), dict) and isinstance(r[k].get('color'), str)
+                                                       and num_o_nada(r[k].get('secc')) for k in ('de', 'a'))
+                           and isinstance(r.get('motivo', ''), str))
+        if todos and isinstance(v, dict):       # (la forma vieja: {documento: [reglas]})
+            v = [r for x in v.values() for r in (x if isinstance(x, list) else [None])]
+        if not isinstance(v, list) or not all(regla(r) for r in v):
+            return 'cada fila: color y sección de origen y de destino (y el motivo, si hay)'
+    elif t == 'marcador':
+        if not isinstance(v, list) or not all(isinstance(x, dict) and num_o_nada(x.get('desde')) and num_o_nada(x.get('hasta'))
+                                              and isinstance(x.get('valor', ''), str) for x in v):
+            return 'cada fila: desde y hasta (números o vacíos) y el marcador'
+    return None
+
+
+def validar_config_wpc(cfg):
+    """errores de la configuracion de la WPC antes de guardarla ([] = esta bien): la forma de cada parametro declarado en
+    'parametros', en la raiz (todos los productos) y en cada producto. Las expresiones regulares las valida la pantalla
+    (con las reglas de JavaScript, que no son las de Python)"""
+    if not isinstance(cfg, dict):
+        return ['la configuración tiene que ser un objeto JSON']
+    ps = cfg.get('parametros')
+    if not isinstance(ps, list) or not all(isinstance(p, dict) and isinstance(p.get('clave'), str) and p['clave']
+                                           and p.get('tipo') in TIPOS_WPC for p in ps):
+        return ['«parametros» tiene que ser una lista de {clave, tipo} con un tipo conocido']
+    prods = cfg.get('productos', {})
+    if not isinstance(prods, dict):
+        return ['«productos» tiene que ser un objeto {código de producto: {parámetros}}']
+    err, niveles = [], [('todos los productos', cfg, True)]
+    for k, v in prods.items():
+        if not k.strip() or len(k) > 60:
+            err.append(f'producto con un código inválido: {k!r}')
+        elif not isinstance(v, dict) or 'productos' in v or 'parametros' in v:
+            err.append(f'producto {k}: tiene que ser un objeto con los parámetros que cambian')
+        else:
+            niveles.append((f'producto {k}', v, False))
+    for nombre, nivel, todos in niveles:
+        for p in ps:
+            v = _ruta(nivel, p['clave'])
+            if v is _FALTA or (not todos and v in (None, '')):     # (en un producto: vacio = el de arriba)
+                continue
+            e = 'falta el valor' if v is None else _invalido_wpc(p, v, todos)
+            if e:
+                err.append(f"{nombre} → {p.get('etiqueta') or p['clave']}: {e}")
+    return err[:30]
+
+
+@app.get('/api/config/wpc')
+def ver_config_wpc():
+    """wpc.json tal cual (todos los niveles y 'parametros'), con su version en la cabecera X-Version"""
+    try:
+        with open(CONFIG_WPC, 'rb') as f:
+            datos = f.read()
+        json.loads(datos.decode('utf-8'))
+    except (OSError, ValueError) as e:
+        return jsonify(error=f'No se pudo leer la configuración de la WPC ({type(e).__name__})'), 500
+    r = app.response_class(datos, mimetype='application/json')
+    r.headers['X-Version'] = version_config_wpc(datos)
+    r.headers['Cache-Control'] = 'no-cache'
+    return r
+
+
+@app.put('/api/config/wpc')
+def guardar_config_wpc():
+    """guarda wpc.json entero (panel ⚙ Parametros: «Producto» y «Todos los productos»). Valida la forma, deja un respaldo
+    con fecha del anterior en respaldos_wpc/ (al lado del archivo) y escribe de forma atomica. Con X-Version: si otro
+    guardo mientras tanto, 409. Sin 'parametros' en el cuerpo, se conservan los del archivo"""
+    if (request.content_length or 0) > 2 * 1024 * 1024:
+        return jsonify(error='La configuración es demasiado grande'), 413
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify(error='Datos inválidos'), 400
+    with CONFIG_WPC_LOCK:
+        try:
+            with open(CONFIG_WPC, 'rb') as f:
+                actual = f.read()
+        except OSError:
+            actual = None
+        pedida = request.headers.get('X-Version')
+        if pedida and actual is not None and pedida != version_config_wpc(actual):
+            return jsonify(error='Otro guardó los parámetros de la WPC mientras tanto. Cerrá la lista y volvé a abrirla para ver lo último'), 409
+        if 'parametros' not in data and actual is not None:
+            try:
+                data['parametros'] = json.loads(actual.decode('utf-8')).get('parametros')
+            except (ValueError, AttributeError):
+                pass
+        errores = validar_config_wpc(data)
+        if errores:
+            return jsonify(error='Parámetros inválidos', errores=errores), 400
+        respaldo = None
+        if actual is not None:
+            carpeta = os.path.join(os.path.dirname(CONFIG_WPC), 'respaldos_wpc')
+            os.makedirs(carpeta, exist_ok=True)
+            respaldo = os.path.join(carpeta, 'wpc_' + datetime.datetime.now().strftime('%Y-%m-%d_%H%M%S_%f') + '.json')
+            with open(respaldo, 'wb') as f:
+                f.write(actual)
+        texto = json.dumps(data, ensure_ascii=False, indent=2) + '\n'
+        with open(CONFIG_WPC + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
+            f.write(texto)
+        os.replace(CONFIG_WPC + '.tmp', CONFIG_WPC)
+    # (sin jsonify, que ordena las claves: la pantalla manda de vuelta lo que recibe y el archivo quedaria reordenado)
+    r = dict(ok=True, config=data, version=version_config_wpc(texto.encode('utf-8')), respaldo=os.path.basename(respaldo) if respaldo else None)
+    return app.response_class(json.dumps(r, ensure_ascii=False), mimetype='application/json')
 
 
 @app.get('/api/trabajo/<jid>/instructivo')

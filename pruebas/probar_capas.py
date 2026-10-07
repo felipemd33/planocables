@@ -11,7 +11,9 @@ uso: python pruebas/probar_capas.py
      (trabajo/ escribe; datos/ solo lee).
   C. sin dependencias pesadas, en subprocesos: con numpy, cv2, pypdf y pypdfium2 bloqueados se importan todos los
      modulos de planocables.base (y ninguno carga un modulo viejo); con numpy y cv2 bloqueados cargan textdec y wires;
-     con los cuatro bloqueados cargan instructivo y estacion8, y planocables.producto."""
+     con los cuatro bloqueados cargan instructivo y estacion8, y planocables.producto.
+  D. nucleo JS (programa/web/nucleo/*.js, etapa 3): cada archivo corre en Node en un contexto vacio (sin document,
+     window, fetch, require ni module) y tambien con require (module.exports)."""
 import os, sys, ast, json, subprocess
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -237,6 +239,31 @@ for bloq, mods in ((('numpy', 'cv2'), ('textdec', 'wires')), (('numpy', 'cv2', '
                    (('numpy', 'cv2', 'pypdf', 'pypdfium2'), ('planocables.producto',))):
     cod, out = sub(bloq, f'import {", ".join(mods)}\nprint("ok")')
     chequear(cod == 0 and out.endswith('ok'), f'sin {", ".join(bloq)} cargan {" y ".join(mods)}' + ('' if cod == 0 else f'\n{out[-1500:]}'))
+
+# ------------------------------------------------------------------ D
+print('D. núcleo JS (programa/web/nucleo/*.js): carga en Node sin DOM')
+NUC = os.path.join(PROG, 'web', 'nucleo')
+jss = sorted(f for f in os.listdir(NUC) if f.endswith('.js')) if os.path.isdir(NUC) else []
+# en un contexto vacío (sin document, window, fetch, require ni module), en el orden de index.html (zip.js antes), y con require
+NODE = r'''
+const fs = require('fs'), path = require('path'), vm = require('vm');
+const dir = process.argv[1], archivos = JSON.parse(process.argv[2]), orden = ['zip.js', ...archivos.filter(a => a !== 'zip.js')];
+const ctx = vm.createContext({}), out = {};
+for (const a of orden) {
+  try { vm.runInContext(fs.readFileSync(path.join(dir, a), 'utf8'), ctx, { filename: a }); out[a] = 'ok'; } catch (e) { out[a] = 'contexto vacío: ' + e.message; continue; }
+  try { const m = require(path.join(dir, a)); if (!m || typeof m !== 'object') throw new Error('sin module.exports'); } catch (e) { out[a] = 'require: ' + e.message; }
+}
+console.log(JSON.stringify(out));
+'''
+if chequear(jss, f'hay núcleo JS ({", ".join(jss)})'):
+    try:
+        p = subprocess.run(['node', '-e', NODE, NUC, json.dumps(jss)], capture_output=True, text=True, encoding='utf-8', timeout=60)
+        r = json.loads(p.stdout.strip().splitlines()[-1]) if p.returncode == 0 and p.stdout.strip() else {}
+    except (OSError, ValueError, subprocess.TimeoutExpired) as e:
+        p, r = None, {'node': str(e)}
+    malos = {k: v for k, v in r.items() if v != 'ok'}
+    chequear(set(r) == set(jss) and not malos, 'cada uno corre en un contexto vacío de Node y con require'
+             + ('' if not malos and set(r) == set(jss) else f': {malos or (p.stderr[-800:] if p else r)}'))
 
 print()
 if fallas:

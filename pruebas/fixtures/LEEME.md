@@ -43,3 +43,24 @@ producto (✎ en la línea «Producto»), así que las pruebas que guardan o com
 | Archivo | Bytes | sha1 |
 |---|---|---|
 | `productos.json` | 1 038 | `3fad8b18b97d07763943c7bdbe7a9c6789b97c66` |
+
+## `wpc/wpc.json` y `wpc/wpc_etapa0.json`: la configuración de la lista WPC (etapa 3, 2026-10-07)
+
+Desde la etapa 3 el taller cambia `programa/web/wpc.json` desde la pantalla (ventana «Lista WPC» → ⚙ Parámetros,
+`PUT /api/config/wpc`). Por eso las pruebas de la WPC (`pruebas/js/`, por `cargar_visor.cjs`) usan copias fijas, como el
+catálogo de productos: los goldens no fallan porque el taller cambie un parámetro. Nunca se escriben (el PUT de
+`probar_web_humo.py` trabaja sobre una copia temporal, con `PLANOCABLES_CONFIG_WPC`). `wpc/.gitattributes` evita que
+git les cambie los fines de línea (así el sha1 de abajo se mantiene).
+
+- `wpc.json`: copia de `programa/web/wpc.json` tal como sale en la etapa 3: con `parametros` (el panel), `productos`
+  vacío, `marcador` por sección, `archivo_wpc` y el reemplazo de 4 mm² para **todos** los productos (decidido el
+  2026-10-07). Es con la que se sacaron los goldens de `pruebas/bases/wpc/`.
+- `wpc_etapa0.json`: `programa/web/wpc.json` de la etapa 0 (`git show 0ba6ee9:programa/web/wpc.json`): la forma vieja,
+  sin `parametros`, con el reemplazo solo para el documento ZPL-76884. `wpc_core.test.cjs` la usa para probar que la
+  forma vieja se sigue leyendo, que con ella el XML del PAE del usuario sale idéntico al `.wpc` real, y que pasar el
+  reemplazo a todos los productos cambia **solo** las filas negras y rojas de 4 mm² (color y sección).
+
+| Archivo | Bytes | sha1 |
+|---|---|---|
+| `wpc/wpc.json` | 15 917 | `ecdc0022a7fd04499eb755e6a38e748f3db84a93` |
+| `wpc/wpc_etapa0.json` | 4 471 | `c262b8ab57831fb313ddb3b83fd4580e5605088f` |

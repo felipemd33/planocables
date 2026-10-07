@@ -1,221 +1,267 @@
 'use strict';
-/* Lista de cables para el centro de cableado WPC: en el orden del instructivo, con largo, color y sección,
-   y el .csv igual al que exporta la macro de la planilla (UTF-8 con BOM, ';', coma decimal, sin encabezado, 49 columnas).
-   Lo que se edita acá (largos, colores, excluidos) se guarda en D.wpc del instructivo.
-   Largo (wpc.json): en la bandeja, recorrido por las canaletas + sobrante + agregado del taller (75 mm). Los que salen a
-   LI, con la estación E8 (D.estacion8: adónde van de verdad), por la regla del taller del 2026-10-06:
-   - muere en la bandeja lateral: 75 (borne → canaleta) + canaleta de la bandeja + 100 (curva posterior → LI) + canaleta
-     de la lateral + 150 (canaleta → borne);
-   - sigue a la puerta / placa: 75 (borne → canaleta) + canaleta de la bandeja + 1850.
-   "Canaleta" = la parte de la ruta que corre DENTRO de las canaletas (sin la acometida del borne, que va con el fijo).
-   Sin E8 (plano sin la lateral): recorrido + sobrante + lo fijo a LI / LD + agregado. Pendientes de la lateral: canaleta
-   de la lateral + margen (o puerta / placa) + agregado. La WPC solo corta (columnas fijas sin pelar ni crimpar). Reemplazos por producto
-   (wpc.json → reemplazos[documento]): un color y sección se cortan con otro (PAE: sin slots de 4 mm²); solo acá, el
-   instructivo no cambia. Giro de los TERMOS (columna 22, "giro origen|giro destino" en grados) según el lado de cada
-   punta: una aguas arriba y otra aguas abajo → 0|0; las dos abajo → 180|0; las dos arriba → 0|180 (regla del taller).
-   No van al arnés (destildados, con el motivo): 35 mm², comunicación, solenoides y campo (wpc.json → fuera). */
+/* Lista de cables para el centro de cableado WPC: la PANTALLA. La lógica (filas en el orden del instructivo, largo por
+   la regla del taller, reemplazos, fuera del arnés, giro de los termos, CSV y archivo .wpc) está en nucleo/wpc_core.js
+   (WpcCore), el mismo archivo que usa la otra app; la configuración, en wpc.json (GET /api/config/wpc).
+   Lo que se edita en la lista (largos, colores, giros, excluidos) y los parámetros de «Este trabajo» se guardan en D.wpc
+   del instructivo, como siempre.
+   Panel ⚙ PARÁMETROS, con tres niveles: «Todos los productos» (wpc.json) < «Producto <código>» (wpc.json → productos)
+   < «Este trabajo» (D.wpc.cfg). Se arma solo desde wpc.json → parametros (un parámetro nuevo aparece sin tocar este
+   archivo). Cada campo dice de qué nivel sale su valor y tiene «volver al de arriba». Lo de «Producto» y «Todos» queda
+   como borrador (la lista ya lo muestra) hasta «Guardar»: confirmación y PUT /api/config/wpc (con respaldo).
+   Archivos: «⭳ CSV» (la entrada documentada de la WPC) y «⭳ .wpc» (el archivo de la máquina), con el nombre
+   '<código> - <plano> Rev <rev>' (sin código de producto, '<plano> - WPC'). */
 const Wpc = (() => {
-  let D = null, guardar = null, CFG = null;
-  const cfgListo = fetch('/static/wpc.json', { cache: 'no-cache' }).then(r => r.json()).then(c => { CFG = c; }).catch(() => { CFG = {}; });
-  const NCOL = 49;
-  const key = l => `${l.num}|${l.origen ?? l.a}|${l.destino ?? l.b}`;
+  const C = WpcCore;
+  let D = null, guardar = null, BASE = null, VERSION = null, borrador = null;
+  const par = { abierto: false, nivel: 'trabajo', error: '' };
+  // configuración: GET /api/config/wpc (con su versión, para no pisar lo que otro guardó); si falla, el archivo estático
+  async function leerConfig() {
+    try {
+      const r = await fetch('/api/config/wpc', { cache: 'no-cache' });
+      if (!r.ok) throw new Error(r.statusText);
+      const c = await r.json();
+      VERSION = r.headers.get('X-Version');
+      return c && typeof c === 'object' ? c : {};
+    } catch (e) {
+      VERSION = null;
+      try { return await (await fetch('/static/wpc.json', { cache: 'no-cache' })).json(); } catch (e2) { return {}; }
+    }
+  }
   // al regenerar el instructivo puede quedar wpc = {} (o a medias): se completa lo que falte
   const W = () => {
     const w = D.wpc || (D.wpc = {});
     w.largo ??= {}; w.color ??= {}; w.excluir ??= []; w.incluir ??= []; w.cfg ??= {}; w.giro ??= {};
     return w;
   };
-  const P = k => { const c = W().cfg; return c[k] != null && c[k] !== '' ? +c[k] : +(CFG[k] ?? 0); };
-  const secNum = l => String(l.secc || ((l.cable || '').match(/(\d+(?:[.,]\d+)?)MM/i) || [])[1] || '').replace(',', '.');
-  const coma = v => String(v).replace('.', ',');
-  const LAT = d => d === 'LI' || d === 'LD';
-  // reemplazos por producto (wpc.json → reemplazos[documento del rótulo]): el cable se corta con otro color y sección
-  // porque la WPC no tiene slot para el original. Solo en esta lista: el instructivo y el listado no cambian
-  const normC = c => String(c ?? '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  const reglas = () => ((CFG.reemplazos || {})[(D.producto || {}).documento] || []).filter(r => r && r.de && r.a);
-  function reemplazo(l) {
-    const sec = parseFloat(secNum(l)), col = normC(l.color);
-    return reglas().find(r => normC(r.de.color) === col && parseFloat(r.de.secc) === sec) || null;
-  }
-  // ---- cables que no van al arnés de la WPC (wpc.json → fuera): el motivo, o null si va
-  const FU = () => CFG.fuera || {};
-  const re_ = k => { const s = FU()[k]; try { return s ? new RegExp(s, 'i') : null; } catch (e) { return null; } };
-  function motivoFuera(f) {
-    const l = f.l, sec = parseFloat(f.sec), txt = `${l.origen ?? l.a ?? ''} ${l.destino ?? l.b ?? ''}`;
-    if (!f.sec) return 'sin sección (malla, tierra o cable de campo)';
-    if (FU().seccion_desde != null && sec >= +FU().seccion_desde) return `${coma(f.sec)} mm²: no la corta la WPC`;
-    if (FU().comunicacion_seccion_hasta != null && sec <= +FU().comunicacion_seccion_hasta) return 'comunicación (sección fina)';
-    const rc = re_('comunicacion_re'), rs = re_('solenoide_re'), rk = re_('campo_re');
-    if (rc && rc.test(txt)) return 'comunicación';
-    if (rs && rs.test(txt)) return 'va a una solenoide';
-    if (l.estacion === 'CAMPO' || (rk && rk.test(txt)) || /^s\/n\b/i.test(l.num || '')) return 'va a campo';
-    return null;
-  }
-  // ---- giro de los termos (señalizadores) de las dos puntas, "origen|destino" en grados (columna 22 del CSV)
-  // El lado de cada punta: arriba / abajo del eje de su riel por el punto exacto del borne (como el instructivo);
-  // sin punto, por el texto (ARRIBA / ABAJO, QUATTRO .1 .2 arriba / .3 .4 abajo); la punta que sale a LI / LD, abajo.
-  function ladoPunto(p, tag) {
-    const F = (D.topo || {}).filas || []; if (!p || !F.length) return null;
-    const c = ((D.topo || {}).comp || {})[tag], eje = c && c.fila && c.fila <= F.length ? F[c.fila - 1] : F.reduce((a, e) => Math.abs(e - p[1]) < Math.abs(a - p[1]) ? e : a);
-    return Math.abs(p[1] - eje) < 1 ? null : (p[1] > eje ? 'arriba' : 'abajo');
-  }
-  function ladoTexto(t) {
-    t = String(t || '');
-    if (/ ARRIBA$/.test(t)) return 'arriba';
-    if (/ ABAJO$/.test(t)) return 'abajo';
-    const m = /\.(\d)$/.exec(t); return m ? ('12'.includes(m[1]) ? 'arriba' : 'abajo') : null;
-  }
-  const tagDe = t => String(t || '').split(' ')[0];
-  function lados(f) {
-    const l = f.l;
-    if (f.tipo === 'pendiente') return { o: null, d: null };
-    const o = l.lado || ladoPunto(l.marca_o, tagDe(l.origen)) || ladoTexto(l.origen);
-    const d = LAT(l.destino) ? 'abajo' : (ladoPunto(l.marca_d, tagDe(l.destino)) || ladoTexto(l.destino));
-    return { o, d };
-  }
-  function giroCalc(f) {
-    const T = CFG.termos || {}, { o, d } = lados(f), txt = s => s === 'arriba' ? 'aguas arriba' : s === 'abajo' ? 'aguas abajo' : 'sin dato';
-    let v, por;
-    if (!o || !d) { v = T.sin_dato ?? '0|0'; por = 'no se sabe el lado de una punta'; }
-    else if (o === 'abajo' && d === 'abajo') { v = T.abajo_abajo ?? '180|0'; por = 'las dos puntas aguas abajo: gira el primer termo'; }
-    else if (o === 'arriba' && d === 'arriba') { v = T.arriba_arriba ?? '0|180'; por = 'las dos puntas aguas arriba: gira el segundo termo'; }
-    else { v = T.mixto ?? '0|0'; por = 'una punta aguas arriba y otra aguas abajo: ningún termo gira'; }
-    return { v, o, d, como: `origen ${txt(o)}${LAT(f.l.destino) ? ` · destino ${f.l.destino} (afuera: se toma aguas abajo)` : ` · destino ${txt(d)}`} → ${por}` };
-  }
-
-  // filas en el orden de cableado: la bandeja (pasos) y, si se piden, pendientes LI↔LI y otra estación al final
-  function filas() {
-    const w = W(), out = [];
-    E8L = lateralInfo();
-    D.pasos.forEach(p => p.lineas.forEach(l => out.push({ l, tipo: 'bandeja', grupo: p.titulo })));
-    if (w.cfg.pendientes) (D.pendientes || []).forEach(l => out.push({ l, tipo: 'pendiente', grupo: 'Pendientes LI ↔ LI' }));
-    if (w.cfg.otra) (D.otra_estacion || []).forEach(l => out.push({ l, tipo: 'otra', grupo: 'Otra estación (' + (l.estacion || '') + ')' }));
-    const excl = new Set(w.excluir), incl = new Set(w.incluir || []);
-    out.forEach((f, i) => {
-      f.k = key(f.l);
-      f.rg = reemplazo(f.l);                      // regla del producto: otro color y sección para la WPC
-      f.sec = f.rg ? String(f.rg.a.secc).replace(',', '.') : secNum(f.l);
-      // no va al arnés (sin sección, 35 mm², comunicación, solenoide, campo) salvo que se tilde a mano
-      f.motivo = motivoFuera(f);
-      f.fuera = excl.has(f.k) || (!!f.motivo && !incl.has(f.k));
-      f.calc = largoCalc(f); f.largo = w.largo[f.k] != null ? +w.largo[f.k] : f.calc.mm;
-      f.color = w.color[f.k] || (CFG.colores || {})[f.rg ? f.rg.a.color : f.l.color] || '';
-      f.giroCalc = giroCalc(f); f.giro = w.giro[f.k] || f.giroCalc.v;
-    });
-    return out;
-  }
-  // ---- adonde va de verdad un cable que sale a LI / LD, con la estacion E8 (D.estacion8): recorrido por las canaletas de
-  // la bandeja lateral (dibujada en el topografico) o a la puerta / placa (pasa por la canaleta de la lateral)
-  const sinLado = t => String(t || '').replace(/ (ARRIBA|ABAJO)$/, '');
-  const claveE8 = (num, a, b) => [num, ...[sinLado(a), sinLado(b)].sort()].join('|');
-  let E8L = null;
-  // ---- parte de la ruta que corre DENTRO de las canaletas (mm): desde el primer punto que cae en una canaleta hasta el
-  // final (la salida de la bandeja). Lo que va antes es la acometida del borne, que la regla del taller pone como fijo.
-  const dentro = (p, b) => b[0] - 0.6 <= p[0] && p[0] <= b[2] + 0.6 && b[1] - 0.6 <= p[1] && p[1] <= b[3] + 0.6;
-  function canaleta(ruta, ductos, escala) {
-    if (!ruta || ruta.length < 2 || !escala) return null;
-    const i = ruta.findIndex(p => (ductos || []).some(d => d.b && dentro(p, d.b)));
-    if (i < 0) return null;
-    let mm = 0;
-    for (let k = i; k < ruta.length - 1; k++) mm += Math.hypot(ruta[k + 1][0] - ruta[k][0], ruta[k + 1][1] - ruta[k][1]);
-    return Math.round(mm * escala);
-  }
-  function lateralInfo() {
-    const e8 = D.estacion8 || {}, sale = {}, par = {};
-    (e8.laterales || []).forEach(L => {
-      L.pasos.forEach(p => p.lineas.forEach(x => {
-        if (x.largo_mm == null) return;
-        const v = { tipo: 'lateral', mm: x.largo_mm, can: canaleta(x.ruta, L.ductos, L.escala), borne: x.origen, donde: L.nombre.toLowerCase(), puerta: x.otra === 'puerta / placa' };
-        if (x.otra === 'bandeja principal') sale[`${x.num}|${sinLado(x.destino)}`] ??= v;   // de la bandeja (E6) a la lateral
-        else par[x.clave] = v;                                                         // misma lateral, o lateral ↔ puerta
-      }));
-    });
-    (e8.afuera || []).forEach(g => g.zona === 'puerta / placa' && g.cables.forEach(x => {
-      if (x.otra_donde === 'bandeja principal') sale[`${x.num}|${sinLado(x.otra)}`] ??= { tipo: 'puerta', donde: x.borne };
-    }));
-    return { sale, par };
-  }
-  // largo = recorrido por las canaletas + margen (pelado, peinado) y, si sale de la bandeja, lo que necesita en LI/LD,
-  // más el AGREGADO del taller según adónde va (en bandeja / a LI / a puerta y placa), a más de los márgenes de siempre
-  function largoCalc(f) {
-    const l = f.l, r = P('redondeo') || 1, up = v => Math.ceil(v / r) * r;
-    const AG = { bandeja: P('agregado_bandeja'), LI: P('agregado_LI'), puerta: P('agregado_puerta') };
-    const mas = k => AG[k] ? ` + agregado ${k === 'LI' ? 'a LI' : k === 'puerta' ? 'puerta / placa' : 'en bandeja'} ${AG[k]}` : '';
-    if (f.tipo === 'pendiente') {
-      const x = E8L.par[claveE8(l.num, l.a, l.b)];
-      if (x) {
-        const ext = x.puerta ? P('extra_puerta') : P('margen_LI'), k = x.puerta ? 'puerta' : 'LI';
-        return { mm: up(x.mm + ext + AG[k]), como: `canaleta de la ${x.donde} ${x.mm} + ${x.puerta ? 'puerta / placa' : 'margen'} ${ext}${mas(k)}, redondeado a ${r}` };
-      }
-      return { mm: P('largo_pendiente'), como: 'pendiente LI↔LI (valor fijo)' };
-    }
-    if (!l.largo_mm) return { mm: P('largo_sin_ruta'), como: 'sin ruta en el topográfico: valor fijo', falta: true };
-    const x = E8L.sale[`${l.num}|${sinLado(l.origen)}`];
-    if (x && (x.tipo === 'lateral' || x.tipo === 'puerta')) {
-      // regla del taller (2026-10-06): acometida fija del borne a la canaleta + lo que corre dentro de las canaletas de la bandeja
-      const can = canaleta(l.ruta, (D.topo || {}).ductos, (D.topo || {}).escala), canT = can != null ? can : l.largo_mm;
-      const b = `${P('acometida')} (borne → canaleta) + canaleta de la bandeja ${canT}${can == null ? ' (ruta entera)' : ''}`;
-      if (x.tipo === 'lateral') {
-        const cl = x.can != null ? x.can : x.mm;
-        return { mm: up(P('acometida') + canT + P('curva_LI') + cl + P('acometida_LI')),
-          como: `${b} + curva a ${l.destino} ${P('curva_LI')} + canaleta de la ${x.donde} ${cl} + ${P('acometida_LI')} (canaleta → ${x.borne || 'borne'}), redondeado a ${r}` };
-      }
-      return { mm: up(P('acometida') + canT + P('puerta')),
-        como: `${b} + puerta / placa ${P('puerta')} (${x.donde}), redondeado a ${r}` };
-    }
-    // queda en la bandeja, o sale a LI / LD sin saber adónde (sin estación E8): agregado según el caso
-    const ext = l.destino === 'LI' ? P('extra_LI') : l.destino === 'LD' ? P('extra_LD') : 0;
-    const k = !LAT(l.destino) ? 'bandeja' : (x && x.tipo === 'puerta') ? 'puerta' : 'LI';
-    return { mm: up(l.largo_mm + P('margen_bandeja') + ext + AG[k]),
-      como: `canaletas ${l.largo_mm} + margen ${P('margen_bandeja')}${ext ? ` + ${l.destino} ${ext}` : ''}${mas(k)}, redondeado a ${r}` };
-  }
-
-  function csv(fs) {
-    const fx = CFG.fijos || {};
-    const lin = fs.map(f => {
-      const c = new Array(NCOL).fill('');
-      c[6] = f.largo; c[7] = 1; c[8] = coma(f.sec); c[9] = f.color; c[11] = f.l.num; c[19] = f.l.num;
-      c[21] = f.giro;                      // giro de los termos: "origen|destino" en grados (Labeling Position)
-      c[23] = fx.pelado_origen ?? 10; c[24] = fx.proceso_origen ?? 1; c[25] = fx.proceso_destino ?? 1;
-      c[27] = fx.crimpado_origen ?? 8; c[45] = fx.dimension_origen ?? 10; c[46] = fx.crimpado_destino ?? 8;
-      return c.join(';');
-    });
-    return '﻿' + lin.map(s => s + '\r\n').join('');
-  }
-  function bajar(nombre, txt) {
+  const baseAct = () => borrador || BASE || {};        // con un borrador sin guardar, la lista ya lo muestra
+  const CFG = () => C.config(baseAct(), { producto: D.producto, trabajo: W().cfg });
+  const filas = () => C.filas(D, CFG());
+  const nombrePlano = () => (S.res?.nombre || 'plano').replace(/\.pdf$/i, '');
+  const coma = C.coma, secNum = C.secNum;
+  function bajar(nombre, datos, tipo) {
     const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([txt], { type: 'text/csv;charset=utf-8' }));
+    a.href = URL.createObjectURL(new Blob([datos], { type: tipo }));
     a.download = nombre; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
   }
-  const base = () => (S.res?.nombre || 'plano').replace(/\.pdf$/i, '');
 
+  /* ---------------- panel ⚙ Parámetros ---------------- */
+  const NIVEL_TXT = { trabajo: 'este trabajo', producto: 'producto', global: 'todos los productos', defecto: 'por defecto del programa' };
+  const claveProducto = () => C.productoDe(baseAct(), D.producto).clave;
+  const txtDe = de => (de === 'producto' ? `producto ${claveProducto() || ''}`.trim() : NIVEL_TXT[de] || de);
+  // la configuración que se ve en cada pestaña (sin los niveles de abajo)
+  function cfgDe(nivel) {
+    if (nivel === 'trabajo') return CFG();
+    return C.config(baseAct(), nivel === 'producto' ? { producto: D.producto } : {});
+  }
+  // los valores propios de un nivel (crear: con un borrador, para editarlos)
+  function nivelObj(nivel, crear) {
+    if (nivel === 'trabajo') return W().cfg;
+    if (crear && !borrador) borrador = JSON.parse(JSON.stringify(BASE || {}));
+    const b = baseAct();
+    if (nivel === 'global') return b;
+    const k = claveProducto();
+    if (!k) return null;
+    if (!crear) return (b.productos || {})[k] || null;
+    if (!b.productos || typeof b.productos !== 'object' || Array.isArray(b.productos)) b.productos = {};
+    return (b.productos[k] ??= {});
+  }
+  // lo que cambia el borrador respecto de wpc.json: todos los productos y / o qué productos
+  function cambios() {
+    if (!borrador) return { global: false, prods: [], hay: false };
+    const a = BASE || {}, b = borrador, sin = o => JSON.stringify(Object.fromEntries(Object.entries(o).filter(([k]) => k !== 'productos')));
+    const pa = a.productos || {}, pb = b.productos || {};
+    const prods = [...new Set([...Object.keys(pa), ...Object.keys(pb)])].filter(k => JSON.stringify(pa[k]) !== JSON.stringify(pb[k]));
+    const global = sin(a) !== sin(b);
+    return { global, prods, hay: global || prods.length > 0 };
+  }
+  // defecto del programa (cuando ningún nivel lo tiene): solo para mostrarlo
+  function defecto(p) {
+    if (p.clave === 'marcador.modo') return C.MARCADOR.modo;
+    if (p.clave === 'marcador.tabla') return C.MARCADOR.tabla;
+    if (p.clave === 'archivo_wpc.UserFilter') return '-1';
+    if (p.tipo === 'numero') return p.clave === 'redondeo' ? 1 : ({ 'fijos.pelado_origen': 10, 'fijos.proceso_origen': 1, 'fijos.proceso_destino': 1,
+      'fijos.crimpado_origen': 8, 'fijos.dimension_origen': 10, 'fijos.crimpado_destino': 8 })[p.clave] ?? 0;
+    if (p.tipo === 'si_no') return false;
+    if (/^termos\.(mixto|sin_dato)$/.test(p.clave)) return '0|0';
+    if (p.clave === 'termos.abajo_abajo') return '180|0';
+    if (p.clave === 'termos.arriba_arriba') return '0|180';
+    return p.tipo === 'lista' || p.tipo === 'reemplazos' || p.tipo === 'marcador' ? [] : p.tipo === 'colores' ? {} : '';
+  }
+  const valor = (p, cfg) => { const v = C.leer(cfg, p.clave); return v === undefined ? defecto(p) : v; };
+  function opciones(p, cfg) {
+    const ops = Array.isArray(p.opciones) ? p.opciones : p.opciones_de ? (C.leer(cfg, p.opciones_de) || []) : [];
+    return ops.map(o => (o && typeof o === 'object' ? { v: o.valor, t: o.etiqueta ?? o.valor } : { v: o, t: o }));
+  }
+  // tablas: filas de texto para editar y vuelta al valor
+  const numONull = s => (String(s ?? '').trim() === '' ? null : Number(String(s).replace(',', '.')));
+  const TABLAS = {
+    colores: { cols: ['Color del plano', 'Código WPC'], nueva: () => ['', ''],
+      filas: v => Object.entries(v || {}), valor: fs => Object.fromEntries(fs.filter(f => String(f[0]).trim()).map(f => [String(f[0]).trim(), f[1]])) },
+    reemplazos: { cols: ['Color', 'mm²', '→ color', '→ mm²', 'Motivo'], nueva: () => ['', '', '', '', ''],
+      filas: v => (v || []).map(r => [r.de?.color ?? '', r.de?.secc ?? '', r.a?.color ?? '', r.a?.secc ?? '', r.motivo ?? '']),
+      valor: fs => fs.map(f => Object.assign({ de: { color: String(f[0]).trim(), secc: numONull(f[1]) }, a: { color: String(f[2]).trim(), secc: numONull(f[3]) } },
+        String(f[4]).trim() ? { motivo: String(f[4]).trim() } : {})) },
+    marcador: { cols: ['Desde mm²', 'Hasta mm²', 'Marcador (columna 21)'], nueva: () => ['', '', ''],
+      filas: v => (v || []).map(t => [t.desde ?? '', t.hasta ?? '', t.valor ?? '']),
+      valor: fs => fs.map(f => ({ desde: numONull(f[0]), hasta: numONull(f[1]), valor: String(f[2]) })) },
+  };
+  function tabla(p, v, cfg) {
+    const T = TABLAS[p.tipo], fs = T.filas(v), cod = cfg.codigos || [];
+    const celda = (f, i, c) => {
+      const at = `data-par-tabla="${esc(p.clave)}" data-fila="${i}" data-col="${c}"`;
+      if (p.tipo === 'colores' && c === 1) {
+        const ops = cod.includes(f[1]) || !f[1] ? cod : [f[1], ...cod];
+        return `<select ${at}>${(f[1] ? [] : ['']).concat(ops).map(o => `<option ${o === f[1] ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select>`;
+      }
+      const numero = (p.tipo === 'reemplazos' && (c === 1 || c === 3)) || (p.tipo === 'marcador' && c < 2);
+      const ancho = numero ? 'inputmode="decimal" style="width:60px"' : p.tipo === 'reemplazos' && c !== 4 ? 'list="wpcColoresL" style="width:96px"'
+        : p.tipo === 'marcador' ? 'style="width:300px"' : p.tipo === 'reemplazos' ? 'style="width:240px"' : '';
+      return `<input ${at} value="${esc(f[c])}" ${ancho}>`;
+    };
+    return `<table class="wpc-tabla"><thead><tr>${T.cols.map(t => `<th>${esc(t)}</th>`).join('')}<th></th></tr></thead><tbody>${
+      fs.map((f, i) => `<tr>${T.cols.map((_, c) => `<td>${celda(f, i, c)}</td>`).join('')}<td><button class="linkbtn" data-par-menos="${esc(p.clave)}" data-fila="${i}" title="Borrar la fila">✕</button></td></tr>`).join('')
+    }</tbody></table><button class="linkbtn small" data-par-mas="${esc(p.clave)}">+ fila</button>`;
+  }
+  function campo(p, cfg, propios) {
+    const v = valor(p, cfg), de = cfg._de[p.clave] || 'defecto', propio = !!propios && C.hay(C.leer(propios, p.clave));
+    const at = `data-par="${esc(p.clave)}"`;
+    let ent;
+    if (p.tipo === 'si_no') ent = `<input type="checkbox" ${at} ${v ? 'checked' : ''}>`;
+    else if (p.tipo === 'numero') ent = `<input type="number" ${at} value="${esc(v)}" step="${esc(p.paso ?? 'any')}"${p.minimo != null ? ` min="${esc(p.minimo)}"` : ''} style="width:84px">`;
+    else if (p.tipo === 'opcion') {
+      const ops = opciones(p, cfg); if (!ops.some(o => o.v === v)) ops.push({ v, t: v });
+      ent = `<select ${at}>${ops.map(o => `<option value="${esc(o.v)}" ${o.v === v ? 'selected' : ''}>${esc(o.t)}</option>`).join('')}</select>`;
+    }
+    else if (p.tipo === 'lista') ent = `<input ${at} value="${esc((Array.isArray(v) ? v : []).join(', '))}" class="mono" spellcheck="false" title="Separados por coma">`;
+    else if (TABLAS[p.tipo]) ent = tabla(p, v, cfg);
+    else ent = `<input ${at} value="${esc(v)}"${p.tipo === 'regex' ? ' class="mono" spellcheck="false"' : ''}>`;
+    const arriba = par.nivel === 'trabajo' ? (claveProducto() ? 'el del producto (o el de todos)' : 'el de todos los productos') : 'el de todos los productos';
+    return `<div class="wpc-campo${TABLAS[p.tipo] ? ' ancho tabla' : p.tipo === 'regex' || p.tipo === 'lista' ? ' ancho' : ''}">
+      <label title="${esc(p.ayuda || '')}">${esc(p.etiqueta || p.clave)}${p.unidad ? ` <span class="muted">(${esc(p.unidad)})</span>` : ''}</label>
+      <span class="wpc-ent">${ent}</span>
+      <span class="pill wpc-de ${esc(de)}" title="El valor sale de: ${esc(txtDe(de))}">${esc(txtDe(de))}</span>
+      ${par.nivel !== 'global' && propio ? `<button class="linkbtn small" data-par-volver="${esc(p.clave)}" title="Sacar el valor de ${esc(par.nivel === 'trabajo' ? 'este trabajo' : 'este producto')} y usar ${esc(arriba)}">↺ volver al de arriba</button>` : ''}</div>`;
+  }
+  function panel() {
+    const b = baseAct(), ps = C.parametros(b), kp = claveProducto();
+    if (par.nivel === 'producto' && !kp) par.nivel = 'trabajo';
+    const cfg = cfgDe(par.nivel), propios = nivelObj(par.nivel, false), ch = cambios();
+    const tabs = [['trabajo', 'Este trabajo'], ['producto', kp ? `Producto ${kp}` : 'Producto (sin código)'], ['global', 'Todos los productos']];
+    const expl = {
+      trabajo: 'Vale solo para este trabajo y se guarda con el instructivo.',
+      producto: kp ? `Vale para todos los trabajos del producto ${kp}${C.productoDe(b, D.producto).por === 'documento' ? ' (cargado por el plano)' : ''}. Se guarda en wpc.json con «Guardar».`
+        : 'Este trabajo no tiene código de producto: cargalo con ✎ en la línea «Producto».',
+      global: 'Vale para todos los productos (salvo lo que cambie un producto o un trabajo). Se guarda en wpc.json con «Guardar».',
+    }[par.nivel];
+    const grupos = [];
+    ps.forEach(p => { let g = grupos.find(x => x.n === (p.grupo || 'Otros')); if (!g) grupos.push(g = { n: p.grupo || 'Otros', ps: [] }); g.ps.push(p); });
+    return `<div class="wpc-par-tabs">${tabs.map(([n, t]) => `<button data-par-tab="${n}" class="${n === par.nivel ? 'on' : ''}" ${n === 'producto' && !kp ? 'disabled' : ''}>${esc(t)}</button>`).join('')}
+        <span class="grow"></span><button class="linkbtn small" data-par-abrir>Cerrar el panel</button></div>
+      <div class="small muted wpc-par-expl">${esc(expl)}</div>
+      ${par.error ? `<div class="small wpc-par-err" role="alert">⚠ ${esc(par.error)}</div>` : ''}
+      ${ps.length ? '' : '<div class="small">wpc.json no trae la sección «parametros»: no hay nada para mostrar.</div>'}
+      <datalist id="wpcColoresL">${Object.keys(cfg.colores || {}).map(c => `<option value="${esc(c)}">`).join('')}</datalist>
+      ${grupos.map(g => `<fieldset><legend>${esc(g.n)}</legend>${g.ps.map(p => campo(p, cfg, propios)).join('')}</fieldset>`).join('')}
+      ${ch.hay ? `<div class="wpc-par-pie"><span class="small"><b>Sin guardar:</b> ${esc([ch.global ? 'todos los productos' : '', ...ch.prods.map(k => 'producto ' + k)].filter(Boolean).join(' · '))}
+          (la lista ya lo muestra)</span><span class="grow"></span>
+          <button class="btn ghost sm" data-par-descartar>Descartar</button><button class="btn primary sm" data-par-guardar>✓ Guardar en wpc.json</button></div>` : ''}`;
+  }
+  // un valor nuevo en el nivel de la pestaña
+  function ponerValor(clave, v) {
+    par.error = '';
+    if (par.nivel === 'trabajo') { C.poner(W().cfg, clave, v); guardar(); }
+    else C.poner(nivelObj(par.nivel, true), clave, v);
+    render();
+  }
+  function volverArriba(clave) {
+    par.error = '';
+    if (par.nivel === 'trabajo') { C.quitar(W().cfg, clave); guardar(); }
+    else if (par.nivel === 'producto') {
+      const o = nivelObj('producto', true), k = claveProducto();
+      C.quitar(o, clave);
+      if (!Object.keys(o).length) delete borrador.productos[k];
+    }
+    if (borrador && !cambios().hay) borrador = null;
+    render();
+  }
+  function error(m) { par.error = m; render(); }
+  function editarCampo(t) {
+    const p = C.parametros(baseAct()).find(x => x.clave === t.dataset.par); if (!p) return;
+    const s = String(t.value ?? '');
+    if (p.tipo === 'si_no') return ponerValor(p.clave, t.checked);
+    // vacío = «el de arriba» (en «Todos los productos» no hay nada arriba: un número no puede quedar vacío)
+    if (s.trim() === '' && par.nivel !== 'global') return volverArriba(p.clave);
+    if (p.tipo === 'numero') {
+      if (s.trim() === '') return error(`«${p.etiqueta}» no puede quedar vacío en «Todos los productos»`);
+      const n = Number(s.replace(',', '.'));
+      if (!Number.isFinite(n)) return error(`«${p.etiqueta}»: «${s}» no es un número`);
+      if (p.minimo != null && n < +p.minimo) return error(`«${p.etiqueta}»: tiene que ser ${p.minimo} o más`);
+      return ponerValor(p.clave, n);
+    }
+    if (p.tipo === 'regex') {
+      try { new RegExp(s, 'i'); } catch (e) { return error(`«${p.etiqueta}»: la expresión no es válida (${e.message}). No se guardó`); }
+      return ponerValor(p.clave, s);
+    }
+    if (p.tipo === 'lista') return ponerValor(p.clave, s.split(/[,;\s]+/).map(x => x.trim()).filter(Boolean));
+    return ponerValor(p.clave, s);
+  }
+  // tablas: se parte del valor que se ve en la pestaña (el de arriba, la primera vez) y se cambia entero en este nivel
+  function editarTabla(clave, cambiar) {
+    const p = C.parametros(baseAct()).find(x => x.clave === clave), T = p && TABLAS[p.tipo]; if (!T) return;
+    const fs = T.filas(valor(p, cfgDe(par.nivel))).map(f => f.slice());
+    cambiar(fs, T);
+    ponerValor(clave, T.valor(fs));
+  }
+  async function guardarConfig() {
+    const ch = cambios();
+    if (!ch.hay) { borrador = null; return render(); }
+    const qué = [ch.global ? 'Esto cambia todos los trabajos de todos los productos.' : '', ...ch.prods.map(k => `Esto cambia todos los trabajos del producto ${k}.`)];
+    if (!confirm(qué.filter(Boolean).join('\n') + '\n\n¿Guardar los parámetros en wpc.json? (queda un respaldo del archivo anterior)')) return;
+    try {
+      const r = await fetch('/api/config/wpc', { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, VERSION ? { 'X-Version': VERSION } : {}), body: JSON.stringify(borrador) });
+      let j = {}; try { j = await r.json(); } catch (e) { }
+      if (!r.ok) throw new Error((j.error || r.statusText) + (j.errores ? ': ' + j.errores.slice(0, 4).join(' · ') : ''));
+      BASE = j.config; VERSION = j.version || null; borrador = null; par.error = '';
+      toast('Parámetros guardados en wpc.json (con respaldo)', 3500);
+      render();
+    } catch (e) { error('No se pudo guardar: ' + e.message); }
+  }
+
+  /* ---------------- la ventana ---------------- */
   function render() {
-    const fs = filas(), w = W(), M = $('#wpcModal');
+    const cfg = CFG(), fs = C.filas(D, cfg), w = W(), M = $('#wpcModal');
     if (typeof Prod !== 'undefined') Prod.mostrarEn('#wpcProd', D.producto);     // línea «Producto» (web/producto.js)
     const faltan = fs.filter(f => !f.fuera && (f.calc.falta || !f.color || !f.sec)).length;
-    M.querySelector('.wpc-cfg').innerHTML = [['margen_bandeja', 'Sobrante en bandeja (mm)'], ['agregado_bandeja', '+ agregado en bandeja (mm)'],
-      ['acometida', 'Borne → canaleta (mm)'], ['curva_LI', 'Curva posterior → LI (mm)'], ['acometida_LI', 'Canaleta → borne en LI (mm)'], ['puerta', 'Sigue a puerta / placa (mm)'],
-      ['margen_LI', 'Pendientes lateral ↔ lateral: margen (mm)'], ['extra_puerta', 'Pendientes lateral → puerta (mm)'],
-      ['extra_LI', 'A LI sin plano (mm)'], ['extra_LD', 'A LD sin plano (mm)'], ['agregado_LI', '+ agregado a LI / LD (mm)'], ['agregado_puerta', '+ agregado puerta / placa (mm)'],
-      ['redondeo', 'Redondeo'], ['largo_sin_ruta', 'Sin ruta'], ['largo_pendiente', 'Pendientes']].map(([k, t]) =>
-      `<label class="small">${t} <input type="number" step="10" min="0" data-cfg="${k}" value="${P(k)}" style="width:70px"></label>`).join('') +
-      `<label class="small"><input type="checkbox" data-cfg="pendientes" ${w.cfg.pendientes ? 'checked' : ''}> Pendientes LI↔LI</label>
-       <label class="small"><input type="checkbox" data-cfg="otra" ${w.cfg.otra ? 'checked' : ''}> Otra estación</label>`;
+    const nT = Object.values(cfg._de).filter(x => x === 'trabajo').length, nP = Object.values(cfg._de).filter(x => x === 'producto').length;
+    const ch = cambios();
+    M.querySelector('.wpc-cfg').innerHTML = `<label class="small"><input type="checkbox" data-cfg="pendientes" ${cfg.pendientes ? 'checked' : ''}> Pendientes LI↔LI</label>
+       <label class="small"><input type="checkbox" data-cfg="otra" ${cfg.otra ? 'checked' : ''}> Otra estación</label>
+       <span class="grow"></span>
+       <span class="small muted">${nT ? `${nT} parámetro${nT > 1 ? 's' : ''} de este trabajo` : ''}${nT && nP ? ' · ' : ''}${nP ? `${nP} del producto ${esc(claveProducto() || '')}` : ''}${ch.hay ? ` · <b style="color:var(--warn)">parámetros sin guardar</b>` : ''}</span>
+       <button class="btn sm${par.abierto ? ' on' : ''}" data-par-abrir title="Largos, fuera del arnés, termos, colores, reemplazos y el archivo .wpc: de este trabajo, del producto o de todos">⚙ Parámetros</button>`;
+    const Pn = M.querySelector('.wpc-par');
+    Pn.hidden = !par.abierto;
+    if (par.abierto) Pn.innerHTML = panel();
     const nRg = fs.filter(f => !f.fuera && f.rg).length, nFuera = fs.filter(f => f.fuera && f.motivo && !w.excluir.includes(f.k)).length;
     const nGiro = fs.filter(f => !f.fuera && f.giro !== '0|0').length, nSin = fs.filter(f => !f.fuera && (!f.giroCalc.o || !f.giroCalc.d)).length;
-    M.querySelector('.wpc-exp').innerHTML = `<span class="muted small">${fs.filter(f => !f.fuera).length} cables${faltan ? ` · <b style="color:#c0392b">${faltan} a revisar</b>` : ''}${nRg ? ` · <b>${nRg}</b> con otro color y sección por regla del producto (${esc((D.producto || {}).documento || '')})` : ''}${nFuera ? ` · ${nFuera} fuera del arnés por regla (35 mm², comunicación, solenoides, campo)` : ''} · termos: ${nGiro} con giro${nSin ? ` (${nSin} sin el lado de una punta)` : ''} · la WPC solo corta (sin pelar ni crimpar)</span>
-      <span class="grow"></span><button class="btn primary sm" data-exp>⭳ Exportar CSV</button>`;
+    const nom = C.nombreArchivo(D.producto, '', nombrePlano());
+    M.querySelector('.wpc-exp').innerHTML = `<span class="muted small">${fs.filter(f => !f.fuera).length} cables${faltan ? ` · <b style="color:#c0392b">${faltan} a revisar</b>` : ''}${nRg ? ` · <b>${nRg}</b> con otro color y sección por la regla de reemplazos (${esc(txtDe(cfg._de.reemplazos || 'global'))})` : ''}${nFuera ? ` · ${nFuera} fuera del arnés por regla (35 mm², comunicación, solenoides, campo)` : ''} · termos: ${nGiro} con giro${nSin ? ` (${nSin} sin el lado de una punta)` : ''} · la WPC solo corta (sin pelar ni crimpar)</span>
+      <span class="grow"></span>
+      <span class="small wpc-nom" title="Nombre del archivo y del proyecto (ProjectName del .wpc)"><span class="mono">${esc(nom)}</span>${D.producto && D.producto.codigo ? '' : ' <span class="muted">(sin código de producto)</span>'}</span>
+      <button class="btn sm" data-exp="csv" title="El .csv para importar en el programa de la WPC">⭳ CSV</button>
+      <button class="btn primary sm" data-exp="wpc" title="El archivo de la máquina: se abre directo en la WPC">⭳ .wpc</button>
+      <span class="small wpc-aviso">No renombres el .wpc: la máquina lo abre por el nombre de adentro${ch.hay ? ' · ⚠ con parámetros sin guardar' : ''}</span>`;
     let g = null;
-    M.querySelector('tbody').innerHTML = fs.map((f, i) => {
+    const giros = (cfg.termos || {}).opciones || ['0|0', '180|0', '0|180', '180|180'], cods = cfg.codigos || [];
+    M.querySelector('.wpc-t tbody').innerHTML = fs.map((f, i) => {      // (el panel también tiene tablas)
       const hdr = f.grupo !== g ? (g = f.grupo, `<tr class="wpc-g"><td colspan="9">${esc(f.grupo)}</td></tr>`) : '';
       const mal = f.calc.falta || !f.color || !f.sec;
-      const giros = (CFG.termos || {}).opciones || ['0|0', '180|0', '0|180', '180|180'];
       return hdr + `<tr data-k="${esc(f.k)}" class="${f.fuera ? 'wpc-fuera' : ''}">
         <td><input type="checkbox" data-a="usar" ${f.fuera ? '' : 'checked'} title="${esc(f.motivo ? 'Fuera del arnés: ' + f.motivo + ' (tildalo para incluirlo igual)' : 'Incluir en el CSV')}"></td>
         <td class="small">${i + 1}</td>
         <td><b>${esc(f.l.num)}</b></td>
-        <td><select data-a="color">${(f.color && !(CFG.codigos || []).includes(f.color) ? [f.color] : []).concat(CFG.codigos || []).concat(f.color ? [] : ['']).map(c => `<option ${c === f.color ? 'selected' : ''}>${c}</option>`).join('')}</select>
-          ${f.rg ? `<span class="small wpc-rg" title="${esc(`Regla WPC del producto: ${f.l.color} ${coma(secNum(f.l))} mm² se corta en ${f.rg.a.color} ${coma(f.rg.a.secc)} mm²${f.rg.motivo ? ' (' + f.rg.motivo + ')' : ''}. El instructivo no cambia`)}">${esc(f.l.color)} ${esc(coma(secNum(f.l)))} → <b>${esc(f.rg.a.color)} ${esc(coma(f.rg.a.secc))}</b></span>` : `<span class="muted small">${esc(f.l.color || '')}</span>`}</td>
+        <td><select data-a="color">${(f.color && !cods.includes(f.color) ? [f.color] : []).concat(cods).concat(f.color ? [] : ['']).map(c => `<option ${c === f.color ? 'selected' : ''}>${c}</option>`).join('')}</select>
+          ${f.rg ? `<span class="small wpc-rg" title="${esc(`Regla de reemplazo de la WPC (${txtDe(cfg._de.reemplazos || 'global')}): ${f.l.color} ${coma(secNum(f.l))} mm² se corta en ${f.rg.a.color} ${coma(f.rg.a.secc)} mm²${f.rg.motivo ? ' (' + f.rg.motivo + ')' : ''}. El instructivo no cambia`)}">${esc(f.l.color)} ${esc(coma(secNum(f.l)))} → <b>${esc(f.rg.a.color)} ${esc(coma(f.rg.a.secc))}</b></span>` : `<span class="muted small">${esc(f.l.color || '')}</span>`}</td>
         <td>${esc(coma(f.sec))}${f.rg ? ` <span class="muted small" title="Sección del plano">(era ${esc(coma(secNum(f.l)))})</span>` : ''}</td>
         <td><input type="number" step="10" min="0" data-a="largo" value="${f.largo}" style="width:72px;${w.largo[f.k] != null ? 'font-weight:700' : ''}${mal ? ';background:#fde2e2' : ''}" title="${esc(f.calc.como)}${w.largo[f.k] != null ? ' · editado a mano (vacío = calculado ' + f.calc.mm + ')' : ''}"></td>
         <td class="small">${esc(f.l.origen ?? f.l.a)} → ${esc(f.l.destino ?? f.l.b)}${f.motivo ? `<br><span class="wpc-mot">${esc(f.motivo)}</span>` : ''}</td>
@@ -223,50 +269,77 @@ const Wpc = (() => {
         <td class="small muted">${f.l.largo_mm ? f.l.largo_mm : '—'}</td></tr>`;
     }).join('');
   }
+  function exportar(tipo) {
+    const cfg = CFG(), fs = C.filas(D, cfg).filter(f => !f.fuera), nom = C.nombreArchivo(D.producto, '', nombrePlano());
+    if (tipo === 'csv') return bajar(nom + '.csv', C.csv(fs, cfg), 'text/csv;charset=utf-8');
+    C.wpcZip(nom + '.wpc', C.wpcXml(fs, cfg, nom)).then(z => bajar(nom + '.wpc', z, 'application/octet-stream'))
+      .catch(e => toast('No se pudo armar el .wpc: ' + e.message, 4500));
+  }
   function onEvt(e) {
-    const t = e.target, w = W();
+    const t = e.target, w = W(), clic = e.type === 'click', cambio = e.type === 'change';
+    // panel de parámetros
+    const pb = t.closest('[data-par-abrir],[data-par-tab],[data-par-volver],[data-par-mas],[data-par-menos],[data-par-guardar],[data-par-descartar]');
+    if (pb && clic) {
+      const d = pb.dataset;
+      if ('parAbrir' in d) { par.abierto = !par.abierto; par.error = ''; }
+      else if (d.parTab) { par.nivel = d.parTab; par.error = ''; }
+      else if (d.parVolver) return volverArriba(d.parVolver);
+      else if (d.parMas) return editarTabla(d.parMas, (fs, T) => fs.push(T.nueva()));
+      else if (d.parMenos) return editarTabla(d.parMenos, fs => fs.splice(+d.fila, 1));
+      else if ('parGuardar' in d) return guardarConfig();
+      else if ('parDescartar' in d) { borrador = null; par.error = ''; }
+      return render();
+    }
+    if (t.dataset.par) { if (cambio) editarCampo(t); return; }
+    if (t.dataset.parTabla) { if (cambio) editarTabla(t.dataset.parTabla, fs => { fs[+t.dataset.fila][+t.dataset.col] = t.value; }); return; }
+    // pendientes / otra estación (este trabajo)
     if (t.dataset.cfg) {
-      if (e.type !== 'change') return;
+      if (!cambio) return;
       w.cfg[t.dataset.cfg] = t.type === 'checkbox' ? t.checked : t.value;
       guardar(); render(); return;
     }
     const exp = t.closest('[data-exp]');
-    if (exp && e.type === 'click') {
-      bajar(`${base()} - WPC.csv`, csv(filas().filter(f => !f.fuera)));
-      return;
-    }
+    if (exp && clic) return exportar(exp.dataset.exp);
     const tr = t.closest('tr[data-k]'); if (!tr) return;
     const k = tr.dataset.k, a = (t.closest('[data-a]') || {}).dataset?.a;
-    if (a === 'usar' && e.type === 'change') {
+    if (a === 'usar' && cambio) {
       w.incluir = w.incluir || [];
       w.excluir = w.excluir.filter(x => x !== k); w.incluir = w.incluir.filter(x => x !== k);
       (t.checked ? w.incluir : w.excluir).push(k);
     }
-    else if (a === 'color' && e.type === 'change') { w.color[k] = t.value; }
-    else if (a === 'giro' && e.type === 'change') { const f = filas().find(x => x.k === k); if (f && t.value === f.giroCalc.v) delete w.giro[k]; else w.giro[k] = t.value; }
-    else if (a === 'largo' && e.type === 'change') { if (t.value === '') delete w.largo[k]; else w.largo[k] = Math.max(0, Math.round(+t.value)); }
+    else if (a === 'color' && cambio) { w.color[k] = t.value; }
+    else if (a === 'giro' && cambio) { const f = filas().find(x => x.k === k); if (f && t.value === f.giroCalc.v) delete w.giro[k]; else w.giro[k] = t.value; }
+    else if (a === 'largo' && cambio) { if (t.value === '') delete w.largo[k]; else w.largo[k] = Math.max(0, Math.round(+t.value)); }
     else return;
     guardar(); render();
+  }
+  function cerrar(M) {
+    if (cambios().hay && !confirm('Hay parámetros de «Producto» o «Todos los productos» sin guardar. Quedan como borrador hasta que los guardes o descartes. ¿Cerrar igual?')) return;
+    M.hidden = true;
   }
 
   async function abrir(d, fnGuardar) {
     D = d; guardar = fnGuardar;
-    await cfgListo;
+    if (!borrador) BASE = await leerConfig();          // (otro pudo cambiar los parámetros)
     let M = $('#wpcModal');
     if (!M) {
       M = document.createElement('div'); M.id = 'wpcModal'; M.className = 'wpc-modal';
       M.innerHTML = `<div class="wpc-box" role="dialog" aria-label="Lista de cables para WPC">
-        <div class="wpc-h"><h2>Lista de cables para WPC</h2><span class="muted small">En el orden del instructivo. Todo en un solo CSV. El largo editado a mano queda en negrita.</span>
+        <div class="wpc-h"><h2>Lista de cables para WPC</h2><span class="muted small">En el orden del instructivo. Todo en un solo archivo. El largo editado a mano queda en negrita.</span>
           <span class="grow"></span><button class="btn ghost sm" data-cerrar>✕ Cerrar</button></div>
         <div class="small prod-linea" id="wpcProd" hidden></div>
-        <div class="wpc-cfg"></div><div class="wpc-exp"></div>
+        <div class="wpc-cfg"></div><div class="wpc-par" hidden></div><div class="wpc-exp"></div>
         <div class="wpc-t"><table><thead><tr><th></th><th>#</th><th>Cable</th><th>Color</th><th>mm²</th><th>Largo</th><th>Origen → destino</th><th title="Giro de los termos (señalizadores): origen|destino en grados. Una punta arriba y otra abajo: 0|0 · las dos abajo: 180|0 · las dos arriba: 0|180">Termos</th><th title="Recorrido por las canaletas">Canaleta</th></tr></thead><tbody></tbody></table></div></div>`;
       document.body.appendChild(M);
-      M.addEventListener('click', e => { if (e.target === M || e.target.closest('[data-cerrar]')) M.hidden = true; else onEvt(e); });
+      M.addEventListener('click', e => { if (e.target === M || e.target.closest('[data-cerrar]')) cerrar(M); else onEvt(e); });
       M.addEventListener('change', onEvt);
-      document.addEventListener('keydown', e => { if (e.key === 'Escape' && !M.hidden) M.hidden = true; });
+      // lo que se escribe en los campos no dispara los atajos de la página ('/' busca...); Escape cierra la ventana
+      M.addEventListener('keydown', e => { if (e.key !== 'Escape' && e.target.matches('input, select, textarea')) e.stopPropagation(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && !M.hidden && !(typeof Prod !== 'undefined' && Prod.abierto())) cerrar(M); });
     }
     M.hidden = false; render();
   }
-  return { abrir, csv: fs => csv(fs), filas: () => filas() };
+  // el producto cambió (✎ en la línea «Producto»): la configuración y el nombre del archivo dependen del código
+  function refrescar() { const M = $('#wpcModal'); if (D && M && !M.hidden) render(); }
+  return { abrir, refrescar, csv: fs => C.csv(fs, CFG()), filas: () => filas() };
 })();

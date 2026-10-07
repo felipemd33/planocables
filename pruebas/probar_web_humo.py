@@ -8,9 +8,13 @@ uso: python pruebas/probar_web_humo.py [--crear] [--sin-pythonw]
      (y que sobrevive a otro regenerar), vista previa de salidas a LI / LD, pestaña y API del proyector, topo.png y los
      estaticos (wpc.json, terminales.json y los .js / .css de las paginas). El producto (etapa 2) sale con el catalogo
      fijo pruebas/fixtures/productos.json, y GET /producto tiene que dar el mismo que el instructivo.
+     Parametros de la WPC (etapa 3): GET y PUT /api/config/wpc sobre una COPIA temporal de wpc.json
+     (PLANOCABLES_CONFIG_WPC): respaldo con fecha, version (409 si otro guardo), PUT invalido = 400 sin tocar nada, el
+     orden de las claves se conserva; programa/web/wpc.json no se toca.
   B. Arranque como en el taller (pythonw, sin consola) en el puerto 8791 con un historial temporal; cierre con
      POST /api/salir y el proceso tiene que terminar.
-  C. Nada cambio fuera de pruebas/ (git status), ni en '3 - Historial web' ni en pruebas/trabajos."""
+  C. Nada cambio fuera de pruebas/ (git status), ni en '3 - Historial web' ni en pruebas/trabajos.
+  D. node --check de todos los .js de programa/web (tambien los del nucleo)."""
 import os, sys, io, json, re, time, shutil, socket, hashlib, tarfile, tempfile, subprocess, urllib.request
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROG = os.path.join(RAIZ, 'programa')
@@ -64,8 +68,10 @@ def sha(p):
 
 
 def foto_repo():
+    resp = os.path.join(PROG, 'web', 'respaldos_wpc')       # (en .gitignore: git status no los ve)
     return dict(git=git_fuera_de_pruebas(), ocr=sha(os.path.join(PROG, 'ocr_cache.json')),
-                carpetas={d: foto_carpeta(d) for d in PROTEGIDAS})
+                carpetas={d: foto_carpeta(d) for d in PROTEGIDAS}, wpc=sha(os.path.join(PROG, 'web', 'wpc.json')),
+                respaldos=sorted(os.listdir(resp)) if os.path.isdir(resp) else None)
 
 
 # ------------------------------------------------------------------ golden
@@ -153,8 +159,14 @@ def parte_a(tmp):
     os.environ['PLANOCABLES_HISTORIAL'] = hist
     os.environ['PLANOCABLES_PORT'] = str(PUERTO_A)
     os.environ['PLANOCABLES_PRODUCTOS'] = PRODUCTOS     # catalogo fijo (el de programa/ lo cambia el taller); solo se lee
+    # parametros de la WPC: una copia (el PUT de A9 la escribe y deja respaldos al lado, en la carpeta temporal)
+    cwpc = os.path.join(tmp, 'config_wpc', 'wpc.json')
+    os.makedirs(os.path.dirname(cwpc))
+    shutil.copyfile(os.path.join(PROG, 'web', 'wpc.json'), cwpc)
+    os.environ['PLANOCABLES_CONFIG_WPC'] = cwpc
     sys.path.insert(0, PROG)
     import web
+    chequear(os.path.normcase(web.CONFIG_WPC) == os.path.normcase(cwpc), f'la web usa la copia de wpc.json ({web.CONFIG_WPC})')
     chequear(os.path.normcase(os.path.abspath(web.WORK)) == os.path.normcase(hist), f'la web usa el historial temporal ({web.WORK})')
     chequear(os.path.normcase(web.ROOT) == os.path.normcase(RAIZ), f'web.py es el de este repo ({web.__file__})')
     if fallas:
@@ -168,7 +180,9 @@ def parte_a(tmp):
     print('A1. páginas, lista de trabajos y solo_local')
     r = get('/')
     chequear(r.status_code == 200 and r.mimetype == 'text/html' and b'/static/app.js?v=' in r.data, 'GET / sirve index.html con los .js versionados')
-    estaticos = sorted(set(re.findall(r'/static/[\w.-]+\.(?:js|css)\?v=\d+', r.get_data(as_text=True))))
+    chequear(re.search(rb'/static/nucleo/zip\.js\?v=\d+".*/static/nucleo/wpc_core\.js\?v=\d+".*/static/wpc\.js\?v=', r.data, re.S) is not None,
+             'index.html carga el núcleo de la WPC (zip.js y wpc_core.js, versionados) antes de wpc.js')
+    estaticos = sorted(set(re.findall(r'/static/(?:[\w.-]+/)*[\w.-]+\.(?:js|css)\?v=\d+', r.get_data(as_text=True))))
     r = get('/api/trabajos')
     lista = r.get_json() if r.status_code == 200 else None
     chequear(isinstance(lista, list) and {e.get('id') for e in lista} == set(ids.values())
@@ -300,7 +314,7 @@ def parte_a(tmp):
         print(f'A6. {t}: proyector y topo.png')
         r = get(f'/proyector/{jid}')
         chequear(r.status_code == 200 and b'proyector.js?v=' in r.data, 'GET /proyector/<id> sirve la pestaña')
-        estaticos += re.findall(r'/static/[\w.-]+\.(?:js|css)\?v=\d+', r.get_data(as_text=True))
+        estaticos += re.findall(r'/static/(?:[\w.-]+/)*[\w.-]+\.(?:js|css)\?v=\d+', r.get_data(as_text=True))
         r = get(u + '/proyector')
         j = r.get_json() if r.status_code == 200 else {}
         o = j.get('orificios') or {}
@@ -345,6 +359,67 @@ def parte_a(tmp):
     chequear(isinstance(j.get('pino'), dict) and isinstance(j.get('doble'), dict) and j['pino'].get('2.5') == 'azul', 'terminales.json: pino 2,5 = azul y doble')
     malos = [e for e in sorted(set(estaticos)) if get(e).status_code != 200]
     chequear(estaticos and not malos, f'los {len(set(estaticos))} .js / .css de las páginas responden ({malos})')
+    parte_a9(get, put, cwpc)
+
+
+def parte_a9(get, put, cwpc):
+    """GET y PUT /api/config/wpc sobre la copia temporal (cwpc). El wpc.json del repo no se toca"""
+    print('A9. parámetros de la WPC: GET y PUT /api/config/wpc (sobre una copia)')
+    repo = os.path.join(PROG, 'web', 'wpc.json')
+    sha_repo = sha(repo)
+    respaldos = os.path.join(os.path.dirname(cwpc), 'respaldos_wpc')
+    lista = lambda: sorted(os.listdir(respaldos)) if os.path.isdir(respaldos) else []
+    with open(cwpc, 'rb') as f:
+        orig = f.read()
+    r = get('/api/config/wpc')
+    cfg = json.loads(r.data.decode('utf-8')) if r.status_code == 200 else {}
+    ver = r.headers.get('X-Version')
+    chequear(r.status_code == 200 and r.data == orig and ver and isinstance(cfg.get('parametros'), list) and isinstance(cfg.get('productos'), dict),
+             f'GET /api/config/wpc: el archivo tal cual, con X-Version ({ver}) y {len(cfg.get("parametros") or [])} parámetros')
+    chequear(not web_validar(cfg), f'la configuración de hoy es válida ({web_validar(cfg)[:3]})')
+    # un cambio de un producto, con la version: 200, respaldo del anterior y el orden de las claves se conserva
+    nuevo = json.loads(orig.decode('utf-8'))
+    nuevo['productos'] = dict(nuevo.get('productos') or {}, **{'75286-1': {'acometida': 80, 'fuera': {'seccion_desde': 25}}})
+    # (como el navegador: el JSON en el orden de las claves; json= de test_client las ordena)
+    r = put('/api/config/wpc', data=json.dumps(nuevo, ensure_ascii=False).encode('utf-8'), content_type='application/json', headers={'X-Version': ver})
+    j = json.loads(r.data.decode('utf-8')) if r.status_code == 200 else (r.get_json() or {})
+    with open(cwpc, encoding='utf-8') as f:
+        disco = json.load(f)
+    chequear(r.status_code == 200 and j.get('ok') and disco == nuevo and list(disco) == list(nuevo) and list(j.get('config') or {}) == list(nuevo),
+             f'PUT /api/config/wpc (producto 75286-1): guardado, mismo orden de claves ({r.status_code} {j.get("error") or ""})')
+    rs = lista()
+    chequear(len(rs) == 1 and rs[0] == j.get('respaldo') and re.fullmatch(r'wpc_\d{4}-\d\d-\d\d_\d{6}_\d{6}\.json', rs[0] or '')
+             and open(os.path.join(respaldos, rs[0]), 'rb').read() == orig, f'respaldo con fecha del anterior en respaldos_wpc/ ({rs})')
+    r2 = get('/api/config/wpc')
+    chequear(r2.headers.get('X-Version') == j.get('version') != ver, 'la versión nueva es la del archivo guardado')
+    # con la version vieja: 409 (otro guardo mientras tanto) y no se toca nada
+    with open(cwpc, 'rb') as f:
+        antes = f.read()
+    r = put('/api/config/wpc', json=nuevo, headers={'X-Version': ver})
+    chequear(r.status_code == 409 and open(cwpc, 'rb').read() == antes and len(lista()) == 1, f'PUT con una versión vieja: 409 ({r.status_code}), sin tocar el archivo')
+    # invalidos: 400, sin tocar el archivo ni dejar respaldo
+    for nombre, cuerpo in [('un largo con texto', dict(nuevo, margen_bandeja='mucho')),
+                           ('un producto con un número inválido', dict(nuevo, productos={'75286-1': {'redondeo': -5}})),
+                           ('una regla de reemplazo incompleta', dict(nuevo, reemplazos=[{'de': {'color': 'Negro'}}])),
+                           ('productos que no es un objeto', dict(nuevo, productos=[])),
+                           ('un sí / no con texto', dict(nuevo, pendientes='si')),
+                           ('una lista', [1, 2])]:
+        r = put('/api/config/wpc', json=cuerpo)
+        chequear(r.status_code == 400 and (r.get_json() or {}).get('error') and open(cwpc, 'rb').read() == antes and len(lista()) == 1,
+                 f'PUT inválido ({nombre}): 400 «{(r.get_json() or {}).get("error")}» {((r.get_json() or {}).get("errores") or [""])[0]}')
+    # sin 'parametros' en el cuerpo se conservan los del archivo
+    sin = {k: v for k, v in nuevo.items() if k != 'parametros'}
+    r = put('/api/config/wpc', json=sin)
+    with open(cwpc, encoding='utf-8') as f:
+        disco = json.load(f)
+    chequear(r.status_code == 200 and disco.get('parametros') == nuevo['parametros'] and len(lista()) == 2, 'PUT sin «parametros»: se conservan los del archivo')
+    chequear(put('/api/config/wpc', json=nuevo, headers={'Origin': 'http://evil.example'}).status_code == 403, 'PUT con otro Origin: 403')
+    chequear(sha(repo) == sha_repo, 'programa/web/wpc.json sin tocar')
+
+
+def web_validar(cfg):
+    import web
+    return web.validar_config_wpc(cfg)
 
 
 def esperar(get, u, limite=900):
@@ -456,6 +531,22 @@ for d in PROTEGIDAS:
     a, b = antes['carpetas'][d], despues['carpetas'][d]
     cambios = sorted(k for k in set(a) | set(b) if a.get(k) != b.get(k))
     chequear(not cambios, f'{os.path.relpath(d, RAIZ)} sin cambios ({len(a)} archivos)' + ('' if not cambios else f': {cambios[:8]}'))
+chequear(despues['wpc'] == antes['wpc'] and despues['respaldos'] == antes['respaldos'],
+         'programa/web/wpc.json sin tocar y ningún respaldo nuevo en programa/web/respaldos_wpc/')
+
+print('D. node --check de los .js de programa/web')
+jss = sorted(os.path.join(r, f) for r, _, fs in os.walk(os.path.join(PROG, 'web')) for f in fs if f.endswith('.js'))
+malos = []
+for js in jss:
+    try:
+        p = subprocess.run(['node', '--check', js], capture_output=True, text=True, encoding='utf-8', timeout=60)
+        if p.returncode:
+            malos.append(f'{os.path.relpath(js, PROG)}: {p.stderr.strip().splitlines()[-1] if p.stderr.strip() else p.returncode}')
+    except OSError as e:
+        malos.append(f'no se pudo correr node ({e})')
+        break
+chequear(jss and not malos, f'node --check de {len(jss)} archivos .js ({", ".join(os.path.relpath(j, os.path.join(PROG, "web")) for j in jss)})'
+         + ('' if not malos else ': ' + ' · '.join(malos)))
 
 print(f'\n({time.time() - t_inicio:.0f} s)')
 if fallas:

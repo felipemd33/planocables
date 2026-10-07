@@ -11,3 +11,6 @@ __pycache__/
 *.tmp.png
 Thumbs.db
 desktop.ini
+
+# respaldos de los parametros de la lista WPC (PUT /api/config/wpc, panel ⚙ Parametros)
+programa/web/respaldos_wpc/

@@ -1,6 +1,7 @@
 'use strict';
-/* Arma los goldens de la WPC, del terminal y del XML del .wpc con el código de HOY (programa/web/wpc.js,
-   instructivo.js y estacion8.js sin modificar, corridos en Node).
+/* Arma los goldens de la WPC, del terminal y del XML del .wpc con el código de HOY (programa/web/wpc.js con su núcleo
+   nucleo/*.js, instructivo.js y estacion8.js sin modificar, corridos en Node) y la configuración fija de las pruebas
+   (pruebas/fixtures/wpc/wpc.json; ver cargar_visor.cjs).
    Uso: node pruebas/js/generar_goldens.cjs [<carpeta de salida>]     (por defecto pruebas/bases/wpc)
    Solo se corre a propósito: si un cambio del programa cambia un resultado y está bien, se regenera y se revisa el diff.
    Escribe:

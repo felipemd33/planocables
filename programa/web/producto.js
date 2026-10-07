@@ -135,6 +135,7 @@ const Prod = (() => {
     abrir(job, { alGuardar: p => {
       if (typeof Ins !== 'undefined' && Ins.D && Ins.job === job) { Ins.D.producto = p; Ins.mostrarProducto(); }
       mostrarEn('#wpcProd', p);
+      if (typeof Wpc !== 'undefined') Wpc.refrescar();     // (los parámetros del producto y el nombre del archivo)
     } });
   });
   return { linea, abrir, asistente, enTrabajo, mostrarEn, abierto };

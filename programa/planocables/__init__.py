@@ -1,10 +1,11 @@
 """planocables: listado de cables e instructivo de cableado del taller Batfer, como paquete (PLAN_MODULAR.md).
 
-Se arma por etapas. Hoy (etapa 2) el paquete tiene la capa base/ y producto (codigo de producto SAP, plano y revision);
+Se arma por etapas. Hoy (etapa 3) el paquete tiene la capa base/ y producto (codigo de producto SAP, plano y revision);
 el resto sigue en los modulos viejos de programa/ (core, wires, textdec, topo, ruteo, eplan, instructivo, estacion8,
 bornes/, web), que importan de base/ lo que se movio con el MISMO nombre de siempre (core.natkey,
 instructivo.fmt_terminal, topo.snap_escala...). Nada de planocables importa un modulo viejo ni toca sys.path
-(pruebas/probar_capas.py).
+(pruebas/probar_capas.py). La lista WPC sigue en JavaScript, en un nucleo sin pantalla que comparte la otra app
+(programa/web/nucleo/wpc_core.js y zip.js; pruebas con node --test pruebas/js/).
 
 QUE TOCAR (tabla «que tocar» del plan, seccion 3.9, con lo que existe hoy; [viejo] = todavia en el modulo viejo)
 
@@ -34,7 +35,10 @@ QUE TOCAR (tabla «que tocar» del plan, seccion 3.9, con lo que existe hoy; [vi
   Quitados y marcas al regenerar             instructivo.separar_quitados, web.gen_instructivo      -
                                              [viejos]
   Terminal o pollera                         web/instructivo.js (copia distinta en estacion8.js)    web/terminales.json
-  Largos, giros, «fuera» de la WPC           web/wpc.js                                             web/wpc.json
+  Largos, giros, «fuera», reemplazos,        web/nucleo/wpc_core.js (la cuenta, el CSV y el .wpc);  web/wpc.json, o el panel
+  columnas y archivo .wpc de la WPC          web/wpc.js (pantalla y panel ⚙ Parametros);            ⚙ Parametros (todos /
+                                             web.py (GET/PUT /api/config/wpc, con respaldo)         producto / trabajo); pruebas:
+                                                                                                    PLANOCABLES_CONFIG_WPC
   Codigo de producto, plano y revision       planocables.producto (deteccion y combinacion);        programa/productos.json,
                                              web.py (archivos, GET/PUT /producto); web/producto.js  producto.json del trabajo
                                                                                                     (pruebas: PLANOCABLES_PRODUCTOS)

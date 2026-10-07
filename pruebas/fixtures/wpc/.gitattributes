@@ -1,0 +1,3 @@
+# copias fijas (con su sha1 en pruebas/fixtures/LEEME.md): git no les cambia los fines de línea
+*.json -text
+*.wpc -text

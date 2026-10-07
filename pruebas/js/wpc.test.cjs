@@ -1,8 +1,11 @@
 'use strict';
-/* Golden de la WPC: programa/web/wpc.js de hoy (sin tocar) da el MISMO CSV, byte a byte, y las mismas filas que
-   pruebas/bases/wpc/ en los 4 trabajos de regresión, el PAE del usuario y los casos de pruebas/js/casos/, con la
-   configuración tal cual y con «Pendientes LI↔LI» y «Otra estación» tildados.
-   Si un cambio a propósito cambia un resultado: node pruebas/js/generar_goldens.cjs y revisar el diff. */
+/* Golden de la WPC: programa/web/wpc.js (con el núcleo nucleo/wpc_core.js desde la etapa 3) da el MISMO CSV, byte a
+   byte, y las mismas filas que pruebas/bases/wpc/ en los 4 trabajos de regresión, el PAE del usuario y los casos de
+   pruebas/js/casos/, con la configuración tal cual y con «Pendientes LI↔LI» y «Otra estación» tildados. La
+   configuración es la copia fija pruebas/fixtures/wpc/wpc.json (la de programa/web la cambia el taller).
+   Si un cambio a propósito cambia un resultado: node pruebas/js/generar_goldens.cjs y revisar el diff.
+   (Etapa 3: los goldens se regeneraron UNA vez, por el reemplazo de 4 mm² para todos los productos; cambiaron solo las
+   filas negras y rojas de 4 mm², color y sección: lo afirma wpc_core.test.cjs.) */
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');

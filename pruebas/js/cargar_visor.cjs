@@ -11,11 +11,17 @@
      normalizarFila(f)                    -> la fila de wpc.js como JSON simple
    ins no se toca: se trabaja sobre una copia. cfg = lo que el taller cambia en la pantalla (ins.wpc.cfg), se suma encima.
    wpcJson = otro wpc.json en lugar del del disco (para pruebas). web = otra carpeta programa/web (para comparar); la
-   variable de entorno PLANOCABLES_WEB cambia la carpeta por defecto (para correr los goldens contra otra copia). */
+   variable de entorno PLANOCABLES_WEB cambia la carpeta por defecto (para correr los goldens contra otra copia).
+   CONFIGURACIÓN DE LA WPC (desde la etapa 3): la de programa/web/wpc.json la cambia el taller desde la pantalla (panel
+   ⚙ Parámetros), así que las pruebas usan la copia fija pruebas/fixtures/wpc/wpc.json (como el catálogo de productos con
+   PLANOCABLES_PRODUCTOS): los goldens no fallan porque el taller cambie un parámetro. Con otra carpeta web (op.web o
+   PLANOCABLES_WEB) se usa el wpc.json de esa carpeta. El núcleo (programa/web/nucleo/*.js) se carga antes de wpc.js. */
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
 
 const RAIZ = path.resolve(__dirname, '..', '..');
 const WEB = process.env.PLANOCABLES_WEB ? path.resolve(process.env.PLANOCABLES_WEB) : path.join(RAIZ, 'programa', 'web');
+const CONFIG_WPC = path.join(RAIZ, 'pruebas', 'fixtures', 'wpc', 'wpc.json');     // la configuración fija de las pruebas
+const wpcJsonDe = web => (path.resolve(web) === path.join(RAIZ, 'programa', 'web') && !process.env.PLANOCABLES_WEB ? CONFIG_WPC : path.join(web, 'wpc.json'));
 
 const copia = x => JSON.parse(JSON.stringify(x));
 // números que no son finitos (NaN de un parámetro con texto) quedan como texto, para que el JSON no los pierda
@@ -71,15 +77,23 @@ function contexto(extra) {
   return ctx;
 }
 
-// fetch('/static/<archivo>.json') lee el archivo de la carpeta web (o el que se pase en 'propios')
+// fetch('/static/<archivo>.json') lee el archivo de la carpeta web (o el que se pase en 'propios'). GET /api/config/wpc
+// (la configuración de la WPC, desde la etapa 3) es el mismo wpc.json
 const fetchDe = (web, propios = {}) => async url => {
-  const nombre = path.basename(String(url).split('?')[0]);
-  const datos = nombre in propios ? copia(propios[nombre]) : JSON.parse(fs.readFileSync(path.join(web, nombre), 'utf8'));
-  return { ok: true, json: async () => datos, headers: { get: () => 'application/json' } };
+  const u = String(url).split('?')[0], nombre = u === '/api/config/wpc' ? 'wpc.json' : path.basename(u);
+  const arch = nombre === 'wpc.json' ? wpcJsonDe(web) : path.join(web, nombre);
+  const datos = nombre in propios ? copia(propios[nombre]) : JSON.parse(fs.readFileSync(arch, 'utf8'));
+  return { ok: true, json: async () => datos, headers: { get: k => (String(k).toLowerCase() === 'content-type' ? 'application/json' : null) } };
 };
 
 function correr(ctx, web, archivo) {
   vm.runInContext(fs.readFileSync(path.join(web, archivo), 'utf8'), ctx, { filename: archivo });
+}
+// el núcleo de la web (programa/web/nucleo/, desde la etapa 3), en el orden de index.html. Una copia vieja de la web
+// (PLANOCABLES_WEB) puede no tenerlo
+const NUCLEO = ['zip.js', 'wpc_core.js'];
+function correrNucleo(ctx, web) {
+  for (const n of NUCLEO) if (fs.existsSync(path.join(web, 'nucleo', n))) correr(ctx, web, 'nucleo/' + n);
 }
 
 // ---- WPC (wpc.js): las filas y el CSV, igual que en la pantalla
@@ -98,6 +112,7 @@ function normalizarFila(f, i) {
 async function correrWpc(ins, op = {}) {
   const web = op.web || WEB;
   const ctx = contexto({ fetch: fetchDe(web, op.wpcJson ? { 'wpc.json': op.wpcJson } : {}) });
+  correrNucleo(ctx, web);
   correr(ctx, web, 'wpc.js');
   const Wpc = vm.runInContext('Wpc', ctx);
   const D = copia(ins);
@@ -165,4 +180,4 @@ async function terminalesE8(ins, op = {}) {
   return json(out);
 }
 
-module.exports = { RAIZ, WEB, correrWpc, terminales, terminalesE8, normalizarFila, copia };
+module.exports = { RAIZ, WEB, CONFIG_WPC, correrWpc, terminales, terminalesE8, normalizarFila, copia };

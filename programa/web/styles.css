@@ -453,6 +453,33 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .wpc-rg{color:#7b3fb3;font-weight:600}
 .wpc-mot{color:#b26a00;font-size:11.5px}
 .wpc-giro{padding:2px 4px;font-size:12px;font-family:var(--mono)} .wpc-giro.manual{font-weight:700} .wpc-giro.sin{border-color:#b26a00;background:#fff4dc;color:#111}
+.wpc-cfg .btn.on{background:var(--accent-2);border-color:var(--accent);color:var(--accent)}
+.wpc-nom{color:var(--muted)} .wpc-nom .mono{color:var(--text)}
+.wpc-aviso{flex-basis:100%;text-align:right;color:var(--warn)}
+/* panel ⚙ Parámetros: tres niveles (este trabajo / producto / todos los productos) */
+.wpc-par{max-height:46vh;overflow:auto;border:1px solid var(--border);border-radius:8px;padding:0 10px 10px;background:var(--surface2);flex:none}
+.wpc-par-tabs{display:flex;gap:2px;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface2);z-index:2;margin:0 -10px;padding:0 10px}
+.wpc-par-tabs button[data-par-tab]{border:0;background:none;color:var(--muted);font:inherit;font-weight:600;padding:8px 12px;cursor:pointer;border-bottom:2px solid transparent}
+.wpc-par-tabs button[data-par-tab].on{color:var(--accent);border-bottom-color:var(--accent)}
+.wpc-par-tabs button[data-par-tab]:disabled{opacity:.45;cursor:not-allowed}
+.wpc-par-expl{margin:6px 0}
+.wpc-par-err{color:#c0392b;background:rgba(192,57,43,.08);border-radius:6px;padding:4px 8px;margin:4px 0}
+.wpc-par fieldset{border:1px solid var(--border);border-radius:8px;margin:8px 0 0;padding:6px 10px 8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:4px 16px;background:var(--surface)}
+.wpc-par legend{font-weight:700;font-size:13px;padding:0 4px}
+.wpc-campo{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12.5px;min-width:0}
+.wpc-campo>label{flex:1 1 150px;min-width:0}
+.wpc-campo.ancho{grid-column:1/-1}
+.wpc-campo.ancho .wpc-ent{flex:1 1 320px;min-width:0}
+.wpc-campo.ancho .wpc-ent>input{width:100%}
+.wpc-campo.tabla{align-items:flex-start} .wpc-campo.tabla>label{flex:1 1 100%} .wpc-campo.tabla .wpc-ent{flex:0 1 auto}
+.wpc-campo input,.wpc-campo select{font:inherit;padding:2px 4px}
+.wpc-de{font-size:11px;font-weight:500;white-space:nowrap}
+.wpc-de.trabajo{background:var(--accent-2);color:var(--accent)} .wpc-de.producto{background:#efe3ff;color:#5b2a9e} .wpc-de.defecto{background:transparent;border:1px dashed currentColor}
+.wpc-tabla{border-collapse:collapse;font-size:12px;margin:2px 0}
+.wpc-tabla th{text-align:left;font-weight:600;color:var(--muted);padding:0 6px 2px 0}
+.wpc-tabla td{padding:1px 6px 1px 0}
+.wpc-par-pie{display:flex;gap:8px;align-items:center;flex-wrap:wrap;position:sticky;bottom:-10px;background:var(--warn-bg);color:var(--text);margin:8px -10px -10px;padding:8px 10px;border-top:1px solid var(--border)}
+@media (max-width: 720px) { .wpc-par fieldset { grid-template-columns: 1fr; } .wpc-aviso { text-align: left; } }
 
 /* salidas a LI / LD (editor por grupo de cables) */
 .salv .v-body { min-height: 0; }

@@ -1,5 +1,5 @@
 {
-  "_nota": "producto con documento y revisión en null (como salen hoy los planos de AutoCAD): sin reemplazos.",
+  "_nota": "producto con documento y revisión en null (como salían los planos de AutoCAD antes de la etapa 2): hasta la etapa 3 sin reemplazos; desde la etapa 3 (reemplazo para todos los productos) los 4 mm² negros y rojos se cortan en violeta / naranja 2,5.",
   "de": "chico.json",
   "producto": {
     "documento": null,
