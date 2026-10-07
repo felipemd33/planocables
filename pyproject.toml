@@ -1,0 +1,30 @@
+# Paquete planocables (PLAN_MODULAR.md, etapa 1). «pip install -e .» instala SOLO programa/planocables: los modulos
+# viejos de programa/ (core, topo, web...) no entran. La web del taller se sigue corriendo como siempre
+# (python programa/web.py); los requisitos de la web siguen en requirements.txt.
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "planocables"
+dynamic = ["version"]
+description = "Listado de cables e instructivo de cableado de planos electricos vectoriales (taller Batfer)"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pypdf", "pypdfium2"]
+ocr = ["rapidocr", "numpy", "opencv-python"]
+excel = ["openpyxl"]
+pdf_buscable = ["reportlab"]
+web = ["flask", "pillow"]
+
+[tool.setuptools]
+package-dir = {"" = "programa"}
+
+[tool.setuptools.packages.find]
+where = ["programa"]
+include = ["planocables", "planocables.*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "planocables.__version__"}

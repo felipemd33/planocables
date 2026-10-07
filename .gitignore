@@ -1,6 +1,9 @@
 # Python
 __pycache__/
 *.pyc
+# lo que deja «pip wheel .» / «pip install -e .» (pyproject.toml)
+/build/
+*.egg-info/
 
 # archivos temporales y de bloqueo de Office / Windows
 ~$*

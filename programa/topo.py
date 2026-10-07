@@ -15,7 +15,11 @@ Cada estandar de dibujo llama distinto a las capas y dibuja distinto las cosas; 
 import re, collections, math
 import pypdf
 from pdfvec import page_strokes, layer_names
-from textdec import Decoder, page_text, bbox, DSU
+from textdec import Decoder, page_text
+# (movidos a planocables.base; siguen siendo topo.rect_of, topo.snap_escala, topo.RIEL_MM, topo.RX_LATERAL...)
+from planocables.base.geom import bbox, DSU, rect_of, CLOSE_OPS
+from planocables.base.escala import RIEL_MM, PT_MM, ESCALAS, snap_escala
+from planocables.base.convenciones import LATERAL_RE as RX_LATERAL
 
 TAG_TXT = re.compile(r'\d{2}[A-Z][A-Z0-9]{0,7}')
 
@@ -29,12 +33,7 @@ VERSION_LECTOR = '2026.10.02-r3'
 RX_RIEL = re.compile(r'RIEL|\bDIN\b', re.I)                        # 'RIEL DIN', '_IGV_Riel DIN'
 RX_PLACA = re.compile(r'TABLERO|ENVOLVENTE|PLACA|BANDEJA', re.I)   # 'TABLERO', '_IGV_Envolvente'
 RX_COTA = re.compile(r'COTA|(?<![A-Z])DIM', re.I)                  # 'COTAS', 'DIM', '_DIMENSIONES'
-RX_LATERAL = re.compile(r'LATERAL\s+(IZQ|DER)', re.I)              # titulos 'VISTA LATERAL IZQUIERDA / DERECHA'
-
-RIEL_MM = 35.0                   # riel DIN TS35
-PT_MM = 25.4 / 72                # 1 pt en mm a escala 1:1
-ESCALAS = (0.2, 0.5, 1, 2, 2.5, 3, 4, 5, 6, 8, 10, 15, 20, 25, 50)   # 1:N normalizadas
-CLOSE_OPS = ('f', 'F', 'f*', 'B', 'B*', 'b', 'b*', 's')
+# (RX_LATERAL, titulos 'VISTA LATERAL IZQUIERDA / DERECHA'; RIEL_MM, PT_MM, ESCALAS y CLOSE_OPS: de planocables.base)
 
 # Distancias en perfiles de riel H (antes en pt fijos, medidos en el 75441 con H = 24.8 pt; con ese H dan lo mismo)
 GAP_H = 1.21          # lineas de un mismo riel: a menos de 30 pt entre si
@@ -112,21 +111,6 @@ def ocr_crop(pdf_path, pi, bb, ang, dec):
         return (r.txts[0] if r.txts else '').replace(' ', '')
     except Exception:
         return ''
-
-
-def rect_of(p, op=None, tol=0.5):
-    """bbox si el trazo es un rectangulo cerrado alineado con los ejes ('re', m-l-l-l-h o relleno), si no None"""
-    if len(p) == 5 and math.dist(p[0], p[-1]) < tol:
-        q = p[:4]
-    elif len(p) == 4 and op in CLOSE_OPS:
-        q = p
-    else:
-        return None
-    x0, y0, x1, y1 = bbox(q)
-    if x1 - x0 < tol or y1 - y0 < tol:
-        return None
-    corners = {(abs(x - x0) < tol, abs(y - y0) < tol) for x, y in q if (abs(x - x0) < tol or abs(x - x1) < tol) and (abs(y - y0) < tol or abs(y - y1) < tol)}
-    return (x0, y0, x1, y1) if len(corners) == 4 else None
 
 
 def _line_bands(segs, gap):
@@ -333,13 +317,6 @@ def unir_partidas(lines):
 def rails_of(strokes):
     """(x0, x1, y) de cada borde de los tramos de riel (compatibilidad)"""
     return [(b['x0'], b['x1'], y) for b in rail_bands(strokes) for y in (b['y0'], b['y1'])]
-
-
-def snap_escala(mm_pt, tol=0.05):
-    """mm/pt -> la escala normalizada 1:N mas cercana, si esta a menos del 5 %"""
-    n = mm_pt / PT_MM
-    k = min(ESCALAS, key=lambda e: abs(e / n - 1))
-    return round(k * PT_MM, 4) if abs(k / n - 1) < tol else round(mm_pt, 4)
 
 
 def version_lector(de_eplan=False):

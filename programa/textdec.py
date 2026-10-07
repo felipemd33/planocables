@@ -2,7 +2,8 @@
 reconoce cada caracter por su firma exacta (diccionario de glifos) y recurre
 al OCR solo para los renglones con caracteres desconocidos."""
 import math, collections, json, os
-import numpy as np, cv2
+
+from planocables.base.geom import bbox, DSU      # (siguen siendo textdec.bbox / textdec.DSU)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEXT_EXCLUDE_OPS = {'n'}   # los rellenos se incluyen: fuentes TrueType exportadas como contornos
@@ -12,22 +13,8 @@ ROT = {0: lambda x, y: (x, y), 90: lambda x, y: (y, -x), 270: lambda x, y: (-y, 
 UNROT = {0: lambda x, y: (x, y), 90: lambda x, y: (-y, x), 270: lambda x, y: (y, -x), 180: lambda x, y: (-x, -y)}
 
 
-def bbox(pts):
-    xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
-    return min(xs), min(ys), max(xs), max(ys)
-
-
 def maxdim(p):
     x0, y0, x1, y1 = bbox(p); return max(x1 - x0, y1 - y0)
-
-
-class DSU:
-    def __init__(s, n): s.p = list(range(n))
-    def f(s, i):
-        while s.p[i] != i:
-            s.p[i] = s.p[s.p[i]]; i = s.p[i]
-        return i
-    def u(s, a, b): s.p[s.f(a)] = s.f(b)
 
 
 def estimate_H(strokes):
@@ -158,6 +145,7 @@ def sig(norm, g=20):
 
 
 def render_line(line, H, px=40, pad=12):
+    import numpy as np, cv2          # solo para el OCR: sin numpy ni opencv igual cargan textdec, wires, core...
     x0, y0, x1, y1 = bbox([pt for p in line for pt in p]); s = px / H
     W = int((x1 - x0) * s) + 2 * pad; Hh = int((y1 - y0) * s) + 2 * pad
     img = np.full((max(Hh, 24), max(W, 24), 3), 255, np.uint8)
@@ -212,6 +200,8 @@ class Decoder:
     def save_cache(self):
         if not self._cache_dirty:
             return
+        if os.environ.get('PLANOCABLES_MEMORIA_OCR') == 'solo-lectura':
+            return      # pruebas y otra app: lo aprendido queda en la memoria de este Decoder, no se escribe el archivo
         try:
             tmp = self.cache_path + '.tmp'
             with open(tmp, 'w', encoding='utf-8') as f:

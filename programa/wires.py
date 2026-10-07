@@ -1,47 +1,20 @@
 """Reconstruccion de cables a partir de la geometria vectorial y asignacion de
 numero de cable, color y seccion."""
 import math, re, collections
-from textdec import bbox, DSU, sub_bbox
+from textdec import sub_bbox
+# (movidos a planocables.base; siguen siendo wires.bbox, wires.seglen, wires.norm_color...)
+from planocables.base.geom import bbox, DSU, dist as seglen, dist_segmento as point_seg_dist, dist_caja as box_dist, dentro as inside
+from planocables.base.colores import COLORES, norm_color, una_letra as _una_letra
 
 NUM_RE = re.compile(r'(?<![\w/,.])(\d{3,5})(?![\w/,.])')
 # (el parentesis de apertura puede faltar si la etiqueta empieza el renglon o va tras un espacio: 66817 hoja 11 'G-Y/2,5mm2)')
 LABEL_RE = re.compile(r'(?:[\(<{\[]|(?<![^\s]))\s*([A-Za-zÁÉÍÓÚáéíóúñÑ\- ]+?)\s*/\s*([\d]+(?:[.,]\d+)?)\s*mm2?(?:\s+([^\)>}\]\(/]{1,20}?))?\s*[\)>}\]]', re.I)
 NON_WIRE_LAYER_KEYS = ('Texto Rotulo', 'TEXTO', 'Textos', 'WATERMARK', 'VP', '|', 'PDF_Text', '_Equipos')
 NON_WIRE_LAYERS = {'0', '03', '05'}
-COLORES = {'rojo': 'Rojo', 'negro': 'Negro', 'azul': 'Azul', 'blanco': 'Blanco', 'marron': 'Marrón', 'marrón': 'Marrón',
-           'gris': 'Gris', 'verde': 'Verde', 'amarillo': 'Amarillo', 'a-v': 'Verde-Amarillo', 'v-a': 'Verde-Amarillo',
-           'violeta': 'Violeta', 'naranja': 'Naranja', 'celeste': 'Celeste', 'rosa': 'Rosa',
-           # planos en ingles (66817): mismos nombres que usa el instructivo (N/R/B/A... y Azul = intrinsecamente seguro)
-           'red': 'Rojo', 'black': 'Negro', 'blue': 'Azul', 'white': 'Blanco', 'brown': 'Marrón', 'grey': 'Gris', 'gray': 'Gris',
-           'green': 'Verde', 'yellow': 'Amarillo', 'g-y': 'Verde-Amarillo', 'y-g': 'Verde-Amarillo', 'green-yellow': 'Verde-Amarillo',
-           'yellow-green': 'Verde-Amarillo', 'gn-ye': 'Verde-Amarillo', 'violet': 'Violeta', 'purple': 'Violeta', 'orange': 'Naranja',
-           'pink': 'Rosa', 'light blue': 'Celeste', 'lightblue': 'Celeste'}
 
 
 def is_wire_layer(l):
     return l not in NON_WIRE_LAYERS and not any(k in l for k in NON_WIRE_LAYER_KEYS)
-
-
-def seglen(a, b):
-    return math.hypot(b[0] - a[0], b[1] - a[1])
-
-
-def point_seg_dist(p, a, b):
-    ax, ay = a; bx, by = b; px, py = p
-    dx, dy = bx - ax, by - ay; L2 = dx * dx + dy * dy
-    if L2 == 0:
-        return math.hypot(px - ax, py - ay), 0.0
-    t = max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / L2))
-    return math.hypot(px - (ax + t * dx), py - (ay + t * dy)), t
-
-
-def box_dist(pt, bb):
-    dx = max(bb[0] - pt[0], 0, pt[0] - bb[2]); dy = max(bb[1] - pt[1], 0, pt[1] - bb[3])
-    return math.hypot(dx, dy)
-
-
-def inside(pt, bb, m=0.0):
-    return bb[0] - m <= pt[0] <= bb[2] + m and bb[1] - m <= pt[1] <= bb[3] + m
 
 
 class WireGraph:
@@ -683,27 +656,6 @@ def hop_to_chord(pts, H):
     entre sus extremos, para que el cable siga continuo y la cima del arco no se confunda con una
     conexion con el cable que cruza."""
     return [pts[0], pts[-1]] if is_hop(pts, H) else pts
-
-
-def _una_letra(a, b):
-    """a y b difieren en una sola letra (cambiada, de mas, de menos) o en dos letras vecinas cambiadas de lugar"""
-    if a == b or abs(len(a) - len(b)) > 1:
-        return False
-    if len(a) == len(b):
-        d = [i for i in range(len(a)) if a[i] != b[i]]
-        return len(d) == 1 or (len(d) == 2 and d[1] == d[0] + 1 and a[d[0]] == b[d[1]] and a[d[1]] == b[d[0]])
-    if len(a) > len(b):
-        a, b = b, a
-    return any(b[:i] + b[i + 1:] == a for i in range(len(b)))
-
-
-def norm_color(c):
-    k = c.strip().lower().replace(' ', '')
-    if k in COLORES:
-        return COLORES[k]
-    # error de tipeo del plano ('Balck' = Black): el color conocido que difiere en una letra, si hay uno solo
-    cand = {v for n, v in COLORES.items() if len(n) >= 4 and len(k) >= 4 and _una_letra(k, n)}
-    return cand.pop() if len(cand) == 1 else c.strip().capitalize()
 
 
 def label_anchor(ang, bb):

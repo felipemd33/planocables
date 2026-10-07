@@ -11,36 +11,20 @@ Reglas del taller (ver LEEME):
 """
 import math, re, collections
 
-from textdec import bbox
+# (movidos a planocables.base; siguen siendo instructivo.fmt_terminal, instructivo.COLOR_INI, instructivo.natk...)
+from planocables.base.geom import bbox, dist, dist_caja as box_dist
+from planocables.base.hojas import SHREF_RE, natk, hoja_base, ref_apilada
+from planocables.base.colores import COLOR_INI
+from planocables.base.convenciones import (FIELD_RE, is_terminal_block, norm_label, fmt_terminal, side_of, punta_sintetica,
+                                           sin_lado, sin_lado_clave, cable_desc as _cable_desc)
 
 TAG_RE = re.compile(r'(?<![A-Z0-9])(?!\d+V(?:DC|AC|CC)?(?![A-Z0-9]))(\d{2}[A-Z][A-Z0-9]{1,7}|X[A-Z]{0,2}\d{1,2})(?![A-Z0-9])')
-# referencia a otra hoja: '(Sh13:D5)', '(Sh15:B2/D2/E2)' (una flecha que va a varias zonas), '(Sh: 61:E4)'
-SHREF_RE = re.compile(r'\(\s*Sh\s*:?\s*(\d+)[A-Z]?\s*[:;.]\s*([A-F]\d)(?:\s*/\s*[A-F]\d)*\s*\)', re.I)
-# equipos de campo con tag de planta: 'BH-01-ZV', 'BH-01-M', 'SP-1' (solenoide de la valvula 1, 75287 hoja 62),
-# 'PT 001' / 'PT-001' (numero de lazo con 0 adelante),
-# valvula 'ZY(N/C)' / 'ZY(N/O)' (la fuente SHX dibuja la O y el 0 con el mismo trazo: 'ZY(N/0)')
-FIELD_RE = re.compile(r'^(?:[A-Z]{2}-\d{2}(?:-[A-Z]{1,2})?|[A-Z]{2}-[1-9]|[A-Z]{2,3}[ -]0\d{2}|[A-Z]{2,3}\s?\(N\s?/\s?[CO0]\))$')
 ISA_ESTADO_RE = re.compile(r'\s?\(N\s?/\s?[CO0]\)$')   # 'ZY(N/C)' -> tag 'ZY' (el estado del contacto no es parte del tag)
 # rotulos de borne; ademas de los numeros y '+Vo': los que llevan el signo al final ('V+', 'V-', 'D1+', 'D1-' del MOXA)
 LABEL_RE = re.compile(r'^([+-]|\d{1,3}|[A-Z]\d{1,2}|N|L|PE|F\d?|[+-]V[a-zA-Z]{0,3}\d?|\([+-]\)|[A-Z]{1,2}\(\d{1,2}\)?|L-\d|N-\d|\d{1,3}\s*\([+-]\)|[A-Z]\d?[+-])$')
 # hoja o franja de una hoja que es una ALTERNATIVA del mismo circuito ('ALTERNATIVA 1', 'ALTERNATIVE 2'; la SHX
 # puede leer la I como l o 1: 'ALTERNATlVA 1')
 ALT_RE = re.compile(r'\bALTERNAT[I1l]V[AE]\s*(\d{1,2})\b', re.I)
-COLOR_INI = {'Negro': 'N', 'Rojo': 'R', 'Blanco': 'B', 'Marrón': 'M', 'Azul': 'A', 'Gris': 'G', 'Verde': 'V',
-             'Amarillo': 'AM', 'Verde-Amarillo': 'VA', 'Naranja': 'NA', 'Violeta': 'VI', 'Celeste': 'C', 'Rosa': 'RS'}
-
-
-def is_terminal_block(tag):
-    """borneras: letra X tras el prefijo numerico (13XC1, 13X24, 43XCS, 62XDO, 12XPS...)"""
-    return bool(re.match(r'^(\d{2})?X', tag or ''))
-
-
-def dist(a, b):
-    return math.hypot(a[0] - b[0], a[1] - b[1])
-
-
-def box_dist(p, b):
-    return math.hypot(max(b[0] - p[0], 0, p[0] - b[2]), max(b[1] - p[1], 0, p[1] - b[3]))
 
 
 # ------------------------------------------------------------------ simbolos geometricos
@@ -666,29 +650,6 @@ def burbujas(lines):
     return out
 
 
-def ref_apilada(lines, p, u):
-    """(ShNN:XX) al pie de un rotulo de varios renglones centrado en la flecha ('Comand' / 'Solenoide Valve' /
-    'NC (Normaly Close)' / '+12Vdc' / '(Sh62:D6)'): se baja (o sube) renglon por renglon desde el mas cercano"""
-    horiz = [l for l in lines if l.get('ang', 0) in (0, 180)]
-    centrado = lambda l: l['bbox'][0] - 2 * u <= p[0] <= l['bbox'][2] + 2 * u
-    first = [l for l in horiz if centrado(l) and box_dist(p, l['bbox']) < 30 * u]
-    if not first:
-        return []
-    cur = min(first, key=lambda l: box_dist(p, l['bbox']))
-    abajo = (cur['bbox'][1] + cur['bbox'][3]) / 2 < p[1]          # la pila sigue alejandose de la flecha
-    seen = [cur]
-    for _ in range(8):
-        if SHREF_RE.search(cur['text']):
-            return [cur]
-        h = cur['bbox'][3] - cur['bbox'][1]
-        gap = (lambda l: cur['bbox'][1] - l['bbox'][3]) if abajo else (lambda l: l['bbox'][1] - cur['bbox'][3])
-        nxt = [l for l in horiz if all(l is not x for x in seen) and centrado(l) and -0.3 * h <= gap(l) < 1.2 * h]
-        if not nxt:
-            break
-        cur = min(nxt, key=gap); seen.append(cur)
-    return []
-
-
 def borne_en_otro_recorrido(pg, sym, g, num, e, dr, cable_nums):
     """la punta e (sin borne propio) cae sobre el recorrido de OTRO numero de la hoja: es una union en T con ese cable
     (66817 hoja 61: 6203 baja de la linea de 6201). El conductor va al borne de ese recorrido hacia donde apunta la
@@ -825,38 +786,6 @@ def quattro_gemelas(pg, sym, u, tag, num, col, lines):
                   and tag_de(r[0], (r[1] + r[2]) / 2) == tag)
 
 
-def norm_label(t):
-    if not t:
-        return ''
-    m = re.fullmatch(r'[A-Z]{1,2}\((\d{1,2})\)?', t)       # C(11) / NO(14) -> 11 / 14
-    if m:
-        return m.group(1)
-    m = re.fullmatch(r'(\d{1,3})\s*\(([+-])\)', t)          # 1 (-) -> 1 (-)
-    if m:
-        return f'{m.group(1)} ({m.group(2)})'
-    return t
-
-
-def fmt_terminal(e):
-    """texto del extremo segun las reglas del taller"""
-    if e is None:
-        return '?'
-    if e.get('fuera'):
-        return 'LI'
-    if e.get('texto'):            # punta de EPLAN: el texto del taller ya viene armado (mapeo verificado o regla general)
-        return e['texto']
-    tag, b = e.get('tag') or '?', e.get('borne') or ''
-    if is_terminal_block(e.get('tag_base')):
-        if e.get('punto'):
-            return f'{tag} {b}.{e["punto"]}' if b else f'{tag} ?.{e["punto"]}'
-        return f'{tag} {b} {e["lado"]}'.replace('  ', ' ')
-    if 'KR' in tag or 'PS' in tag or 'PCB' in tag or not e.get('vertical') or b in ('+', '-') or FIELD_RE.fullmatch(tag):
-        # (el polo '+'/'-' de un aparato ya lo nombra: '12CB1 +'; un equipo de campo 'BH-01-ZV' / 'PT 001' no es un
-        # borne de doble piso: sin ARRIBA/ABAJO)
-        return f'{tag} {b}'.strip()
-    return f'{tag} {b} {e["lado"]}'.replace('  ', ' ')
-
-
 # ------------------------------------------------------------------ conductores
 def pin_box_at(pg, sym, j, tol=1.0):
     """recuadro chico con un numero adentro (pin de un aparato) sobre cuyo borde esta el punto j"""
@@ -921,12 +850,6 @@ def unidad(res, pg, cable_nums):
     if len(hs) >= 2:
         return hs[len(hs) // 2] / 7.93
     return (pg.get('w') or 2383.4) / 2383.4
-
-
-def hoja_base(h):
-    """numero de una hoja sin la letra de subhoja / alternativa ni los ceros de adelante: '61A' -> '61', '09' -> '9'"""
-    m = re.match(r'\d+', h or '')
-    return (m.group(0) if m else (h or '')).lstrip('0')
 
 
 def alternativas_hoja(pg):
@@ -1382,53 +1305,10 @@ def conductors(res):
 
 
 # ------------------------------------------------------------------ armado del instructivo
-def natk(s):
-    return [int(t) if t.isdigit() else t for t in re.split(r'(\d+)', str(s or ''))]
-
-
-def side_of(e):
-    """0 = parte de ARRIBA del aparato, 1 = parte de ABAJO"""
-    tag = e.get('tag_base') or ''; b = e.get('borne') or ''
-    if is_terminal_block(tag):
-        if e.get('punto'):                            # QUATTRO: 1, 2 arriba / 3, 4 abajo (segunda bornera del numero: 5..8)
-            return 0 if (e['punto'] - 1) % 4 < 2 else 1
-        return 0 if e.get('lado') == 'ARRIBA' else 1
-    if 'KR' in tag:                                   # rele: contactos arriba, bobina A1/A2 abajo
-        return 1 if b in ('A1', 'A2') else 0
-    if re.search(r'PS\d', tag):                       # fuente: salida arriba, entrada abajo
-        return 1 if re.search(r'L|N|Vin|PE|~', b) and not re.search(r'Vo|\(', b) else 0
-    return 0 if e.get('lado') == 'ARRIBA' else 1
-
-
 def cable_desc(res, num, e, e2=None):
-    """('N2.5MM', color, '2.5'): color + seccion de la aparicion del numero que queda en el camino entre las dos
-    puntas del conductor (en una derivacion cada tramo puede tener otra seccion)"""
-    occ = [d for d in res.detail if d['num'] == num]
-    same = [d for d in occ if d['pag'] == e.get('pag')] or occ
-    if not same:
-        return '', '', ''
-    p = e.get('p') or [0, 0]
-    q = e2.get('p') if e2 and e2.get('pag') == e.get('pag') and e2.get('p') else None
-    cen = lambda d: ((d['bbox'][0] + d['bbox'][2]) / 2, (d['bbox'][1] + d['bbox'][3]) / 2)
-    d = min(same, key=lambda d: dist(p, cen(d)) + (dist(q, cen(d)) if q else 0))
-    ini = COLOR_INI.get(d['color'], (d['color'] or '?')[:1].upper())
-    sec = str(d['sec']).replace(',', '.')
-    return f'{ini}{sec}MM', d['color'], sec
-
-
-def punta_sintetica(txt, comp):
-    """punta armada desde su texto ('XPE 1 ARRIBA', '13XC1 2.1', '11PS1 L-3'), para los conductores agregados a mano
-    (correcciones.json 'agregar'): fmt_terminal(e) == txt. 'comp': componentes del layout (para el tag_base)."""
-    tag, _, rest = str(txt or '').partition(' ')
-    base = tag if tag in comp else re.sub(r'\d+$', '', tag) if re.sub(r'\d+$', '', tag) in comp else tag
-    e = dict(tipo='borne', tag=tag, tag_base=base, borne=rest, punto=None, lado='ARRIBA', vertical=False, circulo=True, p=None, hoja=None, pag=None)
-    m = re.match(r'^(.*) (ARRIBA|ABAJO)$', rest)
-    if m:
-        e.update(borne=m.group(1), lado=m.group(2), vertical=True)
-    m2 = re.fullmatch(r'(\d+)\.(\d)', rest)
-    if m2 and is_terminal_block(base):
-        e.update(borne=m2.group(1), punto=int(m2.group(2)))
-    return e
+    """('N2.5MM', color, '2.5') del tramo e-e2 del cable num: planocables.base.convenciones.cable_desc sobre el detalle
+    por aparicion del listado (res.detail)"""
+    return _cable_desc(num, e, e2, res.detail)
 
 
 # ---- SALIDAS A LI / LD elegidas a mano (editor de salidas de la web): ins['salidas'] = {'grupos': [grupo, ...]}
@@ -1498,7 +1378,6 @@ def separar_quitados(lineas, pendientes, quitados):
     numero mientras las puntas sigan en los mismos aparatos (como las marcas de cableado).
     -> (lineas, pendientes, quitados, vueltos): quitados = los tramos del armado nuevo que se sacan; vueltos = los
     guardados que ya no se reconocen y el cable sigue en esta estacion (cambio en el plano: vuelve al instructivo)"""
-    sin_lado = lambda t: re.sub(r' (ARRIBA|ABAJO)$', '', t or '')
     pts = lambda x: (x.get('a'), x.get('b')) if x.get('pendiente') else (x.get('origen'), x.get('destino'))
     tags = lambda x: frozenset(str(t or '').split(' ')[0] for t in pts(x))
     viejos = [q for q in quitados or [] if isinstance(q, dict) and q.get('num') and all(isinstance(t, str) and t for t in pts(q))]
@@ -1631,7 +1510,7 @@ def build(res, lay, max_lineas=7):
     # dos pisos (N ARRIBA / N ABAJO) o pines distintos del MISMO borne que el mapeo automatico dejo en el MISMO punto
     # con confianza media: ese punto no distingue el lado, asi que su texto queda como en el funcional (no se pasa al
     # lado fisico). Claves de 'bornes' (texto#cable) de esos puntos.
-    sin_lado = lambda k: re.sub(r' (ARRIBA|ABAJO)$', '', k.rsplit('#', 1)[0])
+    sin_lado = sin_lado_clave        # (clave 'texto#cable': corta tambien el '#cable')
     mismo_punto = set()
     auto_ = [(k, v) for k, v in bornes.items() if k in bornes_conf and isinstance(v, (list, tuple)) and len(v) >= 2]
     for i_, (k1, v1) in enumerate(auto_):

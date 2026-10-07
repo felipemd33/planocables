@@ -11,16 +11,12 @@ import math
 import re
 
 from instructivo import conductors, fmt_terminal, cable_desc, natk
+# (movida a planocables.base: sigue siendo estacion8.e8_clave)
+from planocables.base.convenciones import clave_par as e8_clave, sin_lado
 
 VERSION = 1
 MAX_LINEAS = 7
 DONDE = {'BANDEJA': 'bandeja principal', 'LATERAL': 'otra bandeja lateral', 'E8': 'zona hidráulica', 'AFUERA': 'puerta / placa'}
-
-
-def e8_clave(num, a, b):
-    """clave estable del tramo (sin ARRIBA/ABAJO, que puede cambiar con el lado fisico; sin importar el orden)"""
-    s = lambda t: re.sub(r' (ARRIBA|ABAJO)$', '', t or '')
-    return '|'.join([str(num)] + sorted((s(a), s(b))))
 
 
 def _dentro(p, b):
@@ -68,7 +64,6 @@ def build(res, lay, ins):
     de_lateral = {t: L for L in laterales for t in L['tags']}
 
     # textos de las puntas de la bandeja principal como en E6 (lado fisico): (num, texto sin lado) -> texto de E6
-    sin_lado = lambda t: re.sub(r' (ARRIBA|ABAJO)$', '', t or '')
     txt_e6 = {}
     for l in [x for p in ins.get('pasos') or [] for x in p['lineas']] + list(ins.get('otra_estacion') or []) + list(ins.get('quitados') or []):
         for t in (l.get('origen'), l.get('destino')):

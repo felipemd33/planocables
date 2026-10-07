@@ -4,7 +4,8 @@ uso: python pruebas/bateria.py [--ab] [--semillas] [--dejar]
    1. volcar_trabajo.py --sin-cache de los 4 trabajos: 75287 sin --relayout (el trabajo ac0f0949510a; si no esta en la
       carpeta, se saca de git con git archive), 66817 / PAE / TPT con --relayout; el 66817 con --puntos.
    2. evaluar_bornes.py --no-guardar sobre los puntos del 66817: 104/104 bornes; y 75/75 puntas exactas.
-   3. todas las pruebas/probar_*.py que haya (arreglos_pae, proyector, ronda2_topo, ronda3, web_humo...): TODO OK.
+   3. todas las pruebas/probar_*.py que haya (arreglos_pae, capas, proyector, puentes, ronda2_topo, ronda3, web_humo...):
+      TODO OK. (probar_capas: capas de planocables; probar_puentes: los nombres de los modulos viejos siguen.)
    4. volcar_bases_nuevas.py de los 4 trabajos, si existe (listado_, layout_, e8_, ins_).
    5. comparar_bases.py <tmp> --bases pruebas/bases.
    6. node --test pruebas/js/, si existe la carpeta.

@@ -20,7 +20,7 @@
 import heapq, math, re
 import pypdf
 from pdfvec import page_strokes, layer_names
-from textdec import bbox
+from planocables.base.geom import bbox      # (antes de textdec; sigue siendo ruteo.bbox)
 
 RX_DUCTO = re.compile(r'CANAL|DUCTO', re.I)            # 'CABLECANAL', '_IGV_Ductos'
 RX_SEGURA = re.compile(r'SEGURA|INTRINSEC', re.I)      # '_Zona Segura': canaletas de intrinsecos

@@ -1,10 +1,11 @@
 """OCR por mosaico para paginas escaneadas (sin geometria vectorial). Lento: solo se usa si hace falta."""
 import numpy as np, cv2, pypdfium2 as pdfium
 
-import threading
+# pdfium no admite uso simultaneo desde varios hilos: el candado es uno solo (planocables.base.pdfium_lock) y
+# 'from ocr_raster import PDFIUM_LOCK' (web, eplan, topo, bornes.motor) sigue dando ese mismo objeto
+from planocables.base.pdfium_lock import PDFIUM_LOCK
 SCALE, TILE, OVER, MIN_SCORE = 3.0, 1800, 300, 0.75
 _engine = None
-PDFIUM_LOCK = threading.Lock()   # pdfium no admite uso simultaneo desde varios hilos
 
 
 def engine():

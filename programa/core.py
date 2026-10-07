@@ -8,15 +8,17 @@ import pypdf
 from pdfvec import page_strokes, layer_names
 from textdec import Decoder, page_text, UNROT
 from wires import WireGraph, assign, NUM_RE, LABEL_RE, norm_color
+# (movidos a planocables.base; siguen siendo core.natkey, core.zone_of, core.sheet_name, core.box_dist...)
+from planocables.base.hojas import SHREF_RE, H_REF, natkey, sheet_name, zone_of, stacked_ref
+from planocables.base.geom import dist_caja_bp as box_dist, cerca as near
+from planocables.base.colores import COLOR_EN
 
 SKIP_TEXT_LAYERS = ('COMPONENT', 'RIEL', 'TABLERO', 'CABLECANAL', 'Envolvente', 'Zona Segura', 'WATERMARK')
-SHREF_RE = re.compile(r'\(\s*Sh\s*:?\s*(\d+)[A-Z]?\s*[:;.]\s*([A-F]\d)(?:\s*/\s*[A-F]\d)*\s*\)', re.I)   # (Sh15A:D2): la letra de subhoja no cuenta, como en instructivo; (Sh15:B2/D2/E2): varias zonas
 NOTE_RE = re.compile(r'not\s+indicated\s+will\s+be\s+(\w+)\s+([\d.,]+)\s*mm', re.I)
 NOTE_ES_RE = re.compile(r'no\s+indicad\w*\s+(?:ser[aá]n?|son)\s+(\w+)\s+(?:de\s+)?([\d.,]+)\s*mm', re.I)
 TAG_RE = re.compile(r'(?!\d+V(?:DC|AC|CC)?$)\d{2}[A-Z][A-Z0-9]{1,7}')   # referencia de componente/bornera: 62XDO, 13XC1, 43DIB1...
 TB_RE = re.compile(r'(PAG|REV|GRAL\s*REV|DOC\s*NUMBER|TITLE|CODE|PROJECT|CLIENT|CONT|DATE|DESCRIPTION|PROJ\.?|DW\.?|APR\.?)\s*[:.]?', re.I)
 LEGEND_RE = re.compile(r'referencia\s+de\s+s[ií]mbolos|simbolog[ií]a|leyenda|legend', re.I)
-COLOR_EN = {'black': 'Negro', 'red': 'Rojo', 'blue': 'Azul', 'white': 'Blanco', 'brown': 'Marrón', 'grey': 'Gris', 'gray': 'Gris'}
 
 
 # ------------------------------------------------------------------ datos de la hoja
@@ -86,22 +88,6 @@ def page_meta(lines, pw, ph, k=1.0, strokes=None):
     return meta
 
 
-def zone_of(meta, x, y, pw, ph):
-    if 'col_edges' in meta:
-        col = meta['col_first']
-        for e, lab in meta['col_edges']:
-            if x > e: col = lab
-    else:
-        col = str(1 + min(7, int((x / pw - 0.08) / 0.105))) if x / pw > 0.08 else '1'
-    if 'row_edges' in meta:
-        row = meta['row_first']
-        for e, lab in meta['row_edges']:
-            if y < e: row = lab
-    else:
-        row = 'ABCDEF'[max(0, min(5, int((1 - y / ph - 0.04) / 0.157)))]
-    return f'{row}{col}'
-
-
 # ------------------------------------------------------------------ proceso
 class Result:
     pass
@@ -160,9 +146,6 @@ def process(pdf_path, log=print, use_ocr=True, pages=None):
     return res
 
 
-H_REF = 7.93   # altura del texto de los numeros de cable en el plano con que se calibraron los umbrales (75287, A1)
-
-
 def text_scale(lines):
     """altura tipica del texto de los numeros de cable del plano (mediana de los renglones que son solo un numero
     de 3-5 cifras en capas de cable). Dentro de +-10% del plano de referencia se usa la referencia tal cual."""
@@ -179,10 +162,6 @@ def has_images(page):
         return bool((page.get('/Resources') or {}).get('/XObject'))
     except Exception:
         return False
-
-
-def sheet_name(pg):
-    return pg['meta'].get('sheet', str(pg['index']))
 
 
 def build_cable_list(res):
@@ -446,29 +425,6 @@ def sheet_refs(pg, ends, k):
     return sorted(out)
 
 
-def stacked_ref(lines, p, k):
-    """(ShNN:XX) al pie del rotulo de varios renglones centrado en la punta p (flecha): 'Comand' / 'Timer Relay' /
-    '-0Vdc' / '(Sh62:D3)'. Se baja (o sube) renglon por renglon desde el mas cercano (como instructivo.ref_apilada)"""
-    horiz = [l for l in lines if l.get('ang', 0) in (0, 180)]
-    centrado = lambda l: l['bbox'][0] - 2 * k <= p[0] <= l['bbox'][2] + 2 * k
-    first = [l for l in horiz if centrado(l) and near(l['bbox'], p, 30 * k)]
-    if not first:
-        return None
-    cur = min(first, key=lambda l: math.hypot(max(l['bbox'][0] - p[0], 0, p[0] - l['bbox'][2]), max(l['bbox'][1] - p[1], 0, p[1] - l['bbox'][3])))
-    abajo = (cur['bbox'][1] + cur['bbox'][3]) / 2 < p[1]
-    seen = [cur]
-    for _ in range(8):
-        if SHREF_RE.search(cur['text']):
-            return cur
-        h = cur['bbox'][3] - cur['bbox'][1]
-        gap = (lambda l: cur['bbox'][1] - l['bbox'][3]) if abajo else (lambda l: l['bbox'][1] - cur['bbox'][3])
-        nxt = [l for l in horiz if all(l is not x for x in seen) and centrado(l) and -0.3 * h <= gap(l) < 1.2 * h]
-        if not nxt:
-            break
-        cur = min(nxt, key=gap); seen.append(cur)
-    return None
-
-
 def route_refs(res, detail):
     """'Continua en' por recorrido: en cada punta del recorrido del numero en la hoja, la referencia del rotulo apilado
     de su flecha; si no hay pila, los rotulos a menos de 45*k (como antes) que no son la pila de otra punta de la hoja
@@ -495,20 +451,6 @@ def route_refs(res, detail):
         for d in detail:
             if d['pag'] == pg['index'] and d['num'] in por_num:
                 d['refs'] = por_num[d['num']]
-
-
-def box_dist(bb, p):
-    dx = max(bb[0] - p[0], 0, p[0] - bb[2]); dy = max(bb[1] - p[1], 0, p[1] - bb[3])
-    return math.hypot(dx, dy)
-
-
-def near(bb, p, r):
-    dx = max(bb[0] - p[0], 0, p[0] - bb[2]); dy = max(bb[1] - p[1], 0, p[1] - bb[3])
-    return math.hypot(dx, dy) <= r
-
-
-def natkey(s):
-    return [int(t) if t.isdigit() else t for t in re.split(r'(\d+)', str(s))]
 
 
 # ------------------------------------------------------------------ PDF buscable
