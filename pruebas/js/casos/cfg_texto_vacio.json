@@ -1,0 +1,12 @@
+{
+  "_nota": "Parámetros del trabajo en '' (campo borrado en la pantalla): se usa el de wpc.json.",
+  "de": "chico.json",
+  "wpc": {
+    "cfg": {
+      "margen_bandeja": "",
+      "agregado_bandeja": "",
+      "puerta": "",
+      "redondeo": ""
+    }
+  }
+}

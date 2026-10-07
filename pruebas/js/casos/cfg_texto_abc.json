@@ -1,0 +1,9 @@
+{
+  "_nota": "Parámetro con texto que no es número: margen_bandeja 'abc' da NaN en los largos que lo usan (bandeja y LI/LD sin E8) y el CSV dice NaN. Los que salen a LI con E8 no lo usan.",
+  "de": "chico.json",
+  "wpc": {
+    "cfg": {
+      "margen_bandeja": "abc"
+    }
+  }
+}

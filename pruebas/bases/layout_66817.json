@@ -1,0 +1,940 @@
+{
+ "layout": {
+  "pag": 4,
+  "comp": {
+   "12PB1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 225.2,
+    "y": 296.6,
+    "leido": "12PB1",
+    "lateral": "IZQUIERDO"
+   },
+   "PT 001": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 669.6,
+    "y": 415.9,
+    "leido": "PT001",
+    "nota": "en la vista de la bandeja pero fuera del largo de su riel"
+   },
+   "BH-01-ZV": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 742.1,
+    "y": 432.7,
+    "leido": "BH-01-ZV",
+    "nota": "en la vista de la bandeja pero fuera del largo de su riel"
+   },
+   "12PS1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 191.7,
+    "y": 471.1,
+    "leido": "12PS1",
+    "lateral": "IZQUIERDO"
+   },
+   "11XP": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1017.3,
+    "y": 506.0,
+    "leido": "11XP",
+    "lateral": "DERECHO"
+   },
+   "43XDI": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1017.9,
+    "y": 515.0,
+    "leido": "43XDI",
+    "lateral": "DERECHO"
+   },
+   "81XCM": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1017.9,
+    "y": 527.0,
+    "leido": "81XCM",
+    "lateral": "DERECHO"
+   },
+   "12CB1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1000.2,
+    "y": 613.1,
+    "leido": "12CB1",
+    "lateral": "DERECHO"
+   },
+   "61XDIO": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 745.1,
+    "y": 577.6,
+    "leido": "61XDIO"
+   },
+   "13XC1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 712.6,
+    "y": 577.6,
+    "leido": "13XC1"
+   },
+   "12XP": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 687.7,
+    "y": 578.7,
+    "leido": "12XP"
+   },
+   "31XAI": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 672.1,
+    "y": 577.6,
+    "leido": "31XAI"
+   },
+   "XM1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 660.2,
+    "y": 577.6,
+    "leido": "XM1"
+   },
+   "43KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 651.1,
+    "y": 577.6,
+    "leido": "43KR"
+   },
+   "61KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 635.0,
+    "y": 577.3,
+    "leido": "61KR"
+   },
+   "13F2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 627.3,
+    "y": 579.6,
+    "leido": "13F2"
+   },
+   "12F1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 617.3,
+    "y": 579.6,
+    "leido": "12F1"
+   },
+   "13X24": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 567.9,
+    "y": 576.5,
+    "leido": "13X24"
+   },
+   "43XDIB": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 553.7,
+    "y": 457.1,
+    "leido": "43XDIB"
+   },
+   "13PS2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 552.8,
+    "y": 577.0,
+    "leido": "13PS2"
+   },
+   "32XAIB": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 541.7,
+    "y": 457.1,
+    "leido": "32XAIB"
+   },
+   "62KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 535.7,
+    "y": 575.1,
+    "leido": "62KR"
+   },
+   "12F3": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 519.9,
+    "y": 574.0,
+    "leido": "12F3"
+   },
+   "43DIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 518.5,
+    "y": 456.8,
+    "leido": "43DIB1"
+   },
+   "32AIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 505.7,
+    "y": 456.8,
+    "leido": "32AIB1"
+   }
+  },
+  "vistas": [
+   {
+    "box": [
+     426.49885999999987,
+     376.6605399999997,
+     809.5077400000001,
+     658.2993600000003
+    ],
+    "rails": [
+     577.4,
+     456.9
+    ]
+   }
+  ],
+  "bandeja": 0,
+  "size": [
+   1190.28,
+   841.698
+  ],
+  "region": [
+   456.4,
+   236.5,
+   762.6,
+   644.7
+  ],
+  "escala": 1.7639,
+  "escala_fuente": "riel DIN 35 mm",
+  "perfil_riel_pt": 19.56,
+  "ductos": [
+   {
+    "b": [
+     473.4,
+     622.0,
+     745.6,
+     644.7
+    ],
+    "h": true,
+    "ex": false
+   },
+   {
+    "b": [
+     589.7,
+     534.2,
+     612.3,
+     622.0
+    ],
+    "h": false,
+    "ex": false
+   },
+   {
+    "b": [
+     473.4,
+     392.4,
+     589.7,
+     415.1
+    ],
+    "h": true,
+    "ex": true
+   },
+   {
+    "b": [
+     567.9,
+     415.1,
+     589.7,
+     511.5
+    ],
+    "h": false,
+    "ex": true
+   },
+   {
+    "b": [
+     473.4,
+     511.5,
+     745.6,
+     534.2
+    ],
+    "h": true,
+    "ex": false
+   }
+  ],
+  "filas": [
+   577.4,
+   456.9
+  ],
+  "version_lector": "topo 2026.10.02-r3"
+ },
+ "en_memoria": {
+  "bornes_usuario": {},
+  "bornes": {
+   "61XDIO 1 ABAJO#6101": [
+    749.48,
+    588.68,
+    1.36
+   ],
+   "61XDIO 2 ABAJO#6103": [
+    752.4,
+    588.68,
+    1.36
+   ],
+   "61XDIO 2 ARRIBA#1308": [
+    752.4,
+    567.54,
+    1.36
+   ],
+   "13XC1 1.1#1317": [
+    717.66,
+    599.35,
+    2.13
+   ],
+   "13XC1 1.4#1301": [
+    717.66,
+    556.05,
+    2.13
+   ],
+   "13XC1 2.1#1316": [
+    723.53,
+    599.35,
+    2.13
+   ],
+   "13XC1 2.2#1307": [
+    723.53,
+    590.05,
+    2.13
+   ],
+   "13XC1 2.3#1401": [
+    723.53,
+    565.35,
+    2.13
+   ],
+   "13XC1 2.4#1303": [
+    723.53,
+    556.05,
+    2.13
+   ],
+   "13XC1 3.1#1207": [
+    734.02,
+    599.35,
+    2.13
+   ],
+   "13XC1 3.2#1309": [
+    734.02,
+    590.05,
+    2.13
+   ],
+   "13XC1 3.3#1310": [
+    734.02,
+    565.35,
+    2.13
+   ],
+   "13XC1 3.4#1402": [
+    734.02,
+    556.05,
+    2.13
+   ],
+   "13XC1 3.5#1308": [
+    738.64,
+    599.35,
+    2.13
+   ],
+   "13XC1 3.7#1302": [
+    738.64,
+    565.35,
+    2.13
+   ],
+   "12XP 1.1#1203": [
+    692.27,
+    599.35,
+    2.13
+   ],
+   "12XP 1.3#1206": [
+    692.27,
+    565.35,
+    2.13
+   ],
+   "12XP 1.4#1204": [
+    692.27,
+    556.05,
+    2.13
+   ],
+   "12XP 3.3#1215": [
+    701.51,
+    565.35,
+    2.13
+   ],
+   "12XP 3.4#1217": [
+    701.51,
+    556.05,
+    2.13
+   ],
+   "12XP 4.1#1202": [
+    706.13,
+    599.35,
+    2.13
+   ],
+   "12XP 4.2#1207": [
+    706.13,
+    590.05,
+    2.13
+   ],
+   "12XP 4.3#1216": [
+    706.13,
+    565.35,
+    2.13
+   ],
+   "12XP 4.4#1205": [
+    706.13,
+    556.05,
+    2.13
+   ],
+   "31XAI 1 ABAJO#3102": [
+    676.8,
+    552.49,
+    1.63
+   ],
+   "31XAI 1 ARRIBA#2142": [
+    676.8,
+    601.84,
+    1.63
+   ],
+   "31XAI 2 ARRIBA#2139": [
+    681.48,
+    601.84,
+    1.63
+   ],
+   "31XAI F1 ABAJO#3101": [
+    676.79,
+    562.3,
+    1.69
+   ],
+   "31XAI F1 ARRIBA#1320": [
+    676.8,
+    586.82,
+    1.63
+   ],
+   "31XAI F2 ARRIBA#1320": [
+    681.48,
+    586.82,
+    1.63
+   ],
+   "XM1 1 ABAJO#6102": [
+    664.58,
+    551.8,
+    1.36
+   ],
+   "XM1 1 ARRIBA#6101": [
+    664.58,
+    598.29,
+    1.36
+   ],
+   "XM1 2 ARRIBA#1310": [
+    664.58,
+    589.29,
+    1.36
+   ],
+   "XM1 3 ABAJO#6201": [
+    667.5,
+    551.8,
+    1.36
+   ],
+   "XM1 3 ABAJO#6203": [
+    667.5,
+    551.8,
+    1.36
+   ],
+   "XM1 3 ARRIBA#6103": [
+    667.5,
+    598.29,
+    1.36
+   ],
+   "XM1 4 ABAJO#6202": [
+    667.5,
+    560.92,
+    1.36
+   ],
+   "XM1 4 ARRIBA#1310": [
+    667.5,
+    589.29,
+    1.36
+   ],
+   "43KR1 11#2114": [
+    655.62,
+    599.95,
+    1.14
+   ],
+   "43KR1 12#2115": [
+    655.62,
+    589.75,
+    1.14
+   ],
+   "43KR1 A1#4305": [
+    655.62,
+    558.58,
+    1.14
+   ],
+   "43KR1 A2#4306": [
+    655.62,
+    553.48,
+    1.14
+   ],
+   "61KR1 11#1307": [
+    639.58,
+    599.95,
+    1.14
+   ],
+   "61KR1 14#6101": [
+    639.58,
+    594.85,
+    1.14
+   ],
+   "61KR1 A1#2150": [
+    639.57,
+    558.58,
+    1.14
+   ],
+   "61KR1 A2#2151": [
+    639.57,
+    553.48,
+    1.14
+   ],
+   "61KR2 14#6103": [
+    643.04,
+    594.85,
+    1.14
+   ],
+   "61KR2 A1#2152": [
+    643.03,
+    558.58,
+    1.14
+   ],
+   "61KR2 A2#2153": [
+    643.03,
+    553.48,
+    1.14
+   ],
+   "61KR3 11#1217": [
+    646.5,
+    599.95,
+    1.14
+   ],
+   "61KR3 12#6104": [
+    646.49,
+    589.75,
+    1.14
+   ],
+   "61KR3 A1#2160": [
+    646.49,
+    558.58,
+    1.14
+   ],
+   "61KR3 A2#2161": [
+    646.49,
+    553.48,
+    1.14
+   ],
+   "13F2 ABAJO#1317": [
+    627.22,
+    563.0,
+    1.54
+   ],
+   "13F2 ARRIBA#1206": [
+    627.22,
+    597.12,
+    1.54
+   ],
+   "12F1 ABAJO#1203": [
+    617.29,
+    563.0,
+    1.54
+   ],
+   "12F1 ARRIBA#1201": [
+    617.29,
+    597.12,
+    1.54
+   ],
+   "13X24 1.1#1314": [
+    572.92,
+    595.45,
+    2.13
+   ],
+   "13X24 1.3#1320": [
+    572.92,
+    561.45,
+    2.13
+   ],
+   "13X24 1.4#1318": [
+    572.92,
+    552.15,
+    2.13
+   ],
+   "13X24 2.1#1315": [
+    577.54,
+    595.45,
+    2.13
+   ],
+   "13X24 2.3#1302": [
+    577.54,
+    561.45,
+    2.13
+   ],
+   "13X24 2.4#1319": [
+    577.54,
+    552.15,
+    2.13
+   ],
+   "43XDIB 1 ARRIBA#4301": [
+    557.54,
+    477.82,
+    1.36
+   ],
+   "43XDIB 2 ARRIBA#4302": [
+    557.54,
+    468.82,
+    1.36
+   ],
+   "43XDIB 3 ARRIBA#4303": [
+    560.46,
+    477.82,
+    1.36
+   ],
+   "43XDIB 4 ARRIBA#4304": [
+    560.46,
+    468.82,
+    1.36
+   ],
+   "13PS2 +Vin#1316": [
+    559.06,
+    546.31,
+    1.22
+   ],
+   "13PS2 +Vo#1314": [
+    556.73,
+    606.69,
+    1.22
+   ],
+   "13PS2 +Vo#1601": [
+    559.73,
+    606.69,
+    1.22
+   ],
+   "13PS2 -Vin#1309": [
+    556.11,
+    546.31,
+    1.22
+   ],
+   "13PS2 -Vo#1315": [
+    550.73,
+    606.7,
+    1.22
+   ],
+   "13PS2 -Vo#1602": [
+    553.73,
+    606.7,
+    1.22
+   ],
+   "32XAIB 1 ARRIBA#3201": [
+    545.58,
+    477.82,
+    1.36
+   ],
+   "32XAIB 2 ARRIBA#3202": [
+    545.58,
+    468.82,
+    1.36
+   ],
+   "32XAIB 3 ARRIBA#3203": [
+    548.5,
+    477.82,
+    1.36
+   ],
+   "32XAIB 4 ARRIBA#3204": [
+    548.5,
+    468.82,
+    1.36
+   ],
+   "62KR1 15#6104": [
+    532.94,
+    561.5,
+    1.42
+   ],
+   "62KR1 18#6203": [
+    537.9,
+    561.5,
+    1.42
+   ],
+   "62KR1 A1#6104": [
+    532.94,
+    596.31,
+    1.42
+   ],
+   "62KR1 A2#1216": [
+    537.9,
+    596.31,
+    1.42
+   ],
+   "62KR1 B1#6104": [
+    532.94,
+    590.07,
+    1.42
+   ],
+   "12F3 ABAJO#1225": [
+    519.83,
+    557.31,
+    1.54
+   ],
+   "12F3 ARRIBA#1215": [
+    519.83,
+    591.43,
+    1.54
+   ],
+   "43DIB1 1 ABAJO#1318": [
+    516.67,
+    481.61,
+    0.85
+   ],
+   "43DIB1 10#4304": [
+    519.5,
+    426.05,
+    0.85
+   ],
+   "43DIB1 2 ABAJO#1319": [
+    519.5,
+    481.61,
+    0.85
+   ],
+   "43DIB1 3#2118": [
+    516.67,
+    481.61,
+    0.85
+   ],
+   "43DIB1 4#2119": [
+    519.5,
+    481.61,
+    0.85
+   ],
+   "43DIB1 5#2116": [
+    516.67,
+    478.35,
+    0.85
+   ],
+   "43DIB1 6#2117": [
+    519.5,
+    478.35,
+    0.85
+   ],
+   "43DIB1 7#4301": [
+    516.67,
+    429.23,
+    0.85
+   ],
+   "43DIB1 8#4302": [
+    519.5,
+    429.23,
+    0.85
+   ],
+   "43DIB1 9#4303": [
+    516.67,
+    426.05,
+    0.85
+   ],
+   "32AIB1 1 ABAJO#1318": [
+    503.91,
+    481.61,
+    0.85
+   ],
+   "32AIB1 10#3202": [
+    505.33,
+    429.23,
+    0.85
+   ],
+   "32AIB1 12#3203": [
+    502.5,
+    426.05,
+    0.85
+   ],
+   "32AIB1 13#3204": [
+    505.33,
+    426.05,
+    0.85
+   ],
+   "32AIB1 2 ABAJO#1319": [
+    506.75,
+    481.61,
+    0.85
+   ],
+   "32AIB1 3#2105": [
+    502.5,
+    481.61,
+    0.85
+   ],
+   "32AIB1 4#2106": [
+    505.33,
+    481.61,
+    0.85
+   ],
+   "32AIB1 6#2102": [
+    502.5,
+    478.35,
+    0.85
+   ],
+   "32AIB1 7#2103": [
+    505.33,
+    478.35,
+    0.85
+   ],
+   "32AIB1 9#3201": [
+    502.5,
+    429.23,
+    0.85
+   ]
+  },
+  "renombrar": {},
+  "bornes_conf": {
+   "61XDIO 1 ABAJO#6101": "alta",
+   "61XDIO 2 ABAJO#6103": "alta",
+   "61XDIO 2 ARRIBA#1308": "alta",
+   "13XC1 1.1#1317": "alta",
+   "13XC1 1.4#1301": "alta",
+   "13XC1 2.1#1316": "alta",
+   "13XC1 2.2#1307": "alta",
+   "13XC1 2.3#1401": "alta",
+   "13XC1 2.4#1303": "alta",
+   "13XC1 3.1#1207": "alta",
+   "13XC1 3.2#1309": "alta",
+   "13XC1 3.3#1310": "alta",
+   "13XC1 3.4#1402": "alta",
+   "13XC1 3.5#1308": "alta",
+   "13XC1 3.7#1302": "alta",
+   "12XP 1.1#1203": "alta",
+   "12XP 1.3#1206": "alta",
+   "12XP 1.4#1204": "alta",
+   "12XP 3.3#1215": "alta",
+   "12XP 3.4#1217": "alta",
+   "12XP 4.1#1202": "alta",
+   "12XP 4.2#1207": "alta",
+   "12XP 4.3#1216": "alta",
+   "12XP 4.4#1205": "alta",
+   "31XAI 1 ABAJO#3102": "alta",
+   "31XAI 1 ARRIBA#2142": "alta",
+   "31XAI 2 ARRIBA#2139": "alta",
+   "31XAI F1 ABAJO#3101": "alta",
+   "31XAI F1 ARRIBA#1320": "alta",
+   "31XAI F2 ARRIBA#1320": "alta",
+   "XM1 1 ABAJO#6102": "alta",
+   "XM1 1 ARRIBA#6101": "alta",
+   "XM1 2 ARRIBA#1310": "alta",
+   "XM1 3 ABAJO#6201": "media",
+   "XM1 3 ABAJO#6203": "media",
+   "XM1 3 ARRIBA#6103": "alta",
+   "XM1 4 ABAJO#6202": "alta",
+   "XM1 4 ARRIBA#1310": "alta",
+   "43KR1 11#2114": "alta",
+   "43KR1 12#2115": "alta",
+   "43KR1 A1#4305": "alta",
+   "43KR1 A2#4306": "alta",
+   "61KR1 11#1307": "alta",
+   "61KR1 14#6101": "alta",
+   "61KR1 A1#2150": "alta",
+   "61KR1 A2#2151": "alta",
+   "61KR2 14#6103": "alta",
+   "61KR2 A1#2152": "alta",
+   "61KR2 A2#2153": "alta",
+   "61KR3 11#1217": "alta",
+   "61KR3 12#6104": "alta",
+   "61KR3 A1#2160": "alta",
+   "61KR3 A2#2161": "alta",
+   "13F2 ABAJO#1317": "alta",
+   "13F2 ARRIBA#1206": "alta",
+   "12F1 ABAJO#1203": "alta",
+   "12F1 ARRIBA#1201": "alta",
+   "13X24 1.1#1314": "alta",
+   "13X24 1.3#1320": "alta",
+   "13X24 1.4#1318": "alta",
+   "13X24 2.1#1315": "alta",
+   "13X24 2.3#1302": "alta",
+   "13X24 2.4#1319": "alta",
+   "43XDIB 1 ARRIBA#4301": "alta",
+   "43XDIB 2 ARRIBA#4302": "alta",
+   "43XDIB 3 ARRIBA#4303": "alta",
+   "43XDIB 4 ARRIBA#4304": "alta",
+   "13PS2 +Vin#1316": "alta",
+   "13PS2 +Vo#1314": "alta",
+   "13PS2 +Vo#1601": "alta",
+   "13PS2 -Vin#1309": "alta",
+   "13PS2 -Vo#1315": "alta",
+   "13PS2 -Vo#1602": "alta",
+   "32XAIB 1 ARRIBA#3201": "alta",
+   "32XAIB 2 ARRIBA#3202": "alta",
+   "32XAIB 3 ARRIBA#3203": "alta",
+   "32XAIB 4 ARRIBA#3204": "alta",
+   "62KR1 15#6104": "alta",
+   "62KR1 18#6203": "alta",
+   "62KR1 A1#6104": "alta",
+   "62KR1 A2#1216": "alta",
+   "62KR1 B1#6104": "alta",
+   "12F3 ABAJO#1225": "alta",
+   "12F3 ARRIBA#1215": "alta",
+   "43DIB1 1 ABAJO#1318": "media",
+   "43DIB1 10#4304": "media",
+   "43DIB1 2 ABAJO#1319": "media",
+   "43DIB1 3#2118": "media",
+   "43DIB1 4#2119": "media",
+   "43DIB1 5#2116": "media",
+   "43DIB1 6#2117": "media",
+   "43DIB1 7#4301": "media",
+   "43DIB1 8#4302": "media",
+   "43DIB1 9#4303": "media",
+   "32AIB1 1 ABAJO#1318": "media",
+   "32AIB1 10#3202": "media",
+   "32AIB1 12#3203": "media",
+   "32AIB1 13#3204": "media",
+   "32AIB1 2 ABAJO#1319": "media",
+   "32AIB1 3#2105": "media",
+   "32AIB1 4#2106": "media",
+   "32AIB1 6#2102": "media",
+   "32AIB1 7#2103": "media",
+   "32AIB1 9#3201": "media"
+  },
+  "bornes_nota": {
+   "XM1 3 ABAJO#6201": "PTT2.5-2MT: pieza 2 de 2, lado abajo, boca 0 (extremo) | AVISO: la boca la comparten los cables 6201, 6203",
+   "XM1 3 ABAJO#6203": "PTT2.5-2MT: pieza 2 de 2, lado abajo, boca 0 (extremo) | AVISO: la boca la comparten los cables 6201, 6203",
+   "43DIB1 1 ABAJO#1318": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 1 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "43DIB1 10#4304": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 10 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "43DIB1 2 ABAJO#1319": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 2 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "43DIB1 3#2118": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 3 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "43DIB1 4#2119": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 4 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "43DIB1 5#2116": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 5 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y -2.5 mm del centro",
+   "43DIB1 6#2117": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 6 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y +2.5 mm del centro",
+   "43DIB1 7#4301": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 7 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y -2.5 mm del centro",
+   "43DIB1 8#4302": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 8 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y +2.5 mm del centro",
+   "43DIB1 9#4303": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 9 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "32AIB1 1 ABAJO#1318": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 1 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+   "32AIB1 10#3202": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 10 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y +0.0 mm del centro",
+   "32AIB1 12#3203": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 12 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y -5.0 mm del centro",
+   "32AIB1 13#3204": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 13 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y +0.0 mm del centro",
+   "32AIB1 2 ABAJO#1319": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 2 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+   "32AIB1 3#2105": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 3 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -5.0 mm del centro",
+   "32AIB1 4#2106": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 4 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +0.0 mm del centro",
+   "32AIB1 6#2102": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 6 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y -5.0 mm del centro",
+   "32AIB1 7#2103": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 7 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y +0.0 mm del centro",
+   "32AIB1 9#3201": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 9 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y -5.0 mm del centro"
+  },
+  "renombrar_auto": {},
+  "estaciones": {},
+  "estacion": "E6",
+  "estacion_auto": {
+   "seccion_min": 35,
+   "estacion": "E8"
+  },
+  "salidas": {},
+  "quitados": []
+ }
+}

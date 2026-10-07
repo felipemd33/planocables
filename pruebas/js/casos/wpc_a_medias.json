@@ -1,0 +1,9 @@
+{
+  "_nota": "ins.wpc a medias (al regenerar puede quedar así): solo cfg con pendientes; wpc.js completa largo, color, excluir, incluir y giro.",
+  "de": "chico.json",
+  "wpc": {
+    "cfg": {
+      "pendientes": true
+    }
+  }
+}

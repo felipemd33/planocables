@@ -1,11 +1,15 @@
 """Arma el instructivo de un trabajo web con el codigo ACTUAL y lo vuelca a JSON (para comparar antes/despues).
 Hace lo mismo que web.py gen_instructivo (overrides, correcciones.json, mapeo automatico de bornes, bornes.json,
 bornes_usuario), sin escribir en el trabajo salvo el cache del mapeo (bornes_auto.json).
-uso: python volcar_trabajo.py <carpeta_trabajo> <salida.json> [--relayout] [--sin-mapeo] [--sin-cache]
+uso: python volcar_trabajo.py <carpeta_trabajo> <salida.json> [--relayout] [--sin-mapeo] [--sin-cache] [--puntos <archivo.json>]
   --relayout:  vuelve a leer el topografico (topo.layout) en vez de usar layout.json. Como en la web, tambien se
                vuelve a leer (sin escribir layout.json) si layout.json es de otra version del lector (topo.layout_al_dia)
   --sin-mapeo: como antes de integrar el mapeo automatico (solo bornes.json / correcciones.json)
-  --sin-cache: calcula el mapeo de nuevo y no escribe bornes_auto.json"""
+  --sin-cache: calcula el mapeo de nuevo y no escribe bornes_auto.json
+  --puntos <archivo.json>: ademas vuelca los puntos de los bornes como quedan para el instructivo (lay['bornes']: mapeo
+               automatico o verificado + manuales), en el formato de evaluar_bornes.py: {puntos: [{texto (el del
+               funcional), texto_final, cables, x, y, r, confianza ('manual' si no es del mapeo)}], segundos}.
+               La salida normal no cambia."""
 import os, sys, json, os, glob, time
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'programa'))
 from core import process
@@ -62,6 +66,17 @@ else:
     import bornes as mapeo_bornes
     mapeo = mapeo_bornes.aplicar_al_layout(res, lay, JOB, TOPO, cache='--sin-cache' not in sys.argv)
 t_mapeo = time.time() - t1
+if '--puntos' in sys.argv:      # puntos del mapeo como quedan para el instructivo (lay['bornes']), para evaluar_bornes.py
+    inv = {}                    # texto corregido + cable -> texto del funcional (la referencia usa el del funcional)
+    for k_fun, t_fin in (lay.get('renombrar') or {}).items():
+        t_fun, _, n = str(k_fun).rpartition('#')
+        inv[(t_fin, n)] = t_fun
+    puntos = []
+    for k, v in sorted((lay.get('bornes') or {}).items()):
+        t_fin, _, n = k.rpartition('#') if '#' in k else (k, '', '')
+        puntos.append(dict(texto=inv.get((t_fin, n), t_fin), texto_final=t_fin, cables=[n] if n else [], x=float(v[0]), y=float(v[1]),
+                           r=v[2] if len(v) > 2 else None, confianza=(lay.get('bornes_conf') or {}).get(k, 'manual')))
+    PUNTOS = dict(trabajo=os.path.basename(os.path.abspath(JOB)), segundos=(mapeo or {}).get('segundos'), puntos=puntos)
 lay['estaciones'] = old.get('estaciones') or {}; lay['estacion'] = old.get('estacion') or 'E6'
 lay['estacion_auto'] = old.get('estacion_auto') or {'seccion_min': 35, 'estacion': 'E8'}
 lay['salidas'] = old.get('salidas') or {}      # salidas a LI / LD elegidas a mano (editor de salidas)
@@ -96,3 +111,7 @@ print(f"{len(out['lineas'])} lineas ({sum(l['ruta'] for l in out['lineas'])} con
 if mapeo is not None:
     print(f"mapeo: {m.get('n_puntos')} usados {m.get('usados')} (descartados por manuales {m.get('manuales')}), {m.get('segundos')} s"
           f"{' (cache)' if m.get('de_cache') else ''}, error {m.get('error')}; tiempo del paso de mapeo {out['tiempos']['mapeo']} s")
+if '--puntos' in sys.argv:
+    PSAL = sys.argv[sys.argv.index('--puntos') + 1]
+    json.dump(PUNTOS, open(PSAL, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    print(f"puntos: {len(PUNTOS['puntos'])} -> {PSAL}")

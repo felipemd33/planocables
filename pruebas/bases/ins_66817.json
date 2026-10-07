@@ -1,0 +1,5685 @@
+{
+ "pasos": [
+  {
+   "fila": 1,
+   "zona": 0,
+   "lado": "arriba",
+   "lineas": [
+    {
+     "num": "1215",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "12F3 ARRIBA",
+     "destino": "12XP 3.3",
+     "componente": "12F3",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "12"
+     ],
+     "ruta": [
+      [
+       519.8,
+       591.4
+      ],
+      [
+       519.8,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       701.5,
+       522.9
+      ],
+      [
+       701.5,
+       565.4
+      ]
+     ],
+     "largo_mm": 660,
+     "marca_o": [
+      519.83,
+      591.43,
+      1.54
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      701.51,
+      565.35,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 0
+    },
+    {
+     "num": "6104",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "62KR1 A1",
+     "destino": "61KR3 12",
+     "componente": "62KR1",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "61",
+      "62"
+     ],
+     "ruta": [
+      [
+       532.9,
+       596.3
+      ],
+      [
+       532.9,
+       633.4
+      ],
+      [
+       646.5,
+       633.4
+      ],
+      [
+       646.5,
+       589.8
+      ]
+     ],
+     "largo_mm": 340,
+     "marca_o": [
+      532.94,
+      596.31,
+      1.42
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      646.49,
+      589.75,
+      1.14
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 1
+    },
+    {
+     "num": "6104",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "62KR1 A1",
+     "destino": "62KR1 15",
+     "componente": "62KR1",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "62"
+     ],
+     "ruta": [
+      [
+       532.9,
+       596.3
+      ],
+      [
+       532.9,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       532.9,
+       522.9
+      ],
+      [
+       532.9,
+       561.5
+      ]
+     ],
+     "largo_mm": 570,
+     "marca_o": [
+      532.94,
+      596.31,
+      1.42
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      532.94,
+      561.5,
+      1.42
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 2
+    },
+    {
+     "num": "6104",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "62KR1 B1",
+     "destino": "62KR1 15",
+     "componente": "62KR1",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "62"
+     ],
+     "ruta": [
+      [
+       532.9,
+       590.1
+      ],
+      [
+       532.9,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       532.9,
+       522.9
+      ],
+      [
+       532.9,
+       561.5
+      ]
+     ],
+     "largo_mm": 580,
+     "marca_o": [
+      532.94,
+      590.07,
+      1.42
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      532.94,
+      561.5,
+      1.42
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 3
+    },
+    {
+     "num": "1216",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "62KR1 A2",
+     "destino": "12XP 4.3",
+     "componente": "62KR1",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "12",
+      "62"
+     ],
+     "ruta": [
+      [
+       537.9,
+       596.3
+      ],
+      [
+       537.9,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       706.1,
+       522.9
+      ],
+      [
+       706.1,
+       565.4
+      ]
+     ],
+     "largo_mm": 630,
+     "marca_o": [
+      537.9,
+      596.31,
+      1.42
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      706.13,
+      565.35,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 4
+    },
+    {
+     "num": "1216",
+     "cable": "N2.5MM",
+     "color": "Negro",
+     "secc": "2.5",
+     "origen": "12XP 4.3",
+     "destino": "LD",
+     "componente": "12XP",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": true,
+     "hojas": [
+      "12"
+     ],
+     "ruta": [
+      [
+       706.1,
+       565.4
+      ],
+      [
+       706.1,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       755.1,
+       633.4
+      ]
+     ],
+     "largo_mm": 730,
+     "marca_o": [
+      706.13,
+      565.35,
+      2.13
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LD",
+     "intrinseco": false,
+     "seq": 5
+    },
+    {
+     "num": "1315",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "13PS2 -Vo",
+     "destino": "13X24 2.1",
+     "componente": "13PS2",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "13"
+     ],
+     "ruta": [
+      [
+       550.7,
+       606.7
+      ],
+      [
+       550.7,
+       633.4
+      ],
+      [
+       577.5,
+       633.4
+      ],
+      [
+       577.5,
+       595.5
+      ]
+     ],
+     "largo_mm": 160,
+     "marca_o": [
+      550.73,
+      606.7,
+      1.22
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      577.54,
+      595.45,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 6
+    },
+    {
+     "num": "1602",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "13PS2 -Vo",
+     "destino": "LI",
+     "componente": "13PS2",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "13",
+      "16"
+     ],
+     "ruta": [
+      [
+       553.7,
+       606.7
+      ],
+      [
+       553.7,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 210,
+     "marca_o": [
+      553.73,
+      606.7,
+      1.22
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 7
+    },
+    {
+     "num": "1314",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "13PS2 +Vo",
+     "destino": "13X24 1.1",
+     "componente": "13PS2",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "13"
+     ],
+     "ruta": [
+      [
+       556.7,
+       606.7
+      ],
+      [
+       556.7,
+       633.4
+      ],
+      [
+       572.9,
+       633.4
+      ],
+      [
+       572.9,
+       595.5
+      ]
+     ],
+     "largo_mm": 140,
+     "marca_o": [
+      556.73,
+      606.69,
+      1.22
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      572.92,
+      595.45,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 8
+    },
+    {
+     "num": "1601",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "13PS2 +Vo",
+     "destino": "LI",
+     "componente": "13PS2",
+     "fila": 1,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "13",
+      "16"
+     ],
+     "ruta": [
+      [
+       559.7,
+       606.7
+      ],
+      [
+       559.7,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 220,
+     "marca_o": [
+      559.73,
+      606.69,
+      1.22
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 9
+    }
+   ],
+   "n": 1,
+   "titulo": "Riel 1 · zona 1 · parte de arriba · 12F3, 62KR1, 12XP, 13PS2",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 1,
+   "zona": 0,
+   "lado": "abajo",
+   "lineas": [
+    {
+     "num": "1225",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "12F3 ABAJO",
+     "destino": "LD",
+     "componente": "12F3",
+     "fila": 1,
+     "zona": 0,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "12"
+     ],
+     "ruta": [
+      [
+       519.8,
+       557.3
+      ],
+      [
+       519.8,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       755.1,
+       633.4
+      ]
+     ],
+     "largo_mm": 670,
+     "marca_o": [
+      519.83,
+      557.31,
+      1.54
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LD",
+     "intrinseco": false,
+     "seq": 10
+    },
+    {
+     "num": "6203",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "62KR1 18",
+     "destino": "XM1 3 ABAJO",
+     "componente": "62KR1",
+     "fila": 1,
+     "zona": 0,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61",
+      "62"
+     ],
+     "ruta": [
+      [
+       537.9,
+       561.5
+      ],
+      [
+       537.9,
+       522.9
+      ],
+      [
+       667.5,
+       522.9
+      ],
+      [
+       667.5,
+       551.8
+      ]
+     ],
+     "largo_mm": 350,
+     "marca_o": [
+      537.9,
+      561.5,
+      1.42
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      667.5,
+      551.8,
+      1.36
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "PTT2.5-2MT: pieza 2 de 2, lado abajo, boca 0 (extremo) | AVISO: la boca la comparten los cables 6201, 6203",
+     "seq": 11
+    },
+    {
+     "num": "1309",
+     "cable": "N2.5MM",
+     "color": "Negro",
+     "secc": "2.5",
+     "origen": "13PS2 -Vin",
+     "destino": "13XC1 3.2",
+     "componente": "13PS2",
+     "fila": 1,
+     "zona": 0,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "13"
+     ],
+     "ruta": [
+      [
+       556.1,
+       546.3
+      ],
+      [
+       556.1,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       734.0,
+       633.4
+      ],
+      [
+       734.0,
+       590.0
+      ]
+     ],
+     "largo_mm": 630,
+     "marca_o": [
+      556.11,
+      546.31,
+      1.22
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      734.02,
+      590.05,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 12
+    },
+    {
+     "num": "1316",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "13PS2 +Vin",
+     "destino": "13XC1 2.1",
+     "componente": "13PS2",
+     "fila": 1,
+     "zona": 0,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "13"
+     ],
+     "ruta": [
+      [
+       559.1,
+       546.3
+      ],
+      [
+       559.1,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       723.5,
+       633.4
+      ],
+      [
+       723.5,
+       599.4
+      ]
+     ],
+     "largo_mm": 590,
+     "marca_o": [
+      559.06,
+      546.31,
+      1.22
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      723.53,
+      599.35,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 13
+    },
+    {
+     "num": "1318",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "13X24 1.4",
+     "destino": "32AIB1 1 ARRIBA",
+     "componente": "13X24",
+     "fila": 1,
+     "zona": 0,
+     "lado": "abajo",
+     "puente": true,
+     "hojas": [
+      "13",
+      "15"
+     ],
+     "func_d": "32AIB1 1 ABAJO",
+     "ruta": [
+      [
+       572.9,
+       552.1
+      ],
+      [
+       572.9,
+       522.9
+      ],
+      [
+       503.9,
+       522.9
+      ],
+      [
+       503.9,
+       481.6
+      ]
+     ],
+     "largo_mm": 250,
+     "marca_o": [
+      572.92,
+      552.15,
+      2.13
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      503.91,
+      481.61,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 1 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+     "seq": 14
+    },
+    {
+     "num": "1318",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "32AIB1 1 ARRIBA",
+     "destino": "43DIB1 1 ARRIBA",
+     "componente": "32AIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "15"
+     ],
+     "func_o": "32AIB1 1 ABAJO",
+     "func_d": "43DIB1 1 ABAJO",
+     "ruta": [
+      [
+       503.9,
+       481.6
+      ],
+      [
+       503.9,
+       522.9
+      ],
+      [
+       516.7,
+       522.9
+      ],
+      [
+       516.7,
+       481.6
+      ]
+     ],
+     "largo_mm": 170,
+     "marca_o": [
+      503.91,
+      481.61,
+      0.85
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      516.67,
+      481.61,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "media",
+     "conf_d": "media",
+     "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 1 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+     "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 1 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+     "seq": 15
+    },
+    {
+     "num": "1319",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "13X24 2.4",
+     "destino": "32AIB1 2 ARRIBA",
+     "componente": "13X24",
+     "fila": 1,
+     "zona": 0,
+     "lado": "abajo",
+     "puente": true,
+     "hojas": [
+      "13",
+      "15"
+     ],
+     "func_d": "32AIB1 2 ABAJO",
+     "ruta": [
+      [
+       577.5,
+       552.1
+      ],
+      [
+       577.5,
+       522.9
+      ],
+      [
+       506.8,
+       522.9
+      ],
+      [
+       506.8,
+       481.6
+      ]
+     ],
+     "largo_mm": 250,
+     "marca_o": [
+      577.54,
+      552.15,
+      2.13
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      506.75,
+      481.61,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 2 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+     "seq": 16
+    },
+    {
+     "num": "1319",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "32AIB1 2 ARRIBA",
+     "destino": "43DIB1 2 ARRIBA",
+     "componente": "32AIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "15"
+     ],
+     "func_o": "32AIB1 2 ABAJO",
+     "func_d": "43DIB1 2 ABAJO",
+     "ruta": [
+      [
+       506.8,
+       481.6
+      ],
+      [
+       506.8,
+       522.9
+      ],
+      [
+       519.8,
+       522.9
+      ],
+      [
+       519.5,
+       481.6
+      ]
+     ],
+     "largo_mm": 170,
+     "marca_o": [
+      506.75,
+      481.61,
+      0.85
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      519.5,
+      481.61,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "media",
+     "conf_d": "media",
+     "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 2 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+     "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 2 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+     "seq": 17
+    }
+   ],
+   "n": 2,
+   "titulo": "Riel 1 · zona 1 · parte de abajo · 12F3, 62KR1, 13PS2, 13X24, 32AIB1",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 1,
+   "zona": 0,
+   "lado": "abajo",
+   "lineas": [
+    {
+     "num": "1320",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "13X24 1.3",
+     "destino": "31XAI F1 ARRIBA",
+     "componente": "13X24",
+     "fila": 1,
+     "zona": 0,
+     "lado": "abajo",
+     "puente": true,
+     "hojas": [
+      "13",
+      "31"
+     ],
+     "ruta": [
+      [
+       572.9,
+       561.5
+      ],
+      [
+       572.9,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       676.8,
+       633.4
+      ],
+      [
+       676.8,
+       586.8
+      ]
+     ],
+     "largo_mm": 530,
+     "marca_o": [
+      572.92,
+      561.45,
+      2.13
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      676.8,
+      586.82,
+      1.63
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 18
+    },
+    {
+     "num": "1320",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "31XAI F1 ARRIBA",
+     "destino": "31XAI F2 ARRIBA",
+     "componente": "31XAI",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "31"
+     ],
+     "ruta": [
+      [
+       676.8,
+       586.8
+      ],
+      [
+       676.8,
+       633.4
+      ],
+      [
+       681.5,
+       633.4
+      ],
+      [
+       681.5,
+       586.8
+      ]
+     ],
+     "largo_mm": 170,
+     "marca_o": [
+      676.8,
+      586.82,
+      1.63
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      681.48,
+      586.82,
+      1.63
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 19
+    },
+    {
+     "num": "1302",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "13X24 2.3",
+     "destino": "13XC1 3.7",
+     "componente": "13X24",
+     "fila": 1,
+     "zona": 0,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "13"
+     ],
+     "ruta": [
+      [
+       577.5,
+       561.5
+      ],
+      [
+       577.5,
+       522.9
+      ],
+      [
+       738.6,
+       522.9
+      ],
+      [
+       738.6,
+       565.4
+      ]
+     ],
+     "largo_mm": 430,
+     "marca_o": [
+      577.54,
+      561.45,
+      2.13
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      738.64,
+      565.35,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 20
+    }
+   ],
+   "n": 3,
+   "titulo": "Riel 1 · zona 1 · parte de abajo · 13X24, 31XAI",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 1,
+   "zona": 1,
+   "lado": "arriba",
+   "lineas": [
+    {
+     "num": "1201",
+     "cable": "R4MM",
+     "color": "Rojo",
+     "secc": "4",
+     "origen": "12F1 ARRIBA",
+     "destino": "LI",
+     "componente": "12F1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "12"
+     ],
+     "ruta": [
+      [
+       617.3,
+       597.1
+      ],
+      [
+       617.3,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 330,
+     "marca_o": [
+      617.29,
+      597.12,
+      1.54
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 21
+    },
+    {
+     "num": "1206",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "13F2 ARRIBA",
+     "destino": "12XP 1.3",
+     "componente": "13F2",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "12",
+      "13"
+     ],
+     "ruta": [
+      [
+       627.2,
+       597.1
+      ],
+      [
+       627.2,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       692.3,
+       522.9
+      ],
+      [
+       692.3,
+       565.4
+      ]
+     ],
+     "largo_mm": 540,
+     "marca_o": [
+      627.22,
+      597.12,
+      1.54
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      692.27,
+      565.35,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 22
+    },
+    {
+     "num": "1307",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "61KR1 11",
+     "destino": "13XC1 2.2",
+     "componente": "61KR1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "13",
+      "61"
+     ],
+     "ruta": [
+      [
+       639.6,
+       600.0
+      ],
+      [
+       639.6,
+       633.4
+      ],
+      [
+       723.5,
+       633.4
+      ],
+      [
+       723.5,
+       590.0
+      ]
+     ],
+     "largo_mm": 280,
+     "marca_o": [
+      639.58,
+      599.95,
+      1.14
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      723.53,
+      590.05,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 23
+    },
+    {
+     "num": "1217",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "61KR3 11",
+     "destino": "12XP 3.4",
+     "componente": "61KR3",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "12",
+      "61"
+     ],
+     "ruta": [
+      [
+       646.5,
+       600.0
+      ],
+      [
+       646.5,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       701.5,
+       522.9
+      ],
+      [
+       701.5,
+       556.0
+      ]
+     ],
+     "largo_mm": 570,
+     "marca_o": [
+      646.5,
+      599.95,
+      1.14
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      701.51,
+      556.05,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 24
+    },
+    {
+     "num": "2114",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43KR1 11",
+     "destino": "LI",
+     "componente": "43KR1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "43"
+     ],
+     "ruta": [
+      [
+       655.6,
+       600.0
+      ],
+      [
+       655.6,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 400,
+     "marca_o": [
+      655.62,
+      599.95,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 25
+    },
+    {
+     "num": "6101",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "61KR1 14",
+     "destino": "XM1 1 ARRIBA",
+     "componente": "61KR1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       639.6,
+       594.9
+      ],
+      [
+       639.6,
+       633.4
+      ],
+      [
+       664.6,
+       633.4
+      ],
+      [
+       664.6,
+       598.3
+      ]
+     ],
+     "largo_mm": 170,
+     "marca_o": [
+      639.58,
+      594.85,
+      1.14
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      664.58,
+      598.29,
+      1.36
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 26
+    },
+    {
+     "num": "6101",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "XM1 1 ARRIBA",
+     "destino": "61XDIO 1 ARRIBA",
+     "componente": "XM1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "61"
+     ],
+     "func_d": "61XDIO 1 ABAJO",
+     "ruta": [
+      [
+       664.6,
+       598.3
+      ],
+      [
+       664.6,
+       633.4
+      ],
+      [
+       745.5,
+       633.4
+      ],
+      [
+       745.5,
+       618.6
+      ],
+      [
+       749.5,
+       618.6
+      ],
+      [
+       749.5,
+       588.7
+      ]
+     ],
+     "largo_mm": 290,
+     "marca_o": [
+      664.58,
+      598.29,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      749.48,
+      588.68,
+      1.36
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 27
+    }
+   ],
+   "n": 4,
+   "titulo": "Riel 1 · zona 2 · parte de arriba · 12F1, 13F2, 61KR1, 61KR3, 43KR1, XM1",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 1,
+   "zona": 1,
+   "lado": "arriba",
+   "lineas": [
+    {
+     "num": "6103",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "61KR2 14",
+     "destino": "XM1 3 ARRIBA",
+     "componente": "61KR2",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       643.0,
+       594.9
+      ],
+      [
+       643.0,
+       633.4
+      ],
+      [
+       667.5,
+       633.4
+      ],
+      [
+       667.5,
+       598.3
+      ]
+     ],
+     "largo_mm": 170,
+     "marca_o": [
+      643.04,
+      594.85,
+      1.14
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      667.5,
+      598.29,
+      1.36
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 28
+    },
+    {
+     "num": "6103",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "XM1 3 ARRIBA",
+     "destino": "61XDIO 2 ARRIBA",
+     "componente": "XM1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "61"
+     ],
+     "func_d": "61XDIO 2 ABAJO",
+     "ruta": [
+      [
+       667.5,
+       598.3
+      ],
+      [
+       667.5,
+       633.4
+      ],
+      [
+       745.5,
+       633.4
+      ],
+      [
+       745.5,
+       618.6
+      ],
+      [
+       752.4,
+       618.6
+      ],
+      [
+       752.4,
+       588.7
+      ]
+     ],
+     "largo_mm": 290,
+     "marca_o": [
+      667.5,
+      598.29,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      752.4,
+      588.68,
+      1.36
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 29
+    },
+    {
+     "num": "2115",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43KR1 12",
+     "destino": "LI",
+     "componente": "43KR1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "43"
+     ],
+     "ruta": [
+      [
+       655.6,
+       589.8
+      ],
+      [
+       655.6,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 420,
+     "marca_o": [
+      655.62,
+      589.75,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 30
+    },
+    {
+     "num": "1310",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "XM1 2 ARRIBA",
+     "destino": "XM1 4 ARRIBA",
+     "componente": "XM1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       664.6,
+       589.3
+      ],
+      [
+       664.6,
+       633.4
+      ],
+      [
+       667.5,
+       633.4
+      ],
+      [
+       667.5,
+       589.3
+      ]
+     ],
+     "largo_mm": 160,
+     "marca_o": [
+      664.58,
+      589.29,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      667.5,
+      589.29,
+      1.36
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 31
+    },
+    {
+     "num": "1310",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "XM1 2 ARRIBA",
+     "destino": "13XC1 3.3",
+     "componente": "XM1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": true,
+     "hojas": [
+      "13",
+      "61"
+     ],
+     "ruta": [
+      [
+       664.6,
+       589.3
+      ],
+      [
+       664.6,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       734.0,
+       522.9
+      ],
+      [
+       734.0,
+       565.4
+      ]
+     ],
+     "largo_mm": 690,
+     "marca_o": [
+      664.58,
+      589.29,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      734.02,
+      565.35,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 32
+    },
+    {
+     "num": "2142",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31XAI 1 ARRIBA",
+     "destino": "LI",
+     "componente": "31XAI",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "31"
+     ],
+     "ruta": [
+      [
+       676.8,
+       601.8
+      ],
+      [
+       676.8,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 430,
+     "marca_o": [
+      676.8,
+      601.84,
+      1.63
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 33
+    },
+    {
+     "num": "2139",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31XAI 2 ARRIBA",
+     "destino": "LI",
+     "componente": "31XAI",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "31"
+     ],
+     "ruta": [
+      [
+       681.5,
+       601.8
+      ],
+      [
+       681.5,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 440,
+     "marca_o": [
+      681.48,
+      601.84,
+      1.63
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 34
+    }
+   ],
+   "n": 5,
+   "titulo": "Riel 1 · zona 2 · parte de arriba · 61KR2, XM1, 43KR1, 31XAI",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 1,
+   "zona": 1,
+   "lado": "arriba",
+   "lineas": [
+    {
+     "num": "1203",
+     "cable": "R4MM",
+     "color": "Rojo",
+     "secc": "4",
+     "origen": "12XP 1.1",
+     "destino": "12F1 ABAJO",
+     "componente": "12XP",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "12"
+     ],
+     "ruta": [
+      [
+       692.3,
+       599.4
+      ],
+      [
+       692.3,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       617.3,
+       522.9
+      ],
+      [
+       617.3,
+       563.0
+      ]
+     ],
+     "largo_mm": 520,
+     "marca_o": [
+      692.27,
+      599.35,
+      2.13
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      617.29,
+      563.0,
+      1.54
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 35
+    },
+    {
+     "num": "1202",
+     "cable": "N4MM",
+     "color": "Negro",
+     "secc": "4",
+     "origen": "12XP 4.1",
+     "destino": "LI",
+     "componente": "12XP",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "12"
+     ],
+     "ruta": [
+      [
+       706.1,
+       599.4
+      ],
+      [
+       706.1,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 490,
+     "marca_o": [
+      706.13,
+      599.35,
+      2.13
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 36
+    },
+    {
+     "num": "1207",
+     "cable": "N2.5MM",
+     "color": "Negro",
+     "secc": "2.5",
+     "origen": "12XP 4.2",
+     "destino": "13XC1 3.1",
+     "componente": "12XP",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "12",
+      "13"
+     ],
+     "ruta": [
+      [
+       706.1,
+       590.0
+      ],
+      [
+       706.1,
+       633.4
+      ],
+      [
+       734.0,
+       633.4
+      ],
+      [
+       734.0,
+       599.4
+      ]
+     ],
+     "largo_mm": 190,
+     "marca_o": [
+      706.13,
+      590.05,
+      2.13
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      734.02,
+      599.35,
+      2.13
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 37
+    },
+    {
+     "num": "1317",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "13XC1 1.1",
+     "destino": "13F2 ABAJO",
+     "componente": "13XC1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "13"
+     ],
+     "ruta": [
+      [
+       717.7,
+       599.4
+      ],
+      [
+       717.7,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       627.2,
+       522.9
+      ],
+      [
+       627.2,
+       563.0
+      ]
+     ],
+     "largo_mm": 580,
+     "marca_o": [
+      717.66,
+      599.35,
+      2.13
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      627.22,
+      563.0,
+      1.54
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 38
+    },
+    {
+     "num": "1308",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "13XC1 3.5",
+     "destino": "61XDIO 2 ABAJO",
+     "componente": "13XC1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "13",
+      "61"
+     ],
+     "func_d": "61XDIO 2 ARRIBA",
+     "ruta": [
+      [
+       738.6,
+       599.4
+      ],
+      [
+       738.6,
+       633.4
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       745.5,
+       522.9
+      ],
+      [
+       745.5,
+       537.6
+      ],
+      [
+       752.4,
+       537.6
+      ],
+      [
+       752.4,
+       567.5
+      ]
+     ],
+     "largo_mm": 840,
+     "marca_o": [
+      738.64,
+      599.35,
+      2.13
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      752.4,
+      567.54,
+      1.36
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "alta",
+     "seq": 39
+    }
+   ],
+   "n": 6,
+   "titulo": "Riel 1 · zona 2 · parte de arriba · 12XP, 13XC1",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 1,
+   "zona": 1,
+   "lado": "abajo",
+   "lineas": [
+    {
+     "num": "2151",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "61KR1 A2",
+     "destino": "LI",
+     "componente": "61KR1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       639.6,
+       553.5
+      ],
+      [
+       639.6,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 560,
+     "marca_o": [
+      639.57,
+      553.48,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 40
+    },
+    {
+     "num": "2153",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "61KR2 A2",
+     "destino": "LI",
+     "componente": "61KR2",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       643.0,
+       553.5
+      ],
+      [
+       643.0,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 560,
+     "marca_o": [
+      643.03,
+      553.48,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 41
+    },
+    {
+     "num": "2161",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "61KR3 A2",
+     "destino": "LI",
+     "componente": "61KR3",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       646.5,
+       553.5
+      ],
+      [
+       646.5,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 570,
+     "marca_o": [
+      646.49,
+      553.48,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 42
+    },
+    {
+     "num": "4306",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "43KR1 A2",
+     "destino": "LD",
+     "componente": "43KR1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "43"
+     ],
+     "ruta": [
+      [
+       655.6,
+       553.5
+      ],
+      [
+       655.6,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       755.1,
+       633.4
+      ]
+     ],
+     "largo_mm": 620,
+     "marca_o": [
+      655.62,
+      553.48,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LD",
+     "intrinseco": false,
+     "seq": 43
+    },
+    {
+     "num": "2150",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "61KR1 A1",
+     "destino": "LI",
+     "componente": "61KR1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       639.6,
+       558.6
+      ],
+      [
+       639.6,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 570,
+     "marca_o": [
+      639.57,
+      558.58,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 44
+    },
+    {
+     "num": "2152",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "61KR2 A1",
+     "destino": "LI",
+     "componente": "61KR2",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       643.0,
+       558.6
+      ],
+      [
+       643.0,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 570,
+     "marca_o": [
+      643.03,
+      558.58,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 45
+    },
+    {
+     "num": "2160",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "61KR3 A1",
+     "destino": "LI",
+     "componente": "61KR3",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       646.5,
+       558.6
+      ],
+      [
+       646.5,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 580,
+     "marca_o": [
+      646.49,
+      558.58,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 46
+    }
+   ],
+   "n": 7,
+   "titulo": "Riel 1 · zona 2 · parte de abajo · 61KR1, 61KR2, 61KR3, 43KR1",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 1,
+   "zona": 1,
+   "lado": "abajo",
+   "lineas": [
+    {
+     "num": "4305",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "43KR1 A1",
+     "destino": "LD",
+     "componente": "43KR1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "43"
+     ],
+     "ruta": [
+      [
+       655.6,
+       558.6
+      ],
+      [
+       655.6,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       755.1,
+       633.4
+      ]
+     ],
+     "largo_mm": 630,
+     "marca_o": [
+      655.62,
+      558.58,
+      1.14
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LD",
+     "intrinseco": false,
+     "seq": 47
+    },
+    {
+     "num": "6102",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "XM1 1 ABAJO",
+     "destino": "LI",
+     "componente": "XM1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       664.6,
+       551.8
+      ],
+      [
+       664.6,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 600,
+     "marca_o": [
+      664.58,
+      551.8,
+      1.36
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 48
+    },
+    {
+     "num": "6201",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "XM1 3 ABAJO",
+     "destino": "LI",
+     "componente": "XM1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       667.5,
+       551.8
+      ],
+      [
+       667.5,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 610,
+     "marca_o": [
+      667.5,
+      551.8,
+      1.36
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "PTT2.5-2MT: pieza 2 de 2, lado abajo, boca 0 (extremo) | AVISO: la boca la comparten los cables 6201, 6203",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 49
+    },
+    {
+     "num": "6202",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "XM1 4 ABAJO",
+     "destino": "LI",
+     "componente": "XM1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "61"
+     ],
+     "ruta": [
+      [
+       667.5,
+       560.9
+      ],
+      [
+       667.5,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 620,
+     "marca_o": [
+      667.5,
+      560.92,
+      1.36
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 50
+    },
+    {
+     "num": "3102",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "31XAI 1 ABAJO",
+     "destino": "LI",
+     "componente": "31XAI",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "31"
+     ],
+     "ruta": [
+      [
+       676.8,
+       552.5
+      ],
+      [
+       676.8,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 620,
+     "marca_o": [
+      676.8,
+      552.49,
+      1.63
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 51
+    },
+    {
+     "num": "3101",
+     "cable": "R0.75MM",
+     "color": "Rojo",
+     "secc": "0.75",
+     "origen": "31XAI F1 ABAJO",
+     "destino": "LI",
+     "componente": "31XAI",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "31"
+     ],
+     "ruta": [
+      [
+       676.8,
+       562.3
+      ],
+      [
+       676.8,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 640,
+     "marca_o": [
+      676.79,
+      562.3,
+      1.69
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 52
+    },
+    {
+     "num": "1204",
+     "cable": "R4MM",
+     "color": "Rojo",
+     "secc": "4",
+     "origen": "12XP 1.4",
+     "destino": "LI",
+     "componente": "12XP",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": true,
+     "hojas": [
+      "12"
+     ],
+     "ruta": [
+      [
+       692.3,
+       556.0
+      ],
+      [
+       692.3,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 660,
+     "marca_o": [
+      692.27,
+      556.05,
+      2.13
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 53
+    },
+    {
+     "num": "1205",
+     "cable": "N4MM",
+     "color": "Negro",
+     "secc": "4",
+     "origen": "12XP 4.4",
+     "destino": "LI",
+     "componente": "12XP",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": true,
+     "hojas": [
+      "12"
+     ],
+     "ruta": [
+      [
+       706.1,
+       556.0
+      ],
+      [
+       706.1,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 680,
+     "marca_o": [
+      706.13,
+      556.05,
+      2.13
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 54
+    }
+   ],
+   "n": 8,
+   "titulo": "Riel 1 · zona 2 · parte de abajo · 43KR1, XM1, 31XAI, 12XP",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 1,
+   "zona": 1,
+   "lado": "abajo",
+   "lineas": [
+    {
+     "num": "1301",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "13XC1 1.4",
+     "destino": "LI",
+     "componente": "13XC1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "13"
+     ],
+     "ruta": [
+      [
+       717.7,
+       556.0
+      ],
+      [
+       717.7,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 700,
+     "marca_o": [
+      717.66,
+      556.05,
+      2.13
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 55
+    },
+    {
+     "num": "1303",
+     "cable": "R2.5MM",
+     "color": "Rojo",
+     "secc": "2.5",
+     "origen": "13XC1 2.4",
+     "destino": "LI",
+     "componente": "13XC1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "13"
+     ],
+     "ruta": [
+      [
+       723.5,
+       556.0
+      ],
+      [
+       723.5,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 710,
+     "marca_o": [
+      723.53,
+      556.05,
+      2.13
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 56
+    },
+    {
+     "num": "1402",
+     "cable": "N1MM",
+     "color": "Negro",
+     "secc": "1",
+     "origen": "13XC1 3.4",
+     "destino": "LI",
+     "componente": "13XC1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "13",
+      "14"
+     ],
+     "ruta": [
+      [
+       734.0,
+       556.0
+      ],
+      [
+       734.0,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 730,
+     "marca_o": [
+      734.02,
+      556.05,
+      2.13
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 57
+    },
+    {
+     "num": "1401",
+     "cable": "R1MM",
+     "color": "Rojo",
+     "secc": "1",
+     "origen": "13XC1 2.3",
+     "destino": "LI",
+     "componente": "13XC1",
+     "fila": 1,
+     "zona": 1,
+     "lado": "abajo",
+     "puente": false,
+     "hojas": [
+      "13",
+      "14"
+     ],
+     "ruta": [
+      [
+       723.5,
+       565.4
+      ],
+      [
+       723.5,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 730,
+     "marca_o": [
+      723.53,
+      565.35,
+      2.13
+     ],
+     "exacto_o": true,
+     "conf_o": "alta",
+     "conf_d": null,
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 58
+    }
+   ],
+   "n": 9,
+   "titulo": "Riel 1 · zona 2 · parte de abajo · 13XC1",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 2,
+   "zona": 0,
+   "lado": "arriba",
+   "lineas": [
+    {
+     "num": "2105",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "32AIB1 3",
+     "destino": "LI",
+     "componente": "32AIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "32"
+     ],
+     "ruta": [
+      [
+       502.5,
+       481.6
+      ],
+      [
+       502.5,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 680,
+     "marca_o": [
+      502.5,
+      481.61,
+      0.85
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 3 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -5.0 mm del centro",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 59
+    },
+    {
+     "num": "2106",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "32AIB1 4",
+     "destino": "LI",
+     "componente": "32AIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "32"
+     ],
+     "ruta": [
+      [
+       505.3,
+       481.6
+      ],
+      [
+       505.3,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 680,
+     "marca_o": [
+      505.33,
+      481.61,
+      0.85
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 4 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +0.0 mm del centro",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 60
+    },
+    {
+     "num": "2118",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43DIB1 3",
+     "destino": "LI",
+     "componente": "43DIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "43"
+     ],
+     "ruta": [
+      [
+       516.7,
+       481.6
+      ],
+      [
+       516.7,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 660,
+     "marca_o": [
+      516.67,
+      481.61,
+      0.85
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 3 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 61
+    },
+    {
+     "num": "2119",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43DIB1 4",
+     "destino": "LI",
+     "componente": "43DIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "43"
+     ],
+     "ruta": [
+      [
+       519.5,
+       481.6
+      ],
+      [
+       519.8,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 650,
+     "marca_o": [
+      519.5,
+      481.61,
+      0.85
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 4 va en la fila dibujada exterior de arriba (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 62
+    },
+    {
+     "num": "2102",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "32AIB1 6",
+     "destino": "LI",
+     "componente": "32AIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "32"
+     ],
+     "ruta": [
+      [
+       502.5,
+       478.4
+      ],
+      [
+       502.5,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 690,
+     "marca_o": [
+      502.5,
+      478.35,
+      0.85
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 6 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y -5.0 mm del centro",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 63
+    },
+    {
+     "num": "2103",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "32AIB1 7",
+     "destino": "LI",
+     "componente": "32AIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "32"
+     ],
+     "ruta": [
+      [
+       505.3,
+       478.4
+      ],
+      [
+       505.3,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 680,
+     "marca_o": [
+      505.33,
+      478.35,
+      0.85
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 7 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y +0.0 mm del centro",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 64
+    },
+    {
+     "num": "2116",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43DIB1 5",
+     "destino": "LI",
+     "componente": "43DIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "43"
+     ],
+     "ruta": [
+      [
+       516.7,
+       478.4
+      ],
+      [
+       516.7,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 660,
+     "marca_o": [
+      516.67,
+      478.35,
+      0.85
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 5 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y -2.5 mm del centro",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 65
+    },
+    {
+     "num": "2117",
+     "cable": "N0.75MM",
+     "color": "Negro",
+     "secc": "0.75",
+     "origen": "43DIB1 6",
+     "destino": "LI",
+     "componente": "43DIB1",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "21",
+      "43"
+     ],
+     "ruta": [
+      [
+       519.5,
+       478.4
+      ],
+      [
+       519.8,
+       522.9
+      ],
+      [
+       601.0,
+       522.9
+      ],
+      [
+       601.0,
+       633.4
+      ],
+      [
+       463.9,
+       633.4
+      ]
+     ],
+     "largo_mm": 660,
+     "marca_o": [
+      519.5,
+      478.35,
+      0.85
+     ],
+     "exacto_o": true,
+     "conf_o": "media",
+     "conf_d": null,
+     "nota_o": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 6 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y +2.5 mm del centro",
+     "lateral": "LI",
+     "intrinseco": false,
+     "seq": 66
+    }
+   ],
+   "n": 10,
+   "titulo": "Riel 2 · parte de arriba · 32AIB1, 43DIB1",
+   "etapa": "Etapa 1",
+   "foto": null
+  },
+  {
+   "fila": 2,
+   "zona": 0,
+   "lado": "arriba",
+   "lineas": [
+    {
+     "num": "3201",
+     "cable": "A0.75MM",
+     "color": "Azul",
+     "secc": "0.75",
+     "origen": "32XAIB 1 ARRIBA",
+     "destino": "32AIB1 9",
+     "componente": "32XAIB",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "32"
+     ],
+     "ruta": [
+      [
+       545.6,
+       477.8
+      ],
+      [
+       545.6,
+       508.1
+      ],
+      [
+       578.8,
+       508.1
+      ],
+      [
+       578.8,
+       403.8
+      ],
+      [
+       502.5,
+       403.8
+      ],
+      [
+       502.5,
+       429.2
+      ]
+     ],
+     "largo_mm": 480,
+     "marca_o": [
+      545.58,
+      477.82,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      502.5,
+      429.23,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 9 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y -5.0 mm del centro",
+     "seq": 67
+    },
+    {
+     "num": "3203",
+     "cable": "A0.75MM",
+     "color": "Azul",
+     "secc": "0.75",
+     "origen": "32XAIB 3 ARRIBA",
+     "destino": "32AIB1 12",
+     "componente": "32XAIB",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "32"
+     ],
+     "ruta": [
+      [
+       548.5,
+       477.8
+      ],
+      [
+       548.5,
+       508.1
+      ],
+      [
+       578.8,
+       508.1
+      ],
+      [
+       578.8,
+       403.8
+      ],
+      [
+       502.5,
+       403.8
+      ],
+      [
+       502.5,
+       426.1
+      ]
+     ],
+     "largo_mm": 460,
+     "marca_o": [
+      548.5,
+      477.82,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      502.5,
+      426.05,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 12 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y -5.0 mm del centro",
+     "seq": 68
+    },
+    {
+     "num": "3202",
+     "cable": "A0.75MM",
+     "color": "Azul",
+     "secc": "0.75",
+     "origen": "32XAIB 2 ARRIBA",
+     "destino": "32AIB1 10",
+     "componente": "32XAIB",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "32"
+     ],
+     "ruta": [
+      [
+       545.6,
+       468.8
+      ],
+      [
+       545.6,
+       508.1
+      ],
+      [
+       578.8,
+       508.1
+      ],
+      [
+       578.8,
+       403.8
+      ],
+      [
+       505.3,
+       403.8
+      ],
+      [
+       505.3,
+       429.2
+      ]
+     ],
+     "largo_mm": 490,
+     "marca_o": [
+      545.58,
+      468.82,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      505.33,
+      429.23,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 10 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y +0.0 mm del centro",
+     "seq": 69
+    },
+    {
+     "num": "3204",
+     "cable": "A0.75MM",
+     "color": "Azul",
+     "secc": "0.75",
+     "origen": "32XAIB 4 ARRIBA",
+     "destino": "32AIB1 13",
+     "componente": "32XAIB",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "32"
+     ],
+     "ruta": [
+      [
+       548.5,
+       468.8
+      ],
+      [
+       548.5,
+       508.1
+      ],
+      [
+       578.8,
+       508.1
+      ],
+      [
+       578.8,
+       403.8
+      ],
+      [
+       505.3,
+       403.8
+      ],
+      [
+       505.3,
+       426.1
+      ]
+     ],
+     "largo_mm": 480,
+     "marca_o": [
+      548.5,
+      468.82,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      505.33,
+      426.05,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 13 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y +0.0 mm del centro",
+     "seq": 70
+    },
+    {
+     "num": "4301",
+     "cable": "A0.75MM",
+     "color": "Azul",
+     "secc": "0.75",
+     "origen": "43XDIB 1 ARRIBA",
+     "destino": "43DIB1 7",
+     "componente": "43XDIB",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "43"
+     ],
+     "ruta": [
+      [
+       557.5,
+       477.8
+      ],
+      [
+       557.5,
+       508.1
+      ],
+      [
+       578.8,
+       508.1
+      ],
+      [
+       578.8,
+       403.8
+      ],
+      [
+       516.7,
+       403.8
+      ],
+      [
+       516.7,
+       429.2
+      ]
+     ],
+     "largo_mm": 430,
+     "marca_o": [
+      557.54,
+      477.82,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      516.67,
+      429.23,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 7 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y -2.5 mm del centro",
+     "seq": 71
+    },
+    {
+     "num": "4303",
+     "cable": "A0.75MM",
+     "color": "Azul",
+     "secc": "0.75",
+     "origen": "43XDIB 3 ARRIBA",
+     "destino": "43DIB1 9",
+     "componente": "43XDIB",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "43"
+     ],
+     "ruta": [
+      [
+       560.5,
+       477.8
+      ],
+      [
+       560.5,
+       508.1
+      ],
+      [
+       578.8,
+       508.1
+      ],
+      [
+       578.8,
+       403.8
+      ],
+      [
+       516.7,
+       403.8
+      ],
+      [
+       516.7,
+       426.1
+      ]
+     ],
+     "largo_mm": 420,
+     "marca_o": [
+      560.46,
+      477.82,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      516.67,
+      426.05,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 9 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y -2.5 mm del centro",
+     "seq": 72
+    },
+    {
+     "num": "4302",
+     "cable": "A0.75MM",
+     "color": "Azul",
+     "secc": "0.75",
+     "origen": "43XDIB 2 ARRIBA",
+     "destino": "43DIB1 8",
+     "componente": "43XDIB",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "43"
+     ],
+     "ruta": [
+      [
+       557.5,
+       468.8
+      ],
+      [
+       557.5,
+       508.1
+      ],
+      [
+       578.8,
+       508.1
+      ],
+      [
+       578.8,
+       403.8
+      ],
+      [
+       519.5,
+       403.8
+      ],
+      [
+       519.5,
+       429.2
+      ]
+     ],
+     "largo_mm": 440,
+     "marca_o": [
+      557.54,
+      468.82,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      519.5,
+      429.23,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 8 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y +2.5 mm del centro",
+     "seq": 73
+    },
+    {
+     "num": "4304",
+     "cable": "A0.75MM",
+     "color": "Azul",
+     "secc": "0.75",
+     "origen": "43XDIB 4 ARRIBA",
+     "destino": "43DIB1 10",
+     "componente": "43XDIB",
+     "fila": 2,
+     "zona": 0,
+     "lado": "arriba",
+     "puente": false,
+     "hojas": [
+      "43"
+     ],
+     "ruta": [
+      [
+       560.5,
+       468.8
+      ],
+      [
+       560.5,
+       508.1
+      ],
+      [
+       578.8,
+       508.1
+      ],
+      [
+       578.8,
+       403.8
+      ],
+      [
+       519.5,
+       403.8
+      ],
+      [
+       519.5,
+       426.1
+      ]
+     ],
+     "largo_mm": 430,
+     "marca_o": [
+      560.46,
+      468.82,
+      1.36
+     ],
+     "exacto_o": true,
+     "marca_d": [
+      519.5,
+      426.05,
+      0.85
+     ],
+     "exacto_d": true,
+     "conf_o": "alta",
+     "conf_d": "media",
+     "nota_d": "GS8512-EX: el bloque es simbolico y no dibuja cada borne; 10 va en la fila dibujada exterior de abajo (enchufe a 6.0 mm del borde en el aparato real) y +2.5 mm del centro",
+     "seq": 74
+    }
+   ],
+   "n": 11,
+   "titulo": "Riel 2 · parte de arriba · 32XAIB, 43XDIB",
+   "etapa": "Etapa 1",
+   "foto": null
+  }
+ ],
+ "pendientes": [
+  {
+   "num": "1101",
+   "cable": "R2.5MM",
+   "color": "Rojo",
+   "secc": "2.5",
+   "a": "11XP 1 ABAJO",
+   "b": "12PS1 +"
+  },
+  {
+   "num": "1102",
+   "cable": "N2.5MM",
+   "color": "Negro",
+   "secc": "2.5",
+   "a": "11XP 2 ABAJO",
+   "b": "12PS1 -"
+  },
+  {
+   "num": "8101",
+   "cable": "N1MM",
+   "color": "Negro",
+   "secc": "1",
+   "a": "21PCB01 35",
+   "b": "81TM01 1"
+  },
+  {
+   "num": "8101",
+   "cable": "N1MM",
+   "color": "Negro",
+   "secc": "1",
+   "a": "21PCB01 35",
+   "b": "81XCM 1 ARRIBA"
+  },
+  {
+   "num": "8102",
+   "cable": "B1MM",
+   "color": "Blanco",
+   "secc": "1",
+   "a": "21PCB01 36",
+   "b": "81TM01 15"
+  },
+  {
+   "num": "8102",
+   "cable": "B1MM",
+   "color": "Blanco",
+   "secc": "1",
+   "a": "21PCB01 36",
+   "b": "81XCM 2 ARRIBA"
+  },
+  {
+   "num": "8103",
+   "cable": "N1MM",
+   "color": "Negro",
+   "secc": "1",
+   "a": "21PCB01 37",
+   "b": "81XCM 3 ARRIBA"
+  },
+  {
+   "num": "8104",
+   "cable": "B0.3MM",
+   "color": "Blanco",
+   "secc": "0.3",
+   "a": "21PCB01 32",
+   "b": "12PS2"
+  },
+  {
+   "num": "8105",
+   "cable": "AM0.3MM",
+   "color": "Amarillo",
+   "secc": "0.3",
+   "a": "21PCB01 33",
+   "b": "12PS2"
+  }
+ ],
+ "sueltos": [],
+ "otra_estacion": [
+  {
+   "num": "1205",
+   "cable": "N35MM",
+   "color": "Negro",
+   "secc": "35",
+   "origen": "BH-01-M",
+   "destino": "12PB1 -",
+   "estacion": "E8",
+   "pendiente": true
+  },
+  {
+   "num": "1204",
+   "cable": "R35MM",
+   "color": "Rojo",
+   "secc": "35",
+   "origen": "BH-01-ZV",
+   "destino": "12PB1 +",
+   "estacion": "E8",
+   "pendiente": true
+  }
+ ],
+ "quitados": [],
+ "quitados_vueltos": [],
+ "componentes": [
+  {
+   "tag": "12F3",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 519.9,
+   "encontrado": true,
+   "leido": "12F3"
+  },
+  {
+   "tag": "62KR",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 535.7,
+   "encontrado": true,
+   "leido": "62KR"
+  },
+  {
+   "tag": "13PS2",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 552.8,
+   "encontrado": true,
+   "leido": "13PS2"
+  },
+  {
+   "tag": "13X24",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 567.9,
+   "encontrado": true,
+   "leido": "13X24"
+  },
+  {
+   "tag": "12F1",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 617.3,
+   "encontrado": true,
+   "leido": "12F1"
+  },
+  {
+   "tag": "13F2",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 627.3,
+   "encontrado": true,
+   "leido": "13F2"
+  },
+  {
+   "tag": "61KR",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 635.0,
+   "encontrado": true,
+   "leido": "61KR"
+  },
+  {
+   "tag": "43KR",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 651.1,
+   "encontrado": true,
+   "leido": "43KR"
+  },
+  {
+   "tag": "XM1",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 660.2,
+   "encontrado": true,
+   "leido": "XM1"
+  },
+  {
+   "tag": "31XAI",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 672.1,
+   "encontrado": true,
+   "leido": "31XAI"
+  },
+  {
+   "tag": "12XP",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 687.7,
+   "encontrado": true,
+   "leido": "12XP"
+  },
+  {
+   "tag": "13XC1",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 712.6,
+   "encontrado": true,
+   "leido": "13XC1"
+  },
+  {
+   "tag": "61XDIO",
+   "ubic": "BANDEJA",
+   "fila": 1,
+   "x": 745.1,
+   "encontrado": true,
+   "leido": "61XDIO"
+  },
+  {
+   "tag": "32AIB1",
+   "ubic": "BANDEJA",
+   "fila": 2,
+   "x": 505.7,
+   "encontrado": true,
+   "leido": "32AIB1"
+  },
+  {
+   "tag": "43DIB1",
+   "ubic": "BANDEJA",
+   "fila": 2,
+   "x": 518.5,
+   "encontrado": true,
+   "leido": "43DIB1"
+  },
+  {
+   "tag": "32XAIB",
+   "ubic": "BANDEJA",
+   "fila": 2,
+   "x": 541.7,
+   "encontrado": true,
+   "leido": "32XAIB"
+  },
+  {
+   "tag": "43XDIB",
+   "ubic": "BANDEJA",
+   "fila": 2,
+   "x": 553.7,
+   "encontrado": true,
+   "leido": "43XDIB"
+  },
+  {
+   "tag": "12PS2",
+   "ubic": "LI",
+   "fila": null,
+   "x": null,
+   "encontrado": false,
+   "leido": ""
+  },
+  {
+   "tag": "13SH1",
+   "ubic": "LI",
+   "fila": null,
+   "x": null,
+   "encontrado": false,
+   "leido": ""
+  },
+  {
+   "tag": "21PCB01",
+   "ubic": "LI",
+   "fila": null,
+   "x": null,
+   "encontrado": false,
+   "leido": ""
+  },
+  {
+   "tag": "81TM01",
+   "ubic": "LI",
+   "fila": null,
+   "x": null,
+   "encontrado": false,
+   "leido": ""
+  },
+  {
+   "tag": "BH-01-M",
+   "ubic": "LI",
+   "fila": null,
+   "x": null,
+   "encontrado": false,
+   "leido": ""
+  },
+  {
+   "tag": "ZY",
+   "ubic": "LI",
+   "fila": null,
+   "x": null,
+   "encontrado": false,
+   "leido": ""
+  },
+  {
+   "tag": "12PS1",
+   "ubic": "LI",
+   "fila": null,
+   "x": 191.7,
+   "encontrado": true,
+   "leido": "12PS1"
+  },
+  {
+   "tag": "12PB1",
+   "ubic": "LI",
+   "fila": null,
+   "x": 225.2,
+   "encontrado": true,
+   "leido": "12PB1"
+  },
+  {
+   "tag": "PT 001",
+   "ubic": "LI",
+   "fila": null,
+   "x": 669.6,
+   "encontrado": true,
+   "leido": "PT001"
+  },
+  {
+   "tag": "BH-01-ZV",
+   "ubic": "LI",
+   "fila": null,
+   "x": 742.1,
+   "encontrado": true,
+   "leido": "BH-01-ZV"
+  },
+  {
+   "tag": "12CB1",
+   "ubic": "LI",
+   "fila": null,
+   "x": 1000.2,
+   "encontrado": true,
+   "leido": "12CB1"
+  },
+  {
+   "tag": "11XP",
+   "ubic": "LI",
+   "fila": null,
+   "x": 1017.3,
+   "encontrado": true,
+   "leido": "11XP"
+  },
+  {
+   "tag": "43XDI",
+   "ubic": "LI",
+   "fila": null,
+   "x": 1017.9,
+   "encontrado": true,
+   "leido": "43XDI"
+  },
+  {
+   "tag": "81XCM",
+   "ubic": "LI",
+   "fila": null,
+   "x": 1017.9,
+   "encontrado": true,
+   "leido": "81XCM"
+  }
+ ],
+ "topo": {
+  "pag": 4,
+  "region": [
+   456.4,
+   236.5,
+   762.6,
+   644.7
+  ],
+  "escala": 1.7639,
+  "ductos": [
+   {
+    "b": [
+     473.4,
+     622.0,
+     745.6,
+     644.7
+    ],
+    "h": true,
+    "ex": false
+   },
+   {
+    "b": [
+     589.7,
+     534.2,
+     612.3,
+     622.0
+    ],
+    "h": false,
+    "ex": false
+   },
+   {
+    "b": [
+     473.4,
+     392.4,
+     589.7,
+     415.1
+    ],
+    "h": true,
+    "ex": true
+   },
+   {
+    "b": [
+     567.9,
+     415.1,
+     589.7,
+     511.5
+    ],
+    "h": false,
+    "ex": true
+   },
+   {
+    "b": [
+     473.4,
+     511.5,
+     745.6,
+     534.2
+    ],
+    "h": true,
+    "ex": false
+   }
+  ],
+  "filas": [
+   577.4,
+   456.9
+  ],
+  "comp": {
+   "61XDIO": {
+    "x": 745.1,
+    "y": 577.6,
+    "fila": 1
+   },
+   "13XC1": {
+    "x": 712.6,
+    "y": 577.6,
+    "fila": 1
+   },
+   "12XP": {
+    "x": 687.7,
+    "y": 578.7,
+    "fila": 1
+   },
+   "31XAI": {
+    "x": 672.1,
+    "y": 577.6,
+    "fila": 1
+   },
+   "XM1": {
+    "x": 660.2,
+    "y": 577.6,
+    "fila": 1
+   },
+   "43KR": {
+    "x": 651.1,
+    "y": 577.6,
+    "fila": 1
+   },
+   "61KR": {
+    "x": 635.0,
+    "y": 577.3,
+    "fila": 1
+   },
+   "13F2": {
+    "x": 627.3,
+    "y": 579.6,
+    "fila": 1
+   },
+   "12F1": {
+    "x": 617.3,
+    "y": 579.6,
+    "fila": 1
+   },
+   "13X24": {
+    "x": 567.9,
+    "y": 576.5,
+    "fila": 1
+   },
+   "43XDIB": {
+    "x": 553.7,
+    "y": 457.1,
+    "fila": 2
+   },
+   "13PS2": {
+    "x": 552.8,
+    "y": 577.0,
+    "fila": 1
+   },
+   "32XAIB": {
+    "x": 541.7,
+    "y": 457.1,
+    "fila": 2
+   },
+   "62KR": {
+    "x": 535.7,
+    "y": 575.1,
+    "fila": 1
+   },
+   "12F3": {
+    "x": 519.9,
+    "y": 574.0,
+    "fila": 1
+   },
+   "43DIB1": {
+    "x": 518.5,
+    "y": 456.8,
+    "fila": 2
+   },
+   "32AIB1": {
+    "x": 505.7,
+    "y": 456.8,
+    "fila": 2
+   }
+  }
+ },
+ "accesorios": [],
+ "alternativas": [],
+ "bornes_usuario": {},
+ "mapeo": {
+  "version": "2026.10.07-1",
+  "modelos": {
+   "61XDIO": "PT2.5-DIO",
+   "13XC1": "PT6-QUATTRO",
+   "12XP": "PT6-QUATTRO",
+   "31XAI": "PTTB4-HESI",
+   "XM1": "PTT2.5-2MT",
+   "43KR": "RIF-0-RPT",
+   "61KR": "RIF-0-RPT",
+   "13F2": "DF101",
+   "12F1": "DF101",
+   "13X24": "PT6-QUATTRO",
+   "43XDIB": "PTT2.5-2MT",
+   "13PS2": "MEANWELL-DDR",
+   "32XAIB": "PTT2.5-2MT",
+   "62KR": "FINDER-80.01",
+   "12F3": "DF101",
+   "43DIB1": "GS8512-EX",
+   "32AIB1": "GS8536-EX"
+  },
+  "avisos": [
+   "sin lista de materiales en el funcional; modelo por la geometria: 61XDIO = PT2.5-DIO, 13XC1 = PT6-QUATTRO, 12XP = PT6-QUATTRO, 31XAI = PTTB4-HESI, XM1 = PTT2.5-2MT, 43KR = RIF-0-RPT, 61KR = RIF-0-RPT, 13F2 = DF101, 12F1 = DF101, 13X24 = PT6-QUATTRO, 43XDIB = PTT2.5-2MT, 13PS2 = MEANWELL-DDR, 32XAIB = PTT2.5-2MT, 62KR = FINDER-80.01, 12F3 = DF101, 43DIB1 = GS8512-EX, 32AIB1 = GS8536-EX",
+   "plano monocromo: no se usan los colores del catalogo (PE verde, pieza azul, bocas grises)",
+   "XM1: dos o mas cables en la misma boca (XM1 3 ABAJO #6201, XM1 3 ABAJO #6203): revisar si es un puente/derivacion o un error del instructivo"
+  ],
+  "error": null,
+  "materiales": "sin lista de materiales (modelo por la geometria)",
+  "n_puntos": {
+   "alta": 82,
+   "media": 22,
+   "baja": 0
+  },
+  "usados": 104,
+  "manuales": 0,
+  "modelos_faltantes": [],
+  "lado_fisico": [
+   {
+    "num": "1308",
+    "funcional": "61XDIO 2 ARRIBA",
+    "instructivo": "61XDIO 2 ABAJO"
+   },
+   {
+    "num": "1318",
+    "funcional": "32AIB1 1 ABAJO",
+    "instructivo": "32AIB1 1 ARRIBA"
+   },
+   {
+    "num": "1318",
+    "funcional": "43DIB1 1 ABAJO",
+    "instructivo": "43DIB1 1 ARRIBA"
+   },
+   {
+    "num": "1319",
+    "funcional": "32AIB1 2 ABAJO",
+    "instructivo": "32AIB1 2 ARRIBA"
+   },
+   {
+    "num": "1319",
+    "funcional": "43DIB1 2 ABAJO",
+    "instructivo": "43DIB1 2 ARRIBA"
+   },
+   {
+    "num": "6101",
+    "funcional": "61XDIO 1 ABAJO",
+    "instructivo": "61XDIO 1 ARRIBA"
+   },
+   {
+    "num": "6103",
+    "funcional": "61XDIO 2 ABAJO",
+    "instructivo": "61XDIO 2 ARRIBA"
+   }
+  ]
+ },
+ "estacion8": {
+  "version": 1,
+  "laterales": [],
+  "afuera": [
+   {
+    "tag": "21PCB01",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "2102",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2102|21PCB01 2|32AIB1 6",
+      "hojas": [
+       "21",
+       "32"
+      ],
+      "borne": "21PCB01 2",
+      "pin": "2",
+      "otra": "32AIB1 6",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2103",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2103|21PCB01 3|32AIB1 7",
+      "hojas": [
+       "21",
+       "32"
+      ],
+      "borne": "21PCB01 3",
+      "pin": "3",
+      "otra": "32AIB1 7",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2105",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2105|21PCB01 5|32AIB1 3",
+      "hojas": [
+       "21",
+       "32"
+      ],
+      "borne": "21PCB01 5",
+      "pin": "5",
+      "otra": "32AIB1 3",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2106",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2106|21PCB01 6|32AIB1 4",
+      "hojas": [
+       "21",
+       "32"
+      ],
+      "borne": "21PCB01 6",
+      "pin": "6",
+      "otra": "32AIB1 4",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2114",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2114|21PCB01 14|43KR1 11",
+      "hojas": [
+       "21",
+       "43"
+      ],
+      "borne": "21PCB01 14",
+      "pin": "14",
+      "otra": "43KR1 11",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2115",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2115|21PCB01 15|43KR1 12",
+      "hojas": [
+       "21",
+       "43"
+      ],
+      "borne": "21PCB01 15",
+      "pin": "15",
+      "otra": "43KR1 12",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2116",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2116|21PCB01 16|43DIB1 5",
+      "hojas": [
+       "21",
+       "43"
+      ],
+      "borne": "21PCB01 16",
+      "pin": "16",
+      "otra": "43DIB1 5",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2117",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2117|21PCB01 17|43DIB1 6",
+      "hojas": [
+       "21",
+       "43"
+      ],
+      "borne": "21PCB01 17",
+      "pin": "17",
+      "otra": "43DIB1 6",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2118",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2118|21PCB01 18|43DIB1 3",
+      "hojas": [
+       "21",
+       "43"
+      ],
+      "borne": "21PCB01 18",
+      "pin": "18",
+      "otra": "43DIB1 3",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2119",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2119|21PCB01 19|43DIB1 4",
+      "hojas": [
+       "21",
+       "43"
+      ],
+      "borne": "21PCB01 19",
+      "pin": "19",
+      "otra": "43DIB1 4",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "8104",
+      "cable": "B0.3MM",
+      "color": "Blanco",
+      "secc": "0.3",
+      "clave": "8104|12PS2|21PCB01 32",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "21PCB01 32",
+      "pin": "32",
+      "otra": "12PS2",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8105",
+      "cable": "AM0.3MM",
+      "color": "Amarillo",
+      "secc": "0.3",
+      "clave": "8105|12PS2|21PCB01 33",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "21PCB01 33",
+      "pin": "33",
+      "otra": "12PS2",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8101",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "8101|21PCB01 35|81TM01 1",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "21PCB01 35",
+      "pin": "35",
+      "otra": "81TM01 1",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8101",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "8101|21PCB01 35|81XCM 1",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "21PCB01 35",
+      "pin": "35",
+      "otra": "81XCM 1 ARRIBA",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8102",
+      "cable": "B1MM",
+      "color": "Blanco",
+      "secc": "1",
+      "clave": "8102|21PCB01 36|81TM01 15",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "21PCB01 36",
+      "pin": "36",
+      "otra": "81TM01 15",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8102",
+      "cable": "B1MM",
+      "color": "Blanco",
+      "secc": "1",
+      "clave": "8102|21PCB01 36|81XCM 2",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "21PCB01 36",
+      "pin": "36",
+      "otra": "81XCM 2 ARRIBA",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8103",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "8103|21PCB01 37|81XCM 3",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "21PCB01 37",
+      "pin": "37",
+      "otra": "81XCM 3 ARRIBA",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "2139",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2139|21PCB01 39|31XAI 2",
+      "hojas": [
+       "31"
+      ],
+      "borne": "21PCB01 39",
+      "pin": "39",
+      "otra": "31XAI 2 ARRIBA",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2142",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2142|21PCB01 42|31XAI 1",
+      "hojas": [
+       "31"
+      ],
+      "borne": "21PCB01 42",
+      "pin": "42",
+      "otra": "31XAI 1 ARRIBA",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "1401",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "secc": "1",
+      "clave": "1401|13XC1 2.3|21PCB01 48",
+      "hojas": [
+       "13",
+       "14"
+      ],
+      "borne": "21PCB01 48",
+      "pin": "48",
+      "otra": "13XC1 2.3",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "1402",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "1402|13XC1 3.4|21PCB01 49",
+      "hojas": [
+       "13",
+       "14"
+      ],
+      "borne": "21PCB01 49",
+      "pin": "49",
+      "otra": "13XC1 3.4",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2150",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2150|21PCB01 50|61KR1 A1",
+      "hojas": [
+       "61"
+      ],
+      "borne": "21PCB01 50",
+      "pin": "50",
+      "otra": "61KR1 A1",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2151",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2151|21PCB01 51|61KR1 A2",
+      "hojas": [
+       "61"
+      ],
+      "borne": "21PCB01 51",
+      "pin": "51",
+      "otra": "61KR1 A2",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2152",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2152|21PCB01 52|61KR2 A1",
+      "hojas": [
+       "61"
+      ],
+      "borne": "21PCB01 52",
+      "pin": "52",
+      "otra": "61KR2 A1",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2153",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2153|21PCB01 53|61KR2 A2",
+      "hojas": [
+       "61"
+      ],
+      "borne": "21PCB01 53",
+      "pin": "53",
+      "otra": "61KR2 A2",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2160",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2160|21PCB01 60|61KR3 A1",
+      "hojas": [
+       "61"
+      ],
+      "borne": "21PCB01 60",
+      "pin": "60",
+      "otra": "61KR3 A1",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "2161",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "2161|21PCB01 61|61KR3 A2",
+      "hojas": [
+       "61"
+      ],
+      "borne": "21PCB01 61",
+      "pin": "61",
+      "otra": "61KR3 A2",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "12PB1",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "1204",
+      "cable": "R35MM",
+      "color": "Rojo",
+      "secc": "35",
+      "clave": "1204|12PB1 +|BH-01-ZV",
+      "hojas": [
+       "12"
+      ],
+      "borne": "12PB1 +",
+      "pin": "+",
+      "otra": "BH-01-ZV",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "1204",
+      "cable": "R4MM",
+      "color": "Rojo",
+      "secc": "4",
+      "clave": "1204|12PB1 +|12XP 1.4",
+      "hojas": [
+       "12"
+      ],
+      "borne": "12PB1 +",
+      "pin": "+",
+      "otra": "12XP 1.4",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "1205",
+      "cable": "N35MM",
+      "color": "Negro",
+      "secc": "35",
+      "clave": "1205|12PB1 -|BH-01-M",
+      "hojas": [
+       "12"
+      ],
+      "borne": "12PB1 -",
+      "pin": "-",
+      "otra": "BH-01-M",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "1205",
+      "cable": "N4MM",
+      "color": "Negro",
+      "secc": "4",
+      "clave": "1205|12PB1 -|12XP 4.4",
+      "hojas": [
+       "12"
+      ],
+      "borne": "12PB1 -",
+      "pin": "-",
+      "otra": "12XP 4.4",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "12PS1",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "1101",
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "secc": "2.5",
+      "clave": "1101|11XP 1|12PS1 +",
+      "hojas": [
+       "11",
+       "12"
+      ],
+      "borne": "12PS1 +",
+      "pin": "+",
+      "otra": "11XP 1 ABAJO",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "1201",
+      "cable": "R4MM",
+      "color": "Rojo",
+      "secc": "4",
+      "clave": "1201|12F1|12PS1 +",
+      "hojas": [
+       "12"
+      ],
+      "borne": "12PS1 +",
+      "pin": "+",
+      "otra": "12F1 ARRIBA",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "1102",
+      "cable": "N2.5MM",
+      "color": "Negro",
+      "secc": "2.5",
+      "clave": "1102|11XP 2|12PS1 -",
+      "hojas": [
+       "11",
+       "12"
+      ],
+      "borne": "12PS1 -",
+      "pin": "-",
+      "otra": "11XP 2 ABAJO",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "1202",
+      "cable": "N4MM",
+      "color": "Negro",
+      "secc": "4",
+      "clave": "1202|12PS1 -|12XP 4.1",
+      "hojas": [
+       "12"
+      ],
+      "borne": "12PS1 -",
+      "pin": "-",
+      "otra": "12XP 4.1",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "81TM01",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "8101",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "8101|21PCB01 35|81TM01 1",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "81TM01 1",
+      "pin": "1",
+      "otra": "21PCB01 35",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "1602",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "1602|13PS2 -Vo|81TM01 6",
+      "hojas": [
+       "13",
+       "16"
+      ],
+      "borne": "81TM01 6",
+      "pin": "6",
+      "otra": "13PS2 -Vo",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "1601",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "secc": "1",
+      "clave": "1601|13PS2 +Vo|81TM01 7",
+      "hojas": [
+       "13",
+       "16"
+      ],
+      "borne": "81TM01 7",
+      "pin": "7",
+      "otra": "13PS2 +Vo",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "8102",
+      "cable": "B1MM",
+      "color": "Blanco",
+      "secc": "1",
+      "clave": "8102|21PCB01 36|81TM01 15",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "81TM01 15",
+      "pin": "15",
+      "otra": "21PCB01 36",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "81XCM",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "8101",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "8101|21PCB01 35|81XCM 1",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "81XCM 1 ARRIBA",
+      "pin": "1",
+      "otra": "21PCB01 35",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8102",
+      "cable": "B1MM",
+      "color": "Blanco",
+      "secc": "1",
+      "clave": "8102|21PCB01 36|81XCM 2",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "81XCM 2 ARRIBA",
+      "pin": "2",
+      "otra": "21PCB01 36",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8103",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "8103|21PCB01 37|81XCM 3",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "81XCM 3 ARRIBA",
+      "pin": "3",
+      "otra": "21PCB01 37",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "11XP",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "1101",
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "secc": "2.5",
+      "clave": "1101|11XP 1|12PS1 +",
+      "hojas": [
+       "11",
+       "12"
+      ],
+      "borne": "11XP 1 ABAJO",
+      "pin": "1",
+      "otra": "12PS1 +",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "1102",
+      "cable": "N2.5MM",
+      "color": "Negro",
+      "secc": "2.5",
+      "clave": "1102|11XP 2|12PS1 -",
+      "hojas": [
+       "11",
+       "12"
+      ],
+      "borne": "11XP 2 ABAJO",
+      "pin": "2",
+      "otra": "12PS1 -",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "12CB1",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "1225",
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "secc": "2.5",
+      "clave": "1225|12CB1 +|12F3",
+      "hojas": [
+       "12"
+      ],
+      "borne": "12CB1 +",
+      "pin": "+",
+      "otra": "12F3 ABAJO",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "1216",
+      "cable": "N2.5MM",
+      "color": "Negro",
+      "secc": "2.5",
+      "clave": "1216|12CB1 -|12XP 4.3",
+      "hojas": [
+       "12"
+      ],
+      "borne": "12CB1 -",
+      "pin": "-",
+      "otra": "12XP 4.3",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "12PS2",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "8104",
+      "cable": "B0.3MM",
+      "color": "Blanco",
+      "secc": "0.3",
+      "clave": "8104|12PS2|21PCB01 32",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "12PS2",
+      "pin": "",
+      "otra": "21PCB01 32",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "8105",
+      "cable": "AM0.3MM",
+      "color": "Amarillo",
+      "secc": "0.3",
+      "clave": "8105|12PS2|21PCB01 33",
+      "hojas": [
+       "21",
+       "81"
+      ],
+      "borne": "12PS2",
+      "pin": "",
+      "otra": "21PCB01 33",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "13SH1",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "1301",
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "secc": "2.5",
+      "clave": "1301|13SH1|13XC1 1.4",
+      "hojas": [
+       "13"
+      ],
+      "borne": "13SH1 ARRIBA",
+      "pin": "",
+      "otra": "13XC1 1.4",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "1303",
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "secc": "2.5",
+      "clave": "1303|13SH1|13XC1 2.4",
+      "hojas": [
+       "13"
+      ],
+      "borne": "13SH1 ABAJO",
+      "pin": "",
+      "otra": "13XC1 2.4",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "43XDI",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "4305",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "secc": "1",
+      "clave": "4305|43KR1 A1|43XDI 1",
+      "hojas": [
+       "43"
+      ],
+      "borne": "43XDI 1 ARRIBA",
+      "pin": "1",
+      "otra": "43KR1 A1",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "4306",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "4306|43KR1 A2|43XDI 2",
+      "hojas": [
+       "43"
+      ],
+      "borne": "43XDI 2 ARRIBA",
+      "pin": "2",
+      "otra": "43KR1 A2",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "BH-01-ZV",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "1204",
+      "cable": "R35MM",
+      "color": "Rojo",
+      "secc": "35",
+      "clave": "1204|12PB1 +|BH-01-ZV",
+      "hojas": [
+       "12"
+      ],
+      "borne": "BH-01-ZV",
+      "pin": "",
+      "otra": "12PB1 +",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     },
+     {
+      "num": "6102",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "secc": "1",
+      "clave": "6102|BH-01-ZV|XM1 1",
+      "hojas": [
+       "61"
+      ],
+      "borne": "BH-01-ZV",
+      "pin": "",
+      "otra": "XM1 1 ABAJO",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": "en la vista de la bandeja pero fuera del largo de su riel"
+   },
+   {
+    "tag": "PT 001",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "3102",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "secc": "0.75",
+      "clave": "3102|31XAI 1|PT 001 1",
+      "hojas": [
+       "31"
+      ],
+      "borne": "PT 001 1",
+      "pin": "1",
+      "otra": "31XAI 1 ABAJO",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "3101",
+      "cable": "R0.75MM",
+      "color": "Rojo",
+      "secc": "0.75",
+      "clave": "3101|31XAI F1|PT 001 2",
+      "hojas": [
+       "31"
+      ],
+      "borne": "PT 001 2",
+      "pin": "2",
+      "otra": "31XAI F1 ABAJO",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": "en la vista de la bandeja pero fuera del largo de su riel"
+   },
+   {
+    "tag": "ZY",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "6201",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "secc": "1",
+      "clave": "6201|XM1 3|ZY",
+      "hojas": [
+       "61"
+      ],
+      "borne": "ZY",
+      "pin": "",
+      "otra": "XM1 3 ABAJO",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     },
+     {
+      "num": "6202",
+      "cable": "N1MM",
+      "color": "Negro",
+      "secc": "1",
+      "clave": "6202|XM1 4|ZY",
+      "hojas": [
+       "61"
+      ],
+      "borne": "ZY",
+      "pin": "",
+      "otra": "XM1 4 ABAJO",
+      "otra_donde": "bandeja principal",
+      "viene_de_e6": true
+     }
+    ],
+    "nota": null
+   },
+   {
+    "tag": "BH-01-M",
+    "zona": "puerta / placa",
+    "cables": [
+     {
+      "num": "1205",
+      "cable": "N35MM",
+      "color": "Negro",
+      "secc": "35",
+      "clave": "1205|12PB1 -|BH-01-M",
+      "hojas": [
+       "12"
+      ],
+      "borne": "BH-01-M",
+      "pin": "",
+      "otra": "12PB1 -",
+      "otra_donde": "puerta / placa",
+      "viene_de_e6": false
+     }
+    ],
+    "nota": null
+   }
+  ],
+  "campo": 0,
+  "avisos": [
+   "el topográfico no tiene una vista de bandeja lateral con aparatos: la vista de la lateral queda vacía"
+  ],
+  "hechos": []
+ },
+ "estaciones": {},
+ "estacion": "E6",
+ "estacion_auto": {
+  "seccion_min": 35,
+  "estacion": "E8"
+ },
+ "salidas": {},
+ "auditoria": {},
+ "wpc": {},
+ "proyector": {},
+ "producto": {
+  "documento": null,
+  "revision": null
+ },
+ "overrides": {},
+ "topografico": "topografico.pdf",
+ "hoja_topo": 4,
+ "editado": false
+}

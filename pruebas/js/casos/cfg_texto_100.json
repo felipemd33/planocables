@@ -1,0 +1,11 @@
+{
+  "_nota": "Parámetros del trabajo guardados como texto (la pantalla guarda t.value): '100' vale 100 (igual que el número).",
+  "de": "chico.json",
+  "wpc": {
+    "cfg": {
+      "margen_bandeja": "100",
+      "agregado_bandeja": "75",
+      "acometida": "75"
+    }
+  }
+}

@@ -1,0 +1,9740 @@
+{
+ "instructivo": {
+  "accesorios": [],
+  "alternativas": [
+   {
+    "elegida": 1,
+    "hoja": "15",
+    "opciones": {
+     "1": "BARRERA CHENZHU",
+     "2": "BARRERA Bei Jing Ping He",
+     "3": "BARRERA PEPPERL + FUCHS"
+    },
+    "por": "la de la lista de materiales"
+   },
+   {
+    "elegida": 1,
+    "hoja": "43",
+    "opciones": {
+     "1": "CHENZHU",
+     "2": "Bei JingPing He",
+     "3": "PEPPERL+FUCHS"
+    },
+    "por": "la de la lista de materiales"
+   },
+   {
+    "elegida": 1,
+    "hoja": "61",
+    "opciones": {
+     "1": "VIBO",
+     "2": "SENSOR OIL"
+    },
+    "por": "la primera"
+   }
+  ],
+  "auditoria": {},
+  "bornes_usuario": {},
+  "componentes": [
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "11Q1",
+    "tag": "11Q1",
+    "ubic": "BANDEJA",
+    "x": 491.7
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "11PS1",
+    "tag": "11PS1",
+    "ubic": "BANDEJA",
+    "x": 523.5
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "13PS3",
+    "tag": "13PS3",
+    "ubic": "BANDEJA",
+    "x": 546.8
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "33MX01",
+    "tag": "33MX01",
+    "ubic": "BANDEJA",
+    "x": 565.1
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "12F1",
+    "tag": "12F1",
+    "ubic": "BANDEJA",
+    "x": 623.0
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "13F2",
+    "tag": "13F2",
+    "ubic": "BANDEJA",
+    "x": 632.9
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "61KR",
+    "tag": "61KR",
+    "ubic": "BANDEJA",
+    "x": 640.7
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "43KR",
+    "tag": "43KR",
+    "ubic": "BANDEJA",
+    "x": 656.7
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "XM1",
+    "tag": "XM1",
+    "ubic": "BANDEJA",
+    "x": 667.1
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "31XAI",
+    "tag": "31XAI",
+    "ubic": "BANDEJA",
+    "x": 679.0
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "12XP",
+    "tag": "12XP",
+    "ubic": "BANDEJA",
+    "x": 689.3
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "13XC1",
+    "tag": "13XC1",
+    "ubic": "BANDEJA",
+    "x": 706.8
+   },
+   {
+    "encontrado": true,
+    "fila": 1,
+    "leido": "61XDIO",
+    "tag": "61XDIO",
+    "ubic": "BANDEJA",
+    "x": 734.7
+   },
+   {
+    "encontrado": true,
+    "fila": 2,
+    "leido": "43DIB1",
+    "tag": "43DIB1",
+    "ubic": "BANDEJA",
+    "x": 510.4
+   },
+   {
+    "encontrado": true,
+    "fila": 2,
+    "leido": "43XDIB",
+    "tag": "43XDIB",
+    "ubic": "BANDEJA",
+    "x": 535.5
+   },
+   {
+    "encontrado": false,
+    "fila": null,
+    "leido": "",
+    "tag": "13SH1",
+    "ubic": "LI",
+    "x": null
+   },
+   {
+    "encontrado": false,
+    "fila": null,
+    "leido": "",
+    "tag": "21PCB01",
+    "ubic": "LI",
+    "x": null
+   },
+   {
+    "encontrado": false,
+    "fila": null,
+    "leido": "",
+    "tag": "BH-01-M",
+    "ubic": "LI",
+    "x": null
+   },
+   {
+    "encontrado": false,
+    "fila": null,
+    "leido": "",
+    "tag": "ZY",
+    "ubic": "LI",
+    "x": null
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "12PS2",
+    "tag": "12PS2",
+    "ubic": "LI",
+    "x": 195.1
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "12PB1",
+    "tag": "12PB1",
+    "ubic": "LI",
+    "x": 225.2
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "PT001",
+    "tag": "PT 001",
+    "ubic": "LI",
+    "x": 655.7
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "BH-01-ZV",
+    "tag": "BH-01-ZV",
+    "ubic": "LI",
+    "x": 680.5
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "32XAI",
+    "tag": "32XAI",
+    "ubic": "LI",
+    "x": 950.6
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "33XAI",
+    "tag": "33XAI",
+    "ubic": "LI",
+    "x": 960.9
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "13XC2",
+    "tag": "13XC2",
+    "ubic": "LI",
+    "x": 983.3
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "43XDI",
+    "tag": "43XDI",
+    "ubic": "LI",
+    "x": 995.3
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "16XC",
+    "tag": "16XC",
+    "ubic": "LI",
+    "x": 1000.7
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "81XCM",
+    "tag": "81XCM",
+    "ubic": "LI",
+    "x": 1004.1
+   },
+   {
+    "encontrado": true,
+    "fila": null,
+    "leido": "11XP",
+    "tag": "11XP",
+    "ubic": "LI",
+    "x": 1021.8
+   }
+  ],
+  "editado": false,
+  "estacion": "E6",
+  "estacion8": {
+   "afuera": [
+    {
+     "cables": [
+      {
+       "borne": "21PCB01 5",
+       "cable": "N0.75MM",
+       "clave": "2105|21PCB01 5|32XAI 1",
+       "color": "Negro",
+       "hojas": [
+        "32"
+       ],
+       "num": "2105",
+       "otra": "32XAI 1 ARRIBA",
+       "otra_donde": "puerta / placa",
+       "pin": "5",
+       "secc": "0.75",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "21PCB01 11",
+       "cable": "N0.75MM",
+       "clave": "2111|12XP 1.3|21PCB01 11",
+       "color": "Negro",
+       "hojas": [
+        "12",
+        "21"
+       ],
+       "num": "2111",
+       "otra": "12XP 1.3",
+       "otra_donde": "bandeja principal",
+       "pin": "11",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 12",
+       "cable": "N0.75MM",
+       "clave": "2112|12XP 2.2|21PCB01 12",
+       "color": "Negro",
+       "hojas": [
+        "12",
+        "21"
+       ],
+       "num": "2112",
+       "otra": "12XP 2.2",
+       "otra_donde": "bandeja principal",
+       "pin": "12",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 14",
+       "cable": "N0.75MM",
+       "clave": "2114|21PCB01 14|43KR1 11",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "43A"
+       ],
+       "num": "2114",
+       "otra": "43KR1 11",
+       "otra_donde": "bandeja principal",
+       "pin": "14",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 15",
+       "cable": "N0.75MM",
+       "clave": "2115|21PCB01 15|43KR1 12",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "43A"
+       ],
+       "num": "2115",
+       "otra": "43KR1 12",
+       "otra_donde": "bandeja principal",
+       "pin": "15",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 16",
+       "cable": "N0.75MM",
+       "clave": "2116|21PCB01 16|43DIB1 3",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "43A"
+       ],
+       "num": "2116",
+       "otra": "43DIB1 3",
+       "otra_donde": "bandeja principal",
+       "pin": "16",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 17",
+       "cable": "N0.75MM",
+       "clave": "2117|21PCB01 17|43DIB1 4",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "43A"
+       ],
+       "num": "2117",
+       "otra": "43DIB1 4",
+       "otra_donde": "bandeja principal",
+       "pin": "17",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 18",
+       "cable": "N0.75MM",
+       "clave": "2118|21PCB01 18|43DIB1 5",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "43A"
+       ],
+       "num": "2118",
+       "otra": "43DIB1 5",
+       "otra_donde": "bandeja principal",
+       "pin": "18",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 19",
+       "cable": "N0.75MM",
+       "clave": "2119|21PCB01 19|43DIB1 6",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "43A"
+       ],
+       "num": "2119",
+       "otra": "43DIB1 6",
+       "otra_donde": "bandeja principal",
+       "pin": "19",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 32",
+       "cable": "N1MM",
+       "clave": "8105|21PCB01 32|EMPALME con 12PS2",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "num": "8105",
+       "otra": "EMPALME con 12PS2",
+       "otra_donde": "puerta / placa",
+       "pin": "32",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "21PCB01 33",
+       "cable": "B1MM",
+       "clave": "8106|21PCB01 33|EMPALME con 12PS2",
+       "color": "Blanco",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "num": "8106",
+       "otra": "EMPALME con 12PS2",
+       "otra_donde": "puerta / placa",
+       "pin": "33",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "21PCB01 35",
+       "cable": "N1MM",
+       "clave": "8103|21PCB01 35|81XCM 1",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "num": "8103",
+       "otra": "81XCM 1 ARRIBA",
+       "otra_donde": "puerta / placa",
+       "pin": "35",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "21PCB01 36",
+       "cable": "B1MM",
+       "clave": "8104|21PCB01 36|81XCM 2",
+       "color": "Blanco",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "num": "8104",
+       "otra": "81XCM 2 ARRIBA",
+       "otra_donde": "puerta / placa",
+       "pin": "36",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "21PCB01 42",
+       "cable": "N0.75MM",
+       "clave": "2142|21PCB01 42|31XAI 1",
+       "color": "Negro",
+       "hojas": [
+        "31"
+       ],
+       "num": "2142",
+       "otra": "31XAI 1 ARRIBA",
+       "otra_donde": "bandeja principal",
+       "pin": "42",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 48",
+       "cable": "R1MM",
+       "clave": "1306|13XC1 2.3|21PCB01 48",
+       "color": "Rojo",
+       "hojas": [
+        "13",
+        "14"
+       ],
+       "num": "1306",
+       "otra": "13XC1 2.3",
+       "otra_donde": "bandeja principal",
+       "pin": "48",
+       "secc": "1",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 49",
+       "cable": "N1MM",
+       "clave": "1307|13XC1 3.4|21PCB01 49",
+       "color": "Negro",
+       "hojas": [
+        "13",
+        "14"
+       ],
+       "num": "1307",
+       "otra": "13XC1 3.4",
+       "otra_donde": "bandeja principal",
+       "pin": "49",
+       "secc": "1",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 50",
+       "cable": "N0.75MM",
+       "clave": "2150|21PCB01 50|61KR1 A1",
+       "color": "Negro",
+       "hojas": [
+        "61A"
+       ],
+       "num": "2150",
+       "otra": "61KR1 A1",
+       "otra_donde": "bandeja principal",
+       "pin": "50",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 51",
+       "cable": "N0.75MM",
+       "clave": "2151|21PCB01 51|61KR1 A2",
+       "color": "Negro",
+       "hojas": [
+        "61A"
+       ],
+       "num": "2151",
+       "otra": "61KR1 A2",
+       "otra_donde": "bandeja principal",
+       "pin": "51",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 52",
+       "cable": "N0.75MM",
+       "clave": "2152|21PCB01 52|61KR2 A1",
+       "color": "Negro",
+       "hojas": [
+        "61A"
+       ],
+       "num": "2152",
+       "otra": "61KR2 A1",
+       "otra_donde": "bandeja principal",
+       "pin": "52",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 53",
+       "cable": "N0.75MM",
+       "clave": "2153|21PCB01 53|61KR2 A2",
+       "color": "Negro",
+       "hojas": [
+        "61A"
+       ],
+       "num": "2153",
+       "otra": "61KR2 A2",
+       "otra_donde": "bandeja principal",
+       "pin": "53",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 54",
+       "cable": "N0.75MM",
+       "clave": "2154|21PCB01 54|61KR3 A1",
+       "color": "Negro",
+       "hojas": [
+        "61A"
+       ],
+       "num": "2154",
+       "otra": "61KR3 A1",
+       "otra_donde": "bandeja principal",
+       "pin": "54",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "21PCB01 55",
+       "cable": "N0.75MM",
+       "clave": "2155|21PCB01 55|61KR3 A2",
+       "color": "Negro",
+       "hojas": [
+        "61A"
+       ],
+       "num": "2155",
+       "otra": "61KR3 A2",
+       "otra_donde": "bandeja principal",
+       "pin": "55",
+       "secc": "0.75",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "21PCB01",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "33XAI 1 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "3301|33MX01 1|33XAI 1",
+       "color": "Negro",
+       "hojas": [
+        "33"
+       ],
+       "num": "3301",
+       "otra": "33MX01 1",
+       "otra_donde": "bandeja principal",
+       "pin": "1",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "33XAI 2 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "3303|33MX01 3|33XAI 2",
+       "color": "Negro",
+       "hojas": [
+        "33"
+       ],
+       "num": "3303",
+       "otra": "33MX01 3",
+       "otra_donde": "bandeja principal",
+       "pin": "2",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "33XAI 3 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "3305|33MX01 5|33XAI 3",
+       "color": "Negro",
+       "hojas": [
+        "33"
+       ],
+       "num": "3305",
+       "otra": "33MX01 5",
+       "otra_donde": "bandeja principal",
+       "pin": "3",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "33XAI 4 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "3307|33MX01 7|33XAI 4",
+       "color": "Negro",
+       "hojas": [
+        "33"
+       ],
+       "num": "3307",
+       "otra": "33MX01 7",
+       "otra_donde": "bandeja principal",
+       "pin": "4",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "33XAI 5 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "3309|33MX01 9|33XAI 5",
+       "color": "Negro",
+       "hojas": [
+        "33"
+       ],
+       "num": "3309",
+       "otra": "33MX01 9",
+       "otra_donde": "bandeja principal",
+       "pin": "5",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "33XAI 6 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "3311|33MX01 11|33XAI 6",
+       "color": "Negro",
+       "hojas": [
+        "33"
+       ],
+       "num": "3311",
+       "otra": "33MX01 11",
+       "otra_donde": "bandeja principal",
+       "pin": "6",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "33XAI 7 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "3313|33MX01 13|33XAI 7",
+       "color": "Negro",
+       "hojas": [
+        "33"
+       ],
+       "num": "3313",
+       "otra": "33MX01 13",
+       "otra_donde": "bandeja principal",
+       "pin": "7",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "33XAI 8 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "3315|33MX01 15|33XAI 8",
+       "color": "Negro",
+       "hojas": [
+        "33"
+       ],
+       "num": "3315",
+       "otra": "33MX01 15",
+       "otra_donde": "bandeja principal",
+       "pin": "8",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "33XAI F1 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1601|16XC 1|33XAI F1",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "33"
+       ],
+       "num": "1601",
+       "otra": "16XC 1 ABAJO",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F1",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "33XAI F2 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1603|16XC 3|33XAI F2",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "33"
+       ],
+       "num": "1603",
+       "otra": "16XC 3 ARRIBA",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F2",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "33XAI F3 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1605|16XC 3|33XAI F3",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "33"
+       ],
+       "num": "1605",
+       "otra": "16XC 3 ABAJO",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F3",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "33XAI F4 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1607|16XC 5|33XAI F4",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "33"
+       ],
+       "num": "1607",
+       "otra": "16XC 5 ARRIBA",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F4",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "33XAI F5 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1609|16XC 5|33XAI F5",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "33"
+       ],
+       "num": "1609",
+       "otra": "16XC 5 ABAJO",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F5",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "33XAI F6 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1611|16XC 7|33XAI F6",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "33"
+       ],
+       "num": "1611",
+       "otra": "16XC 7 ARRIBA",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F6",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "33XAI F7 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1613|16XC 7|33XAI F7",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "33"
+       ],
+       "num": "1613",
+       "otra": "16XC 7 ABAJO",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F7",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "33XAI F8 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1615|16XC 9|33XAI F8",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "33"
+       ],
+       "num": "1615",
+       "otra": "16XC 9 ARRIBA",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F8",
+       "secc": "1",
+       "viene_de_e6": false
+      }
+     ],
+     "nota": null,
+     "tag": "33XAI",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "12PB1 +",
+       "cable": "R4MM",
+       "clave": "1204|12PB1 +|12XP 1.4",
+       "color": "Rojo",
+       "hojas": [
+        "12"
+       ],
+       "num": "1204",
+       "otra": "12XP 1.4",
+       "otra_donde": "bandeja principal",
+       "pin": "+",
+       "secc": "4",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "12PB1 +",
+       "cable": "R35MM",
+       "clave": "1205|12PB1 +|BH-01-ZV",
+       "color": "Rojo",
+       "hojas": [
+        "12"
+       ],
+       "num": "1205",
+       "otra": "BH-01-ZV",
+       "otra_donde": "puerta / placa",
+       "pin": "+",
+       "secc": "35",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "12PB1 -",
+       "cable": "N35MM",
+       "clave": "1206|12PB1 -|BH-01-M",
+       "color": "Negro",
+       "hojas": [
+        "12"
+       ],
+       "num": "1206",
+       "otra": "BH-01-M",
+       "otra_donde": "puerta / placa",
+       "pin": "-",
+       "secc": "35",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "12PB1 -",
+       "cable": "N4MM",
+       "clave": "1206|12PB1 -|12XP 2.4",
+       "color": "Negro",
+       "hojas": [
+        "12"
+       ],
+       "num": "1206",
+       "otra": "12XP 2.4",
+       "otra_donde": "bandeja principal",
+       "pin": "-",
+       "secc": "4",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "12PB1",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "12PS2 +",
+       "cable": "R2.5MM",
+       "clave": "1108|11PS1 +|12PS2 +",
+       "color": "Rojo",
+       "hojas": [
+        "11",
+        "12"
+       ],
+       "num": "1108",
+       "otra": "11PS1 +",
+       "otra_donde": "bandeja principal",
+       "pin": "+",
+       "secc": "2.5",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "12PS2 +",
+       "cable": "R4MM",
+       "clave": "1201|12F1|12PS2 +",
+       "color": "Rojo",
+       "hojas": [
+        "12"
+       ],
+       "num": "1201",
+       "otra": "12F1 ARRIBA",
+       "otra_donde": "bandeja principal",
+       "pin": "+",
+       "secc": "4",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "12PS2 -",
+       "cable": "N2.5MM",
+       "clave": "1109|11PS1 -|12PS2 -",
+       "color": "Negro",
+       "hojas": [
+        "11",
+        "12"
+       ],
+       "num": "1109",
+       "otra": "11PS1 -",
+       "otra_donde": "bandeja principal",
+       "pin": "-",
+       "secc": "2.5",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "12PS2 -",
+       "cable": "N4MM",
+       "clave": "1202|12PS2 -|12XP 2.1",
+       "color": "Negro",
+       "hojas": [
+        "12"
+       ],
+       "num": "1202",
+       "otra": "12XP 2.1",
+       "otra_donde": "bandeja principal",
+       "pin": "-",
+       "secc": "4",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "12PS2",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "81XCM 1 ARRIBA",
+       "cable": "N1MM",
+       "clave": "8103|21PCB01 35|81XCM 1",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "num": "8103",
+       "otra": "21PCB01 35",
+       "otra_donde": "puerta / placa",
+       "pin": "1",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "81XCM 2 ARRIBA",
+       "cable": "B1MM",
+       "clave": "8104|21PCB01 36|81XCM 2",
+       "color": "Blanco",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "num": "8104",
+       "otra": "21PCB01 36",
+       "otra_donde": "puerta / placa",
+       "pin": "2",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "81XCM 3 ARRIBA",
+       "cable": "N1MM",
+       "clave": "8101|61KR3 11|81XCM 3",
+       "color": "Negro",
+       "hojas": [
+        "81"
+       ],
+       "num": "8101",
+       "otra": "61KR3 11",
+       "otra_donde": "bandeja principal",
+       "pin": "3",
+       "secc": "1",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "81XCM 4 ARRIBA",
+       "cable": "N1MM",
+       "clave": "8102|61KR3 12|81XCM 4",
+       "color": "Negro",
+       "hojas": [
+        "81"
+       ],
+       "num": "8102",
+       "otra": "61KR3 12",
+       "otra_donde": "bandeja principal",
+       "pin": "4",
+       "secc": "1",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "81XCM",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "EMPALME con 12PS2",
+       "cable": "N1MM",
+       "clave": "8105|21PCB01 32|EMPALME con 12PS2",
+       "color": "Negro",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "num": "8105",
+       "otra": "21PCB01 32",
+       "otra_donde": "puerta / placa",
+       "pin": "con 12PS2",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "EMPALME con 12PS2",
+       "cable": "N1MM",
+       "clave": "8105|33MX01 D1+|EMPALME con 12PS2",
+       "color": "Negro",
+       "hojas": [
+        "81"
+       ],
+       "num": "8105",
+       "otra": "33MX01 D1+",
+       "otra_donde": "bandeja principal",
+       "pin": "con 12PS2",
+       "secc": "1",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "EMPALME con 12PS2",
+       "cable": "B1MM",
+       "clave": "8106|21PCB01 33|EMPALME con 12PS2",
+       "color": "Blanco",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "num": "8106",
+       "otra": "21PCB01 33",
+       "otra_donde": "puerta / placa",
+       "pin": "con 12PS2",
+       "secc": "1",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "EMPALME con 12PS2",
+       "cable": "B1MM",
+       "clave": "8106|33MX01 D1-|EMPALME con 12PS2",
+       "color": "Blanco",
+       "hojas": [
+        "81"
+       ],
+       "num": "8106",
+       "otra": "33MX01 D1-",
+       "otra_donde": "bandeja principal",
+       "pin": "con 12PS2",
+       "secc": "1",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "EMPALME",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "BH-01-ZV",
+       "cable": "R35MM",
+       "clave": "1205|12PB1 +|BH-01-ZV",
+       "color": "Rojo",
+       "hojas": [
+        "12"
+       ],
+       "num": "1205",
+       "otra": "12PB1 +",
+       "otra_donde": "puerta / placa",
+       "pin": "",
+       "secc": "35",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "BH-01-ZV",
+       "cable": "R1MM",
+       "clave": "6102|BH-01-ZV|XM1 1",
+       "color": "Rojo",
+       "hojas": [
+        "61A"
+       ],
+       "num": "6102",
+       "otra": "XM1 1 ABAJO",
+       "otra_donde": "bandeja principal",
+       "pin": "",
+       "secc": "1",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "BH-01-ZV",
+       "cable": "N1MM",
+       "clave": "6103|BH-01-ZV|XM1 2",
+       "color": "Negro",
+       "hojas": [
+        "61B"
+       ],
+       "num": "6103",
+       "otra": "XM1 2 ABAJO",
+       "otra_donde": "bandeja principal",
+       "pin": "",
+       "secc": "1",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": "en la vista de la bandeja pero fuera del largo de su riel",
+     "tag": "BH-01-ZV",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "11XP 1 ABAJO",
+       "cable": "M2.5MM",
+       "clave": "1104|11Q1 F|11XP 1",
+       "color": "Marrón",
+       "hojas": [
+        "11"
+       ],
+       "num": "1104",
+       "otra": "11Q1 F ARRIBA",
+       "otra_donde": "bandeja principal",
+       "pin": "1",
+       "secc": "2.5",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "11XP 2 ABAJO",
+       "cable": "B2.5MM",
+       "clave": "1105|11Q1 N|11XP 2",
+       "color": "Blanco",
+       "hojas": [
+        "11"
+       ],
+       "num": "1105",
+       "otra": "11Q1 N ARRIBA",
+       "otra_donde": "bandeja principal",
+       "pin": "2",
+       "secc": "2.5",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "11XP",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "13SH1 ARRIBA",
+       "cable": "R2.5MM",
+       "clave": "1302|13SH1|13XC1 1.4",
+       "color": "Rojo",
+       "hojas": [
+        "13"
+       ],
+       "num": "1302",
+       "otra": "13XC1 1.4",
+       "otra_donde": "bandeja principal",
+       "pin": "",
+       "secc": "2.5",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "13SH1 ABAJO",
+       "cable": "R2.5MM",
+       "clave": "1303|13SH1|13XC1 2.4",
+       "color": "Rojo",
+       "hojas": [
+        "13"
+       ],
+       "num": "1303",
+       "otra": "13XC1 2.4",
+       "otra_donde": "bandeja principal",
+       "pin": "",
+       "secc": "2.5",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "13SH1",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "32XAI 1 ARRIBA",
+       "cable": "N0.75MM",
+       "clave": "2105|21PCB01 5|32XAI 1",
+       "color": "Negro",
+       "hojas": [
+        "32"
+       ],
+       "num": "2105",
+       "otra": "21PCB01 5",
+       "otra_donde": "puerta / placa",
+       "pin": "1",
+       "secc": "0.75",
+       "viene_de_e6": false
+      },
+      {
+       "borne": "32XAI F1 ARRIBA",
+       "cable": "R1MM",
+       "clave": "1619|16XC 11|32XAI F1",
+       "color": "Rojo",
+       "hojas": [
+        "16",
+        "32"
+       ],
+       "num": "1619",
+       "otra": "16XC 11 ARRIBA",
+       "otra_donde": "bandeja lateral derecha",
+       "pin": "F1",
+       "secc": "1",
+       "viene_de_e6": false
+      }
+     ],
+     "nota": null,
+     "tag": "32XAI",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "43XDI 1 ARRIBA",
+       "cable": "R1MM",
+       "clave": "4305|43KR1 A1|43XDI 1",
+       "color": "Rojo",
+       "hojas": [
+        "43A"
+       ],
+       "num": "4305",
+       "otra": "43KR1 A1",
+       "otra_donde": "bandeja principal",
+       "pin": "1",
+       "secc": "1",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "43XDI 2 ARRIBA",
+       "cable": "N1MM",
+       "clave": "4306|43KR1 A2|43XDI 2",
+       "color": "Negro",
+       "hojas": [
+        "43A"
+       ],
+       "num": "4306",
+       "otra": "43KR1 A2",
+       "otra_donde": "bandeja principal",
+       "pin": "2",
+       "secc": "1",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "43XDI",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "PT 001 1",
+       "cable": "N0.75MM",
+       "clave": "3101|31XAI F1|PT 001 1",
+       "color": "Negro",
+       "hojas": [
+        "31"
+       ],
+       "num": "3101",
+       "otra": "31XAI F1 ABAJO",
+       "otra_donde": "bandeja principal",
+       "pin": "1",
+       "secc": "0.75",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "PT 001 2",
+       "cable": "N0.75MM",
+       "clave": "3102|31XAI 1|PT 001 2",
+       "color": "Negro",
+       "hojas": [
+        "31"
+       ],
+       "num": "3102",
+       "otra": "31XAI 1 ABAJO",
+       "otra_donde": "bandeja principal",
+       "pin": "2",
+       "secc": "0.75",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": "en la vista de la bandeja pero fuera del largo de su riel",
+     "tag": "PT 001",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "ZY",
+       "cable": "R1MM",
+       "clave": "6201|XM1 3|ZY",
+       "color": "Rojo",
+       "hojas": [
+        "61A"
+       ],
+       "num": "6201",
+       "otra": "XM1 3 ABAJO",
+       "otra_donde": "bandeja principal",
+       "pin": "",
+       "secc": "1",
+       "viene_de_e6": true
+      },
+      {
+       "borne": "ZY",
+       "cable": "N1MM",
+       "clave": "6202|XM1 4|ZY",
+       "color": "Negro",
+       "hojas": [
+        "61A"
+       ],
+       "num": "6202",
+       "otra": "XM1 4 ABAJO",
+       "otra_donde": "bandeja principal",
+       "pin": "",
+       "secc": "1",
+       "viene_de_e6": true
+      }
+     ],
+     "nota": null,
+     "tag": "ZY",
+     "zona": "puerta / placa"
+    },
+    {
+     "cables": [
+      {
+       "borne": "BH-01-M",
+       "cable": "N35MM",
+       "clave": "1206|12PB1 -|BH-01-M",
+       "color": "Negro",
+       "hojas": [
+        "12"
+       ],
+       "num": "1206",
+       "otra": "12PB1 -",
+       "otra_donde": "puerta / placa",
+       "pin": "",
+       "secc": "35",
+       "viene_de_e6": false
+      }
+     ],
+     "nota": null,
+     "tag": "BH-01-M",
+     "zona": "puerta / placa"
+    }
+   ],
+   "avisos": [],
+   "campo": 3,
+   "hechos": [],
+   "laterales": [
+    {
+     "ductos": [],
+     "escala": 1.7639,
+     "exactos": 0,
+     "lado": "LD",
+     "n": 25,
+     "nombre": "Bandeja lateral derecha",
+     "pag": 4,
+     "pasos": [
+      {
+       "lado": "abajo",
+       "lineas": [
+        {
+         "cable": "R1MM",
+         "clave": "1311|13PS3 +Vo|13XC2 1.1",
+         "color": "Rojo",
+         "componente": "13XC2",
+         "destino": "13PS3 +Vo",
+         "exacto_o": false,
+         "hojas": [
+          "13"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          986.8,
+          579.8,
+          null
+         ],
+         "num": "1311",
+         "origen": "13XC2 1.1",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1315|13XC2 1.4|33MX01 V+",
+         "color": "Rojo",
+         "componente": "13XC2",
+         "destino": "33MX01 V+",
+         "exacto_o": false,
+         "hojas": [
+          "13",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          986.8,
+          579.8,
+          null
+         ],
+         "num": "1315",
+         "origen": "13XC2 1.4",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "N1MM",
+         "clave": "1312|13PS3 -Vo|13XC2 2.1",
+         "color": "Negro",
+         "componente": "13XC2",
+         "destino": "13PS3 -Vo",
+         "exacto_o": false,
+         "hojas": [
+          "13"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          990.3,
+          579.8,
+          null
+         ],
+         "num": "1312",
+         "origen": "13XC2 2.1",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "N1MM",
+         "clave": "1319|13XC1 3.3|13XC2 2.2",
+         "color": "Negro",
+         "componente": "13XC2",
+         "destino": "13XC1 3.3",
+         "exacto_o": false,
+         "hojas": [
+          "13"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          990.3,
+          579.8,
+          null
+         ],
+         "num": "1319",
+         "origen": "13XC2 2.2",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "N1MM",
+         "clave": "1316|13XC2 2.4|33MX01 V-",
+         "color": "Negro",
+         "componente": "13XC2",
+         "destino": "33MX01 V-",
+         "exacto_o": false,
+         "hojas": [
+          "13",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          990.3,
+          579.8,
+          null
+         ],
+         "num": "1316",
+         "origen": "13XC2 2.4",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1601|16XC 1|33XAI F1",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "33XAI F1 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1004.2,
+          579.8,
+          null
+         ],
+         "num": "1601",
+         "origen": "16XC 1 ABAJO",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1317|13XC2 1.3|16XC 1",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "13XC2 1.3",
+         "exacto_d": false,
+         "exacto_o": false,
+         "hojas": [
+          "13",
+          "16"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_d": [
+          986.8,
+          579.8,
+          null
+         ],
+         "marca_o": [
+          1004.2,
+          579.8,
+          null
+         ],
+         "num": "1317",
+         "origen": "16XC 1 ARRIBA",
+         "otra": "misma bandeja",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "N0.75MM",
+         "clave": "1602|16XC 2|33MX01 2",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "33MX01 2",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1007.7,
+          579.8,
+          null
+         ],
+         "num": "1602",
+         "origen": "16XC 2 ABAJO",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "0.75",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "N1MM",
+         "clave": "1318|13XC2 2.3|16XC 2",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "13XC2 2.3",
+         "exacto_d": false,
+         "exacto_o": false,
+         "hojas": [
+          "13",
+          "16"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_d": [
+          990.3,
+          579.8,
+          null
+         ],
+         "marca_o": [
+          1007.7,
+          579.8,
+          null
+         ],
+         "num": "1318",
+         "origen": "16XC 2 ARRIBA",
+         "otra": "misma bandeja",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1605|16XC 3|33XAI F3",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "33XAI F3 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1011.2,
+          579.8,
+          null
+         ],
+         "num": "1605",
+         "origen": "16XC 3 ABAJO",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1603|16XC 3|33XAI F2",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "33XAI F2 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1011.2,
+          579.8,
+          null
+         ],
+         "num": "1603",
+         "origen": "16XC 3 ARRIBA",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "N0.75MM",
+         "clave": "1606|16XC 4|33MX01 6",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "33MX01 6",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1014.7,
+          579.8,
+          null
+         ],
+         "num": "1606",
+         "origen": "16XC 4 ABAJO",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "0.75",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "N0.75MM",
+         "clave": "1604|16XC 4|33MX01 4",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "33MX01 4",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1014.7,
+          579.8,
+          null
+         ],
+         "num": "1604",
+         "origen": "16XC 4 ARRIBA",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "0.75",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1609|16XC 5|33XAI F5",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "33XAI F5 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1018.2,
+          579.8,
+          null
+         ],
+         "num": "1609",
+         "origen": "16XC 5 ABAJO",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1607|16XC 5|33XAI F4",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "33XAI F4 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1018.2,
+          579.8,
+          null
+         ],
+         "num": "1607",
+         "origen": "16XC 5 ARRIBA",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "N0.75MM",
+         "clave": "1610|16XC 6|33MX01 10",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "33MX01 10",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1021.7,
+          579.8,
+          null
+         ],
+         "num": "1610",
+         "origen": "16XC 6 ABAJO",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "0.75",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "N0.75MM",
+         "clave": "1608|16XC 6|33MX01 8",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "33MX01 8",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1021.7,
+          579.8,
+          null
+         ],
+         "num": "1608",
+         "origen": "16XC 6 ARRIBA",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "0.75",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1613|16XC 7|33XAI F7",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "33XAI F7 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1025.2,
+          579.8,
+          null
+         ],
+         "num": "1613",
+         "origen": "16XC 7 ABAJO",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1611|16XC 7|33XAI F6",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "33XAI F6 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1025.2,
+          579.8,
+          null
+         ],
+         "num": "1611",
+         "origen": "16XC 7 ARRIBA",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "N0.75MM",
+         "clave": "1614|16XC 8|33MX01 14",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "33MX01 14",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1028.7,
+          579.8,
+          null
+         ],
+         "num": "1614",
+         "origen": "16XC 8 ABAJO",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "0.75",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "N0.75MM",
+         "clave": "1612|16XC 8|33MX01 12",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "33MX01 12",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1028.7,
+          579.8,
+          null
+         ],
+         "num": "1612",
+         "origen": "16XC 8 ARRIBA",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "0.75",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1617|16XC 9|31XAI F1",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "31XAI F1 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "31"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1032.2,
+          579.8,
+          null
+         ],
+         "num": "1617",
+         "origen": "16XC 9 ABAJO",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1615|16XC 9|33XAI F8",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "33XAI F8 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1032.2,
+          579.8,
+          null
+         ],
+         "num": "1615",
+         "origen": "16XC 9 ARRIBA",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        },
+        {
+         "cable": "N0.75MM",
+         "clave": "1616|16XC 10|33MX01 16",
+         "color": "Negro",
+         "componente": "16XC",
+         "destino": "33MX01 16",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "33"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1035.7,
+          579.8,
+          null
+         ],
+         "num": "1616",
+         "origen": "16XC 10 ARRIBA",
+         "otra": "bandeja principal",
+         "riel": 1,
+         "ruta": null,
+         "secc": "0.75",
+         "viene_de_e6": true
+        },
+        {
+         "cable": "R1MM",
+         "clave": "1619|16XC 11|32XAI F1",
+         "color": "Rojo",
+         "componente": "16XC",
+         "destino": "32XAI F1 ARRIBA",
+         "exacto_o": false,
+         "hojas": [
+          "16",
+          "32"
+         ],
+         "lado": "abajo",
+         "largo_mm": null,
+         "marca_o": [
+          1039.2,
+          579.8,
+          null
+         ],
+         "num": "1619",
+         "origen": "16XC 11 ARRIBA",
+         "otra": "puerta / placa",
+         "riel": 1,
+         "ruta": null,
+         "secc": "1"
+        }
+       ],
+       "n": 1,
+       "riel": 1,
+       "titulo": "Riel 1 · parte de abajo · 13XC2, 16XC"
+      }
+     ],
+     "region": [
+      895.38,
+      512.71,
+      1094.84,
+      673.09
+     ],
+     "rieles": [
+      592.9
+     ],
+     "sin_canaletas": true,
+     "vista": 1
+    }
+   ],
+   "version": 1
+  },
+  "estacion_auto": {
+   "estacion": "E8",
+   "seccion_min": 35
+  },
+  "estaciones": {},
+  "hoja_topo": 4,
+  "mapeo": {
+   "avisos": [
+    "no figuran en la lista de materiales; modelo por la geometria: 61XDIO = PT2.5-DIO, XM1 = PTT2.5-2MT, 61KR = RIF-0-RPT",
+    "plano monocromo: no se usan los colores del catalogo (PE verde, pieza azul, bocas grises)",
+    "13XC1: la lista de materiales dice PT4 pero el dibujo coincide mejor con PT6-QUATTRO",
+    "12XP: la lista de materiales dice PT4 pero el dibujo coincide mejor con PT6-QUATTRO",
+    "31XAI: la lista de materiales dice PTT2.5-2MT pero el dibujo coincide mejor con PTTB4-HESI",
+    "43XDIB: no se encontro en el dibujo el modelo de la lista de materiales (PTT2.5-2MT-BU) ni otro de la misma familia; sus bornes quedan sin punto exacto",
+    "'13PS3 +Vin' #1304: no se pudo ubicar el borne; queda el punto aproximado",
+    "'13PS3 -Vin' #1309: no se pudo ubicar el borne; queda el punto aproximado",
+    "43XDIB: 4 bornes sin ubicar ('43XDIB 1 ARRIBA' #4301, '43XDIB 2 ARRIBA' #4302, '43XDIB 3 ARRIBA' #4303, '43XDIB 4 ARRIBA' #4304); quedan con el punto aproximado"
+   ],
+   "error": null,
+   "lado_fisico": [
+    {
+     "funcional": "61XDIO 2 ARRIBA",
+     "instructivo": "61XDIO 2 ABAJO",
+     "num": "1308"
+    },
+    {
+     "funcional": "43DIB1 1 ABAJO",
+     "instructivo": "43DIB1 1 ARRIBA",
+     "num": "1313"
+    },
+    {
+     "funcional": "43DIB1 2 ABAJO",
+     "instructivo": "43DIB1 2 ARRIBA",
+     "num": "1314"
+    },
+    {
+     "funcional": "61XDIO 1 ABAJO",
+     "instructivo": "61XDIO 1 ARRIBA",
+     "num": "6101"
+    },
+    {
+     "funcional": "61XDIO 2 ABAJO",
+     "instructivo": "61XDIO 2 ARRIBA",
+     "num": "6104"
+    }
+   ],
+   "manuales": 0,
+   "materiales": "lista de materiales del funcional",
+   "modelos": {
+    "11PS1": "MEANWELL-NDR",
+    "11Q1": "ABB-SH202",
+    "12F1": "DF101",
+    "12XP": "PT6-QUATTRO",
+    "13F2": "DF101",
+    "13PS3": "MEANWELL-DDR",
+    "13XC1": "PT6-QUATTRO",
+    "31XAI": "PTTB4-HESI",
+    "33MX01": "MOXA-R1240",
+    "43DIB1": "GS8512-EX",
+    "43KR": "RIF-0-RPT",
+    "43XDIB": "PTT2.5-2MT-BU",
+    "61KR": "RIF-0-RPT",
+    "61XDIO": "PT2.5-DIO",
+    "XM1": "PTT2.5-2MT"
+   },
+   "modelos_faltantes": [],
+   "n_puntos": {
+    "alta": 70,
+    "baja": 6,
+    "media": 26
+   },
+   "usados": 96,
+   "version": "2026.10.07-1"
+  },
+  "otra_estacion": [
+   {
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "destino": "11XP 3 ARRIBA",
+    "estacion": "CAMPO",
+    "num": "1103",
+    "origen": "CAMPO PE",
+    "pendiente": true,
+    "secc": "0.75"
+   },
+   {
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "destino": "11XP 2 ARRIBA",
+    "estacion": "CAMPO",
+    "num": "1102",
+    "origen": "CAMPO N",
+    "pendiente": true,
+    "secc": "0.75"
+   },
+   {
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "destino": "11XP 1 ARRIBA",
+    "estacion": "CAMPO",
+    "num": "1101",
+    "origen": "CAMPO L",
+    "pendiente": true,
+    "secc": "0.75"
+   },
+   {
+    "cable": "N35MM",
+    "color": "Negro",
+    "destino": "12PB1 -",
+    "estacion": "E8",
+    "num": "1206",
+    "origen": "BH-01-M",
+    "pendiente": true,
+    "secc": "35"
+   },
+   {
+    "cable": "R35MM",
+    "color": "Rojo",
+    "destino": "12PB1 +",
+    "estacion": "E8",
+    "num": "1205",
+    "origen": "BH-01-ZV",
+    "pendiente": true,
+    "secc": "35"
+   }
+  ],
+  "overrides": {},
+  "pasos": [
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "arriba",
+    "lineas": [
+     {
+      "cable": "M2.5MM",
+      "color": "Marrón",
+      "componente": "11Q1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "11"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 730,
+      "lateral": "LD",
+      "marca_o": [
+       486.94,
+       600.21,
+       1.98
+      ],
+      "num": "1104",
+      "origen": "11Q1 F ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        486.9,
+        600.2
+       ],
+       [
+        486.9,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        755.1,
+        522.9
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 0,
+      "zona": 0
+     },
+     {
+      "cable": "B2.5MM",
+      "color": "Blanco",
+      "componente": "11Q1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "11"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 710,
+      "lateral": "LD",
+      "marca_o": [
+       496.86,
+       600.21,
+       1.98
+      ],
+      "num": "1105",
+      "origen": "11Q1 N ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        496.9,
+        600.2
+       ],
+       [
+        496.9,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        755.1,
+        522.9
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 1,
+      "zona": 0
+     },
+     {
+      "cable": "N2.5MM",
+      "color": "Negro",
+      "componente": "11PS1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "11",
+       "12"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 130,
+      "lateral": "LI",
+      "marca_o": [
+       513.18,
+       609.93,
+       1.61
+      ],
+      "num": "1109",
+      "origen": "11PS1 -",
+      "puente": false,
+      "ruta": [
+       [
+        513.2,
+        609.9
+       ],
+       [
+        513.2,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 2,
+      "zona": 0
+     },
+     {
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "componente": "11PS1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "11",
+       "12"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 140,
+      "lateral": "LI",
+      "marca_o": [
+       520.17,
+       609.93,
+       1.61
+      ],
+      "num": "1108",
+      "origen": "11PS1 +",
+      "puente": false,
+      "ruta": [
+       [
+        520.2,
+        609.9
+       ],
+       [
+        520.2,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 3,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 15: ALTERNATIVA 1 (BARRERA CHENZHU), la de la lista de materiales; en la 2 (BARRERA Bei Jing Ping He): 43DIB1 10 ABAJO; en la 3 (BARRERA PEPPERL + FUCHS): 43DIB1 15 ABAJO",
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "13PS3",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "43DIB1 2 ARRIBA",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "func_d": "43DIB1 2 ABAJO",
+      "hojas": [
+       "13",
+       "15"
+      ],
+      "lado": "arriba",
+      "largo_mm": 560,
+      "marca_d": [
+       516.64,
+       486.23,
+       1.13
+      ],
+      "marca_o": [
+       541.57,
+       607.6,
+       1.22
+      ],
+      "num": "1314",
+      "origen": "13PS3 -Vo",
+      "puente": false,
+      "ruta": [
+       [
+        541.6,
+        607.6
+       ],
+       [
+        541.6,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        516.6,
+        522.9
+       ],
+       [
+        516.6,
+        486.2
+       ]
+      ],
+      "secc": "1",
+      "seq": 4,
+      "zona": 0
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "13PS3",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 420,
+      "lateral": "LD",
+      "marca_o": [
+       544.56,
+       607.6,
+       1.22
+      ],
+      "num": "1312",
+      "origen": "13PS3 -Vo",
+      "puente": false,
+      "ruta": [
+       [
+        544.6,
+        607.6
+       ],
+       [
+        544.6,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 5,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 15: ALTERNATIVA 1 (BARRERA CHENZHU), la de la lista de materiales; en la 2 (BARRERA Bei Jing Ping He): 43DIB1 9 ABAJO; en la 3 (BARRERA PEPPERL + FUCHS): 43DIB1 14 ABAJO",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "13PS3",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "43DIB1 1 ARRIBA",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "func_d": "43DIB1 1 ABAJO",
+      "hojas": [
+       "13",
+       "15"
+      ],
+      "lado": "arriba",
+      "largo_mm": 550,
+      "marca_d": [
+       513.8,
+       486.21,
+       1.13
+      ],
+      "marca_o": [
+       547.57,
+       607.6,
+       1.22
+      ],
+      "num": "1313",
+      "origen": "13PS3 +Vo",
+      "puente": false,
+      "ruta": [
+       [
+        547.6,
+        607.6
+       ],
+       [
+        547.6,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        513.8,
+        522.9
+       ],
+       [
+        513.8,
+        486.2
+       ]
+      ],
+      "secc": "1",
+      "seq": 6,
+      "zona": 0
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "13PS3",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 410,
+      "lateral": "LD",
+      "marca_o": [
+       550.56,
+       607.6,
+       1.22
+      ],
+      "num": "1311",
+      "origen": "13PS3 +Vo",
+      "puente": false,
+      "ruta": [
+       [
+        550.6,
+        607.6
+       ],
+       [
+        550.6,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 7,
+      "zona": 0
+     }
+    ],
+    "n": 1,
+    "titulo": "Riel 1 · zona 1 · parte de arriba · 11Q1, 11PS1, 13PS3",
+    "zona": 0
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "arriba",
+    "lineas": [
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "81"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 210,
+      "lateral": "LI",
+      "marca_o": [
+       563.67,
+       612.14,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: D1+ ubicado con la hoja de datos a 0.0 mm del borde arriba del cuerpo y +0.0 mm del centro",
+      "num": "8105",
+      "origen": "33MX01 D1+",
+      "puente": true,
+      "ruta": [
+       [
+        563.7,
+        612.1
+       ],
+       [
+        563.7,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 8,
+      "zona": 0
+     },
+     {
+      "cable": "B1MM",
+      "color": "Blanco",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "81"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 540,
+      "lateral": "LI",
+      "marca_o": [
+       563.67,
+       612.14,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: D1- ubicado con la hoja de datos a 0.0 mm del borde arriba del cuerpo y +0.0 mm del centro",
+      "num": "8106",
+      "origen": "33MX01 D1-",
+      "puente": true,
+      "ruta": [
+       [
+        563.7,
+        612.1
+       ],
+       [
+        563.7,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        463.9,
+        522.9
+       ]
+      ],
+      "secc": "1",
+      "seq": 9,
+      "zona": 0
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 380,
+      "lateral": "LD",
+      "marca_o": [
+       563.67,
+       612.14,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: V+ ubicado con la hoja de datos a 0.0 mm del borde arriba del cuerpo y +0.0 mm del centro",
+      "num": "1315",
+      "origen": "33MX01 V+",
+      "puente": false,
+      "ruta": [
+       [
+        563.7,
+        612.1
+       ],
+       [
+        563.7,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 10,
+      "zona": 0
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 380,
+      "lateral": "LD",
+      "marca_o": [
+       563.67,
+       612.14,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: V- ubicado con la hoja de datos a 0.0 mm del borde arriba del cuerpo y +0.0 mm del centro",
+      "num": "1316",
+      "origen": "33MX01 V-",
+      "puente": false,
+      "ruta": [
+       [
+        563.7,
+        612.1
+       ],
+       [
+        563.7,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 11,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 420,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       588.16,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 1 ubicado con la hoja de datos a 42.3 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "3301",
+      "origen": "33MX01 1",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        588.2
+       ],
+       [
+        561.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 12,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "16",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 430,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       586.0,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 2 ubicado con la hoja de datos a 46.1 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "1602",
+      "origen": "33MX01 2",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        586.0
+       ],
+       [
+        561.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 13,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 430,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       583.85,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 3 ubicado con la hoja de datos a 49.9 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "3303",
+      "origen": "33MX01 3",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        583.9
+       ],
+       [
+        561.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 14,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "16",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 430,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       581.7,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 4 ubicado con la hoja de datos a 53.7 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "1604",
+      "origen": "33MX01 4",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        581.7
+       ],
+       [
+        561.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 15,
+      "zona": 0
+     }
+    ],
+    "n": 2,
+    "titulo": "Riel 1 · zona 1 · parte de arriba · 33MX01",
+    "zona": 0
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "abajo",
+    "lineas": [
+     {
+      "cable": "M2.5MM",
+      "color": "Marrón",
+      "componente": "11Q1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "11PS1 L",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "11"
+      ],
+      "lado": "abajo",
+      "largo_mm": 180,
+      "marca_d": [
+       525.25,
+       548.65,
+       1.8
+      ],
+      "marca_o": [
+       486.94,
+       561.09,
+       1.98
+      ],
+      "num": "1106",
+      "origen": "11Q1 F ABAJO",
+      "puente": false,
+      "ruta": [
+       [
+        486.9,
+        561.1
+       ],
+       [
+        486.9,
+        522.9
+       ],
+       [
+        525.2,
+        522.9
+       ],
+       [
+        525.2,
+        548.6
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 16,
+      "zona": 0
+     },
+     {
+      "cable": "B2.5MM",
+      "color": "Blanco",
+      "componente": "11Q1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "11PS1 N",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "11"
+      ],
+      "lado": "abajo",
+      "largo_mm": 160,
+      "marca_d": [
+       521.04,
+       548.65,
+       1.8
+      ],
+      "marca_o": [
+       496.86,
+       561.09,
+       1.98
+      ],
+      "num": "1107",
+      "origen": "11Q1 N ABAJO",
+      "puente": false,
+      "ruta": [
+       [
+        496.9,
+        561.1
+       ],
+       [
+        496.9,
+        522.9
+       ],
+       [
+        521.0,
+        522.9
+       ],
+       [
+        521.0,
+        548.6
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 17,
+      "zona": 0
+     },
+     {
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "componente": "13PS3",
+      "conf_d": "alta",
+      "conf_o": null,
+      "destino": "13XC1 2.1",
+      "exacto_d": true,
+      "exacto_o": false,
+      "fila": 1,
+      "hojas": [
+       "13"
+      ],
+      "lado": "abajo",
+      "largo_mm": 670,
+      "marca_d": [
+       717.76,
+       597.58,
+       2.13
+      ],
+      "marca_o": [
+       546.8,
+       588.1,
+       null
+      ],
+      "num": "1304",
+      "origen": "13PS3 +Vin",
+      "puente": false,
+      "ruta": [
+       [
+        546.8,
+        588.1
+       ],
+       [
+        546.8,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        717.8,
+        633.4
+       ],
+       [
+        717.8,
+        597.6
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 18,
+      "zona": 0
+     },
+     {
+      "cable": "N2.5MM",
+      "color": "Negro",
+      "componente": "13PS3",
+      "conf_d": "alta",
+      "conf_o": null,
+      "destino": "13XC1 3.2",
+      "exacto_d": true,
+      "exacto_o": false,
+      "fila": 1,
+      "hojas": [
+       "13"
+      ],
+      "lado": "abajo",
+      "largo_mm": 700,
+      "marca_d": [
+       723.62,
+       588.29,
+       2.13
+      ],
+      "marca_o": [
+       546.8,
+       588.1,
+       null
+      ],
+      "num": "1309",
+      "origen": "13PS3 -Vin",
+      "puente": false,
+      "ruta": [
+       [
+        546.8,
+        588.1
+       ],
+       [
+        546.8,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        723.6,
+        633.4
+       ],
+       [
+        723.6,
+        588.3
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 19,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "16",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 590,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       555.16,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 16 ubicado con la hoja de datos a 100.5 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "1616",
+      "origen": "33MX01 16",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        555.2
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 20,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "16",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 600,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       559.47,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 14 ubicado con la hoja de datos a 92.9 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "1614",
+      "origen": "33MX01 14",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        559.5
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 21,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 600,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       557.32,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 15 ubicado con la hoja de datos a 96.7 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "3315",
+      "origen": "33MX01 15",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        557.3
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 22,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 610,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       561.63,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 13 ubicado con la hoja de datos a 89.1 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "3313",
+      "origen": "33MX01 13",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        561.6
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 23,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 610,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       566.56,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 11 ubicado con la hoja de datos a 80.4 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "3311",
+      "origen": "33MX01 11",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        566.6
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 24,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "16",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 610,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       564.4,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 12 ubicado con la hoja de datos a 84.2 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "1612",
+      "origen": "33MX01 12",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        564.4
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 25,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "16",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 620,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       568.71,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 10 ubicado con la hoja de datos a 76.6 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "1610",
+      "origen": "33MX01 10",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        568.7
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 26,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 620,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       570.87,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 9 ubicado con la hoja de datos a 72.8 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "3309",
+      "origen": "33MX01 9",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        570.9
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 27,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "16",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 630,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       573.02,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 8 ubicado con la hoja de datos a 69.0 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "1608",
+      "origen": "33MX01 8",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        573.0
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 28,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 640,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       579.54,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 5 ubicado con la hoja de datos a 57.5 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "3305",
+      "origen": "33MX01 5",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        579.5
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 29,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 630,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       575.18,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 7 ubicado con la hoja de datos a 65.2 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "3307",
+      "origen": "33MX01 7",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        575.2
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 30,
+      "zona": 0
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "33MX01",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "16",
+       "33"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 630,
+      "lateral": "LD",
+      "marca_o": [
+       560.95,
+       577.39,
+       0.68
+      ],
+      "nota_o": "MOXA-R1240: 6 ubicado con la hoja de datos a 61.3 mm del borde arriba del cuerpo y -4.8 mm del centro",
+      "num": "1606",
+      "origen": "33MX01 6",
+      "puente": false,
+      "ruta": [
+       [
+        561.0,
+        577.4
+       ],
+       [
+        561.0,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 31,
+      "zona": 0
+     }
+    ],
+    "n": 3,
+    "titulo": "Riel 1 · zona 1 · parte de abajo · 11Q1, 13PS3, 33MX01",
+    "zona": 0
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "arriba",
+    "lineas": [
+     {
+      "cable": "R4MM",
+      "color": "Rojo",
+      "componente": "12F1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "12"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 340,
+      "lateral": "LI",
+      "marca_o": [
+       622.96,
+       597.12,
+       1.54
+      ],
+      "num": "1201",
+      "origen": "12F1 ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        623.0,
+        597.1
+       ],
+       [
+        623.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "4",
+      "seq": 32,
+      "zona": 1
+     },
+     {
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "componente": "13F2",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "12XP 1.2",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "12",
+       "13"
+      ],
+      "lado": "arriba",
+      "largo_mm": 250,
+      "marca_d": [
+       694.49,
+       588.05,
+       2.13
+      ],
+      "marca_o": [
+       632.88,
+       597.12,
+       1.54
+      ],
+      "num": "1207",
+      "origen": "13F2 ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        632.9,
+        597.1
+       ],
+       [
+        632.9,
+        633.4
+       ],
+       [
+        694.5,
+        633.4
+       ],
+       [
+        694.5,
+        588.0
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 33,
+      "zona": 1
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "61KR1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "13XC1 2.2",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "13",
+       "61A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 270,
+      "marca_d": [
+       717.76,
+       588.29,
+       2.13
+      ],
+      "marca_o": [
+       645.25,
+       599.95,
+       1.14
+      ],
+      "num": "1305",
+      "origen": "61KR1 11",
+      "puente": false,
+      "ruta": [
+       [
+        645.2,
+        600.0
+       ],
+       [
+        645.2,
+        633.4
+       ],
+       [
+        717.8,
+        633.4
+       ],
+       [
+        717.8,
+        588.3
+       ]
+      ],
+      "secc": "1",
+      "seq": 34,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "61KR3",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "81"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 240,
+      "lateral": "LD",
+      "marca_o": [
+       652.16,
+       599.95,
+       1.14
+      ],
+      "num": "8101",
+      "origen": "61KR3 11",
+      "puente": false,
+      "ruta": [
+       [
+        652.2,
+        600.0
+       ],
+       [
+        652.2,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 35,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "43KR1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "21",
+       "43A"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 410,
+      "lateral": "LI",
+      "marca_o": [
+       661.29,
+       599.95,
+       1.14
+      ],
+      "num": "2114",
+      "origen": "43KR1 11",
+      "puente": false,
+      "ruta": [
+       [
+        661.3,
+        600.0
+       ],
+       [
+        661.3,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 36,
+      "zona": 1
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "61KR1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "XM1 1 ARRIBA",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 180,
+      "marca_d": [
+       671.48,
+       598.29,
+       1.36
+      ],
+      "marca_o": [
+       645.25,
+       594.85,
+       1.14
+      ],
+      "num": "6101",
+      "origen": "61KR1 14",
+      "puente": true,
+      "ruta": [
+       [
+        645.2,
+        594.9
+       ],
+       [
+        645.2,
+        633.4
+       ],
+       [
+        671.5,
+        633.4
+       ],
+       [
+        671.5,
+        598.3
+       ]
+      ],
+      "secc": "1",
+      "seq": 37,
+      "zona": 1
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "XM1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "61XDIO 1 ARRIBA",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "func_d": "61XDIO 1 ABAJO",
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 260,
+      "marca_d": [
+       739.09,
+       589.05,
+       1.36
+      ],
+      "marca_o": [
+       671.48,
+       598.29,
+       1.36
+      ],
+      "num": "6101",
+      "origen": "XM1 1 ARRIBA",
+      "puente": true,
+      "ruta": [
+       [
+        671.5,
+        598.3
+       ],
+       [
+        671.5,
+        633.4
+       ],
+       [
+        739.1,
+        633.4
+       ],
+       [
+        739.1,
+        589.0
+       ]
+      ],
+      "secc": "1",
+      "seq": 38,
+      "zona": 1
+     }
+    ],
+    "n": 4,
+    "titulo": "Riel 1 · zona 2 · parte de arriba · 12F1, 13F2, 61KR1, 61KR3, 43KR1, XM1",
+    "zona": 1
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "arriba",
+    "lineas": [
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "61KR2",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "XM1 3 ARRIBA",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 180,
+      "marca_d": [
+       674.4,
+       598.29,
+       1.36
+      ],
+      "marca_o": [
+       648.7,
+       594.85,
+       1.14
+      ],
+      "num": "6104",
+      "origen": "61KR2 14",
+      "puente": true,
+      "ruta": [
+       [
+        648.7,
+        594.9
+       ],
+       [
+        648.7,
+        633.4
+       ],
+       [
+        674.4,
+        633.4
+       ],
+       [
+        674.4,
+        598.3
+       ]
+      ],
+      "secc": "1",
+      "seq": 39,
+      "zona": 1
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "XM1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "61XDIO 2 ARRIBA",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "func_d": "61XDIO 2 ABAJO",
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 260,
+      "marca_d": [
+       742.01,
+       589.05,
+       1.36
+      ],
+      "marca_o": [
+       674.4,
+       598.29,
+       1.36
+      ],
+      "num": "6104",
+      "origen": "XM1 3 ARRIBA",
+      "puente": true,
+      "ruta": [
+       [
+        674.4,
+        598.3
+       ],
+       [
+        674.4,
+        633.4
+       ],
+       [
+        742.0,
+        633.4
+       ],
+       [
+        742.0,
+        589.0
+       ]
+      ],
+      "secc": "1",
+      "seq": 40,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "61KR3",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "81"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 260,
+      "lateral": "LD",
+      "marca_o": [
+       652.16,
+       589.75,
+       1.14
+      ],
+      "num": "8102",
+      "origen": "61KR3 12",
+      "puente": false,
+      "ruta": [
+       [
+        652.2,
+        589.8
+       ],
+       [
+        652.2,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 41,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "43KR1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "21",
+       "43A"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 430,
+      "lateral": "LI",
+      "marca_o": [
+       661.28,
+       589.75,
+       1.14
+      ],
+      "num": "2115",
+      "origen": "43KR1 12",
+      "puente": false,
+      "ruta": [
+       [
+        661.3,
+        589.8
+       ],
+       [
+        661.3,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 42,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "XM1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "XM1 4 ARRIBA",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 160,
+      "marca_d": [
+       674.4,
+       589.29,
+       1.36
+      ],
+      "marca_o": [
+       671.48,
+       589.29,
+       1.36
+      ],
+      "num": "1310",
+      "origen": "XM1 2 ARRIBA",
+      "puente": true,
+      "ruta": [
+       [
+        671.5,
+        589.3
+       ],
+       [
+        671.5,
+        633.4
+       ],
+       [
+        674.4,
+        633.4
+       ],
+       [
+        674.4,
+        589.3
+       ]
+      ],
+      "secc": "1",
+      "seq": 43,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "XM1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "13XC1 3.8",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "13",
+       "61A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 680,
+      "marca_d": [
+       728.25,
+       554.28,
+       2.13
+      ],
+      "marca_o": [
+       671.48,
+       589.29,
+       1.36
+      ],
+      "num": "1310",
+      "origen": "XM1 2 ARRIBA",
+      "puente": true,
+      "ruta": [
+       [
+        671.5,
+        589.3
+       ],
+       [
+        671.5,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        728.2,
+        522.9
+       ],
+       [
+        728.2,
+        554.3
+       ]
+      ],
+      "secc": "1",
+      "seq": 44,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "31XAI",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "31"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 440,
+      "lateral": "LI",
+      "marca_o": [
+       683.7,
+       601.84,
+       1.63
+      ],
+      "num": "2142",
+      "origen": "31XAI 1 ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        683.7,
+        601.8
+       ],
+       [
+        683.7,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 45,
+      "zona": 1
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "31XAI",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "16",
+       "31"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 210,
+      "lateral": "LD",
+      "marca_o": [
+       683.7,
+       586.82,
+       1.63
+      ],
+      "num": "1617",
+      "origen": "31XAI F1 ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        683.7,
+        586.8
+       ],
+       [
+        683.7,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 46,
+      "zona": 1
+     }
+    ],
+    "n": 5,
+    "titulo": "Riel 1 · zona 2 · parte de arriba · 61KR2, XM1, 61KR3, 43KR1, 31XAI",
+    "zona": 1
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "arriba",
+    "lineas": [
+     {
+      "cable": "R4MM",
+      "color": "Rojo",
+      "componente": "12XP",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "12F1 ABAJO",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "12"
+      ],
+      "lado": "arriba",
+      "largo_mm": 530,
+      "marca_d": [
+       622.96,
+       563.0,
+       1.54
+      ],
+      "marca_o": [
+       694.49,
+       597.35,
+       2.13
+      ],
+      "num": "1203",
+      "origen": "12XP 1.1",
+      "puente": false,
+      "ruta": [
+       [
+        694.5,
+        597.4
+       ],
+       [
+        694.5,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        623.0,
+        522.9
+       ],
+       [
+        623.0,
+        563.0
+       ]
+      ],
+      "secc": "4",
+      "seq": 47,
+      "zona": 1
+     },
+     {
+      "cable": "N4MM",
+      "color": "Negro",
+      "componente": "12XP",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "12"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 480,
+      "lateral": "LI",
+      "marca_o": [
+       700.35,
+       597.35,
+       2.13
+      ],
+      "num": "1202",
+      "origen": "12XP 2.1",
+      "puente": false,
+      "ruta": [
+       [
+        700.4,
+        597.4
+       ],
+       [
+        700.4,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "4",
+      "seq": 48,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "12XP",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "12",
+       "21"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 500,
+      "lateral": "LI",
+      "marca_o": [
+       700.35,
+       588.05,
+       2.13
+      ],
+      "num": "2112",
+      "origen": "12XP 2.2",
+      "puente": false,
+      "ruta": [
+       [
+        700.4,
+        588.0
+       ],
+       [
+        700.4,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 49,
+      "zona": 1
+     },
+     {
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "componente": "13XC1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "13F2 ABAJO",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "13"
+      ],
+      "lado": "arriba",
+      "largo_mm": 580,
+      "marca_d": [
+       632.88,
+       563.0,
+       1.54
+      ],
+      "marca_o": [
+       711.89,
+       597.58,
+       2.13
+      ],
+      "num": "1301",
+      "origen": "13XC1 1.1",
+      "puente": false,
+      "ruta": [
+       [
+        711.9,
+        597.6
+       ],
+       [
+        711.9,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        632.9,
+        522.9
+       ],
+       [
+        632.9,
+        563.0
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 50,
+      "zona": 1
+     },
+     {
+      "cable": "N2.5MM",
+      "color": "Negro",
+      "componente": "13XC1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "12XP 2.3",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "12",
+       "13"
+      ],
+      "lado": "arriba",
+      "largo_mm": 720,
+      "marca_d": [
+       700.35,
+       563.35,
+       2.13
+      ],
+      "marca_o": [
+       723.62,
+       597.58,
+       2.13
+      ],
+      "num": "1208",
+      "origen": "13XC1 3.1",
+      "puente": false,
+      "ruta": [
+       [
+        723.6,
+        597.6
+       ],
+       [
+        723.6,
+        633.4
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        700.4,
+        522.9
+       ],
+       [
+        700.4,
+        563.4
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 51,
+      "zona": 1
+     }
+    ],
+    "n": 6,
+    "titulo": "Riel 1 · zona 2 · parte de arriba · 12XP, 13XC1",
+    "zona": 1
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "abajo",
+    "lineas": [
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "61KR1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 570,
+      "lateral": "LI",
+      "marca_o": [
+       645.24,
+       553.48,
+       1.14
+      ],
+      "num": "2151",
+      "origen": "61KR1 A2",
+      "puente": false,
+      "ruta": [
+       [
+        645.2,
+        553.5
+       ],
+       [
+        645.2,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 52,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "61KR2",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 570,
+      "lateral": "LI",
+      "marca_o": [
+       648.7,
+       553.48,
+       1.14
+      ],
+      "num": "2153",
+      "origen": "61KR2 A2",
+      "puente": false,
+      "ruta": [
+       [
+        648.7,
+        553.5
+       ],
+       [
+        648.7,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 53,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "61KR3",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 580,
+      "lateral": "LI",
+      "marca_o": [
+       652.16,
+       553.48,
+       1.14
+      ],
+      "num": "2155",
+      "origen": "61KR3 A2",
+      "puente": false,
+      "ruta": [
+       [
+        652.2,
+        553.5
+       ],
+       [
+        652.2,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 54,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "43KR1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "43A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 630,
+      "lateral": "LD",
+      "marca_o": [
+       661.29,
+       553.48,
+       1.14
+      ],
+      "num": "4306",
+      "origen": "43KR1 A2",
+      "puente": false,
+      "ruta": [
+       [
+        661.3,
+        553.5
+       ],
+       [
+        661.3,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 55,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "61KR1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 580,
+      "lateral": "LI",
+      "marca_o": [
+       645.24,
+       558.58,
+       1.14
+      ],
+      "num": "2150",
+      "origen": "61KR1 A1",
+      "puente": false,
+      "ruta": [
+       [
+        645.2,
+        558.6
+       ],
+       [
+        645.2,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 56,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "61KR2",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 580,
+      "lateral": "LI",
+      "marca_o": [
+       648.7,
+       558.58,
+       1.14
+      ],
+      "num": "2152",
+      "origen": "61KR2 A1",
+      "puente": false,
+      "ruta": [
+       [
+        648.7,
+        558.6
+       ],
+       [
+        648.7,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 57,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "61KR3",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 590,
+      "lateral": "LI",
+      "marca_o": [
+       652.16,
+       558.58,
+       1.14
+      ],
+      "num": "2154",
+      "origen": "61KR3 A1",
+      "puente": false,
+      "ruta": [
+       [
+        652.2,
+        558.6
+       ],
+       [
+        652.2,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 58,
+      "zona": 1
+     }
+    ],
+    "n": 7,
+    "titulo": "Riel 1 · zona 2 · parte de abajo · 61KR1, 61KR2, 61KR3, 43KR1",
+    "zona": 1
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "abajo",
+    "lineas": [
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "43KR1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "43A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 640,
+      "lateral": "LD",
+      "marca_o": [
+       661.29,
+       558.58,
+       1.14
+      ],
+      "num": "4305",
+      "origen": "43KR1 A1",
+      "puente": false,
+      "ruta": [
+       [
+        661.3,
+        558.6
+       ],
+       [
+        661.3,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 59,
+      "zona": 1
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "XM1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 610,
+      "lateral": "LI",
+      "marca_o": [
+       671.48,
+       551.8,
+       1.37
+      ],
+      "num": "6102",
+      "origen": "XM1 1 ABAJO",
+      "puente": false,
+      "ruta": [
+       [
+        671.5,
+        551.8
+       ],
+       [
+        671.5,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 60,
+      "zona": 1
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "XM1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 620,
+      "lateral": "LI",
+      "marca_o": [
+       674.4,
+       551.8,
+       1.37
+      ],
+      "num": "6201",
+      "origen": "XM1 3 ABAJO",
+      "puente": false,
+      "ruta": [
+       [
+        674.4,
+        551.8
+       ],
+       [
+        674.4,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 61,
+      "zona": 1
+     },
+     {
+      "alternativa": "hoja 61: este cable esta solo en la ALTERNATIVA 2 (SENSOR OIL) y la elegida es la 1 (VIBO): confirmar si se monta",
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "XM1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "confirmar_montaje": true,
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "61B"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 630,
+      "lateral": "LI",
+      "marca_o": [
+       671.48,
+       560.92,
+       1.37
+      ],
+      "num": "6103",
+      "origen": "XM1 2 ABAJO",
+      "puente": false,
+      "ruta": [
+       [
+        671.5,
+        560.9
+       ],
+       [
+        671.5,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 62,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "XM1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "61A"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 630,
+      "lateral": "LI",
+      "marca_o": [
+       674.4,
+       560.92,
+       1.37
+      ],
+      "num": "6202",
+      "origen": "XM1 4 ABAJO",
+      "puente": false,
+      "ruta": [
+       [
+        674.4,
+        560.9
+       ],
+       [
+        674.4,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 63,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "31XAI",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hecho": true,
+      "hojas": [
+       "31"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 630,
+      "lateral": "LI",
+      "marca_o": [
+       683.7,
+       552.49,
+       1.63
+      ],
+      "num": "3102",
+      "origen": "31XAI 1 ABAJO",
+      "puente": false,
+      "ruta": [
+       [
+        683.7,
+        552.5
+       ],
+       [
+        683.7,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 64,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "31XAI",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "31"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 650,
+      "lateral": "LI",
+      "marca_o": [
+       683.69,
+       562.3,
+       1.69
+      ],
+      "num": "3101",
+      "origen": "31XAI F1 ABAJO",
+      "puente": false,
+      "ruta": [
+       [
+        683.7,
+        562.3
+       ],
+       [
+        683.7,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 65,
+      "zona": 1
+     }
+    ],
+    "n": 8,
+    "titulo": "Riel 1 · zona 2 · parte de abajo · 43KR1, XM1, 31XAI",
+    "zona": 1
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 1,
+    "foto": null,
+    "lado": "abajo",
+    "lineas": [
+     {
+      "cable": "R4MM",
+      "color": "Rojo",
+      "componente": "12XP",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "12"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 660,
+      "lateral": "LI",
+      "marca_o": [
+       694.49,
+       554.05,
+       2.13
+      ],
+      "num": "1204",
+      "origen": "12XP 1.4",
+      "puente": false,
+      "ruta": [
+       [
+        694.5,
+        554.0
+       ],
+       [
+        694.5,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "4",
+      "seq": 66,
+      "zona": 1
+     },
+     {
+      "cable": "N4MM",
+      "color": "Negro",
+      "componente": "12XP",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "12"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 670,
+      "lateral": "LI",
+      "marca_o": [
+       700.35,
+       554.05,
+       2.13
+      ],
+      "num": "1206",
+      "origen": "12XP 2.4",
+      "puente": true,
+      "ruta": [
+       [
+        700.4,
+        554.0
+       ],
+       [
+        700.4,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "4",
+      "seq": 67,
+      "zona": 1
+     },
+     {
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "12XP",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "12",
+       "21"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 670,
+      "lateral": "LI",
+      "marca_o": [
+       694.49,
+       563.35,
+       2.13
+      ],
+      "num": "2111",
+      "origen": "12XP 1.3",
+      "puente": false,
+      "ruta": [
+       [
+        694.5,
+        563.4
+       ],
+       [
+        694.5,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 68,
+      "zona": 1
+     },
+     {
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "componente": "13XC1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 690,
+      "lateral": "LI",
+      "marca_o": [
+       711.89,
+       554.28,
+       2.13
+      ],
+      "num": "1302",
+      "origen": "13XC1 1.4",
+      "puente": false,
+      "ruta": [
+       [
+        711.9,
+        554.3
+       ],
+       [
+        711.9,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 69,
+      "zona": 1
+     },
+     {
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "componente": "13XC1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 700,
+      "lateral": "LI",
+      "marca_o": [
+       717.76,
+       554.28,
+       2.13
+      ],
+      "num": "1303",
+      "origen": "13XC1 2.4",
+      "puente": false,
+      "ruta": [
+       [
+        717.8,
+        554.3
+       ],
+       [
+        717.8,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "2.5",
+      "seq": 70,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "13XC1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13",
+       "14"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 710,
+      "lateral": "LI",
+      "marca_o": [
+       723.62,
+       554.28,
+       2.13
+      ],
+      "num": "1307",
+      "origen": "13XC1 3.4",
+      "puente": false,
+      "ruta": [
+       [
+        723.6,
+        554.3
+       ],
+       [
+        723.6,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 71,
+      "zona": 1
+     },
+     {
+      "cable": "R1MM",
+      "color": "Rojo",
+      "componente": "13XC1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13",
+       "14"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 710,
+      "lateral": "LI",
+      "marca_o": [
+       717.76,
+       563.58,
+       2.13
+      ],
+      "num": "1306",
+      "origen": "13XC1 2.3",
+      "puente": false,
+      "ruta": [
+       [
+        717.8,
+        563.6
+       ],
+       [
+        717.8,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 72,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "13XC1",
+      "conf_d": null,
+      "conf_o": "alta",
+      "destino": "LD",
+      "exacto_o": true,
+      "fila": 1,
+      "hojas": [
+       "13"
+      ],
+      "intrinseco": false,
+      "lado": "abajo",
+      "largo_mm": 750,
+      "lateral": "LD",
+      "marca_o": [
+       723.62,
+       563.58,
+       2.13
+      ],
+      "num": "1319",
+      "origen": "13XC1 3.3",
+      "puente": false,
+      "ruta": [
+       [
+        723.6,
+        563.6
+       ],
+       [
+        723.6,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        755.1,
+        633.4
+       ]
+      ],
+      "secc": "1",
+      "seq": 73,
+      "zona": 1
+     },
+     {
+      "cable": "N1MM",
+      "color": "Negro",
+      "componente": "13XC1",
+      "conf_d": "alta",
+      "conf_o": "alta",
+      "destino": "61XDIO 2 ABAJO",
+      "exacto_d": true,
+      "exacto_o": true,
+      "fila": 1,
+      "func_d": "61XDIO 2 ARRIBA",
+      "hojas": [
+       "13",
+       "61A"
+      ],
+      "lado": "abajo",
+      "largo_mm": 180,
+      "marca_d": [
+       742.01,
+       567.9,
+       1.36
+      ],
+      "marca_o": [
+       728.25,
+       563.58,
+       2.13
+      ],
+      "num": "1308",
+      "origen": "13XC1 3.7",
+      "puente": false,
+      "ruta": [
+       [
+        728.2,
+        563.6
+       ],
+       [
+        728.2,
+        522.9
+       ],
+       [
+        742.0,
+        522.9
+       ],
+       [
+        742.0,
+        567.9
+       ]
+      ],
+      "secc": "1",
+      "seq": 74,
+      "zona": 1
+     }
+    ],
+    "n": 9,
+    "titulo": "Riel 1 · zona 2 · parte de abajo · 12XP, 13XC1",
+    "zona": 1
+   },
+   {
+    "etapa": "Etapa 1",
+    "fila": 2,
+    "foto": null,
+    "lado": "arriba",
+    "lineas": [
+     {
+      "alternativa": "hoja 43: ALTERNATIVA 1 (CHENZHU), la de la lista de materiales; en la 2 (Bei JingPing He): 43DIB1 5; en la 3 (PEPPERL+FUCHS): 43DIB1 7",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "43DIB1",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 2,
+      "hojas": [
+       "21",
+       "43A"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 660,
+      "lateral": "LI",
+      "marca_o": [
+       513.8,
+       486.22,
+       1.13
+      ],
+      "nota_o": "GS8512-EX: grupo SUP pin 1 fila 1 (no dibujada, corrida 0.0 mm)",
+      "num": "2116",
+      "origen": "43DIB1 3",
+      "puente": false,
+      "ruta": [
+       [
+        513.8,
+        486.2
+       ],
+       [
+        513.8,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 75,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 43: ALTERNATIVA 1 (CHENZHU), la de la lista de materiales; en la 2 (Bei JingPing He): 43DIB1 6; en la 3 (PEPPERL+FUCHS): 43DIB1 8",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "43DIB1",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 2,
+      "hojas": [
+       "21",
+       "43A"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 650,
+      "lateral": "LI",
+      "marca_o": [
+       516.64,
+       486.22,
+       1.13
+      ],
+      "nota_o": "GS8512-EX: grupo SUP pin 2 fila 1 (no dibujada, corrida 0.0 mm)",
+      "num": "2117",
+      "origen": "43DIB1 4",
+      "puente": false,
+      "ruta": [
+       [
+        516.6,
+        486.2
+       ],
+       [
+        516.6,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 76,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 43: ALTERNATIVA 1 (CHENZHU), la de la lista de materiales; en la 2 (Bei JingPing He): 43DIB1 7; en la 3 (PEPPERL+FUCHS): 43DIB1 10",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "43DIB1",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 2,
+      "hojas": [
+       "21",
+       "43A"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 660,
+      "lateral": "LI",
+      "marca_o": [
+       513.8,
+       481.2,
+       1.13
+      ],
+      "nota_o": "GS8512-EX: grupo SUP pin 1 fila 2 (no dibujada, corrida 8.85 mm)",
+      "num": "2118",
+      "origen": "43DIB1 5",
+      "puente": false,
+      "ruta": [
+       [
+        513.8,
+        481.2
+       ],
+       [
+        513.8,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 77,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 43: ALTERNATIVA 1 (CHENZHU), la de la lista de materiales; en la 2 (Bei JingPing He): 43DIB1 8; en la 3 (PEPPERL+FUCHS): 43DIB1 11",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "componente": "43DIB1",
+      "conf_d": null,
+      "conf_o": "media",
+      "destino": "LI",
+      "exacto_o": true,
+      "fila": 2,
+      "hojas": [
+       "21",
+       "43A"
+      ],
+      "intrinseco": false,
+      "lado": "arriba",
+      "largo_mm": 660,
+      "lateral": "LI",
+      "marca_o": [
+       516.64,
+       481.2,
+       1.13
+      ],
+      "nota_o": "GS8512-EX: grupo SUP pin 2 fila 2 (no dibujada, corrida 8.85 mm)",
+      "num": "2119",
+      "origen": "43DIB1 6",
+      "puente": false,
+      "ruta": [
+       [
+        516.6,
+        481.2
+       ],
+       [
+        516.6,
+        522.9
+       ],
+       [
+        601.0,
+        522.9
+       ],
+       [
+        601.0,
+        633.4
+       ],
+       [
+        463.9,
+        633.4
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 78,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 43: ALTERNATIVA 1 (CHENZHU), la de la lista de materiales; en la 2 (Bei JingPing He): 43DIB1 3; en la 3 (PEPPERL+FUCHS): 43DIB1 1",
+      "cable": "A0.75MM",
+      "color": "Azul",
+      "componente": "43XDIB",
+      "conf_d": "alta",
+      "conf_o": null,
+      "destino": "43DIB1 9",
+      "exacto_d": true,
+      "exacto_o": false,
+      "fila": 2,
+      "hojas": [
+       "43A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 480,
+      "marca_d": [
+       513.86,
+       429.03,
+       1.13
+      ],
+      "marca_o": [
+       538.26,
+       464.8,
+       null
+      ],
+      "num": "4301",
+      "origen": "43XDIB 1 ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        538.3,
+        464.8
+       ],
+       [
+        538.3,
+        508.1
+       ],
+       [
+        575.5,
+        508.1
+       ],
+       [
+        575.5,
+        403.8
+       ],
+       [
+        513.9,
+        403.8
+       ],
+       [
+        513.9,
+        429.0
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 79,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 43: ALTERNATIVA 1 (CHENZHU), la de la lista de materiales; en la 2 (Bei JingPing He): 43DIB1 1; en la 3 (PEPPERL+FUCHS): 43DIB1 4",
+      "cable": "A0.75MM",
+      "color": "Azul",
+      "componente": "43XDIB",
+      "conf_d": "media",
+      "conf_o": null,
+      "destino": "43DIB1 7",
+      "exacto_d": true,
+      "exacto_o": false,
+      "fila": 2,
+      "hojas": [
+       "43A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 480,
+      "marca_d": [
+       513.86,
+       433.97,
+       1.13
+      ],
+      "marca_o": [
+       543.78,
+       464.8,
+       null
+      ],
+      "nota_d": "GS8512-EX: grupo INF pin 1 fila 1 (no dibujada, corrida 8.7 mm)",
+      "num": "4303",
+      "origen": "43XDIB 3 ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        543.8,
+        464.8
+       ],
+       [
+        543.8,
+        508.1
+       ],
+       [
+        575.5,
+        508.1
+       ],
+       [
+        575.5,
+        403.8
+       ],
+       [
+        513.9,
+        403.8
+       ],
+       [
+        513.9,
+        434.0
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 80,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 43: ALTERNATIVA 1 (CHENZHU), la de la lista de materiales; en la 2 (Bei JingPing He): 43DIB1 4; en la 3 (PEPPERL+FUCHS): 43DIB1 3",
+      "cable": "A0.75MM",
+      "color": "Azul",
+      "componente": "43XDIB",
+      "conf_d": "alta",
+      "conf_o": null,
+      "destino": "43DIB1 10",
+      "exacto_d": true,
+      "exacto_o": false,
+      "fila": 2,
+      "hojas": [
+       "43A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 470,
+      "marca_d": [
+       516.7,
+       429.04,
+       1.13
+      ],
+      "marca_o": [
+       541.02,
+       464.8,
+       null
+      ],
+      "num": "4302",
+      "origen": "43XDIB 2 ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        541.0,
+        464.8
+       ],
+       [
+        541.0,
+        508.1
+       ],
+       [
+        575.5,
+        508.1
+       ],
+       [
+        575.5,
+        403.8
+       ],
+       [
+        516.7,
+        403.8
+       ],
+       [
+        516.7,
+        429.0
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 81,
+      "zona": 0
+     },
+     {
+      "alternativa": "hoja 43: ALTERNATIVA 1 (CHENZHU), la de la lista de materiales; en la 2 (Bei JingPing He): 43DIB1 2; en la 3 (PEPPERL+FUCHS): 43DIB1 6",
+      "cable": "A0.75MM",
+      "color": "Azul",
+      "componente": "43XDIB",
+      "conf_d": "media",
+      "conf_o": null,
+      "destino": "43DIB1 8",
+      "exacto_d": true,
+      "exacto_o": false,
+      "fila": 2,
+      "hojas": [
+       "43A"
+      ],
+      "lado": "arriba",
+      "largo_mm": 470,
+      "marca_d": [
+       516.7,
+       433.97,
+       1.13
+      ],
+      "marca_o": [
+       546.54,
+       464.8,
+       null
+      ],
+      "nota_d": "GS8512-EX: grupo INF pin 2 fila 1 (no dibujada, corrida 8.7 mm)",
+      "num": "4304",
+      "origen": "43XDIB 4 ARRIBA",
+      "puente": false,
+      "ruta": [
+       [
+        546.5,
+        464.8
+       ],
+       [
+        546.5,
+        508.1
+       ],
+       [
+        575.5,
+        508.1
+       ],
+       [
+        575.5,
+        403.8
+       ],
+       [
+        516.7,
+        403.8
+       ],
+       [
+        516.7,
+        434.0
+       ]
+      ],
+      "secc": "0.75",
+      "seq": 82,
+      "zona": 0
+     }
+    ],
+    "n": 10,
+    "titulo": "Riel 2 · parte de arriba · 43DIB1, 43XDIB",
+    "zona": 0
+   }
+  ],
+  "pendientes": [
+   {
+    "a": "16XC 1 ARRIBA",
+    "b": "13XC2 1.3",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1317",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 2 ARRIBA",
+    "b": "13XC2 2.3",
+    "cable": "N1MM",
+    "color": "Negro",
+    "num": "1318",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 1 ABAJO",
+    "b": "33XAI F1 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1601",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 3 ARRIBA",
+    "b": "33XAI F2 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1603",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 3 ABAJO",
+    "b": "33XAI F3 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1605",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 5 ARRIBA",
+    "b": "33XAI F4 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1607",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 5 ABAJO",
+    "b": "33XAI F5 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1609",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 7 ARRIBA",
+    "b": "33XAI F6 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1611",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 7 ABAJO",
+    "b": "33XAI F7 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1613",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 9 ARRIBA",
+    "b": "33XAI F8 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1615",
+    "secc": "1"
+   },
+   {
+    "a": "16XC 11 ARRIBA",
+    "b": "32XAI F1 ARRIBA",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "num": "1619",
+    "secc": "1"
+   },
+   {
+    "a": "21PCB01 5",
+    "b": "32XAI 1 ARRIBA",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "num": "2105",
+    "secc": "0.75"
+   },
+   {
+    "a": "21PCB01 35",
+    "b": "81XCM 1 ARRIBA",
+    "cable": "N1MM",
+    "color": "Negro",
+    "num": "8103",
+    "secc": "1"
+   },
+   {
+    "a": "21PCB01 36",
+    "b": "81XCM 2 ARRIBA",
+    "cable": "B1MM",
+    "color": "Blanco",
+    "num": "8104",
+    "secc": "1"
+   },
+   {
+    "a": "21PCB01 32",
+    "b": "EMPALME con 12PS2",
+    "cable": "N1MM",
+    "color": "Negro",
+    "num": "8105",
+    "secc": "1"
+   },
+   {
+    "a": "21PCB01 33",
+    "b": "EMPALME con 12PS2",
+    "cable": "B1MM",
+    "color": "Blanco",
+    "num": "8106",
+    "secc": "1"
+   }
+  ],
+  "producto": {
+   "documento": null,
+   "revision": null
+  },
+  "proyector": {},
+  "quitados": [],
+  "quitados_vueltos": [],
+  "salidas": {},
+  "sueltos": [],
+  "topo": {
+   "comp": {
+    "11PS1": {
+     "fila": 1,
+     "x": 523.5,
+     "y": 578.3
+    },
+    "11Q1": {
+     "fila": 1,
+     "x": 491.7,
+     "y": 588.0
+    },
+    "12F1": {
+     "fila": 1,
+     "x": 623.0,
+     "y": 579.6
+    },
+    "12XP": {
+     "fila": 1,
+     "x": 689.3,
+     "y": 578.7
+    },
+    "13F2": {
+     "fila": 1,
+     "x": 632.9,
+     "y": 579.6
+    },
+    "13PS3": {
+     "fila": 1,
+     "x": 546.8,
+     "y": 595.2
+    },
+    "13XC1": {
+     "fila": 1,
+     "x": 706.8,
+     "y": 577.6
+    },
+    "31XAI": {
+     "fila": 1,
+     "x": 679.0,
+     "y": 577.6
+    },
+    "33MX01": {
+     "fila": 1,
+     "x": 565.1,
+     "y": 602.1
+    },
+    "43DIB1": {
+     "fila": 2,
+     "x": 510.4,
+     "y": 451.1
+    },
+    "43KR": {
+     "fila": 1,
+     "x": 656.7,
+     "y": 577.3
+    },
+    "43XDIB": {
+     "fila": 2,
+     "x": 535.5,
+     "y": 457.7
+    },
+    "61KR": {
+     "fila": 1,
+     "x": 640.7,
+     "y": 577.3
+    },
+    "61XDIO": {
+     "fila": 1,
+     "x": 734.7,
+     "y": 577.9
+    },
+    "XM1": {
+     "fila": 1,
+     "x": 667.1,
+     "y": 577.6
+    }
+   },
+   "ductos": [
+    {
+     "b": [
+      473.4,
+      622.0,
+      745.6,
+      644.7
+     ],
+     "ex": false,
+     "h": true
+    },
+    {
+     "b": [
+      589.7,
+      534.2,
+      612.3,
+      622.0
+     ],
+     "ex": false,
+     "h": false
+    },
+    {
+     "b": [
+      499.0,
+      392.4,
+      586.8,
+      415.1
+     ],
+     "ex": true,
+     "h": true
+    },
+    {
+     "b": [
+      564.1,
+      415.1,
+      586.8,
+      511.5
+     ],
+     "ex": true,
+     "h": false
+    },
+    {
+     "b": [
+      473.4,
+      511.5,
+      745.6,
+      534.2
+     ],
+     "ex": false,
+     "h": true
+    }
+   ],
+   "escala": 1.7639,
+   "filas": [
+    577.4,
+    457.6
+   ],
+   "pag": 4,
+   "region": [
+    456.4,
+    236.5,
+    762.6,
+    644.7
+   ]
+  },
+  "topografico": "72887 DIAGRAMA CONSTRUCTIVO MSAFE CEXPA - REV.7.pdf",
+  "wpc": {}
+ },
+ "salidas_taller": [
+  {
+   "largo_mm": 730,
+   "ruta": [
+    [
+     486.9,
+     600.2
+    ],
+    [
+     486.9,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     755.1,
+     522.9
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 710,
+   "ruta": [
+    [
+     496.9,
+     600.2
+    ],
+    [
+     496.9,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     755.1,
+     522.9
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 130,
+   "ruta": [
+    [
+     513.2,
+     609.9
+    ],
+    [
+     513.2,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 140,
+   "ruta": [
+    [
+     520.2,
+     609.9
+    ],
+    [
+     520.2,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 420,
+   "ruta": [
+    [
+     544.6,
+     607.6
+    ],
+    [
+     544.6,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 410,
+   "ruta": [
+    [
+     550.6,
+     607.6
+    ],
+    [
+     550.6,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 210,
+   "ruta": [
+    [
+     563.7,
+     612.1
+    ],
+    [
+     563.7,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 540,
+   "ruta": [
+    [
+     563.7,
+     612.1
+    ],
+    [
+     563.7,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     463.9,
+     522.9
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 380,
+   "ruta": [
+    [
+     563.7,
+     612.1
+    ],
+    [
+     563.7,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 380,
+   "ruta": [
+    [
+     563.7,
+     612.1
+    ],
+    [
+     563.7,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 420,
+   "ruta": [
+    [
+     561.0,
+     588.2
+    ],
+    [
+     561.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 430,
+   "ruta": [
+    [
+     561.0,
+     586.0
+    ],
+    [
+     561.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 430,
+   "ruta": [
+    [
+     561.0,
+     583.9
+    ],
+    [
+     561.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 430,
+   "ruta": [
+    [
+     561.0,
+     581.7
+    ],
+    [
+     561.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 590,
+   "ruta": [
+    [
+     561.0,
+     555.2
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 600,
+   "ruta": [
+    [
+     561.0,
+     559.5
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 600,
+   "ruta": [
+    [
+     561.0,
+     557.3
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 610,
+   "ruta": [
+    [
+     561.0,
+     561.6
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 610,
+   "ruta": [
+    [
+     561.0,
+     566.6
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 610,
+   "ruta": [
+    [
+     561.0,
+     564.4
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 620,
+   "ruta": [
+    [
+     561.0,
+     568.7
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 620,
+   "ruta": [
+    [
+     561.0,
+     570.9
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     561.0,
+     573.0
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 640,
+   "ruta": [
+    [
+     561.0,
+     579.5
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     561.0,
+     575.2
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     561.0,
+     577.4
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 340,
+   "ruta": [
+    [
+     623.0,
+     597.1
+    ],
+    [
+     623.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 240,
+   "ruta": [
+    [
+     652.2,
+     600.0
+    ],
+    [
+     652.2,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 410,
+   "ruta": [
+    [
+     661.3,
+     600.0
+    ],
+    [
+     661.3,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 260,
+   "ruta": [
+    [
+     652.2,
+     589.8
+    ],
+    [
+     652.2,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 430,
+   "ruta": [
+    [
+     661.3,
+     589.8
+    ],
+    [
+     661.3,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 440,
+   "ruta": [
+    [
+     683.7,
+     601.8
+    ],
+    [
+     683.7,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 210,
+   "ruta": [
+    [
+     683.7,
+     586.8
+    ],
+    [
+     683.7,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 480,
+   "ruta": [
+    [
+     700.4,
+     597.4
+    ],
+    [
+     700.4,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 500,
+   "ruta": [
+    [
+     700.4,
+     588.0
+    ],
+    [
+     700.4,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 570,
+   "ruta": [
+    [
+     645.2,
+     553.5
+    ],
+    [
+     645.2,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 570,
+   "ruta": [
+    [
+     648.7,
+     553.5
+    ],
+    [
+     648.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 580,
+   "ruta": [
+    [
+     652.2,
+     553.5
+    ],
+    [
+     652.2,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     661.3,
+     553.5
+    ],
+    [
+     661.3,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 580,
+   "ruta": [
+    [
+     645.2,
+     558.6
+    ],
+    [
+     645.2,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 580,
+   "ruta": [
+    [
+     648.7,
+     558.6
+    ],
+    [
+     648.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 590,
+   "ruta": [
+    [
+     652.2,
+     558.6
+    ],
+    [
+     652.2,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 640,
+   "ruta": [
+    [
+     661.3,
+     558.6
+    ],
+    [
+     661.3,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 610,
+   "ruta": [
+    [
+     671.5,
+     551.8
+    ],
+    [
+     671.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 620,
+   "ruta": [
+    [
+     674.4,
+     551.8
+    ],
+    [
+     674.4,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     671.5,
+     560.9
+    ],
+    [
+     671.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     674.4,
+     560.9
+    ],
+    [
+     674.4,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     683.7,
+     552.5
+    ],
+    [
+     683.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 650,
+   "ruta": [
+    [
+     683.7,
+     562.3
+    ],
+    [
+     683.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 660,
+   "ruta": [
+    [
+     694.5,
+     554.0
+    ],
+    [
+     694.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 670,
+   "ruta": [
+    [
+     700.4,
+     554.0
+    ],
+    [
+     700.4,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 670,
+   "ruta": [
+    [
+     694.5,
+     563.4
+    ],
+    [
+     694.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 690,
+   "ruta": [
+    [
+     711.9,
+     554.3
+    ],
+    [
+     711.9,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 700,
+   "ruta": [
+    [
+     717.8,
+     554.3
+    ],
+    [
+     717.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 710,
+   "ruta": [
+    [
+     723.6,
+     554.3
+    ],
+    [
+     723.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 710,
+   "ruta": [
+    [
+     717.8,
+     563.6
+    ],
+    [
+     717.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 750,
+   "ruta": [
+    [
+     723.6,
+     563.6
+    ],
+    [
+     723.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 660,
+   "ruta": [
+    [
+     513.8,
+     486.2
+    ],
+    [
+     513.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 650,
+   "ruta": [
+    [
+     516.6,
+     486.2
+    ],
+    [
+     516.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 660,
+   "ruta": [
+    [
+     513.8,
+     481.2
+    ],
+    [
+     513.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 660,
+   "ruta": [
+    [
+     516.6,
+     481.2
+    ],
+    [
+     516.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": null
+  }
+ ],
+ "salidas_grupo": [
+  {
+   "largo_mm": 730,
+   "ruta": [
+    [
+     486.9,
+     600.2
+    ],
+    [
+     486.9,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     755.1,
+     522.9
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 710,
+   "ruta": [
+    [
+     496.9,
+     600.2
+    ],
+    [
+     496.9,
+     633.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     755.1,
+     522.9
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 130,
+   "ruta": [
+    [
+     513.2,
+     609.9
+    ],
+    [
+     513.2,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 140,
+   "ruta": [
+    [
+     520.2,
+     609.9
+    ],
+    [
+     520.2,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 420,
+   "ruta": [
+    [
+     544.6,
+     607.6
+    ],
+    [
+     544.6,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 410,
+   "ruta": [
+    [
+     550.6,
+     607.6
+    ],
+    [
+     550.6,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 210,
+   "ruta": [
+    [
+     563.7,
+     612.1
+    ],
+    [
+     563.7,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 210,
+   "ruta": [
+    [
+     563.7,
+     612.1
+    ],
+    [
+     563.7,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 380,
+   "ruta": [
+    [
+     563.7,
+     612.1
+    ],
+    [
+     563.7,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 380,
+   "ruta": [
+    [
+     563.7,
+     612.1
+    ],
+    [
+     563.7,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 420,
+   "ruta": [
+    [
+     561.0,
+     588.2
+    ],
+    [
+     561.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 430,
+   "ruta": [
+    [
+     561.0,
+     586.0
+    ],
+    [
+     561.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 430,
+   "ruta": [
+    [
+     561.0,
+     583.9
+    ],
+    [
+     561.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 430,
+   "ruta": [
+    [
+     561.0,
+     581.7
+    ],
+    [
+     561.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 590,
+   "ruta": [
+    [
+     561.0,
+     555.2
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 600,
+   "ruta": [
+    [
+     561.0,
+     559.5
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 600,
+   "ruta": [
+    [
+     561.0,
+     557.3
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 610,
+   "ruta": [
+    [
+     561.0,
+     561.6
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 610,
+   "ruta": [
+    [
+     561.0,
+     566.6
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 610,
+   "ruta": [
+    [
+     561.0,
+     564.4
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 620,
+   "ruta": [
+    [
+     561.0,
+     568.7
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 620,
+   "ruta": [
+    [
+     561.0,
+     570.9
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     561.0,
+     573.0
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 640,
+   "ruta": [
+    [
+     561.0,
+     579.5
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     561.0,
+     575.2
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     561.0,
+     577.4
+    ],
+    [
+     561.0,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 340,
+   "ruta": [
+    [
+     623.0,
+     597.1
+    ],
+    [
+     623.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 240,
+   "ruta": [
+    [
+     652.2,
+     600.0
+    ],
+    [
+     652.2,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 410,
+   "ruta": [
+    [
+     661.3,
+     600.0
+    ],
+    [
+     661.3,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 260,
+   "ruta": [
+    [
+     652.2,
+     589.8
+    ],
+    [
+     652.2,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 430,
+   "ruta": [
+    [
+     661.3,
+     589.8
+    ],
+    [
+     661.3,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 440,
+   "ruta": [
+    [
+     683.7,
+     601.8
+    ],
+    [
+     683.7,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 210,
+   "ruta": [
+    [
+     683.7,
+     586.8
+    ],
+    [
+     683.7,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 480,
+   "ruta": [
+    [
+     700.4,
+     597.4
+    ],
+    [
+     700.4,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 500,
+   "ruta": [
+    [
+     700.4,
+     588.0
+    ],
+    [
+     700.4,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 570,
+   "ruta": [
+    [
+     645.2,
+     553.5
+    ],
+    [
+     645.2,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 570,
+   "ruta": [
+    [
+     648.7,
+     553.5
+    ],
+    [
+     648.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 580,
+   "ruta": [
+    [
+     652.2,
+     553.5
+    ],
+    [
+     652.2,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     661.3,
+     553.5
+    ],
+    [
+     661.3,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 580,
+   "ruta": [
+    [
+     645.2,
+     558.6
+    ],
+    [
+     645.2,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 580,
+   "ruta": [
+    [
+     648.7,
+     558.6
+    ],
+    [
+     648.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 590,
+   "ruta": [
+    [
+     652.2,
+     558.6
+    ],
+    [
+     652.2,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 640,
+   "ruta": [
+    [
+     661.3,
+     558.6
+    ],
+    [
+     661.3,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 610,
+   "ruta": [
+    [
+     671.5,
+     551.8
+    ],
+    [
+     671.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 620,
+   "ruta": [
+    [
+     674.4,
+     551.8
+    ],
+    [
+     674.4,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     671.5,
+     560.9
+    ],
+    [
+     671.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     674.4,
+     560.9
+    ],
+    [
+     674.4,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 630,
+   "ruta": [
+    [
+     683.7,
+     552.5
+    ],
+    [
+     683.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 650,
+   "ruta": [
+    [
+     683.7,
+     562.3
+    ],
+    [
+     683.7,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 660,
+   "ruta": [
+    [
+     694.5,
+     554.0
+    ],
+    [
+     694.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 670,
+   "ruta": [
+    [
+     700.4,
+     554.0
+    ],
+    [
+     700.4,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 670,
+   "ruta": [
+    [
+     694.5,
+     563.4
+    ],
+    [
+     694.5,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 690,
+   "ruta": [
+    [
+     711.9,
+     554.3
+    ],
+    [
+     711.9,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 700,
+   "ruta": [
+    [
+     717.8,
+     554.3
+    ],
+    [
+     717.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 710,
+   "ruta": [
+    [
+     723.6,
+     554.3
+    ],
+    [
+     723.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 710,
+   "ruta": [
+    [
+     717.8,
+     563.6
+    ],
+    [
+     717.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 750,
+   "ruta": [
+    [
+     723.6,
+     563.6
+    ],
+    [
+     723.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ],
+   "salida": null
+  },
+  {
+   "largo_mm": 660,
+   "ruta": [
+    [
+     513.8,
+     486.2
+    ],
+    [
+     513.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 650,
+   "ruta": [
+    [
+     516.6,
+     486.2
+    ],
+    [
+     516.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 660,
+   "ruta": [
+    [
+     513.8,
+     481.2
+    ],
+    [
+     513.8,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  },
+  {
+   "largo_mm": 660,
+   "ruta": [
+    [
+     516.6,
+     481.2
+    ],
+    [
+     516.6,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     463.9,
+     633.4
+    ]
+   ],
+   "salida": "humo"
+  }
+ ],
+ "proyector": {
+  "orificios": {
+   "avisos": [],
+   "clave": [
+    4,
+    [
+     456.4,
+     236.5,
+     762.6,
+     644.7
+    ]
+   ],
+   "fuente": "dibujo",
+   "puntos": [
+    [
+     462.63,
+     637.23
+    ],
+    [
+     756.43,
+     637.23
+    ],
+    [
+     755.91,
+     243.2
+    ],
+    [
+     463.09,
+     243.2
+    ]
+   ]
+  },
+  "estacion": "E6"
+ }
+}

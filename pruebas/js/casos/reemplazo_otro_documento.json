@@ -1,0 +1,8 @@
+{
+  "_nota": "producto.documento = 75287 (otro producto): HOY no se reemplaza nada (la regla está solo para ZPL-76884). Decidido el 2026-10-07 que en la etapa 3 el reemplazo valga para todos los productos: este golden va a cambiar ahí, solo en las filas de 4 mm².",
+  "de": "chico.json",
+  "producto": {
+    "documento": "75287",
+    "revision": "6"
+  }
+}

@@ -1,0 +1,10027 @@
+{
+ "nota": null,
+ "paginas": [
+  {
+   "index": 1,
+   "sheet": "00",
+   "title": "Portada",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 2,
+   "sheet": "01",
+   "title": "Gestión de Revisiones",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 3,
+   "sheet": "02",
+   "title": "Índice",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 4,
+   "sheet": "04",
+   "title": "Datos de panel",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 5,
+   "sheet": "05",
+   "title": "Vista 3D Exterior",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 6,
+   "sheet": "06",
+   "title": "Topográfico Exterior",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 7,
+   "sheet": "07",
+   "title": "Vista 2D Interior",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 8,
+   "sheet": "08",
+   "title": "Detalle bandejas",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 9,
+   "sheet": "10",
+   "title": "Símbolos y Referencias",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 10,
+   "sheet": "11",
+   "title": "Entrada de Alimentación y Fuente",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 28
+  },
+  {
+   "index": 11,
+   "sheet": "12",
+   "title": "Cargador y Baterías",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 35
+  },
+  {
+   "index": 12,
+   "sheet": "13",
+   "title": "Distribución de 12 V y 24 V Elevadores DC/DC",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 44
+  },
+  {
+   "index": 13,
+   "sheet": "15",
+   "title": "Alimentación Barreras de Seguridad y Módulos",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 16
+  },
+  {
+   "index": 14,
+   "sheet": "16",
+   "title": "Alimentación Placa E2.5",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 4
+  },
+  {
+   "index": 15,
+   "sheet": "21",
+   "title": "Placa E2.5 (-21PCB01) Distribución de Conexiones",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 78
+  },
+  {
+   "index": 16,
+   "sheet": "32",
+   "title": "Entradas Analógicas Placa E2.5",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 18
+  },
+  {
+   "index": 17,
+   "sheet": "41",
+   "title": "Entradas Digitales Placa E2.5",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 36
+  },
+  {
+   "index": 18,
+   "sheet": "42",
+   "title": "Entradas Digitales Placa E2.5",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 47
+  },
+  {
+   "index": 19,
+   "sheet": "61",
+   "title": "Salida Digitales Placa E2.5",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 45
+  },
+  {
+   "index": 20,
+   "sheet": "81",
+   "title": "Comunicación",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 14
+  },
+  {
+   "index": 21,
+   "sheet": "82",
+   "title": "Topología de Red",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 22,
+   "sheet": "01",
+   "title": "Portada Fabricación",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 23,
+   "sheet": "02",
+   "title": "Índice",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 24,
+   "sheet": "04",
+   "title": "Vistas 2D internas",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 25,
+   "sheet": "05",
+   "title": "Vistas 3D internas",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 26,
+   "sheet": "06",
+   "title": "Vistas 2D superior",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 27,
+   "sheet": "07",
+   "title": "Vistas 2D bandejas",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 28,
+   "sheet": "08",
+   "title": "Vistas 2D gabinete",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 29,
+   "sheet": "09",
+   "title": "Cotas de bandejas",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 30,
+   "sheet": "10",
+   "title": "Cotas de Cartelería",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 31,
+   "sheet": "11",
+   "title": "Detalle de ductos y rieles",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 32,
+   "sheet": "51",
+   "title": "Conjunto de Bornes",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 33,
+   "sheet": "52",
+   "title": "Conjunto de Bornes",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 34,
+   "sheet": "53",
+   "title": "Conjunto de Bornes",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 35,
+   "sheet": "54",
+   "title": "Conjunto de Bornes",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 36,
+   "sheet": "55",
+   "title": "Conjunto de Bornes",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 37,
+   "sheet": "56",
+   "title": "Conjunto de Bornes",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 38,
+   "sheet": "57",
+   "title": "Conjunto de Bornes",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 39,
+   "sheet": "58",
+   "title": "Conjunto de Bornes",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 40,
+   "sheet": "101",
+   "title": "Lista de materiales",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 41,
+   "sheet": "102",
+   "title": "Lista de materiales",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 42,
+   "sheet": "103",
+   "title": "Lista de materiales",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 43,
+   "sheet": "104",
+   "title": "Lista de materiales",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 44,
+   "sheet": "105",
+   "title": "Lista de materiales",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 45,
+   "sheet": "106",
+   "title": "Lista de materiales",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 46,
+   "sheet": "107",
+   "title": "Lista de materiales",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 47,
+   "sheet": "108",
+   "title": "Conexiones",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 48,
+   "sheet": "108.a",
+   "title": "Conexiones",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 49,
+   "sheet": "108.b",
+   "title": "Conexiones",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  },
+  {
+   "index": 50,
+   "sheet": "108.c",
+   "title": "Conexiones",
+   "w": 1192.0400390625,
+   "h": 851.3900146484375,
+   "x0": 0.0,
+   "y0": 0.0,
+   "cables": 0
+  }
+ ],
+ "cables": [
+  {
+   "num": "1101",
+   "color": "Marrón",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:C4",
+   "n": 1,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -11MS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "1102",
+   "color": "Celeste",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:C4",
+   "n": 1,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -11MS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "1154",
+   "color": "Marrón",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:C4",
+   "n": 1,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -11MS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "1155",
+   "color": "Celeste",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:C4",
+   "n": 1,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -11MS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "1156",
+   "color": "Marrón",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:D4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1157",
+   "color": "Celeste",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:D4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1158",
+   "color": "Marrón",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:E4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1159",
+   "color": "Celeste",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:E4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1160",
+   "color": "Rojo",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:D6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1161",
+   "color": "Negro",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11, 12",
+   "ubic": "11:D6, 11:E6, 12:C3, 12:C2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1162",
+   "color": "Rojo",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11, 12",
+   "ubic": "11:E6, 11:E6, 12:B3, 12:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1170",
+   "color": "Rojo",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:D7",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1171",
+   "color": "Negro",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11, 15",
+   "ubic": "11:D7, 11:E8, 15:D2, 15:C2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1172",
+   "color": "Rojo",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11, 15",
+   "ubic": "11:E7, 11:E8, 15:D1, 15:C1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1181",
+   "color": "Marrón",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:E5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1182",
+   "color": "Celeste",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:E5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1183",
+   "color": "Marrón",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:D5, 11:C7",
+   "n": 2,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1184",
+   "color": "Celeste",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:D5, 11:C7",
+   "n": 2,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1185",
+   "color": "Marrón",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:C6, 11:D5",
+   "n": 2,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1186",
+   "color": "Celeste",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "11",
+   "ubic": "11:C6, 11:D5",
+   "n": 2,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1201",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1202",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:C4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1206",
+   "color": "Negro",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1208",
+   "color": "Rojo",
+   "sec": "35",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:E2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1209",
+   "color": "Rojo",
+   "sec": "35",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1211",
+   "color": "Rojo",
+   "sec": "35",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:C3",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1218",
+   "color": "Negro",
+   "sec": "35",
+   "puntas": 3,
+   "hojas": "12",
+   "ubic": "12:F3, 12:F2, 12:E2, 12:E3",
+   "n": 4,
+   "refs": "",
+   "obs": "Cable de 3 puntas: puente/derivación en BH-01-M 2 (hecho a propósito); Este número tiene tramos con distinto color/sección: revisar"
+  },
+  {
+   "num": "1218",
+   "color": "Azul",
+   "sec": "1",
+   "puntas": 3,
+   "hojas": "61",
+   "ubic": "61:E1, 61:E1",
+   "n": 2,
+   "refs": "",
+   "obs": "Cable de 3 puntas: puente/derivación en BH-01-M 2 (hecho a propósito); Este número tiene tramos con distinto color/sección: revisar"
+  },
+  {
+   "num": "1221",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1222",
+   "color": "Negro",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1223",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1224",
+   "color": "Negro",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1225",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1226",
+   "color": "Negro",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1230",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12, 13",
+   "ubic": "12:D7, 12:D7, 13:A1, 13:A1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1231",
+   "color": "Negro",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12",
+   "ubic": "12:B5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1232",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "12, 13",
+   "ubic": "12:D7, 12:D7, 13:A2, 13:A1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1234",
+   "color": "Negro",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "12, 13",
+   "ubic": "12:D7, 12:D7, 13:B5, 13:B6",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1235",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "12, 13",
+   "ubic": "12:D7, 12:D7, 13:C6, 13:C6",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1254",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "12, 16, 21",
+   "ubic": "12:C7, 12:C7, 16:B4, 16:B3, 21:B3, 21:B3",
+   "n": 6,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1264",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "12, 61",
+   "ubic": "12:C7, 12:C7, 61:C1, 61:C1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1268",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "12, 61",
+   "ubic": "12:C7, 12:C7, 61:E1, 61:E1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1301",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "13",
+   "ubic": "13:C1",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1302",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "13",
+   "ubic": "13:C2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1303",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "13",
+   "ubic": "13:C3",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1304",
+   "color": "Rojo",
+   "sec": "6",
+   "puntas": 2,
+   "hojas": "13",
+   "ubic": "13:C3",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1310",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13",
+   "ubic": "13:C5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1311",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13",
+   "ubic": "13:D5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1312",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13",
+   "ubic": "13:C5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1339",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:E4, 13:E4, 42:B2, 42:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1340",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:E6, 13:E6, 42:B2, 42:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1350",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 32",
+   "ubic": "13:E4, 13:E4, 32:B5, 32:B5",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1353",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 16, 21",
+   "ubic": "13:A4, 13:A4, 16:B4, 16:B3, 21:B3, 21:B3",
+   "n": 6,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1361",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 5,
+   "hojas": "13, 15",
+   "ubic": "13:F6, 13:F6, 15:B2, 15:B6, 15:B7, 15:C2, 15:B5, 15:C1",
+   "n": 8,
+   "refs": "",
+   "obs": "Cable de 5 puntas: puente/derivación en 15AIB1 2, 15DIB1 2, 15DIB2 2 (hecho a propósito)"
+  },
+  {
+   "num": "1363",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 61",
+   "ubic": "13:A4, 13:A4, 61:C1, 61:C1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1370",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 5,
+   "hojas": "13, 15",
+   "ubic": "13:F4, 13:F4, 15:B2, 15:B2, 15:B6, 15:B7, 15:B5, 15:B1",
+   "n": 8,
+   "refs": "",
+   "obs": "Cable de 5 puntas: puente/derivación en 15AIB1 1, 15DIB1 1, 15DIB2 1 (hecho a propósito)"
+  },
+  {
+   "num": "1373",
+   "color": "Rojo",
+   "sec": "2,5",
+   "puntas": 2,
+   "hojas": "13",
+   "ubic": "13:B4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1385",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:F4, 13:F4, 42:C5, 42:C4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1386",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:F6, 13:F6, 42:C5, 42:C4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1391",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:D4, 13:D4, 42:D5, 42:D5",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1392",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:D6, 13:D6, 42:D5, 42:D5",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "1394",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:A6, 13:A6, 42:A8, 42:A7",
+   "n": 4,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -42KS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "1395",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:A6, 13:A6, 42:A8, 42:A7",
+   "n": 4,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -42KS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "1396",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "13, 42",
+   "ubic": "13:B6, 13:B6, 42:A8, 42:A7",
+   "n": 4,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -42KS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "2105",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 32",
+   "ubic": "21:D2, 21:E2, 32:B2, 32:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2106",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 32",
+   "ubic": "21:D2, 21:E2, 32:B2, 32:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2114",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 42",
+   "ubic": "21:D4, 21:E4, 42:A8, 42:A7",
+   "n": 4,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -42KS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "2115",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 42",
+   "ubic": "21:D4, 21:E4, 42:C8, 42:C7",
+   "n": 4,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -42KS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "2116",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D4, 21:E4, 41:B2, 41:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2117",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D4, 21:E4, 41:B2, 41:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2118",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D4, 21:E4, 41:B2, 41:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2119",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D4, 21:E4, 41:B3, 41:B3",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2120",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D5, 21:E5, 41:B4, 41:B4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2121",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D5, 21:E5, 41:B4, 41:B4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2122",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D5, 21:E5, 41:B4, 41:B4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2123",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D5, 21:E5, 41:B4, 41:B4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2124",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D5, 21:E5, 41:B6, 41:B6",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2125",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D5, 21:E5, 41:B6, 41:B6",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2126",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D6, 21:E6, 41:B6, 41:B6",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2127",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 41",
+   "ubic": "21:D6, 21:E6, 41:B6, 41:B6",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2128",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 42",
+   "ubic": "21:D6, 21:E6, 42:B1, 42:B1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2129",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 42",
+   "ubic": "21:D6, 21:E6, 42:B1, 42:B1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2130",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 42",
+   "ubic": "21:D6, 21:E6, 42:B3, 42:B3",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2131",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 42",
+   "ubic": "21:D6, 21:E6, 42:B4, 42:B4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2132",
+   "color": "Azul",
+   "sec": "0,32",
+   "puntas": 3,
+   "hojas": "21, 81",
+   "ubic": "21:D7, 21:E7, 81:C3, 81:C3, 81:C2",
+   "n": 5,
+   "refs": "",
+   "obs": "Cable de 3 puntas: puente/derivación en 21PCB01 32 (hecho a propósito)"
+  },
+  {
+   "num": "2133",
+   "color": "Blanco",
+   "sec": "0,32",
+   "puntas": 3,
+   "hojas": "21, 81",
+   "ubic": "21:D7, 21:E7, 81:C3, 81:C3, 81:C2",
+   "n": 5,
+   "refs": "",
+   "obs": "Cable de 3 puntas: puente/derivación en 21PCB01 33 (hecho a propósito)"
+  },
+  {
+   "num": "2135",
+   "color": "Azul",
+   "sec": "0,32",
+   "puntas": 3,
+   "hojas": "21, 81",
+   "ubic": "21:D7, 21:E7, 81:D2, 81:E5, 81:E7, 81:D2",
+   "n": 6,
+   "refs": "",
+   "obs": "Cable de 3 puntas: puente/derivación en 12XPS 10 ABAJO (hecho a propósito)"
+  },
+  {
+   "num": "2136",
+   "color": "Blanco",
+   "sec": "0,32",
+   "puntas": 3,
+   "hojas": "21, 81",
+   "ubic": "21:D7, 21:E7, 81:D2, 81:E5, 81:E7, 81:D2",
+   "n": 6,
+   "refs": "",
+   "obs": "Cable de 3 puntas: puente/derivación en 12XPS 11 ABAJO (hecho a propósito)"
+  },
+  {
+   "num": "2139",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 32",
+   "ubic": "21:B2, 21:B2, 32:B3, 32:B3",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2140",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 32",
+   "ubic": "21:B2, 21:B2, 32:B3, 32:B3",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2142",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 32",
+   "ubic": "21:B2, 21:B2, 32:B5, 32:B5",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2150",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 61",
+   "ubic": "21:B3, 21:B4, 61:A1, 61:A1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2151",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 61",
+   "ubic": "21:B4, 21:B4, 61:A1, 61:A1",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2152",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 61",
+   "ubic": "21:B4, 21:B4, 61:A3, 61:A3",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2153",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 61",
+   "ubic": "21:B4, 21:B4, 61:A3, 61:A3",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2154",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 61",
+   "ubic": "21:B5, 21:B5, 61:A5, 61:A4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2155",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 61",
+   "ubic": "21:B5, 21:B5, 61:A5, 61:A4",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2156",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 61",
+   "ubic": "21:B5, 21:B5, 61:A6, 61:A6",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2157",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 61",
+   "ubic": "21:B5, 21:B5, 61:A7, 61:A6",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2166",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 42",
+   "ubic": "21:B7, 21:B7, 42:B2, 42:B2",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "2167",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "21, 42",
+   "ubic": "21:B7, 21:B7, 42:B3, 42:B3",
+   "n": 4,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "3202",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "32",
+   "ubic": "32:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "3203",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "32",
+   "ubic": "32:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "3205",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "32",
+   "ubic": "32:D3",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "3206",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "32",
+   "ubic": "32:D3",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "3221",
+   "color": "Rojo",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "32",
+   "ubic": "32:D5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "3222",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "32",
+   "ubic": "32:D5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4116",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4117",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4118",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4119",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D3",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4120",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4121",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4122",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4123",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4124",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4125",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4126",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4127",
+   "color": "Azul",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "41",
+   "ubic": "41:D6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4211",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "42",
+   "ubic": "42:C6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4212",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "42",
+   "ubic": "42:C6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4213",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "42",
+   "ubic": "42:C6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4221",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "42",
+   "ubic": "42:A5",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4231",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "42",
+   "ubic": "42:D6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4232",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "42",
+   "ubic": "42:D7",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4233",
+   "color": "Negro",
+   "sec": "0,75",
+   "puntas": 2,
+   "hojas": "42",
+   "ubic": "42:D7",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "4294",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "42, 61",
+   "ubic": "42:C8, 42:C7, 61:C3, 61:C3",
+   "n": 4,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -42KS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "4295",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "42, 61",
+   "ubic": "42:C8, 42:C7, 61:C5, 61:C4",
+   "n": 4,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -42KS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "4296",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "42, 61",
+   "ubic": "42:C8, 42:C7, 61:C7, 61:C6",
+   "n": 4,
+   "refs": "",
+   "obs": "EPLAN no da el borne de -42KS1 (tomado del mapeo verificado)"
+  },
+  {
+   "num": "6141",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:C2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6142",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:C4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6143",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:C6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6144",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:C7",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6151",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6152",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:D4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6153",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:D6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6154",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:D7",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6162",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:E4",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6163",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:E6",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6164",
+   "color": "Negro",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:E7",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6171",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:C2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6172",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:C2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6173",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  },
+  {
+   "num": "6174",
+   "color": "Rojo",
+   "sec": "1",
+   "puntas": 2,
+   "hojas": "61",
+   "ubic": "61:D2",
+   "n": 1,
+   "refs": "",
+   "obs": ""
+  }
+ ],
+ "detalle": [
+  {
+   "num": "1154",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "C4",
+   "bbox": [
+    560.93,
+    455.32,
+    565.71,
+    468.3
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1154",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1101",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "C4",
+   "bbox": [
+    560.85,
+    551.7,
+    565.71,
+    564.33
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1101",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1156",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D4",
+   "bbox": [
+    560.85,
+    330.6,
+    565.71,
+    343.53
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1156",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1102",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "C4",
+   "bbox": [
+    583.53,
+    551.7,
+    588.39,
+    564.56
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1102",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1155",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "C4",
+   "bbox": [
+    583.61,
+    455.32,
+    588.39,
+    468.13
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1155",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1157",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D4",
+   "bbox": [
+    583.61,
+    330.6,
+    588.39,
+    343.51
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1157",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1183",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D5",
+   "bbox": [
+    645.88,
+    330.6,
+    650.76,
+    343.38
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1183",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1184",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D5",
+   "bbox": [
+    668.55,
+    330.6,
+    673.44,
+    343.58
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1184",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1158",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E4",
+   "bbox": [
+    560.84,
+    256.9,
+    565.72,
+    269.81
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1158",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1159",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E4",
+   "bbox": [
+    606.2,
+    256.9,
+    611.06,
+    269.77
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1159",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1185",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "C6",
+   "bbox": [
+    844.3,
+    551.7,
+    849.19,
+    564.51
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1185",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1186",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "C6",
+   "bbox": [
+    821.62,
+    551.7,
+    826.51,
+    564.63
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1186",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1160",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D6",
+   "bbox": [
+    844.31,
+    381.62,
+    849.17,
+    394.5
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1160",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1161",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D6",
+   "bbox": [
+    798.97,
+    381.62,
+    803.82,
+    394.25
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1161",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1183",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "C7",
+   "bbox": [
+    1008.71,
+    551.7,
+    1013.59,
+    564.48
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1183",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1184",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "C7",
+   "bbox": [
+    986.03,
+    551.7,
+    990.92,
+    564.68
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1184",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1170",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D7",
+   "bbox": [
+    1008.72,
+    381.62,
+    1013.58,
+    394.5
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1170",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1171",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D7",
+   "bbox": [
+    963.45,
+    381.62,
+    968.14,
+    394.25
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1171",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1172",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E7",
+   "bbox": [
+    1008.72,
+    262.56,
+    1013.49,
+    275.43
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1172",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1162",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E6",
+   "bbox": [
+    844.31,
+    262.56,
+    849.17,
+    275.43
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1162",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1185",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D5",
+   "bbox": [
+    691.23,
+    330.6,
+    696.12,
+    343.41
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1185",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1186",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "D5",
+   "bbox": [
+    713.91,
+    330.6,
+    718.79,
+    343.53
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1186",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1181",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E5",
+   "bbox": [
+    640.08,
+    230.31,
+    652.71,
+    235.2
+   ],
+   "color": "Marrón",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1181",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1182",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E5",
+   "bbox": [
+    640.08,
+    173.62,
+    652.94,
+    178.5
+   ],
+   "color": "Celeste",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1182",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1162",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E6",
+   "bbox": [
+    882.54,
+    180.13,
+    900.41,
+    186.88
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1162",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1161",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E6",
+   "bbox": [
+    882.54,
+    157.45,
+    900.08,
+    164.19
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1161",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1172",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E8",
+   "bbox": [
+    1041.28,
+    242.61,
+    1059.15,
+    249.24
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1172",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1171",
+   "pag": 10,
+   "hoja": "11",
+   "zona": "E8",
+   "bbox": [
+    1041.28,
+    219.94,
+    1058.82,
+    226.45
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1171",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1201",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B5",
+   "bbox": [
+    640.22,
+    568.71,
+    645.08,
+    581.34
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1201",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1202",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C4",
+   "bbox": [
+    594.72,
+    428.75,
+    607.59,
+    433.61
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1202",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1211",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C3",
+   "bbox": [
+    401.97,
+    428.84,
+    414.6,
+    433.61
+   ],
+   "color": "Rojo",
+   "sec": "35",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1211",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1209",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D2",
+   "bbox": [
+    243.37,
+    319.26,
+    248.23,
+    332.13
+   ],
+   "color": "Rojo",
+   "sec": "35",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1209",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1208",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "E2",
+   "bbox": [
+    243.36,
+    228.55,
+    248.24,
+    241.46
+   ],
+   "color": "Rojo",
+   "sec": "35",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1208",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1218",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "F3",
+   "bbox": [
+    390.63,
+    133.93,
+    403.54,
+    138.82
+   ],
+   "color": "Negro",
+   "sec": "35",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1218",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "1206",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B5",
+   "bbox": [
+    662.9,
+    568.71,
+    667.76,
+    581.64
+   ],
+   "color": "Negro",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1206",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1231",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B5",
+   "bbox": [
+    730.93,
+    591.38,
+    735.79,
+    604.01
+   ],
+   "color": "Negro",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1231",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1264",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C7",
+   "bbox": [
+    912.2,
+    462.76,
+    925.19,
+    467.62
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1264",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1254",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C7",
+   "bbox": [
+    912.2,
+    440.09,
+    925.19,
+    444.95
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1254",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1234",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D7",
+   "bbox": [
+    912.2,
+    417.41,
+    925.19,
+    422.27
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1234",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1230",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D7",
+   "bbox": [
+    912.2,
+    360.72,
+    925.09,
+    365.58
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1230",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1162",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B3",
+   "bbox": [
+    447.32,
+    587.49,
+    460.18,
+    592.35
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1162",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1161",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C3",
+   "bbox": [
+    447.32,
+    564.81,
+    459.95,
+    569.66
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1161",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1268",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C7",
+   "bbox": [
+    912.2,
+    485.43,
+    925.12,
+    490.31
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1268",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1221",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B4",
+   "bbox": [
+    572.19,
+    682.09,
+    576.96,
+    694.72
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1221",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1223",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B5",
+   "bbox": [
+    640.22,
+    682.09,
+    645.08,
+    694.87
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1223",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1225",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B5",
+   "bbox": [
+    708.25,
+    682.09,
+    713.11,
+    694.91
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1225",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1222",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B4",
+   "bbox": [
+    594.86,
+    682.09,
+    599.64,
+    694.96
+   ],
+   "color": "Negro",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1222",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1224",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B5",
+   "bbox": [
+    662.9,
+    682.09,
+    667.67,
+    695.08
+   ],
+   "color": "Negro",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1224",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1226",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B5",
+   "bbox": [
+    730.93,
+    682.09,
+    735.79,
+    695.03
+   ],
+   "color": "Negro",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1226",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1218",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "F2",
+   "bbox": [
+    243.36,
+    137.84,
+    248.24,
+    150.76
+   ],
+   "color": "Negro",
+   "sec": "35",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1218",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "1232",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D7",
+   "bbox": [
+    912.2,
+    338.04,
+    925.07,
+    342.9
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1232",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1235",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D7",
+   "bbox": [
+    912.2,
+    394.73,
+    925.02,
+    399.59
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1235",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1218",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "E2",
+   "bbox": [
+    277.24,
+    156.61,
+    290.16,
+    161.49
+   ],
+   "color": "Negro",
+   "sec": "35",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1218",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "1230",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D7",
+   "bbox": [
+    961.91,
+    355.88,
+    979.81,
+    362.63
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1230",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1264",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C7",
+   "bbox": [
+    961.91,
+    457.92,
+    979.95,
+    464.67
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1264",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1234",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D7",
+   "bbox": [
+    961.91,
+    412.57,
+    979.95,
+    419.32
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1234",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1254",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C7",
+   "bbox": [
+    961.91,
+    435.25,
+    979.95,
+    442.0
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1254",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1162",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "B2",
+   "bbox": [
+    222.69,
+    582.65,
+    240.56,
+    589.4
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1162",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1161",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C2",
+   "bbox": [
+    222.69,
+    559.97,
+    240.23,
+    566.71
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1161",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1268",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "C7",
+   "bbox": [
+    961.91,
+    480.58,
+    979.85,
+    487.37
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1268",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1232",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D7",
+   "bbox": [
+    961.91,
+    333.2,
+    979.78,
+    339.95
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1232",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1235",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "D7",
+   "bbox": [
+    961.91,
+    389.89,
+    979.71,
+    396.64
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1235",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1218",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "E3",
+   "bbox": [
+    326.95,
+    151.76,
+    344.89,
+    158.55
+   ],
+   "color": "Negro",
+   "sec": "35",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1218",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "1303",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "C3",
+   "bbox": [
+    368.09,
+    557.37,
+    372.95,
+    570.15
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1303",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1353",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A4",
+   "bbox": [
+    572.05,
+    746.23,
+    584.83,
+    751.09
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1353",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1363",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A4",
+   "bbox": [
+    572.05,
+    712.21,
+    584.83,
+    717.07
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1363",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1310",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "C5",
+   "bbox": [
+    640.22,
+    426.97,
+    645.08,
+    439.86
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1310",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1312",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "C5",
+   "bbox": [
+    662.9,
+    426.97,
+    667.76,
+    439.84
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1312",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1385",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "F4",
+   "bbox": [
+    538.03,
+    133.93,
+    550.84,
+    138.82
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1385",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1370",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "F4",
+   "bbox": [
+    538.03,
+    111.27,
+    550.91,
+    116.13
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1370",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1361",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "F6",
+   "bbox": [
+    764.8,
+    111.27,
+    777.43,
+    116.13
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1361",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1386",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "F6",
+   "bbox": [
+    764.8,
+    133.93,
+    777.73,
+    138.82
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1386",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1350",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "E4",
+   "bbox": [
+    538.03,
+    179.3,
+    550.91,
+    184.16
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1350",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1339",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "E4",
+   "bbox": [
+    538.03,
+    156.62,
+    550.91,
+    161.48
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1339",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1340",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "E6",
+   "bbox": [
+    764.8,
+    156.62,
+    777.68,
+    161.48
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1340",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1230",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A1",
+   "bbox": [
+    175.34,
+    727.45,
+    180.2,
+    740.33
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1230",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1301",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "C1",
+   "bbox": [
+    175.34,
+    557.37,
+    180.2,
+    570.0
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1301",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1373",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "B4",
+   "bbox": [
+    549.51,
+    574.38,
+    554.37,
+    587.16
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1373",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1391",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "D4",
+   "bbox": [
+    538.03,
+    292.68,
+    550.66,
+    297.54
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1391",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1392",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "D6",
+   "bbox": [
+    764.8,
+    292.68,
+    777.66,
+    297.54
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1392",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1394",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A6",
+   "bbox": [
+    753.46,
+    746.23,
+    766.45,
+    751.09
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1394",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1395",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A6",
+   "bbox": [
+    753.46,
+    712.21,
+    766.28,
+    717.07
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1395",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1396",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "B6",
+   "bbox": [
+    753.46,
+    678.2,
+    766.4,
+    683.06
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1396",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1304",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "C3",
+   "bbox": [
+    345.42,
+    557.37,
+    350.28,
+    570.35
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1304",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1302",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "C2",
+   "bbox": [
+    198.01,
+    557.37,
+    202.87,
+    570.23
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1302",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1311",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "D5",
+   "bbox": [
+    640.22,
+    307.92,
+    645.08,
+    320.55
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1311",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1232",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A2",
+   "bbox": [
+    232.03,
+    727.45,
+    236.89,
+    740.31
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1232",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1235",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "C6",
+   "bbox": [
+    753.46,
+    434.42,
+    766.28,
+    439.28
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1235",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1234",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "B5",
+   "bbox": [
+    674.09,
+    632.84,
+    687.08,
+    637.7
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1234",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1230",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A1",
+   "bbox": [
+    120.64,
+    764.06,
+    138.54,
+    770.82
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1230",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1353",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A4",
+   "bbox": [
+    483.48,
+    741.39,
+    501.23,
+    748.14
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1353",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1350",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "E4",
+   "bbox": [
+    483.48,
+    174.46,
+    501.37,
+    181.21
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1350",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1370",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "F4",
+   "bbox": [
+    483.48,
+    106.43,
+    501.37,
+    113.18
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1370",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1361",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "F6",
+   "bbox": [
+    803.17,
+    106.43,
+    820.71,
+    113.18
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1361",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1339",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "E4",
+   "bbox": [
+    483.48,
+    151.78,
+    501.36,
+    158.53
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1339",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1340",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "E6",
+   "bbox": [
+    803.17,
+    151.78,
+    821.07,
+    158.53
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1340",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1391",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "D4",
+   "bbox": [
+    483.48,
+    287.84,
+    501.02,
+    294.59
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1391",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1392",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "D6",
+   "bbox": [
+    803.17,
+    287.84,
+    821.04,
+    294.59
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1392",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1394",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A6",
+   "bbox": [
+    803.17,
+    741.39,
+    821.21,
+    748.14
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1394",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1395",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A6",
+   "bbox": [
+    803.17,
+    707.37,
+    820.97,
+    714.12
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1395",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1396",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "B6",
+   "bbox": [
+    803.17,
+    673.36,
+    821.14,
+    680.11
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1396",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1385",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "F4",
+   "bbox": [
+    483.48,
+    129.09,
+    501.27,
+    135.87
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1385",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1386",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "F6",
+   "bbox": [
+    803.17,
+    129.09,
+    821.14,
+    135.87
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1386",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1363",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A4",
+   "bbox": [
+    483.48,
+    707.37,
+    501.23,
+    714.12
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1363",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1232",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "A1",
+   "bbox": [
+    120.64,
+    786.74,
+    138.51,
+    793.49
+   ],
+   "color": "Rojo",
+   "sec": "6",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1232",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1235",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "C6",
+   "bbox": [
+    803.17,
+    429.58,
+    820.97,
+    436.33
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1235",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1234",
+   "pag": 12,
+   "hoja": "13",
+   "zona": "B6",
+   "bbox": [
+    803.17,
+    628.0,
+    821.21,
+    634.75
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1234",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1370",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B2",
+   "bbox": [
+    254.56,
+    587.49,
+    267.45,
+    592.35
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1370",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1370",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B2",
+   "bbox": [
+    288.72,
+    625.4,
+    293.58,
+    638.28
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1370",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1370",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B6",
+   "bbox": [
+    787.62,
+    625.4,
+    792.48,
+    638.28
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1370",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1370",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B7",
+   "bbox": [
+    946.36,
+    625.4,
+    951.22,
+    638.28
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1370",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1361",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B2",
+   "bbox": [
+    322.74,
+    625.4,
+    327.6,
+    638.03
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1361",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1361",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B6",
+   "bbox": [
+    821.64,
+    625.4,
+    826.5,
+    638.03
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1361",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1361",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B7",
+   "bbox": [
+    980.38,
+    625.4,
+    985.24,
+    638.03
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1361",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1361",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "C2",
+   "bbox": [
+    254.56,
+    564.81,
+    267.19,
+    569.67
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1361",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1370",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B5",
+   "bbox": [
+    640.22,
+    625.4,
+    645.08,
+    638.28
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1370",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1361",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B5",
+   "bbox": [
+    674.23,
+    625.4,
+    679.09,
+    638.03
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1361",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1172",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "D1",
+   "bbox": [
+    186.68,
+    370.28,
+    191.45,
+    383.15
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1172",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1171",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "D2",
+   "bbox": [
+    220.77,
+    370.28,
+    225.46,
+    382.91
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1171",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1370",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "B1",
+   "bbox": [
+    166.0,
+    582.65,
+    183.89,
+    589.4
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1370",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1361",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "C1",
+   "bbox": [
+    166.0,
+    559.97,
+    183.54,
+    566.72
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1361",
+   "src": "eplan",
+   "puntas": 5
+  },
+  {
+   "num": "1172",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "C1",
+   "bbox": [
+    184.11,
+    426.51,
+    201.98,
+    433.14
+   ],
+   "color": "Rojo",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1172",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1171",
+   "pag": 13,
+   "hoja": "15",
+   "zona": "C2",
+   "bbox": [
+    218.13,
+    426.51,
+    235.67,
+    433.02
+   ],
+   "color": "Negro",
+   "sec": "2,5",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1171",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1254",
+   "pag": 14,
+   "hoja": "16",
+   "zona": "B4",
+   "bbox": [
+    492.67,
+    632.84,
+    505.66,
+    637.7
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1254",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1353",
+   "pag": 14,
+   "hoja": "16",
+   "zona": "B4",
+   "bbox": [
+    492.67,
+    655.52,
+    505.46,
+    660.38
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1353",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1254",
+   "pag": 14,
+   "hoja": "16",
+   "zona": "B3",
+   "bbox": [
+    404.11,
+    628.0,
+    422.14,
+    634.75
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1254",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1353",
+   "pag": 14,
+   "hoja": "16",
+   "zona": "B3",
+   "bbox": [
+    404.11,
+    650.68,
+    421.86,
+    657.43
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1353",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2105",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D2",
+   "bbox": [
+    288.72,
+    284.88,
+    293.58,
+    298.05
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2105",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2106",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D2",
+   "bbox": [
+    311.4,
+    284.88,
+    316.26,
+    298.18
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2106",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2114",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D4",
+   "bbox": [
+    492.82,
+    284.88,
+    497.59,
+    298.23
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2114",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2115",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D4",
+   "bbox": [
+    515.49,
+    284.88,
+    520.35,
+    298.05
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2115",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2116",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D4",
+   "bbox": [
+    538.17,
+    284.88,
+    543.03,
+    298.18
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2116",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2117",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D4",
+   "bbox": [
+    560.85,
+    284.88,
+    565.62,
+    298.16
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2117",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2118",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D4",
+   "bbox": [
+    583.51,
+    284.88,
+    588.4,
+    298.16
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2118",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2119",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D4",
+   "bbox": [
+    606.2,
+    284.88,
+    611.06,
+    298.12
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2119",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2120",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D5",
+   "bbox": [
+    628.88,
+    284.88,
+    633.74,
+    298.12
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2120",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2121",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D5",
+   "bbox": [
+    651.56,
+    284.88,
+    656.33,
+    297.87
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2121",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2122",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D5",
+   "bbox": [
+    674.23,
+    284.88,
+    679.01,
+    298.11
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2122",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2123",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D5",
+   "bbox": [
+    696.91,
+    284.88,
+    701.77,
+    298.02
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2123",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2128",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D6",
+   "bbox": [
+    810.28,
+    284.88,
+    815.17,
+    298.16
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2128",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2129",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D6",
+   "bbox": [
+    832.97,
+    284.88,
+    837.83,
+    298.12
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2129",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2130",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D6",
+   "bbox": [
+    855.65,
+    284.88,
+    860.51,
+    298.12
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2130",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2131",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D6",
+   "bbox": [
+    878.33,
+    284.88,
+    883.19,
+    297.87
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2131",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2139",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B2",
+   "bbox": [
+    220.69,
+    613.7,
+    225.55,
+    626.94
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2139",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2140",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B2",
+   "bbox": [
+    243.37,
+    613.7,
+    248.23,
+    626.94
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2140",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2142",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B2",
+   "bbox": [
+    288.72,
+    613.7,
+    293.49,
+    626.92
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2142",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2167",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B7",
+   "bbox": [
+    969.04,
+    613.7,
+    973.9,
+    626.98
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2167",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2166",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B7",
+   "bbox": [
+    946.36,
+    613.7,
+    951.22,
+    626.99
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2166",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2151",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B4",
+   "bbox": [
+    492.82,
+    613.7,
+    497.68,
+    626.69
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2151",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2152",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B4",
+   "bbox": [
+    515.49,
+    613.7,
+    520.35,
+    626.92
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2152",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2153",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B4",
+   "bbox": [
+    538.17,
+    613.7,
+    543.03,
+    626.84
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2153",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2150",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B3",
+   "bbox": [
+    470.14,
+    613.7,
+    475.0,
+    626.94
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2150",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2133",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D7",
+   "bbox": [
+    923.68,
+    284.88,
+    928.54,
+    298.02
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2133",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2132",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D7",
+   "bbox": [
+    901.01,
+    284.88,
+    905.87,
+    298.11
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2132",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2136",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D7",
+   "bbox": [
+    991.72,
+    284.88,
+    996.58,
+    298.18
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2136",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2135",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D7",
+   "bbox": [
+    969.04,
+    284.88,
+    973.9,
+    298.05
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2135",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2124",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D5",
+   "bbox": [
+    719.59,
+    284.88,
+    724.36,
+    298.23
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2124",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2125",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D5",
+   "bbox": [
+    742.27,
+    284.88,
+    747.13,
+    298.05
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2125",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2126",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D6",
+   "bbox": [
+    764.94,
+    284.88,
+    769.8,
+    298.18
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2126",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2127",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "D6",
+   "bbox": [
+    787.62,
+    284.88,
+    792.39,
+    298.16
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2127",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2155",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B5",
+   "bbox": [
+    696.91,
+    613.7,
+    701.77,
+    626.87
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2155",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2156",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B5",
+   "bbox": [
+    719.59,
+    613.7,
+    724.45,
+    626.99
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2156",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2157",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B5",
+   "bbox": [
+    742.27,
+    613.7,
+    747.13,
+    626.98
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2157",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2154",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B5",
+   "bbox": [
+    674.23,
+    613.7,
+    679.09,
+    627.04
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2154",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1353",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B3",
+   "bbox": [
+    424.79,
+    614.06,
+    429.65,
+    626.84
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1353",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1254",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B3",
+   "bbox": [
+    447.46,
+    614.06,
+    452.32,
+    627.04
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1254",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2139",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B2",
+   "bbox": [
+    223.64,
+    651.93,
+    230.39,
+    670.32
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2139",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2140",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B2",
+   "bbox": [
+    246.32,
+    651.93,
+    253.07,
+    670.33
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2140",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2142",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B2",
+   "bbox": [
+    291.67,
+    651.93,
+    298.3,
+    670.3
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2142",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2105",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E2",
+   "bbox": [
+    291.67,
+    241.53,
+    298.42,
+    259.83
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2105",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2106",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E2",
+   "bbox": [
+    314.35,
+    241.53,
+    321.1,
+    259.99
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2106",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2114",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E4",
+   "bbox": [
+    495.77,
+    241.53,
+    502.39,
+    260.06
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2114",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2115",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E4",
+   "bbox": [
+    518.44,
+    241.53,
+    525.2,
+    259.83
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2115",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2116",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E4",
+   "bbox": [
+    541.12,
+    241.53,
+    547.87,
+    259.99
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2116",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2117",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E4",
+   "bbox": [
+    563.8,
+    241.53,
+    570.43,
+    259.97
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2117",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2118",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E4",
+   "bbox": [
+    586.46,
+    241.53,
+    593.24,
+    259.97
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2118",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2119",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E4",
+   "bbox": [
+    609.15,
+    241.53,
+    615.9,
+    259.91
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2119",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2120",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E5",
+   "bbox": [
+    631.83,
+    241.53,
+    638.58,
+    259.92
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2120",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2121",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E5",
+   "bbox": [
+    654.51,
+    241.53,
+    661.14,
+    259.57
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2121",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2122",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E5",
+   "bbox": [
+    677.18,
+    241.53,
+    683.81,
+    259.9
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2122",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2123",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E5",
+   "bbox": [
+    699.86,
+    241.53,
+    706.61,
+    259.78
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2123",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2128",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E6",
+   "bbox": [
+    813.23,
+    241.53,
+    820.02,
+    259.97
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2128",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2129",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E6",
+   "bbox": [
+    835.92,
+    241.53,
+    842.67,
+    259.91
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2129",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2130",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E6",
+   "bbox": [
+    858.6,
+    241.53,
+    865.35,
+    259.92
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2130",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2131",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E6",
+   "bbox": [
+    881.28,
+    241.53,
+    888.03,
+    259.57
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2131",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2132",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E7",
+   "bbox": [
+    903.96,
+    241.53,
+    910.71,
+    259.9
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2132",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2133",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E7",
+   "bbox": [
+    926.63,
+    241.53,
+    933.38,
+    259.78
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2133",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2135",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E7",
+   "bbox": [
+    971.99,
+    241.53,
+    978.74,
+    259.83
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2135",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2136",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E7",
+   "bbox": [
+    994.66,
+    241.53,
+    1001.41,
+    259.99
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2136",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2166",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B7",
+   "bbox": [
+    949.31,
+    651.93,
+    956.06,
+    670.4
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2166",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2167",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B7",
+   "bbox": [
+    971.99,
+    651.93,
+    978.74,
+    670.37
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2167",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2150",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B4",
+   "bbox": [
+    473.09,
+    651.93,
+    479.84,
+    670.33
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2150",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2151",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B4",
+   "bbox": [
+    495.77,
+    651.93,
+    502.52,
+    669.97
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2151",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2152",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B4",
+   "bbox": [
+    518.44,
+    651.93,
+    525.2,
+    670.3
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2152",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2153",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B4",
+   "bbox": [
+    541.12,
+    651.93,
+    547.87,
+    670.19
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2153",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2124",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E5",
+   "bbox": [
+    722.54,
+    241.53,
+    729.17,
+    260.06
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2124",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2125",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E5",
+   "bbox": [
+    745.22,
+    241.53,
+    751.97,
+    259.83
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2125",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2126",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E6",
+   "bbox": [
+    767.89,
+    241.53,
+    774.64,
+    259.99
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2126",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2127",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "E6",
+   "bbox": [
+    790.57,
+    241.53,
+    797.2,
+    259.97
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2127",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2154",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B5",
+   "bbox": [
+    677.18,
+    651.93,
+    683.94,
+    670.47
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2154",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2155",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B5",
+   "bbox": [
+    699.86,
+    651.93,
+    706.61,
+    670.23
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2155",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2156",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B5",
+   "bbox": [
+    722.54,
+    651.93,
+    729.29,
+    670.4
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2156",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2157",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B5",
+   "bbox": [
+    745.22,
+    651.93,
+    751.97,
+    670.37
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2157",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1353",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B3",
+   "bbox": [
+    427.74,
+    652.43,
+    434.49,
+    670.19
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1353",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1254",
+   "pag": 15,
+   "hoja": "21",
+   "zona": "B3",
+   "bbox": [
+    450.41,
+    652.43,
+    457.16,
+    670.47
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1254",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2106",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B2",
+   "bbox": [
+    311.4,
+    591.02,
+    316.26,
+    604.32
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2106",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2105",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B2",
+   "bbox": [
+    288.72,
+    591.02,
+    293.58,
+    604.2
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2105",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2142",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B5",
+   "bbox": [
+    742.27,
+    568.34,
+    747.04,
+    581.57
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2142",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "3202",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "D2",
+   "bbox": [
+    288.72,
+    364.21,
+    293.58,
+    377.48
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "3202",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "3203",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "D2",
+   "bbox": [
+    311.4,
+    364.21,
+    316.26,
+    377.39
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "3203",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "3205",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "D3",
+   "bbox": [
+    368.09,
+    364.21,
+    372.95,
+    377.43
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "3205",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "3206",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "D3",
+   "bbox": [
+    390.77,
+    364.21,
+    395.63,
+    377.55
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "3206",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1350",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B5",
+   "bbox": [
+    719.59,
+    568.71,
+    724.45,
+    581.59
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1350",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2139",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B3",
+   "bbox": [
+    368.09,
+    591.02,
+    372.95,
+    604.26
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2139",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2140",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B3",
+   "bbox": [
+    390.77,
+    591.02,
+    395.63,
+    604.27
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2140",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "3221",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "D5",
+   "bbox": [
+    719.59,
+    398.23,
+    724.45,
+    411.26
+   ],
+   "color": "Rojo",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "3221",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "3222",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "D5",
+   "bbox": [
+    742.27,
+    398.23,
+    747.13,
+    411.49
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "3222",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1350",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B5",
+   "bbox": [
+    722.54,
+    629.76,
+    729.29,
+    647.65
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1350",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2105",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B2",
+   "bbox": [
+    291.67,
+    640.59,
+    298.42,
+    658.89
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2105",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2106",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B2",
+   "bbox": [
+    314.35,
+    640.59,
+    321.1,
+    659.06
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2106",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2142",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B5",
+   "bbox": [
+    745.22,
+    629.25,
+    751.84,
+    647.62
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2142",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2139",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B3",
+   "bbox": [
+    371.04,
+    640.59,
+    377.79,
+    658.98
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2139",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2140",
+   "pag": 16,
+   "hoja": "32",
+   "zona": "B3",
+   "bbox": [
+    393.72,
+    640.59,
+    400.47,
+    658.99
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2140",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2116",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B2",
+   "bbox": [
+    266.05,
+    602.36,
+    270.91,
+    615.66
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2116",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2117",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B2",
+   "bbox": [
+    288.72,
+    602.36,
+    293.49,
+    615.64
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2117",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2118",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B2",
+   "bbox": [
+    311.39,
+    602.36,
+    316.27,
+    615.64
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2118",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2119",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B3",
+   "bbox": [
+    334.08,
+    602.36,
+    338.93,
+    615.6
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2119",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4116",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D2",
+   "bbox": [
+    266.05,
+    375.38,
+    270.91,
+    388.88
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4116",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4117",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D2",
+   "bbox": [
+    288.8,
+    375.38,
+    293.49,
+    388.87
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4117",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4118",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D2",
+   "bbox": [
+    311.39,
+    375.38,
+    316.27,
+    388.87
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4118",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4119",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D3",
+   "bbox": [
+    334.08,
+    375.38,
+    338.93,
+    388.83
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4119",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2120",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B4",
+   "bbox": [
+    515.49,
+    602.36,
+    520.35,
+    615.61
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2120",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2121",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B4",
+   "bbox": [
+    538.17,
+    602.36,
+    542.94,
+    615.35
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2121",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2122",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B4",
+   "bbox": [
+    560.85,
+    602.36,
+    565.62,
+    615.59
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2122",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2123",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B4",
+   "bbox": [
+    583.53,
+    602.36,
+    588.39,
+    615.5
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2123",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4120",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D4",
+   "bbox": [
+    515.49,
+    375.38,
+    520.35,
+    388.83
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4120",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4121",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D4",
+   "bbox": [
+    538.17,
+    375.38,
+    542.94,
+    388.58
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4121",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4122",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D4",
+   "bbox": [
+    560.85,
+    375.38,
+    565.62,
+    388.81
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4122",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4123",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D4",
+   "bbox": [
+    583.53,
+    375.38,
+    588.39,
+    388.73
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4123",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2124",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B6",
+   "bbox": [
+    764.94,
+    602.36,
+    769.72,
+    615.71
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2124",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2125",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B6",
+   "bbox": [
+    787.62,
+    602.36,
+    792.48,
+    615.54
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2125",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2126",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B6",
+   "bbox": [
+    810.3,
+    602.36,
+    815.16,
+    615.66
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2126",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2127",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B6",
+   "bbox": [
+    832.97,
+    602.36,
+    837.75,
+    615.64
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2127",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4124",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D6",
+   "bbox": [
+    764.94,
+    375.38,
+    769.72,
+    388.93
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4124",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4125",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D6",
+   "bbox": [
+    787.62,
+    375.38,
+    792.48,
+    388.76
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4125",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4126",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D6",
+   "bbox": [
+    810.3,
+    375.38,
+    815.16,
+    388.88
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4126",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4127",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "D6",
+   "bbox": [
+    832.97,
+    375.38,
+    837.75,
+    388.87
+   ],
+   "color": "Azul",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4127",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2116",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B2",
+   "bbox": [
+    269.0,
+    640.59,
+    275.75,
+    659.06
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2116",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2117",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B2",
+   "bbox": [
+    291.67,
+    640.59,
+    298.3,
+    659.03
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2117",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2118",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B2",
+   "bbox": [
+    314.33,
+    640.59,
+    321.12,
+    659.03
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2118",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2119",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B3",
+   "bbox": [
+    337.03,
+    640.59,
+    343.77,
+    658.98
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2119",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2120",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B4",
+   "bbox": [
+    518.44,
+    640.59,
+    525.2,
+    658.99
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2120",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2121",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B4",
+   "bbox": [
+    541.12,
+    640.59,
+    547.75,
+    658.64
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2121",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2122",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B4",
+   "bbox": [
+    563.8,
+    640.59,
+    570.43,
+    658.96
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2122",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2123",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B4",
+   "bbox": [
+    586.48,
+    640.59,
+    593.23,
+    658.85
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2123",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2124",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B6",
+   "bbox": [
+    767.89,
+    640.59,
+    774.52,
+    659.13
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2124",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2125",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B6",
+   "bbox": [
+    790.57,
+    640.59,
+    797.32,
+    658.89
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2125",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2126",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B6",
+   "bbox": [
+    813.25,
+    640.59,
+    820.0,
+    659.06
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2126",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2127",
+   "pag": 17,
+   "hoja": "41",
+   "zona": "B6",
+   "bbox": [
+    835.92,
+    640.59,
+    842.55,
+    659.03
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2127",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2128",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B1",
+   "bbox": [
+    152.65,
+    568.34,
+    157.53,
+    581.62
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2128",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2129",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B1",
+   "bbox": [
+    175.34,
+    568.34,
+    180.19,
+    581.58
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2129",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2130",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B3",
+   "bbox": [
+    458.8,
+    568.34,
+    463.66,
+    581.59
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2130",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2131",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B4",
+   "bbox": [
+    481.48,
+    568.34,
+    486.34,
+    581.34
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2131",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2166",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B2",
+   "bbox": [
+    322.74,
+    568.34,
+    327.6,
+    581.64
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2166",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2167",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B3",
+   "bbox": [
+    345.42,
+    568.34,
+    350.28,
+    581.62
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2167",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1339",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B2",
+   "bbox": [
+    266.05,
+    568.71,
+    270.91,
+    581.58
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1339",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1340",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B2",
+   "bbox": [
+    288.72,
+    568.71,
+    293.58,
+    581.59
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1340",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4211",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C6",
+   "bbox": [
+    742.27,
+    556.8,
+    747.04,
+    570.0
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4211",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4213",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C6",
+   "bbox": [
+    776.28,
+    556.8,
+    781.14,
+    570.15
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4213",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1385",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C5",
+   "bbox": [
+    628.87,
+    557.37,
+    633.75,
+    570.18
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1385",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1386",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C5",
+   "bbox": [
+    662.88,
+    557.37,
+    667.77,
+    570.3
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1386",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4231",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "D6",
+   "bbox": [
+    742.27,
+    341.36,
+    747.13,
+    354.56
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4231",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1391",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "D5",
+   "bbox": [
+    640.22,
+    341.93,
+    645.08,
+    354.56
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1391",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1392",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "D5",
+   "bbox": [
+    674.23,
+    341.93,
+    679.09,
+    354.8
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1392",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1394",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A8",
+   "bbox": [
+    980.23,
+    791.58,
+    993.22,
+    796.44
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1394",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1395",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A8",
+   "bbox": [
+    980.23,
+    768.91,
+    993.05,
+    773.77
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1395",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1396",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A8",
+   "bbox": [
+    980.23,
+    746.23,
+    993.17,
+    751.09
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1396",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2114",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A8",
+   "bbox": [
+    979.87,
+    723.64,
+    993.22,
+    728.41
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2114",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2115",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C8",
+   "bbox": [
+    979.87,
+    553.47,
+    993.05,
+    558.33
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2115",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4294",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C8",
+   "bbox": [
+    979.66,
+    530.8,
+    993.22,
+    535.66
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4294",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4295",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C8",
+   "bbox": [
+    979.66,
+    508.12,
+    993.05,
+    512.98
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4295",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4296",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C8",
+   "bbox": [
+    979.66,
+    485.44,
+    993.17,
+    490.3
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4296",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4221",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A5",
+   "bbox": [
+    628.88,
+    715.54,
+    633.65,
+    728.74
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4221",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4212",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C6",
+   "bbox": [
+    730.93,
+    443.41,
+    735.7,
+    456.85
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4212",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4233",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "D7",
+   "bbox": [
+    889.67,
+    352.7,
+    894.53,
+    366.06
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4233",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4232",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "D7",
+   "bbox": [
+    855.65,
+    352.7,
+    860.51,
+    366.14
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4232",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2128",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B1",
+   "bbox": [
+    155.59,
+    617.92,
+    162.38,
+    636.35
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2128",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2129",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B1",
+   "bbox": [
+    178.29,
+    617.92,
+    185.03,
+    636.3
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2129",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2130",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B3",
+   "bbox": [
+    461.75,
+    617.92,
+    468.5,
+    636.31
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2130",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2131",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B4",
+   "bbox": [
+    484.43,
+    617.92,
+    491.18,
+    635.96
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2131",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2166",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B2",
+   "bbox": [
+    325.69,
+    617.92,
+    332.44,
+    636.38
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2166",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2167",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B3",
+   "bbox": [
+    348.37,
+    617.92,
+    355.12,
+    636.35
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2167",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1339",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B2",
+   "bbox": [
+    269.0,
+    618.42,
+    275.75,
+    636.3
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1339",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1340",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "B2",
+   "bbox": [
+    291.67,
+    618.42,
+    298.42,
+    636.31
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1340",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1385",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C4",
+   "bbox": [
+    562.85,
+    548.61,
+    580.64,
+    555.4
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1385",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1386",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C4",
+   "bbox": [
+    562.85,
+    525.94,
+    580.81,
+    532.72
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1386",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1392",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "D5",
+   "bbox": [
+    677.18,
+    391.65,
+    683.94,
+    409.51
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1392",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1391",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "D5",
+   "bbox": [
+    643.17,
+    391.65,
+    649.92,
+    409.19
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1391",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1394",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A7",
+   "bbox": [
+    925.68,
+    786.74,
+    943.72,
+    793.49
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1394",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1395",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A7",
+   "bbox": [
+    925.68,
+    764.06,
+    943.48,
+    770.82
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1395",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1396",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A7",
+   "bbox": [
+    925.68,
+    741.39,
+    943.65,
+    748.14
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1396",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4294",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C7",
+   "bbox": [
+    924.89,
+    525.96,
+    943.72,
+    532.71
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4294",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4295",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C7",
+   "bbox": [
+    924.89,
+    503.28,
+    943.48,
+    510.03
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4295",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4296",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C7",
+   "bbox": [
+    924.89,
+    480.6,
+    943.65,
+    487.35
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4296",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2115",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "C7",
+   "bbox": [
+    925.18,
+    548.63,
+    943.48,
+    555.38
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2115",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2114",
+   "pag": 18,
+   "hoja": "42",
+   "zona": "A7",
+   "bbox": [
+    925.18,
+    718.83,
+    943.72,
+    725.46
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2114",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2150",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A1",
+   "bbox": [
+    164.0,
+    738.42,
+    168.86,
+    751.67
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2150",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2151",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A1",
+   "bbox": [
+    186.68,
+    738.42,
+    191.54,
+    751.41
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2151",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1363",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C1",
+   "bbox": [
+    163.86,
+    530.8,
+    176.64,
+    535.66
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1363",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2152",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A3",
+   "bbox": [
+    402.11,
+    738.42,
+    406.97,
+    751.65
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2152",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2153",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A3",
+   "bbox": [
+    424.79,
+    738.42,
+    429.65,
+    751.57
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2153",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2154",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A5",
+   "bbox": [
+    640.22,
+    738.42,
+    645.08,
+    751.77
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2154",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2155",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A5",
+   "bbox": [
+    662.9,
+    738.42,
+    667.76,
+    751.6
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2155",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2156",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A6",
+   "bbox": [
+    878.33,
+    738.42,
+    883.19,
+    751.72
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2156",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2157",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A7",
+   "bbox": [
+    901.01,
+    738.42,
+    905.87,
+    751.7
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2157",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1264",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C1",
+   "bbox": [
+    163.86,
+    474.1,
+    176.84,
+    478.96
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1264",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1268",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "E1",
+   "bbox": [
+    163.86,
+    167.95,
+    176.77,
+    172.83
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1268",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4294",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C3",
+   "bbox": [
+    435.41,
+    530.8,
+    448.97,
+    535.66
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4294",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4295",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C5",
+   "bbox": [
+    673.52,
+    530.8,
+    686.91,
+    535.66
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4295",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4296",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C7",
+   "bbox": [
+    911.63,
+    530.8,
+    925.14,
+    535.66
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4296",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6162",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "E4",
+   "bbox": [
+    538.17,
+    216.78,
+    543.03,
+    230.07
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6162",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6163",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "E6",
+   "bbox": [
+    776.28,
+    216.78,
+    781.14,
+    229.99
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6163",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6164",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "E7",
+   "bbox": [
+    1014.39,
+    216.78,
+    1019.25,
+    230.19
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6164",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6141",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C2",
+   "bbox": [
+    300.07,
+    500.24,
+    304.92,
+    513.3
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6141",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6142",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C4",
+   "bbox": [
+    538.17,
+    500.24,
+    543.03,
+    513.54
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6142",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6143",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C6",
+   "bbox": [
+    776.28,
+    500.24,
+    781.14,
+    513.46
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6143",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6144",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C7",
+   "bbox": [
+    1014.39,
+    500.24,
+    1019.25,
+    513.66
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6144",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6151",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "D2",
+   "bbox": [
+    300.07,
+    296.15,
+    304.92,
+    309.21
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6151",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6152",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "D4",
+   "bbox": [
+    538.17,
+    296.15,
+    543.03,
+    309.44
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6152",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6153",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "D6",
+   "bbox": [
+    776.28,
+    296.15,
+    781.14,
+    309.36
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6153",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6154",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "D7",
+   "bbox": [
+    1014.39,
+    296.15,
+    1019.25,
+    309.56
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6154",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6171",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C2",
+   "bbox": [
+    265.47,
+    474.1,
+    278.53,
+    478.96
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6171",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6172",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C2",
+   "bbox": [
+    265.47,
+    428.75,
+    278.77,
+    433.61
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6172",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6173",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "D2",
+   "bbox": [
+    265.47,
+    383.39,
+    278.69,
+    388.25
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6173",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "6174",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "D2",
+   "bbox": [
+    265.47,
+    338.04,
+    278.89,
+    342.89
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "6174",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1218",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "E1",
+   "bbox": [
+    163.86,
+    247.32,
+    176.77,
+    252.2
+   ],
+   "color": "Azul",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1218",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "1363",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C1",
+   "bbox": [
+    120.64,
+    525.95,
+    138.4,
+    532.71
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1363",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2150",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A1",
+   "bbox": [
+    120.14,
+    798.08,
+    138.54,
+    804.83
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2150",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2151",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A1",
+   "bbox": [
+    120.14,
+    775.4,
+    138.18,
+    782.15
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2151",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2152",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A3",
+   "bbox": [
+    346.91,
+    798.08,
+    365.28,
+    804.83
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2152",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2153",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A3",
+   "bbox": [
+    346.91,
+    775.4,
+    365.17,
+    782.15
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2153",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2154",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A4",
+   "bbox": [
+    596.36,
+    798.08,
+    614.9,
+    804.83
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2154",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2155",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A4",
+   "bbox": [
+    596.36,
+    775.4,
+    614.66,
+    782.15
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2155",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2156",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A6",
+   "bbox": [
+    834.47,
+    798.08,
+    852.94,
+    804.83
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2156",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "2157",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "A6",
+   "bbox": [
+    834.47,
+    775.4,
+    852.91,
+    782.15
+   ],
+   "color": "Negro",
+   "sec": "0,75",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2157",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1264",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C1",
+   "bbox": [
+    120.64,
+    469.26,
+    138.68,
+    476.01
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1264",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1268",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "E1",
+   "bbox": [
+    120.64,
+    163.1,
+    138.58,
+    169.89
+   ],
+   "color": "Negro",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1268",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4294",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C3",
+   "bbox": [
+    357.96,
+    525.96,
+    376.79,
+    532.71
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4294",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4295",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C4",
+   "bbox": [
+    596.07,
+    525.95,
+    614.66,
+    532.71
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4295",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "4296",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "C6",
+   "bbox": [
+    834.18,
+    525.95,
+    852.94,
+    532.71
+   ],
+   "color": "Rojo",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "4296",
+   "src": "eplan",
+   "puntas": 2
+  },
+  {
+   "num": "1218",
+   "pag": 19,
+   "hoja": "61",
+   "zona": "E1",
+   "bbox": [
+    120.64,
+    242.47,
+    138.58,
+    249.26
+   ],
+   "color": "Azul",
+   "sec": "1",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "1218",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2133",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "C3",
+   "bbox": [
+    458.3,
+    542.13,
+    471.44,
+    546.99
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2133",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2132",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "C3",
+   "bbox": [
+    458.3,
+    564.81,
+    471.52,
+    569.67
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2132",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2136",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "D2",
+   "bbox": [
+    265.54,
+    372.05,
+    278.84,
+    376.91
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2136",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2135",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "D2",
+   "bbox": [
+    265.54,
+    394.73,
+    278.72,
+    399.59
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2135",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2136",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "E5",
+   "bbox": [
+    628.38,
+    213.31,
+    641.67,
+    218.17
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2136",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2135",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "E5",
+   "bbox": [
+    628.38,
+    235.99,
+    641.55,
+    240.85
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2135",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2136",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "E7",
+   "bbox": [
+    968.53,
+    213.31,
+    981.83,
+    218.17
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2136",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2135",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "E7",
+   "bbox": [
+    968.53,
+    235.99,
+    981.71,
+    240.85
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2135",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2133",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "C3",
+   "bbox": [
+    458.3,
+    451.42,
+    471.44,
+    456.28
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2133",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2132",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "C3",
+   "bbox": [
+    458.3,
+    474.1,
+    471.52,
+    478.96
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2132",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2135",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "D2",
+   "bbox": [
+    222.19,
+    389.89,
+    240.49,
+    396.64
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2135",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2136",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "D2",
+   "bbox": [
+    222.19,
+    367.21,
+    240.65,
+    373.96
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2136",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2133",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "C2",
+   "bbox": [
+    222.19,
+    537.29,
+    240.44,
+    544.04
+   ],
+   "color": "Blanco",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2133",
+   "src": "eplan",
+   "puntas": 3
+  },
+  {
+   "num": "2132",
+   "pag": 20,
+   "hoja": "81",
+   "zona": "C2",
+   "bbox": [
+    222.19,
+    559.97,
+    240.56,
+    566.72
+   ],
+   "color": "Azul",
+   "sec": "0,32",
+   "origen": "Lista de conexiones de EPLAN",
+   "corte": false,
+   "refs": [],
+   "texto": "2132",
+   "src": "eplan",
+   "puntas": 3
+  }
+ ],
+ "revisar": [
+  {
+   "tipo": "Renglón con un solo destino",
+   "texto": "MALLA 21PCB01 37: -21PCB01:37 (Apantallamiento)",
+   "pag": 49,
+   "hoja": "108.b",
+   "zona": "A2",
+   "bbox": [
+    172.55,
+    741.22,
+    482.33,
+    747.38
+   ]
+  },
+  {
+   "tipo": "Renglón con un solo destino",
+   "texto": "⏚32XEX: -32XEX:5:4 (Verde/amarillo)",
+   "pag": 49,
+   "hoja": "108.b",
+   "zona": "B3",
+   "bbox": [
+    297.27,
+    628.11,
+    480.16,
+    633.99
+   ]
+  },
+  {
+   "tipo": "Renglón con un solo destino",
+   "texto": "⏚81XCM: -81XCM:9:2 (Verde/amarillo)",
+   "pag": 50,
+   "hoja": "108.c",
+   "zona": "C3",
+   "bbox": [
+    297.27,
+    560.08,
+    480.16,
+    565.96
+   ]
+  },
+  {
+   "tipo": "Cable con distintos colores/secciones",
+   "texto": "1218: Negro 35 | Azul 1",
+   "pag": 11,
+   "hoja": "12",
+   "zona": "F3",
+   "bbox": [
+    390.63,
+    133.93,
+    403.54,
+    138.82
+   ],
+   "num": "1218"
+  }
+ ],
+ "rutas": {},
+ "sin_numero": [
+  {
+   "color": "Verde-Amarillo",
+   "sec": "2,5",
+   "hoja": "108",
+   "pag": 47,
+   "bbox": [
+    172.55,
+    695.23,
+    540.47,
+    702.02
+   ],
+   "zona": "B3",
+   "largo": 0,
+   "refs": "",
+   "texto": "⏚11SK1: -11XPVAC:3:4 → -11SK1:PE"
+  },
+  {
+   "color": "Verde-Amarillo",
+   "sec": "2,5",
+   "hoja": "108",
+   "pag": 47,
+   "bbox": [
+    172.55,
+    377.75,
+    540.47,
+    384.54
+   ],
+   "zona": "D3",
+   "largo": 0,
+   "refs": "",
+   "texto": "⏚11PS1: -XPE:1:4 → -11PS1:TB1:1"
+  },
+  {
+   "color": "Verde-Amarillo",
+   "sec": "2,5",
+   "hoja": "108",
+   "pag": 47,
+   "bbox": [
+    172.55,
+    287.04,
+    540.47,
+    293.83
+   ],
+   "zona": "D3",
+   "largo": 0,
+   "refs": "",
+   "texto": "⏚11PS2: -XPE:2:4 → -11PS2:TB1:1"
+  },
+  {
+   "color": "Blanco",
+   "sec": "0,32",
+   "hoja": "108",
+   "pag": 47,
+   "bbox": [
+    750.81,
+    400.43,
+    1120.52,
+    407.22
+   ],
+   "zona": "D7",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n 12PS1 A: -12PS1:A → -12XPS:10:1"
+  },
+  {
+   "color": "Amarillo",
+   "sec": "0,32",
+   "hoja": "108",
+   "pag": 47,
+   "bbox": [
+    750.81,
+    377.75,
+    1120.52,
+    384.54
+   ],
+   "zona": "D7",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n 12PS1 B: -12PS1:B → -12XPS:11:1"
+  },
+  {
+   "color": "Negro",
+   "sec": "0,32",
+   "hoja": "108",
+   "pag": 47,
+   "bbox": [
+    750.81,
+    355.07,
+    1120.52,
+    361.75
+   ],
+   "zona": "D7",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n 12PS1 GND: -12PS1:GND → -12XPS:12:1"
+  },
+  {
+   "color": "Rojo",
+   "sec": "0,32",
+   "hoja": "108",
+   "pag": 47,
+   "bbox": [
+    750.81,
+    332.39,
+    1120.52,
+    339.07
+   ],
+   "zona": "D7",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n 12PS1 VCC: -12PS1:VCC → -12XPS:13:1"
+  },
+  {
+   "color": "Verde-Amarillo",
+   "sec": "2,5",
+   "hoja": "108",
+   "pag": 47,
+   "bbox": [
+    750.81,
+    105.62,
+    1118.74,
+    112.41
+   ],
+   "zona": "F7",
+   "largo": 0,
+   "refs": "",
+   "texto": "⏚13PS1: -XPE:1:1 → -13PS1:PE"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.a",
+   "pag": 48,
+   "bbox": [
+    172.55,
+    310.36,
+    352.77,
+    316.4
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n ROTORK 1: -15XR:1:3 → +Campo-ROTORK:1"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.a",
+   "pag": 48,
+   "bbox": [
+    172.76,
+    287.68,
+    325.08,
+    293.72
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n ROTORK 2: +Campo-ROTORK:2 → -15XR:2:4"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.a",
+   "pag": 48,
+   "bbox": [
+    172.76,
+    265.0,
+    325.08,
+    271.04
+   ],
+   "zona": "E2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n ROTORK PE: +Campo-ROTORK:PE → -15XR:3:4"
+  },
+  {
+   "color": "Malla",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.55,
+    741.22,
+    482.33,
+    747.38
+   ],
+   "zona": "A2",
+   "largo": 0,
+   "refs": "",
+   "texto": "MALLA 21PCB01 37: -21PCB01:37 → —"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.55,
+    718.55,
+    351.42,
+    724.58
+   ],
+   "zona": "A2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n PIT01F x1: -32XEX:1:2 → +Campo-PIT01F:x1"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.55,
+    673.19,
+    351.65,
+    679.23
+   ],
+   "zona": "B2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n PIT01F x2: -32XEX:2:1 → +Campo-PIT01F:x2"
+  },
+  {
+   "color": "Verde-Amarillo",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    297.27,
+    628.11,
+    480.16,
+    633.99
+   ],
+   "zona": "B3",
+   "largo": 0,
+   "refs": "",
+   "texto": "⏚32XEX: — → -32XEX:5:4"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.76,
+    514.45,
+    328.02,
+    520.49
+   ],
+   "zona": "C2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_1_ZSO 14: +Campo-IP_1_ZSO:14 → -41XEX:2:1"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.55,
+    491.77,
+    359.91,
+    497.81
+   ],
+   "zona": "C2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_1_ZSO 13: -41XEX:1:2 → +Campo-IP_1_ZSO:13"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.76,
+    423.74,
+    328.02,
+    429.77
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_1_ZSC 14: +Campo-IP_1_ZSC:14 → -41XEX:4:1"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.55,
+    401.06,
+    359.23,
+    407.1
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_1_ZSC 13: -41XEX:3:2 → +Campo-IP_1_ZSC:13"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.76,
+    333.03,
+    328.02,
+    339.07
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_2_ZSO 14: +Campo-IP_2_ZSO:14 → -41XEX:6:1"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.55,
+    310.36,
+    359.91,
+    316.4
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_2_ZSO 13: -41XEX:5:2 → +Campo-IP_2_ZSO:13"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.76,
+    242.32,
+    328.02,
+    248.38
+   ],
+   "zona": "E2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_2_ZSC 14: +Campo-IP_2_ZSC:14 → -41XEX:8:1"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.55,
+    219.65,
+    359.23,
+    225.69
+   ],
+   "zona": "E2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_2_ZSC 13: -41XEX:7:2 → +Campo-IP_2_ZSC:13"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.76,
+    151.62,
+    331.48,
+    157.66
+   ],
+   "zona": "E2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_3_ZSO 14: +Campo-IP_3_ZSO:14 → -41XEX:10:1"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    172.55,
+    128.94,
+    359.91,
+    134.98
+   ],
+   "zona": "F2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_3_ZSO 13: -41XEX:9:2 → +Campo-IP_3_ZSO:13"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    751.02,
+    741.22,
+    909.75,
+    747.26
+   ],
+   "zona": "A6",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_3_ZSC 14: +Campo-IP_3_ZSC:14 → -41XEX:12:1"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    750.81,
+    718.55,
+    937.5,
+    724.58
+   ],
+   "zona": "A6",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n IP_3_ZSC 13: -41XEX:11:2 → +Campo-IP_3_ZSC:13"
+  },
+  {
+   "color": "Marrón",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    750.81,
+    651.69,
+    1047.73,
+    657.04
+   ],
+   "zona": "B6",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n LS001A 1: -X1:2 → -LS001A:1"
+  },
+  {
+   "color": "Azul",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    750.81,
+    629.02,
+    1043.62,
+    633.99
+   ],
+   "zona": "B6",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n LS001A 2: -X1:2 → -LS001A:2"
+  },
+  {
+   "color": "Negro",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    750.81,
+    605.12,
+    1046.47,
+    611.2
+   ],
+   "zona": "B6",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n LS001A 3: -X1:2 → -LS001A:3"
+  },
+  {
+   "color": "Amarillo",
+   "sec": "",
+   "hoja": "108.b",
+   "pag": 49,
+   "bbox": [
+    750.81,
+    583.66,
+    1049.34,
+    588.64
+   ],
+   "zona": "B7",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n LS001A 4: -X1:2 → -LS001A:4"
+  },
+  {
+   "color": "Verde-Amarillo",
+   "sec": "",
+   "hoja": "108.c",
+   "pag": 50,
+   "bbox": [
+    297.27,
+    560.08,
+    480.16,
+    565.96
+   ],
+   "zona": "C3",
+   "largo": 0,
+   "refs": "",
+   "texto": "⏚81XCM: — → -81XCM:9:2"
+  },
+  {
+   "color": "Malla",
+   "sec": "",
+   "hoja": "108.c",
+   "pag": 50,
+   "bbox": [
+    172.55,
+    446.42,
+    482.33,
+    452.57
+   ],
+   "zona": "C2",
+   "largo": 0,
+   "refs": "",
+   "texto": "MALLA 21PCB01 34: -21PCB01:34 → -81XCM:4:1"
+  },
+  {
+   "color": "Malla",
+   "sec": "",
+   "hoja": "108.c",
+   "pag": 50,
+   "bbox": [
+    172.55,
+    423.74,
+    482.33,
+    429.9
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "MALLA 21PCB01 34 (2): -21PCB01:34 → -81XCM:3:2"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.c",
+   "pag": 50,
+   "bbox": [
+    172.76,
+    401.06,
+    356.52,
+    407.12
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n ROTORK 28: +Campo-R2:x2 → +Campo-ROTORK:28"
+  },
+  {
+   "color": "",
+   "sec": "",
+   "hoja": "108.c",
+   "pag": 50,
+   "bbox": [
+    172.76,
+    378.39,
+    356.52,
+    384.43
+   ],
+   "zona": "D2",
+   "largo": 0,
+   "refs": "",
+   "texto": "s/n ROTORK 27: +Campo-R2:x1 → +Campo-ROTORK:27"
+  }
+ ]
+}

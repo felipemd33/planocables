@@ -1,0 +1,120 @@
+{
+  "_nota": "Instructivo chico armado a mano para las pruebas de la WPC y del terminal (etapa 0 del plan modular). Escala 1,5 mm por punto. Riel 1 con eje en y=600 y riel 2 en y=500 (y hacia arriba, como el PDF). Canaletas: dos horizontales y una vertical a la izquierda (salida a LI). Cada línea prueba algo: 1001 lado por el campo 'lado' (manda) y mixto; 1002 las dos puntas abajo por el punto (180|0) y negro 4 (reemplazo del PAE); 1003 rojo 4 sin 'secc' (sale de 'R4MM') y QUATTRO .1/.2 arriba (0|180); 1004 'NEGRO' en mayúsculas con secc '4.0'; 1005 azul 4 (sin regla); 1006 sin ruta (largo fijo, a revisar); 1018 dos tramos con un borne en común de 1 y 2,5 mm² (terminal doble mezclado); 1007 sale a LI y muere en la bandeja lateral (regla del taller: 75 + 810 + 100 + 195 + 150 = 1330 → 1350); 1008 sale a LI y sigue a la puerta, con ruta que no toca canaletas (75 + 90 entera + 1850 = 2015 → 2050); 1009 a LD sin E8; 1010 a LI sin E8 y punto sobre el eje (sin dato de lado); 1011-1016 y 's/n 1' quedan fuera del arnés (35 mm², sección fina, RS-485, solenoide, ROTORK, s/n, sin sección). Pendientes: 1101 lateral ↔ lateral, 1102 lateral → puerta, 1103 y 1104 sin E8. Otra estación: 1201 (E8, negro 6) y 1202 (CAMPO).",
+  "pasos": [
+    {
+      "titulo": "Riel 1",
+      "lineas": [
+        {"num": "1001", "cable": "R2.5MM", "color": "Rojo", "secc": "2.5", "origen": "11A1 1", "destino": "11A2 3", "componente": "11A1", "fila": 1, "lado": "arriba",
+         "ruta": [[200, 610], [200, 650], [300, 650], [300, 590]], "largo_mm": 200, "marca_o": [200, 610, 2], "marca_d": [300, 590, 2], "exacto_o": true, "exacto_d": true, "seq": 0},
+        {"num": "1002", "cable": "N4MM", "color": "Negro", "secc": "4", "origen": "11A1 2", "destino": "11A2 4", "componente": "11A1", "fila": 1,
+         "ruta": [[210, 590], [210, 650], [310, 650], [310, 592]], "largo_mm": 150, "marca_o": [210, 590, 2], "marca_d": [310, 592, 2], "exacto_o": true, "exacto_d": true, "seq": 1},
+        {"num": "1003", "cable": "R4MM", "color": "Rojo", "origen": "11XQ 1.1", "destino": "11XQ 2.2", "componente": "11XQ", "fila": 1,
+         "ruta": [[230, 620], [230, 650], [240, 650], [240, 620]], "largo_mm": 120, "seq": 2},
+        {"num": "1004", "cable": "N4MM", "color": "NEGRO", "secc": "4.0", "origen": "11A1 3 ARRIBA", "destino": "11A2 3 ABAJO", "componente": "11A1", "fila": 1,
+         "ruta": [[250, 620], [250, 650], [260, 650], [260, 580]], "largo_mm": 80, "seq": 3},
+        {"num": "1005", "cable": "A4MM", "color": "Azul", "secc": "4", "origen": "11A2 5 ARRIBA", "destino": "12B1 2 ABAJO", "componente": "11A2", "fila": 1,
+         "ruta": [[330, 620], [330, 650], [600, 650], [600, 480]], "largo_mm": 250, "seq": 4},
+        {"num": "1006", "cable": "R1MM", "color": "Rojo", "secc": "1", "origen": "11A1 4", "destino": "11A2 8", "componente": "11A1", "fila": 1,
+         "marca_o": [220, 615, 2], "marca_d": [320, 616, 2], "exacto_o": true, "exacto_d": true, "seq": 5},
+        {"num": "1018", "cable": "R1MM", "color": "Rojo", "secc": "1", "origen": "11A1 7", "destino": "11A2 7", "componente": "11A1", "fila": 1,
+         "ruta": [[270, 590], [270, 650], [340, 650], [340, 590]], "largo_mm": 100, "marca_o": [270, 590, 2], "marca_d": [340, 590, 2], "exacto_o": true, "exacto_d": true, "puente": true, "seq": 6},
+        {"num": "1018", "cable": "R2.5MM", "color": "Rojo", "secc": "2.5", "origen": "11A2 7", "destino": "12B1 7", "componente": "11A2", "fila": 1,
+         "ruta": [[340, 590], [340, 550], [420, 550], [420, 505]], "largo_mm": 140, "marca_o": [340, 590, 2], "marca_d": [420, 505, 2], "exacto_o": true, "exacto_d": true, "puente": true, "seq": 7}
+      ]
+    },
+    {
+      "titulo": "Riel 2 y salidas",
+      "lineas": [
+        {"num": "1007", "cable": "N1MM", "color": "Negro", "secc": "1", "origen": "11A1 5", "destino": "LI", "componente": "11A1", "fila": 1, "lateral": "LI",
+         "ruta": [[400, 590], [400, 650], [90, 650], [90, 420]], "largo_mm": 500, "marca_o": [400, 590, 2], "exacto_o": true, "seq": 8},
+        {"num": "1008", "cable": "R0.75MM", "color": "Rojo", "secc": "0.75", "origen": "11A2 6 ARRIBA", "destino": "LI", "componente": "11A2", "fila": 1, "lateral": "LI",
+         "ruta": [[500, 610], [500, 700]], "largo_mm": 90, "seq": 9},
+        {"num": "1009", "cable": "N1MM", "color": "Negro", "secc": "1", "origen": "12B1 1", "destino": "LD", "componente": "12B1", "fila": 2, "lateral": "LD",
+         "ruta": [[300, 505], [300, 550], [950, 550]], "largo_mm": 300, "marca_o": [300, 505, 2], "exacto_o": true, "seq": 10},
+        {"num": "1010", "cable": "R1MM", "color": "Rojo", "secc": "1", "origen": "12B1 8", "destino": "LI", "componente": "12B1", "fila": 2, "lateral": "LI",
+         "ruta": [[250, 500.5], [250, 550], [90, 550], [90, 420]], "largo_mm": 400, "marca_o": [250, 500.5, 2], "exacto_o": true, "seq": 11},
+        {"num": "1011", "cable": "N35MM", "color": "Negro", "secc": "35", "origen": "12B1 3", "destino": "12B1 4", "componente": "12B1", "fila": 2,
+         "ruta": [[310, 505], [310, 550], [320, 550], [320, 505]], "largo_mm": 60, "seq": 12},
+        {"num": "1012", "cable": "B0.32MM", "color": "Blanco", "secc": "0.32", "origen": "12B1 5", "destino": "LI", "componente": "12B1", "fila": 2, "lateral": "LI",
+         "ruta": [[330, 505], [330, 550], [90, 550], [90, 420]], "largo_mm": 300, "seq": 13},
+        {"num": "1013", "cable": "N0.75MM", "color": "Negro", "secc": "0.75", "origen": "12B1 6", "destino": "RS485 A", "componente": "12B1", "fila": 2,
+         "ruta": [[340, 505], [340, 550], [360, 550]], "largo_mm": 50, "seq": 14},
+        {"num": "1014", "cable": "R1MM", "color": "Rojo", "secc": "1", "origen": "12B1 9", "destino": "SP-1 +", "componente": "12B1", "fila": 2,
+         "ruta": [[350, 505], [350, 550], [380, 550]], "largo_mm": 70, "seq": 15},
+        {"num": "1015", "cable": "N1MM", "color": "Negro", "secc": "1", "origen": "12B1 10", "destino": "ROTORK 2", "componente": "12B1", "fila": 2,
+         "ruta": [[360, 505], [360, 550], [390, 550]], "largo_mm": 70, "seq": 16},
+        {"num": "s/n 1", "cable": "N1MM", "color": "Negro", "secc": "1", "origen": "12B1 11", "destino": "LI", "componente": "12B1", "fila": 2, "lateral": "LI",
+         "ruta": [[370, 505], [370, 550], [90, 550], [90, 420]], "largo_mm": 400, "seq": 17},
+        {"num": "1016", "cable": "MALLA", "color": "", "secc": "", "origen": "12B1 12", "destino": "LI", "componente": "12B1", "fila": 2, "lateral": "LI",
+         "ruta": [[380, 505], [380, 550], [90, 550], [90, 420]], "largo_mm": 410, "seq": 18}
+      ]
+    }
+  ],
+  "pendientes": [
+    {"num": "1101", "cable": "M2.5MM", "color": "Marrón", "secc": "2.5", "a": "12L1 1", "b": "12L1 2"},
+    {"num": "1102", "cable": "N1MM", "color": "Negro", "secc": "1", "a": "12L1 4 ABAJO", "b": "21P1 5"},
+    {"num": "1103", "cable": "R1MM", "color": "Rojo", "secc": "1", "a": "X1 1", "b": "X2 1"},
+    {"num": "1104", "cable": "R4MM", "color": "Rojo", "secc": "4", "a": "X3 1", "b": "X4 1"}
+  ],
+  "sueltos": [],
+  "otra_estacion": [
+    {"num": "1201", "cable": "N6MM", "color": "Negro", "secc": "6", "origen": "12F3 ABAJO", "destino": "12PB1 +", "componente": "12F3", "fila": 2,
+     "ruta": [[600, 495], [600, 550], [950, 550]], "largo_mm": 350, "estacion": "E8"},
+    {"num": "1202", "cable": "N0.75MM", "color": "Negro", "secc": "0.75", "origen": "CAMPO PE", "destino": "11XP 3 ARRIBA", "estacion": "CAMPO", "pendiente": true}
+  ],
+  "quitados": [],
+  "topo": {
+    "pag": 1,
+    "region": [0, 300, 1000, 800],
+    "escala": 1.5,
+    "filas": [600, 500],
+    "comp": {"11A1": {"x": 200, "y": 600, "fila": 1}, "11A2": {"x": 300, "y": 600, "fila": 1}, "12B1": {"x": 300, "y": 500, "fila": 2}},
+    "ductos": [
+      {"b": [100, 640, 900, 660], "h": true, "ex": false},
+      {"b": [100, 540, 900, 560], "h": true, "ex": false},
+      {"b": [80, 400, 100, 700], "h": false, "ex": false}
+    ]
+  },
+  "estacion8": {
+    "version": 1,
+    "laterales": [
+      {
+        "nombre": "Bandeja lateral izquierda", "lado": "izquierda", "vista": 0, "pag": 1, "region": [0, 200, 300, 600], "escala": 1.5,
+        "ductos": [{"b": [40, 340, 200, 360], "h": true, "ex": false}], "rieles": [], "n": 5, "sin_canaletas": false, "exactos": 5,
+        "pasos": [
+          {
+            "titulo": "Riel 1",
+            "lineas": [
+              {"num": "1007", "cable": "N1MM", "color": "Negro", "secc": "1", "clave": "1007|11A1 5|12L1 3", "origen": "12L1 3 ABAJO", "marca_o": [50, 320, 2], "exacto_o": true,
+               "riel": 1, "lado": "abajo", "componente": "12L1", "destino": "11A1 5", "otra": "bandeja principal", "viene_de_e6": true,
+               "ruta": [[50, 320], [50, 350], [150, 350], [150, 380]], "largo_mm": 999},
+              {"num": "1101", "cable": "M2.5MM", "color": "Marrón", "secc": "2.5", "clave": "1101|12L1 1|12L1 2", "origen": "12L1 1", "marca_o": [60, 320, 2], "exacto_o": true,
+               "riel": 1, "lado": "abajo", "componente": "12L1", "destino": "12L1 2", "marca_d": [70, 320, 2], "exacto_d": true, "otra": "misma bandeja",
+               "ruta": [[60, 320], [60, 350], [70, 350], [70, 320]], "largo_mm": 180},
+              {"num": "1102", "cable": "N1MM", "color": "Negro", "secc": "1", "clave": "1102|12L1 4|21P1 5", "origen": "12L1 4 ABAJO", "marca_o": [80, 320, 2], "exacto_o": true,
+               "riel": 1, "lado": "abajo", "componente": "12L1", "destino": "21P1 5", "otra": "puerta / placa",
+               "ruta": [[80, 320], [80, 350], [190, 350]], "largo_mm": 400},
+              {"num": "1105", "cable": "R1MM", "color": "Rojo", "secc": "1", "clave": "1105|12L1 5|12L1 6", "origen": "12L1 5", "marca_o": [90, 320, 2], "exacto_o": true,
+               "riel": 1, "lado": "abajo", "componente": "12L1", "destino": "12L1 6", "marca_d": [100, 320, 2], "exacto_d": true, "otra": "misma bandeja",
+               "ruta": [[90, 320], [90, 350], [100, 350], [100, 320]], "largo_mm": 90},
+              {"num": "1105", "cable": "R1MM", "color": "Rojo", "secc": "1", "clave": "1105|12L1 6|12L1 7", "origen": "12L1 6", "marca_o": [100, 320, 2], "exacto_o": true,
+               "riel": 1, "lado": "abajo", "componente": "12L1", "destino": "12L1 7", "marca_d": [110, 320, 2], "exacto_d": true, "otra": "misma bandeja",
+               "ruta": [[100, 320], [100, 350], [110, 350], [110, 320]], "largo_mm": 90}
+            ]
+          }
+        ]
+      }
+    ],
+    "afuera": [
+      {"tag": "21P1", "zona": "puerta / placa", "cables": [
+        {"num": "1008", "cable": "R0.75MM", "color": "Rojo", "secc": "0.75", "clave": "1008|11A2 6|21P1 4", "borne": "21P1 4", "pin": "4", "otra": "11A2 6 ARRIBA", "otra_donde": "bandeja principal", "viene_de_e6": true}
+      ]}
+    ],
+    "campo": 0,
+    "avisos": [],
+    "hechos": []
+  },
+  "salidas": {},
+  "wpc": {},
+  "estacion": "E6"
+}

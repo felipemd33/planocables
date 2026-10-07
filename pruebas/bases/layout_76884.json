@@ -1,0 +1,2247 @@
+{
+ "layout": {
+  "pag": 8,
+  "comp": {
+   "11F1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 747.2,
+    "y": 707.3,
+    "leido": "-11F1"
+   },
+   "11F2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 759.6,
+    "y": 707.4,
+    "leido": "-11F2"
+   },
+   "11PS1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 647.0,
+    "y": 714.6,
+    "leido": "-11PS1"
+   },
+   "11PS2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 691.6,
+    "y": 714.7,
+    "leido": "-11PS2"
+   },
+   "11Q1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 245.2,
+    "y": 430.1,
+    "leido": "-11Q1",
+    "lateral": "IZQUIERDO",
+    "nota": "en la bandeja lateral izquierda"
+   },
+   "11Q2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 270.5,
+    "y": 430.6,
+    "leido": "-11Q2",
+    "lateral": "IZQUIERDO",
+    "nota": "en la bandeja lateral izquierda"
+   },
+   "11SK1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 212.7,
+    "y": 428.1,
+    "leido": "-11SK1",
+    "lateral": "IZQUIERDO",
+    "nota": "en la bandeja lateral izquierda"
+   },
+   "11X220V": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 373.4,
+    "y": 415.1,
+    "leido": "-11X220V",
+    "lateral": "IZQUIERDO",
+    "nota": "en la bandeja lateral izquierda"
+   },
+   "11XPVAC": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 348.3,
+    "y": 415.4,
+    "leido": "-11XPVAC",
+    "lateral": "IZQUIERDO",
+    "nota": "en la bandeja lateral izquierda"
+   },
+   "12F2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1045.1,
+    "y": 729.7,
+    "leido": "-12F2",
+    "estacion": "E8",
+    "nota": "en la placa de la bandeja principal pero fuera de la zona de rieles y canaletas (zona hidráulica): se cablea en E8"
+   },
+   "12F3": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 774.2,
+    "y": 706.2,
+    "leido": "-12F3"
+   },
+   "12PS1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 267.6,
+    "y": 691.6,
+    "leido": "-12PS1",
+    "lateral": "IZQUIERDO",
+    "nota": "en la bandeja lateral izquierda"
+   },
+   "12XP": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 619.6,
+    "y": 542.2,
+    "leido": "-12XP"
+   },
+   "12XPS": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 224.6,
+    "y": 560.9,
+    "leido": "-12XPS",
+    "lateral": "IZQUIERDO",
+    "nota": "en la bandeja lateral izquierda"
+   },
+   "13F4": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 790.6,
+    "y": 707.5,
+    "leido": "-13F4"
+   },
+   "13F5": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 803.0,
+    "y": 707.4,
+    "leido": "-13F5"
+   },
+   "13F6": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 815.4,
+    "y": 707.5,
+    "leido": "-13F6"
+   },
+   "13PS1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 723.5,
+    "y": 712.0,
+    "leido": "-13PS1"
+   },
+   "13X12V": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 645.2,
+    "y": 545.3,
+    "leido": "-13X12V"
+   },
+   "13X24V": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 665.1,
+    "y": 545.3,
+    "leido": "-13X24V"
+   },
+   "15AIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 825.6,
+    "y": 569.9,
+    "leido": "-15AIB1"
+   },
+   "15DIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 838.1,
+    "y": 570.2,
+    "leido": "-15DIB1"
+   },
+   "15DIB2": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 846.9,
+    "y": 570.3,
+    "leido": "-15DIB2"
+   },
+   "15DIB3": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 855.8,
+    "y": 570.3,
+    "leido": "-15DIB3"
+   },
+   "15XR": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 685.0,
+    "y": 411.5,
+    "leido": "-15XR"
+   },
+   "32XAI": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 883.4,
+    "y": 685.0,
+    "leido": "-32XAI"
+   },
+   "32XEX": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 818.1,
+    "y": 412.8,
+    "leido": "-32XEX"
+   },
+   "41XEX": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 837.9,
+    "y": 412.8,
+    "leido": "-41XEX"
+   },
+   "42KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 848.7,
+    "y": 682.7,
+    "leido": "-42KR"
+   },
+   "42KS1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 836.7,
+    "y": 703.7,
+    "leido": "-42KS1"
+   },
+   "42XC": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 701.1,
+    "y": 411.4,
+    "leido": "-42XC"
+   },
+   "61KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 859.8,
+    "y": 682.7,
+    "leido": "-61KR"
+   },
+   "61X0V": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 729.4,
+    "y": 543.8,
+    "leido": "-61X0V"
+   },
+   "61XDIO": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 749.3,
+    "y": 545.4,
+    "leido": "-61XDIO"
+   },
+   "61XDO": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 698.0,
+    "y": 544.4,
+    "leido": "-61XDO"
+   },
+   "81XCM": {
+    "ubic": "BANDEJA",
+    "fila": 3,
+    "x": 720.6,
+    "y": 413.3,
+    "leido": "-81XCM"
+   },
+   "BH_01_ZV": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1091.8,
+    "y": 621.6,
+    "leido": "-BH_01_ZV",
+    "estacion": "E8",
+    "nota": "en la placa de la bandeja principal pero fuera de la zona de rieles y canaletas (zona hidráulica): se cablea en E8"
+   },
+   "LS001A": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1056.7,
+    "y": 294.5,
+    "leido": "-LS001A",
+    "estacion": "E8",
+    "nota": "en la placa de la bandeja principal pero fuera de la zona de rieles y canaletas (zona hidráulica): se cablea en E8"
+   },
+   "PT001": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1074.4,
+    "y": 553.8,
+    "leido": "-PT001",
+    "estacion": "E8",
+    "nota": "en la placa de la bandeja principal pero fuera de la zona de rieles y canaletas (zona hidráulica): se cablea en E8"
+   },
+   "XPE": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 895.1,
+    "y": 682.5,
+    "leido": "-XPE"
+   },
+   "BH": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "y": null,
+    "leido": "",
+    "estacion": "E8",
+    "nota": "se cablea en E8 (mapeo verificado)"
+   },
+   "BH-01-M": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "y": null,
+    "leido": "",
+    "estacion": "E8",
+    "nota": "se cablea en E8 (mapeo verificado)"
+   },
+   "X1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "y": null,
+    "leido": "",
+    "estacion": "E8",
+    "nota": "se cablea en E8 (mapeo verificado)"
+   },
+   "12PB1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "y": null,
+    "leido": "",
+    "estacion": "E8",
+    "nota": "se cablea en E8 (mapeo verificado)"
+   },
+   "SP_1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "y": null,
+    "leido": "",
+    "estacion": "E8",
+    "nota": "se cablea en E8 (mapeo verificado)"
+   },
+   "SP_2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "y": null,
+    "leido": "",
+    "estacion": "E8",
+    "nota": "se cablea en E8 (mapeo verificado)"
+   },
+   "SP_3": {
+    "ubic": "LI",
+    "fila": null,
+    "x": null,
+    "y": null,
+    "leido": "",
+    "estacion": "E8",
+    "nota": "se cablea en E8 (mapeo verificado)"
+   }
+  },
+  "vistas": [
+   {
+    "box": [
+     573.42,
+     129.29,
+     1094.28,
+     745.83
+    ],
+    "rails": [
+     384.41,
+     515.51,
+     384.53,
+     384.53,
+     657.25,
+     515.48
+    ],
+    "titulo": "BANDEJA PRINCIPAL",
+    "ductos": [
+     {
+      "b": [
+       587.59,
+       292.29,
+       786.01,
+       334.81
+      ],
+      "h": true,
+      "ex": false
+     },
+     {
+      "b": [
+       786.01,
+       292.29,
+       913.57,
+       334.81
+      ],
+      "h": true,
+      "ex": true
+     },
+     {
+      "b": [
+       615.94,
+       434.02,
+       786.01,
+       462.37
+      ],
+      "h": true,
+      "ex": false
+     },
+     {
+      "b": [
+       814.36,
+       434.02,
+       913.57,
+       462.37
+      ],
+      "h": true,
+      "ex": true
+     },
+     {
+      "b": [
+       615.94,
+       568.66,
+       913.57,
+       597.01
+      ],
+      "h": true,
+      "ex": false
+     },
+     {
+      "b": [
+       587.59,
+       717.48,
+       913.57,
+       745.83
+      ],
+      "h": true,
+      "ex": false
+     },
+     {
+      "b": [
+       587.59,
+       334.81,
+       615.94,
+       717.48
+      ],
+      "h": false,
+      "ex": false
+     },
+     {
+      "b": [
+       786.01,
+       334.81,
+       814.36,
+       568.66
+      ],
+      "h": false,
+      "ex": true
+     }
+    ]
+   },
+   {
+    "box": [
+     192.61,
+     150.02,
+     468.99,
+     722.98
+    ],
+    "rails": [
+     532.7,
+     532.7,
+     383.88
+    ],
+    "titulo": "BANDEJA LATERAL IZQUIERDA",
+    "ductos": [
+     {
+      "b": [
+       192.61,
+       298.84,
+       426.47,
+       327.19
+      ],
+      "h": true,
+      "ex": false
+     },
+     {
+      "b": [
+       192.61,
+       440.57,
+       426.47,
+       468.92
+      ],
+      "h": true,
+      "ex": false
+     },
+     {
+      "b": [
+       398.12,
+       327.19,
+       426.47,
+       440.57
+      ],
+      "h": false,
+      "ex": false
+     }
+    ]
+   }
+  ],
+  "bandeja": 0,
+  "size": [
+   1192.0400390625,
+   851.3900146484375
+  ],
+  "region": [
+   573.42,
+   129.29,
+   1094.28,
+   745.83
+  ],
+  "escala": 1.4111,
+  "escala_fuente": "riel DIN 35 mm",
+  "perfil_riel_pt": 24.8,
+  "ductos": [
+   {
+    "b": [
+     587.59,
+     292.29,
+     786.01,
+     334.81
+    ],
+    "h": true,
+    "ex": false
+   },
+   {
+    "b": [
+     786.01,
+     292.29,
+     913.57,
+     334.81
+    ],
+    "h": true,
+    "ex": true
+   },
+   {
+    "b": [
+     615.94,
+     434.02,
+     786.01,
+     462.37
+    ],
+    "h": true,
+    "ex": false
+   },
+   {
+    "b": [
+     814.36,
+     434.02,
+     913.57,
+     462.37
+    ],
+    "h": true,
+    "ex": true
+   },
+   {
+    "b": [
+     615.94,
+     568.66,
+     913.57,
+     597.01
+    ],
+    "h": true,
+    "ex": false
+   },
+   {
+    "b": [
+     587.59,
+     717.48,
+     913.57,
+     745.83
+    ],
+    "h": true,
+    "ex": false
+   },
+   {
+    "b": [
+     587.59,
+     334.81,
+     615.94,
+     717.48
+    ],
+    "h": false,
+    "ex": false
+   },
+   {
+    "b": [
+     786.01,
+     334.81,
+     814.36,
+     568.66
+    ],
+    "h": false,
+    "ex": true
+   }
+  ],
+  "filas": [
+   657.25,
+   515.5,
+   384.49
+  ],
+  "eplan": {
+   "documento": "ZPL-76884",
+   "revision": "1",
+   "mapeo": "ZPL-76884_rev1.json",
+   "ex": "mapeo verificado",
+   "avisos": []
+  },
+  "version_lector": "eplan 2026.10.06-e8-bateria"
+ },
+ "en_memoria": {
+  "bornes_usuario": {},
+  "bornes": {
+   "11XPVAC 1 ARRIBA#1101": [
+    354.32,
+    398.6,
+    2.58
+   ],
+   "11XPVAC 2 ARRIBA#1102": [
+    360.1,
+    398.6,
+    2.58
+   ],
+   "11XPVAC 3.4#⏚11SK1": [
+    366.41,
+    363.61,
+    1.7
+   ],
+   "11SK1 PE ABAJO#⏚11SK1": [
+    215.02,
+    362.5,
+    1.62
+   ],
+   "11SK1 L ABAJO#1181": [
+    208.29,
+    362.5,
+    1.62
+   ],
+   "11X220V 1.4#1181": [
+    379.36,
+    356.2,
+    2.4
+   ],
+   "11Q2 F ABAJO#1158": [
+    262.53,
+    358.69,
+    2.21
+   ],
+   "11X220V 1.3#1158": [
+    379.36,
+    367.83,
+    2.4
+   ],
+   "11Q1 F ABAJO#1156": [
+    249.88,
+    358.69,
+    2.55
+   ],
+   "11Q2 F ARRIBA#1156": [
+    262.53,
+    408.17,
+    2.21
+   ],
+   "11Q1 F ARRIBA#1154": [
+    249.88,
+    408.15,
+    2.55
+   ],
+   "11Q1 N ABAJO#1157": [
+    237.26,
+    358.69,
+    2.55
+   ],
+   "11Q2 N ARRIBA#1157": [
+    275.07,
+    408.17,
+    2.21
+   ],
+   "11Q1 N ARRIBA#1155": [
+    237.26,
+    408.15,
+    2.55
+   ],
+   "11SK1 N ABAJO#1182": [
+    221.75,
+    362.5,
+    1.62
+   ],
+   "11X220V 2.4#1182": [
+    385.13,
+    356.2,
+    2.4
+   ],
+   "11Q2 N ABAJO#1159": [
+    275.07,
+    358.69,
+    2.21
+   ],
+   "11X220V 2.3#1159": [
+    385.13,
+    367.83,
+    2.4
+   ],
+   "11X220V 2.2#1184": [
+    385.13,
+    398.71,
+    2.4
+   ],
+   "11PS2 TB1 2 (N)#1184": [
+    692.72,
+    619.48,
+    1.81
+   ],
+   "11X220V 2.1#1186": [
+    385.13,
+    410.33,
+    2.4
+   ],
+   "11PS1 TB1 2 (N)#1186": [
+    648.07,
+    619.48,
+    1.81
+   ],
+   "11X220V 1.2#1183": [
+    379.36,
+    398.71,
+    2.4
+   ],
+   "11PS2 TB1 3 (L)#1183": [
+    698.12,
+    619.48,
+    1.81
+   ],
+   "11X220V 1.1#1185": [
+    379.36,
+    410.33,
+    2.4
+   ],
+   "11PS1 TB1 3 (L)#1185": [
+    653.48,
+    619.48,
+    1.81
+   ],
+   "11PS1 TB2 1 (-V)#1161": [
+    637.26,
+    696.41,
+    1.52
+   ],
+   "12XPS 4 ABAJO#1161": [
+    247.97,
+    516.65,
+    2.5
+   ],
+   "XPE 1.4#⏚11PS1": [
+    900.13,
+    636.99,
+    1.7
+   ],
+   "11PS1 TB1 1 (FG)#⏚11PS1": [
+    642.49,
+    619.48,
+    1.81
+   ],
+   "11F1 ABAJO#1162": [
+    747.57,
+    635.4,
+    2.13
+   ],
+   "12XPS 3 ABAJO#1162": [
+    242.2,
+    516.65,
+    2.5
+   ],
+   "11PS1 TB2 3 (+V)#1160": [
+    646.25,
+    696.41,
+    1.52
+   ],
+   "11F1 ARRIBA#1160": [
+    747.57,
+    682.88,
+    2.13
+   ],
+   "11PS2 TB2 1 (-V)#1171": [
+    681.9,
+    696.41,
+    1.52
+   ],
+   "15XR 2 ARRIBA#1171": [
+    689.95,
+    402.41,
+    1.7
+   ],
+   "XPE 2.4#⏚11PS2": [
+    903.77,
+    636.99,
+    1.7
+   ],
+   "11PS2 TB1 1 (FG)#⏚11PS2": [
+    687.14,
+    619.48,
+    1.81
+   ],
+   "11F2 ABAJO#1172": [
+    759.97,
+    635.4,
+    2.13
+   ],
+   "15XR 1 ARRIBA#1172": [
+    689.95,
+    413.66,
+    1.7
+   ],
+   "11PS2 TB2 3 (+V)#1170": [
+    690.9,
+    696.41,
+    1.52
+   ],
+   "11F2 ARRIBA#1170": [
+    759.97,
+    682.88,
+    2.13
+   ],
+   "12XPS 6 ABAJO#1206": [
+    259.52,
+    516.65,
+    2.5
+   ],
+   "12F3 ABAJO#1202": [
+    775.56,
+    627.41,
+    2.5
+   ],
+   "12PS1 +Pan#1221": [
+    246.32,
+    578.41,
+    1.8
+   ],
+   "12XPS 3 ARRIBA#1221": [
+    242.2,
+    547.53,
+    2.5
+   ],
+   "12PS1 -Pan#1222": [
+    253.32,
+    578.41,
+    1.8
+   ],
+   "12XPS 4 ARRIBA#1222": [
+    247.97,
+    547.53,
+    2.5
+   ],
+   "12XPS 5 ABAJO#1201": [
+    253.75,
+    516.65,
+    2.5
+   ],
+   "12F3 ARRIBA#1201": [
+    775.56,
+    690.05,
+    2.5
+   ],
+   "12PS1 +Bat#1223": [
+    260.32,
+    578.41,
+    1.8
+   ],
+   "12XPS 5 ARRIBA#1223": [
+    253.75,
+    547.53,
+    2.5
+   ],
+   "12PS1 -Bat#1224": [
+    267.32,
+    578.41,
+    1.8
+   ],
+   "12XPS 6 ARRIBA#1224": [
+    259.52,
+    547.53,
+    2.5
+   ],
+   "12XPS 7 ABAJO#1232": [
+    265.3,
+    516.65,
+    2.5
+   ],
+   "13F5 ARRIBA#1232": [
+    803.38,
+    682.88,
+    2.13
+   ],
+   "12XPS 8 ABAJO#1230": [
+    271.07,
+    516.65,
+    2.5
+   ],
+   "13F4 ARRIBA#1230": [
+    790.98,
+    682.88,
+    2.13
+   ],
+   "12PS1 +Car#1225": [
+    274.32,
+    578.41,
+    1.8
+   ],
+   "12XPS 8 ARRIBA#1225": [
+    271.07,
+    547.53,
+    2.5
+   ],
+   "12XPS 9 ABAJO#1231": [
+    276.85,
+    516.65,
+    2.5
+   ],
+   "12XP 1.1#1231": [
+    625.54,
+    541.93,
+    2.5
+   ],
+   "12PS1 -Car#1226": [
+    281.32,
+    578.41,
+    1.8
+   ],
+   "12XPS 9 ARRIBA#1226": [
+    276.85,
+    547.53,
+    2.5
+   ],
+   "12XP 1.4#1254": [
+    625.54,
+    487.81,
+    2.5
+   ],
+   "12XP 1.3#1234": [
+    625.54,
+    499.43,
+    2.5
+   ],
+   "13PS1 -Vin#1234": [
+    723.54,
+    619.69,
+    1.52
+   ],
+   "12XP 1.2#1235": [
+    625.54,
+    530.31,
+    2.5
+   ],
+   "13PS1 (-Vo)#1235": [
+    720.5,
+    698.89,
+    1.42
+   ],
+   "12XP 2.4#1268": [
+    631.31,
+    487.81,
+    2.5
+   ],
+   "61X0V 1.1#1268": [
+    735.35,
+    541.93,
+    2.5
+   ],
+   "12XP 2.3#1264": [
+    631.31,
+    499.43,
+    2.5
+   ],
+   "61XDIO 1 ABAJO#1264": [
+    754.2,
+    502.45,
+    1.6
+   ],
+   "12PS1 A#s/n 12PS1 A": [
+    291.82,
+    578.41,
+    3.0
+   ],
+   "12XPS 10 ARRIBA#s/n 12PS1 A": [
+    282.63,
+    547.53,
+    2.5
+   ],
+   "12PS1 B#s/n 12PS1 B": [
+    291.82,
+    578.41,
+    3.0
+   ],
+   "12XPS 11 ARRIBA#s/n 12PS1 B": [
+    288.4,
+    547.53,
+    2.5
+   ],
+   "12PS1 GND#s/n 12PS1 GND": [
+    291.82,
+    578.41,
+    3.0
+   ],
+   "12XPS 12 ARRIBA#s/n 12PS1 GND": [
+    294.18,
+    547.53,
+    2.5
+   ],
+   "12PS1 VCC#s/n 12PS1 VCC": [
+    291.82,
+    578.41,
+    3.0
+   ],
+   "12XPS 13 ARRIBA#s/n 12PS1 VCC": [
+    299.95,
+    547.53,
+    2.5
+   ],
+   "13X12V 1.1#1303": [
+    651.16,
+    541.93,
+    2.5
+   ],
+   "13F4 ABAJO#1301": [
+    790.98,
+    635.4,
+    2.13
+   ],
+   "13X12V 2.1#1304": [
+    656.93,
+    541.93,
+    2.5
+   ],
+   "13F5 ABAJO#1302": [
+    803.38,
+    635.4,
+    2.13
+   ],
+   "13PS1 +Vin#1373": [
+    727.23,
+    619.69,
+    1.52
+   ],
+   "13X12V 1.4#1373": [
+    651.16,
+    487.81,
+    2.5
+   ],
+   "13X24V 2.1#1350": [
+    676.77,
+    541.93,
+    2.5
+   ],
+   "32XAI F1 ARRIBA#1350": [
+    888.77,
+    672.76,
+    2.06
+   ],
+   "13X24V 1.1#1391": [
+    671.0,
+    541.93,
+    2.5
+   ],
+   "42XC F1 ARRIBA#1391": [
+    706.47,
+    400.05,
+    2.06
+   ],
+   "13X24V 2.2#1339": [
+    676.77,
+    530.31,
+    2.5
+   ],
+   "13X24V 2.3#1385": [
+    676.77,
+    499.43,
+    2.5
+   ],
+   "42KS1 A1#1385": [
+    831.4,
+    687.1,
+    1.42
+   ],
+   "XPE 1.1#⏚13PS1": [
+    900.13,
+    677.86,
+    1.7
+   ],
+   "13PS1 PE#⏚13PS1": [
+    719.86,
+    619.69,
+    1.52
+   ],
+   "13X24V 2.4#1370": [
+    676.77,
+    487.81,
+    2.5
+   ],
+   "15AIB1 1#1370": [
+    825.56,
+    551.17,
+    1.4
+   ],
+   "15DIB1 1#1370": [
+    836.26,
+    551.17,
+    1.4
+   ],
+   "15DIB2 1#1370": [
+    845.12,
+    551.17,
+    1.4
+   ],
+   "15DIB3 1#1370": [
+    853.98,
+    551.17,
+    1.4
+   ],
+   "13X24V 1.4#1311": [
+    671.0,
+    487.81,
+    2.5
+   ],
+   "13F6 ABAJO#1311": [
+    815.78,
+    635.4,
+    2.13
+   ],
+   "13PS1 +Vo#1310": [
+    723.77,
+    698.89,
+    1.42
+   ],
+   "13F6 ARRIBA#1310": [
+    815.78,
+    682.88,
+    2.13
+   ],
+   "13X12V 1.3#1363": [
+    651.16,
+    499.43,
+    2.5
+   ],
+   "61KR1 11#1363": [
+    864.64,
+    686.31,
+    1.45
+   ],
+   "13X12V 1.2#1353": [
+    651.16,
+    530.31,
+    2.5
+   ],
+   "13PS1 -Vo#1312": [
+    716.89,
+    698.89,
+    1.42
+   ],
+   "13X24V 3.1#1312": [
+    684.11,
+    541.93,
+    2.5
+   ],
+   "13X12V 2.4#1396": [
+    656.93,
+    487.81,
+    2.5
+   ],
+   "42KS1 43#1396": [
+    831.4,
+    634.23,
+    1.42
+   ],
+   "13X12V 2.3#1395": [
+    656.93,
+    499.43,
+    2.5
+   ],
+   "42KS1 33#1395": [
+    831.4,
+    627.1,
+    1.42
+   ],
+   "13X12V 2.2#1394": [
+    656.93,
+    530.31,
+    2.5
+   ],
+   "42KS1 23#1394": [
+    838.49,
+    627.1,
+    1.42
+   ],
+   "13X24V 4.1#1361": [
+    689.88,
+    541.93,
+    2.5
+   ],
+   "15AIB1 2#1361": [
+    829.1,
+    551.17,
+    1.4
+   ],
+   "15DIB1 2#1361": [
+    839.8,
+    551.17,
+    1.4
+   ],
+   "15DIB2 2#1361": [
+    848.66,
+    551.17,
+    1.4
+   ],
+   "15DIB3 2#1361": [
+    857.52,
+    551.17,
+    1.4
+   ],
+   "13X24V 4.2#1386": [
+    689.88,
+    530.31,
+    2.5
+   ],
+   "42KS1 A2#1386": [
+    842.03,
+    680.58,
+    1.42
+   ],
+   "13X24V 4.3#1340": [
+    689.88,
+    499.43,
+    2.5
+   ],
+   "13X24V 3.4#1392": [
+    684.11,
+    487.81,
+    2.5
+   ],
+   "42XC 1 ARRIBA#1392": [
+    706.47,
+    419.01,
+    2.06
+   ],
+   "15XR 1 ABAJO#s/n ROTORK 1": [
+    689.95,
+    355.55,
+    1.7
+   ],
+   "15XR 2 ABAJO#s/n ROTORK 2": [
+    689.95,
+    366.94,
+    1.7
+   ],
+   "15XR 3.4#s/n ROTORK PE": [
+    694.17,
+    364.26,
+    1.7
+   ],
+   "15AIB1 3#2139": [
+    823.79,
+    551.17,
+    1.4
+   ],
+   "15AIB1 4#2140": [
+    827.33,
+    551.17,
+    1.4
+   ],
+   "15AIB1 6#2105": [
+    823.79,
+    544.8,
+    1.4
+   ],
+   "32XAI 1 ARRIBA#2142": [
+    888.77,
+    691.72,
+    2.06
+   ],
+   "15AIB1 7#2106": [
+    827.33,
+    544.8,
+    1.4
+   ],
+   "61KR1 A1#2150": [
+    864.64,
+    634.48,
+    1.45
+   ],
+   "42KS1 13#2114": [
+    838.49,
+    634.23,
+    1.42
+   ],
+   "61KR1 A2#2151": [
+    864.64,
+    628.16,
+    1.45
+   ],
+   "42KS1 14#2115": [
+    842.03,
+    634.23,
+    1.42
+   ],
+   "61KR2 A1#2152": [
+    868.97,
+    634.48,
+    1.45
+   ],
+   "15DIB1 5#2116": [
+    836.26,
+    544.8,
+    1.4
+   ],
+   "61KR2 A2#2153": [
+    868.97,
+    628.16,
+    1.45
+   ],
+   "15DIB1 6#2117": [
+    839.8,
+    544.8,
+    1.4
+   ],
+   "15DIB1 3#2118": [
+    836.26,
+    551.17,
+    1.4
+   ],
+   "15DIB1 4#2119": [
+    839.8,
+    551.17,
+    1.4
+   ],
+   "15DIB2 5#2120": [
+    845.12,
+    544.8,
+    1.4
+   ],
+   "15DIB2 6#2121": [
+    848.66,
+    544.8,
+    1.4
+   ],
+   "15DIB2 3#2122": [
+    845.12,
+    551.17,
+    1.4
+   ],
+   "61KR3 A1#2154": [
+    873.29,
+    634.48,
+    1.45
+   ],
+   "15DIB2 4#2123": [
+    848.66,
+    551.17,
+    1.4
+   ],
+   "61KR3 A2#2155": [
+    873.29,
+    628.16,
+    1.45
+   ],
+   "15DIB3 5#2124": [
+    853.98,
+    544.8,
+    1.4
+   ],
+   "61KR4 A1#2156": [
+    877.62,
+    634.48,
+    1.45
+   ],
+   "15DIB3 6#2125": [
+    857.52,
+    544.8,
+    1.4
+   ],
+   "61KR4 A2#2157": [
+    877.62,
+    628.16,
+    1.45
+   ],
+   "15DIB3 3#2126": [
+    853.98,
+    551.17,
+    1.4
+   ],
+   "15DIB3 4#2127": [
+    857.52,
+    551.17,
+    1.4
+   ],
+   "12XPS 10 ABAJO#2135": [
+    282.63,
+    516.65,
+    2.5
+   ],
+   "81XCM 7 ARRIBA#2135": [
+    736.59,
+    413.66,
+    1.7
+   ],
+   "12XPS 11 ABAJO#2136": [
+    288.4,
+    516.65,
+    2.5
+   ],
+   "81XCM 8 ARRIBA#2136": [
+    736.59,
+    402.41,
+    1.7
+   ],
+   "32XEX 1 ABAJO#s/n PIT01F x1": [
+    823.04,
+    355.43,
+    1.7
+   ],
+   "15AIB1 9#3202": [
+    823.79,
+    486.23,
+    1.4
+   ],
+   "32XEX 1 ARRIBA#3202": [
+    823.04,
+    413.54,
+    1.7
+   ],
+   "32XEX 2 ABAJO#s/n PIT01F x2": [
+    823.04,
+    366.82,
+    1.7
+   ],
+   "15AIB1 10#3203": [
+    827.33,
+    486.23,
+    1.4
+   ],
+   "32XEX 2 ARRIBA#3203": [
+    823.04,
+    402.29,
+    1.7
+   ],
+   "32XEX 5.4#⏚32XEX": [
+    830.91,
+    364.14,
+    1.7
+   ],
+   "15AIB1 12#3205": [
+    823.79,
+    479.86,
+    1.4
+   ],
+   "32XEX 3 ARRIBA#3205": [
+    826.69,
+    413.54,
+    1.7
+   ],
+   "15AIB1 13#3206": [
+    827.33,
+    479.86,
+    1.4
+   ],
+   "32XEX 4 ARRIBA#3206": [
+    826.69,
+    402.29,
+    1.7
+   ],
+   "32XAI F1 ABAJO#3221": [
+    888.77,
+    641.8,
+    2.06
+   ],
+   "32XAI 1 ABAJO#3222": [
+    888.77,
+    629.44,
+    2.06
+   ],
+   "41XEX 2 ABAJO#s/n IP_1_ZSO 14": [
+    842.85,
+    366.82,
+    1.7
+   ],
+   "41XEX 1 ABAJO#s/n IP_1_ZSO 13": [
+    842.85,
+    355.43,
+    1.7
+   ],
+   "15DIB1 7#4116": [
+    836.26,
+    486.23,
+    1.4
+   ],
+   "41XEX 1 ARRIBA#4116": [
+    842.85,
+    413.54,
+    1.7
+   ],
+   "15DIB1 8#4117": [
+    839.8,
+    486.23,
+    1.4
+   ],
+   "41XEX 2 ARRIBA#4117": [
+    842.85,
+    402.29,
+    1.7
+   ],
+   "41XEX 4 ABAJO#s/n IP_1_ZSC 14": [
+    846.5,
+    366.82,
+    1.7
+   ],
+   "41XEX 3 ABAJO#s/n IP_1_ZSC 13": [
+    846.5,
+    355.43,
+    1.7
+   ],
+   "15DIB1 9#4118": [
+    836.26,
+    479.86,
+    1.4
+   ],
+   "41XEX 3 ARRIBA#4118": [
+    846.5,
+    413.54,
+    1.7
+   ],
+   "15DIB1 10#4119": [
+    839.8,
+    479.86,
+    1.4
+   ],
+   "41XEX 4 ARRIBA#4119": [
+    846.5,
+    402.29,
+    1.7
+   ],
+   "41XEX 6 ABAJO#s/n IP_2_ZSO 14": [
+    850.15,
+    366.82,
+    1.7
+   ],
+   "41XEX 5 ABAJO#s/n IP_2_ZSO 13": [
+    850.15,
+    355.43,
+    1.7
+   ],
+   "15DIB2 7#4120": [
+    845.12,
+    486.23,
+    1.4
+   ],
+   "41XEX 5 ARRIBA#4120": [
+    850.15,
+    413.54,
+    1.7
+   ],
+   "15DIB2 8#4121": [
+    848.66,
+    486.23,
+    1.4
+   ],
+   "41XEX 6 ARRIBA#4121": [
+    850.15,
+    402.29,
+    1.7
+   ],
+   "41XEX 8 ABAJO#s/n IP_2_ZSC 14": [
+    857.45,
+    366.82,
+    1.7
+   ],
+   "41XEX 7 ABAJO#s/n IP_2_ZSC 13": [
+    857.45,
+    355.43,
+    1.7
+   ],
+   "15DIB2 9#4122": [
+    845.12,
+    479.86,
+    1.4
+   ],
+   "41XEX 7 ARRIBA#4122": [
+    857.45,
+    413.54,
+    1.7
+   ],
+   "15DIB2 10#4123": [
+    848.66,
+    479.86,
+    1.4
+   ],
+   "41XEX 8 ARRIBA#4123": [
+    857.45,
+    402.29,
+    1.7
+   ],
+   "41XEX 10 ABAJO#s/n IP_3_ZSO 14": [
+    853.8,
+    366.82,
+    1.7
+   ],
+   "41XEX 9 ABAJO#s/n IP_3_ZSO 13": [
+    853.8,
+    355.43,
+    1.7
+   ],
+   "15DIB3 7#4124": [
+    853.98,
+    486.23,
+    1.4
+   ],
+   "41XEX 9 ARRIBA#4124": [
+    853.8,
+    413.54,
+    1.7
+   ],
+   "15DIB3 8#4125": [
+    857.52,
+    486.23,
+    1.4
+   ],
+   "41XEX 10 ARRIBA#4125": [
+    853.8,
+    402.29,
+    1.7
+   ],
+   "41XEX 12 ABAJO#s/n IP_3_ZSC 14": [
+    861.1,
+    366.82,
+    1.7
+   ],
+   "41XEX 11 ABAJO#s/n IP_3_ZSC 13": [
+    861.1,
+    355.43,
+    1.7
+   ],
+   "15DIB3 9#4126": [
+    853.98,
+    479.86,
+    1.4
+   ],
+   "41XEX 11 ARRIBA#4126": [
+    861.1,
+    413.54,
+    1.7
+   ],
+   "15DIB3 10#4127": [
+    857.52,
+    479.86,
+    1.4
+   ],
+   "41XEX 12 ARRIBA#4127": [
+    861.1,
+    402.29,
+    1.7
+   ],
+   "42KS1 S33#4221": [
+    838.49,
+    687.1,
+    1.42
+   ],
+   "42KS1 S34#4221": [
+    834.95,
+    687.1,
+    1.42
+   ],
+   "42KR1 14#4212": [
+    853.63,
+    679.91,
+    1.45
+   ],
+   "42KR1 11#4231": [
+    853.63,
+    686.29,
+    1.45
+   ],
+   "42XC 3 ARRIBA#4231": [
+    711.04,
+    413.66,
+    1.7
+   ],
+   "42KS1 S11#4211": [
+    842.03,
+    687.1,
+    1.42
+   ],
+   "42KS1 S12#4213": [
+    831.4,
+    680.58,
+    1.42
+   ],
+   "42XC 4 ARRIBA#4213": [
+    711.04,
+    402.41,
+    1.7
+   ],
+   "42XC 5 ARRIBA#4232": [
+    714.69,
+    413.66,
+    1.7
+   ],
+   "42KR1 A1#4232": [
+    853.63,
+    634.57,
+    1.45
+   ],
+   "42KR1 A2#4233": [
+    853.63,
+    628.21,
+    1.45
+   ],
+   "42XC 6 ARRIBA#4233": [
+    714.69,
+    402.41,
+    1.7
+   ],
+   "42KS1 24#4294": [
+    842.03,
+    627.1,
+    1.42
+   ],
+   "61KR2 11#4294": [
+    868.97,
+    686.31,
+    1.45
+   ],
+   "42KS1 34#4295": [
+    834.95,
+    627.1,
+    1.42
+   ],
+   "61KR3 11#4295": [
+    873.29,
+    686.31,
+    1.45
+   ],
+   "42KS1 44#4296": [
+    834.95,
+    634.23,
+    1.42
+   ],
+   "61KR4 11#4296": [
+    877.62,
+    686.31,
+    1.45
+   ],
+   "61XDIO 4 ARRIBA#6174": [
+    765.14,
+    528.88,
+    1.6
+   ],
+   "61XDO 4.2#6174": [
+    721.28,
+    530.31,
+    2.5
+   ],
+   "61XDIO 3 ARRIBA#6173": [
+    761.5,
+    528.88,
+    1.6
+   ],
+   "61XDO 3.2#6173": [
+    715.5,
+    530.31,
+    2.5
+   ],
+   "61XDIO 2 ARRIBA#6172": [
+    757.85,
+    528.88,
+    1.6
+   ],
+   "61XDO 2.2#6172": [
+    709.73,
+    530.31,
+    2.5
+   ],
+   "61XDIO 1 ARRIBA#6171": [
+    754.2,
+    528.88,
+    1.6
+   ],
+   "61XDO 1.2#6171": [
+    703.95,
+    530.31,
+    2.5
+   ],
+   "61XDO 1.4#6151": [
+    703.95,
+    487.81,
+    2.5
+   ],
+   "61KR1 14#6141": [
+    864.64,
+    679.84,
+    1.45
+   ],
+   "61XDO 1.1#6141": [
+    703.95,
+    541.93,
+    2.5
+   ],
+   "61X0V 1.4#6162": [
+    735.35,
+    487.81,
+    2.5
+   ],
+   "61X0V 2.3#6163": [
+    741.12,
+    499.43,
+    2.5
+   ],
+   "61X0V 2.4#6164": [
+    741.12,
+    487.81,
+    2.5
+   ],
+   "61XDO 2.4#6152": [
+    709.73,
+    487.81,
+    2.5
+   ],
+   "61KR2 14#6142": [
+    868.97,
+    679.84,
+    1.45
+   ],
+   "61XDO 2.1#6142": [
+    709.73,
+    541.93,
+    2.5
+   ],
+   "61XDO 3.4#6153": [
+    715.5,
+    487.81,
+    2.5
+   ],
+   "61KR3 14#6143": [
+    873.29,
+    679.84,
+    1.45
+   ],
+   "61XDO 3.1#6143": [
+    715.5,
+    541.93,
+    2.5
+   ],
+   "61XDO 4.4#6154": [
+    721.28,
+    487.81,
+    2.5
+   ],
+   "61KR4 14#6144": [
+    877.62,
+    679.84,
+    1.45
+   ],
+   "61XDO 4.1#6144": [
+    721.28,
+    541.93,
+    2.5
+   ],
+   "81XCM 9 ARRIBA#⏚81XCM": [
+    740.23,
+    413.66,
+    1.7
+   ],
+   "81XCM 6 ARRIBA#2133": [
+    732.94,
+    402.41,
+    1.7
+   ],
+   "81XCM 2 ARRIBA#2133": [
+    725.64,
+    402.41,
+    1.7
+   ],
+   "81XCM 5 ARRIBA#2132": [
+    732.94,
+    413.66,
+    1.7
+   ],
+   "81XCM 1 ARRIBA#2132": [
+    725.64,
+    413.66,
+    1.7
+   ],
+   "81XCM 4 ARRIBA#MALLA 21PCB01 34": [
+    729.29,
+    402.41,
+    1.7
+   ],
+   "81XCM 3 ARRIBA#MALLA 21PCB01 34 (2)": [
+    729.29,
+    413.66,
+    1.7
+   ]
+  },
+  "renombrar": {},
+  "bornes_conf": {
+   "11XPVAC 1 ARRIBA#1101": "alta",
+   "11XPVAC 2 ARRIBA#1102": "alta",
+   "11XPVAC 3.4#⏚11SK1": "alta",
+   "11SK1 PE ABAJO#⏚11SK1": "media",
+   "11SK1 L ABAJO#1181": "media",
+   "11X220V 1.4#1181": "alta",
+   "11Q2 F ABAJO#1158": "alta",
+   "11X220V 1.3#1158": "alta",
+   "11Q1 F ABAJO#1156": "alta",
+   "11Q2 F ARRIBA#1156": "alta",
+   "11Q1 F ARRIBA#1154": "alta",
+   "11Q1 N ABAJO#1157": "alta",
+   "11Q2 N ARRIBA#1157": "alta",
+   "11Q1 N ARRIBA#1155": "alta",
+   "11SK1 N ABAJO#1182": "media",
+   "11X220V 2.4#1182": "alta",
+   "11Q2 N ABAJO#1159": "alta",
+   "11X220V 2.3#1159": "alta",
+   "11X220V 2.2#1184": "alta",
+   "11PS2 TB1 2 (N)#1184": "alta",
+   "11X220V 2.1#1186": "alta",
+   "11PS1 TB1 2 (N)#1186": "alta",
+   "11X220V 1.2#1183": "alta",
+   "11PS2 TB1 3 (L)#1183": "alta",
+   "11X220V 1.1#1185": "alta",
+   "11PS1 TB1 3 (L)#1185": "alta",
+   "11PS1 TB2 1 (-V)#1161": "alta",
+   "12XPS 4 ABAJO#1161": "alta",
+   "XPE 1.4#⏚11PS1": "alta",
+   "11PS1 TB1 1 (FG)#⏚11PS1": "alta",
+   "11F1 ABAJO#1162": "alta",
+   "12XPS 3 ABAJO#1162": "alta",
+   "11PS1 TB2 3 (+V)#1160": "alta",
+   "11F1 ARRIBA#1160": "alta",
+   "11PS2 TB2 1 (-V)#1171": "alta",
+   "15XR 2 ARRIBA#1171": "alta",
+   "XPE 2.4#⏚11PS2": "alta",
+   "11PS2 TB1 1 (FG)#⏚11PS2": "alta",
+   "11F2 ABAJO#1172": "alta",
+   "15XR 1 ARRIBA#1172": "alta",
+   "11PS2 TB2 3 (+V)#1170": "alta",
+   "11F2 ARRIBA#1170": "alta",
+   "12XPS 6 ABAJO#1206": "alta",
+   "12F3 ABAJO#1202": "alta",
+   "12PS1 +Pan#1221": "media",
+   "12XPS 3 ARRIBA#1221": "alta",
+   "12PS1 -Pan#1222": "media",
+   "12XPS 4 ARRIBA#1222": "alta",
+   "12XPS 5 ABAJO#1201": "alta",
+   "12F3 ARRIBA#1201": "alta",
+   "12PS1 +Bat#1223": "media",
+   "12XPS 5 ARRIBA#1223": "alta",
+   "12PS1 -Bat#1224": "media",
+   "12XPS 6 ARRIBA#1224": "alta",
+   "12XPS 7 ABAJO#1232": "alta",
+   "13F5 ARRIBA#1232": "alta",
+   "12XPS 8 ABAJO#1230": "alta",
+   "13F4 ARRIBA#1230": "alta",
+   "12PS1 +Car#1225": "media",
+   "12XPS 8 ARRIBA#1225": "alta",
+   "12XPS 9 ABAJO#1231": "alta",
+   "12XP 1.1#1231": "alta",
+   "12PS1 -Car#1226": "media",
+   "12XPS 9 ARRIBA#1226": "alta",
+   "12XP 1.4#1254": "alta",
+   "12XP 1.3#1234": "alta",
+   "13PS1 -Vin#1234": "alta",
+   "12XP 1.2#1235": "alta",
+   "13PS1 (-Vo)#1235": "media",
+   "12XP 2.4#1268": "alta",
+   "61X0V 1.1#1268": "alta",
+   "12XP 2.3#1264": "alta",
+   "61XDIO 1 ABAJO#1264": "alta",
+   "12PS1 A#s/n 12PS1 A": "media",
+   "12XPS 10 ARRIBA#s/n 12PS1 A": "alta",
+   "12PS1 B#s/n 12PS1 B": "media",
+   "12XPS 11 ARRIBA#s/n 12PS1 B": "alta",
+   "12PS1 GND#s/n 12PS1 GND": "media",
+   "12XPS 12 ARRIBA#s/n 12PS1 GND": "alta",
+   "12PS1 VCC#s/n 12PS1 VCC": "media",
+   "12XPS 13 ARRIBA#s/n 12PS1 VCC": "alta",
+   "13X12V 1.1#1303": "alta",
+   "13F4 ABAJO#1301": "alta",
+   "13X12V 2.1#1304": "alta",
+   "13F5 ABAJO#1302": "alta",
+   "13PS1 +Vin#1373": "alta",
+   "13X12V 1.4#1373": "alta",
+   "13X24V 2.1#1350": "alta",
+   "32XAI F1 ARRIBA#1350": "alta",
+   "13X24V 1.1#1391": "alta",
+   "42XC F1 ARRIBA#1391": "alta",
+   "13X24V 2.2#1339": "alta",
+   "13X24V 2.3#1385": "alta",
+   "42KS1 A1#1385": "alta",
+   "XPE 1.1#⏚13PS1": "alta",
+   "13PS1 PE#⏚13PS1": "alta",
+   "13X24V 2.4#1370": "alta",
+   "15AIB1 1#1370": "media",
+   "15DIB1 1#1370": "media",
+   "15DIB2 1#1370": "media",
+   "15DIB3 1#1370": "media",
+   "13X24V 1.4#1311": "alta",
+   "13F6 ABAJO#1311": "alta",
+   "13PS1 +Vo#1310": "alta",
+   "13F6 ARRIBA#1310": "alta",
+   "13X12V 1.3#1363": "alta",
+   "61KR1 11#1363": "media",
+   "13X12V 1.2#1353": "alta",
+   "13PS1 -Vo#1312": "media",
+   "13X24V 3.1#1312": "alta",
+   "13X12V 2.4#1396": "alta",
+   "42KS1 43#1396": "media",
+   "13X12V 2.3#1395": "alta",
+   "42KS1 33#1395": "media",
+   "13X12V 2.2#1394": "alta",
+   "42KS1 23#1394": "media",
+   "13X24V 4.1#1361": "alta",
+   "15AIB1 2#1361": "media",
+   "15DIB1 2#1361": "media",
+   "15DIB2 2#1361": "media",
+   "15DIB3 2#1361": "media",
+   "13X24V 4.2#1386": "alta",
+   "42KS1 A2#1386": "alta",
+   "13X24V 4.3#1340": "alta",
+   "13X24V 3.4#1392": "alta",
+   "42XC 1 ARRIBA#1392": "alta",
+   "15XR 1 ABAJO#s/n ROTORK 1": "alta",
+   "15XR 2 ABAJO#s/n ROTORK 2": "alta",
+   "15XR 3.4#s/n ROTORK PE": "alta",
+   "15AIB1 3#2139": "alta",
+   "15AIB1 4#2140": "alta",
+   "15AIB1 6#2105": "alta",
+   "32XAI 1 ARRIBA#2142": "alta",
+   "15AIB1 7#2106": "alta",
+   "61KR1 A1#2150": "media",
+   "42KS1 13#2114": "media",
+   "61KR1 A2#2151": "media",
+   "42KS1 14#2115": "media",
+   "61KR2 A1#2152": "media",
+   "15DIB1 5#2116": "alta",
+   "61KR2 A2#2153": "media",
+   "15DIB1 6#2117": "alta",
+   "15DIB1 3#2118": "alta",
+   "15DIB1 4#2119": "alta",
+   "15DIB2 5#2120": "alta",
+   "15DIB2 6#2121": "alta",
+   "15DIB2 3#2122": "alta",
+   "61KR3 A1#2154": "media",
+   "15DIB2 4#2123": "alta",
+   "61KR3 A2#2155": "media",
+   "15DIB3 5#2124": "media",
+   "61KR4 A1#2156": "media",
+   "15DIB3 6#2125": "media",
+   "61KR4 A2#2157": "media",
+   "15DIB3 3#2126": "media",
+   "15DIB3 4#2127": "media",
+   "12XPS 10 ABAJO#2135": "alta",
+   "81XCM 7 ARRIBA#2135": "alta",
+   "12XPS 11 ABAJO#2136": "alta",
+   "81XCM 8 ARRIBA#2136": "alta",
+   "32XEX 1 ABAJO#s/n PIT01F x1": "alta",
+   "15AIB1 9#3202": "alta",
+   "32XEX 1 ARRIBA#3202": "alta",
+   "32XEX 2 ABAJO#s/n PIT01F x2": "alta",
+   "15AIB1 10#3203": "alta",
+   "32XEX 2 ARRIBA#3203": "alta",
+   "32XEX 5.4#⏚32XEX": "alta",
+   "15AIB1 12#3205": "alta",
+   "32XEX 3 ARRIBA#3205": "alta",
+   "15AIB1 13#3206": "alta",
+   "32XEX 4 ARRIBA#3206": "alta",
+   "32XAI F1 ABAJO#3221": "alta",
+   "32XAI 1 ABAJO#3222": "alta",
+   "41XEX 2 ABAJO#s/n IP_1_ZSO 14": "alta",
+   "41XEX 1 ABAJO#s/n IP_1_ZSO 13": "alta",
+   "15DIB1 7#4116": "alta",
+   "41XEX 1 ARRIBA#4116": "alta",
+   "15DIB1 8#4117": "alta",
+   "41XEX 2 ARRIBA#4117": "alta",
+   "41XEX 4 ABAJO#s/n IP_1_ZSC 14": "alta",
+   "41XEX 3 ABAJO#s/n IP_1_ZSC 13": "alta",
+   "15DIB1 9#4118": "alta",
+   "41XEX 3 ARRIBA#4118": "alta",
+   "15DIB1 10#4119": "alta",
+   "41XEX 4 ARRIBA#4119": "alta",
+   "41XEX 6 ABAJO#s/n IP_2_ZSO 14": "alta",
+   "41XEX 5 ABAJO#s/n IP_2_ZSO 13": "alta",
+   "15DIB2 7#4120": "alta",
+   "41XEX 5 ARRIBA#4120": "alta",
+   "15DIB2 8#4121": "alta",
+   "41XEX 6 ARRIBA#4121": "alta",
+   "41XEX 8 ABAJO#s/n IP_2_ZSC 14": "alta",
+   "41XEX 7 ABAJO#s/n IP_2_ZSC 13": "alta",
+   "15DIB2 9#4122": "alta",
+   "41XEX 7 ARRIBA#4122": "alta",
+   "15DIB2 10#4123": "alta",
+   "41XEX 8 ARRIBA#4123": "alta",
+   "41XEX 10 ABAJO#s/n IP_3_ZSO 14": "alta",
+   "41XEX 9 ABAJO#s/n IP_3_ZSO 13": "alta",
+   "15DIB3 7#4124": "media",
+   "41XEX 9 ARRIBA#4124": "alta",
+   "15DIB3 8#4125": "media",
+   "41XEX 10 ARRIBA#4125": "alta",
+   "41XEX 12 ABAJO#s/n IP_3_ZSC 14": "alta",
+   "41XEX 11 ABAJO#s/n IP_3_ZSC 13": "alta",
+   "15DIB3 9#4126": "media",
+   "41XEX 11 ARRIBA#4126": "alta",
+   "15DIB3 10#4127": "media",
+   "41XEX 12 ARRIBA#4127": "alta",
+   "42KS1 S33#4221": "alta",
+   "42KS1 S34#4221": "alta",
+   "42KR1 14#4212": "alta",
+   "42KR1 11#4231": "alta",
+   "42XC 3 ARRIBA#4231": "alta",
+   "42KS1 S11#4211": "alta",
+   "42KS1 S12#4213": "alta",
+   "42XC 4 ARRIBA#4213": "alta",
+   "42XC 5 ARRIBA#4232": "alta",
+   "42KR1 A1#4232": "alta",
+   "42KR1 A2#4233": "alta",
+   "42XC 6 ARRIBA#4233": "alta",
+   "42KS1 24#4294": "media",
+   "61KR2 11#4294": "media",
+   "42KS1 34#4295": "media",
+   "61KR3 11#4295": "media",
+   "42KS1 44#4296": "media",
+   "61KR4 11#4296": "media",
+   "61XDIO 4 ARRIBA#6174": "alta",
+   "61XDO 4.2#6174": "alta",
+   "61XDIO 3 ARRIBA#6173": "alta",
+   "61XDO 3.2#6173": "alta",
+   "61XDIO 2 ARRIBA#6172": "alta",
+   "61XDO 2.2#6172": "alta",
+   "61XDIO 1 ARRIBA#6171": "alta",
+   "61XDO 1.2#6171": "alta",
+   "61XDO 1.4#6151": "alta",
+   "61KR1 14#6141": "media",
+   "61XDO 1.1#6141": "alta",
+   "61X0V 1.4#6162": "alta",
+   "61X0V 2.3#6163": "alta",
+   "61X0V 2.4#6164": "alta",
+   "61XDO 2.4#6152": "alta",
+   "61KR2 14#6142": "media",
+   "61XDO 2.1#6142": "alta",
+   "61XDO 3.4#6153": "alta",
+   "61KR3 14#6143": "media",
+   "61XDO 3.1#6143": "alta",
+   "61XDO 4.4#6154": "alta",
+   "61KR4 14#6144": "media",
+   "61XDO 4.1#6144": "alta",
+   "81XCM 9 ARRIBA#⏚81XCM": "alta",
+   "81XCM 6 ARRIBA#2133": "alta",
+   "81XCM 2 ARRIBA#2133": "alta",
+   "81XCM 5 ARRIBA#2132": "alta",
+   "81XCM 1 ARRIBA#2132": "alta",
+   "81XCM 4 ARRIBA#MALLA 21PCB01 34": "alta",
+   "81XCM 3 ARRIBA#MALLA 21PCB01 34 (2)": "alta"
+  },
+  "bornes_nota": {
+   "11SK1 PE ABAJO#⏚11SK1": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "11SK1 L ABAJO#1181": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "11SK1 N ABAJO#1182": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
+   "12PS1 +Pan#1221": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "12PS1 -Pan#1222": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "12PS1 +Bat#1223": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "12PS1 -Bat#1224": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "12PS1 +Car#1225": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "12PS1 -Car#1226": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "13PS1 (-Vo)#1235": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 2: abertura cuadrada 2 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. EPLAN distingue los dos -Vo como '-Vo' y '(-Vo)' (hoja 13: +Vo, -Vo, (+Vo), (-Vo)); regla del n-esimo pin del 66817: '-Vo' = 1er tornillo -Vo (pin 1), '(-Vo)' = 2do (pin 2). Mismo potencial.",
+   "12PS1 A#s/n 12PS1 A": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "12PS1 B#s/n 12PS1 B": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "12PS1 GND#s/n 12PS1 GND": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "12PS1 VCC#s/n 12PS1 VCC": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
+   "15AIB1 1#1370": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero, NO dibujado: queda detras del [3 4 5] con el tornillo a la misma altura (vista lateral del manual; regla del 75286/66817 y catalogo GS8536-EX); 2 bornes a paso 5,0 mm centrados en la carcasa: x = tornillo del medio - 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551",
+   "15DIB1 1#1370": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (l",
+   "15DIB2 1#1370": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (l",
+   "15DIB3 1#1370": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (+24 V), trasero: visto de frente queda DETRAS del [3 4] con el tornillo a la misma altura (vista lateral acotada del manual GS8512, correccion verificada del 75286); mismo punto que el borne 3, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (l",
+   "61KR1 11#1363": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orde",
+   "13PS1 -Vo#1312": "MEAN WELL DDR-120A-24, TB2 (salida, arriba) pin 1: abertura cuadrada 1 de 4 desde la izquierda (2.83 x 2.83 pt, y=698.895). Hoja de datos DDR-120 y referencias 75286/66817 (fotos): TB2 = -Vo -Vo +Vo +Vo. EPLAN distingue los dos -Vo como '-Vo' y '(-Vo)' (hoja 13: +Vo, -Vo, (+Vo), (-Vo)); regla del n-esimo pin del 66817: '-Vo' = 1er tornillo -Vo (pin 1), '(-Vo)' = 2do (pin 2). Mismo potencial.",
+   "42KS1 43#1396": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 43: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo",
+   "42KS1 33#1395": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 33: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 1 de 4 desde la izquierda (octogono 2.84 pt, x=831.4, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo). ",
+   "42KS1 23#1394": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 23: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo).",
+   "15AIB1 2#1361": "CHENZHU GS8536-EX (2 AI, 17,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, NO dibujado: detras del [3 4 5], misma altura; x = tornillo del medio + 2,5 mm. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 823.79/827.33/830.87; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 cond",
+   "15DIB1 2#1361": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 836.26/839.80; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores ",
+   "15DIB2 2#1361": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 845.12/848.66; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. Entran 2 conductores ",
+   "15DIB3 2#1361": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe de alimentacion [1 2] (0 V), trasero, detras del [3 4]: mismo punto que el borne 4, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 4",
+   "61KR1 A1#2150": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 ",
+   "42KS1 13#2114": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 13: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 3 de 4 desde la izquierda (octogono 2.84 pt, x=838.49, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abaj",
+   "61KR1 A2#2151": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a ",
+   "42KS1 14#2115": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 14: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abaj",
+   "61KR2 A1#2152": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 d",
+   "61KR2 A2#2153": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a d",
+   "61KR3 A1#2154": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 ",
+   "61KR3 A2#2155": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a ",
+   "15DIB3 5#2124": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe delantero [5 6] (OUT1, rele), fila interior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3",
+   "61KR4 A1#2156": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca interior del lado bobina (junto al LED) = A1+; centro del circulo grande de entrada del conductor (r ~1.45, y=634.48). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 ",
+   "15DIB3 6#2125": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [5 6] (OUT1), fila interior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera",
+   "61KR4 A2#2157": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca exterior del lado bobina = A2-; centro del circulo grande de entrada del conductor (r ~1.45, y=628.16). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izquierda a ",
+   "15DIB3 3#2126": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2, rele), fila exterior dibujada de arriba, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda pre",
+   "15DIB3 4#2127": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe [3 4] (OUT2), fila exterior de arriba, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrera",
+   "15DIB3 7#4124": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior dibujada de abajo (pegada al cuerpo), tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15",
+   "15DIB3 8#4125": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [7 8] (IN1), fila interior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barrer",
+   "15DIB3 9#4126": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior dibujada de abajo, tornillo izquierdo. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda previst",
+   "15DIB3 10#4127": "CHENZHU GS8512-EX.22 (2 DI salida rele, 12,5 mm). enchufe IS [9 10] (IN2), fila exterior de abajo, tornillo derecho. Tornillos dibujados (circulos de r=1,4 pt con ranura) en x 853.98/857.52; filas y=551.17/544.80 arriba (lado seguro, verde) y 486.23/479.86 abajo (lado IS, azul, hacia la canaleta azul U7). Numero menor a la izquierda. OJO: las hojas 15 y 41 dicen que 15DIB3 queda prevista SIN barre",
+   "42KS1 24#4294": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 24: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 4 de 4 desde la izquierda (octogono 2.84 pt, x=842.03, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo).",
+   "61KR2 11#4294": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden",
+   "42KS1 34#4295": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 34: enchufe de abajo TRASERO (fila exterior): 33 34 23 24, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=627.1). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abajo).",
+   "61KR3 11#4295": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orde",
+   "42KS1 44#4296": "Phoenix PSR-SCP-24UC/ESA2/4X1/1X2/B, borne 44: enchufe de abajo DELANTERO (fila interior): 43 44 13 14, tornillo 2 de 4 desde la izquierda (octogono 2.84 pt, x=834.95, y=634.23). Disposicion sacada de fotos del aparato real 2963802 (enchufes rotulados 'A1 S34 S33 S11' atras y 'S12 51 52 A2' adelante; rotulo frontal de la carcasa A1|S34|S33|S11 / S12|51|52|A2 arriba y 43|44|13|14 / 33|34|23|24 abaj",
+   "61KR4 11#4296": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca exterior (la mas lejos del riel) del lado contactos = 11 (C); centro del circulo grande de entrada del conductor (r ~1.45, y=686.31). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orde",
+   "61KR1 14#6141": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 1 a la derecha de la etiqueta -61KR (columna x=864.645): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izqu",
+   "61KR2 14#6142": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 2 a la derecha de la etiqueta -61KR (columna x=868.97): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izqui",
+   "61KR3 14#6143": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 3 a la derecha de la etiqueta -61KR (columna x=873.295): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izqu",
+   "61KR4 14#6144": "Rele Phoenix RIF-0-RPT-12DC/21, modulo 4 a la derecha de la etiqueta -61KR (columna x=877.625): boca del medio del lado contactos = 14 (NA); centro del circulo grande de entrada del conductor (r ~1.45, y=679.84). Disposicion de las referencias 75286 y 66817 (numeros moldeados, fotos): 11/14/12 arriba del extremo hacia el rele, A1 junto al LED y A2 en el extremo de abajo. Orden 61KR1..61KR4 de izqu"
+  },
+  "renombrar_auto": {},
+  "estaciones": {},
+  "estacion": "E6",
+  "estacion_auto": {
+   "seccion_min": 35,
+   "estacion": "E8"
+  },
+  "salidas": {
+   "grupos": [],
+   "preguntar": true
+  },
+  "quitados": []
+ }
+}

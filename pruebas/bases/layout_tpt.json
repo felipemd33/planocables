@@ -1,0 +1,917 @@
+{
+ "layout": {
+  "pag": 4,
+  "comp": {
+   "12PB1": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 225.2,
+    "y": 296.6,
+    "leido": "12PB1",
+    "lateral": "IZQUIERDO"
+   },
+   "PT 001": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 655.7,
+    "y": 415.9,
+    "leido": "PT001",
+    "nota": "en la vista de la bandeja pero fuera del largo de su riel"
+   },
+   "BH-01-ZV": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 680.5,
+    "y": 447.6,
+    "leido": "BH-01-ZV",
+    "nota": "en la vista de la bandeja pero fuera del largo de su riel"
+   },
+   "12PS2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 195.1,
+    "y": 470.1,
+    "leido": "12PS2",
+    "lateral": "IZQUIERDO"
+   },
+   "11PS1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 523.5,
+    "y": 578.3,
+    "leido": "11PS1"
+   },
+   "11Q1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 491.7,
+    "y": 588.0,
+    "leido": "11Q1"
+   },
+   "13PS3": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 546.8,
+    "y": 595.2,
+    "leido": "13PS3"
+   },
+   "11XP": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1021.8,
+    "y": 503.2,
+    "leido": "11XP",
+    "lateral": "DERECHO"
+   },
+   "81XCM": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1004.1,
+    "y": 504.7,
+    "leido": "81XCM",
+    "lateral": "DERECHO"
+   },
+   "16XC": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 1000.7,
+    "y": 591.8,
+    "leido": "16XC",
+    "lateral": "DERECHO"
+   },
+   "43XDI": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 995.3,
+    "y": 504.0,
+    "leido": "43XDI",
+    "lateral": "DERECHO"
+   },
+   "13XC2": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 983.3,
+    "y": 591.8,
+    "leido": "13XC2",
+    "lateral": "DERECHO"
+   },
+   "33XAI": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 960.9,
+    "y": 503.6,
+    "leido": "33XAI",
+    "lateral": "DERECHO"
+   },
+   "32XAI": {
+    "ubic": "LI",
+    "fila": null,
+    "x": 950.6,
+    "y": 504.0,
+    "leido": "32XAI",
+    "lateral": "DERECHO"
+   },
+   "61XDIO": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 734.7,
+    "y": 577.9,
+    "leido": "61XDIO"
+   },
+   "13XC1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 706.8,
+    "y": 577.6,
+    "leido": "13XC1"
+   },
+   "12XP": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 689.3,
+    "y": 578.7,
+    "leido": "12XP"
+   },
+   "31XAI": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 679.0,
+    "y": 577.6,
+    "leido": "31XAI"
+   },
+   "XM1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 667.1,
+    "y": 577.6,
+    "leido": "XM1"
+   },
+   "43KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 656.7,
+    "y": 577.3,
+    "leido": "43KR"
+   },
+   "61KR": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 640.7,
+    "y": 577.3,
+    "leido": "61KR"
+   },
+   "13F2": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 632.9,
+    "y": 579.6,
+    "leido": "13F2"
+   },
+   "12F1": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 623.0,
+    "y": 579.6,
+    "leido": "12F1"
+   },
+   "33MX01": {
+    "ubic": "BANDEJA",
+    "fila": 1,
+    "x": 565.1,
+    "y": 602.1,
+    "leido": "33MX01"
+   },
+   "43XDIB": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 535.5,
+    "y": 457.7,
+    "leido": "43XDIB"
+   },
+   "43DIB1": {
+    "ubic": "BANDEJA",
+    "fila": 2,
+    "x": 510.4,
+    "y": 451.1,
+    "leido": "43DIB1"
+   }
+  },
+  "vistas": [
+   {
+    "box": [
+     429.33345999999983,
+     377.4489399999997,
+     809.5077400000001,
+     658.2993600000003
+    ],
+    "rails": [
+     577.4,
+     457.6
+    ]
+   },
+   {
+    "box": [
+     895.3825599999999,
+     512.7100399999997,
+     1094.8377400000002,
+     673.0905600000002
+    ],
+    "rails": [
+     592.9
+    ]
+   }
+  ],
+  "bandeja": 0,
+  "size": [
+   1190.28,
+   841.698
+  ],
+  "region": [
+   456.4,
+   236.5,
+   762.6,
+   644.7
+  ],
+  "escala": 1.7639,
+  "escala_fuente": "riel DIN 35 mm",
+  "perfil_riel_pt": 19.56,
+  "ductos": [
+   {
+    "b": [
+     473.4,
+     622.0,
+     745.6,
+     644.7
+    ],
+    "h": true,
+    "ex": false
+   },
+   {
+    "b": [
+     589.7,
+     534.2,
+     612.3,
+     622.0
+    ],
+    "h": false,
+    "ex": false
+   },
+   {
+    "b": [
+     499.0,
+     392.4,
+     586.8,
+     415.1
+    ],
+    "h": true,
+    "ex": true
+   },
+   {
+    "b": [
+     564.1,
+     415.1,
+     586.8,
+     511.5
+    ],
+    "h": false,
+    "ex": true
+   },
+   {
+    "b": [
+     473.4,
+     511.5,
+     745.6,
+     534.2
+    ],
+    "h": true,
+    "ex": false
+   }
+  ],
+  "filas": [
+   577.4,
+   457.6
+  ],
+  "version_lector": "topo 2026.10.02-r3"
+ },
+ "en_memoria": {
+  "bornes_usuario": {},
+  "bornes": {
+   "11PS1 +#1108": [
+    520.17,
+    609.93,
+    1.61
+   ],
+   "11PS1 -#1109": [
+    513.18,
+    609.93,
+    1.61
+   ],
+   "11PS1 L#1106": [
+    525.25,
+    548.65,
+    1.8
+   ],
+   "11PS1 N#1107": [
+    521.04,
+    548.65,
+    1.8
+   ],
+   "11Q1 F ABAJO#1106": [
+    486.94,
+    561.09,
+    1.98
+   ],
+   "11Q1 F ARRIBA#1104": [
+    486.94,
+    600.21,
+    1.98
+   ],
+   "11Q1 N ABAJO#1107": [
+    496.86,
+    561.09,
+    1.98
+   ],
+   "11Q1 N ARRIBA#1105": [
+    496.86,
+    600.21,
+    1.98
+   ],
+   "13PS3 +Vo#1311": [
+    550.56,
+    607.6,
+    1.22
+   ],
+   "13PS3 +Vo#1313": [
+    547.57,
+    607.6,
+    1.22
+   ],
+   "13PS3 -Vo#1312": [
+    544.56,
+    607.6,
+    1.22
+   ],
+   "13PS3 -Vo#1314": [
+    541.57,
+    607.6,
+    1.22
+   ],
+   "61XDIO 1 ABAJO#6101": [
+    739.09,
+    589.05,
+    1.36
+   ],
+   "61XDIO 2 ABAJO#6104": [
+    742.01,
+    589.05,
+    1.36
+   ],
+   "61XDIO 2 ARRIBA#1308": [
+    742.01,
+    567.9,
+    1.36
+   ],
+   "13XC1 1.1#1301": [
+    711.89,
+    597.58,
+    2.13
+   ],
+   "13XC1 1.4#1302": [
+    711.89,
+    554.28,
+    2.13
+   ],
+   "13XC1 2.1#1304": [
+    717.76,
+    597.58,
+    2.13
+   ],
+   "13XC1 2.2#1305": [
+    717.76,
+    588.29,
+    2.13
+   ],
+   "13XC1 2.3#1306": [
+    717.76,
+    563.58,
+    2.13
+   ],
+   "13XC1 2.4#1303": [
+    717.76,
+    554.28,
+    2.13
+   ],
+   "13XC1 3.1#1208": [
+    723.62,
+    597.58,
+    2.13
+   ],
+   "13XC1 3.2#1309": [
+    723.62,
+    588.29,
+    2.13
+   ],
+   "13XC1 3.3#1319": [
+    723.62,
+    563.58,
+    2.13
+   ],
+   "13XC1 3.4#1307": [
+    723.62,
+    554.28,
+    2.13
+   ],
+   "13XC1 3.7#1308": [
+    728.25,
+    563.58,
+    2.13
+   ],
+   "13XC1 3.8#1310": [
+    728.25,
+    554.28,
+    2.13
+   ],
+   "12XP 1.1#1203": [
+    694.49,
+    597.35,
+    2.13
+   ],
+   "12XP 1.2#1207": [
+    694.49,
+    588.05,
+    2.13
+   ],
+   "12XP 1.3#2111": [
+    694.49,
+    563.35,
+    2.13
+   ],
+   "12XP 1.4#1204": [
+    694.49,
+    554.05,
+    2.13
+   ],
+   "12XP 2.1#1202": [
+    700.35,
+    597.35,
+    2.13
+   ],
+   "12XP 2.2#2112": [
+    700.35,
+    588.05,
+    2.13
+   ],
+   "12XP 2.3#1208": [
+    700.35,
+    563.35,
+    2.13
+   ],
+   "12XP 2.4#1206": [
+    700.35,
+    554.05,
+    2.13
+   ],
+   "31XAI 1 ABAJO#3102": [
+    683.7,
+    552.49,
+    1.63
+   ],
+   "31XAI 1 ARRIBA#2142": [
+    683.7,
+    601.84,
+    1.63
+   ],
+   "31XAI F1 ABAJO#3101": [
+    683.69,
+    562.3,
+    1.69
+   ],
+   "31XAI F1 ARRIBA#1617": [
+    683.7,
+    586.82,
+    1.63
+   ],
+   "XM1 1 ABAJO#6102": [
+    671.48,
+    551.8,
+    1.37
+   ],
+   "XM1 1 ARRIBA#6101": [
+    671.48,
+    598.29,
+    1.36
+   ],
+   "XM1 2 ABAJO#6103": [
+    671.48,
+    560.92,
+    1.37
+   ],
+   "XM1 2 ARRIBA#1310": [
+    671.48,
+    589.29,
+    1.36
+   ],
+   "XM1 3 ABAJO#6201": [
+    674.4,
+    551.8,
+    1.37
+   ],
+   "XM1 3 ARRIBA#6104": [
+    674.4,
+    598.29,
+    1.36
+   ],
+   "XM1 4 ABAJO#6202": [
+    674.4,
+    560.92,
+    1.37
+   ],
+   "XM1 4 ARRIBA#1310": [
+    674.4,
+    589.29,
+    1.36
+   ],
+   "43KR1 11#2114": [
+    661.29,
+    599.95,
+    1.14
+   ],
+   "43KR1 12#2115": [
+    661.28,
+    589.75,
+    1.14
+   ],
+   "43KR1 A1#4305": [
+    661.29,
+    558.58,
+    1.14
+   ],
+   "43KR1 A2#4306": [
+    661.29,
+    553.48,
+    1.14
+   ],
+   "61KR1 11#1305": [
+    645.25,
+    599.95,
+    1.14
+   ],
+   "61KR1 14#6101": [
+    645.25,
+    594.85,
+    1.14
+   ],
+   "61KR1 A1#2150": [
+    645.24,
+    558.58,
+    1.14
+   ],
+   "61KR1 A2#2151": [
+    645.24,
+    553.48,
+    1.14
+   ],
+   "61KR2 14#6104": [
+    648.7,
+    594.85,
+    1.14
+   ],
+   "61KR2 A1#2152": [
+    648.7,
+    558.58,
+    1.14
+   ],
+   "61KR2 A2#2153": [
+    648.7,
+    553.48,
+    1.14
+   ],
+   "61KR3 11#8101": [
+    652.16,
+    599.95,
+    1.14
+   ],
+   "61KR3 12#8102": [
+    652.16,
+    589.75,
+    1.14
+   ],
+   "61KR3 A1#2154": [
+    652.16,
+    558.58,
+    1.14
+   ],
+   "61KR3 A2#2155": [
+    652.16,
+    553.48,
+    1.14
+   ],
+   "13F2 ABAJO#1301": [
+    632.88,
+    563.0,
+    1.54
+   ],
+   "13F2 ARRIBA#1207": [
+    632.88,
+    597.12,
+    1.54
+   ],
+   "12F1 ABAJO#1203": [
+    622.96,
+    563.0,
+    1.54
+   ],
+   "12F1 ARRIBA#1201": [
+    622.96,
+    597.12,
+    1.54
+   ],
+   "33MX01 1#3301": [
+    560.95,
+    588.16,
+    0.68
+   ],
+   "33MX01 10#1610": [
+    560.95,
+    568.71,
+    0.68
+   ],
+   "33MX01 11#3311": [
+    560.95,
+    566.56,
+    0.68
+   ],
+   "33MX01 12#1612": [
+    560.95,
+    564.4,
+    0.68
+   ],
+   "33MX01 13#3313": [
+    560.95,
+    561.63,
+    0.68
+   ],
+   "33MX01 14#1614": [
+    560.95,
+    559.47,
+    0.68
+   ],
+   "33MX01 15#3315": [
+    560.95,
+    557.32,
+    0.68
+   ],
+   "33MX01 16#1616": [
+    560.95,
+    555.16,
+    0.68
+   ],
+   "33MX01 2#1602": [
+    560.95,
+    586.0,
+    0.68
+   ],
+   "33MX01 3#3303": [
+    560.95,
+    583.85,
+    0.68
+   ],
+   "33MX01 4#1604": [
+    560.95,
+    581.7,
+    0.68
+   ],
+   "33MX01 5#3305": [
+    560.95,
+    579.54,
+    0.68
+   ],
+   "33MX01 6#1606": [
+    560.95,
+    577.39,
+    0.68
+   ],
+   "33MX01 7#3307": [
+    560.95,
+    575.18,
+    0.68
+   ],
+   "33MX01 8#1608": [
+    560.95,
+    573.02,
+    0.68
+   ],
+   "33MX01 9#3309": [
+    560.95,
+    570.87,
+    0.68
+   ],
+   "33MX01 D1+#8105": [
+    563.67,
+    612.14,
+    0.68
+   ],
+   "33MX01 D1-#8106": [
+    563.67,
+    612.14,
+    0.68
+   ],
+   "33MX01 V+#1315": [
+    563.67,
+    612.14,
+    0.68
+   ],
+   "33MX01 V-#1316": [
+    563.67,
+    612.14,
+    0.68
+   ],
+   "43DIB1 1 ABAJO#1313": [
+    513.8,
+    486.21,
+    1.13
+   ],
+   "43DIB1 10#4302": [
+    516.7,
+    429.04,
+    1.13
+   ],
+   "43DIB1 2 ABAJO#1314": [
+    516.64,
+    486.23,
+    1.13
+   ],
+   "43DIB1 3#2116": [
+    513.8,
+    486.22,
+    1.13
+   ],
+   "43DIB1 4#2117": [
+    516.64,
+    486.22,
+    1.13
+   ],
+   "43DIB1 5#2118": [
+    513.8,
+    481.2,
+    1.13
+   ],
+   "43DIB1 6#2119": [
+    516.64,
+    481.2,
+    1.13
+   ],
+   "43DIB1 7#4303": [
+    513.86,
+    433.97,
+    1.13
+   ],
+   "43DIB1 8#4304": [
+    516.7,
+    433.97,
+    1.13
+   ],
+   "43DIB1 9#4301": [
+    513.86,
+    429.03,
+    1.13
+   ]
+  },
+  "renombrar": {},
+  "bornes_conf": {
+   "11PS1 +#1108": "alta",
+   "11PS1 -#1109": "alta",
+   "11PS1 L#1106": "alta",
+   "11PS1 N#1107": "alta",
+   "11Q1 F ABAJO#1106": "alta",
+   "11Q1 F ARRIBA#1104": "alta",
+   "11Q1 N ABAJO#1107": "alta",
+   "11Q1 N ARRIBA#1105": "alta",
+   "13PS3 +Vo#1311": "alta",
+   "13PS3 +Vo#1313": "alta",
+   "13PS3 -Vo#1312": "alta",
+   "13PS3 -Vo#1314": "alta",
+   "61XDIO 1 ABAJO#6101": "alta",
+   "61XDIO 2 ABAJO#6104": "alta",
+   "61XDIO 2 ARRIBA#1308": "alta",
+   "13XC1 1.1#1301": "alta",
+   "13XC1 1.4#1302": "alta",
+   "13XC1 2.1#1304": "alta",
+   "13XC1 2.2#1305": "alta",
+   "13XC1 2.3#1306": "alta",
+   "13XC1 2.4#1303": "alta",
+   "13XC1 3.1#1208": "alta",
+   "13XC1 3.2#1309": "alta",
+   "13XC1 3.3#1319": "alta",
+   "13XC1 3.4#1307": "alta",
+   "13XC1 3.7#1308": "alta",
+   "13XC1 3.8#1310": "alta",
+   "12XP 1.1#1203": "alta",
+   "12XP 1.2#1207": "alta",
+   "12XP 1.3#2111": "alta",
+   "12XP 1.4#1204": "alta",
+   "12XP 2.1#1202": "alta",
+   "12XP 2.2#2112": "alta",
+   "12XP 2.3#1208": "alta",
+   "12XP 2.4#1206": "alta",
+   "31XAI 1 ABAJO#3102": "alta",
+   "31XAI 1 ARRIBA#2142": "alta",
+   "31XAI F1 ABAJO#3101": "alta",
+   "31XAI F1 ARRIBA#1617": "alta",
+   "XM1 1 ABAJO#6102": "alta",
+   "XM1 1 ARRIBA#6101": "alta",
+   "XM1 2 ABAJO#6103": "alta",
+   "XM1 2 ARRIBA#1310": "alta",
+   "XM1 3 ABAJO#6201": "alta",
+   "XM1 3 ARRIBA#6104": "alta",
+   "XM1 4 ABAJO#6202": "alta",
+   "XM1 4 ARRIBA#1310": "alta",
+   "43KR1 11#2114": "alta",
+   "43KR1 12#2115": "alta",
+   "43KR1 A1#4305": "alta",
+   "43KR1 A2#4306": "alta",
+   "61KR1 11#1305": "alta",
+   "61KR1 14#6101": "alta",
+   "61KR1 A1#2150": "alta",
+   "61KR1 A2#2151": "alta",
+   "61KR2 14#6104": "alta",
+   "61KR2 A1#2152": "alta",
+   "61KR2 A2#2153": "alta",
+   "61KR3 11#8101": "alta",
+   "61KR3 12#8102": "alta",
+   "61KR3 A1#2154": "alta",
+   "61KR3 A2#2155": "alta",
+   "13F2 ABAJO#1301": "alta",
+   "13F2 ARRIBA#1207": "alta",
+   "12F1 ABAJO#1203": "alta",
+   "12F1 ARRIBA#1201": "alta",
+   "33MX01 1#3301": "media",
+   "33MX01 10#1610": "media",
+   "33MX01 11#3311": "media",
+   "33MX01 12#1612": "media",
+   "33MX01 13#3313": "media",
+   "33MX01 14#1614": "media",
+   "33MX01 15#3315": "media",
+   "33MX01 16#1616": "media",
+   "33MX01 2#1602": "media",
+   "33MX01 3#3303": "media",
+   "33MX01 4#1604": "media",
+   "33MX01 5#3305": "media",
+   "33MX01 6#1606": "media",
+   "33MX01 7#3307": "media",
+   "33MX01 8#1608": "media",
+   "33MX01 9#3309": "media",
+   "33MX01 D1+#8105": "media",
+   "33MX01 D1-#8106": "media",
+   "33MX01 V+#1315": "media",
+   "33MX01 V-#1316": "media",
+   "43DIB1 1 ABAJO#1313": "alta",
+   "43DIB1 10#4302": "alta",
+   "43DIB1 2 ABAJO#1314": "alta",
+   "43DIB1 3#2116": "media",
+   "43DIB1 4#2117": "media",
+   "43DIB1 5#2118": "media",
+   "43DIB1 6#2119": "media",
+   "43DIB1 7#4303": "media",
+   "43DIB1 8#4304": "media",
+   "43DIB1 9#4301": "alta"
+  },
+  "bornes_nota": {
+   "33MX01 1#3301": "MOXA-R1240: 1 ubicado con la hoja de datos a 42.3 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 10#1610": "MOXA-R1240: 10 ubicado con la hoja de datos a 76.6 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 11#3311": "MOXA-R1240: 11 ubicado con la hoja de datos a 80.4 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 12#1612": "MOXA-R1240: 12 ubicado con la hoja de datos a 84.2 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 13#3313": "MOXA-R1240: 13 ubicado con la hoja de datos a 89.1 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 14#1614": "MOXA-R1240: 14 ubicado con la hoja de datos a 92.9 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 15#3315": "MOXA-R1240: 15 ubicado con la hoja de datos a 96.7 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 16#1616": "MOXA-R1240: 16 ubicado con la hoja de datos a 100.5 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 2#1602": "MOXA-R1240: 2 ubicado con la hoja de datos a 46.1 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 3#3303": "MOXA-R1240: 3 ubicado con la hoja de datos a 49.9 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 4#1604": "MOXA-R1240: 4 ubicado con la hoja de datos a 53.7 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 5#3305": "MOXA-R1240: 5 ubicado con la hoja de datos a 57.5 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 6#1606": "MOXA-R1240: 6 ubicado con la hoja de datos a 61.3 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 7#3307": "MOXA-R1240: 7 ubicado con la hoja de datos a 65.2 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 8#1608": "MOXA-R1240: 8 ubicado con la hoja de datos a 69.0 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 9#3309": "MOXA-R1240: 9 ubicado con la hoja de datos a 72.8 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "33MX01 D1+#8105": "MOXA-R1240: D1+ ubicado con la hoja de datos a 0.0 mm del borde arriba del cuerpo y +0.0 mm del centro",
+   "33MX01 D1-#8106": "MOXA-R1240: D1- ubicado con la hoja de datos a 0.0 mm del borde arriba del cuerpo y +0.0 mm del centro",
+   "33MX01 V+#1315": "MOXA-R1240: V+ ubicado con la hoja de datos a 0.0 mm del borde arriba del cuerpo y +0.0 mm del centro",
+   "33MX01 V-#1316": "MOXA-R1240: V- ubicado con la hoja de datos a 0.0 mm del borde arriba del cuerpo y +0.0 mm del centro",
+   "43DIB1 3#2116": "GS8512-EX: grupo SUP pin 1 fila 1 (no dibujada, corrida 0.0 mm)",
+   "43DIB1 4#2117": "GS8512-EX: grupo SUP pin 2 fila 1 (no dibujada, corrida 0.0 mm)",
+   "43DIB1 5#2118": "GS8512-EX: grupo SUP pin 1 fila 2 (no dibujada, corrida 8.85 mm)",
+   "43DIB1 6#2119": "GS8512-EX: grupo SUP pin 2 fila 2 (no dibujada, corrida 8.85 mm)",
+   "43DIB1 7#4303": "GS8512-EX: grupo INF pin 1 fila 1 (no dibujada, corrida 8.7 mm)",
+   "43DIB1 8#4304": "GS8512-EX: grupo INF pin 2 fila 1 (no dibujada, corrida 8.7 mm)"
+  },
+  "renombrar_auto": {},
+  "estaciones": {},
+  "estacion": "E6",
+  "estacion_auto": {
+   "seccion_min": 35,
+   "estacion": "E8"
+  },
+  "salidas": {},
+  "quitados": []
+ }
+}

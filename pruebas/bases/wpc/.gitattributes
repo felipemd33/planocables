@@ -1,0 +1,2 @@
+# Los CSV de la WPC se comparan byte a byte (BOM y CRLF): git no los tiene que convertir
+*.csv -text

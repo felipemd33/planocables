@@ -1,0 +1,8 @@
+{
+  "_nota": "producto.documento = ZPL-76884: regla de wpc.json → reemplazos. Negro 4 → Violeta 2,5 (1002 y 1004 NEGRO 4.0) y Rojo 4 → Naranja 2,5 (1003 sin secc, pendiente 1104). Azul 4 (1005) no tiene regla.",
+  "de": "chico.json",
+  "producto": {
+    "documento": "ZPL-76884",
+    "revision": "1"
+  }
+}

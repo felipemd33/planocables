@@ -1,0 +1,8 @@
+{
+  "_nota": "producto con documento y revisión en null (como salen hoy los planos de AutoCAD): sin reemplazos.",
+  "de": "chico.json",
+  "producto": {
+    "documento": null,
+    "revision": null
+  }
+}

@@ -1,0 +1,285 @@
+{
+ "parcial": false,
+ "programa": "programa",
+ "semilla": "0",
+ "clasificacion": [
+  {
+   "archivo": "1 - Planos/66336-1.pdf",
+   "sha": "902824a06237c8aa",
+   "tipo": "gabinete",
+   "titulo": "66336-Rev7a-Envolvente estandar Batfer-800x940x400.pdf",
+   "hojas": 11
+  },
+  {
+   "archivo": "1 - Planos/75287 DIAGRAMA ELECTRICO mSafe2AC - REV.6.pdf",
+   "sha": "d9da18907e08b9cd",
+   "tipo": "funcional",
+   "titulo": "75287 ZPL Functional Diagram mSafe2 REV6.pdf",
+   "hojas": 19
+  },
+  {
+   "archivo": "1 - Planos/75441 TOPOGRAFICO PANEL MSAFE2 - REV.6.pdf",
+   "sha": "68537b07648d9d88",
+   "tipo": "topografico",
+   "titulo": "75441 ZPL Topográfico Panel mSafe2 REV6.pdf",
+   "hojas": 9
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20057963 - mSafe NA 220 Shell/20057963.pdf",
+   "sha": "0cb950a2965ac486",
+   "tipo": "orden_sap",
+   "titulo": "LFONTES/PRO0000021436_1",
+   "hojas": 7
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20057963 - mSafe NA 220 Shell/75206  ZPL-REV2- Functional Diagram - mSafe NA - 220V - SHELL.pdf",
+   "sha": "9057a52fbcd9ce31",
+   "tipo": "funcional",
+   "titulo": "75206  ZPL-REV2- Functional Diagram - mSafe NA - 220V - SHELL.pdf",
+   "hojas": 14
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20057963 - mSafe NA 220 Shell/75208 ZPL-Rev2-Structure and Arrangement mSafe NA 220Vac SHELL.pdf",
+   "sha": "95fa669501db1183",
+   "tipo": "topografico",
+   "titulo": "75208 ZPL-Rev2-Structure and Arrangement mSafe NA 220Vac SHELL.pdf",
+   "hojas": 12
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20058126 - mSafe Tecpe - 4un/20058126.pdf",
+   "sha": "c2780908d0973f17",
+   "tipo": "orden_sap",
+   "titulo": "LFONTES/PRO0000027301_1",
+   "hojas": 7
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20058126 - mSafe Tecpe - 4un/50000000000000072715-Rev4-PI&D + Functional Diagram - mSafeTecpetrol.pdf",
+   "sha": "cc213e3ef20ba7f4",
+   "tipo": "funcional",
+   "titulo": "50000000000000072715-Rev4-PI&D + Functional Diagram - mSafeTecpetrol.pdf",
+   "hojas": 20
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20058126 - mSafe Tecpe - 4un/50000000000000072887 ZPL-Rev3-Structure and Arrangement mSafeTecpetrol.pdf",
+   "sha": "16c2c629c11de576",
+   "tipo": "topografico",
+   "titulo": "50000000000000072887 ZPL-Rev3-Structure and Arrangement mSafeTecpetrol.pdf",
+   "hojas": 11
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20058556 - MMS - 6un/20058556.pdf",
+   "sha": "41fbe654d2077b55",
+   "tipo": "orden_sap",
+   "titulo": "LFONTES/PRO0000020975_1",
+   "hojas": 9
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20058597 - mSafe1 PP - 12un/20058597.pdf",
+   "sha": "65193c895994da90",
+   "tipo": "orden_sap",
+   "titulo": "LFONTES/PRO0000025798_1",
+   "hojas": 9
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20058597 - mSafe1 PP - 12un/76425 FUNCTIONAL DIAGRAM MSAFE.pdf",
+   "sha": "fac6a54a4900f6bb",
+   "tipo": "funcional",
+   "titulo": "76425 ZPL Functional Diagram mSafe1 PP REV0.pdf",
+   "hojas": 21
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20058597 - mSafe1 PP - 12un/76426 TOPOGRAFICO PANEL MSAFE.pdf",
+   "sha": "512fb7f1be0a43ae",
+   "tipo": "topografico",
+   "titulo": "76426 ZPL Topografico Panel mSafe1 REV0.pdf",
+   "hojas": 9
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20059147 - FCS - 10un/20059147.pdf",
+   "sha": "69f57213d2c9c2eb",
+   "tipo": "orden_sap",
+   "titulo": "LFONTES/PRO0000021937_1",
+   "hojas": 6
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20059147 - FCS - 10un/75733 ZPL-Rev1-PI&D+Functional Diagram dFRAC - Panel FCS.pdf",
+   "sha": "038b64a6595a0ad8",
+   "tipo": "funcional",
+   "titulo": "75733 ZPL-Rev1-PI&D+Functional Diagram dFRAC - Panel FCS.pdf",
+   "hojas": 25
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20059147 - FCS - 10un/75992  ZPL-Rev1 Structure and Arrangement - dFrac FCS.pdf",
+   "sha": "2c22b9c8f1439505",
+   "tipo": "topografico",
+   "titulo": "75992  ZPL-Rev1 Structure and Arrangement - dFrac FCS.pdf",
+   "hojas": 16
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20059291 - TABLERO DISTRIBUCIÓN dFRAC - 2un/76611 ZPL-Rev0-DIAGRAMA ELECTRICO TABLERO DE DISTRIBUCIÓN 220V - dFRAC.pdf",
+   "sha": "bde270188d9edb2e",
+   "tipo": "funcional",
+   "titulo": "76611 ZPL-Rev0-DIAGRAMA ELECTRICO TABLERO DE DISTRIBUCIÓN 220V - dFRAC.pdf",
+   "hojas": 5
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20059291 - TABLERO DISTRIBUCIÓN dFRAC - 2un/76612 ZPL-Rev0-DIAGRAMA CONSTRUCTIVO TABLERO DE DISTRIBUCON 220V-dFRAC.pdf",
+   "sha": "69446efb532ba366",
+   "tipo": "topografico",
+   "titulo": "76612 ZPL-Rev0-DIAGRAMA CONSTRUCTIVO TABLERO DE DISTRIBUCON 220V-dFRAC.pdf",
+   "hojas": 5
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20061052 - mSafe2 PAE - 6un/ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+   "sha": "1c87232557611136",
+   "tipo": "eplan",
+   "titulo": "mSafe2 PAE - Rev 0",
+   "hojas": 50
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/20062290 - mSafe2 PAE - 6un/ZPL-76884 - mSafe2+ PAE - Rev 1 - FABRIC.pdf",
+   "sha": "ac117049071dd116",
+   "tipo": "eplan",
+   "titulo": "mSafe2 PAE - Rev 1",
+   "hojas": 50
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/Gabienetes/66336-1.pdf",
+   "sha": "902824a06237c8aa",
+   "tipo": "copia",
+   "igual_a": "1 - Planos/66336-1.pdf",
+   "tipo_original": "gabinete"
+  },
+  {
+   "archivo": "1 - Planos/Catalogo (referencia)/bom 75286-1.pdf",
+   "sha": "d335507378cbbf31",
+   "tipo": "bom_sap",
+   "titulo": "LFONTES/PS40000030209_1",
+   "hojas": 5
+  },
+  {
+   "archivo": "1 - Planos/Producto nuevo/ZPL-76884 - mSafe2+ PAE - Rev 1 - FABRIC.pdf",
+   "sha": "ac117049071dd116",
+   "tipo": "copia",
+   "igual_a": "1 - Planos/Catalogo (referencia)/20062290 - mSafe2 PAE - 6un/ZPL-76884 - mSafe2+ PAE - Rev 1 - FABRIC.pdf",
+   "tipo_original": "eplan"
+  }
+ ],
+ "planos": [
+  {
+   "funcional": "1 - Planos/75287 DIAGRAMA ELECTRICO mSafe2AC - REV.6.pdf",
+   "topografico": "1 - Planos/75441 TOPOGRAFICO PANEL MSAFE2 - REV.6.pdf",
+   "eplan": false,
+   "clave": "75287_rev6",
+   "copias": []
+  },
+  {
+   "funcional": "1 - Planos/Catalogo (referencia)/20057963 - mSafe NA 220 Shell/75206  ZPL-REV2- Functional Diagram - mSafe NA - 220V - SHELL.pdf",
+   "topografico": "1 - Planos/Catalogo (referencia)/20057963 - mSafe NA 220 Shell/75208 ZPL-Rev2-Structure and Arrangement mSafe NA 220Vac SHELL.pdf",
+   "eplan": false,
+   "clave": "75206_rev2",
+   "copias": []
+  },
+  {
+   "funcional": "1 - Planos/Catalogo (referencia)/20058126 - mSafe Tecpe - 4un/50000000000000072715-Rev4-PI&D + Functional Diagram - mSafeTecpetrol.pdf",
+   "topografico": "1 - Planos/Catalogo (referencia)/20058126 - mSafe Tecpe - 4un/50000000000000072887 ZPL-Rev3-Structure and Arrangement mSafeTecpetrol.pdf",
+   "eplan": false,
+   "clave": "72715_rev4",
+   "copias": []
+  },
+  {
+   "funcional": "1 - Planos/Catalogo (referencia)/20058597 - mSafe1 PP - 12un/76425 FUNCTIONAL DIAGRAM MSAFE.pdf",
+   "topografico": "1 - Planos/Catalogo (referencia)/20058597 - mSafe1 PP - 12un/76426 TOPOGRAFICO PANEL MSAFE.pdf",
+   "eplan": false,
+   "clave": "76425",
+   "copias": []
+  },
+  {
+   "funcional": "1 - Planos/Catalogo (referencia)/20059147 - FCS - 10un/75733 ZPL-Rev1-PI&D+Functional Diagram dFRAC - Panel FCS.pdf",
+   "topografico": "1 - Planos/Catalogo (referencia)/20059147 - FCS - 10un/75992  ZPL-Rev1 Structure and Arrangement - dFrac FCS.pdf",
+   "eplan": false,
+   "clave": "75733_rev1",
+   "copias": []
+  },
+  {
+   "funcional": "1 - Planos/Catalogo (referencia)/20059291 - TABLERO DISTRIBUCIÓN dFRAC - 2un/76611 ZPL-Rev0-DIAGRAMA ELECTRICO TABLERO DE DISTRIBUCIÓN 220V - dFRAC.pdf",
+   "topografico": "1 - Planos/Catalogo (referencia)/20059291 - TABLERO DISTRIBUCIÓN dFRAC - 2un/76612 ZPL-Rev0-DIAGRAMA CONSTRUCTIVO TABLERO DE DISTRIBUCON 220V-dFRAC.pdf",
+   "eplan": false,
+   "clave": "76611_rev0",
+   "copias": []
+  },
+  {
+   "funcional": "1 - Planos/Catalogo (referencia)/20061052 - mSafe2 PAE - 6un/ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+   "topografico": "1 - Planos/Catalogo (referencia)/20061052 - mSafe2 PAE - 6un/ZPL-76884 - mSafe2+ PAE - Rev 0A - FABRICACIÓN.pdf",
+   "eplan": true,
+   "clave": "76884_rev0A",
+   "copias": []
+  },
+  {
+   "funcional": "1 - Planos/Catalogo (referencia)/20062290 - mSafe2 PAE - 6un/ZPL-76884 - mSafe2+ PAE - Rev 1 - FABRIC.pdf",
+   "topografico": "1 - Planos/Catalogo (referencia)/20062290 - mSafe2 PAE - 6un/ZPL-76884 - mSafe2+ PAE - Rev 1 - FABRIC.pdf",
+   "eplan": true,
+   "clave": "76884_rev1",
+   "copias": ["1 - Planos/Producto nuevo/ZPL-76884 - mSafe2+ PAE - Rev 1 - FABRIC.pdf"]
+  }
+ ],
+ "resumen": [
+  {
+   "clave": "75287_rev6",
+   "segundos": {"listado": 96.4, "layout": 131.8, "mapeo": 48.8, "instructivo": 9.2, "total": 286.2},
+   "ocr_en_vivo": 0,
+   "n": {"lineas": 107, "con_ruta": 107, "exactas": 162, "pendientes": 9, "otra_estacion": 3, "sueltos": 2},
+   "cables": 106
+  },
+  {
+   "clave": "75206_rev2",
+   "segundos": {"listado": 38.9, "layout": 53.1, "mapeo": 37.2, "instructivo": 4.8, "total": 134.0},
+   "ocr_en_vivo": 0,
+   "n": {"lineas": 70, "con_ruta": 70, "exactas": 103, "pendientes": 7, "otra_estacion": 2, "sueltos": 0},
+   "cables": 69
+  },
+  {
+   "clave": "72715_rev4",
+   "segundos": {"listado": 59.7, "layout": 70.2, "mapeo": 31.0, "instructivo": 14.3, "total": 175.1},
+   "ocr_en_vivo": 0,
+   "n": {"lineas": 83, "con_ruta": 61, "exactas": 99, "pendientes": 16, "otra_estacion": 5, "sueltos": 43},
+   "cables": 141
+  },
+  {
+   "clave": "76425",
+   "segundos": {"listado": 56.1, "layout": 86.4, "mapeo": 56.5, "instructivo": 6.1, "total": 205.0},
+   "ocr_en_vivo": 0,
+   "n": {"lineas": 111, "con_ruta": 111, "exactas": 162, "pendientes": 9, "otra_estacion": 3, "sueltos": 4},
+   "cables": 105
+  },
+  {
+   "clave": "75733_rev1",
+   "segundos": {"listado": 98.9, "layout": 68.8, "mapeo": 5.8, "instructivo": 9.7, "total": 183.2},
+   "ocr_en_vivo": 0,
+   "n": {"lineas": 0, "con_ruta": 0, "exactas": 0, "pendientes": 207, "otra_estacion": 0, "sueltos": 13},
+   "cables": 184
+  },
+  {
+   "clave": "76611_rev0",
+   "segundos": {"listado": 9.2, "layout": 6.4, "mapeo": 2.8, "instructivo": 4.8, "total": 23.2},
+   "ocr_en_vivo": 0,
+   "n": {"lineas": 0, "con_ruta": 0, "exactas": 0, "pendientes": 46, "otra_estacion": 24, "sueltos": 0},
+   "cables": 67
+  },
+  {
+   "clave": "76884_rev0A",
+   "segundos": {"listado": 4.9, "layout": 6.8, "mapeo": 0.2, "instructivo": 0.2, "total": 12.0},
+   "ocr_en_vivo": 0,
+   "n": {"lineas": 142, "con_ruta": 142, "exactas": 0, "pendientes": 33, "otra_estacion": 12, "sueltos": 0},
+   "cables": 140
+  },
+  {
+   "clave": "76884_rev1",
+   "segundos": {"listado": 4.5, "layout": 6.6, "mapeo": 0.1, "instructivo": 0.3, "total": 11.5},
+   "ocr_en_vivo": 0,
+   "n": {"lineas": 136, "con_ruta": 136, "exactas": 200, "pendientes": 30, "otra_estacion": 24, "sueltos": 0},
+   "cables": 143
+  }
+ ],
+ "segundos_total": 1040.8
+}

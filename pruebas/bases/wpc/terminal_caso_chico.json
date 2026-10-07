@@ -1,0 +1,30 @@
+{
+ "e6": [
+  {"g":0,"i":0,"num":"1001","origen":"11A1 1","destino":"11A2 3","o":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"},"d":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"}},
+  {"g":0,"i":1,"num":"1002","origen":"11A1 2","destino":"11A2 4","o":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"},"d":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"}},
+  {"g":0,"i":2,"num":"1003","origen":"11XQ 1.1","destino":"11XQ 2.2","o":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"},"d":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"}},
+  {"g":0,"i":3,"num":"1004","origen":"11A1 3 ARRIBA","destino":"11A2 3 ABAJO","o":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"},"d":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"}},
+  {"g":0,"i":4,"num":"1005","origen":"11A2 5 ARRIBA","destino":"12B1 2 ABAJO","o":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"},"d":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"}},
+  {"g":0,"i":5,"num":"1006","origen":"11A1 4","destino":"11A2 8","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"}},
+  {"g":0,"i":6,"num":"1018","origen":"11A1 7","destino":"11A2 7","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":{"tipo":"doble","sec":"2.5","pollera":"gris","hex":"#9aa0a6","txt":"Terminal doble 2,5 mm² · pollera gris (1 + 2,5 mm²)"}},
+  {"g":0,"i":7,"num":"1018","origen":"11A2 7","destino":"12B1 7","o":{"tipo":"doble","sec":"2.5","pollera":"gris","hex":"#9aa0a6","txt":"Terminal doble 2,5 mm² · pollera gris (2,5 + 1 mm²)"},"d":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"}},
+  {"g":1,"i":0,"num":"1007","origen":"11A1 5","destino":"LI","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"g":1,"i":1,"num":"1008","origen":"11A2 6 ARRIBA","destino":"LI","o":{"tipo":"pino","sec":"0.75","pollera":"celeste","hex":"#5ec8f2","txt":"Pino 0,75 mm² · pollera celeste"},"d":null},
+  {"g":1,"i":2,"num":"1009","origen":"12B1 1","destino":"LD","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"g":1,"i":3,"num":"1010","origen":"12B1 8","destino":"LI","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"g":1,"i":4,"num":"1011","origen":"12B1 3","destino":"12B1 4","o":{"tipo":"pino","sec":"35","pollera":null,"hex":null,"txt":"Pino 35 mm² · color a definir"},"d":{"tipo":"pino","sec":"35","pollera":null,"hex":null,"txt":"Pino 35 mm² · color a definir"}},
+  {"g":1,"i":5,"num":"1012","origen":"12B1 5","destino":"LI","o":{"tipo":"pino","sec":"0.32","pollera":null,"hex":null,"txt":"Pino 0,32 mm² · color a definir"},"d":null},
+  {"g":1,"i":6,"num":"1013","origen":"12B1 6","destino":"RS485 A","o":{"tipo":"pino","sec":"0.75","pollera":"celeste","hex":"#5ec8f2","txt":"Pino 0,75 mm² · pollera celeste"},"d":{"tipo":"pino","sec":"0.75","pollera":"celeste","hex":"#5ec8f2","txt":"Pino 0,75 mm² · pollera celeste"}},
+  {"g":1,"i":7,"num":"1014","origen":"12B1 9","destino":"SP-1 +","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"}},
+  {"g":1,"i":8,"num":"1015","origen":"12B1 10","destino":"ROTORK 2","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"}},
+  {"g":1,"i":9,"num":"s/n 1","origen":"12B1 11","destino":"LI","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"g":1,"i":10,"num":"1016","origen":"12B1 12","destino":"LI","o":{"tipo":"pino","sec":"","pollera":null,"hex":null,"txt":"Pino  mm² · color a definir"},"d":null}
+ ],
+ "e8": [
+  {"lateral":0,"g":0,"i":0,"clave":"1007|11A1 5|12L1 3","num":"1007","origen":"12L1 3 ABAJO","destino":"11A1 5","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"lateral":0,"g":0,"i":1,"clave":"1101|12L1 1|12L1 2","num":"1101","origen":"12L1 1","destino":"12L1 2","o":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"},"d":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"}},
+  {"lateral":0,"g":0,"i":2,"clave":"1102|12L1 4|21P1 5","num":"1102","origen":"12L1 4 ABAJO","destino":"21P1 5","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"lateral":0,"g":0,"i":3,"clave":"1105|12L1 5|12L1 6","num":"1105","origen":"12L1 5","destino":"12L1 6","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":{"tipo":"doble","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Terminal doble 1 mm² · pollera rojo"}},
+  {"lateral":0,"g":0,"i":4,"clave":"1105|12L1 6|12L1 7","num":"1105","origen":"12L1 6","destino":"12L1 7","o":{"tipo":"doble","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Terminal doble 1 mm² · pollera rojo"},"d":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"}}
+ ]
+}

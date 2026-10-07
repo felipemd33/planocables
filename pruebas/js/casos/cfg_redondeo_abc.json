@@ -1,0 +1,10 @@
+{
+  "_nota": "redondeo 'abc': NaN || 1 → redondea a 1 mm (los largos quedan sin redondear). acometida '-' da NaN en los que salen a LI con E8.",
+  "de": "chico.json",
+  "wpc": {
+    "cfg": {
+      "redondeo": "abc",
+      "acometida": "-"
+    }
+  }
+}
