@@ -5,7 +5,7 @@
  "pagina_bandejas": 8,
  "escala_mm_por_pt": 1.41111,
  "fuente": "2 - Resultados/76884 mSafe2+ PAE/mapeo (conexiones.json, puntos_*.json + correcciones_*.json, bandejas.json), verificado por agentes el 2026-10-02",
- "exportado": "2026-10-06 07:12",
+ "exportado": "2026-10-07 12:15",
  "unidades": "x, y, r en pt de la hoja de bandejas (pagina PDF 8), origen abajo a la izquierda",
  "clave": "<designacion EPLAN tal cual en la lista de conexiones>#<numero de cable> (\"#s/n\" si el renglon no tiene numero)",
  "estaciones_tag": {
@@ -46,8 +46,6 @@
   "42KS1 (PSR 2963802), filas de abajo: 43-44-13-14 en la fila interior y 33-34-23-24 en la exterior (rótulo del aparato). Confirmar mirando el relé.",
   "42KS1 y 11MS1: EPLAN no exporta 12 pines; salen del esquema (hojas 42 y 11).",
   "61KR1 a 61KR4: la hoja 8 rotula solo \"-61KR\"; se supuso KR1 a KR4 de izquierda a derecha.",
-  "41XEX: la 4.ª pieza lleva 9-10 y la 5.ª 7-8 (hoja 8 y pág. 38); se mapeó por número.",
-  "11SK1: L / PE / N de izquierda a derecha (símbolo); con la norma china podría ser N / PE / L. Confirmar con el toma real.",
   "15DIB3: las hojas 15 y 41 dicen que va sin barrera (bornes cuchilla); se mapeó sobre la barrera dibujada.",
   "Barreras GS85xx: el enchufe [1 2] no está dibujado; va detrás del [3 4], arriba (confianza media).",
   "61XDIO: el texto usa el lado FÍSICO (cátodo ARRIBA, ánodo ABAJO). ¿Lado físico o del funcional?",
@@ -1721,20 +1719,22 @@
    "x": 215.02,
    "y": 362.5,
    "r": 1.62,
-   "conf": "media",
+   "conf": "alta",
    "lado": "ABAJO",
    "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): orden N - PE - L confirmado; la tierra sigue en el tornillo del medio."
   },
   "-11SK1:L#1181": {
    "texto": "11SK1 L ABAJO",
-   "x": 208.29,
+   "x": 221.75,
    "y": 362.5,
    "r": 1.62,
-   "conf": "media",
+   "conf": "alta",
    "lado": "ABAJO",
    "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la toma Phoenix EO-I/UT va N - PE - L de izquierda a derecha (foto oficial Phoenix 240214, con la ranura de tierra arriba). La fase L pasa al tornillo de la DERECHA (antes estaba a la izquierda, por el orden del simbolo EPLAN)."
   },
   "-11X220V:1:4#1181": {
    "texto": "11X220V 1.4",
@@ -1829,13 +1829,14 @@
   },
   "-11SK1:N#1182": {
    "texto": "11SK1 N ABAJO",
-   "x": 221.75,
+   "x": 208.29,
    "y": 362.5,
    "r": 1.62,
-   "conf": "media",
+   "conf": "alta",
    "lado": "ABAJO",
    "como": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la toma Phoenix EO-I/UT va N - PE - L de izquierda a derecha (foto oficial Phoenix 240214, con la ranura de tierra arriba). El neutro N pasa al tornillo de la IZQUIERDA (antes estaba a la derecha, por el orden del simbolo EPLAN)."
   },
   "-11X220V:2:4#1182": {
    "texto": "11X220V 2.4",
@@ -2480,83 +2481,91 @@
   },
   "-41XEX:8:1#s/n": {
    "texto": "41XEX 8 ABAJO",
-   "x": 857.45,
+   "x": 853.8,
    "y": 366.82,
    "r": 1.7,
    "conf": "alta",
    "lado": "ABAJO",
    "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 8 va en la 4.a pieza (x 853.8), no en la 5.a (x 857.45), como se habia mapeado por el numero dibujado."
   },
   "-41XEX:7:2#s/n": {
    "texto": "41XEX 7 ABAJO",
-   "x": 857.45,
+   "x": 853.8,
    "y": 355.43,
    "r": 1.7,
    "conf": "alta",
    "lado": "ABAJO",
    "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 7 va en la 4.a pieza (x 853.8), no en la 5.a (x 857.45), como se habia mapeado por el numero dibujado."
   },
   "-41XEX:7:3#4122": {
    "texto": "41XEX 7 ARRIBA",
-   "x": 857.45,
+   "x": 853.8,
    "y": 413.54,
    "r": 1.7,
    "conf": "alta",
    "lado": "ARRIBA",
    "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 7 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 7 va en la 4.a pieza (x 853.8), no en la 5.a (x 857.45), como se habia mapeado por el numero dibujado."
   },
   "-41XEX:8:4#4123": {
    "texto": "41XEX 8 ARRIBA",
-   "x": 857.45,
+   "x": 853.8,
    "y": 402.29,
    "r": 1.7,
    "conf": "alta",
    "lado": "ARRIBA",
    "como": "PTT 2,5-2MT BU, pieza 5 de 41XEX (la que tiene el numero 7 debajo en la pag 8; lleva los bornes 7 y 8). Borne 8 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 8 va en la 4.a pieza (x 853.8), no en la 5.a (x 857.45), como se habia mapeado por el numero dibujado."
   },
   "-41XEX:10:1#s/n": {
    "texto": "41XEX 10 ABAJO",
-   "x": 853.8,
+   "x": 857.45,
    "y": 366.82,
    "r": 1.7,
    "conf": "alta",
    "lado": "ABAJO",
    "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 10 par = piso de arriba = boca interior ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :1 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 10 va en la 5.a pieza (x 857.45), no en la 4.a (x 853.8), como se habia mapeado por el numero dibujado."
   },
   "-41XEX:9:2#s/n": {
    "texto": "41XEX 9 ABAJO",
-   "x": 853.8,
+   "x": 857.45,
    "y": 355.43,
    "r": 1.7,
    "conf": "alta",
    "lado": "ABAJO",
    "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 9 impar = piso de abajo = boca extremo ABAJO (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :2 = ABAJO. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 9 va en la 5.a pieza (x 857.45), no en la 4.a (x 853.8), como se habia mapeado por el numero dibujado."
   },
   "-41XEX:9:3#4124": {
    "texto": "41XEX 9 ARRIBA",
-   "x": 853.8,
+   "x": 857.45,
    "y": 413.54,
    "r": 1.7,
    "conf": "alta",
    "lado": "ARRIBA",
    "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 9 impar = piso de abajo = boca extremo ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :3 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 9 va en la 5.a pieza (x 857.45), no en la 4.a (x 853.8), como se habia mapeado por el numero dibujado."
   },
   "-41XEX:10:4#4125": {
    "texto": "41XEX 10 ARRIBA",
-   "x": 853.8,
+   "x": 857.45,
    "y": 402.29,
    "r": 1.7,
    "conf": "alta",
    "lado": "ARRIBA",
    "como": "PTT 2,5-2MT BU, pieza 4 de 41XEX (la que tiene el numero 9 debajo en la pag 8; lleva los bornes 9 y 10). Borne 10 par = piso de arriba = boca interior ARRIBA (aro r 1.7 pt, centro sacado de los arcos). Lado: en la hoja 41 el simbolo tiene :3/:4 dibujados arriba (lado aparatos) y :1/:2 abajo (campo), asi que :4 = ARRIBA. Piso: convencion del taller (impar = piso de abajo = boca del extremo; par = piso de arriba = boca interior), verificada con fotos en 75286 y 66817 para el mismo PTT. OJO: en 41XEX las piezas 4 y 5 estan cambiadas (9-10 antes que 7-8) en la hoja de hileras y en la pag 8; se respeta el numero.",
-   "zona": "riel3_lateral"
+   "zona": "riel3_lateral",
+   "corregido": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 10 va en la 5.a pieza (x 857.45), no en la 4.a (x 853.8), como se habia mapeado por el numero dibujado."
   },
   "-41XEX:12:1#s/n": {
    "texto": "41XEX 12 ABAJO",

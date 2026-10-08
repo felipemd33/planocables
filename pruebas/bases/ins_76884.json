@@ -5064,11 +5064,11 @@
        448.2
       ],
       [
-       857.5,
+       853.8,
        448.2
       ],
       [
-       857.5,
+       853.8,
        413.5
       ]
      ],
@@ -5080,7 +5080,7 @@
      ],
      "exacto_o": true,
      "marca_d": [
-      857.45,
+      853.8,
       413.54,
       1.7
      ],
@@ -5114,11 +5114,11 @@
        448.2
       ],
       [
-       857.5,
+       853.8,
        448.2
       ],
       [
-       857.5,
+       853.8,
        402.3
       ]
      ],
@@ -5130,7 +5130,7 @@
      ],
      "exacto_o": true,
      "marca_d": [
-      857.45,
+      853.8,
       402.29,
       1.7
      ],
@@ -5160,7 +5160,7 @@
        479.9
       ],
       [
-       854.0,
+       853.8,
        448.2
       ],
       [
@@ -5573,15 +5573,19 @@
        486.2
       ],
       [
-       854.0,
+       853.8,
        448.2
       ],
       [
-       853.8,
+       857.5,
+       448.2
+      ],
+      [
+       857.5,
        413.5
       ]
      ],
-     "largo_mm": 100,
+     "largo_mm": 110,
      "marca_o": [
       853.98,
       486.23,
@@ -5589,7 +5593,7 @@
      ],
      "exacto_o": true,
      "marca_d": [
-      853.8,
+      857.45,
       413.54,
       1.7
      ],
@@ -5624,11 +5628,7 @@
        448.2
       ],
       [
-       854.0,
-       448.2
-      ],
-      [
-       853.8,
+       857.5,
        402.3
       ]
      ],
@@ -5640,7 +5640,7 @@
      ],
      "exacto_o": true,
      "marca_d": [
-      853.8,
+      857.45,
       402.29,
       1.7
      ],
@@ -6584,11 +6584,11 @@
      "seq": 138
     },
     {
-     "num": "s/n IP_3_ZSO 13",
+     "num": "s/n IP_2_ZSC 13",
      "cable": "?",
      "color": "",
      "secc": "",
-     "origen": "41XEX 9 ABAJO",
+     "origen": "41XEX 7 ABAJO",
      "destino": "LI",
      "componente": "41XEX",
      "fila": 3,
@@ -6634,11 +6634,11 @@
      "seq": 139
     },
     {
-     "num": "s/n IP_2_ZSC 13",
+     "num": "s/n IP_3_ZSO 13",
      "cable": "?",
      "color": "",
      "secc": "",
-     "origen": "41XEX 7 ABAJO",
+     "origen": "41XEX 9 ABAJO",
      "destino": "LI",
      "componente": "41XEX",
      "fila": 3,
@@ -6884,11 +6884,11 @@
      "seq": 144
     },
     {
-     "num": "s/n IP_3_ZSO 14",
+     "num": "s/n IP_2_ZSC 14",
      "cable": "?",
      "color": "",
      "secc": "",
-     "origen": "41XEX 10 ABAJO",
+     "origen": "41XEX 8 ABAJO",
      "destino": "LI",
      "componente": "41XEX",
      "fila": 3,
@@ -6934,11 +6934,11 @@
      "seq": 145
     },
     {
-     "num": "s/n IP_2_ZSC 14",
+     "num": "s/n IP_3_ZSO 14",
      "cable": "?",
      "color": "",
      "secc": "",
-     "origen": "41XEX 8 ABAJO",
+     "origen": "41XEX 10 ABAJO",
      "destino": "LI",
      "componente": "41XEX",
      "fila": 3,
@@ -8726,8 +8726,6 @@
    "42KS1 (PSR 2963802), filas de abajo: 43-44-13-14 en la fila interior y 33-34-23-24 en la exterior (rótulo del aparato). Confirmar mirando el relé.",
    "42KS1 y 11MS1: EPLAN no exporta 12 pines; salen del esquema (hojas 42 y 11).",
    "61KR1 a 61KR4: la hoja 8 rotula solo \"-61KR\"; se supuso KR1 a KR4 de izquierda a derecha.",
-   "41XEX: la 4.ª pieza lleva 9-10 y la 5.ª 7-8 (hoja 8 y pág. 38); se mapeó por número.",
-   "11SK1: L / PE / N de izquierda a derecha (símbolo); con la norma china podría ser N / PE / L. Confirmar con el toma real.",
    "15DIB3: las hojas 15 y 41 dicen que va sin barrera (bornes cuchilla); se mapeó sobre la barrera dibujada.",
    "Barreras GS85xx: el enchufe [1 2] no está dibujado; va detrás del [3 4], arriba (confianza media).",
    "61XDIO: el texto usa el lado FÍSICO (cátodo ARRIBA, ánodo ABAJO). ¿Lado físico o del funcional?",
@@ -10016,15 +10014,15 @@
       "lado": "abajo",
       "lineas": [
        {
-        "num": "1181",
-        "cable": "M2.5MM",
-        "color": "Marrón",
+        "num": "1182",
+        "cable": "C2.5MM",
+        "color": "Celeste",
         "secc": "2.5",
-        "clave": "1181|11SK1 L|11X220V 1.4",
+        "clave": "1182|11SK1 N|11X220V 2.4",
         "hojas": [
          "11"
         ],
-        "origen": "11SK1 L ABAJO",
+        "origen": "11SK1 N ABAJO",
         "marca_o": [
          208.29,
          362.5,
@@ -10034,9 +10032,9 @@
         "riel": 2,
         "lado": "abajo",
         "componente": "11SK1",
-        "destino": "11X220V 1.4",
+        "destino": "11X220V 2.4",
         "marca_d": [
-         379.36,
+         385.13,
          356.2,
          2.4
         ],
@@ -10052,15 +10050,15 @@
           313.0
          ],
          [
-          379.4,
+          385.1,
           313.0
          ],
          [
-          379.4,
+          385.1,
           356.2
          ]
         ],
-        "largo_mm": 370
+        "largo_mm": 380
        },
        {
         "num": "⏚11SK1",
@@ -10110,15 +10108,15 @@
         "largo_mm": 350
        },
        {
-        "num": "1182",
-        "cable": "C2.5MM",
-        "color": "Celeste",
+        "num": "1181",
+        "cable": "M2.5MM",
+        "color": "Marrón",
         "secc": "2.5",
-        "clave": "1182|11SK1 N|11X220V 2.4",
+        "clave": "1181|11SK1 L|11X220V 1.4",
         "hojas": [
          "11"
         ],
-        "origen": "11SK1 N ABAJO",
+        "origen": "11SK1 L ABAJO",
         "marca_o": [
          221.75,
          362.5,
@@ -10128,9 +10126,9 @@
         "riel": 2,
         "lado": "abajo",
         "componente": "11SK1",
-        "destino": "11X220V 2.4",
+        "destino": "11X220V 1.4",
         "marca_d": [
-         385.13,
+         379.36,
          356.2,
          2.4
         ],
@@ -10146,15 +10144,15 @@
           313.0
          ],
          [
-          385.1,
+          379.4,
           313.0
          ],
          [
-          385.1,
+          379.4,
           356.2
          ]
         ],
-        "largo_mm": 360
+        "largo_mm": 350
        },
        {
         "num": "1157",

@@ -226,60 +226,60 @@
  "resumen": [
   {
    "clave": "75287_rev6",
-   "segundos": {"listado": 96.4, "layout": 131.8, "mapeo": 48.8, "instructivo": 9.2, "total": 286.2},
+   "segundos": {"listado": 53.2, "layout": 104.0, "mapeo": 42.8, "instructivo": 6.8, "total": 206.9},
    "ocr_en_vivo": 0,
    "n": {"lineas": 107, "con_ruta": 107, "exactas": 162, "pendientes": 9, "otra_estacion": 3, "sueltos": 2},
    "cables": 106
   },
   {
    "clave": "75206_rev2",
-   "segundos": {"listado": 38.9, "layout": 53.1, "mapeo": 37.2, "instructivo": 4.8, "total": 134.0},
+   "segundos": {"listado": 20.0, "layout": 47.5, "mapeo": 20.3, "instructivo": 3.4, "total": 91.2},
    "ocr_en_vivo": 0,
    "n": {"lineas": 70, "con_ruta": 70, "exactas": 103, "pendientes": 7, "otra_estacion": 2, "sueltos": 0},
    "cables": 69
   },
   {
    "clave": "72715_rev4",
-   "segundos": {"listado": 59.7, "layout": 70.2, "mapeo": 31.0, "instructivo": 14.3, "total": 175.1},
+   "segundos": {"listado": 40.5, "layout": 47.5, "mapeo": 25.6, "instructivo": 12.1, "total": 125.7},
    "ocr_en_vivo": 0,
-   "n": {"lineas": 83, "con_ruta": 61, "exactas": 99, "pendientes": 16, "otra_estacion": 5, "sueltos": 43},
+   "n": {"lineas": 83, "con_ruta": 74, "exactas": 104, "pendientes": 16, "otra_estacion": 5, "sueltos": 43},
    "cables": 141
   },
   {
    "clave": "76425",
-   "segundos": {"listado": 56.1, "layout": 86.4, "mapeo": 56.5, "instructivo": 6.1, "total": 205.0},
+   "segundos": {"listado": 46.0, "layout": 127.7, "mapeo": 59.9, "instructivo": 5.8, "total": 239.3},
    "ocr_en_vivo": 0,
    "n": {"lineas": 111, "con_ruta": 111, "exactas": 162, "pendientes": 9, "otra_estacion": 3, "sueltos": 4},
    "cables": 105
   },
   {
    "clave": "75733_rev1",
-   "segundos": {"listado": 98.9, "layout": 68.8, "mapeo": 5.8, "instructivo": 9.7, "total": 183.2},
+   "segundos": {"listado": 126.3, "layout": 54.1, "mapeo": 4.0, "instructivo": 7.9, "total": 192.2},
    "ocr_en_vivo": 0,
    "n": {"lineas": 0, "con_ruta": 0, "exactas": 0, "pendientes": 207, "otra_estacion": 0, "sueltos": 13},
    "cables": 184
   },
   {
    "clave": "76611_rev0",
-   "segundos": {"listado": 9.2, "layout": 6.4, "mapeo": 2.8, "instructivo": 4.8, "total": 23.2},
+   "segundos": {"listado": 10.7, "layout": 11.7, "mapeo": 3.5, "instructivo": 8.0, "total": 33.9},
    "ocr_en_vivo": 0,
    "n": {"lineas": 0, "con_ruta": 0, "exactas": 0, "pendientes": 46, "otra_estacion": 24, "sueltos": 0},
    "cables": 67
   },
   {
    "clave": "76884_rev0A",
-   "segundos": {"listado": 4.9, "layout": 6.8, "mapeo": 0.2, "instructivo": 0.2, "total": 12.0},
+   "segundos": {"listado": 10.4, "layout": 8.9, "mapeo": 0.2, "instructivo": 0.2, "total": 19.7},
    "ocr_en_vivo": 0,
    "n": {"lineas": 142, "con_ruta": 142, "exactas": 0, "pendientes": 33, "otra_estacion": 12, "sueltos": 0},
    "cables": 140
   },
   {
    "clave": "76884_rev1",
-   "segundos": {"listado": 4.5, "layout": 6.6, "mapeo": 0.1, "instructivo": 0.3, "total": 11.5},
+   "segundos": {"listado": 9.7, "layout": 8.0, "mapeo": 0.2, "instructivo": 0.4, "total": 18.3},
    "ocr_en_vivo": 0,
    "n": {"lineas": 136, "con_ruta": 136, "exactas": 200, "pendientes": 30, "otra_estacion": 24, "sueltos": 0},
    "cables": 143
   }
  ],
- "segundos_total": 1040.8
+ "segundos_total": 285.4
 }

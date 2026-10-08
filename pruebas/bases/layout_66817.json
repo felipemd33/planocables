@@ -927,6 +927,7 @@
    "32AIB1 7#2103": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 7 va en la fila dibujada interior de arriba (enchufe a 14.85 mm del borde en el aparato real) y +0.0 mm del centro",
    "32AIB1 9#3201": "GS8536-EX: el bloque es simbolico y no dibuja cada borne; 9 va en la fila dibujada interior de abajo (enchufe a 14.7 mm del borde en el aparato real) y -5.0 mm del centro"
   },
+  "bornes_salida": {},
   "renombrar_auto": {},
   "estaciones": {},
   "estacion": "E6",

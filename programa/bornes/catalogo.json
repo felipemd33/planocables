@@ -6,9 +6,12 @@
     "capas_componentes": ["COMPONENTES", "00_COMPONENTS"],
     "capas_componentes_auto": true,
     "capas_excluidas_patron": "(?i)text|txt|r[oó]tulo|etiqueta|amarillo|cota|dim|watermark|ducto|canal|^vp$|viewport|envolvente|zona|cartel|centro|marco",
+    "capas_excluidas_salvo_dibujo_patron": "(?i)zona",
+    "capas_dibujo_min_trazos": 20,
+    "capas_dibujo_max_mm": 3.0,
     "capa_riel": "RIEL DIN",
     "capas_riel_patron": "(?i)riel|rail|\\bdin\\b",
-    "nota_capas": "Cada plano usa su estandar de capas (COMPONENTES, 00_COMPONENTS, _IGV_Componentes, '0', '01'...). Se toman como dibujo de los aparatos las capas de 'capas_componentes' y, con 'capas_componentes_auto', toda otra capa con trazos en la bandeja cuyo nombre no coincida con 'capas_excluidas_patron' (textos, etiquetas, cotas, marco, canaletas, zona segura) ni con 'capas_riel_patron'. El riel se lee de 'capa_riel' o de las capas que coinciden con 'capas_riel_patron'.",
+    "nota_capas": "Cada plano usa su estandar de capas (COMPONENTES, 00_COMPONENTS, _IGV_Componentes, '0', '01'...). Se toman como dibujo de los aparatos las capas de 'capas_componentes' y, con 'capas_componentes_auto', toda otra capa con trazos en la bandeja cuyo nombre no coincida con 'capas_excluidas_patron' (textos, etiquetas, cotas, marco, canaletas, zona segura) ni con 'capas_riel_patron'. La capa de la zona segura ('capas_excluidas_salvo_dibujo_patron') se toma igual si en la bandeja tiene aparatos dibujados: al menos 'capas_dibujo_min_trazos' trazos curvos o en diagonal de menos de 'capas_dibujo_max_mm' mm (ranuras, entradas, tornillos; las letras de un rotulo son mas grandes y el rayado son rectas) (en el 72887 la bornera intrinseca 43XDIB esta en '_Zona Segura'; en los demas planos esa capa es solo el contorno o el rayado). El riel se lee de 'capa_riel' o de las capas que coinciden con 'capas_riel_patron'.",
     "riel_alto_min_mm": 14.0,
     "riel_largo_min_mm": 25.0,
     "riel_hueco_max_mm": 40.0,
@@ -681,6 +684,8 @@
       "disposicion": {"tipo": "cuerpo"},
       "cuerpo": {
         "w_mm": [25.0, 31.0], "h_mm": [115.0, 135.0], "r_borne_mm": 1.2, "filas_dibujadas": false,
+        "columna_frente": {"pines": "^(\\d+|AI\\d[+-])$", "sale_hacia": "der",
+                           "nota": "bornera en columna al frente (entradas analogicas): se cablea toda seguida de arriba a abajo y cada cable sale en horizontal a la canaleta vertical de la derecha (pedido del taller 2026-10-07, TPT). Los enchufes de arriba (alimentacion, RS-485) no."},
         "pines": {
           "1": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 42.3}, "2": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 46.1},
           "3": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 49.9}, "4": {"dx_mm": -4.8, "desde": "arriba", "dy_mm": 53.7},

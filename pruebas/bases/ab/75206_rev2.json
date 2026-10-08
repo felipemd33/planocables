@@ -382,7 +382,7 @@
   }
  },
  "mapeo": {
-  "version": "2026.10.07-1",
+  "version": "2026.10.07-4",
   "modelos": {
    "61XDIO": "PT2.5-DIO",
    "13XC1": "PT6-QUATTRO",
@@ -622,11 +622,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 38.9,
-   "layout": 53.1,
-   "mapeo": 37.2,
-   "instructivo": 4.8,
-   "total": 134.0
+   "listado": 20.0,
+   "layout": 47.5,
+   "mapeo": 20.3,
+   "instructivo": 3.4,
+   "total": 91.2
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

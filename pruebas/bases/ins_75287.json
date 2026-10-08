@@ -6792,7 +6792,7 @@
  "alternativas": [],
  "bornes_usuario": {},
  "mapeo": {
-  "version": "2026.10.07-1",
+  "version": "2026.10.07-4",
   "modelos": {
    "12F2": "MEGA-BASE",
    "11PS1": "MEANWELL-NDR",

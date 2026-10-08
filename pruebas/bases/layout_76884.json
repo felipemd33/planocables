@@ -649,7 +649,7 @@
     1.62
    ],
    "11SK1 L ABAJO#1181": [
-    208.29,
+    221.75,
     362.5,
     1.62
    ],
@@ -699,7 +699,7 @@
     2.55
    ],
    "11SK1 N ABAJO#1182": [
-    221.75,
+    208.29,
     362.5,
     1.62
    ],
@@ -1584,12 +1584,12 @@
     1.7
    ],
    "41XEX 8 ABAJO#s/n IP_2_ZSC 14": [
-    857.45,
+    853.8,
     366.82,
     1.7
    ],
    "41XEX 7 ABAJO#s/n IP_2_ZSC 13": [
-    857.45,
+    853.8,
     355.43,
     1.7
    ],
@@ -1599,7 +1599,7 @@
     1.4
    ],
    "41XEX 7 ARRIBA#4122": [
-    857.45,
+    853.8,
     413.54,
     1.7
    ],
@@ -1609,17 +1609,17 @@
     1.4
    ],
    "41XEX 8 ARRIBA#4123": [
-    857.45,
+    853.8,
     402.29,
     1.7
    ],
    "41XEX 10 ABAJO#s/n IP_3_ZSO 14": [
-    853.8,
+    857.45,
     366.82,
     1.7
    ],
    "41XEX 9 ABAJO#s/n IP_3_ZSO 13": [
-    853.8,
+    857.45,
     355.43,
     1.7
    ],
@@ -1629,7 +1629,7 @@
     1.4
    ],
    "41XEX 9 ARRIBA#4124": [
-    853.8,
+    857.45,
     413.54,
     1.7
    ],
@@ -1639,7 +1639,7 @@
     1.4
    ],
    "41XEX 10 ARRIBA#4125": [
-    853.8,
+    857.45,
     402.29,
     1.7
    ],
@@ -1919,8 +1919,8 @@
    "11XPVAC 1 ARRIBA#1101": "alta",
    "11XPVAC 2 ARRIBA#1102": "alta",
    "11XPVAC 3.4#⏚11SK1": "alta",
-   "11SK1 PE ABAJO#⏚11SK1": "media",
-   "11SK1 L ABAJO#1181": "media",
+   "11SK1 PE ABAJO#⏚11SK1": "alta",
+   "11SK1 L ABAJO#1181": "alta",
    "11X220V 1.4#1181": "alta",
    "11Q2 F ABAJO#1158": "alta",
    "11X220V 1.3#1158": "alta",
@@ -1930,7 +1930,7 @@
    "11Q1 N ABAJO#1157": "alta",
    "11Q2 N ARRIBA#1157": "alta",
    "11Q1 N ARRIBA#1155": "alta",
-   "11SK1 N ABAJO#1182": "media",
+   "11SK1 N ABAJO#1182": "alta",
    "11X220V 2.4#1182": "alta",
    "11Q2 N ABAJO#1159": "alta",
    "11X220V 2.3#1159": "alta",
@@ -2175,9 +2175,6 @@
    "81XCM 3 ARRIBA#MALLA 21PCB01 34 (2)": "alta"
   },
   "bornes_nota": {
-   "11SK1 PE ABAJO#⏚11SK1": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
-   "11SK1 L ABAJO#1181": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
-   "11SK1 N ABAJO#1182": "Phoenix EO-I/UT (toma tipo I, 45 x 75 mm, bornes a tornillo M3). Los 3 tornillos ranurados estan en la franja de ABAJO del dibujo (aros r 1.62 a y 362.5); regla del taller: 11SK1 todo por abajo. Orden supuesto L / PE / N de izquierda a derecha, igual que el simbolo de la macro EPLAN (hoja 11); la ficha Phoenix no trae la vista de bornes: A CONFIRMAR en el aparato (PE al medio es lo habitual).",
    "12PS1 +Pan#1221": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
    "12PS1 -Pan#1222": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",
    "12PS1 +Bat#1223": "EPEVER Tracer7810BP: no tiene bornes, es IP67/IP68 con cables propios (PV, bateria, carga) y un puerto RS-485 estanco, todos en el mismo extremo corto de la caja (manual Tracer-BP, foto Tracer52**BP: LEDs, 6 cables y RS-485 a la derecha). El dibujo de la pag 8 es solo el cuerpo (153 mm vertical, agujeros de fijacion a 120 x 94 mm). Se toma la salida por ABAJO (12XPS esta justo debajo y todos sus c",

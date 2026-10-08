@@ -14,19 +14,23 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | Carpeta / archivo | Qué es |
 |---|---|
 | `programa/web.py` | Interfaz web (Flask, `http://127.0.0.1:8765`). `PLANOCABLES_PORT` cambia el puerto; `--no-abrir` no abre el navegador. |
+| `programa/planocables/` | Paquete del **plan modular** (`PLAN_MODULAR.md`, etapas 0-3 hechas): `base/` (geom, hojas, convenciones, colores, escala, pdfium_lock: funciones puras, solo biblioteca estándar; los módulos viejos las reexportan con el mismo nombre) y `producto.py` (código de producto, plano y revisión, sin disco). `pyproject.toml` (en la raíz) instala solo este paquete. |
+| `programa/productos.json` | Catálogo de productos: `{código: {nombre, alias: {planos, documentos, codigo_rotulo}}}`. Lo actualiza la web cuando el taller confirma un producto (✎ en la línea «Producto»). |
 | `programa/core.py`, `wires.py`, `textdec.py`, `pdfvec.py` | Lector del funcional: textos SHX, cables, números, uniones en T y flechas a otras hojas. |
 | `programa/instructivo.py` | Puntas (`describe_end`), conductores (`conductors`), textos (`fmt_terminal`) e instructivo (`build`): orden, pasos, pendientes LI↔LI y estaciones. Además `usos_bandeja` y `materiales_funcional`. |
 | `programa/topo.py`, `ruteo.py` | Topográfico (página de la bandeja, rieles, canaletas, escala, componentes) y ruteo por canaletas (Dijkstra). |
 | `programa/bornes/` | Mapeo automático del **punto exacto de cada borne**: `motor.py` + `catalogo.json` (modelos en mm, con sus códigos SAP) + `primitivas.py`. `aparamenta.json` / `aparamenta.py`: el Excel de SAP «BOMs por estación» con lo que es cada material. Ver `programa/bornes/LEEME.md`. |
 | `programa/eplan.py` | Planos de **EPLAN** (PDF con texto real): `es_eplan`, `process` (lista de conexiones → conductores y listado, misma interfaz que `core.process`), `layout` (hoja de bandejas: rieles, canaletas, placas, etiquetas → mismo formato que `topo.layout`) y `aplicar_puntos` (mapeo verificado). `core.process` y `topo.layout` derivan solos a este módulo. |
 | `programa/mapeos_verificados/` | **Dato** por producto EPLAN: `<documento>_rev<revisión>.json` con el punto exacto y el texto del taller de cada punta (`'<designación EPLAN>#<cable>'`), los aparatos que se cablean en E8 (zona hidráulica, batería, solenoides) y las canaletas de intrínsecos. Se elige por el documento y la revisión del rótulo. Se arma con `2 - Resultados/76884 mSafe2+ PAE/mapeo/exportar_al_programa.py`. |
-| `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`, `salidas.js` (editor de salidas a LI / LD). |
+| `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`, `salidas.js` (editor de salidas a LI / LD), `producto.js` (línea «Producto» y su asistente), `wpc.js` (pantalla de la lista WPC). |
+| `programa/web/nucleo/` | Núcleo JS sin DOM (carga con `<script>` en el navegador y con `require` en Node): `wpc_core.js` (la lógica de la lista WPC: configuración por niveles, filas, largos, `canaleta()`, CSV, XML y nombre del `.wpc`) y `zip.js` (zip mínimo de una entrada para el `.wpc`). |
 | `programa/proyector.py`, `web/proyector.html`, `proyector.js`, `proyector.css` | **Pestaña 📽 Proyector** (`/proyector/<id>`, botón 📽 en el instructivo y en el visor, tecla P): proyecta sobre la bandeja REAL solo las canaletas y el cable actual (origen verde lima, destino cian). Sigue al visor «cablear de a uno» por `BroadcastChannel('planocables')` y le devuelve las teclas → ← Espacio. Calibración por homografía (`matrix3d`) con los 4 **orificios de montaje** de la placa: `proyector.orificios` los busca en el dibujo (símbolo de cada esquina; centro = mediana de las mediatrices de sus segmentos), con 🎯 en el visor se marcan a mano. Ventana de texto (puntas, terminal, a dónde va) movible y de tamaño ajustable, que arranca en la parte vacía de la bandeja. Todo se guarda en `ins['proyector']` por `GET/PUT /api/trabajo/<id>/proyector` (la ventana principal no pisa esa sección). |
 | `1 - Planos/` | Planos originales. `Catalogo (referencia)/`: 8 productos con su orden de montaje SAP. `Producto nuevo/`: mSafe2+ PAE (EPLAN). |
 | `2 - Resultados/` | Salidas. `76884 mSafe2+ PAE/`: mapeo verificado del producto EPLAN (ver abajo). |
 | `3 - Historial web/<id>/` | Trabajos de la web (plano, `layout.json`, `instructivo.json` con las marcas del usuario, `bornes.json` manual, `correcciones.json`, `bornes_auto.json`). **No pisar las marcas del usuario.** |
 | `prototipos/` | Los 5 prototipos de mapeo de bornes. `_referencia/` es la referencia del 75286; `_referencia_66817/` la del 66817. |
-| `pruebas/` | Regresión: `volcar_trabajo.py`, `volcar_cables.py`, `evaluar_bornes.py` y `bases/`. |
+| `pruebas/` | Regresión: `volcar_trabajo.py`, `volcar_cables.py`, `evaluar_bornes.py` y `bases/`. Red de seguridad del plan modular: `bateria.py` (corre todo), `comparar_bases.py`, `volcar_bases_nuevas.py`, `ab_planos.py` (A/B sobre todos los planos de `1 - Planos`), `probar_capas.py` (capas de `planocables`), `probar_puentes.py` (los nombres viejos siguen), `probar_producto.py`, `probar_web_humo.py` (la web con Flask y con pythonw), `js/` (`node --test`: WPC, terminal, XML del `.wpc`) y `fixtures/` (copias fijas de solo lectura: el PAE del usuario, el `.wpc` real, `productos.json` y `wpc.json`; ver `fixtures/LEEME.md`). |
+| `PLAN_MODULAR.md` | Plan de la modularización: capas, contratos, producto, WPC por producto, etapas y batería B. |
 | `pendiente/` | Trabajo empezado y pausado (ver "Pendientes"). |
 
 Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.txt`). En Windows: `Listado de cables (web).bat`.
@@ -86,19 +90,35 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
   tramo en los mismos aparatos); los que ya no se reconocen vuelven al instructivo y se avisan en `quitados_vueltos`.
   El listado de cables del funcional no cambia.
 - **Toma 11SK1 del 75286:** todos sus cables se cablean por abajo.
+- **Producto (2026-10-07, pedido del usuario):** la clave es el **código de producto SAP con su sufijo** (75286-1; PAE =
+  76857-1, que no está en el PDF: la portada dice 76860-1; PP STD = 76572-1, el rótulo dice 76571-1), y además el plano
+  funcional y el topográfico con su revisión (texto: `0A`, `4(A)`). Plano y revisión salen del `/Title` del PDF y del
+  rótulo (en EPLAN, documento y revisión del rótulo); el código, del catálogo `programa/productos.json` o del `CODE:` del
+  rótulo (`planocables/producto.py`). Va en `resultado.json` y en `ins['producto']` (`documento` / `revision` quedan por
+  compatibilidad con `wpc.json` y los mapeos verificados). El taller lo **confirma a mano** (✎ en la línea «Producto»,
+  `GET/PUT /api/trabajo/<id>/producto`): queda en `producto.json` del trabajo, que **manda** al regenerar, y suma los alias
+  al catálogo. Si la detección no es segura o las fuentes no coinciden, un asistente pregunta una sola vez.
 - **Lista WPC (2026-10-05 / 06):** los que quedan en la bandeja: recorrido por canaletas + sobrante (`wpc.json`:
   `margen_bandeja` 100) + agregado del taller (`agregado_bandeja` 75; después se ajusta el largo y se suma un factor de
   corrección). **Los que salen a LI** (regla del taller del 2026-10-06, con la estación E8 para saber adónde van de verdad;
-  «canaleta» = la parte de la ruta que corre DENTRO de las canaletas, sin la acometida del borne: `wpc.js canaleta()`):
+  «canaleta» = la parte de la ruta que corre DENTRO de las canaletas, sin la acometida del borne: `wpc_core.js canaleta()`):
   - muere en la bandeja lateral (ej. 1161 → 12XPS 4): `acometida` 75 (borne → canaleta) + canaleta de la bandeja +
     `curva_LI` 100 (curva posterior → LI) + canaleta de la lateral + `acometida_LI` 150 (canaleta → borne). 1161 = 75 + 297 +
     100 + 269 + 150 = 891 → 900;
   - sigue a la puerta / placa (21PCB01, 13MS1, 42DB1…): `acometida` 75 + canaleta de la bandeja + `puerta` 1850.
   Pendientes de la lateral y planos sin E8 (sin la lateral dibujada): como antes (`margen_LI` / `extra_puerta` / `extra_LI` +
-  `agregado_*`). La WPC **solo corta**: columnas fijas sin pelar ni crimpar (`fijos` en 0). **Reemplazos por producto**
-  (`wpc.json → reemplazos[documento]`, solo en la lista, el instructivo no cambia): PAE (ZPL-76884) negro 4 mm² → violeta 2,5
-  y rojo 4 mm² → naranja 2,5 (la WPC no tiene slots de 4 mm²; en la rev 1 del PAE no hay cables de 4 mm², así que hoy no toca
-  ninguno). El documento sale de `ins['producto']` (rótulo de EPLAN).
+  `agregado_*`). La WPC **solo corta**: columnas fijas sin pelar ni crimpar (`fijos` en 0). **Reemplazos** (solo en la
+  lista, el instructivo no cambia): negro 4 mm² → violeta 2,5 y rojo 4 mm² → naranja 2,5 (la WPC no tiene slots de 4 mm²).
+  Al principio solo en el PAE (ZPL-76884, donde la rev 1 no tiene cables de 4 mm²); desde el 2026-10-07 valen para **TODOS
+  los productos** (`wpc.json → reemplazos`; se pueden apagar en un producto desde el panel de parámetros).
+  **Parámetros por producto (2026-10-07):** todos (largos, `fuera`, `termos`, `fijos`, colores, códigos, reemplazos,
+  `marcador`) en tres niveles: `wpc.json` (todos los productos) < `wpc.json → productos[código]` (si no hay, por documento)
+  < `ins.wpc.cfg` (este trabajo). Los cambia el taller desde el panel **⚙ Parámetros** de la ventana WPC (Este trabajo /
+  Producto / Todos; se arma con la sección `parametros` de `wpc.json`); «Producto» y «Todos» se guardan con
+  `PUT /api/config/wpc`, que escribe atómico y deja un respaldo con fecha en `respaldos_wpc/`. Botón **⭳ .wpc**: un archivo
+  por producto con todos los cables en orden de cableado (zip de una entrada con el XML como lo guarda la máquina al
+  importar el CSV; columna 21 = `marcador`, por sección), nombre `'<código> - <plano> Rev <rev>'` (ej.
+  `75286-1 - 75287 Rev 6.wpc`, igual que el `ProjectName`). El CSV (⭳ CSV) sigue.
   **Termos (señalizadores):** columna 22 del CSV («Labeling Position», en el .wpc `Col22="giro origen|giro destino"` en
   grados): una punta aguas arriba y otra aguas abajo → `0|0`; las dos aguas abajo → `180|0` (gira el primero); las dos
   aguas arriba → `0|180` (gira el segundo). Lado = arriba / abajo del eje del riel por el punto exacto (`lado`, `marca_*`,
@@ -119,6 +139,18 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
 
 ## Pruebas de regresión (correrlas después de cada cambio en el lector o el instructivo)
 
+**Forma corta:** `python pruebas/bateria.py` corre todo en una carpeta temporal (los 4 `volcar_trabajo`, 104/104 y 75/75
+del 66817, todos los `probar_*.py`, `volcar_bases_nuevas.py`, `comparar_bases.py` contra `pruebas/bases/` y
+`node --test pruebas/js/`) y termina en TODO OK; `--ab` suma el A/B de todos los planos de `1 - Planos` (`ab_planos.py`
+contra `pruebas/bases/ab/`; contra otra copia del programa: `--programa <copia>/programa` y
+`--comparar <A> <B> --ignorar producto`), `--dejar` no borra la carpeta. La lista WPC sola: `node --test pruebas/js/`.
+Las bases nuevas (`listado_` / `layout_` / `e8_` / `ins_<t>.json`, `ab/`, `web/humo_*`, `wpc/`) se regeneran solo a
+propósito, con su generador (`volcar_bases_nuevas.py`, `ab_planos.py`, `probar_web_humo.py --crear`,
+`node pruebas/js/generar_goldens.cjs`), revisando el diff. Variables: `PLANOCABLES_MEMORIA_OCR=solo-lectura` (no reescribe
+`programa/ocr_cache.json`), `PLANOCABLES_PRODUCTOS` (otro catálogo de productos; las pruebas usan
+`pruebas/fixtures/productos.json`), `PLANOCABLES_CONFIG_WPC` (otro `wpc.json`; las pruebas usan una copia),
+`PLANOCABLES_HISTORIAL` y `PLANOCABLES_PORT` (puertos de prueba, nunca el 8765). Los comandos de siempre siguen valiendo:
+
 ```
 python pruebas/volcar_trabajo.py "3 - Historial web/ac0f0949510a" salida_75287.json --sin-cache     # 75287
 python pruebas/volcar_trabajo.py pruebas/trabajos/66817 salida_66817.json --sin-cache --relayout     # 66817
@@ -138,7 +170,9 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 - **TPT** (72715; trabajo de prueba `pruebas/trabajos/tpt`, el del usuario `e548b195eb2a` ya no está en el historial): `pruebas/bases/base_tpt.json` es el estado ANTES de corregir el
   lector (con errores). Con `--relayout`, el estado actual es `pruebas/bases/base_tpt_ronda3.json` (2026-10-02 noche;
   regenerada el 2026-10-06 con el catálogo nuevo: mismas líneas, solo pasan a punto exacto 11Q1 —ABB SH 202, verificado
-  con fotos— y 33MX01 —MOXA—).
+  con fotos— y 33MX01 —MOXA—; y otra vez el 2026-10-07: mismas 83 líneas, los 16 cables del MOXA, bornera en columna al
+  frente, van seguidos de arriba a abajo y salen en horizontal a la canaleta de la derecha, y pasan a punto exacto
+  13PS3 ±Vin y 43XDIB 1-4).
 - `--sin-cache` no escribe nada en el trabajo. Como la web, `volcar_trabajo.py` vuelve a leer el topográfico si
   `layout.json` es de otra versión del lector (`topo.VERSION_LECTOR` / `eplan.VERSION_LECTOR`: subirlas al cambiar la
   lectura del topográfico; al regenerar, la web relee los trabajos viejos y conserva lo del usuario).
@@ -249,13 +283,17 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   - en el RS-485, los blanco/azul de 0,32 mm² no salen por la salida de abajo.
   - (2026-10-06, del Excel de aparamenta; detalle en la hoja «Para confirmar» del Excel de `2 - Resultados/Aparamenta
     (BOMs por estación)/`):
-    - toma 11SK1 del PAE (Phoenix EO-I/UT): la foto de Phoenix dice N – PE – L de izquierda a derecha, y el mapeo
-      verificado tiene L a la izquierda («a confirmar»). Si se confirma, se intercambian 1181 y 1182; no se tocó;
     - EXEMYS EGW1 (2026-10-07, del taller: «3 niveles, todos abajo»): tres enchufes abajo. El de adelante es el de más
       abajo (1-4, verificado con la foto 1.6 del 76572), detrás 5-8 y más atrás HART. Falta una foto del rótulo del
       costado para el orden de HTa / HGND. El lector del funcional no lee los nombres de borne escritos en tablas
       (PP: 1317, 3301, 3302 sin borne; 2135/2136 no llegan al 33EXM).
-  - Resuelto el 2026-10-07: PSR-SCP en AutoCAD, 13/14 en el enchufe de adentro de abajo (foto 1.6 del 76572: 2114 / 2115);
+  - Resuelto el 2026-10-07: toma 11SK1 del PAE = N – PE – L de izquierda a derecha (el taller, con la foto de Phoenix):
+    1181 (L) y 1182 (N) intercambiados con `correcciones_riel3_lateral.json` del mapeo (una corrección puede traer
+    `confianza`) y reexportado; `base_76884` igual (son pendientes LI↔LI). Bornera 41XEX del PAE: el taller la arma
+    de 1 a 12 en orden aunque la hoja 8 y la pág. 38 dibujen las piezas 1 3 5 9 7 11 (el mapeo había seguido el número
+    dibujado y cruzaba 4122/4123 con 4124/4125): 8 correcciones en `correcciones_riel3_lateral.json`, aviso quitado del
+    exportador; `base_76884` regenerada (mismas 136 líneas, cambia el orden de 4 cables de campo). PSR-SCP en AutoCAD, 13/14 en el enchufe de
+    adentro de abajo (foto 1.6 del 76572: 2114 / 2115);
     parada de emergencia del mSafe1 PP = NC (ZBE102): **cuando la lista de materiales y el dibujo del funcional no
     coinciden, manda el dibujo del funcional** (regla del taller).
 

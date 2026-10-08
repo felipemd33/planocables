@@ -557,7 +557,7 @@
   }
  },
  "mapeo": {
-  "version": "2026.10.07-1",
+  "version": "2026.10.07-4",
   "modelos": {
    "12F2": "MEGA-BASE",
    "11PS1": "MEANWELL-NDR",
@@ -904,11 +904,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 96.4,
-   "layout": 131.8,
-   "mapeo": 48.8,
-   "instructivo": 9.2,
-   "total": 286.2
+   "listado": 53.2,
+   "layout": 104.0,
+   "mapeo": 42.8,
+   "instructivo": 6.8,
+   "total": 206.9
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

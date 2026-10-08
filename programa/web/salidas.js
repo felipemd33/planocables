@@ -215,7 +215,9 @@ const Sal = (() => {
       const seq = ++E.seq, job = Ins.job;
       const ls = [...cables(), ...deOtra()];
       const body = { salidas: { grupos: grupos() }, lineas: ls.map(l => ({ num: l.num, destino: l.destino, lateral: l.lateral, marca_o: l.marca_o || (l.ruta && l.ruta[0]),
-        lado: l.lado, color: l.color, secc: l.secc, ...('intrinseco' in l ? { intrinseco: l.intrinseco } : {}) })) };
+        lado: l.lado, color: l.color, secc: l.secc, ...('intrinseco' in l ? { intrinseco: l.intrinseco } : {}),
+        // bornera en columna al frente (MOXA): sale en horizontal a la canaleta del costado, como en build
+        ...(l.sale_hacia ? { sale_hacia: l.sale_hacia } : {}) })) };
       let r;
       try { r = await api(`/api/trabajo/${job}/instructivo/salidas`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }); }
       catch (e) { return toast('No se pudo calcular el recorrido: ' + e.message, 5000); }

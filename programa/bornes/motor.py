@@ -44,7 +44,7 @@ except ImportError:                            # suelto: python motor.py ...
     import primitivas as P  # noqa: E402
 
 # version del motor: si cambia, el programa vuelve a calcular el mapeo aunque haya cache (bornes_auto.json)
-VERSION = '2026.10.07-1'
+VERSION = '2026.10.07-4'
 
 LADOS = ('ARRIBA', 'ABAJO')
 
@@ -112,26 +112,44 @@ def _etiquetas_de_imagen(img, W, H, region, escala):
     return out
 
 
-def capas_del_plano(trazos, region, general):
+def capas_del_plano(trazos, region, general, mm_por_pt=None):
     """Capas que se toman como dibujo de los aparatos y capas del riel. Cada plano usa su estandar de capas
     (COMPONENTES, 00_COMPONENTS, _IGV_Componentes, '0', '01'...): ademas de las capas que nombra el catalogo, se
     toma toda capa con trazos en la bandeja que no sea de texto, cotas, marco, canaletas o riel (patrones del
-    catalogo). Devuelve (capas_componentes, capas_riel)."""
+    catalogo). La capa de la zona segura ('capas_excluidas_salvo_dibujo_patron') casi siempre es solo el contorno o el
+    rayado de la zona, pero a veces tiene aparatos dibujados (en el 72887 la bornera intrinseca 43XDIB esta en
+    '_Zona Segura'): se toma si en la bandeja tiene al menos 'capas_dibujo_min_trazos' trazos CHICOS (de menos de
+    'capas_dibujo_max_mm' mm del tablero) curvos o en diagonal, de 3 puntos o mas: ranuras, entradas y cabezas de
+    tornillo. El rayado son rectas de 2 puntos, el contorno va en escuadra y las letras SHX de un rotulo miden 3 mm o
+    mas. Tampoco se toma si su nombre coincide con otra exclusion ('Texto zona' sigue afuera).
+    Devuelve (capas_componentes, capas_riel)."""
     x0, y0, x1, y1 = region
+    esc = float(mm_por_pt or general.get('escala_defecto_mm_por_pt', 1.41))
+    max_pt = float(general.get('capas_dibujo_max_mm', 3.0)) / esc
     presentes = set()
+    dibujo = defaultdict(int)       # capa -> trazos chicos curvos o en diagonal (de 3 puntos o mas) en la bandeja
     for t in trazos:
         if not t[2]:
             continue
         q = t[2][0]
         if x0 - 5 <= q[0] <= x1 + 5 and y0 - 5 <= q[1] <= y1 + 5:
             presentes.add(t[0])
+            p = t[2]
+            if len(p) >= 3 and any(abs(a[0] - b[0]) > 0.05 and abs(a[1] - b[1]) > 0.05 for a, b in zip(p, p[1:])):
+                xs, ys = [v[0] for v in p], [v[1] for v in p]
+                if max(max(xs) - min(xs), max(ys) - min(ys)) < max_pt:
+                    dibujo[t[0]] += 1
     explicitas = set(general.get('capas_componentes', []))
     p_riel = re.compile(general.get('capas_riel_patron', r'(?i)riel|rail|\bdin\b'))
     p_no = re.compile(general.get('capas_excluidas_patron', r'(?i)text|txt|r[oó]tulo|etiqueta|amarillo|cota|dim'))
+    p_salvo = re.compile(general.get('capas_excluidas_salvo_dibujo_patron', r'(?i)zona'))
+    n_min = int(general.get('capas_dibujo_min_trazos', 20))
     riel = {c for c in presentes if c == general.get('capa_riel') or p_riel.search(c)}
     comp = set(c for c in presentes if c in explicitas)
     if general.get('capas_componentes_auto', True):
         comp |= {c for c in presentes if c not in riel and not p_no.search(c)}
+        comp |= {c for c in presentes if c not in riel and p_salvo.search(c) and not p_no.search(p_salvo.sub('', c))
+                 and dibujo[c] >= n_min}
     return comp, riel
 
 
@@ -329,7 +347,7 @@ class Motor:
             xs = [q[0] for t in trazos for q in t[2]]
             ys = [q[1] for t in trazos for q in t[2]]
             self.region = (min(xs), min(ys), max(xs), max(ys))
-        self.capas_comp, self.capas_riel = capas_del_plano(trazos, self.region, self.g)
+        self.capas_comp, self.capas_riel = capas_del_plano(trazos, self.region, self.g, self.esc)
         self.esc_ = P.Escena(trazos, self.region, dict(self.g, capas_componentes=sorted(self.capas_comp)))
         # plano monocromo: si todo el dibujo de los aparatos es de un solo color, los colores del catalogo (pieza
         # azul, PE verde, bocas grises) no sirven para distinguir nada y se ignoran
@@ -356,6 +374,7 @@ class Motor:
         self.rieles = detectar_rieles(trazos, self.capas_riel, self.region,
                                       alto_min=self.mm(self.g.get('riel_alto_min_mm', 14.0)),
                                       largo_min=self.mm(self.g.get('riel_largo_min_mm', 25.0)))
+        self.rieles += self._rieles_otras_capas(trazos)
         self.etiquetas = detectar_etiquetas(pdf, self.pagina, self.region)
         extender_rieles(self.rieles, self.etiquetas, [t[4] for t in self.esc_.comp], self.region,
                         self.mm(self.g.get('margen_etiqueta_riel_mm', 21)), self.mm(self.g.get('riel_hueco_max_mm', 40.0)),
@@ -377,6 +396,31 @@ class Motor:
 
     def mm(self, v):
         return float(v) / self.esc
+
+    def _rieles_otras_capas(self, trazos):
+        """Tramos de riel dibujados en OTRA capa (en el 72887 el tramo izquierdo del riel 1 esta en la capa '01', no
+        en '_IGV_Riel DIN'): se reconocen por el perfil, con la misma regla que el lector del topografico
+        (topo.rieles_geometria: rectangulo del perfil de los rieles de la capa del riel, +-3 %). Sin ese tramo, los
+        aparatos de arriba quedaban sin riel y su zona se centraba en la etiqueta: la bornera de abajo quedaba afuera
+        (13PS3 -Vin / +Vin). Solo si la capa del riel dio algun tramo (de ahi sale el perfil)."""
+        if not self.rieles:
+            return []
+        try:
+            from topo import rieles_geometria
+        except ImportError:
+            return []
+        bands = [dict(r, H=r['y1'] - r['y0'], eje=r['yc']) for r in self.rieles]
+        x0r, y0r, x1r, y1r = self.region
+        out = []
+        for g in rieles_geometria(trazos, bands):
+            if not (x0r - 5 <= g['x0'] and g['x1'] <= x1r + 5 and y0r <= g['eje'] <= y1r):
+                continue
+            # un tramo que se solapa con otro de la capa del riel en la misma banda es el mismo riel: manda el de la capa
+            # del riel (como antes; si quedaran los dos, las etiquetas se repartirian entre dos rieles encimados)
+            if any(g['x0'] < r['x1'] and r['x0'] < g['x1'] and abs(g['eje'] - r['yc']) < (r['y1'] - r['y0']) / 2 for r in self.rieles):
+                continue
+            out.append(dict(x0=g['x0'], x1=g['x1'], y0=g['y0'], y1=g['y1'], yc=g['eje']))
+        return out
 
     # ------------------------------------------------------------------ puentes FBS (rellenos de color)
     def _puentes(self, trazos):
@@ -483,7 +527,23 @@ class Motor:
                 return d
         return None
 
-    def zona(self, k, m):
+    def anterior(self, k):
+        """delimitador (etiqueta) anterior a la de k en su riel, o None"""
+        r = self.riel[k]
+        if r is None:
+            return None
+        t = self.tag[k]
+        prev = None
+        for d in self.delims[id(r)]:
+            if d['x1'] < t['x0'] - 0.5:
+                prev = d
+        return prev
+
+    def zona(self, k, m, ancha=False):
+        """(caja, y central) donde se buscan los bornes de k con el modelo m. Con riel: desde la etiqueta (un tag
+        nombra lo que tiene a su derecha) hasta la etiqueta siguiente. 'ancha' (aparato con la etiqueta 'sobre' el
+        cuerpo, que no se encontro con la zona normal): desde la etiqueta anterior, porque la etiqueta puede estar en
+        el medio del aparato (11PS1 del 72887) y sus primeros tornillos quedan a la izquierda de ella."""
         t = self.tag[k]
         r = self.riel[k]
         alto = self.mm(m.get('alto_mm', 90) / 2 + self.g.get('margen_alto_mm', 5))
@@ -493,6 +553,9 @@ class Motor:
                 return (t['x0'] - self.mm(m.get('margen_izq_mm', 1)), t['cy'] - alto, t['x0'] + 2 * ancho, t['cy'] + alto), t['cy']
             return (t['cx'] - ancho, t['cy'] - alto, t['cx'] + ancho, t['cy'] + alto), t['cy']
         x0 = t['x0'] - self.mm(m.get('margen_izq_mm', 1))
+        if ancha:
+            a = self.anterior(k)
+            x0 = min(x0, a['x1'] + self.mm(self.g.get('margen_der_mm', 1)) if a else r['x0'])
         s = self.siguiente(k)
         x1 = (s['x0'] - self.mm(self.g.get('margen_der_mm', 1))) if s else r['x1']
         x1 = min(x1, r['x1'] + 2)
@@ -542,8 +605,10 @@ class Motor:
         return out
 
     # ------------------------------------------------------------------ estructura segun la disposicion
-    def estructura(self, k, m):
-        caja, yc = self.zona(k, m)
+    def estructura(self, k, m, ancha=False, previos=None):
+        """'ancha': segunda pasada de un aparato con la etiqueta 'sobre' el cuerpo al que le falto algun grupo; 'previos'
+        son los grupos que ya encontro la zona normal (se conservan tal cual y solo se buscan los que faltan)."""
+        caja, yc = self.zona(k, m, ancha)
         t = self.tag[k]
         disp = m['disposicion']
         est = dict(modelo=m, caja=caja, yc=yc, tipo=disp['tipo'], piezas=[], grupos={}, cuerpo=None, validas=0, total=0)
@@ -627,7 +692,12 @@ class Motor:
             for gspec in disp['grupos']:
                 n = int(gspec['n'])
                 lado = gspec.get('lado', 'centro')
+                if ancha and gspec['nombre'] in (previos or {}):
+                    est['grupos'][gspec['nombre']] = previos[gspec['nombre']]
+                    continue
                 if gspec.get('paso_mm') and not gspec.get('alineado_con'):
+                    if ancha:
+                        continue    # enchufes con paso fijo: no se buscan en la zona ancha (tomarian el del aparato anterior)
                     bs = self.serie_con_paso(filas, gspec, n, lado, yc, t['cx'])
                     if bs:
                         est['grupos'][gspec['nombre']] = dict(spec=gspec, b=bs, y=sum(b['y'] for b in bs) / n)
@@ -667,6 +737,8 @@ class Motor:
                     if len(bs) > n:
                         i0 = min(range(len(bs) - n + 1), key=lambda i: abs(sum(b['x'] for b in bs[i:i + n]) / n - t['cx']))
                         bs = bs[i0:i0 + n]
+                if ancha and not self.grupo_propio(f['b'], bs, t):
+                    continue
                 est['grupos'][gspec['nombre']] = dict(spec=gspec, b=bs, y=sum(b['y'] for b in bs) / n)
             est['total'] = len(disp['grupos'])
             est['validas'] = len(est['grupos'])
@@ -681,7 +753,30 @@ class Motor:
                     est['tipo'] = 'cuerpo'
                     est['validas'] = est['total']
                     est['filas_cuerpo'] = self.filas_del_cuerpo(est['cuerpo'], yc, cu)
+            # aparato con la etiqueta sobre el cuerpo y algun grupo sin encontrar: se buscan los que faltan en la zona
+            # desde la etiqueta anterior (la etiqueta puede estar en el medio del aparato); los ya encontrados quedan
+            if (not ancha and est['validas'] < est['total'] and m.get('anclaje') == 'sobre' and self.riel[k] is not None):
+                otra = self.estructura(k, m, ancha=True, previos=est['grupos'])
+                if otra['validas'] > est['validas']:
+                    otra['ampliados'] = sorted(set(otra['grupos']) - set(est['grupos']))
+                    return otra
         return est
+
+    @staticmethod
+    def grupo_propio(fila, bs, t):
+        """(zona ancha) bs, n tornillos seguidos de una fila, es un grupo del aparato de la etiqueta t y no la mezcla con
+        el aparato de al lado: pasa por debajo o por encima de la etiqueta, con paso parejo (el salto mayor no pasa de
+        1,5 veces el menor) y separado de los demas tornillos de la fila (el vecino mas cerca que 1,5 veces el paso es
+        la misma fila de otro aparato: el grupo seria una mezcla)."""
+        if not (bs[0]['x'] - bs[0]['r'] <= t['x1'] and bs[-1]['x'] + bs[-1]['r'] >= t['x0']):
+            return False
+        saltos = [b['x'] - a['x'] for a, b in zip(bs, bs[1:])]
+        if saltos and max(saltos) > 1.5 * min(saltos):
+            return False
+        paso = max(saltos) if saltos else 2.5 * bs[0]['r']
+        ids = {id(b) for b in bs}
+        return not any(id(b) not in ids and min(abs(b['x'] - bs[0]['x']), abs(b['x'] - bs[-1]['x'])) < 1.5 * paso
+                       for b in fila if b['x'] < bs[0]['x'] or b['x'] > bs[-1]['x'])
 
     def cuerpo_del_tag(self, t, cu):
         """contorno cerrado mas chico que contiene la etiqueta t con el ancho y alto del 'cuerpo' del modelo, o None"""
@@ -1005,6 +1100,8 @@ class Motor:
                         y = gr['y'] - off if gspec.get('lado') == 'arriba' else gr['y'] + off
                         r = sum(b['r'] for b in bs) / len(bs)
                         conf = 'media'
+                    if spec.get('grupo') in est.get('ampliados', ()):
+                        nota_inf += ' (la etiqueta no esta en el borde izquierdo del aparato: grupo buscado desde la etiqueta anterior)'
                     res[i] = dict(x=x, y=y, r=r, confianza=conf,
                                   como=f"{m['id']}: grupo {spec.get('grupo')} pin {pin}" + (f" fila {fila} (no dibujada, corrida {gspec.get('filas_mm')[fila]} mm)" if fila else '') + nota_inf)
         elif est['tipo'] == 'cuerpo' and est['cuerpo']:
@@ -1033,6 +1130,11 @@ class Motor:
                     como = (f"{m['id']}: " + ('' if m['disposicion']['tipo'] == 'cuerpo' else 'el bloque no dibuja sus bornes; ')
                             + f"{u.get('borne')} ubicado con la hoja de datos a {spec.get('dy_mm')} mm del borde {lado} del cuerpo{pos_x}")
                 res[i] = dict(x=x, y=y, r=self.mm(cu.get('r_borne_mm', 1.5)), confianza='media', como=como)
+                # bornera en columna al frente ('columna_frente' del modelo): se cablea seguida de arriba a abajo y el
+                # cable sale en horizontal a la canaleta vertical de ese costado (instructivo.build / ruteo)
+                col = cu.get('columna_frente')
+                if col and re.fullmatch(col.get('pines', r'.*'), borne):
+                    res[i]['sale_hacia'] = col.get('sale_hacia', 'der')
         elif est['tipo'] == 'caja' and est['cuerpo']:
             bx0, by0, bx1, by1 = est['cuerpo']
             pines = nom.get('pines', {})
@@ -1605,6 +1707,8 @@ class Motor:
                     base.update(x=round(float(t['cx']), 2), y=round(float(t['cy']), 2), r=2.0, confianza='baja', como=como)
                 else:
                     base.update(x=round(float(p['x']), 2), y=round(float(p['y']), 2), r=round(float(p['r']), 2), confianza=p['confianza'], como=p['como'])
+                    if p.get('sale_hacia'):
+                        base['sale_hacia'] = p['sale_hacia']
                     if p.get('bloque') and p['bloque'] != k:
                         base['ubicado_en'] = p['bloque']
                     # el punto quedo en otro bloque (bornera vecina) o en otro modulo (comun puenteado, texto sin

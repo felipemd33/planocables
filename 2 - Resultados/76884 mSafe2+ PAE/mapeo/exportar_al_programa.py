@@ -29,6 +29,8 @@ for f in sorted(glob.glob(os.path.join(D, 'puntos_*.json'))):
                 q.update(x=k['x'], y=k['y'], corregido=k.get('motivo', ''))
                 if k.get('texto_taller'):
                     q['texto'] = k['texto_taller']
+                if k.get('confianza'):          # correccion confirmada por el taller
+                    q['conf'] = k['confianza']
             puntas[clave(p['d'], num)] = q
             if p.get('d_usada'):
                 puntas.setdefault(clave(p['d_usada'], num), dict(q))
@@ -78,8 +80,6 @@ avisos = [
     '42KS1 (PSR 2963802), filas de abajo: 43-44-13-14 en la fila interior y 33-34-23-24 en la exterior (rótulo del aparato). Confirmar mirando el relé.',
     '42KS1 y 11MS1: EPLAN no exporta 12 pines; salen del esquema (hojas 42 y 11).',
     '61KR1 a 61KR4: la hoja 8 rotula solo "-61KR"; se supuso KR1 a KR4 de izquierda a derecha.',
-    '41XEX: la 4.ª pieza lleva 9-10 y la 5.ª 7-8 (hoja 8 y pág. 38); se mapeó por número.',
-    '11SK1: L / PE / N de izquierda a derecha (símbolo); con la norma china podría ser N / PE / L. Confirmar con el toma real.',
     '15DIB3: las hojas 15 y 41 dicen que va sin barrera (bornes cuchilla); se mapeó sobre la barrera dibujada.',
     'Barreras GS85xx: el enchufe [1 2] no está dibujado; va detrás del [3 4], arriba (confianza media).',
     '61XDIO: el texto usa el lado FÍSICO (cátodo ARRIBA, ánodo ABAJO). ¿Lado físico o del funcional?',

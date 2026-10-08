@@ -14,6 +14,9 @@
   intrinsecos por su canaleta si llega al borde.
 - Salida elegida a mano (editor de salidas de la web, por grupo de cables): puntos por donde pasa el cable y, el
   ultimo, por donde sale de la bandeja (salida_a_mano).
+- Bornera en columna al frente (modelo del catalogo con 'columna_frente', ej. MOXA ioLogik R1240): el cable sale del
+  borne en HORIZONTAL hacia el costado ('der' / 'izq') y entra a la canaleta vertical que pasa a esa altura, si esta a
+  menos de LATERAL_W anchos de canaleta (enganche_lateral); si no hay, se engancha como siempre.
 - Las tolerancias van en anchos de canaleta (W, medido en el plano: 28.5 pt en el 75441, 22.7 pt en el 66817;
   las dos son de 40 mm) o en perfiles de riel H, no en puntos fijos.
 """
@@ -31,6 +34,7 @@ SALIDA_W = 0.42       # tramo que sale de la canaleta hacia el lateral: 12 pt
 BORDE_W = 0.5         # una canaleta llega al borde de la red si termina a menos de medio ancho de el
 FUERA_W = 0.15        # un cable que corre por fuera de una canaleta va pegado a su borde: 4.3 pt (75441), 3.4 (66817)
 SUBIDA_W = 1.0        # salida vertical del borne cuando de ese lado no hay canaleta horizontal que la limite
+LATERAL_W = 3.0       # bornera en columna: la canaleta vertical del costado esta a menos de 3 anchos (unos 120 mm)
 
 
 def is_blue(c):
@@ -175,6 +179,28 @@ class Net:
         elif pasado:
             via = self._por_el_borde(p, side, i, q)
         return k, via
+
+    def enganche_lateral(self, p, hacia, ex=None):
+        """borne p de una bornera en columna al frente: el cable sale en HORIZONTAL hacia el costado ('der' o 'izq') y
+        entra a la canaleta vertical que pasa a la altura del borne de ese lado, la mas cercana a menos de LATERAL_W
+        anchos de canaleta (del tipo del cable: comun o intrinseca; ex None = cualquiera). -> (nodo, via) con via = []
+        (tramo recto del borne al eje), o (None, None) si no hay: se engancha como siempre."""
+        der = hacia != 'izq'
+        best = None
+        for i, d in enumerate(self.d):
+            t, c, lo, hi = self.axis(d)
+            if t != 'v' or not (lo <= p[1] <= hi) or (ex is not None and bool(d['ex']) != bool(ex)):
+                continue
+            gap = d['b'][0] - p[0] if der else p[0] - d['b'][2]
+            if -0.5 <= gap <= LATERAL_W * self.w and (best is None or gap < best[0]):
+                best = (gap, i, c)
+        if best is None:
+            return None, None
+        _, i, c = best
+        k = self._node((c, p[1]))
+        if k not in self.pts[i]:
+            self.pts[i].append(k); self._link_all()
+        return k, []
 
     def _salida_a_vertical(self, p, side, i):
         """borne p -> canaleta vertical i: primero un tramo vertical que sale del borne hacia afuera del riel (hacia
@@ -366,11 +392,15 @@ class Net:
         return k, ([fin] if fin and math.dist(fin, q) > 0.3 else [])
 
 
-def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='izq', por=None):
+def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='izq', por=None, o_lat=None, d_lat=None):
     """polilinea del cable: borne -> canaleta -> ... -> canaleta -> borne (o salida a LI).
     por = recorrido elegido a mano para la salida a LI / LD: puntos por donde pasa el cable, en orden, y el ultimo
-    por donde sale de la bandeja (sin por: la regla del taller, li_exit)"""
-    a, via_o = net.enganche(o_pt, o_side, ex)
+    por donde sale de la bandeja (sin por: la regla del taller, li_exit).
+    o_lat / d_lat = 'der' | 'izq': la punta es de una bornera en columna al frente y sale en horizontal a la canaleta
+    vertical de ese costado (enganche_lateral)"""
+    a, via_o = net.enganche_lateral(o_pt, o_lat, ex) if o_lat else (None, None)
+    if a is None:
+        a, via_o = net.enganche(o_pt, o_side, ex)
     paradas = []
     if to_li and por:
         paradas = [net.en_red(p)[0] for p in por[:-1]]
@@ -379,7 +409,9 @@ def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='iz
         b = net.li_exit(abajo_li, ex, lado_li)
         tail = []
     else:
-        b, via_d = net.enganche(d_pt, d_side, ex)
+        b, via_d = net.enganche_lateral(d_pt, d_lat, ex) if d_lat else (None, None)
+        if b is None:
+            b, via_d = net.enganche(d_pt, d_side, ex)
         tail = via_d[::-1] + [d_pt]
     if a is None or b is None or None in paradas:
         return None

@@ -336,6 +336,11 @@
     600.21,
     1.98
    ],
+   "13PS3 +Vin#1304": [
+    549.89,
+    547.22,
+    1.22
+   ],
    "13PS3 +Vo#1311": [
     550.56,
     607.6,
@@ -344,6 +349,11 @@
    "13PS3 +Vo#1313": [
     547.57,
     607.6,
+    1.22
+   ],
+   "13PS3 -Vin#1309": [
+    546.95,
+    547.22,
     1.22
    ],
    "13PS3 -Vo#1312": [
@@ -726,6 +736,26 @@
     612.14,
     0.68
    ],
+   "43XDIB 1 ARRIBA#4301": [
+    539.94,
+    478.72,
+    1.36
+   ],
+   "43XDIB 2 ARRIBA#4302": [
+    539.94,
+    469.72,
+    1.36
+   ],
+   "43XDIB 3 ARRIBA#4303": [
+    542.86,
+    478.72,
+    1.36
+   ],
+   "43XDIB 4 ARRIBA#4304": [
+    542.86,
+    469.72,
+    1.36
+   ],
    "43DIB1 1 ABAJO#1313": [
     513.8,
     486.21,
@@ -787,8 +817,10 @@
    "11Q1 F ARRIBA#1104": "alta",
    "11Q1 N ABAJO#1107": "alta",
    "11Q1 N ARRIBA#1105": "alta",
+   "13PS3 +Vin#1304": "alta",
    "13PS3 +Vo#1311": "alta",
    "13PS3 +Vo#1313": "alta",
+   "13PS3 -Vin#1309": "alta",
    "13PS3 -Vo#1312": "alta",
    "13PS3 -Vo#1314": "alta",
    "61XDIO 1 ABAJO#6101": "alta",
@@ -865,6 +897,10 @@
    "33MX01 D1-#8106": "media",
    "33MX01 V+#1315": "media",
    "33MX01 V-#1316": "media",
+   "43XDIB 1 ARRIBA#4301": "alta",
+   "43XDIB 2 ARRIBA#4302": "alta",
+   "43XDIB 3 ARRIBA#4303": "alta",
+   "43XDIB 4 ARRIBA#4304": "alta",
    "43DIB1 1 ABAJO#1313": "alta",
    "43DIB1 10#4302": "alta",
    "43DIB1 2 ABAJO#1314": "alta",
@@ -903,6 +939,24 @@
    "43DIB1 6#2119": "GS8512-EX: grupo SUP pin 2 fila 2 (no dibujada, corrida 8.85 mm)",
    "43DIB1 7#4303": "GS8512-EX: grupo INF pin 1 fila 1 (no dibujada, corrida 8.7 mm)",
    "43DIB1 8#4304": "GS8512-EX: grupo INF pin 2 fila 1 (no dibujada, corrida 8.7 mm)"
+  },
+  "bornes_salida": {
+   "33MX01 1#3301": "der",
+   "33MX01 10#1610": "der",
+   "33MX01 11#3311": "der",
+   "33MX01 12#1612": "der",
+   "33MX01 13#3313": "der",
+   "33MX01 14#1614": "der",
+   "33MX01 15#3315": "der",
+   "33MX01 16#1616": "der",
+   "33MX01 2#1602": "der",
+   "33MX01 3#3303": "der",
+   "33MX01 4#1604": "der",
+   "33MX01 5#3305": "der",
+   "33MX01 6#1606": "der",
+   "33MX01 7#3307": "der",
+   "33MX01 8#1608": "der",
+   "33MX01 9#3309": "der"
   },
   "renombrar_auto": {},
   "estaciones": {},

@@ -864,7 +864,7 @@
   "otras_claves": {}
  },
  "mapeo": {
-  "version": "2026.10.07-1",
+  "version": "2026.10.07-4",
   "modelos": {},
   "avisos": [
    "no hay componentes en la bandeja para ubicar"
@@ -1319,11 +1319,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 98.9,
-   "layout": 68.8,
-   "mapeo": 5.8,
-   "instructivo": 9.7,
-   "total": 183.2
+   "listado": 126.3,
+   "layout": 54.1,
+   "mapeo": 4.0,
+   "instructivo": 7.9,
+   "total": 192.2
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

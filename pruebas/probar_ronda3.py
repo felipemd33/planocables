@@ -5,7 +5,8 @@ uso: python pruebas/probar_ronda3.py
   A. familias del catalogo: el tipo de aparato sale del renglon de la lista de materiales.
   B. TPT (72715 + 72887): 33MX01 (MOXA, modulo de E/S) con un catalogo SIN su modelo queda sin puntos y no cae sobre
      13PS3; con el modelo MOXA-R1240 (2026-10-06) sus 20 bornes van a la columna del frente;
-     11Q1 (ABB SH 202, termomagnetica) no sale como toma corriente; 43XDIB sale con el modelo de la lista
+     11Q1 (ABB SH 202, termomagnetica) no sale como toma corriente; 13PS3 -Vin / +Vin en TB1 (riel en la capa '01');
+     43XDIB sale con el modelo de la lista y sus bornes exactos (dibujados en la capa '_Zona Segura')
      (PTT 2,5-2MT BU), no como bornera con diodo; ningun punto cae dentro del cuerpo de otro aparato.
   C. red de seguridad: sin la lista de materiales, los puntos de 33MX01 que caen sobre la bornera TB2 de 13PS3 se
      descartan; dos puntos de tags distintos encimados se descartan (el de menor confianza, o los dos).
@@ -15,7 +16,7 @@ uso: python pruebas/probar_ronda3.py
      (FCS 75992: sin bandeja falsa); dos lecturas del mismo tag: manda la exacta (43DIB1).
   F. version del lector en layout.json: un layout viejo se vuelve a leer al regenerar y se conserva lo del usuario.
   G. EPLAN: un bornes.json roto se avisa (no se ignora en silencio) y no tapa el mapeo verificado."""
-import os, sys, json, collections, shutil, tempfile, copy
+import os, sys, json, collections, shutil, tempfile, copy, re
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROG = os.environ.get('PLANOCABLES_PROGRAMA') or os.path.join(RAIZ, 'programa')
 sys.path.insert(0, PROG)
@@ -104,8 +105,23 @@ chequear(sal['modelos'].get('33MX01') == 'MOXA-R1240' and len(pts['33MX01']) == 
 fam_mod = {m['id']: m.get('familia') for m in CAT['modelos']}
 chequear(fam_mod.get(sal['modelos'].get('11Q1')) == 'termomagnetica', f"11Q1 (ABB SH 202) solo puede ser termomagnetica: {sal['modelos'].get('11Q1')}")
 chequear(sal['modelos'].get('43XDIB') == 'PTT2.5-2MT-BU', f"43XDIB con el modelo de la lista (PTT 2,5-2MT BU), no PT2.5-DIO: {sal['modelos'].get('43XDIB')}")
+# (2026-10-07) la bornera intrinseca 43XDIB esta dibujada en la capa '_Zona Segura' (antes excluida: sus 4 bornes quedaban
+# en la etiqueta): 1 y 3 en el extremo de arriba de las piezas 1 y 2, 2 y 4 en el interior de arriba
+chequear('_Zona Segura' in mo.capas_comp, f"la capa '_Zona Segura' del 72887 (con la bornera 43XDIB dibujada) se toma: {sorted(mo.capas_comp)}")
+x43 = {p['texto']: p for p in pts['43XDIB']}
+esperado43 = {'43XDIB 1 ARRIBA': 'pieza 1 de 2, lado arriba, boca 0', '43XDIB 2 ARRIBA': 'pieza 1 de 2, lado arriba, boca 1',
+              '43XDIB 3 ARRIBA': 'pieza 2 de 2, lado arriba, boca 0', '43XDIB 4 ARRIBA': 'pieza 2 de 2, lado arriba, boca 1'}
+chequear(all(x43.get(t, {}).get('confianza') == 'alta' and e in x43[t]['como'] for t, e in esperado43.items()),
+         f"43XDIB 1..4 ARRIBA exactos (pieza, extremo / interior): {[(t, p['confianza'], p['como'][:60]) for t, p in x43.items()]}")
 chequear(sorted((p['texto'], p['confianza']) for p in pts['13PS3'] if 'Vo' in p['texto']) ==
          [('13PS3 +Vo', 'alta')] * 2 + [('13PS3 -Vo', 'alta')] * 2, '13PS3: los 4 bornes de TB2 (+Vo, -Vo) siguen exactos')
+# (2026-10-07) el tramo izquierdo del riel 1 esta en la capa '01': sin reconocerlo, la zona de 13PS3 se centraba en su
+# etiqueta (arriba) y TB1 (abajo) quedaba afuera; -Vin y +Vin quedaban en la etiqueta
+vin = {p['texto']: p for p in pts['13PS3'] if 'Vin' in p['texto']}
+chequear(all(vin.get(t, {}).get('confianza') == 'alta' and 'TB1 pin ' + n in vin[t]['como'] for t, n in (('13PS3 -Vin', '2'), ('13PS3 +Vin', '3'))),
+         f"13PS3: -Vin y +Vin en TB1 (pines 2 y 3), con el riel de la capa '01': {[(t, p['confianza'], p['como']) for t, p in vin.items()]}")
+chequear(all(p['confianza'] == 'alta' for p in pts['11PS1']), f"11PS1 (etiqueta en el medio de la fuente): sus bornes siguen exactos: "
+         f"{[(p['texto'], p['confianza']) for p in pts['11PS1']]}")
 cu = mo.cuerpos(sal['puntos'])
 dentro = [(p['texto'], j) for p in sal['puntos'] if p['confianza'] != 'baja' for j, b in cu.items()
           if j not in (p['componente'], p.get('ubicado_en')) and b[0] < p['x'] < b[2] and b[1] < p['y'] < b[3]]
@@ -115,6 +131,37 @@ encima = [(p['texto'], q['texto']) for i, p in enumerate(sal['puntos']) for q in
           and (p.get('ubicado_en') or p['componente']) != (q.get('ubicado_en') or q['componente'])
           and abs(p['x'] - q['x']) < 0.85 and abs(p['y'] - q['y']) < 0.85]
 chequear(not encima, f'ningun punto encima de un borne de otro tag: {encima}')
+# (2026-10-07, pedido del taller) MOXA ioLogik R1240 ('columna_frente' del catalogo): sus AI se cablean seguidas de
+# arriba a abajo (antes partidas entre la parte de arriba y la de abajo, y desordenadas) y salen en horizontal a la
+# canaleta vertical de la derecha
+lay_b = json.loads(json.dumps(lay0))
+bornes.componer_bornes(lay_b, bornes.puntos_automaticos(sal), {}, {}, {})
+lay_b.update(bornes_usuario={}, estaciones={}, estacion='E6', estacion_auto={'seccion_min': 35, 'estacion': 'E8'})
+orden_b = [l for p in instructivo.build(res, lay_b)['pasos'] for l in p['lineas']]
+ai = [i for i, l in enumerate(orden_b) if re.fullmatch(r'33MX01 \d+', l['origen'])]
+chequear(bool(ai) and [orden_b[i]['origen'] for i in ai] == [f'33MX01 {k}' for k in range(1, 17)] and ai == list(range(ai[0], ai[0] + 16)),
+         f"33MX01: las 16 AI seguidas, de la 1 a la 16: {[orden_b[i]['origen'] for i in ai]}")
+lat = [orden_b[i]['ruta'] for i in ai]
+chequear(all(r and abs(r[1][1] - r[0][1]) < 0.2 and r[1][0] > r[0][0] + 10 for r in lat),
+         f"33MX01: las AI salen en horizontal a la canaleta vertical de la derecha: {[r[:2] for r in lat[:3]]}")
+
+print('B2. capa de la zona segura: se toma solo si tiene aparatos dibujados')
+from bornes.motor import capas_del_plano, leer_trazos
+G = CAT['general']
+curvo = lambda capa, n: [(capa, 'S', [(10.0 + i, 10.0), (10.5 + i, 10.4), (11.0 + i, 10.0)], (0, 0, 0)) for i in range(n)]
+recto = lambda capa, n: [(capa, 'S', [(10.0 + i, 10.0), (12.0 + i, 12.0)], (0, 0, 0)) for i in range(n)]
+reg = (0, 0, 200, 200)
+chequear('_Zona Segura' in capas_del_plano(curvo('_Zona Segura', 30), reg, G)[0], "'_Zona Segura' con 30 trazos curvos (aparatos) se toma")
+chequear('_Zona Segura' not in capas_del_plano(curvo('_Zona Segura', 5) + recto('_Zona Segura', 200), reg, G)[0],
+         "'_Zona Segura' con rayado (rectas) y 5 curvas no se toma")
+chequear('Texto zona' not in capas_del_plano(curvo('Texto zona', 300), reg, G)[0], "'Texto zona' (letras curvas) sigue excluida")
+letras = lambda capa, n: [(capa, 'S', [(10.0 + i, 10.0), (12.0 + i, 14.0), (14.0 + i, 10.0)], (0, 0, 0)) for i in range(n)]
+chequear('_Zona Segura' not in capas_del_plano(letras('_Zona Segura', 300) + recto('_Zona Segura', 200), reg, G, 1.7639)[0],
+         "'_Zona Segura' con un rotulo SHX (letras de 7 mm) y rayado no se toma")
+tr66 = leer_trazos(os.path.join(RAIZ, 'pruebas', 'trabajos', '66817', 'topografico.pdf'), 3)
+xs66 = [q[0] for t in tr66 for q in t[2]]; ys66 = [q[1] for t in tr66 for q in t[2]]
+chequear(not any('zona' in c.lower() for c in capas_del_plano(tr66, (min(xs66), min(ys66), max(xs66), max(ys66)), G)[0]),
+         "66817: su '_Zona Segura' es solo el contorno de la zona y sigue excluida")
 
 print('C. red de seguridad (sin los renglones de 33MX01 y 11Q1 en la lista: la geometria elige libre)')
 mats2 = [m for m in mats if not m.startswith('33MX01') and not m.startswith('11Q1')]
@@ -140,10 +187,18 @@ chequear([p['confianza'] for p in falsos] == ['alta', 'baja', 'baja', 'baja', 'a
          f"encimados: alta/media -> se descarta la media; media/media -> las dos: {[p['confianza'] for p in falsos]}")
 
 print('D. dos pisos del mismo borne en el mismo punto (confianza media): queda el texto del funcional')
+# (2026-10-07) con el tramo izquierdo del riel 1 (capa '01') reconocido, sin lista 11Q1 ya no sale como toma corriente
+# (antes: TOMA-IRAM-DIN con N ARRIBA y N ABAJO en la misma boca); el caso se arma a mano sobre su resultado
+chequear(fam_mod.get(sal2['modelos'].get('11Q1')) in ('termomagnetica', 'diferencial'),
+         f"sin lista, 11Q1 (dibujo de 2 polos) no sale como toma corriente: {sal2['modelos'].get('11Q1')}")
+sal2 = copy.deepcopy(sal2)
 q11 = {p['texto']: p for p in sal2['puntos'] if p['componente'] == '11Q1'}
+if q11.get('11Q1 N ARRIBA') and q11.get('11Q1 N ABAJO'):
+    q11['11Q1 N ARRIBA'].update(x=q11['11Q1 N ABAJO']['x'], y=q11['11Q1 N ABAJO']['y'], confianza='media')
+    q11['11Q1 N ABAJO']['confianza'] = 'media'
 mismo = q11.get('11Q1 N ARRIBA') and q11.get('11Q1 N ABAJO') and q11['11Q1 N ARRIBA']['confianza'] == 'media' and \
     (q11['11Q1 N ARRIBA']['x'], q11['11Q1 N ARRIBA']['y']) == (q11['11Q1 N ABAJO']['x'], q11['11Q1 N ABAJO']['y'])
-chequear(bool(mismo), f"(sin lista, 11Q1 sale como {sal2['modelos'].get('11Q1')}: N ARRIBA y N ABAJO en el mismo punto, media)")
+chequear(bool(mismo), "11Q1: N ARRIBA y N ABAJO en el mismo punto, media (armado)")
 
 
 def lineas_de(sal_, forzar_alta=()):

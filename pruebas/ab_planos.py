@@ -9,7 +9,7 @@ de la huella, con el catalogo fijo pruebas/fixtures/productos.json.
 uso:
   python pruebas/ab_planos.py <dir_salida> [--programa <carpeta programa>] [--solo clave1,clave2] [-j N]
                               [--memoria-ocr <ocr_cache.json>] [--semilla 0|aleatoria]
-  python pruebas/ab_planos.py --comparar <dirA> <dirB> [--max 25]
+  python pruebas/ab_planos.py --comparar <dirA> <dirB> [--max 25] [--ignorar producto]
   python pruebas/ab_planos.py --listar          (solo la clasificacion de los PDF)
   --programa:    otra copia de programa/ (ej. un 'git worktree' de un commit viejo), como PLANOCABLES_PROGRAMA en
                  probar_ronda3.py. Por defecto, PLANOCABLES_PROGRAMA o el programa/ de este repo.
@@ -18,6 +18,8 @@ uso:
                  cuentan en meta.ocr_en_vivo (si hubo, se avisa: el resultado depende del motor de OCR).
   -j N:          planos en paralelo (cada plano corre en su propio proceso). Con -j 1 los tiempos son los reales.
   --semilla:     PYTHONHASHSEED de cada proceso (por defecto 0, para que A y B sean comparables).
+  --ignorar:     (con --comparar) claves que no se comparan, por nombre o con su ruta, separadas por coma. Ej.
+                 '--ignorar producto' contra una copia del programa de antes de la etapa 2, que no trae el producto.
 Base de este repo: pruebas/bases/ab/ (python pruebas/ab_planos.py <tmp> ; python pruebas/ab_planos.py --comparar
 pruebas/bases/ab <tmp>). Sale con 0 si todo anduvo (o si no hay diferencias, con --comparar) y 1 si no."""
 import os, sys, re, json, time, glob, hashlib, subprocess, tempfile, argparse, inspect, numbers, difflib, collections
@@ -275,6 +277,8 @@ def resumen_mapeo(mapeo, lay):
     m['huella_bornes'] = huella(lay.get('bornes') or {})
     m['renombrar'] = redondear(lay.get('renombrar') or {})
     m['renombrar_auto'] = redondear(lay.get('renombrar_auto') or {})
+    if lay.get('bornes_salida'):        # bornera en columna al frente (MOXA): a que costado sale cada cable
+        m['bornes_salida'] = dict(sorted(lay['bornes_salida'].items()))
     return redondear(m, 3)
 
 
@@ -379,7 +383,7 @@ def correr_plano(clave, funcional, topografico, salida, prog, memoria_ocr=None):
                 mapeo = llamar(mapeo_bornes.aplicar_al_layout, res, lay, trabajo, tpath, cache=False, usuario=lay['bornes_usuario'])
         except Exception as e:          # noqa: BLE001  (como la web: el mapeo nunca frena el instructivo)
             mapeo = dict(error=f'{type(e).__name__}: {e}', n_puntos={}, modelos={}, usados=0)
-            for k in ('bornes', 'renombrar', 'bornes_conf', 'bornes_nota', 'renombrar_auto'):
+            for k in ('bornes', 'renombrar', 'bornes_conf', 'bornes_nota', 'bornes_salida', 'renombrar_auto'):
                 lay.pop(k, None)
             lay['bornes'], lay['renombrar'] = {}, {}
         out['mapeo'] = resumen_mapeo(mapeo if isinstance(mapeo, dict) else {}, lay)
@@ -531,7 +535,14 @@ def renglones(x):
     return [json.dumps(x, ensure_ascii=False)]
 
 
-def comparar(da, db, maximo=25):
+def comparar(da, db, maximo=25, ignorar=()):
+    """ignorar: claves que no se comparan, por nombre (ej. 'producto', en cualquiera de los dos niveles) o con su ruta
+    ('listado.producto'): para comparar contra una copia del programa que todavia no las tiene"""
+    ign = set(ignorar or ())
+    fuera = lambda nombre: nombre in ign or nombre.rsplit('.', 1)[-1] in ign
+    if ign:
+        print(f'(sin comparar: {", ".join(sorted(ign))})')
+
     def leer(d):
         out = {}
         for p in sorted(glob.glob(os.path.join(d, '*.json'))):
@@ -558,12 +569,12 @@ def comparar(da, db, maximo=25):
         cambios = []
         for k in list(dict.fromkeys(list(a) + list(b))):
             va, vb = a.get(k), b.get(k)
-            if va == vb:
+            if va == vb or fuera(k):
                 continue
             partes = [(f'{k}.{s}', (va or {}).get(s), (vb or {}).get(s)) for s in dict.fromkeys(list(va or {}) + list(vb or {}))] \
                 if isinstance(va, dict) and isinstance(vb, dict) and k not in ('errores',) else [(k, va, vb)]
             for nombre, x, y in partes:
-                if x == y:
+                if x == y or fuera(nombre):
                     continue
                 ra, rb = renglones(x), renglones(y)
                 dl = [l for l in difflib.unified_diff(ra, rb, lineterm='', n=0) if not l.startswith(('---', '+++', '@@'))]
@@ -595,6 +606,7 @@ def main():
     ap.add_argument('--memoria-ocr', default=None)
     ap.add_argument('--semilla', default='0')
     ap.add_argument('--max', type=int, default=25)
+    ap.add_argument('--ignorar', default='', help="con --comparar: claves que no se comparan, separadas por coma (ej. producto)")
     ap.add_argument('--listar', action='store_true')
     ap.add_argument('--uno', nargs=3, metavar=('CLAVE', 'FUNCIONAL', 'TOPOGRAFICO'))
     a = ap.parse_args()
@@ -606,7 +618,7 @@ def main():
         return correr_plano(clave, f, None if t == '-' else t, os.path.abspath(a.salida), prog,
                             os.path.abspath(a.memoria_ocr) if a.memoria_ocr else None)
     if a.comparar:
-        return comparar(*a.comparar, maximo=a.max)
+        return comparar(*a.comparar, maximo=a.max, ignorar=[s.strip() for s in a.ignorar.split(',') if s.strip()])
     if a.listar:
         archivos, planos = clasificar()
         for x in archivos:

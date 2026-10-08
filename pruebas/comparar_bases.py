@@ -53,10 +53,11 @@ CONOCIDAS = {
               ('layout.comp.12XPS.leido', '2XPS', '12XPS'),
               ('layout.comp.SP-1', FALTA, _LI(727.7, 'SP-1')), ('layout.comp.SP-2', FALTA, _LI(763.2, 'SP-2')),
               ('layout.comp.11XP', FALTA, _LI(276.7, '11XP'))],
-    # version del motor de bornes (bornes/motor.py VERSION), subida a 2026.10.07-1 en 93d7947 sin regenerar las
-    # bases: los puntos, las puntas y las lineas dan iguales
-    '66817': [('mapeo.version', '2026.10.02-3', '2026.10.07-1')],
-    'tpt': [('mapeo.version', '2026.10.06-1', '2026.10.07-1')],
+    # version del motor de bornes (bornes/motor.py VERSION), subida a 2026.10.07-1 en 93d7947 y a 2026.10.07-4 en
+    # 6322435 (bornera en columna al frente, zona segura con aparatos, rieles en otra capa) sin regenerar la base del
+    # 66817: sus puntos, puntas y lineas dan iguales. (La del TPT, base_tpt_ronda3.json, ya se regenero en 6322435 con
+    # 2026.10.07-4: no tiene diferencia conocida.)
+    '66817': [('mapeo.version', '2026.10.02-3', '2026.10.07-4')],
 }
 ETIQ = ['base', 'salida']                     # como se llaman los dos lados en los mensajes (--entre: A / B)
 

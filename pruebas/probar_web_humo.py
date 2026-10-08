@@ -285,7 +285,8 @@ def parte_a(tmp):
         print(f'A5. {t}: vista previa de salidas a LI / LD')
         sal = [l for l in ls + (ins.get('otra_estacion') or []) if (l.get('lateral') or l.get('destino')) in ('LI', 'LD')]
         cuerpo_l = [dict(num=l['num'], destino=l['destino'], lateral=l.get('lateral'), marca_o=l.get('marca_o') or (l.get('ruta') or [None])[0],
-                         lado=l.get('lado'), color=l.get('color'), secc=l.get('secc'), **({'intrinseco': l['intrinseco']} if 'intrinseco' in l else {}))
+                         lado=l.get('lado'), color=l.get('color'), secc=l.get('secc'), **({'intrinseco': l['intrinseco']} if 'intrinseco' in l else {}),
+                         **({'sale_hacia': l['sale_hacia']} if l.get('sale_hacia') else {}))      # (como salidas.js)
                     for l in sal]
         r = post(u + '/instructivo/salidas', json=dict(lineas=cuerpo_l, salidas={'grupos': []}))
         rt = (r.get_json() or {}).get('rutas') if r.status_code == 200 else None

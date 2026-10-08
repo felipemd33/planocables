@@ -4565,7 +4565,7 @@
  "alternativas": [],
  "bornes_usuario": {},
  "mapeo": {
-  "version": "2026.10.07-1",
+  "version": "2026.10.07-4",
   "modelos": {
    "61XDIO": "PT2.5-DIO",
    "13XC1": "PT6-QUATTRO",

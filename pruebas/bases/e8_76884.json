@@ -1268,15 +1268,15 @@
      "lado": "abajo",
      "lineas": [
       {
-       "num": "1181",
-       "cable": "M2.5MM",
-       "color": "Marrón",
+       "num": "1182",
+       "cable": "C2.5MM",
+       "color": "Celeste",
        "secc": "2.5",
-       "clave": "1181|11SK1 L|11X220V 1.4",
+       "clave": "1182|11SK1 N|11X220V 2.4",
        "hojas": [
         "11"
        ],
-       "origen": "11SK1 L ABAJO",
+       "origen": "11SK1 N ABAJO",
        "marca_o": [
         208.29,
         362.5,
@@ -1286,9 +1286,9 @@
        "riel": 2,
        "lado": "abajo",
        "componente": "11SK1",
-       "destino": "11X220V 1.4",
+       "destino": "11X220V 2.4",
        "marca_d": [
-        379.36,
+        385.13,
         356.2,
         2.4
        ],
@@ -1304,15 +1304,15 @@
          313.0
         ],
         [
-         379.4,
+         385.1,
          313.0
         ],
         [
-         379.4,
+         385.1,
          356.2
         ]
        ],
-       "largo_mm": 370
+       "largo_mm": 380
       },
       {
        "num": "⏚11SK1",
@@ -1362,15 +1362,15 @@
        "largo_mm": 350
       },
       {
-       "num": "1182",
-       "cable": "C2.5MM",
-       "color": "Celeste",
+       "num": "1181",
+       "cable": "M2.5MM",
+       "color": "Marrón",
        "secc": "2.5",
-       "clave": "1182|11SK1 N|11X220V 2.4",
+       "clave": "1181|11SK1 L|11X220V 1.4",
        "hojas": [
         "11"
        ],
-       "origen": "11SK1 N ABAJO",
+       "origen": "11SK1 L ABAJO",
        "marca_o": [
         221.75,
         362.5,
@@ -1380,9 +1380,9 @@
        "riel": 2,
        "lado": "abajo",
        "componente": "11SK1",
-       "destino": "11X220V 2.4",
+       "destino": "11X220V 1.4",
        "marca_d": [
-        385.13,
+        379.36,
         356.2,
         2.4
        ],
@@ -1398,15 +1398,15 @@
          313.0
         ],
         [
-         385.1,
+         379.4,
          313.0
         ],
         [
-         385.1,
+         379.4,
          356.2
         ]
        ],
-       "largo_mm": 360
+       "largo_mm": 350
       },
       {
        "num": "1157",
