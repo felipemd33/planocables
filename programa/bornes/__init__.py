@@ -18,7 +18,8 @@ from .motor import Motor, VERSION, materiales_de_lineas, leer_materiales  # noqa
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CATALOGO = os.path.join(AQUI, 'catalogo.json')
-CODIGO = [os.path.join(AQUI, 'motor.py'), os.path.join(AQUI, 'primitivas.py')]   # el codigo que calcula los puntos
+CODIGO = [os.path.join(AQUI, 'motor.py'), os.path.join(AQUI, 'primitivas.py'),   # el codigo que calcula los puntos
+          os.path.join(os.path.dirname(AQUI), 'topo.py')]                      # (rieles en otra capa: topo.rieles_geometria)
 
 
 def _sha(b):
@@ -104,7 +105,8 @@ def puntos_automaticos(sal, confianzas=('alta', 'media')):
         if p.get('confianza') not in confianzas or not p.get('cables'):
             continue
         out.append(dict(texto=p['texto'], cable=str(p['cables'][0]), texto_final=p.get('texto_ubicado') or p['texto'],
-                        x=float(p['x']), y=float(p['y']), r=p.get('r'), confianza=p['confianza'], como=p.get('como') or ''))
+                        x=float(p['x']), y=float(p['y']), r=p.get('r'), confianza=p['confianza'], como=p.get('como') or '',
+                        sale_hacia=p.get('sale_hacia')))
     return out
 
 
@@ -130,14 +132,15 @@ def componer_bornes(lay, auto, manual=None, renombrar_manual=None, usuario=None)
     'usuario' (bornes_usuario, los puntos ajustados con el visor; si no se pasa, lay['bornes_usuario']) manda sobre
     todo: si el usuario ajusto el punto con el texto del FUNCIONAL, el mapeo no le cambia el texto (no se renombra).
     Ademas deja lay['bornes_conf'] (clave -> 'alta' | 'media', solo de los automaticos), lay['bornes_nota']
-    (clave -> por que, de los 'media') y lay['renombrar_auto'] (los textos que corrigio el mapeo).
+    (clave -> por que, de los 'media'), lay['bornes_salida'] (clave -> 'der' | 'izq': bornera en columna al frente,
+    el cable sale en horizontal a la canaleta de ese costado) y lay['renombrar_auto'] (los textos que corrigio el mapeo).
     Devuelve (usados, descartados_por_manual, renombres_automaticos)."""
     manual = dict(manual or {})
     ren_m = dict(renombrar_manual or {})
     usuario = (lay.get('bornes_usuario') if usuario is None else usuario) or {}
     bornes = dict(manual)
     ren = dict(ren_m)
-    conf, nota, ren_auto = {}, {}, {}
+    conf, nota, ren_auto, salida = {}, {}, {}, {}
     usados, descartados = 0, 0
     for a in auto or []:
         t0, n, t1 = a['texto'], a['cable'], a['texto_final']
@@ -156,6 +159,8 @@ def componer_bornes(lay, auto, manual=None, renombrar_manual=None, usuario=None)
         conf[key] = a['confianza']
         if a['confianza'] != 'alta':
             nota[key] = a.get('como') or ''
+        if a.get('sale_hacia'):
+            salida[key] = a['sale_hacia']
         if t1 != t0 and k0 not in ren_m:
             ren[k0] = t1
             ren_auto[k0] = t1
@@ -164,6 +169,7 @@ def componer_bornes(lay, auto, manual=None, renombrar_manual=None, usuario=None)
     lay['renombrar'] = ren
     lay['bornes_conf'] = conf
     lay['bornes_nota'] = nota
+    lay['bornes_salida'] = salida
     lay['renombrar_auto'] = ren_auto
     return usados, descartados, ren_auto
 

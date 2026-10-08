@@ -97,6 +97,38 @@
    "exacto": true
   },
   {
+   "num": "1106",
+   "cable": "M2.5MM",
+   "origen": "11Q1 F ABAJO",
+   "destino": "11PS1 L",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1107",
+   "cable": "B2.5MM",
+   "origen": "11Q1 N ABAJO",
+   "destino": "11PS1 N",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1309",
+   "cable": "N2.5MM",
+   "origen": "13PS3 -Vin",
+   "destino": "13XC1 3.2",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1304",
+   "cable": "R2.5MM",
+   "origen": "13PS3 +Vin",
+   "destino": "13XC1 2.1",
+   "ruta": true,
+   "exacto": true
+  },
+  {
    "num": "3301",
    "cable": "N0.75MM",
    "origen": "33MX01 1",
@@ -129,65 +161,49 @@
    "exacto": true
   },
   {
-   "num": "1106",
-   "cable": "M2.5MM",
-   "origen": "11Q1 F ABAJO",
-   "destino": "11PS1 L",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "1107",
-   "cable": "B2.5MM",
-   "origen": "11Q1 N ABAJO",
-   "destino": "11PS1 N",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "1304",
-   "cable": "R2.5MM",
-   "origen": "13PS3 +Vin",
-   "destino": "13XC1 2.1",
-   "ruta": true,
-   "exacto": false
-  },
-  {
-   "num": "1309",
-   "cable": "N2.5MM",
-   "origen": "13PS3 -Vin",
-   "destino": "13XC1 3.2",
-   "ruta": true,
-   "exacto": false
-  },
-  {
-   "num": "1616",
+   "num": "3305",
    "cable": "N0.75MM",
-   "origen": "33MX01 16",
+   "origen": "33MX01 5",
    "destino": "LD",
    "ruta": true,
    "exacto": true
   },
   {
-   "num": "1614",
+   "num": "1606",
    "cable": "N0.75MM",
-   "origen": "33MX01 14",
+   "origen": "33MX01 6",
    "destino": "LD",
    "ruta": true,
    "exacto": true
   },
   {
-   "num": "3315",
+   "num": "3307",
    "cable": "N0.75MM",
-   "origen": "33MX01 15",
+   "origen": "33MX01 7",
    "destino": "LD",
    "ruta": true,
    "exacto": true
   },
   {
-   "num": "3313",
+   "num": "1608",
    "cable": "N0.75MM",
-   "origen": "33MX01 13",
+   "origen": "33MX01 8",
+   "destino": "LD",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "3309",
+   "cable": "N0.75MM",
+   "origen": "33MX01 9",
+   "destino": "LD",
+   "ruta": true,
+   "exacto": true
+  },
+  {
+   "num": "1610",
+   "cable": "N0.75MM",
+   "origen": "33MX01 10",
    "destino": "LD",
    "ruta": true,
    "exacto": true
@@ -209,49 +225,33 @@
    "exacto": true
   },
   {
-   "num": "1610",
+   "num": "3313",
    "cable": "N0.75MM",
-   "origen": "33MX01 10",
+   "origen": "33MX01 13",
    "destino": "LD",
    "ruta": true,
    "exacto": true
   },
   {
-   "num": "3309",
+   "num": "1614",
    "cable": "N0.75MM",
-   "origen": "33MX01 9",
+   "origen": "33MX01 14",
    "destino": "LD",
    "ruta": true,
    "exacto": true
   },
   {
-   "num": "1608",
+   "num": "3315",
    "cable": "N0.75MM",
-   "origen": "33MX01 8",
+   "origen": "33MX01 15",
    "destino": "LD",
    "ruta": true,
    "exacto": true
   },
   {
-   "num": "3305",
+   "num": "1616",
    "cable": "N0.75MM",
-   "origen": "33MX01 5",
-   "destino": "LD",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "3307",
-   "cable": "N0.75MM",
-   "origen": "33MX01 7",
-   "destino": "LD",
-   "ruta": true,
-   "exacto": true
-  },
-  {
-   "num": "1606",
-   "cable": "N0.75MM",
-   "origen": "33MX01 6",
+   "origen": "33MX01 16",
    "destino": "LD",
    "ruta": true,
    "exacto": true
@@ -638,7 +638,7 @@
    "origen": "43XDIB 1 ARRIBA",
    "destino": "43DIB1 9",
    "ruta": true,
-   "exacto": false
+   "exacto": true
   },
   {
    "num": "4303",
@@ -646,7 +646,7 @@
    "origen": "43XDIB 3 ARRIBA",
    "destino": "43DIB1 7",
    "ruta": true,
-   "exacto": false
+   "exacto": true
   },
   {
    "num": "4302",
@@ -654,7 +654,7 @@
    "origen": "43XDIB 2 ARRIBA",
    "destino": "43DIB1 10",
    "ruta": true,
-   "exacto": false
+   "exacto": true
   },
   {
    "num": "4304",
@@ -662,7 +662,7 @@
    "origen": "43XDIB 4 ARRIBA",
    "destino": "43DIB1 8",
    "ruta": true,
-   "exacto": false
+   "exacto": true
   }
  ],
  "pendientes": [
@@ -1456,7 +1456,7 @@
   "8106"
  ],
  "n_detalle": 315,
- "segundos": 58.8,
+ "segundos": 120.0,
  "detalle_por_pag": {
   "5": 15,
   "6": 20,
@@ -1906,130 +1906,6 @@
    ]
   },
   {
-   "num": "3301",
-   "origen": "33MX01 1",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    588.16,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 1 ubicado con la hoja de datos a 42.3 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     588.2
-    ],
-    [
-     561.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "1602",
-   "origen": "33MX01 2",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    586.0,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 2 ubicado con la hoja de datos a 46.1 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     586.0
-    ],
-    [
-     561.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "3303",
-   "origen": "33MX01 3",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    583.85,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 3 ubicado con la hoja de datos a 49.9 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     583.9
-    ],
-    [
-     561.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "1604",
-   "origen": "33MX01 4",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    581.7,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 4 ubicado con la hoja de datos a 53.7 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     581.7
-    ],
-    [
-     561.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
    "num": "1106",
    "origen": "11Q1 F ABAJO",
    "destino": "11PS1 L",
@@ -2108,79 +1984,32 @@
    ]
   },
   {
-   "num": "1304",
-   "origen": "13PS3 +Vin",
-   "destino": "13XC1 2.1",
-   "marca_o": [
-    546.8,
-    588.1,
-    null
-   ],
-   "marca_d": [
-    717.76,
-    597.58,
-    2.13
-   ],
-   "exacto_o": false,
-   "exacto_d": true,
-   "conf_o": null,
-   "conf_d": "alta",
-   "nota_o": null,
-   "nota_d": null,
-   "ruta": [
-    [
-     546.8,
-     588.1
-    ],
-    [
-     546.8,
-     522.9
-    ],
-    [
-     601.0,
-     522.9
-    ],
-    [
-     601.0,
-     633.4
-    ],
-    [
-     717.8,
-     633.4
-    ],
-    [
-     717.8,
-     597.6
-    ]
-   ]
-  },
-  {
    "num": "1309",
    "origen": "13PS3 -Vin",
    "destino": "13XC1 3.2",
    "marca_o": [
-    546.8,
-    588.1,
-    null
+    546.95,
+    547.22,
+    1.22
    ],
    "marca_d": [
     723.62,
     588.29,
     2.13
    ],
-   "exacto_o": false,
+   "exacto_o": true,
    "exacto_d": true,
-   "conf_o": null,
+   "conf_o": "alta",
    "conf_d": "alta",
    "nota_o": null,
    "nota_d": null,
    "ruta": [
     [
-     546.8,
-     588.1
+     547.0,
+     547.2
     ],
     [
-     546.8,
+     547.0,
      522.9
     ],
     [
@@ -2202,12 +2031,59 @@
    ]
   },
   {
-   "num": "1616",
-   "origen": "33MX01 16",
+   "num": "1304",
+   "origen": "13PS3 +Vin",
+   "destino": "13XC1 2.1",
+   "marca_o": [
+    549.89,
+    547.22,
+    1.22
+   ],
+   "marca_d": [
+    717.76,
+    597.58,
+    2.13
+   ],
+   "exacto_o": true,
+   "exacto_d": true,
+   "conf_o": "alta",
+   "conf_d": "alta",
+   "nota_o": null,
+   "nota_d": null,
+   "ruta": [
+    [
+     549.9,
+     547.2
+    ],
+    [
+     549.9,
+     522.9
+    ],
+    [
+     601.0,
+     522.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     717.8,
+     633.4
+    ],
+    [
+     717.8,
+     597.6
+    ]
+   ]
+  },
+  {
+   "num": "3301",
+   "origen": "33MX01 1",
    "destino": "LD",
    "marca_o": [
     560.95,
-    555.16,
+    588.16,
     0.68
    ],
    "marca_d": null,
@@ -2215,20 +2091,16 @@
    "exacto_d": null,
    "conf_o": "media",
    "conf_d": null,
-   "nota_o": "MOXA-R1240: 16 ubicado con la hoja de datos a 100.5 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_o": "MOXA-R1240: 1 ubicado con la hoja de datos a 42.3 mm del borde arriba del cuerpo y -4.8 mm del centro",
    "nota_d": null,
    "ruta": [
     [
      561.0,
-     555.2
-    ],
-    [
-     561.0,
-     522.9
+     588.2
     ],
     [
      601.0,
-     522.9
+     588.2
     ],
     [
      601.0,
@@ -2241,12 +2113,12 @@
    ]
   },
   {
-   "num": "1614",
-   "origen": "33MX01 14",
+   "num": "1602",
+   "origen": "33MX01 2",
    "destino": "LD",
    "marca_o": [
     560.95,
-    559.47,
+    586.0,
     0.68
    ],
    "marca_d": null,
@@ -2254,20 +2126,16 @@
    "exacto_d": null,
    "conf_o": "media",
    "conf_d": null,
-   "nota_o": "MOXA-R1240: 14 ubicado con la hoja de datos a 92.9 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_o": "MOXA-R1240: 2 ubicado con la hoja de datos a 46.1 mm del borde arriba del cuerpo y -4.8 mm del centro",
    "nota_d": null,
    "ruta": [
     [
      561.0,
-     559.5
-    ],
-    [
-     561.0,
-     522.9
+     586.0
     ],
     [
      601.0,
-     522.9
+     586.0
     ],
     [
      601.0,
@@ -2280,12 +2148,12 @@
    ]
   },
   {
-   "num": "3315",
-   "origen": "33MX01 15",
+   "num": "3303",
+   "origen": "33MX01 3",
    "destino": "LD",
    "marca_o": [
     560.95,
-    557.32,
+    583.85,
     0.68
    ],
    "marca_d": null,
@@ -2293,20 +2161,16 @@
    "exacto_d": null,
    "conf_o": "media",
    "conf_d": null,
-   "nota_o": "MOXA-R1240: 15 ubicado con la hoja de datos a 96.7 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_o": "MOXA-R1240: 3 ubicado con la hoja de datos a 49.9 mm del borde arriba del cuerpo y -4.8 mm del centro",
    "nota_d": null,
    "ruta": [
     [
      561.0,
-     557.3
-    ],
-    [
-     561.0,
-     522.9
+     583.9
     ],
     [
      601.0,
-     522.9
+     583.9
     ],
     [
      601.0,
@@ -2319,12 +2183,12 @@
    ]
   },
   {
-   "num": "3313",
-   "origen": "33MX01 13",
+   "num": "1604",
+   "origen": "33MX01 4",
    "destino": "LD",
    "marca_o": [
     560.95,
-    561.63,
+    581.7,
     0.68
    ],
    "marca_d": null,
@@ -2332,215 +2196,16 @@
    "exacto_d": null,
    "conf_o": "media",
    "conf_d": null,
-   "nota_o": "MOXA-R1240: 13 ubicado con la hoja de datos a 89.1 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_o": "MOXA-R1240: 4 ubicado con la hoja de datos a 53.7 mm del borde arriba del cuerpo y -4.8 mm del centro",
    "nota_d": null,
    "ruta": [
     [
      561.0,
-     561.6
-    ],
-    [
-     561.0,
-     522.9
+     581.7
     ],
     [
      601.0,
-     522.9
-    ],
-    [
-     601.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "3311",
-   "origen": "33MX01 11",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    566.56,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 11 ubicado con la hoja de datos a 80.4 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     566.6
-    ],
-    [
-     561.0,
-     522.9
-    ],
-    [
-     601.0,
-     522.9
-    ],
-    [
-     601.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "1612",
-   "origen": "33MX01 12",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    564.4,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 12 ubicado con la hoja de datos a 84.2 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     564.4
-    ],
-    [
-     561.0,
-     522.9
-    ],
-    [
-     601.0,
-     522.9
-    ],
-    [
-     601.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "1610",
-   "origen": "33MX01 10",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    568.71,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 10 ubicado con la hoja de datos a 76.6 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     568.7
-    ],
-    [
-     561.0,
-     522.9
-    ],
-    [
-     601.0,
-     522.9
-    ],
-    [
-     601.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "3309",
-   "origen": "33MX01 9",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    570.87,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 9 ubicado con la hoja de datos a 72.8 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     570.9
-    ],
-    [
-     561.0,
-     522.9
-    ],
-    [
-     601.0,
-     522.9
-    ],
-    [
-     601.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "1608",
-   "origen": "33MX01 8",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    573.02,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 8 ubicado con la hoja de datos a 69.0 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     573.0
-    ],
-    [
-     561.0,
-     522.9
-    ],
-    [
-     601.0,
-     522.9
+     581.7
     ],
     [
      601.0,
@@ -2574,51 +2239,8 @@
      579.5
     ],
     [
-     561.0,
-     522.9
-    ],
-    [
      601.0,
-     522.9
-    ],
-    [
-     601.0,
-     633.4
-    ],
-    [
-     755.1,
-     633.4
-    ]
-   ]
-  },
-  {
-   "num": "3307",
-   "origen": "33MX01 7",
-   "destino": "LD",
-   "marca_o": [
-    560.95,
-    575.18,
-    0.68
-   ],
-   "marca_d": null,
-   "exacto_o": true,
-   "exacto_d": null,
-   "conf_o": "media",
-   "conf_d": null,
-   "nota_o": "MOXA-R1240: 7 ubicado con la hoja de datos a 65.2 mm del borde arriba del cuerpo y -4.8 mm del centro",
-   "nota_d": null,
-   "ruta": [
-    [
-     561.0,
-     575.2
-    ],
-    [
-     561.0,
-     522.9
-    ],
-    [
-     601.0,
-     522.9
+     579.5
     ],
     [
      601.0,
@@ -2652,12 +2274,358 @@
      577.4
     ],
     [
-     561.0,
-     522.9
+     601.0,
+     577.4
     ],
     [
      601.0,
-     522.9
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "3307",
+   "origen": "33MX01 7",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    575.18,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 7 ubicado con la hoja de datos a 65.2 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     575.2
+    ],
+    [
+     601.0,
+     575.2
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1608",
+   "origen": "33MX01 8",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    573.02,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 8 ubicado con la hoja de datos a 69.0 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     573.0
+    ],
+    [
+     601.0,
+     573.0
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "3309",
+   "origen": "33MX01 9",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    570.87,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 9 ubicado con la hoja de datos a 72.8 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     570.9
+    ],
+    [
+     601.0,
+     570.9
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1610",
+   "origen": "33MX01 10",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    568.71,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 10 ubicado con la hoja de datos a 76.6 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     568.7
+    ],
+    [
+     601.0,
+     568.7
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "3311",
+   "origen": "33MX01 11",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    566.56,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 11 ubicado con la hoja de datos a 80.4 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     566.6
+    ],
+    [
+     601.0,
+     566.6
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1612",
+   "origen": "33MX01 12",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    564.4,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 12 ubicado con la hoja de datos a 84.2 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     564.4
+    ],
+    [
+     601.0,
+     564.4
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "3313",
+   "origen": "33MX01 13",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    561.63,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 13 ubicado con la hoja de datos a 89.1 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     561.6
+    ],
+    [
+     601.0,
+     561.6
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1614",
+   "origen": "33MX01 14",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    559.47,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 14 ubicado con la hoja de datos a 92.9 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     559.5
+    ],
+    [
+     601.0,
+     559.5
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "3315",
+   "origen": "33MX01 15",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    557.32,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 15 ubicado con la hoja de datos a 96.7 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     557.3
+    ],
+    [
+     601.0,
+     557.3
+    ],
+    [
+     601.0,
+     633.4
+    ],
+    [
+     755.1,
+     633.4
+    ]
+   ]
+  },
+  {
+   "num": "1616",
+   "origen": "33MX01 16",
+   "destino": "LD",
+   "marca_o": [
+    560.95,
+    555.16,
+    0.68
+   ],
+   "marca_d": null,
+   "exacto_o": true,
+   "exacto_d": null,
+   "conf_o": "media",
+   "conf_d": null,
+   "nota_o": "MOXA-R1240: 16 ubicado con la hoja de datos a 100.5 mm del borde arriba del cuerpo y -4.8 mm del centro",
+   "nota_d": null,
+   "ruta": [
+    [
+     561.0,
+     555.2
+    ],
+    [
+     601.0,
+     555.2
     ],
     [
      601.0,
@@ -4467,28 +4435,28 @@
    "origen": "43XDIB 1 ARRIBA",
    "destino": "43DIB1 9",
    "marca_o": [
-    538.26,
-    464.8,
-    null
+    539.94,
+    478.72,
+    1.36
    ],
    "marca_d": [
     513.86,
     429.03,
     1.13
    ],
-   "exacto_o": false,
+   "exacto_o": true,
    "exacto_d": true,
-   "conf_o": null,
+   "conf_o": "alta",
    "conf_d": "alta",
    "nota_o": null,
    "nota_d": null,
    "ruta": [
     [
-     538.3,
-     464.8
+     539.9,
+     478.7
     ],
     [
-     538.3,
+     539.9,
      508.1
     ],
     [
@@ -4514,28 +4482,28 @@
    "origen": "43XDIB 3 ARRIBA",
    "destino": "43DIB1 7",
    "marca_o": [
-    543.78,
-    464.8,
-    null
+    542.86,
+    478.72,
+    1.36
    ],
    "marca_d": [
     513.86,
     433.97,
     1.13
    ],
-   "exacto_o": false,
+   "exacto_o": true,
    "exacto_d": true,
-   "conf_o": null,
+   "conf_o": "alta",
    "conf_d": "media",
    "nota_o": null,
    "nota_d": "GS8512-EX: grupo INF pin 1 fila 1 (no dibujada, corrida 8.7 mm)",
    "ruta": [
     [
-     543.8,
-     464.8
+     542.9,
+     478.7
     ],
     [
-     543.8,
+     542.9,
      508.1
     ],
     [
@@ -4561,28 +4529,28 @@
    "origen": "43XDIB 2 ARRIBA",
    "destino": "43DIB1 10",
    "marca_o": [
-    541.02,
-    464.8,
-    null
+    539.94,
+    469.72,
+    1.36
    ],
    "marca_d": [
     516.7,
     429.04,
     1.13
    ],
-   "exacto_o": false,
+   "exacto_o": true,
    "exacto_d": true,
-   "conf_o": null,
+   "conf_o": "alta",
    "conf_d": "alta",
    "nota_o": null,
    "nota_d": null,
    "ruta": [
     [
-     541.0,
-     464.8
+     539.9,
+     469.7
     ],
     [
-     541.0,
+     539.9,
      508.1
     ],
     [
@@ -4608,28 +4576,28 @@
    "origen": "43XDIB 4 ARRIBA",
    "destino": "43DIB1 8",
    "marca_o": [
-    546.54,
-    464.8,
-    null
+    542.86,
+    469.72,
+    1.36
    ],
    "marca_d": [
     516.7,
     433.97,
     1.13
    ],
-   "exacto_o": false,
+   "exacto_o": true,
    "exacto_d": true,
-   "conf_o": null,
+   "conf_o": "alta",
    "conf_d": "media",
    "nota_o": null,
    "nota_d": "GS8512-EX: grupo INF pin 2 fila 1 (no dibujada, corrida 8.7 mm)",
    "ruta": [
     [
-     546.5,
-     464.8
+     542.9,
+     469.7
     ],
     [
-     546.5,
+     542.9,
      508.1
     ],
     [
@@ -4652,7 +4620,7 @@
   }
  ],
  "mapeo": {
-  "version": "2026.10.06-1",
+  "version": "2026.10.07-4",
   "modelos": {
    "11PS1": "MEANWELL-NDR",
    "11Q1": "ABB-SH202",
@@ -4675,29 +4643,25 @@
    "plano monocromo: no se usan los colores del catalogo (PE verde, pieza azul, bocas grises)",
    "13XC1: la lista de materiales dice PT4 pero el dibujo coincide mejor con PT6-QUATTRO",
    "12XP: la lista de materiales dice PT4 pero el dibujo coincide mejor con PT6-QUATTRO",
-   "31XAI: la lista de materiales dice PTT2.5-2MT pero el dibujo coincide mejor con PTTB4-HESI",
-   "43XDIB: no se encontro en el dibujo el modelo de la lista de materiales (PTT2.5-2MT-BU) ni otro de la misma familia; sus bornes quedan sin punto exacto",
-   "'13PS3 +Vin' #1304: no se pudo ubicar el borne; queda el punto aproximado",
-   "'13PS3 -Vin' #1309: no se pudo ubicar el borne; queda el punto aproximado",
-   "43XDIB: 4 bornes sin ubicar ('43XDIB 1 ARRIBA' #4301, '43XDIB 2 ARRIBA' #4302, '43XDIB 3 ARRIBA' #4303, '43XDIB 4 ARRIBA' #4304); quedan con el punto aproximado"
+   "31XAI: la lista de materiales dice PTT2.5-2MT pero el dibujo coincide mejor con PTTB4-HESI"
   ],
-  "segundos": 7.73,
+  "segundos": 8.39,
   "de_cache": false,
   "error": null,
   "materiales": "lista de materiales del funcional",
   "n_puntos": {
-   "alta": 70,
+   "alta": 76,
    "media": 26,
-   "baja": 6
+   "baja": 0
   },
-  "usados": 96,
+  "usados": 102,
   "manuales": 0,
   "modelos_faltantes": []
  },
  "renombrar_auto": {},
  "tiempos": {
-  "funcional": 18.0,
-  "mapeo": 10.09,
-  "total": 58.8
+  "funcional": 42.7,
+  "mapeo": 11.23,
+  "total": 120.0
  }
 }

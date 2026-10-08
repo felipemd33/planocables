@@ -71,7 +71,10 @@ def result_json(res, name, opts):
         sin_numero=getattr(res, 'unnumbered', []), stats=res.stats)
 
 
-def run_job(jid, pdf_path, opts):
+def run_job(jid, pdf_path, opts, rearmar_instructivo=False):
+    """procesa el plano; rearmar_instructivo (↻ Reprocesar): si el trabajo ya tiene topografico, al terminar se vuelve a
+    armar el instructivo con el resultado nuevo (como ↻ Regenerar: se conservan marcas, puntos ajustados, estaciones,
+    cables quitados y auditoria)"""
     j = JOBS[jid]
     try:
         j['estado'] = 'en cola'; save_state(jid)
@@ -116,6 +119,16 @@ def run_job(jid, pdf_path, opts):
         j['estado'] = 'error'; j['error'] = str(e); j['log'].append(traceback.format_exc())
     finally:
         save_state(jid)
+    if j.get('estado') == 'terminado' and rearmar_instructivo:
+        try:
+            P = ins_paths(jid)
+            if os.path.exists(P['topo']) and (INS.get(jid) or {}).get('estado') not in ('procesando', 'en cola'):
+                INS[jid] = dict(estado='en cola', mensaje='En cola…', progreso=0.0)
+                gen_instructivo(jid)
+                return
+        except Exception:
+            import traceback
+            j['log'].append('No se pudo volver a armar el instructivo: ' + traceback.format_exc()); save_state(jid)
     # plano de EPLAN: el mismo PDF trae la hoja de bandejas; se arma el instructivo solo (si todavia no hay uno)
     if j.get('estado') == 'terminado' and j.get('eplan'):
         try:
@@ -216,7 +229,7 @@ def reprocesar(jid):
     JOBS[jid] = {k: v for k, v in s.items() if k not in ('error', 'inicio', 'transcurrido')} | dict(
         estado='en cola', progreso=0.0, mensaje='En cola…', log=[], opciones=opts)
     save_state(jid)
-    threading.Thread(target=run_job, args=(jid, os.path.join(d, s['archivo']), opts), daemon=True).start()
+    threading.Thread(target=run_job, args=(jid, os.path.join(d, s['archivo']), opts, True), daemon=True).start()
     return jsonify(id=jid)
 
 
@@ -440,7 +453,7 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
                 import traceback
                 mapeo = dict(error=f'{type(e).__name__}: {e}', detalle=traceback.format_exc(), avisos=[f'el mapeo automatico de bornes fallo ({e})'],
                              n_puntos={}, modelos={}, usados=0)
-                for k in ('bornes', 'renombrar', 'bornes_conf', 'bornes_nota', 'renombrar_auto'):
+                for k in ('bornes', 'renombrar', 'bornes_conf', 'bornes_nota', 'bornes_salida', 'renombrar_auto'):
                     lay.pop(k, None)
                 # solo los manuales del trabajo (bornes.json y los 'bornes' de correcciones.json); un archivo roto se ignora
                 lay['bornes'], lay['renombrar'] = leer_bornes_manuales(P['dir'], mapeo['avisos'], corr=corr if corr else {})
@@ -778,6 +791,32 @@ def guardar_proyector(jid):
     return jsonify(ok=True)
 
 
+def firma_codigo():
+    """sha1 de los .py del programa (programa/ y sus subcarpetas): es lo que el servidor carga al arrancar y no vuelve a
+    leer (los .js / .css y los catalogos se leen en cada pedido y no cuentan)"""
+    import hashlib
+    h = hashlib.sha1()
+    for raiz, dirs, archivos in os.walk(HERE):
+        dirs[:] = sorted(d for d in dirs if d != '__pycache__')
+        for a in sorted(archivos):
+            if a.endswith('.py'):
+                with open(os.path.join(raiz, a), 'rb') as f:
+                    h.update(os.path.relpath(os.path.join(raiz, a), HERE).encode('utf-8') + b'\0' + f.read())
+    return h.hexdigest()[:16]
+
+
+FIRMA = firma_codigo()      # el codigo con el que arranco este servidor
+INICIO = time.time()
+
+
+@app.get('/api/version')
+def version():
+    """con que codigo corre este servidor y si esta ocupado (lo usa el arranque para cerrar un servidor viejo)"""
+    ocupado = (sum(1 for j in list(JOBS.values()) if j.get('estado') in ('procesando', 'en cola'))
+               + sum(1 for j in list(INS.values()) if (j or {}).get('estado') in ('procesando', 'en cola')))
+    return jsonify(firma=FIRMA, carpeta=ROOT, inicio=INICIO, pid=os.getpid(), ocupado=ocupado)
+
+
 def already_running():
     import socket
     with socket.socket() as s:
@@ -785,9 +824,65 @@ def already_running():
         return s.connect_ex(('127.0.0.1', PORT)) == 0
 
 
+def aviso(texto):
+    """mensaje al usuario al arrancar (pythonw no tiene consola: ventanita de Windows); con --no-abrir, por stderr"""
+    if '--no-abrir' not in sys.argv:
+        try:
+            import ctypes
+            ctypes.windll.user32.MessageBoxW(0, texto, 'Listado de cables', 0x40)
+            return
+        except Exception:
+            pass
+    print(texto, file=sys.stderr)
+
+
+def cerrar_servidor_viejo():
+    """Al abrir el programa con un servidor ya andando: si ese servidor corre con OTRO codigo (arranco antes de un cambio
+    en los .py), se lo cierra para arrancar este; antes solo se abria el navegador y se seguia usando el codigo viejo.
+    No se corta un servidor que esta procesando un plano o un instructivo (se avisa), ni el de otra copia del programa
+    (otra carpeta: se avisa cual es). Un servidor de antes de /api/version es de esta version vieja del programa y se
+    cierra si no esta procesando ningun plano. Devuelve True si el puerto quedo libre."""
+    import urllib.request
+    base = f'http://127.0.0.1:{PORT}'
+
+    def leer(ruta):
+        with urllib.request.urlopen(base + ruta, timeout=3) as r:
+            return json.loads(r.read().decode('utf-8'))
+    try:
+        v = leer('/api/version')
+    except Exception:
+        v = None
+    if v is not None:
+        if v.get('firma') == FIRMA:
+            return False                  # mismo codigo: se usa el que ya esta abierto
+        if os.path.normcase(os.path.abspath(str(v.get('carpeta')))) != os.path.normcase(os.path.abspath(ROOT)):
+            aviso(f"Está abierto el programa de otra carpeta:\n{v.get('carpeta')}\n\nPara usar el de\n{ROOT}\n"
+                  "cerralo (Historial → «Cerrar el programa») y volvé a abrir «Listado de cables (web).bat».")
+            return False
+        ocupado = int(v.get('ocupado') or 0)
+    else:
+        try:
+            ocupado = sum(1 for j in leer('/api/trabajos') if j.get('estado') in ('procesando', 'en cola'))
+        except Exception:
+            return False                  # no es este programa: como antes, solo se abre el navegador
+    if ocupado:
+        aviso('Hay una versión nueva del programa, pero el que está abierto está procesando un plano.\n'
+              'Cuando termine, tocá «Cerrar el programa» (en el historial) y volvé a abrir «Listado de cables (web).bat».')
+        return False
+    try:
+        urllib.request.urlopen(urllib.request.Request(base + '/api/salir', data=b'', method='POST'), timeout=3).close()
+    except Exception:
+        pass
+    for _ in range(50):
+        if not already_running():
+            return True
+        time.sleep(0.1)
+    return False
+
+
 if __name__ == '__main__':
     url = f'http://127.0.0.1:{PORT}/'
-    if already_running():   # ya esta abierta: solo abrir el navegador
+    if already_running() and not cerrar_servidor_viejo():   # ya esta abierta con este codigo: solo abrir el navegador
         if '--no-abrir' not in sys.argv:
             __import__('webbrowser').open(url)
         sys.exit(0)

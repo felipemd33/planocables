@@ -202,7 +202,9 @@ async function loadResult(id, st) {
 }
 $('#kpis').addEventListener('click', e => { const k = e.target.closest('[data-tab]'); if (k) setTab(k.dataset.tab); });
 $('#btnReproc').addEventListener('click', async () => {
-  if (!S.job || !confirm('¿Volver a procesar este plano con la versión actual del programa? Se reemplazan su PDF buscable y su Excel.')) return;
+  if (!S.job || !confirm('¿Volver a procesar este plano con la versión actual del programa? Se reemplazan su PDF buscable y su Excel. '
+    + 'Si el trabajo tiene topográfico, también se vuelve a armar el instructivo (como ↻ Regenerar: se conservan las marcas de cableado, '
+    + 'los puntos ajustados, las estaciones, los cables quitados y la auditoría; se pierden los textos editados a mano).')) return;
   try { await api(`/api/trabajo/${S.job}/reprocesar`, { method: 'POST' }); openJob(S.job); } catch (e) { toast(e.message, 4000); }
 });
 $('#btnCarpeta').addEventListener('click', () => api(`/api/trabajo/${S.job}/abrir-carpeta`, { method: 'POST' }).catch(e => toast(e.message)));

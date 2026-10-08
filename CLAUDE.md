@@ -249,13 +249,17 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   - en el RS-485, los blanco/azul de 0,32 mm² no salen por la salida de abajo.
   - (2026-10-06, del Excel de aparamenta; detalle en la hoja «Para confirmar» del Excel de `2 - Resultados/Aparamenta
     (BOMs por estación)/`):
-    - toma 11SK1 del PAE (Phoenix EO-I/UT): la foto de Phoenix dice N – PE – L de izquierda a derecha, y el mapeo
-      verificado tiene L a la izquierda («a confirmar»). Si se confirma, se intercambian 1181 y 1182; no se tocó;
     - EXEMYS EGW1 (2026-10-07, del taller: «3 niveles, todos abajo»): tres enchufes abajo. El de adelante es el de más
       abajo (1-4, verificado con la foto 1.6 del 76572), detrás 5-8 y más atrás HART. Falta una foto del rótulo del
       costado para el orden de HTa / HGND. El lector del funcional no lee los nombres de borne escritos en tablas
       (PP: 1317, 3301, 3302 sin borne; 2135/2136 no llegan al 33EXM).
-  - Resuelto el 2026-10-07: PSR-SCP en AutoCAD, 13/14 en el enchufe de adentro de abajo (foto 1.6 del 76572: 2114 / 2115);
+  - Resuelto el 2026-10-07: toma 11SK1 del PAE = N – PE – L de izquierda a derecha (el taller, con la foto de Phoenix):
+    1181 (L) y 1182 (N) intercambiados con `correcciones_riel3_lateral.json` del mapeo (una corrección puede traer
+    `confianza`) y reexportado; `base_76884` igual (son pendientes LI↔LI). Bornera 41XEX del PAE: el taller la arma
+    de 1 a 12 en orden aunque la hoja 8 y la pág. 38 dibujen las piezas 1 3 5 9 7 11 (el mapeo había seguido el número
+    dibujado y cruzaba 4122/4123 con 4124/4125): 8 correcciones en `correcciones_riel3_lateral.json`, aviso quitado del
+    exportador; `base_76884` regenerada (mismas 136 líneas, cambia el orden de 4 cables de campo). PSR-SCP en AutoCAD, 13/14 en el enchufe de
+    adentro de abajo (foto 1.6 del 76572: 2114 / 2115);
     parada de emergencia del mSafe1 PP = NC (ZBE102): **cuando la lista de materiales y el dibujo del funcional no
     coinciden, manda el dibujo del funcional** (regla del taller).
 

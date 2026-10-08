@@ -17,6 +17,105 @@
    "y": 358.69,
    "motivo": "Ajuste fino (0,13 pt, sin cambio de borne): el tornillo hexagonal de abajo de 11Q2 tiene envolvente 356.14-361.24 en y (centro 358.69), igual que el centro de su cruz y que los tornillos de abajo de 11Q1 (y 358,69); el punto estaba en y 358.56.",
    "texto_taller": "11Q2 N ABAJO"
+  },
+  {
+   "d": "-11SK1:L",
+   "cable": "1181",
+   "x": 221.75,
+   "y": 362.5,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la toma Phoenix EO-I/UT va N - PE - L de izquierda a derecha (foto oficial Phoenix 240214, con la ranura de tierra arriba). La fase L pasa al tornillo de la DERECHA (antes estaba a la izquierda, por el orden del simbolo EPLAN).",
+   "texto_taller": "11SK1 L ABAJO"
+  },
+  {
+   "d": "-11SK1:N",
+   "cable": "1182",
+   "x": 208.29,
+   "y": 362.5,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la toma Phoenix EO-I/UT va N - PE - L de izquierda a derecha (foto oficial Phoenix 240214, con la ranura de tierra arriba). El neutro N pasa al tornillo de la IZQUIERDA (antes estaba a la derecha, por el orden del simbolo EPLAN).",
+   "texto_taller": "11SK1 N ABAJO"
+  },
+  {
+   "d": "-11SK1:PE",
+   "cable": "sin numero Verde/amarillo 2,5",
+   "x": 215.02,
+   "y": 362.5,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): orden N - PE - L confirmado; la tierra sigue en el tornillo del medio.",
+   "texto_taller": "11SK1 PE ABAJO"
+  },
+  {
+   "d": "-41XEX:8:1",
+   "cable": "sin numero campo",
+   "x": 853.8,
+   "y": 366.82,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 8 va en la 4.a pieza (x 853.8), no en la 5.a (x 857.45), como se habia mapeado por el numero dibujado.",
+   "texto_taller": "41XEX 8 ABAJO"
+  },
+  {
+   "d": "-41XEX:7:2",
+   "cable": "sin numero campo",
+   "x": 853.8,
+   "y": 355.43,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 7 va en la 4.a pieza (x 853.8), no en la 5.a (x 857.45), como se habia mapeado por el numero dibujado.",
+   "texto_taller": "41XEX 7 ABAJO"
+  },
+  {
+   "d": "-41XEX:7:3",
+   "cable": "4122",
+   "x": 853.8,
+   "y": 413.54,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 7 va en la 4.a pieza (x 853.8), no en la 5.a (x 857.45), como se habia mapeado por el numero dibujado.",
+   "texto_taller": "41XEX 7 ARRIBA"
+  },
+  {
+   "d": "-41XEX:8:4",
+   "cable": "4123",
+   "x": 853.8,
+   "y": 402.29,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 8 va en la 4.a pieza (x 853.8), no en la 5.a (x 857.45), como se habia mapeado por el numero dibujado.",
+   "texto_taller": "41XEX 8 ARRIBA"
+  },
+  {
+   "d": "-41XEX:10:1",
+   "cable": "sin numero campo",
+   "x": 857.45,
+   "y": 366.82,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 10 va en la 5.a pieza (x 857.45), no en la 4.a (x 853.8), como se habia mapeado por el numero dibujado.",
+   "texto_taller": "41XEX 10 ABAJO"
+  },
+  {
+   "d": "-41XEX:9:2",
+   "cable": "sin numero campo",
+   "x": 857.45,
+   "y": 355.43,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 9 va en la 5.a pieza (x 857.45), no en la 4.a (x 853.8), como se habia mapeado por el numero dibujado.",
+   "texto_taller": "41XEX 9 ABAJO"
+  },
+  {
+   "d": "-41XEX:9:3",
+   "cable": "4124",
+   "x": 857.45,
+   "y": 413.54,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 9 va en la 5.a pieza (x 857.45), no en la 4.a (x 853.8), como se habia mapeado por el numero dibujado.",
+   "texto_taller": "41XEX 9 ARRIBA"
+  },
+  {
+   "d": "-41XEX:10:4",
+   "cable": "4125",
+   "x": 857.45,
+   "y": 402.29,
+   "confianza": "alta",
+   "motivo": "Correccion del taller (2026-10-07): la bornera 41XEX se arma de 1 a 12 en orden. La hoja 8 y la pag. 38 dibujan las piezas 1 3 5 9 7 11; el borne 10 va en la 5.a pieza (x 857.45), no en la 4.a (x 853.8), como se habia mapeado por el numero dibujado.",
+   "texto_taller": "41XEX 10 ARRIBA"
   }
  ],
  "verificacion": "Revisé los 102 puntos y los 3 de extra_esquema uno por uno, con mi propia geometría (codigo_verif_riel3_lateral/geo.py, match.py y verif.py: contornos cerrados y círculos ajustados a los arcos de page_strokes de la copia de proceso). COBERTURA: conexiones.json tiene 104 puntas en la zona. Todas están mapeadas y no sobra ningún punto. Son 102 puntos porque -12XPS:10 (2135) y -12XPS:11 (2136) llevan los 2 tramos de su cable en la misma boca. GEOMETRÍA: los 95 puntos con boca o tornillo dibujado caen a <= 0,13 pt del centro del rasgo real. PTT 2,5-2MT: aros de r 1,70 en y 413,66 / 402,41 / 366,94 / 355,55 (15XR, 42XC, 81XCM) y 413,54 / 402,29 / 366,82 / 355,43 (32XEX, 41XEX). QUATTRO-PE: aros de r 1,70, y el .4 es el de abajo extremo. PT 6 y PT 6-QUATTRO: contornos de 5,00 x 5,67. PTTB: aros de r 2,06. 11Q1: tornillos de 5,10 con cruz. 11Q2: hexágonos de 4,42 x 5,10. 11SK1: tres tornillos ranurados de r 1,63. Los 7 puntos de 12PS1 no tienen boca porque el aparato no tiene bornes. PIEZAS: el número dibujado debajo de cada pieza en la pág. 8 y las hojas de hileras (págs. 32, 33, 37 y 38) dan el mismo orden: 12XPS 1-13, 11XPVAC 1, 2 y PE 3, 11X220V 1-2, 15XR 1/2 + PE 3, 42XC PTTB F1/1 + 3/4 + 5/6, 81XCM 1/2..9/10, 32XEX 1/2, 3/4 + PE 5, y 41XEX 1/2, 3/4, 5/6, 9/10, 7/8, 11/12 (la 4ª y la 5ª pieza están cambiadas en el plano y el mapeo respeta el número). LADO: en los esquemas 11, 12, 15, 32, 41, 42 y 81, los cables del tablero entran por ARRIBA (en vertical, arriba; en horizontal, a la izquierda) y los de campo por ABAJO. Coincide con el punto EPLAN de cada fila. 11X220V: en la hoja 11 el símbolo va de 1 a 4 de arriba hacia abajo (1185, 1183, 1158, 1181), igual que N.p. 12XPS 10 y 11 (hoja 81): la diagonal de la unión en T de 2135 y 2136 apunta al lado derecho del borne. Eso es ABAJO, con terminal doble. 11Q1: la hoja de datos de Acti9 iID 2P (A9R01225) dice 'Neutral position Left'. La Easy9 EZ9R36225 del 75286 se verificó con fotos y también tiene la N a la izquierda. El punto vale para cualquiera de los dos modelos que figuran en la lista. TEXTOS: respetan las convenciones. N.p en QUATTRO y QUATTRO-PE. 'N ARRIBA/ABAJO' en PT 6, PTT y PTTB, como el '31XAI F1 ARRIBA' del 75286 y el 66817. Polo F/N con el lado en 11Q1 y 11Q2. Todo ABAJO en 11SK1. CORRECCIONES: solo 2 ajustes finos de 0,13 pt en 11Q2 abajo (1158 y 1159). El resto no se pudo refutar.",

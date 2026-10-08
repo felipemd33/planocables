@@ -1484,7 +1484,8 @@ def rutear_salidas(lineas, topo, grupos):
         ex = l['intrinseco'] if 'intrinseco' in l else l.get('color') == 'Azul'   # (instructivo viejo: por el color)
         g = grupo_salida(dict(l, lateral=lat, intrinseco=ex), grupos)
         ruta = route_line(net, (float(po[0]), float(po[1])), 0 if l.get('lado') == 'arriba' else 1, None, None, ex, True,
-                          sale_abajo(l), lado_li='der' if lat == 'LD' else 'izq', por=puntos_salida(g) if g else None)
+                          sale_abajo(l), lado_li='der' if lat == 'LD' else 'izq', por=puntos_salida(g) if g else None,
+                          o_lat=l.get('sale_hacia'))
         largo = int(round(length(ruta) * topo['escala'] / 10.0) * 10) if ruta and topo.get('escala') else None
         out.append(dict(ruta=ruta, largo_mm=largo, salida=g.get('id') if g else None))
     return out
@@ -1716,11 +1717,39 @@ def build(res, lay, max_lineas=7):
             return 0
         eje = filas[f - 1]
         return sum(1 for d in ductos if not d['h'] and d['b'][1] <= eje <= d['b'][3] and (d['b'][0] + d['b'][2]) / 2 < c['x'])
+    # BORNERA EN COLUMNA AL FRENTE (modelo del catalogo con 'columna_frente', ej. MOXA ioLogik R1240; el mapeo deja
+    # lay['bornes_salida']): sus cables salen en horizontal a la canaleta vertical del costado, asi que no se tapan entre
+    # ellos: se cablean SEGUIDOS de arriba a abajo, en el paso de la mitad del riel donde queda la mayor parte de la
+    # columna (no partidos entre la parte de arriba y la de abajo, ni por capas)
+    sale = lay.get('bornes_salida') or {}
+    def sale_hacia(e, num):
+        """'der' | 'izq' si la punta es de una bornera en columna al frente; si no None"""
+        if not sale or not e or not bandeja(e):
+            return None
+        t, tn = base_txt(e, num)
+        return buscar(sale, (tn, t), num)
+    alturas = collections.defaultdict(list)            # tag -> alturas de su columna respecto del eje de su riel
+    for k_ in sale:
+        v_, tag_ = bornes.get(k_), k_.rsplit('#', 1)[0].split(' ')[0]
+        c_ = comp.get(tag_)
+        if v_ and en_bandeja(c_) and c_.get('fila') and c_['fila'] <= len(filas):
+            alturas[tag_].append(float(v_[1]) - filas[c_['fila'] - 1])
+    lado_col = {t: 0 if sum(h) / len(h) > 0 else 1 for t, h in alturas.items()}
+    def lado_paso(e, num):
+        """lado (0 arriba / 1 abajo) del paso donde se cablea la punta: el de su columna si es de una bornera en columna
+        (salvo que el lado este forzado en 'Componentes y orden'); si no, el de la punta"""
+        t = e.get('tag_base')
+        if t in lado_col and sale_hacia(e, num) and (bandeja(e) or {}).get('lado') not in ('ARRIBA', 'ABAJO'):
+            return lado_col[t]
+        return lado(e, num)
     def key(e, num):
         c = bandeja(e)
         tag = e.get('tag') or ''
         mod = re.sub(r'^.*?KR', '', tag) if 'KR' in tag else ''
         p = exacto(e, num)
+        if p and sale_hacia(e, num):          # bornera en columna al frente: seguidos, de arriba a abajo
+            return (c['fila'], zona(e.get('tag_base')), lado_paso(e, num), banco.get(e.get('tag_base'), c['x']), 0,
+                    -p[1], natk(mod), natk(e.get('borne')), e.get('punto') or 0)
         return (c['fila'], zona(e.get('tag_base')), lado(e, num), banco.get(e.get('tag_base'), c['x']), capa(e, num),
                 p[0] if p else c['x'], natk(mod), natk(e.get('borne')), e.get('punto') or 0)
     lineas, pendientes, sueltos = [], [], []
@@ -1772,6 +1801,7 @@ def build(res, lay, max_lineas=7):
                                destino=texto(d, num) if bandeja(d) else lateral(d),
                                componente=origen.split(' ')[0] if base_txt(o, num)[1] != base_txt(o, num)[0] else (o.get('tag') or ''),
                                fila=bandeja(o)['fila'], zona=zona(o.get('tag_base')), lado='arriba' if lado(o, num) == 0 else 'abajo',
+                               _lado_paso='arriba' if lado_paso(o, num) == 0 else 'abajo',
                                orden=key(o, num), puente=len(pares_ok) > 1,
                                hojas=sorted({ea.get('hoja'), eb.get('hoja')} - {None}, key=natk), **funcional(o, d, num)))
             if nota_alt:      # el cable cambia segun la ALTERNATIVA que se monte (hojas 'ALTERNATIVA n'): cual se tomo
@@ -1804,7 +1834,7 @@ def build(res, lay, max_lineas=7):
         lineas.append(dict(num=num, cable=a.get('cable', ''), color=a.get('color', ''), secc=a.get('secc', ''), origen=texto(eo, num),
                            _o=eo, _d=ed or dict(fuera=True), destino=texto(ed, num) if ed and bandeja(ed) else (lateral(ed) if ed else a['destino']),
                            componente=eo['tag'], fila=bandeja(eo)['fila'], zona=zona(eo['tag_base']), lado='arriba' if lado(eo, num) == 0 else 'abajo',
-                           orden=key(eo, num), puente=sum(1 for x in lay.get('agregar') or [] if x['num'] == num) > 1,
+                           _lado_paso='arriba' if lado_paso(eo, num) == 0 else 'abajo', orden=key(eo, num), puente=sum(1 for x in lay.get('agregar') or [] if x['num'] == num) > 1,
                            hojas=[a['hoja']] if a.get('hoja') else [], agregado=a.get('nota') or 'agregado a mano', **funcional(eo, ed, num)))
     # pendientes fantasma: las dos puntas en el mismo aparato y una sin borne (ej. '21PCB01 48 <-> 21PCB01')
     pendientes = [x for x in pendientes if not (x['a'].split(' ')[0] == x['b'].split(' ')[0] and (' ' not in x['a'] or ' ' not in x['b']))]
@@ -1861,6 +1891,11 @@ def build(res, lay, max_lineas=7):
         l['ruta'] = None; l['largo_mm'] = None
         to_li = l['destino'] in ('LI', 'LD')
         so, sd = lado(o, l['num']), (None if to_li else lado(d, l['num']))
+        # bornera en columna al frente: sale en horizontal a la canaleta del costado (queda en la linea para
+        # rutear_salidas); la otra punta, si tambien es de una columna, entra igual
+        if sale_hacia(o, l['num']):
+            l['sale_hacia'] = sale_hacia(o, l['num'])
+        l['_entra_d'] = None if to_li else sale_hacia(d, l['num'])
         po = punto(o, so, l['num']); pd = None if to_li else punto(d, sd, l['num'])
         l['marca_o'] = [round(po[0], 2), round(po[1], 2), po[2]]; l['exacto_o'] = po[3]
         if pd:
@@ -1912,7 +1947,8 @@ def build(res, lay, max_lineas=7):
             g = grupo_salida(l, grupos_sal)            # salida elegida a mano para este cable (o su lateral)
             if g:
                 l['salida'], por = g.get('id'), puntos_salida(g)
-        ruta = route_line(net, po[:2], so, None if to_li else pd[:2], sd, tipo[id(l)], to_li, abajo, lado_li='der' if l['destino'] == 'LD' else 'izq', por=por)
+        ruta = route_line(net, po[:2], so, None if to_li else pd[:2], sd, tipo[id(l)], to_li, abajo, lado_li='der' if l['destino'] == 'LD' else 'izq', por=por,
+                          o_lat=l.get('sale_hacia'), d_lat=l.get('_entra_d'))
         if ruta:
             l['ruta'] = ruta
             if lay.get('escala'):
@@ -1964,25 +2000,27 @@ def build(res, lay, max_lineas=7):
         if l.get('_dreal') and l['destino'] in ('LI', 'LD'):
             l['destino'] = l['_dreal']
     for l in lineas + otra + pendientes:
-        l.pop('_est', None); l.pop('_dreal', None)
+        l.pop('_est', None); l.pop('_dreal', None); l.pop('_entra_d', None)
     for l in otra:
         l.pop('orden', None)
     # cables quitados a mano del instructivo de esta estacion (no se cablean aca): fuera de los pasos y de los pendientes
     lineas, pendientes, quitados, vueltos = separar_quitados(lineas, pendientes, lay.get('quitados'))
     for l in quitados:
-        l.pop('orden', None); l.pop('_sigue', None)
-    # pasos: cambia de paso al cambiar de riel o de lado, o al llenarse (sin partir un componente)
+        l.pop('orden', None); l.pop('_sigue', None); l.pop('_lado_paso', None)
+    # pasos: cambia de paso al cambiar de riel o de lado, o al llenarse (sin partir un componente). El lado del paso es
+    # el de la punta, salvo en una bornera en columna al frente: el de su columna entera (lado_paso)
     pasos = []
     for l in lineas:
         cur = pasos[-1] if pasos else None
         sigue = l.pop('_sigue', False)          # otro tramo del mismo cable: va en el mismo paso que el primero
-        nuevo = not sigue and (cur is None or (cur['fila'], cur['zona'], cur['lado']) != (l['fila'], l['zona'], l['lado']) or
+        lp = l.pop('_lado_paso', None) or l['lado']
+        nuevo = not sigue and (cur is None or (cur['fila'], cur['zona'], cur['lado']) != (l['fila'], l['zona'], lp) or
                                (len(cur['lineas']) >= max_lineas and l['componente'] != cur['lineas'][-1]['componente']))
         if nuevo:
-            cur = dict(fila=l['fila'], zona=l['zona'], lado=l['lado'], lineas=[]); pasos.append(cur)
+            cur = dict(fila=l['fila'], zona=l['zona'], lado=lp, lineas=[]); pasos.append(cur)
         cur['lineas'].append(l)
     for l in otra:
-        l.pop('_sigue', None)
+        l.pop('_sigue', None); l.pop('_lado_paso', None)
     nzonas = collections.defaultdict(set)
     for p in pasos:
         nzonas[p['fila']].add(p['zona'])

@@ -1017,17 +1017,17 @@
    "exacto": true
   },
   {
-   "num": "s/n IP_3_ZSO 13",
+   "num": "s/n IP_2_ZSC 13",
    "cable": "?",
-   "origen": "41XEX 9 ABAJO",
+   "origen": "41XEX 7 ABAJO",
    "destino": "LI",
    "ruta": true,
    "exacto": true
   },
   {
-   "num": "s/n IP_2_ZSC 13",
+   "num": "s/n IP_3_ZSO 13",
    "cable": "?",
-   "origen": "41XEX 7 ABAJO",
+   "origen": "41XEX 9 ABAJO",
    "destino": "LI",
    "ruta": true,
    "exacto": true
@@ -1065,17 +1065,17 @@
    "exacto": true
   },
   {
-   "num": "s/n IP_3_ZSO 14",
+   "num": "s/n IP_2_ZSC 14",
    "cable": "?",
-   "origen": "41XEX 10 ABAJO",
+   "origen": "41XEX 8 ABAJO",
    "destino": "LI",
    "ruta": true,
    "exacto": true
   },
   {
-   "num": "s/n IP_2_ZSC 14",
+   "num": "s/n IP_3_ZSO 14",
    "cable": "?",
-   "origen": "41XEX 8 ABAJO",
+   "origen": "41XEX 10 ABAJO",
    "destino": "LI",
    "ruta": true,
    "exacto": true
@@ -2539,7 +2539,7 @@
   "6174"
  ],
  "n_detalle": 365,
- "segundos": 4.4,
+ "segundos": 12.8,
  "detalle_por_pag": {
   "10": 28,
   "11": 35,
@@ -6292,7 +6292,7 @@
     1.4
    ],
    "marca_d": [
-    857.45,
+    853.8,
     413.54,
     1.7
    ],
@@ -6312,11 +6312,11 @@
      448.2
     ],
     [
-     857.5,
+     853.8,
      448.2
     ],
     [
-     857.5,
+     853.8,
      413.5
     ]
    ]
@@ -6331,7 +6331,7 @@
     1.4
    ],
    "marca_d": [
-    857.45,
+    853.8,
     402.29,
     1.7
    ],
@@ -6351,11 +6351,11 @@
      448.2
     ],
     [
-     857.5,
+     853.8,
      448.2
     ],
     [
-     857.5,
+     853.8,
      402.3
     ]
    ]
@@ -6386,7 +6386,7 @@
      479.9
     ],
     [
-     854.0,
+     853.8,
      448.2
     ],
     [
@@ -6682,7 +6682,7 @@
     1.4
    ],
    "marca_d": [
-    853.8,
+    857.45,
     413.54,
     1.7
    ],
@@ -6698,11 +6698,15 @@
      486.2
     ],
     [
-     854.0,
+     853.8,
      448.2
     ],
     [
-     853.8,
+     857.5,
+     448.2
+    ],
+    [
+     857.5,
      413.5
     ]
    ]
@@ -6717,7 +6721,7 @@
     1.4
    ],
    "marca_d": [
-    853.8,
+    857.45,
     402.29,
     1.7
    ],
@@ -6737,11 +6741,7 @@
      448.2
     ],
     [
-     854.0,
-     448.2
-    ],
-    [
-     853.8,
+     857.5,
      402.3
     ]
    ]
@@ -7449,8 +7449,8 @@
    ]
   },
   {
-   "num": "s/n IP_3_ZSO 13",
-   "origen": "41XEX 9 ABAJO",
+   "num": "s/n IP_2_ZSC 13",
+   "origen": "41XEX 7 ABAJO",
    "destino": "LI",
    "marca_o": [
     853.8,
@@ -7488,8 +7488,8 @@
    ]
   },
   {
-   "num": "s/n IP_2_ZSC 13",
-   "origen": "41XEX 7 ABAJO",
+   "num": "s/n IP_3_ZSO 13",
+   "origen": "41XEX 9 ABAJO",
    "destino": "LI",
    "marca_o": [
     857.45,
@@ -7683,8 +7683,8 @@
    ]
   },
   {
-   "num": "s/n IP_3_ZSO 14",
-   "origen": "41XEX 10 ABAJO",
+   "num": "s/n IP_2_ZSC 14",
+   "origen": "41XEX 8 ABAJO",
    "destino": "LI",
    "marca_o": [
     853.8,
@@ -7722,8 +7722,8 @@
    ]
   },
   {
-   "num": "s/n IP_2_ZSC 14",
-   "origen": "41XEX 8 ABAJO",
+   "num": "s/n IP_3_ZSO 14",
+   "origen": "41XEX 10 ABAJO",
    "destino": "LI",
    "marca_o": [
     857.45,
@@ -7810,8 +7810,6 @@
    "42KS1 (PSR 2963802), filas de abajo: 43-44-13-14 en la fila interior y 33-34-23-24 en la exterior (rótulo del aparato). Confirmar mirando el relé.",
    "42KS1 y 11MS1: EPLAN no exporta 12 pines; salen del esquema (hojas 42 y 11).",
    "61KR1 a 61KR4: la hoja 8 rotula solo \"-61KR\"; se supuso KR1 a KR4 de izquierda a derecha.",
-   "41XEX: la 4.ª pieza lleva 9-10 y la 5.ª 7-8 (hoja 8 y pág. 38); se mapeó por número.",
-   "11SK1: L / PE / N de izquierda a derecha (símbolo); con la norma china podría ser N / PE / L. Confirmar con el toma real.",
    "15DIB3: las hojas 15 y 41 dicen que va sin barrera (bornes cuchilla); se mapeó sobre la barrera dibujada.",
    "Barreras GS85xx: el enchufe [1 2] no está dibujado; va detrás del [3 4], arriba (confianza media).",
    "61XDIO: el texto usa el lado FÍSICO (cátodo ARRIBA, ánodo ABAJO). ¿Lado físico o del funcional?",
@@ -7833,8 +7831,8 @@
  },
  "renombrar_auto": {},
  "tiempos": {
-  "funcional": 1.7,
-  "mapeo": 0.01,
-  "total": 4.4
+  "funcional": 3.8,
+  "mapeo": 0.14,
+  "total": 12.8
  }
 }
