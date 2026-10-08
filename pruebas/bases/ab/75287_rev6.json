@@ -483,8 +483,8 @@
   }
  },
  "layout": {
-  "huella": "4286226848a2c737",
-  "version_lector": "topo 2026.10.02-r3",
+  "huella": "03c3d72140c4f642",
+  "version_lector": "topo 2026.10.08-e8",
   "pag": 8,
   "size": [
    1190.3,
@@ -505,7 +505,7 @@
   ],
   "vistas": [
    {"box": [524.5, 301.2, 1090.7, 776.4], "rails": [674.8, 530.5, 402.8]},
-   {"box": [148.8, 274.5, 431.0, 697.5], "rails": [595.9, 376.1]}
+   {"box": [148.8, 274.5, 431.0, 697.5], "rails": [595.9, 376.1], "placa": [179.8, 170.4, 399.9, 745.4], "ductos": [{"b": [208.2, 521.7, 371.5, 550.2], "h": true, "ex": false}, {"b": [208.2, 433.0, 371.5, 461.4], "h": true, "ex": false}]}
   ],
   "canaletas": [
    {"b": [555.6, 347.5, 583.9, 730.8], "h": false, "ex": false},
@@ -904,11 +904,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 53.2,
-   "layout": 104.0,
-   "mapeo": 42.8,
-   "instructivo": 6.8,
-   "total": 206.9
+   "listado": 58.8,
+   "layout": 124.1,
+   "mapeo": 48.6,
+   "instructivo": 10.3,
+   "total": 241.9
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

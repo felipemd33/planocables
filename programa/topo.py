@@ -27,7 +27,7 @@ TAG_TXT = re.compile(r'\d{2}[A-Z][A-Z0-9]{0,7}')
 # eplan.VERSION_LECTOR). Se guarda en layout.json ('version_lector') y, si cambia, web.gen_instructivo vuelve a leer el
 # topografico de un trabajo existente al regenerar (lo del usuario esta en instructivo.json y se conserva).
 # SUBIRLA cada vez que cambie la lectura: rieles, etiquetas, placa, canaletas, escala...
-VERSION_LECTOR = '2026.10.02-r3'
+VERSION_LECTOR = '2026.10.08-e8'      # (2026.10.08: vistas laterales completas para E8: placa, canaletas y titulo)
 
 # capas por patron
 RX_RIEL = re.compile(r'RIEL|\bDIN\b', re.I)                        # 'RIEL DIN', '_IGV_Riel DIN'
@@ -53,6 +53,13 @@ GEO_LARGO_MAX_H = 60  # (sin capa de riel) y a lo sumo 60 perfiles (un riel de 2
 GEO_MIN_COMP = 3      # (sin capa de riel) la vista de esos tramos tiene al menos 3 componentes apoyados en ellos
 RX_NO_RIEL = re.compile(r'CANAL|DUCTO|SEGURA|INTRINSEC|TABLERO|ENVOLVENTE|PLACA|BANDEJA|COTA|(?<![A-Z])DIM|ROTULO|MARCO', re.I)
 PARTIDA_GAP = 1.0     # etiqueta vertical partida: el '1' suelto esta a menos de un alto de letra de la etiqueta
+# vistas de las bandejas laterales para la estacion E8 (vistas_e8; claves aparte, no cambian la bandeja):
+LAT_PLACA_MIN_H = 5.0     # placa de una lateral: rectangulo cerrado (cualquier capa) con el lado corto > 5 perfiles
+LAT_MARGEN_H = 1.0        # sin placa dibujada: union de rieles, canaletas y etiquetas de la vista + 1 perfil
+FILA_ETQ_MIN = 3          # riel tapado por los aparatos: fila de 3 o mas etiquetas alineadas en horizontal...
+FILA_ETQ_PASO_H = 0.3     # ...separadas en x de 0.3 a SALTO_H perfiles (etiquetas una debajo de otra no son una fila)
+TITULO_RENGLON_H = 2.0    # titulo en dos renglones ('VISTA LATERAL DERECHA' / 'INTERIOR'): el de abajo, centrado y a
+                          # menos de 2 altos de letra
 
 
 def norm(t):
@@ -393,8 +400,12 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
             titulos = [dict(texto=l['text'].strip(), lado='DERECHO' if RX_LATERAL.search(l['text']).group(1).upper() == 'DER' else 'IZQUIERDO',
                             x=(l['bbox'][0] + l['bbox'][2]) / 2, y=(l['bbox'][1] + l['bbox'][3]) / 2)
                        for l in lines if RX_LATERAL.search(l['text'])]
+            # (para las vistas de E8: rectangulos cerrados grandes de cualquier capa y los renglones de texto)
+            rects = [r for r in (rect_of(p_, o_) for l_, o_, p_ in st)
+                     if r and min(r[2] - r[0], r[3] - r[1]) > LAT_PLACA_MIN_H * H]
             best = dict(pag=pi + 1, hits=hits, bands=bands, H=H, size=[float(v) for v in reader.pages[pi].mediabox[2:]],
-                        plates=plates, titulos=titulos)
+                        plates=plates, titulos=titulos, rects=rects,
+                        renglones=[(l['text'].strip(), tuple(l['bbox'])) for l in lines if l['text'].strip()])
     dec.save_cache()
     if not best:
         return dict(pag=None, comp={}, vistas=[], filas=[])
@@ -515,6 +526,178 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
     duct_list = ducts(pdf_path, best['pag'] - 1, region, H) if region else []
     log(f'Topográfico: bandeja en la hoja {best["pag"]}, {len(views[tray]["rails"]) if tray is not None else 0} rieles, '
         f'{len(duct_list)} cablecanales, escala {escala} mm/pt ({fuente})')
-    return dict(pag=best['pag'], comp=comp, vistas=[dict(box=v['box'], rails=v['rails']) for v in views], bandeja=tray,
+    vistas = [dict(box=v['box'], rails=v['rails']) for v in views]
+    # bandejas laterales para la estacion E8: DESPUES de clasificar la bandeja y en claves aparte (la bandeja, las cotas,
+    # la escala y la hoja no cambian). E8 nunca frena el layout de E6.
+    try:
+        vistas, n_lat = vistas_e8(pdf_path, best, views, vistas, tray, region, comp, H)
+        if n_lat:
+            log(f'Topográfico: {n_lat} bandeja(s) lateral(es) para la estación E8')
+    except Exception as ex_:                                   # noqa: BLE001
+        log(f'Topográfico: no se pudieron leer las bandejas laterales para E8 ({type(ex_).__name__}: {ex_})')
+    return dict(pag=best['pag'], comp=comp, vistas=vistas, bandeja=tray,
                 size=best['size'], region=region, escala=escala, escala_fuente=fuente, perfil_riel_pt=round(H, 2),
                 ductos=duct_list, filas=views[tray]['rails'] if tray is not None else [])
+
+
+# --------------------------------------------------------------------------- bandejas laterales (estacion E8)
+def _caja_en(a, b, m=0.0):
+    """la caja a cae dentro de la caja b (+-m)"""
+    return b[0] - m <= a[0] and a[2] <= b[2] + m and b[1] - m <= a[1] and a[3] <= b[3] + m
+
+
+def _se_tocan(a, b):
+    return a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
+
+
+def _pt_en(x, y, b):
+    return b[0] <= x <= b[2] and b[1] <= y <= b[3]
+
+
+def _titulo_lateral(renglones, caja, usados=()):
+    """titulo de la vista lateral que esta ARRIBA de la caja y centrado en ella ('VISTA LATERAL DERECHA', con los
+    renglones centrados de abajo: 'INTERIOR'); el mas cercano. -> (texto, indice del renglon) o None"""
+    cands = []
+    for i, (t, b) in enumerate(renglones):
+        if i in usados or not RX_LATERAL.search(t):
+            continue
+        if caja[0] <= (b[0] + b[2]) / 2 <= caja[2] and b[1] >= caja[3]:
+            cands.append((b[1] - caja[3], i))
+    if not cands:
+        return None
+    i = min(cands)[1]
+    t, b = renglones[i]
+    h, cx, y, partes = b[3] - b[1], (b[0] + b[2]) / 2, b[1], [t]
+    for t2, b2 in sorted(renglones, key=lambda r: -r[1][3]):
+        if b2[3] <= y and y - b2[3] <= TITULO_RENGLON_H * h and abs((b2[0] + b2[2]) / 2 - cx) <= h and b2[1] >= caja[3]:
+            partes.append(t2); y = b2[1]
+    return ' '.join(partes), i
+
+
+def _filas_etiquetas(hits, placa, ductos, rieles, H):
+    """riel TAPADO por los aparatos (no queda ningun trazo del perfil): una fila horizontal de FILA_ETQ_MIN o mas
+    etiquetas alineadas (|dy| <= APOYO_H perfiles, separadas en x de FILA_ETQ_PASO_H a SALTO_H perfiles) entre una
+    canaleta horizontal de la vista arriba y otra abajo, lejos de los rieles dibujados. -> [eje] (la mediana de las y)"""
+    en = {}
+    for h in sorted(hits, key=lambda h: (h['x'], h['y'])):
+        if _pt_en(h['x'], h['y'], placa):
+            en.setdefault(h['tag'], h)                         # una lectura por tag
+    hs = list(en.values())
+    d = DSU(len(hs))
+    for i, a in enumerate(hs):
+        for j, b in enumerate(hs[:i]):
+            if abs(a['y'] - b['y']) <= APOYO_H * H and FILA_ETQ_PASO_H * H <= abs(a['x'] - b['x']) <= SALTO_H * H:
+                d.u(i, j)
+    grupos = collections.defaultdict(list)
+    for i in range(len(hs)):
+        grupos[d.f(i)].append(hs[i])
+    out = []
+    for g in grupos.values():
+        if len(g) < FILA_ETQ_MIN or max(h['y'] for h in g) - min(h['y'] for h in g) > 2 * APOYO_H * H:
+            continue
+        xs = sorted(h['x'] for h in g)
+        if any(b - a < FILA_ETQ_PASO_H * H for a, b in zip(xs, xs[1:])):      # dos etiquetas una sobre otra: no es fila
+            continue
+        ys = sorted(h['y'] for h in g)
+        y = ys[len(ys) // 2] if len(ys) % 2 else (ys[len(ys) // 2 - 1] + ys[len(ys) // 2]) / 2
+        cruza = lambda dd: dd['h'] and dd['b'][0] < xs[-1] and xs[0] < dd['b'][2]
+        if not (any(cruza(dd) and dd['b'][1] >= y for dd in ductos) and any(cruza(dd) and dd['b'][3] <= y for dd in ductos)):
+            continue
+        if any(abs(y - r) < FILA_H * H for r in list(rieles) + out):
+            continue
+        out.append(round(y, 1))
+    return out
+
+
+def vistas_e8(pdf_path, best, views, vistas, tray, region, comp, H):
+    """Bandejas laterales completas para la estacion E8 (gabinete). Agrega a cada vista que no es la bandeja, en claves
+    APARTE (la bandeja, las cotas, la escala y la eleccion de la hoja no cambian; E6 no las lee):
+    - 'placa': el rectangulo cerrado mas chico (cualquier capa; en el TPT la placa lateral esta en la capa '0') que
+      contiene sus rieles y no toca la bandeja; si no hay, la union de rieles, canaletas y etiquetas + LAT_MARGEN_H;
+    - 'ductos': las canaletas de la hoja (ruteo.ducts) que caen en esa placa;
+    - 'titulo': el titulo lateral de arriba ('VISTA LATERAL DERECHA INTERIOR'), si lo hay;
+    - 'rieles_e8': los rieles de la vista mas los TAPADOS por los aparatos (fila de etiquetas entre canaletas), solo si
+      hay alguno tapado (riel solo para E8: la bandeja no lo usa).
+    Ademas agrega al final las vistas SIN RIEL: una placa con canaletas o con etiquetas de aparatos que no son de la
+    bandeja, con un titulo lateral arriba ('rails': [], 'sin_riel': True; la lateral izquierda del TPT, con el
+    cargador y la bateria; las dos laterales del 66817, con riel vertical). Dos vistas de riel en la misma placa: la
+    segunda queda con 'en_vista' (el indice de la primera, que se lleva sus rieles).
+    -> (vistas nuevas, cuantas laterales)"""
+    vistas = [dict(v) for v in vistas]
+    if tray is None or not region:
+        return vistas, 0
+    from ruteo import ducts
+    area = lambda r: (r[2] - r[0]) * (r[3] - r[1])
+    # placas posibles: rectangulos cerrados grandes que no tocan la bandeja (el marco de la hoja la contiene: afuera)
+    cands = []
+    for r in best.get('rects') or []:
+        r = tuple(round(v, 1) for v in r)
+        if not _se_tocan(r, region) and r not in cands:
+            cands.append(r)
+    todas = ducts(pdf_path, best['pag'] - 1, None, H)
+    renglones = best.get('renglones') or []
+    hits = best.get('hits') or []
+    fuera = [h for h in hits if (comp.get(h['tag']) or {}).get('ubic') != 'BANDEJA']   # aparatos que no son de la bandeja
+    md = 0.2 * H                                               # (como el recorte de ruteo.ducts)
+    usados_t, placas, n_lat = set(), {}, 0
+    # la placa es la que junta MAS canaletas y aparatos de afuera de la bandeja (no el cuerpo de un aparato dibujado
+    # como rectangulo) y, entre las que juntan lo mismo, la mas chica (no el contorno del gabinete)
+    contenido = lambda r: (sum(1 for dd in todas if _caja_en(dd['b'], r, md)) +
+                           len({h['tag'] for h in fuera if _pt_en(h['x'], h['y'], r)}))
+    mejor = lambda rs: max(rs, key=lambda r: (contenido(r), -area(r)))
+
+    def completar(k, placa, de):
+        nonlocal n_lat
+        v = vistas[k]
+        ds = [dict(dd) for dd in todas if _caja_en(dd['b'], placa, md)]
+        v.update(placa=[round(x, 1) for x in placa], ductos=ds)
+        if de:
+            v['placa_de'] = de
+        t = _titulo_lateral(renglones, placa, usados_t)
+        if t:
+            v['titulo'] = t[0]; usados_t.add(t[1])
+        filas = _filas_etiquetas(hits, placa, ds, v['rails'], H)
+        if filas:
+            v['rieles_e8'] = sorted(list(v['rails']) + filas, reverse=True)
+        placas[tuple(v['placa'])] = k
+        n_lat += 1
+
+    for k, vw in enumerate(views):
+        if k == tray:
+            continue
+        bs = [(b['x0'], b['y0'], b['x1'], b['y1']) for b in vw['bands']]
+        con = [r for r in cands if all(_caja_en(b, r, PLACA_RIEL_H * H) for b in bs)]
+        placa, de = (mejor(con), None) if con else (None, 'union')
+        if placa is None:
+            vb = vistas[k]['box']
+            xs = [b[0] for b in bs] + [b[2] for b in bs]; ys = [b[1] for b in bs] + [b[3] for b in bs]
+            for dd in todas:
+                if _pt_en((dd['b'][0] + dd['b'][2]) / 2, (dd['b'][1] + dd['b'][3]) / 2, vb):
+                    xs += [dd['b'][0], dd['b'][2]]; ys += [dd['b'][1], dd['b'][3]]
+            for h in hits:
+                if _pt_en(h['x'], h['y'], vb) and (comp.get(h['tag']) or {}).get('ubic') != 'BANDEJA':
+                    xs.append(h['x']); ys.append(h['y'])
+            m = LAT_MARGEN_H * H
+            placa = (min(xs) - m, min(ys) - m, max(xs) + m, max(ys) + m)
+            if _se_tocan(placa, region):                       # (no se mete en la bandeja: queda la caja de antes)
+                placa, de = tuple(vb), 'caja'
+        placa = tuple(round(x, 1) for x in placa)
+        if placa in placas:                                    # otra vista de riel de la misma placa: se juntan
+            j = placas[placa]
+            vistas[k]['en_vista'] = j
+            vistas[j]['rieles_e8'] = sorted(set(vistas[j].get('rieles_e8') or vistas[j]['rails']) | set(vistas[k]['rails']), reverse=True)
+            continue
+        completar(k, placa, de)
+    # vistas SIN riel: una placa con un titulo lateral arriba y canaletas o aparatos que no son de la bandeja
+    for i, (t, b) in enumerate(renglones):
+        if i in usados_t or not RX_LATERAL.search(t):
+            continue
+        cx = (b[0] + b[2]) / 2
+        libres = [r for r in cands if r[0] <= cx <= r[2] and r[3] <= b[1] and not any(_se_tocan(r, p) for p in placas)
+                  and contenido(r)]
+        if not libres:
+            continue
+        placa = mejor(libres)
+        vistas.append(dict(box=list(placa), rails=[], sin_riel=True))
+        completar(len(vistas) - 1, placa, None)
+    return vistas, n_lat

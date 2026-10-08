@@ -83,6 +83,14 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     - la **batería** (12PB1) y las **solenoides** (SP_1/2/3) del PAE (2026-10-06, pedido del usuario): sus cables no se
       cablean en E6 ni van a la lista WPC. Mecanismo: `estaciones_tag` del mapeo verificado (`ZONA_E8` en
       `exportar_al_programa.py`); en los planos de AutoCAD las solenoides `SP-n` ya salen como campo (`FIELD_RE`).
+  - **Visor de E8, etapa E8-1 «laterales completas» (2026-10-08, pedido del taller):** cada bandeja lateral es su PLACA
+    entera (`topo.vistas_e8`, claves aparte de cada vista: `placa`, `ductos`, `titulo`, `rieles_e8`; la bandeja de E6 no
+    cambia): rectángulo cerrado de cualquier capa que junta más canaletas y aparatos de afuera de la bandeja; riel
+    TAPADO por los aparatos = fila de 3 o más etiquetas alineadas entre dos canaletas (solo E8); lateral SIN riel = placa
+    con título lateral y canaletas o aparatos (`rails: []`, pasos aparato por aparato). Punto aproximado del borne del
+    lado de `side_of` (como E6) y medidas escaladas con kr. Un cable de una lateral a la otra sale en las dos (misma
+    marca); con canaletas partidas sale por la horizontal de su parte de la red. Cambian los largos de la WPC de los
+    cables a las laterales (decisión del taller: directo; tabla en `pruebas/bases/wpc/cambios_e8.md`).
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -181,6 +189,12 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   versión del lector) tienen que dar TODO OK.
 - Proyector: `python pruebas/probar_proyector.py` (orificios del PAE = rectángulo de 700 × 845 mm, mediatrices, placa sin
   orificios, endpoints `/proyector`) tiene que dar TODO OK.
+- **TPT del usuario** (72715-1 con su «72715-1 Constructivo», copia del trabajo `ce304e99d4ea` sin las marcas):
+  `pruebas/trabajos/tpt_constructivo`, con `--relayout`. E6 tiene que dar como `pruebas/bases/base_tpt_constructivo.json`
+  (83 líneas, 16 pendientes, 0 sueltos; sacada con el código de d12fa6d). Está en la batería y en los golden de la WPC.
+- E8: `python pruebas/probar_e8.py` (arma la E8 de tpt_constructivo, tpt, 66817, 75287 y PAE y mira lo esperado de cada
+  etapa, y que E6 dé igual que `pruebas/bases`; `--bases pruebas/bases` solo mira los `e8_*.json`) tiene que dar TODO OK.
+  Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.
 
 ## Productos trabajados
 
@@ -237,6 +251,10 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 ## Pendientes
 
 - **Corrección del lector del funcional con el TPT** (2026-10-02): ver "Estado".
+- **Visor de E8 (2026-10-08), lo que sigue después de la etapa E8-1:** entrada / salida de cada lateral a mano (asistente
+  la primera vez, lado de la bisagra por trabajo, botón «Entrada / salida»); cargador con WAGO (por el empalme dibujado
+  en el funcional, punta pelada; RS-485 de 3 = «empalme de 3, a confirmar»); hoja de la puerta. Para confirmar: en la WPC
+  un cable de una lateral a la otra (66817: 1101 / 1102) toma la canaleta de una sola lateral.
 - **EPLAN (PAE), para confirmar con el usuario:**
   - el neutro es **celeste**: la regla de ruteo «marrón y blanco salen a LI por abajo» separa L (marrón, abajo) de N
     (celeste, arriba); ¿sumar celeste a la regla?;

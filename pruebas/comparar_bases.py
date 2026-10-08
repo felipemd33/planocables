@@ -21,7 +21,10 @@ import os, sys, json, glob, collections
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # base de cada trabajo (salida_<t>.json contra esta)
-BASES = {'75287': 'base_75287.json', '66817': 'base_66817.json', '76884': 'base_76884.json', 'tpt': 'base_tpt_ronda3.json'}
+BASES = {'75287': 'base_75287.json', '66817': 'base_66817.json', '76884': 'base_76884.json', 'tpt': 'base_tpt_ronda3.json',
+         # el TPT del usuario con su constructivo 72715-1 (desde 2026-10-08; base sacada con el codigo de d12fa6d, antes
+         # de la etapa E8-1: E6 no cambia)
+         'tpt_constructivo': 'base_tpt_constructivo.json'}
 # bases nuevas (volcar_bases_nuevas.py): <prefijo>_<t>.json
 PREFIJOS = ('listado', 'layout', 'e8', 'ins')
 

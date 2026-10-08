@@ -1,13 +1,14 @@
 """Bateria B de la red de seguridad (PLAN_MODULAR.md, seccion 9): corre todo lo que exista y resume.
 uso: python pruebas/bateria.py [--ab] [--semillas] [--dejar]
   En una carpeta temporal (nunca en los trabajos ni en el historial del usuario):
-   1. volcar_trabajo.py --sin-cache de los 4 trabajos: 75287 sin --relayout (el trabajo ac0f0949510a; si no esta en la
-      carpeta, se saca de git con git archive), 66817 / PAE / TPT con --relayout; el 66817 con --puntos.
+   1. volcar_trabajo.py --sin-cache de los 5 trabajos: 75287 sin --relayout (el trabajo ac0f0949510a; si no esta en la
+      carpeta, se saca de git con git archive), 66817 / PAE / TPT / TPT con el constructivo 72715-1 (tpt_constructivo,
+      el del usuario, desde 2026-10-08: tiene las dos laterales para la E8) con --relayout; el 66817 con --puntos.
    2. evaluar_bornes.py --no-guardar sobre los puntos del 66817: 104/104 bornes; y 75/75 puntas exactas.
    3. todas las pruebas/probar_*.py que haya (arreglos_pae, capas, producto, proyector, puentes, ronda2_topo, ronda3,
       web_humo...): TODO OK. (probar_capas: capas de planocables; probar_puentes: los nombres de los modulos viejos
       siguen; probar_producto: codigo de producto, plano y revision de los planos de 1 - Planos y la API /producto.)
-   4. volcar_bases_nuevas.py de los 4 trabajos, si existe (listado_, layout_, e8_, ins_).
+   4. volcar_bases_nuevas.py de los 5 trabajos, si existe (listado_, layout_, e8_, ins_).
    5. comparar_bases.py <tmp> --bases pruebas/bases.
    6. node --test pruebas/js/, si existe la carpeta.
    7. con --ab: ab_planos.py <tmp>/ab y ab_planos.py --comparar pruebas/bases/ab <tmp>/ab.
@@ -30,7 +31,8 @@ PRODUCTOS = os.path.join(PRUEBAS, 'fixtures', 'productos.json')    # catalogo de
 J75287 = os.path.join('3 - Historial web', 'ac0f0949510a')
 # (nombre, carpeta del trabajo relativa a la raiz, --relayout)
 TRABAJOS = [('75287', J75287, False), ('66817', os.path.join('pruebas', 'trabajos', '66817'), True),
-            ('76884', os.path.join('pruebas', 'trabajos', '76884'), True), ('tpt', os.path.join('pruebas', 'trabajos', 'tpt'), True)]
+            ('76884', os.path.join('pruebas', 'trabajos', '76884'), True), ('tpt', os.path.join('pruebas', 'trabajos', 'tpt'), True),
+            ('tpt_constructivo', os.path.join('pruebas', 'trabajos', 'tpt_constructivo'), True)]
 REF_66817 = os.path.join(RAIZ, 'prototipos', '_referencia_66817', 'bornes_referencia.json')
 BORNES_66817, PUNTAS_66817 = 104, 75          # CLAUDE.md: 104/104 bornes y 75/75 puntas exactas
 NUEVAS = ('listado', 'layout', 'e8', 'ins')   # lo que escribe volcar_bases_nuevas.py
@@ -95,7 +97,7 @@ def trabajo_dir(rel, tmp):
 
 
 def volcar_todos(dirs, sal, env, etiqueta):
-    """paso 1: volcar_trabajo de los 4 trabajos en 'sal'. Devuelve True si todos corrieron."""
+    """paso 1: volcar_trabajo de los trabajos en 'sal'. Devuelve True si todos corrieron."""
     os.makedirs(sal, exist_ok=True)
     ok = True
     for t, rel, relayout in TRABAJOS:
@@ -139,7 +141,7 @@ def main():
         firma_antes.update(firma_carpeta(d, sin=(os.path.abspath(OCR),)))
     try:
         # 1. volcar_trabajo
-        print('\n1. volcar_trabajo (4 trabajos)' + (' con PYTHONHASHSEED=0' if semillas else ''), flush=True)
+        print(f'\n1. volcar_trabajo ({len(TRABAJOS)} trabajos)' + (' con PYTHONHASHSEED=0' if semillas else ''), flush=True)
         volcar_todos(dirs, sal, env, '')
 
         # 2. bornes del 66817

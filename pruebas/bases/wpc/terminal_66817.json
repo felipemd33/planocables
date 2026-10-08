@@ -76,5 +76,23 @@
   {"g":10,"i":6,"num":"4302","origen":"43XDIB 2 ARRIBA","destino":"43DIB1 8","o":{"tipo":"pino","sec":"0.75","pollera":"celeste","hex":"#5ec8f2","txt":"Pino 0,75 mm² · pollera celeste"},"d":{"tipo":"pino","sec":"0.75","pollera":"celeste","hex":"#5ec8f2","txt":"Pino 0,75 mm² · pollera celeste"}},
   {"g":10,"i":7,"num":"4304","origen":"43XDIB 4 ARRIBA","destino":"43DIB1 10","o":{"tipo":"pino","sec":"0.75","pollera":"celeste","hex":"#5ec8f2","txt":"Pino 0,75 mm² · pollera celeste"},"d":{"tipo":"pino","sec":"0.75","pollera":"celeste","hex":"#5ec8f2","txt":"Pino 0,75 mm² · pollera celeste"}}
  ],
- "e8": []
+ "e8": [
+  {"lateral":0,"g":0,"i":0,"clave":"1101|11XP 1|12PS1 +","num":"1101","origen":"12PS1 +","destino":"11XP 1 ABAJO","o":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"},"d":null},
+  {"lateral":0,"g":0,"i":1,"clave":"1201|12F1|12PS1 +","num":"1201","origen":"12PS1 +","destino":"12F1 ARRIBA","o":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"},"d":null},
+  {"lateral":0,"g":0,"i":2,"clave":"1102|11XP 2|12PS1 -","num":"1102","origen":"12PS1 -","destino":"11XP 2 ABAJO","o":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"},"d":null},
+  {"lateral":0,"g":0,"i":3,"clave":"1202|12PS1 -|12XP 4.1","num":"1202","origen":"12PS1 -","destino":"12XP 4.1","o":{"tipo":"pino","sec":"4","pollera":"naranja","hex":"#fb8c00","txt":"Pino 4 mm² · pollera naranja"},"d":null},
+  {"lateral":0,"g":1,"i":0,"clave":"1204|12PB1 +|BH-01-ZV","num":"1204","origen":"12PB1 +","destino":"BH-01-ZV","o":{"tipo":"doble","sec":"35","pollera":null,"hex":null,"txt":"Terminal doble 35 mm² · color a definir"},"d":null},
+  {"lateral":0,"g":1,"i":1,"clave":"1204|12PB1 +|12XP 1.4","num":"1204","origen":"12PB1 +","destino":"12XP 1.4","o":{"tipo":"doble","sec":"4","pollera":null,"hex":null,"txt":"Terminal doble 4 mm² · color a definir"},"d":null},
+  {"lateral":0,"g":1,"i":2,"clave":"1205|12PB1 -|BH-01-M","num":"1205","origen":"12PB1 -","destino":"BH-01-M","o":{"tipo":"doble","sec":"35","pollera":null,"hex":null,"txt":"Terminal doble 35 mm² · color a definir"},"d":null},
+  {"lateral":0,"g":1,"i":3,"clave":"1205|12PB1 -|12XP 4.4","num":"1205","origen":"12PB1 -","destino":"12XP 4.4","o":{"tipo":"doble","sec":"4","pollera":null,"hex":null,"txt":"Terminal doble 4 mm² · color a definir"},"d":null},
+  {"lateral":1,"g":0,"i":0,"clave":"1225|12CB1 +|12F3","num":"1225","origen":"12CB1 +","destino":"12F3 ABAJO","o":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"},"d":null},
+  {"lateral":1,"g":0,"i":1,"clave":"1216|12CB1 -|12XP 4.3","num":"1216","origen":"12CB1 -","destino":"12XP 4.3","o":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"},"d":null},
+  {"lateral":1,"g":1,"i":0,"clave":"8101|21PCB01 35|81XCM 1","num":"8101","origen":"81XCM 1 ARRIBA","destino":"21PCB01 35","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"lateral":1,"g":1,"i":1,"clave":"8102|21PCB01 36|81XCM 2","num":"8102","origen":"81XCM 2 ARRIBA","destino":"21PCB01 36","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"lateral":1,"g":1,"i":2,"clave":"8103|21PCB01 37|81XCM 3","num":"8103","origen":"81XCM 3 ARRIBA","destino":"21PCB01 37","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"lateral":1,"g":2,"i":0,"clave":"4305|43KR1 A1|43XDI 1","num":"4305","origen":"43XDI 1 ARRIBA","destino":"43KR1 A1","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"lateral":1,"g":2,"i":1,"clave":"4306|43KR1 A2|43XDI 2","num":"4306","origen":"43XDI 2 ARRIBA","destino":"43KR1 A2","o":{"tipo":"pino","sec":"1","pollera":"rojo","hex":"#e53935","txt":"Pino 1 mm² · pollera rojo"},"d":null},
+  {"lateral":1,"g":3,"i":0,"clave":"1101|11XP 1|12PS1 +","num":"1101","origen":"11XP 1 ABAJO","destino":"12PS1 +","o":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"},"d":null},
+  {"lateral":1,"g":3,"i":1,"clave":"1102|11XP 2|12PS1 -","num":"1102","origen":"11XP 2 ABAJO","destino":"12PS1 -","o":{"tipo":"pino","sec":"2.5","pollera":"azul","hex":"#1e46c8","txt":"Pino 2,5 mm² · pollera azul"},"d":null}
+ ]
 }

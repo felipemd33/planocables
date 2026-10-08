@@ -1,5 +1,5 @@
 {
- "version": 1,
+ "version": 2,
  "laterales": [
   {
    "nombre": "Bandeja lateral izquierda",
@@ -1619,7 +1619,15 @@
    ],
    "n": 36,
    "sin_canaletas": false,
-   "exactos": 36
+   "exactos": 36,
+   "placa": [
+    192.61,
+    150.02,
+    468.99,
+    722.98
+   ],
+   "titulo": "BANDEJA LATERAL IZQUIERDA",
+   "sin_riel": false
   }
  ],
  "afuera": [

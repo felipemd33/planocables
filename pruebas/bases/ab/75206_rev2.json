@@ -320,8 +320,8 @@
   }
  },
  "layout": {
-  "huella": "89651d581b823487",
-  "version_lector": "topo 2026.10.02-r3",
+  "huella": "b430e26d5e48be35",
+  "version_lector": "topo 2026.10.08-e8",
   "pag": 4,
   "size": [
    1190.3,
@@ -340,7 +340,9 @@
    445.7
   ],
   "vistas": [
-   {"box": [431.2, 365.6, 811.8, 660.5], "rails": [580.4, 445.7]}
+   {"box": [431.2, 365.6, 811.8, 660.5], "rails": [580.4, 445.7]},
+   {"box": [148.0, 255.9, 317.2, 647.0], "rails": [], "sin_riel": true, "placa": [148.0, 255.9, 317.2, 647.0], "ductos": [{"b": [148.0, 522.3, 284.1, 544.9], "h": true, "ex": false}, {"b": [241.5, 394.7, 264.2, 522.3], "h": false, "ex": false}], "titulo": "VISTA LATERAL IZQUIERDA INTERIOR"},
+   {"box": [903.6, 255.9, 1072.8, 647.0], "rails": [], "sin_riel": true, "placa": [903.6, 255.9, 1072.8, 647.0], "ductos": [{"b": [1050.2, 291.9, 1072.8, 573.3], "h": false, "ex": false}, {"b": [953.8, 550.6, 1050.2, 573.3], "h": true, "ex": false}], "titulo": "VISTA LATERAL DERECHA INTERIOR"}
   ],
   "canaletas": [
    {"b": [504.1, 380.6, 573.1, 403.2], "h": true, "ex": true},
@@ -622,11 +624,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 20.0,
-   "layout": 47.5,
-   "mapeo": 20.3,
-   "instructivo": 3.4,
-   "total": 91.2
+   "listado": 28.3,
+   "layout": 47.9,
+   "mapeo": 19.2,
+   "instructivo": 6.2,
+   "total": 101.7
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

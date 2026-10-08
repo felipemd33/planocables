@@ -15,6 +15,7 @@ const TRABAJOS = {
   '66817': path.join(PRUEBAS, 'bases', 'ins_66817.json'),
   '76884': path.join(PRUEBAS, 'bases', 'ins_76884.json'),
   'tpt': path.join(PRUEBAS, 'bases', 'ins_tpt.json'),
+  'tpt_constructivo': path.join(PRUEBAS, 'bases', 'ins_tpt_constructivo.json'),     // (el TPT del usuario, desde 2026-10-08)
   'pae_usuario': path.join(PRUEBAS, 'fixtures', 'pae_usuario', 'instructivo.json'),
 };
 // variantes de la configuración: tal cual (wpc.json + lo que tenga ins.wpc.cfg: pendientes y otra en false) y con

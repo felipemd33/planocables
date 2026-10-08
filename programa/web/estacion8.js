@@ -33,7 +33,8 @@ const E8 = (() => {
       txt: `${tipo === 'doble' ? 'Terminal doble' : 'Pino'} ${sec.replace('.', ',')} mm² · ${pollera ? 'pollera ' + pollera : 'color a definir'}` };
   }
   // adonde va la otra punta, en corto (para el rotulo al final del recorrido)
-  const otraCorta = l => l.otra === 'misma bandeja' ? '' : l.otra === 'bandeja principal' ? 'A la bandeja principal' : l.otra === 'puerta / placa' ? 'A la puerta / placa' : l.otra || '';
+  const otraCorta = l => l.otra === 'misma bandeja' ? '' : l.otra === 'bandeja principal' ? 'A la bandeja principal' : l.otra === 'puerta / placa' ? 'A la puerta / placa'
+    : /^bandeja lateral/.test(l.otra || '') ? 'A la ' + l.otra : l.otra || '';      // (cable a la otra lateral)
   const otraPill = l => l.otra === 'misma bandeja' ? '' :
     `<span class="pill e8-${l.viene_de_e6 ? 'e6' : 'fuera'}" title="${esc(l.viene_de_e6 ? 'La otra punta está en la bandeja principal y se cableó en E6: el cable ya está tirado, acá se conecta esta punta' : 'La otra punta va a ' + l.otra)}">${esc(l.viene_de_e6 ? 'viene de E6 (bandeja principal)' : l.otra)}</span>`;
 
@@ -144,7 +145,7 @@ const E8 = (() => {
     const H = hechos(); let n = 0;
     const exactos = L.exactos, tot = L.n;
     $('#e8Lat').innerHTML = `
-      <div class="e8-mapa card"><div class="card-h"><h2>${esc(L.nombre)}</h2><span class="muted small">${tot} cables · ${exactos === tot ? 'todos con el punto del borne' : `${exactos} de ${tot} con el punto del borne`}${L.sin_canaletas ? ' · sin canaletas leídas: no hay recorrido' : ''}</span></div>
+      <div class="e8-mapa card"><div class="card-h"><h2>${esc(L.nombre)}</h2><span class="muted small">${tot} cables · ${exactos === tot ? 'todos con el punto del borne' : `${exactos} de ${tot} con el punto del borne`}${L.sin_canaletas ? ' · sin canaletas leídas: no hay recorrido' : ''}${L.sin_riel ? ' · sin riel dibujado: aparato por aparato' : ''}</span></div>
         <svg class="tsvg" id="e8Mapa" viewBox="${vbOf(L.region).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}
           ${flat(L).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false })).join('')}<g id="e8Sel"></g></svg>
         <p class="muted small">Pasá el mouse por un cable de la lista para verlo en la bandeja. Los cables que vienen de la bandeja principal ya están tirados desde E6: acá se conecta la punta de la lateral.</p></div>

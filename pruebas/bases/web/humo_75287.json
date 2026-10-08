@@ -1286,7 +1286,28 @@
    "hechos": [],
    "laterales": [
     {
-     "ductos": [],
+     "ductos": [
+      {
+       "b": [
+        208.2,
+        521.7,
+        371.5,
+        550.2
+       ],
+       "ex": false,
+       "h": true
+      },
+      {
+       "b": [
+        208.2,
+        433.0,
+        371.5,
+        461.4
+       ],
+       "ex": false,
+       "h": true
+      }
+     ],
      "escala": 1.4086,
      "exactos": 0,
      "lado": "LI",
@@ -1309,17 +1330,30 @@
           "12"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 280,
          "marca_o": [
           232.6,
-          584.1,
+          584.11,
           null
          ],
          "num": "1111",
          "origen": "12XPS 1 ABAJO",
          "otra": "bandeja principal",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           232.6,
+           584.1
+          ],
+          [
+           232.6,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -1335,17 +1369,30 @@
           "12"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 280,
          "marca_o": [
-          236.1,
-          584.1,
+          236.09,
+          584.11,
           null
          ],
          "num": "1110",
          "origen": "12XPS 2 ABAJO",
          "otra": "bandeja principal",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           236.1,
+           584.1
+          ],
+          [
+           236.1,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -1360,17 +1407,30 @@
           "12"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 270,
          "marca_o": [
-          239.6,
-          584.1,
+          239.59,
+          584.11,
           null
          ],
          "num": "1201",
          "origen": "12XPS 3 ABAJO",
          "otra": "bandeja principal",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           239.6,
+           584.1
+          ],
+          [
+           239.6,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "4",
          "viene_de_e6": true
         },
@@ -1385,17 +1445,30 @@
           "12"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 270,
          "marca_o": [
-          243.1,
-          584.1,
+          243.08,
+          584.11,
           null
          ],
          "num": "1205",
          "origen": "12XPS 4 ABAJO",
          "otra": "bandeja principal",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           243.1,
+           584.1
+          ],
+          [
+           243.1,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "4",
          "viene_de_e6": true
         },
@@ -1411,17 +1484,30 @@
           "13"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 260,
          "marca_o": [
-          246.6,
-          584.1,
+          246.58,
+          584.11,
           null
          ],
          "num": "1206",
          "origen": "12XPS 5 ABAJO",
          "otra": "bandeja principal",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           246.6,
+           584.1
+          ],
+          [
+           246.6,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "4",
          "viene_de_e6": true
         },
@@ -1437,17 +1523,30 @@
           "13"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 260,
          "marca_o": [
-          250.1,
-          584.1,
+          250.07,
+          584.11,
           null
          ],
          "num": "1203",
          "origen": "12XPS 6 ABAJO",
          "otra": "bandeja principal",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           250.1,
+           584.1
+          ],
+          [
+           250.1,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "4",
          "viene_de_e6": true
         },
@@ -1463,17 +1562,30 @@
           "81"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 250,
          "marca_o": [
-          253.6,
-          584.1,
+          253.57,
+          584.11,
           null
          ],
          "num": "2135",
          "origen": "12XPS 7 ABAJO",
          "otra": "bandeja principal",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           253.6,
+           584.1
+          ],
+          [
+           253.6,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "0.32",
          "viene_de_e6": true
         },
@@ -1489,17 +1601,30 @@
           "81"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 250,
          "marca_o": [
-          253.6,
-          584.1,
+          253.57,
+          584.11,
           null
          ],
          "num": "2135",
          "origen": "12XPS 7 ABAJO",
          "otra": "puerta / placa",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           253.6,
+           584.1
+          ],
+          [
+           253.6,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "0.32"
         },
         {
@@ -1514,17 +1639,30 @@
           "81"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 250,
          "marca_o": [
-          257.1,
-          584.1,
+          257.07,
+          584.11,
           null
          ],
          "num": "2136",
          "origen": "12XPS 8 ABAJO",
          "otra": "bandeja principal",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           257.1,
+           584.1
+          ],
+          [
+           257.1,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "0.32",
          "viene_de_e6": true
         },
@@ -1540,17 +1678,30 @@
           "81"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 250,
          "marca_o": [
-          257.1,
-          584.1,
+          257.07,
+          584.11,
           null
          ],
          "num": "2136",
          "origen": "12XPS 8 ABAJO",
          "otra": "puerta / placa",
          "riel": 1,
-         "ruta": null,
+         "ruta": [
+          [
+           257.1,
+           584.1
+          ],
+          [
+           257.1,
+           536.0
+          ],
+          [
+           383.5,
+           536.0
+          ]
+         ],
          "secc": "0.32"
         }
        ],
@@ -1572,17 +1723,30 @@
           "11"
          ],
          "lado": "arriba",
-         "largo_mm": null,
+         "largo_mm": 270,
          "marca_o": [
           237.9,
-          380.3,
+          404.29,
           null
          ],
          "num": "1104",
          "origen": "11MS1 ARRIBA",
          "otra": "bandeja principal",
          "riel": 2,
-         "ruta": null,
+         "ruta": [
+          [
+           237.9,
+           404.3
+          ],
+          [
+           237.9,
+           447.2
+          ],
+          [
+           383.5,
+           447.2
+          ]
+         ],
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -1597,17 +1761,30 @@
           "11"
          ],
          "lado": "arriba",
-         "largo_mm": null,
+         "largo_mm": 270,
          "marca_o": [
           237.9,
-          380.3,
+          404.29,
           null
          ],
          "num": "1105",
          "origen": "11MS1 ARRIBA",
          "otra": "bandeja principal",
          "riel": 2,
-         "ruta": null,
+         "ruta": [
+          [
+           237.9,
+           404.3
+          ],
+          [
+           237.9,
+           447.2
+          ],
+          [
+           383.5,
+           447.2
+          ]
+         ],
          "secc": "2.5",
          "viene_de_e6": true
         }
@@ -1631,22 +1808,39 @@
           "11"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 270,
          "marca_d": [
           237.9,
-          380.3,
+          380.31,
           null
          ],
          "marca_o": [
           280.2,
-          365.4,
+          365.41,
           null
          ],
          "num": "1101",
          "origen": "11XP 1 ABAJO",
          "otra": "misma bandeja",
          "riel": 2,
-         "ruta": null,
+         "ruta": [
+          [
+           280.2,
+           365.4
+          ],
+          [
+           280.2,
+           447.2
+          ],
+          [
+           237.9,
+           447.2
+          ],
+          [
+           237.9,
+           380.3
+          ]
+         ],
          "secc": "2.5"
         },
         {
@@ -1661,22 +1855,39 @@
           "11"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 270,
          "marca_d": [
           237.9,
-          380.3,
+          380.31,
           null
          ],
          "marca_o": [
-          283.7,
-          365.4,
+          283.69,
+          365.41,
           null
          ],
          "num": "1102",
          "origen": "11XP 2 ABAJO",
          "otra": "misma bandeja",
          "riel": 2,
-         "ruta": null,
+         "ruta": [
+          [
+           283.7,
+           365.4
+          ],
+          [
+           283.7,
+           447.2
+          ],
+          [
+           237.9,
+           447.2
+          ],
+          [
+           237.9,
+           380.3
+          ]
+         ],
          "secc": "2.5"
         },
         {
@@ -1690,17 +1901,30 @@
           "11"
          ],
          "lado": "abajo",
-         "largo_mm": null,
+         "largo_mm": 250,
          "marca_o": [
-          287.2,
-          365.4,
+          287.19,
+          365.41,
           null
          ],
          "num": "1103",
          "origen": "11XP 3 ABAJO",
          "otra": "puerta / placa",
          "riel": 2,
-         "ruta": null,
+         "ruta": [
+          [
+           287.2,
+           365.4
+          ],
+          [
+           287.2,
+           447.2
+          ],
+          [
+           383.5,
+           447.2
+          ]
+         ],
          "secc": "2.5"
         }
        ],
@@ -1709,21 +1933,29 @@
        "titulo": "Riel 2 · parte de abajo · 11XP"
       }
      ],
+     "placa": [
+      179.8,
+      170.4,
+      399.9,
+      745.4
+     ],
      "region": [
-      148.79,
-      274.53,
-      430.96,
-      697.51
+      167.42,
+      158.02,
+      412.28,
+      757.78
      ],
      "rieles": [
       595.9,
       376.1
      ],
-     "sin_canaletas": true,
+     "sin_canaletas": false,
+     "sin_riel": false,
+     "titulo": null,
      "vista": 1
     }
    ],
-   "version": 1
+   "version": 2
   },
   "estacion_auto": {
    "estacion": "E8",
