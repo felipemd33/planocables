@@ -171,6 +171,7 @@
         <div class="ins-bar">
           <div class="seg" id="e8Vistas" role="tablist" aria-label="Vista de la estación 8"></div>
           <button class="btn primary" id="e8Cablear" title="Visor a pantalla completa: un cable por vez en la bandeja lateral">▶ Cablear de a uno</button>
+          <button class="btn sm" id="e8Entrada" title="Por dónde entran a la bandeja lateral los cables que vienen de la bandeja principal, por dónde salen los que van a la puerta y el lado de la bisagra (S)">🧭 Entrada / salida</button>
           <button class="btn sm" id="e8Print">🖨 Imprimir / PDF</button>
           <span class="grow"></span>
         </div>
@@ -295,6 +296,7 @@
     <button class="icon" id="e8vFocus" aria-label="Centrar en el cable" title="Centrar en el cable (F)">⌖</button>
     <button class="icon" id="e8vFit" aria-label="Ver toda la bandeja" title="Toda la bandeja (0)">⤢</button>
     <button class="btn ghost sm swap" id="e8vPlano" title="Ver este cable en el plano eléctrico (funcional)">⚡ Funcional</button>
+    <button class="btn ghost sm" id="e8vEntrada" title="Por dónde entran y salen los cables de esta bandeja lateral (S)">🧭 Entrada</button>
     <button class="icon" id="e8vClose" aria-label="Cerrar">✕</button>
   </div>
   <div class="bar thin cv-bar"><i id="e8vBar"></i></div>
@@ -311,7 +313,33 @@
         <div class="cv-lupa ori"><b id="e8vLupaOt">Borne</b><svg id="e8vLupaO" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
         <div class="cv-lupa des" id="e8vLupaDw"><b id="e8vLupaDt">Destino</b><svg id="e8vLupaD" class="tsvg" preserveAspectRatio="xMidYMid meet"></svg></div>
       </div>
-      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
+      <div class="v-hint muted small">→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · L: listado · S: entrada / salida · Rueda: zoom · Arrastrar: mover · F: centrar · 0: toda la bandeja · Esc: cerrar</div>
+    </div>
+  </div>
+</div>
+
+<!-- ESTACION 8: ENTRADA / SALIDA de cada bandeja lateral y lado de la BISAGRA de la puerta (asistente la primera vez) -->
+<div class="viewer salv" id="e8sViewer" hidden>
+  <div class="v-top">
+    <div class="v-title"><span id="e8sTit">🧭 Entrada / salida</span><span class="muted small">Por dónde entran a la bandeja lateral los cables que vienen de la bandeja principal y, en la lateral del lado de la bisagra, por dónde salen los que siguen a la puerta.</span></div>
+    <div class="seg" id="e8sLats" role="tablist" aria-label="Bandeja lateral"></div>
+    <button class="icon" id="e8sFit" aria-label="Ver toda la bandeja lateral" title="Toda la bandeja lateral (0)">⤢</button>
+    <button class="btn ghost sm swap" id="e8sVolver" title="Volver al visor de cablear de a uno">▶ Volver al visor</button>
+    <button class="icon" id="e8sClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="v-body">
+    <aside class="v-side sal-side">
+      <div class="sal-asis" id="e8sAsis" hidden></div>
+      <div class="sal-grupos" id="e8sGrupos"></div>
+      <div class="vs-h">
+        <input id="e8sQ" type="search" placeholder="Buscar cable o aparato…" autocomplete="off" aria-label="Buscar cable">
+        <div class="vs-info muted small"><span id="e8sCnt"></span></div>
+        <div class="small" id="e8sListAct" hidden><button class="linkbtn" id="e8sTodos">Sumar los de la lista</button> · <button class="linkbtn" id="e8sNinguno">Sacar los de la lista</button></div>
+      </div>
+      <div class="vs-list" id="e8sList" aria-label="Cables que entran o salen de la bandeja lateral"></div>
+    </aside>
+    <div class="stage cv-stage"><svg id="e8sSvg" class="tsvg sal-svg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="v-hint muted small" id="e8sHint"></div>
     </div>
   </div>
 </div>

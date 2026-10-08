@@ -8745,7 +8745,7 @@
   "lado_fisico": []
  },
  "estacion8": {
-  "version": 2,
+  "version": 3,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",
@@ -9315,7 +9315,8 @@
           454.7
          ]
         ],
-        "largo_mm": 360
+        "largo_mm": 360,
+        "sale": "entrada"
        },
        {
         "num": "1161",
@@ -9354,7 +9355,8 @@
           454.7
          ]
         ],
-        "largo_mm": 360
+        "largo_mm": 360,
+        "sale": "entrada"
        },
        {
         "num": "1201",
@@ -9392,7 +9394,8 @@
           454.7
          ]
         ],
-        "largo_mm": 350
+        "largo_mm": 350,
+        "sale": "entrada"
        },
        {
         "num": "1206",
@@ -9429,7 +9432,8 @@
           454.7
          ]
         ],
-        "largo_mm": 340
+        "largo_mm": 340,
+        "sale": "entrada"
        },
        {
         "num": "1232",
@@ -9468,7 +9472,8 @@
           454.7
          ]
         ],
-        "largo_mm": 330
+        "largo_mm": 330,
+        "sale": "entrada"
        },
        {
         "num": "1230",
@@ -9507,7 +9512,8 @@
           454.7
          ]
         ],
-        "largo_mm": 320
+        "largo_mm": 320,
+        "sale": "entrada"
        },
        {
         "num": "1231",
@@ -9545,7 +9551,8 @@
           454.7
          ]
         ],
-        "largo_mm": 320
+        "largo_mm": 320,
+        "sale": "entrada"
        },
        {
         "num": "2135",
@@ -9568,6 +9575,7 @@
         "componente": "12XPS",
         "destino": "21PCB01 35",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           282.6,
@@ -9582,7 +9590,8 @@
           454.7
          ]
         ],
-        "largo_mm": 310
+        "largo_mm": 310,
+        "sale": "entrada"
        },
        {
         "num": "2135",
@@ -9620,7 +9629,8 @@
           454.7
          ]
         ],
-        "largo_mm": 310
+        "largo_mm": 310,
+        "sale": "entrada"
        },
        {
         "num": "2136",
@@ -9643,6 +9653,7 @@
         "componente": "12XPS",
         "destino": "21PCB01 36",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           288.4,
@@ -9657,7 +9668,8 @@
           454.7
          ]
         ],
-        "largo_mm": 300
+        "largo_mm": 300,
+        "sale": "entrada"
        },
        {
         "num": "2136",
@@ -9695,7 +9707,8 @@
           454.7
          ]
         ],
-        "largo_mm": 300
+        "largo_mm": 300,
+        "sale": "entrada"
        }
       ],
       "n": 2,
@@ -9726,6 +9739,7 @@
         "componente": "11Q1",
         "destino": "11MS1 4/T2",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           237.3,
@@ -9740,7 +9754,8 @@
           454.7
          ]
         ],
-        "largo_mm": 350
+        "largo_mm": 350,
+        "sale": "entrada"
        },
        {
         "num": "1154",
@@ -9763,6 +9778,7 @@
         "componente": "11Q1",
         "destino": "11MS1 2/T1",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           249.9,
@@ -9777,7 +9793,8 @@
           454.7
          ]
         ],
-        "largo_mm": 330
+        "largo_mm": 330,
+        "sale": "entrada"
        },
        {
         "num": "1101",
@@ -9800,6 +9817,7 @@
         "componente": "11XPVAC",
         "destino": "11MS1 1/L1",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           354.3,
@@ -9814,7 +9832,8 @@
           454.7
          ]
         ],
-        "largo_mm": 200
+        "largo_mm": 200,
+        "sale": "entrada"
        },
        {
         "num": "1102",
@@ -9837,6 +9856,7 @@
         "componente": "11XPVAC",
         "destino": "11MS1 3/L2",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           360.1,
@@ -9851,7 +9871,8 @@
           454.7
          ]
         ],
-        "largo_mm": 190
+        "largo_mm": 190,
+        "sale": "entrada"
        },
        {
         "num": "1185",
@@ -9889,7 +9910,8 @@
           454.7
          ]
         ],
-        "largo_mm": 150
+        "largo_mm": 150,
+        "sale": "entrada"
        },
        {
         "num": "1186",
@@ -9927,7 +9949,8 @@
           454.7
          ]
         ],
-        "largo_mm": 140
+        "largo_mm": 140,
+        "sale": "entrada"
        },
        {
         "num": "1183",
@@ -9965,7 +9988,8 @@
           454.7
          ]
         ],
-        "largo_mm": 160
+        "largo_mm": 160,
+        "sale": "entrada"
        },
        {
         "num": "1184",
@@ -10003,7 +10027,8 @@
           454.7
          ]
         ],
-        "largo_mm": 150
+        "largo_mm": 150,
+        "sale": "entrada"
        }
       ],
       "n": 3,
@@ -10373,7 +10398,15 @@
      722.98
     ],
     "titulo": "BANDEJA LATERAL IZQUIERDA",
-    "sin_riel": false
+    "sin_riel": false,
+    "clave_vista": "LI|bandeja lateral izquierda",
+    "hacia": "der",
+    "bisagra": false,
+    "entrada_propuesta": [
+     438.4,
+     454.7
+    ],
+    "puerta_propuesta": null
    }
   ],
   "afuera": [
@@ -11889,7 +11922,13 @@
   ],
   "campo": 19,
   "avisos": [],
-  "hechos": []
+  "hechos": [],
+  "recorridos": {
+   "preguntar": true,
+   "bisagra": null,
+   "vistas": {}
+  },
+  "bisagra_propuesta": "izq"
  },
  "estaciones": {},
  "estacion": "E6",

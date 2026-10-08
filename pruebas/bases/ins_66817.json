@@ -4639,7 +4639,7 @@
   ]
  },
  "estacion8": {
-  "version": 2,
+  "version": 3,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",
@@ -4717,7 +4717,8 @@
           531.4
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 270,
+        "sale": "entrada"
        },
        {
         "num": "1201",
@@ -4755,7 +4756,8 @@
           531.4
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 270,
+        "sale": "entrada"
        },
        {
         "num": "1102",
@@ -4793,7 +4795,8 @@
           531.4
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 270,
+        "sale": "entrada"
        },
        {
         "num": "1202",
@@ -4831,7 +4834,8 @@
           531.4
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 270,
+        "sale": "entrada"
        }
       ],
       "n": 1,
@@ -4876,7 +4880,8 @@
           531.4
          ]
         ],
-        "largo_mm": 510
+        "largo_mm": 510,
+        "sale": "entrada"
        },
        {
         "num": "1204",
@@ -4914,7 +4919,8 @@
           531.4
          ]
         ],
-        "largo_mm": 510
+        "largo_mm": 510,
+        "sale": "entrada"
        },
        {
         "num": "1205",
@@ -4937,6 +4943,7 @@
         "componente": "12PB1",
         "destino": "BH-01-M",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           225.2,
@@ -4955,7 +4962,8 @@
           531.4
          ]
         ],
-        "largo_mm": 510
+        "largo_mm": 510,
+        "sale": "entrada"
        },
        {
         "num": "1205",
@@ -4997,7 +5005,8 @@
           531.4
          ]
         ],
-        "largo_mm": 510
+        "largo_mm": 510,
+        "sale": "entrada"
        }
       ],
       "n": 2,
@@ -5014,7 +5023,15 @@
      644.7
     ],
     "titulo": "VISTA LATERAL IZQUIERDA INTERIOR",
-    "sin_riel": true
+    "sin_riel": true,
+    "clave_vista": "LI|vista lateral izquierda interior",
+    "hacia": "der",
+    "bisagra": false,
+    "entrada_propuesta": [
+     291.2,
+     531.4
+    ],
+    "puerta_propuesta": null
    },
    {
     "nombre": "Bandeja lateral derecha",
@@ -5092,7 +5109,8 @@
           554.0
          ]
         ],
-        "largo_mm": 220
+        "largo_mm": 220,
+        "sale": "entrada"
        },
        {
         "num": "1216",
@@ -5130,7 +5148,8 @@
           554.0
          ]
         ],
-        "largo_mm": 190
+        "largo_mm": 190,
+        "sale": "entrada"
        }
       ],
       "n": 1,
@@ -5162,6 +5181,7 @@
         "componente": "81XCM",
         "destino": "21PCB01 35",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           1020.7,
@@ -5176,7 +5196,8 @@
           554.0
          ]
         ],
-        "largo_mm": 170
+        "largo_mm": 170,
+        "sale": "entrada"
        },
        {
         "num": "8102",
@@ -5200,6 +5221,7 @@
         "componente": "81XCM",
         "destino": "21PCB01 36",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           1023.4,
@@ -5214,7 +5236,8 @@
           554.0
          ]
         ],
-        "largo_mm": 170
+        "largo_mm": 170,
+        "sale": "entrada"
        },
        {
         "num": "8103",
@@ -5238,6 +5261,7 @@
         "componente": "81XCM",
         "destino": "21PCB01 37",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           1026.2,
@@ -5252,7 +5276,8 @@
           554.0
          ]
         ],
-        "largo_mm": 180
+        "largo_mm": 180,
+        "sale": "entrada"
        }
       ],
       "n": 2,
@@ -5298,7 +5323,8 @@
           554.0
          ]
         ],
-        "largo_mm": 190
+        "largo_mm": 190,
+        "sale": "entrada"
        },
        {
         "num": "4306",
@@ -5336,7 +5362,8 @@
           554.0
          ]
         ],
-        "largo_mm": 200
+        "largo_mm": 200,
+        "sale": "entrada"
        }
       ],
       "n": 3,
@@ -5386,7 +5413,8 @@
           554.0
          ]
         ],
-        "largo_mm": 380
+        "largo_mm": 380,
+        "sale": "entrada"
        },
        {
         "num": "1102",
@@ -5428,7 +5456,8 @@
           554.0
          ]
         ],
-        "largo_mm": 370
+        "largo_mm": 370,
+        "sale": "entrada"
        }
       ],
       "n": 4,
@@ -5445,7 +5474,15 @@
      639.1
     ],
     "titulo": "VISTA LATERAL DERECHA INTERIOR",
-    "sin_riel": true
+    "sin_riel": true,
+    "clave_vista": "LD|vista lateral derecha interior",
+    "hacia": "izq",
+    "bisagra": false,
+    "entrada_propuesta": [
+     942.0,
+     554.0
+    ],
+    "puerta_propuesta": null
    }
   ],
   "afuera": [
@@ -6163,7 +6200,13 @@
   ],
   "campo": 0,
   "avisos": [],
-  "hechos": []
+  "hechos": [],
+  "recorridos": {
+   "preguntar": true,
+   "bisagra": null,
+   "vistas": {}
+  },
+  "bisagra_propuesta": "izq"
  },
  "estaciones": {},
  "estacion": "E6",

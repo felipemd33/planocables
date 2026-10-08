@@ -550,6 +550,19 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .e8-tab input { width: 15px; height: 15px; accent-color: var(--ok); }
 #e8Avisos .note { margin: 6px 0; }
 #e8vSvg { width: 100%; height: 100%; touch-action: none; }
+/* entrada / salida de las bandejas laterales: flecha roja como la del taller (punteada = propuesta) */
+#e8sSvg { width: 100%; height: 100%; touch-action: none; }
+#e8sSvg.pick { cursor: crosshair; }
+#e8sSvg.cab { cursor: cell; }
+#e8sSvg.drag { cursor: grabbing; }
+.e8-flecha path { fill: none; stroke: #e0261b; stroke-linecap: round; }
+.e8-flecha path.punta { fill: #e0261b; stroke: none; }
+.e8-flecha text { fill: #e0261b; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; }
+.e8-flecha.prop { opacity: .75; }
+.e8-ent { margin: 6px 0 0; }
+.e8-bisg { padding: 2px 2px 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.seg.e8-bis button { padding: 4px 10px; }
+.sal-asis .seg.e8-bis { justify-self: start; }
 @media (max-width: 900px) { .e8-lat { grid-template-columns: 1fr; } .e8-mapa { position: static; } .e8-aps { grid-template-columns: 1fr; } }
 /* producto del tablero (web/producto.js): la línea «Producto» y el diálogo para confirmarlo */
 .prod-linea { margin: 2px 0 6px; color: var(--muted); }

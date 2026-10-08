@@ -887,10 +887,13 @@
     }
    ],
    "avisos": [],
+   "bisagra_propuesta": "izq",
    "campo": 3,
    "hechos": [],
    "laterales": [
     {
+     "bisagra": false,
+     "clave_vista": "LD|vista lateral derecha interior",
      "ductos": [
       {
        "b": [
@@ -933,8 +936,13 @@
        "h": true
       }
      ],
+     "entrada_propuesta": [
+      932.8,
+      633.4
+     ],
      "escala": 1.7639,
      "exactos": 0,
+     "hacia": "izq",
      "lado": "LD",
      "n": 42,
      "nombre": "Bandeja lateral derecha",
@@ -978,6 +986,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         },
@@ -1016,6 +1025,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         },
@@ -1054,6 +1064,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         },
@@ -1261,6 +1272,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -1356,6 +1368,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -1451,6 +1464,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -1546,6 +1560,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -1657,6 +1672,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         },
@@ -1704,6 +1720,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         },
@@ -1799,6 +1816,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -1894,6 +1912,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -1989,6 +2008,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2084,6 +2104,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2131,6 +2152,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         }
@@ -2143,6 +2165,7 @@
        "lado": "arriba",
        "lineas": [
         {
+         "a_puerta": true,
          "cable": "N0.75MM",
          "clave": "2105|21PCB01 5|32XAI 1",
          "color": "Negro",
@@ -2185,6 +2208,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75"
         },
         {
@@ -2230,6 +2254,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2276,6 +2301,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2322,6 +2348,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2368,6 +2395,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2414,6 +2442,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2460,6 +2489,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2506,6 +2536,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         },
@@ -2552,6 +2583,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "0.75",
          "viene_de_e6": true
         }
@@ -2606,6 +2638,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         },
@@ -2652,10 +2685,12 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         },
         {
+         "a_puerta": true,
          "cable": "N1MM",
          "clave": "8103|21PCB01 35|81XCM 1",
          "color": "Negro",
@@ -2699,9 +2734,11 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1"
         },
         {
+         "a_puerta": true,
          "cable": "B1MM",
          "clave": "8104|21PCB01 36|81XCM 2",
          "color": "Blanco",
@@ -2745,6 +2782,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1"
         },
         {
@@ -2790,6 +2828,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         },
@@ -2836,6 +2875,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "1",
          "viene_de_e6": true
         }
@@ -2890,6 +2930,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -2936,6 +2977,7 @@
            633.4
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5",
          "viene_de_e6": true
         }
@@ -2951,6 +2993,7 @@
       1070.6,
       644.7
      ],
+     "puerta_propuesta": null,
      "region": [
       891.52,
       243.72,
@@ -2967,6 +3010,8 @@
      "vista": 1
     },
     {
+     "bisagra": false,
+     "clave_vista": "LI|vista lateral izquierda interior",
      "ductos": [
       {
        "b": [
@@ -2989,8 +3034,13 @@
        "h": false
       }
      ],
+     "entrada_propuesta": [
+      291.2,
+      531.4
+     ],
      "escala": 1.7639,
      "exactos": 0,
+     "hacia": "der",
      "lado": "LI",
      "n": 8,
      "nombre": "Bandeja lateral izquierda",
@@ -3035,6 +3085,7 @@
            531.4
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -3073,6 +3124,7 @@
            531.4
           ]
          ],
+         "sale": "entrada",
          "secc": "4",
          "viene_de_e6": true
         },
@@ -3112,6 +3164,7 @@
            531.4
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -3150,6 +3203,7 @@
            531.4
           ]
          ],
+         "sale": "entrada",
          "secc": "4",
          "viene_de_e6": true
         }
@@ -3196,6 +3250,7 @@
            531.4
           ]
          ],
+         "sale": "entrada",
          "secc": "35"
         },
         {
@@ -3233,10 +3288,12 @@
            531.4
           ]
          ],
+         "sale": "entrada",
          "secc": "4",
          "viene_de_e6": true
         },
         {
+         "a_puerta": true,
          "cable": "N35MM",
          "clave": "1206|12PB1 -|BH-01-M",
          "color": "Negro",
@@ -3275,6 +3332,7 @@
            531.4
           ]
          ],
+         "sale": "entrada",
          "secc": "35"
         },
         {
@@ -3316,6 +3374,7 @@
            531.4
           ]
          ],
+         "sale": "entrada",
          "secc": "4",
          "viene_de_e6": true
         }
@@ -3331,6 +3390,7 @@
       314.8,
       644.7
      ],
+     "puerta_propuesta": null,
      "region": [
       135.82,
       243.72,
@@ -3344,7 +3404,12 @@
      "vista": 2
     }
    ],
-   "version": 2
+   "recorridos": {
+    "bisagra": null,
+    "preguntar": true,
+    "vistas": {}
+   },
+   "version": 3
   },
   "estacion_auto": {
    "estacion": "E8",
@@ -10871,6 +10936,2103 @@
     ]
    ],
    "salida": "humo"
+  }
+ ],
+ "e8_recorridos": [
+  {
+   "bisagra": false,
+   "clave_vista": "LD|vista lateral derecha interior",
+   "entrada_propuesta": [
+    932.8,
+    633.4
+   ],
+   "lineas": [
+    {
+     "clave": "1311|13PS3 +Vo|13XC2 1.1",
+     "largo_mm": 150,
+     "no_llega": null,
+     "ruta": [
+      [
+       986.1,
+       601.3
+      ],
+      [
+       986.1,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1312|13PS3 -Vo|13XC2 2.1",
+     "largo_mm": 160,
+     "no_llega": null,
+     "ruta": [
+      [
+       988.8,
+       601.3
+      ],
+      [
+       988.8,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1319|13XC1 3.3|13XC2 2.2",
+     "largo_mm": 160,
+     "no_llega": null,
+     "ruta": [
+      [
+       988.8,
+       601.3
+      ],
+      [
+       988.8,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1604|16XC 4|33MX01 4",
+     "largo_mm": 200,
+     "no_llega": null,
+     "ruta": [
+      [
+       1011.7,
+       601.3
+      ],
+      [
+       1011.7,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1608|16XC 6|33MX01 8",
+     "largo_mm": 210,
+     "no_llega": null,
+     "ruta": [
+      [
+       1017.3,
+       601.3
+      ],
+      [
+       1017.3,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1612|16XC 8|33MX01 12",
+     "largo_mm": 220,
+     "no_llega": null,
+     "ruta": [
+      [
+       1022.8,
+       601.3
+      ],
+      [
+       1022.8,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1616|16XC 10|33MX01 16",
+     "largo_mm": 230,
+     "no_llega": null,
+     "ruta": [
+      [
+       1028.3,
+       601.3
+      ],
+      [
+       1028.3,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1315|13XC2 1.4|33MX01 V+",
+     "largo_mm": 550,
+     "no_llega": null,
+     "ruta": [
+      [
+       986.1,
+       582.3
+      ],
+      [
+       986.1,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1316|13XC2 2.4|33MX01 V-",
+     "largo_mm": 550,
+     "no_llega": null,
+     "ruta": [
+      [
+       988.8,
+       582.3
+      ],
+      [
+       988.8,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1602|16XC 2|33MX01 2",
+     "largo_mm": 520,
+     "no_llega": null,
+     "ruta": [
+      [
+       1006.2,
+       582.3
+      ],
+      [
+       1006.2,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1606|16XC 4|33MX01 6",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       1011.7,
+       582.3
+      ],
+      [
+       1011.7,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1610|16XC 6|33MX01 10",
+     "largo_mm": 500,
+     "no_llega": null,
+     "ruta": [
+      [
+       1017.3,
+       582.3
+      ],
+      [
+       1017.3,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1614|16XC 8|33MX01 14",
+     "largo_mm": 490,
+     "no_llega": null,
+     "ruta": [
+      [
+       1022.8,
+       582.3
+      ],
+      [
+       1022.8,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1617|16XC 9|31XAI F1",
+     "largo_mm": 480,
+     "no_llega": null,
+     "ruta": [
+      [
+       1025.5,
+       582.3
+      ],
+      [
+       1025.5,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2105|21PCB01 5|32XAI 1",
+     "largo_mm": 620,
+     "no_llega": null,
+     "ruta": [
+      [
+       953.4,
+       513.5
+      ],
+      [
+       953.4,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3301|33MX01 1|33XAI 1",
+     "largo_mm": 600,
+     "no_llega": null,
+     "ruta": [
+      [
+       963.7,
+       513.1
+      ],
+      [
+       963.7,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3303|33MX01 3|33XAI 2",
+     "largo_mm": 600,
+     "no_llega": null,
+     "ruta": [
+      [
+       966.4,
+       513.1
+      ],
+      [
+       966.4,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3305|33MX01 5|33XAI 3",
+     "largo_mm": 590,
+     "no_llega": null,
+     "ruta": [
+      [
+       969.2,
+       513.1
+      ],
+      [
+       969.2,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3307|33MX01 7|33XAI 4",
+     "largo_mm": 590,
+     "no_llega": null,
+     "ruta": [
+      [
+       971.9,
+       513.1
+      ],
+      [
+       971.9,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3309|33MX01 9|33XAI 5",
+     "largo_mm": 580,
+     "no_llega": null,
+     "ruta": [
+      [
+       974.7,
+       513.1
+      ],
+      [
+       974.7,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3311|33MX01 11|33XAI 6",
+     "largo_mm": 580,
+     "no_llega": null,
+     "ruta": [
+      [
+       977.5,
+       513.1
+      ],
+      [
+       977.5,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3313|33MX01 13|33XAI 7",
+     "largo_mm": 570,
+     "no_llega": null,
+     "ruta": [
+      [
+       980.2,
+       513.1
+      ],
+      [
+       980.2,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3315|33MX01 15|33XAI 8",
+     "largo_mm": 570,
+     "no_llega": null,
+     "ruta": [
+      [
+       983.0,
+       513.1
+      ],
+      [
+       983.0,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "4305|43KR1 A1|43XDI 1",
+     "largo_mm": 540,
+     "no_llega": null,
+     "ruta": [
+      [
+       998.1,
+       513.5
+      ],
+      [
+       998.1,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "4306|43KR1 A2|43XDI 2",
+     "largo_mm": 540,
+     "no_llega": null,
+     "ruta": [
+      [
+       1000.8,
+       513.5
+      ],
+      [
+       1000.8,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "8103|21PCB01 35|81XCM 1",
+     "largo_mm": 530,
+     "no_llega": null,
+     "ruta": [
+      [
+       1006.9,
+       514.2
+      ],
+      [
+       1006.9,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "8104|21PCB01 36|81XCM 2",
+     "largo_mm": 520,
+     "no_llega": null,
+     "ruta": [
+      [
+       1009.6,
+       514.2
+      ],
+      [
+       1009.6,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "8101|61KR3 11|81XCM 3",
+     "largo_mm": 520,
+     "no_llega": null,
+     "ruta": [
+      [
+       1012.4,
+       514.2
+      ],
+      [
+       1012.4,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "8102|61KR3 12|81XCM 4",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       1015.1,
+       514.2
+      ],
+      [
+       1015.1,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1104|11Q1 F|11XP 1",
+     "largo_mm": 690,
+     "no_llega": null,
+     "ruta": [
+      [
+       1024.6,
+       493.7
+      ],
+      [
+       1024.6,
+       449.0
+      ],
+      [
+       1059.2,
+       449.0
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1105|11Q1 N|11XP 2",
+     "largo_mm": 680,
+     "no_llega": null,
+     "ruta": [
+      [
+       1027.3,
+       493.7
+      ],
+      [
+       1027.3,
+       449.0
+      ],
+      [
+       1059.2,
+       449.0
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       932.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    }
+   ],
+   "no_llegan": 0,
+   "puerta_propuesta": null,
+   "vista": 0
+  },
+  {
+   "bisagra": false,
+   "clave_vista": "LI|vista lateral izquierda interior",
+   "entrada_propuesta": [
+    291.2,
+    531.4
+   ],
+   "lineas": [
+    {
+     "clave": "1108|11PS1 +|12PS2 +",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       195.1,
+       479.6
+      ],
+      [
+       195.1,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1201|12F1|12PS2 +",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       195.1,
+       479.6
+      ],
+      [
+       195.1,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1109|11PS1 -|12PS2 -",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       195.1,
+       479.6
+      ],
+      [
+       195.1,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1202|12PS2 -|12XP 2.1",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       195.1,
+       479.6
+      ],
+      [
+       195.1,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1205|12PB1 +|BH-01-ZV",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       225.2,
+       306.1
+      ],
+      [
+       225.2,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1204|12PB1 +|12XP 1.4",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       225.2,
+       306.1
+      ],
+      [
+       225.2,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1206|12PB1 -|BH-01-M",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       225.2,
+       287.1
+      ],
+      [
+       250.4,
+       392.5
+      ],
+      [
+       250.4,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1206|12PB1 -|12XP 2.4",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       225.2,
+       287.1
+      ],
+      [
+       250.4,
+       392.5
+      ],
+      [
+       250.4,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    }
+   ],
+   "no_llegan": 0,
+   "puerta_propuesta": null,
+   "vista": 1
+  }
+ ],
+ "e8_recorridos_elegidos": [
+  {
+   "bisagra": false,
+   "clave_vista": "LD|vista lateral derecha interior",
+   "entrada_propuesta": [
+    932.8,
+    633.4
+   ],
+   "lineas": [
+    {
+     "clave": "1311|13PS3 +Vo|13XC2 1.1",
+     "largo_mm": 160,
+     "no_llega": null,
+     "ruta": [
+      [
+       986.1,
+       601.3
+      ],
+      [
+       986.1,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1312|13PS3 -Vo|13XC2 2.1",
+     "largo_mm": 160,
+     "no_llega": null,
+     "ruta": [
+      [
+       988.8,
+       601.3
+      ],
+      [
+       988.8,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1319|13XC1 3.3|13XC2 2.2",
+     "largo_mm": 160,
+     "no_llega": null,
+     "ruta": [
+      [
+       988.8,
+       601.3
+      ],
+      [
+       988.8,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1604|16XC 4|33MX01 4",
+     "largo_mm": 200,
+     "no_llega": null,
+     "ruta": [
+      [
+       1011.7,
+       601.3
+      ],
+      [
+       1011.7,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1608|16XC 6|33MX01 8",
+     "largo_mm": 210,
+     "no_llega": null,
+     "ruta": [
+      [
+       1017.3,
+       601.3
+      ],
+      [
+       1017.3,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1612|16XC 8|33MX01 12",
+     "largo_mm": 220,
+     "no_llega": null,
+     "ruta": [
+      [
+       1022.8,
+       601.3
+      ],
+      [
+       1022.8,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1616|16XC 10|33MX01 16",
+     "largo_mm": 230,
+     "no_llega": null,
+     "ruta": [
+      [
+       1028.3,
+       601.3
+      ],
+      [
+       1028.3,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1315|13XC2 1.4|33MX01 V+",
+     "largo_mm": 560,
+     "no_llega": null,
+     "ruta": [
+      [
+       986.1,
+       582.3
+      ],
+      [
+       986.1,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1316|13XC2 2.4|33MX01 V-",
+     "largo_mm": 550,
+     "no_llega": null,
+     "ruta": [
+      [
+       988.8,
+       582.3
+      ],
+      [
+       988.8,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1602|16XC 2|33MX01 2",
+     "largo_mm": 520,
+     "no_llega": null,
+     "ruta": [
+      [
+       1006.2,
+       582.3
+      ],
+      [
+       1006.2,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1606|16XC 4|33MX01 6",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       1011.7,
+       582.3
+      ],
+      [
+       1011.7,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1610|16XC 6|33MX01 10",
+     "largo_mm": 500,
+     "no_llega": null,
+     "ruta": [
+      [
+       1017.3,
+       582.3
+      ],
+      [
+       1017.3,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1614|16XC 8|33MX01 14",
+     "largo_mm": 490,
+     "no_llega": null,
+     "ruta": [
+      [
+       1022.8,
+       582.3
+      ],
+      [
+       1022.8,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1617|16XC 9|31XAI F1",
+     "largo_mm": 490,
+     "no_llega": null,
+     "ruta": [
+      [
+       1025.5,
+       582.3
+      ],
+      [
+       1025.5,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2105|21PCB01 5|32XAI 1",
+     "largo_mm": 630,
+     "no_llega": null,
+     "ruta": [
+      [
+       953.4,
+       513.5
+      ],
+      [
+       953.4,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3301|33MX01 1|33XAI 1",
+     "largo_mm": 610,
+     "no_llega": null,
+     "ruta": [
+      [
+       963.7,
+       513.1
+      ],
+      [
+       963.7,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3303|33MX01 3|33XAI 2",
+     "largo_mm": 610,
+     "no_llega": null,
+     "ruta": [
+      [
+       966.4,
+       513.1
+      ],
+      [
+       966.4,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3305|33MX01 5|33XAI 3",
+     "largo_mm": 600,
+     "no_llega": null,
+     "ruta": [
+      [
+       969.2,
+       513.1
+      ],
+      [
+       969.2,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3307|33MX01 7|33XAI 4",
+     "largo_mm": 600,
+     "no_llega": null,
+     "ruta": [
+      [
+       971.9,
+       513.1
+      ],
+      [
+       971.9,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3309|33MX01 9|33XAI 5",
+     "largo_mm": 590,
+     "no_llega": null,
+     "ruta": [
+      [
+       974.7,
+       513.1
+      ],
+      [
+       974.7,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3311|33MX01 11|33XAI 6",
+     "largo_mm": 590,
+     "no_llega": null,
+     "ruta": [
+      [
+       977.5,
+       513.1
+      ],
+      [
+       977.5,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3313|33MX01 13|33XAI 7",
+     "largo_mm": 580,
+     "no_llega": null,
+     "ruta": [
+      [
+       980.2,
+       513.1
+      ],
+      [
+       980.2,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "3315|33MX01 15|33XAI 8",
+     "largo_mm": 580,
+     "no_llega": null,
+     "ruta": [
+      [
+       983.0,
+       513.1
+      ],
+      [
+       983.0,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "4305|43KR1 A1|43XDI 1",
+     "largo_mm": 550,
+     "no_llega": null,
+     "ruta": [
+      [
+       998.1,
+       513.5
+      ],
+      [
+       998.1,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "4306|43KR1 A2|43XDI 2",
+     "largo_mm": 540,
+     "no_llega": null,
+     "ruta": [
+      [
+       1000.8,
+       513.5
+      ],
+      [
+       1000.8,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "8103|21PCB01 35|81XCM 1",
+     "largo_mm": 530,
+     "no_llega": null,
+     "ruta": [
+      [
+       1006.9,
+       514.2
+      ],
+      [
+       1006.9,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "8104|21PCB01 36|81XCM 2",
+     "largo_mm": 530,
+     "no_llega": null,
+     "ruta": [
+      [
+       1009.6,
+       514.2
+      ],
+      [
+       1009.6,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "8101|61KR3 11|81XCM 3",
+     "largo_mm": 520,
+     "no_llega": null,
+     "ruta": [
+      [
+       1012.4,
+       514.2
+      ],
+      [
+       1012.4,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "8102|61KR3 12|81XCM 4",
+     "largo_mm": 520,
+     "no_llega": null,
+     "ruta": [
+      [
+       1015.1,
+       514.2
+      ],
+      [
+       1015.1,
+       551.2
+      ],
+      [
+       1059.2,
+       551.2
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1104|11Q1 F|11XP 1",
+     "largo_mm": 700,
+     "no_llega": null,
+     "ruta": [
+      [
+       1024.6,
+       493.7
+      ],
+      [
+       1024.6,
+       449.0
+      ],
+      [
+       1059.2,
+       449.0
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1105|11Q1 N|11XP 2",
+     "largo_mm": 690,
+     "no_llega": null,
+     "ruta": [
+      [
+       1027.3,
+       493.7
+      ],
+      [
+       1027.3,
+       449.0
+      ],
+      [
+       1059.2,
+       449.0
+      ],
+      [
+       1059.2,
+       633.4
+      ],
+      [
+       928.8,
+       633.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    }
+   ],
+   "no_llegan": 0,
+   "puerta_propuesta": null,
+   "vista": 0
+  },
+  {
+   "bisagra": true,
+   "clave_vista": "LI|vista lateral izquierda interior",
+   "entrada_propuesta": [
+    291.2,
+    531.4
+   ],
+   "lineas": [
+    {
+     "clave": "1108|11PS1 +|12PS2 +",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       195.1,
+       479.6
+      ],
+      [
+       195.1,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1201|12F1|12PS2 +",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       195.1,
+       479.6
+      ],
+      [
+       195.1,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1109|11PS1 -|12PS2 -",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       195.1,
+       479.6
+      ],
+      [
+       195.1,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1202|12PS2 -|12XP 2.1",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       195.1,
+       479.6
+      ],
+      [
+       195.1,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1205|12PB1 +|BH-01-ZV",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       225.2,
+       306.1
+      ],
+      [
+       225.2,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1204|12PB1 +|12XP 1.4",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       225.2,
+       306.1
+      ],
+      [
+       225.2,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1206|12PB1 -|BH-01-M",
+     "largo_mm": 640,
+     "no_llega": null,
+     "ruta": [
+      [
+       225.2,
+       287.1
+      ],
+      [
+       250.4,
+       392.5
+      ],
+      [
+       250.4,
+       531.4
+      ],
+      [
+       136.1,
+       531.4
+      ]
+     ],
+     "sale": "puerta",
+     "salida": null
+    },
+    {
+     "clave": "1206|12PB1 -|12XP 2.4",
+     "largo_mm": 510,
+     "no_llega": null,
+     "ruta": [
+      [
+       225.2,
+       287.1
+      ],
+      [
+       250.4,
+       392.5
+      ],
+      [
+       250.4,
+       531.4
+      ],
+      [
+       291.2,
+       531.4
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    }
+   ],
+   "no_llegan": 0,
+   "puerta_propuesta": [
+    136.1,
+    531.4
+   ],
+   "vista": 1
   }
  ],
  "proyector": {

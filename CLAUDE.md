@@ -91,6 +91,24 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     lado de `side_of` (como E6) y medidas escaladas con kr. Un cable de una lateral a la otra sale en las dos (misma
     marca); con canaletas partidas sale por la horizontal de su parte de la red. Cambian los largos de la WPC de los
     cables a las laterales (decisión del taller: directo; tabla en `pruebas/bases/wpc/cambios_e8.md`).
+  - **Etapa E8-2 «entrada a las laterales y bisagra» (2026-10-08, decisiones del taller):** la bisagra de la puerta
+    depende del producto (se elige una vez por trabajo) y la entrada a cada lateral se pregunta la primera vez. Dato:
+    `ins['estacion8']['recorridos'] = {preguntar, bisagra: 'izq'|'der'|None, vistas: {<clave_vista>: {entrada, puerta,
+    grupos: [{id, nombre, cables, puntos}]}}}` (clave estable = lado + título normalizado, `estacion8.clave_vista`).
+    Se conserva al regenerar (`lay['recorridos_e8']`, después de `instructivo.build`) y un topográfico nuevo lo borra y
+    pone `preguntar` (la primera vez también). Ruteo (`estacion8.rutear_lineas`): manda un grupo de cables elegidos;
+    en la lateral del lado de la bisagra los que siguen a la puerta (`a_puerta` = la otra punta es de «puerta / placa» y
+    su aparato NO está dibujado en el topográfico) salen por `puerta` (o la propuesta: la regla del taller por el borde
+    del lado de la puerta); el resto (de E6, de la otra lateral, del fondo; y los de la otra lateral que van a la
+    puerta: cruzan el fondo) por `entrada` (o la propuesta: a la altura de la salida de E6 del mismo lado si las vistas
+    están alineadas en la hoja y hay canaleta a esa altura; si no, `li_exit` del lado del fondo). Sin bisagra elegida no
+    hay salida a la puerta. Si lo elegido no llega por las canaletas, sale por la propuesta (`no_llega`, con aviso).
+    Vista previa: `POST /api/trabajo/<id>/e8/recorridos` (`estacion8.rutear_guardado`, sin rearmar). Pantalla: asistente
+    (bisagra con la propuesta `BISAGRA_PROPUESTA` = izquierda, como el TPT; después la entrada de cada lateral con la
+    flecha roja de la propuesta y clics sobre el dibujo: «Usar la propuesta», «Siguiente», «Listo») y botón
+    «🧭 Entrada / salida» (tecla S, también en el visor) con la bisagra, los grupos y un grupo de cables elegidos. Sin
+    elegir, las rutas son las de E8-1 (`e8_*` igual salvo las claves nuevas) y la WPC no cambia; elegir la entrada SÍ
+    cambia el largo de la WPC de los cables a esa lateral (canaleta de la lateral).
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -193,7 +211,9 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   `pruebas/trabajos/tpt_constructivo`, con `--relayout`. E6 tiene que dar como `pruebas/bases/base_tpt_constructivo.json`
   (83 líneas, 16 pendientes, 0 sueltos; sacada con el código de d12fa6d). Está en la batería y en los golden de la WPC.
 - E8: `python pruebas/probar_e8.py` (arma la E8 de tpt_constructivo, tpt, 66817, 75287 y PAE y mira lo esperado de cada
-  etapa, y que E6 dé igual que `pruebas/bases`; `--bases pruebas/bases` solo mira los `e8_*.json`) tiene que dar TODO OK.
+  etapa, y que E6 dé igual que `pruebas/bases`; desde E8-2 además la vista previa de la entrada / bisagra / grupos y que
+  regenerar conserve lo elegido y un topográfico nuevo lo borre; `--bases pruebas/bases` solo mira los `e8_*.json` y la
+  vista previa sobre los `ins_*.json`) tiene que dar TODO OK.
   Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.
 
 ## Productos trabajados
@@ -251,10 +271,12 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 ## Pendientes
 
 - **Corrección del lector del funcional con el TPT** (2026-10-02): ver "Estado".
-- **Visor de E8 (2026-10-08), lo que sigue después de la etapa E8-1:** entrada / salida de cada lateral a mano (asistente
-  la primera vez, lado de la bisagra por trabajo, botón «Entrada / salida»); cargador con WAGO (por el empalme dibujado
-  en el funcional, punta pelada; RS-485 de 3 = «empalme de 3, a confirmar»); hoja de la puerta. Para confirmar: en la WPC
-  un cable de una lateral a la otra (66817: 1101 / 1102) toma la canaleta de una sola lateral.
+- **Visor de E8 (2026-10-08), lo que sigue después de la etapa E8-2:** cargador con WAGO (por el empalme dibujado en el
+  funcional, punta pelada; RS-485 de 3 = «empalme de 3, a confirmar»); hoja de la puerta (con ella, «sigue a la puerta»
+  pasa a ser «está en la hoja de la puerta»: hoy es «no está dibujado en el topográfico», y en el TPT / 66817 el 1206 /
+  1205 a BH-01-M, que no está dibujado, sale hacia la puerta con la bisagra de ese lado; se corrige con un grupo de
+  cables elegidos). Para confirmar: en la WPC un cable de una lateral a la otra (66817: 1101 / 1102) toma la canaleta de
+  una sola lateral.
 - **EPLAN (PAE), para confirmar con el usuario:**
   - el neutro es **celeste**: la regla de ruteo «marrón y blanco salen a LI por abajo» separa L (marrón, abajo) de N
     (celeste, arriba); ¿sumar celeste a la regla?;

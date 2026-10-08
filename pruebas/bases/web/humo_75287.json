@@ -1282,10 +1282,13 @@
     }
    ],
    "avisos": [],
+   "bisagra_propuesta": "izq",
    "campo": 0,
    "hechos": [],
    "laterales": [
     {
+     "bisagra": false,
+     "clave_vista": "LI|",
      "ductos": [
       {
        "b": [
@@ -1308,8 +1311,13 @@
        "h": true
       }
      ],
+     "entrada_propuesta": [
+      383.5,
+      536.0
+     ],
      "escala": 1.4086,
      "exactos": 0,
+     "hacia": "der",
      "lado": "LI",
      "n": 15,
      "nombre": "Bandeja lateral izquierda",
@@ -1354,6 +1362,7 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -1393,6 +1402,7 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -1431,6 +1441,7 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "4",
          "viene_de_e6": true
         },
@@ -1469,6 +1480,7 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "4",
          "viene_de_e6": true
         },
@@ -1508,6 +1520,7 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "4",
          "viene_de_e6": true
         },
@@ -1547,6 +1560,7 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "4",
          "viene_de_e6": true
         },
@@ -1586,10 +1600,12 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "0.32",
          "viene_de_e6": true
         },
         {
+         "a_puerta": true,
          "cable": "B0.32MM",
          "clave": "2135|12XPS 7|21PCB01 35",
          "color": "Blanco",
@@ -1625,6 +1641,7 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "0.32"
         },
         {
@@ -1663,10 +1680,12 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "0.32",
          "viene_de_e6": true
         },
         {
+         "a_puerta": true,
          "cable": "A0.32MM",
          "clave": "2136|12XPS 8|21PCB01 36",
          "color": "Azul",
@@ -1702,6 +1721,7 @@
            536.0
           ]
          ],
+         "sale": "entrada",
          "secc": "0.32"
         }
        ],
@@ -1747,6 +1767,7 @@
            447.2
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5",
          "viene_de_e6": true
         },
@@ -1785,6 +1806,7 @@
            447.2
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5",
          "viene_de_e6": true
         }
@@ -1925,6 +1947,7 @@
            447.2
           ]
          ],
+         "sale": "entrada",
          "secc": "2.5"
         }
        ],
@@ -1939,6 +1962,7 @@
       399.9,
       745.4
      ],
+     "puerta_propuesta": null,
      "region": [
       167.42,
       158.02,
@@ -1955,7 +1979,12 @@
      "vista": 1
     }
    ],
-   "version": 2
+   "recorridos": {
+    "bisagra": null,
+    "preguntar": true,
+    "vistas": {}
+   },
+   "version": 3
   },
   "estacion_auto": {
    "estacion": "E8",
@@ -11261,6 +11290,585 @@
     ]
    ],
    "salida": "humo"
+  }
+ ],
+ "e8_recorridos": [
+  {
+   "bisagra": false,
+   "clave_vista": "LI|",
+   "entrada_propuesta": [
+    383.5,
+    536.0
+   ],
+   "lineas": [
+    {
+     "clave": "1111|11PS1 3 (+)|12XPS 1",
+     "largo_mm": 280,
+     "no_llega": null,
+     "ruta": [
+      [
+       232.6,
+       584.1
+      ],
+      [
+       232.6,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1110|11PS1 1 (-)|12XPS 2",
+     "largo_mm": 280,
+     "no_llega": null,
+     "ruta": [
+      [
+       236.1,
+       584.1
+      ],
+      [
+       236.1,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1201|12F1|12XPS 3",
+     "largo_mm": 270,
+     "no_llega": null,
+     "ruta": [
+      [
+       239.6,
+       584.1
+      ],
+      [
+       239.6,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1205|12XP 2.1|12XPS 4",
+     "largo_mm": 270,
+     "no_llega": null,
+     "ruta": [
+      [
+       243.1,
+       584.1
+      ],
+      [
+       243.1,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1206|12XPS 5|13F3",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       246.6,
+       584.1
+      ],
+      [
+       246.6,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1203|12XPS 6|13XC1 3.4",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       250.1,
+       584.1
+      ],
+      [
+       250.1,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2135|12XPS 7|81XCM 11",
+     "largo_mm": 250,
+     "no_llega": null,
+     "ruta": [
+      [
+       253.6,
+       584.1
+      ],
+      [
+       253.6,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2135|12XPS 7|21PCB01 35",
+     "largo_mm": 250,
+     "no_llega": null,
+     "ruta": [
+      [
+       253.6,
+       584.1
+      ],
+      [
+       253.6,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2136|12XPS 8|81XCM 12",
+     "largo_mm": 250,
+     "no_llega": null,
+     "ruta": [
+      [
+       257.1,
+       584.1
+      ],
+      [
+       257.1,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2136|12XPS 8|21PCB01 36",
+     "largo_mm": 250,
+     "no_llega": null,
+     "ruta": [
+      [
+       257.1,
+       584.1
+      ],
+      [
+       257.1,
+       536.0
+      ],
+      [
+       383.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1104|11MS1|11Q1 F",
+     "largo_mm": 270,
+     "no_llega": null,
+     "ruta": [
+      [
+       237.9,
+       404.3
+      ],
+      [
+       237.9,
+       447.2
+      ],
+      [
+       383.5,
+       447.2
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1105|11MS1|11Q1 N",
+     "largo_mm": 270,
+     "no_llega": null,
+     "ruta": [
+      [
+       237.9,
+       404.3
+      ],
+      [
+       237.9,
+       447.2
+      ],
+      [
+       383.5,
+       447.2
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1103|11XP 3|?",
+     "largo_mm": 250,
+     "no_llega": null,
+     "ruta": [
+      [
+       287.2,
+       365.4
+      ],
+      [
+       287.2,
+       447.2
+      ],
+      [
+       383.5,
+       447.2
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    }
+   ],
+   "no_llegan": 0,
+   "puerta_propuesta": null,
+   "vista": 0
+  }
+ ],
+ "e8_recorridos_elegidos": [
+  {
+   "bisagra": true,
+   "clave_vista": "LI|",
+   "entrada_propuesta": [
+    383.5,
+    536.0
+   ],
+   "lineas": [
+    {
+     "clave": "1111|11PS1 3 (+)|12XPS 1",
+     "largo_mm": 290,
+     "no_llega": null,
+     "ruta": [
+      [
+       232.6,
+       584.1
+      ],
+      [
+       232.6,
+       536.0
+      ],
+      [
+       387.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1110|11PS1 1 (-)|12XPS 2",
+     "largo_mm": 280,
+     "no_llega": null,
+     "ruta": [
+      [
+       236.1,
+       584.1
+      ],
+      [
+       236.1,
+       536.0
+      ],
+      [
+       387.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1201|12F1|12XPS 3",
+     "largo_mm": 280,
+     "no_llega": null,
+     "ruta": [
+      [
+       239.6,
+       584.1
+      ],
+      [
+       239.6,
+       536.0
+      ],
+      [
+       387.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1205|12XP 2.1|12XPS 4",
+     "largo_mm": 270,
+     "no_llega": null,
+     "ruta": [
+      [
+       243.1,
+       584.1
+      ],
+      [
+       243.1,
+       536.0
+      ],
+      [
+       387.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1206|12XPS 5|13F3",
+     "largo_mm": 270,
+     "no_llega": null,
+     "ruta": [
+      [
+       246.6,
+       584.1
+      ],
+      [
+       246.6,
+       536.0
+      ],
+      [
+       387.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1203|12XPS 6|13XC1 3.4",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       250.1,
+       584.1
+      ],
+      [
+       250.1,
+       536.0
+      ],
+      [
+       387.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2135|12XPS 7|81XCM 11",
+     "largo_mm": 260,
+     "no_llega": null,
+     "ruta": [
+      [
+       253.6,
+       584.1
+      ],
+      [
+       253.6,
+       536.0
+      ],
+      [
+       387.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2135|12XPS 7|21PCB01 35",
+     "largo_mm": 150,
+     "no_llega": null,
+     "ruta": [
+      [
+       253.6,
+       584.1
+      ],
+      [
+       253.6,
+       536.0
+      ],
+      [
+       196.2,
+       536.0
+      ]
+     ],
+     "sale": "puerta",
+     "salida": null
+    },
+    {
+     "clave": "2136|12XPS 8|81XCM 12",
+     "largo_mm": 250,
+     "no_llega": null,
+     "ruta": [
+      [
+       257.1,
+       584.1
+      ],
+      [
+       257.1,
+       536.0
+      ],
+      [
+       387.5,
+       536.0
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "2136|12XPS 8|21PCB01 36",
+     "largo_mm": 150,
+     "no_llega": null,
+     "ruta": [
+      [
+       257.1,
+       584.1
+      ],
+      [
+       257.1,
+       536.0
+      ],
+      [
+       196.2,
+       536.0
+      ]
+     ],
+     "sale": "puerta",
+     "salida": null
+    },
+    {
+     "clave": "1104|11MS1|11Q1 F",
+     "largo_mm": 270,
+     "no_llega": true,
+     "ruta": [
+      [
+       237.9,
+       404.3
+      ],
+      [
+       237.9,
+       447.2
+      ],
+      [
+       383.5,
+       447.2
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1105|11MS1|11Q1 N",
+     "largo_mm": 270,
+     "no_llega": true,
+     "ruta": [
+      [
+       237.9,
+       404.3
+      ],
+      [
+       237.9,
+       447.2
+      ],
+      [
+       383.5,
+       447.2
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    },
+    {
+     "clave": "1103|11XP 3|?",
+     "largo_mm": 250,
+     "no_llega": true,
+     "ruta": [
+      [
+       287.2,
+       365.4
+      ],
+      [
+       287.2,
+       447.2
+      ],
+      [
+       383.5,
+       447.2
+      ]
+     ],
+     "sale": "entrada",
+     "salida": null
+    }
+   ],
+   "no_llegan": 3,
+   "puerta_propuesta": [
+    196.2,
+    536.0
+   ],
+   "vista": 0
   }
  ],
  "proyector": {

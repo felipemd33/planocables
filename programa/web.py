@@ -491,7 +491,11 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
             for a in ins.get('accesorios') or []:
                 if a.get('id') in hechos_acc:
                     a['hecho'] = True
-            # estacion E8 (gabinete): bandejas laterales y puerta / placa; se conservan sus marcas de cableado
+            # estacion E8 (gabinete): bandejas laterales y puerta / placa; se conservan sus marcas de cableado y la entrada a
+            # las laterales y la bisagra elegidas (recorridos). Con un topografico nuevo los recorridos se borran (son puntos
+            # de otro dibujo) y el asistente de la estacion 8 vuelve a preguntar (como las salidas a LI / LD de E6).
+            # (despues de instructivo.build: es solo de E8)
+            lay['recorridos_e8'] = None if topo_nuevo else (old.get('estacion8') or {}).get('recorridos')
             try:
                 import estacion8
                 e8 = estacion8.build(res, lay, ins)
@@ -499,7 +503,8 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
                 e8['hechos'] = [k for k in ((old.get('estacion8') or {}).get('hechos') or []) if k in vivas]
             except Exception as e:      # E8 nunca frena el instructivo de E6
                 import traceback
-                e8 = dict(version=0, laterales=[], afuera=[], hechos=(old.get('estacion8') or {}).get('hechos') or [],
+                rec = lay['recorridos_e8'] if isinstance(lay['recorridos_e8'], dict) else {'preguntar': True, 'bisagra': None, 'vistas': {}}
+                e8 = dict(version=0, laterales=[], afuera=[], hechos=(old.get('estacion8') or {}).get('hechos') or [], recorridos=rec,
                           avisos=[f'no se pudo armar la estación E8 ({type(e).__name__}: {e})'], detalle=traceback.format_exc())
             ins['estacion8'] = e8
             ins['estaciones'] = lay['estaciones']
@@ -1013,6 +1018,27 @@ def rutas_salidas(jid):
         return jsonify(error='El topográfico no tiene cablecanales para rutear'), 400
     from instructivo import rutear_salidas
     return jsonify(rutas=rutear_salidas(lineas, topo, salidas.get('grupos') or []))
+
+
+@app.post('/api/trabajo/<jid>/e8/recorridos')
+def rutas_e8(jid):
+    """vista previa del editor de entradas de la estacion 8 (asistente y boton «Entrada / salida»): el recorrido de los
+    cables que salen de cada bandeja lateral con la entrada, la salida a la puerta, los grupos y la bisagra elegidos
+    ({recorridos}), con las canaletas y la escala de cada lateral. No guarda nada: la pestaña guarda el instructivo con
+    las rutas y los recorridos"""
+    P = ins_paths(jid)
+    if not os.path.exists(P['json']):
+        abort(404)
+    body = request.get_json(silent=True)
+    rec = body.get('recorridos') if isinstance(body, dict) else None
+    if not isinstance(rec, dict) or not isinstance(rec.get('vistas', {}), dict):
+        return jsonify(error='Datos inválidos'), 400
+    with open(P['json'], encoding='utf-8') as f:
+        ins = json.load(f)
+    if not ((ins.get('estacion8') or {}).get('laterales')):
+        return jsonify(error='El topográfico no tiene bandejas laterales'), 400
+    import estacion8
+    return jsonify(laterales=estacion8.rutear_guardado(ins, rec))
 
 
 @app.get('/api/trabajo/<jid>/topo.png')

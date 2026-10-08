@@ -312,6 +312,39 @@ def parte_a(tmp):
         chequear(post(u + '/instructivo/salidas', json={'lineas': 'no'}).status_code == 400, 'POST /instructivo/salidas inválido: 400')
         golden.update(salidas_taller=normalizar(rt, tmp), salidas_grupo=normalizar(rg, tmp))
 
+        print(f'A5b. {t}: estación 8, entrada a las laterales y bisagra (vista previa POST /e8/recorridos)')
+        e8 = ins.get('estacion8') or {}
+        lats = e8.get('laterales') or []
+        rec_e8 = None
+        sale_e8 = lambda L: [l for p in L['pasos'] for l in p['lineas'] if 'marca_d' not in l]
+        chequear(e8.get('recorridos') == {'preguntar': True, 'bisagra': None, 'vistas': {}} and all(L.get('clave_vista') for L in lats),
+                 f"E8 la primera vez: el asistente pregunta ({e8.get('recorridos')}) y {len(lats)} laterales con su clave")
+        r = post(u + '/e8/recorridos', json={'recorridos': {}})
+        rl = (r.get_json() or {}).get('laterales') if r.status_code == 200 else None
+        if chequear(isinstance(rl, list) and len(rl) == len(lats), f'POST /e8/recorridos sin elegir: {len(lats)} laterales ({r.status_code})'):
+            cerca = lambda a, b: (a is None) == (b is None) and (a is None or len(a) == len(b) and all(
+                abs(p[0] - q[0]) <= 0.5 and abs(p[1] - q[1]) <= 0.5 for p, q in zip(a, b)))
+            n = sum(len(sale_e8(L)) for L in lats)
+            par = sum(1 for x, L in zip(rl, lats) for y, l in zip(x['lineas'], sale_e8(L)) if y['clave'] == l['clave'] and cerca(y['ruta'], l.get('ruta')))
+            chequear(par == n, f'sin elegir da las mismas rutas que el instructivo, a menos de 0,5 pt ({par}/{n})')
+            golden['e8_recorridos'] = normalizar(rl, tmp)
+            # una entrada elegida: la de la propuesta corrida un poco hacia afuera; los cables terminan ahi (o no llegan)
+            L = next((L for L in lats if L.get('ductos') and sale_e8(L)), None)
+            if L:
+                q = [round(L['entrada_propuesta'][0] + (-4 if L.get('hacia') == 'izq' else 4), 2), L['entrada_propuesta'][1]]
+                rec_e8 = {'preguntar': False, 'bisagra': 'izq', 'vistas': {L['clave_vista']: {'entrada': [q], 'puerta': [], 'grupos': []}}}
+                r = post(u + '/e8/recorridos', json={'recorridos': rec_e8})
+                x = next((x for x in ((r.get_json() or {}).get('laterales') or []) if x['clave_vista'] == L['clave_vista']), None)
+                ok = x is not None and all(y.get('no_llega') or (y['ruta'] and abs(y['ruta'][-1][0] - q[0]) <= 0.6 and abs(y['ruta'][-1][1] - q[1]) <= 0.6)
+                                           for y in x['lineas'] if y['sale'] == 'entrada')
+                chequear(ok, f"POST /e8/recorridos con la entrada de la {L['nombre'].lower()} en {q}: los cables terminan ahí")
+                golden['e8_recorridos_elegidos'] = normalizar((r.get_json() or {}).get('laterales'), tmp)
+                ins5 = get(u + '/instructivo').get_json() or {}
+                ins5['estacion8']['recorridos'] = rec_e8        # (como la pestaña: se guarda con el instructivo)
+                chequear(put(u + '/instructivo', json=ins5).status_code == 200, 'PUT /instructivo con la entrada y la bisagra de E8')
+        chequear(post(u + '/e8/recorridos', json={'recorridos': 'no'}).status_code == 400, 'POST /e8/recorridos inválido: 400')
+        chequear(post('/api/trabajo/0123456789ab/e8/recorridos', json={'recorridos': {}}).status_code == 404, 'POST /e8/recorridos de un trabajo que no existe: 404')
+
         print(f'A6. {t}: proyector y topo.png')
         r = get(f'/proyector/{jid}')
         chequear(r.status_code == 200 and b'proyector.js?v=' in r.data, 'GET /proyector/<id> sirve la pestaña')
@@ -346,6 +379,8 @@ def parte_a(tmp):
             chequear((ins4.get('proyector') or {}).get('calibracion') == cal and ins4.get('editado') is False, 'se conserva la calibración del proyector')
             chequear([(l['num'], l['origen'], l['destino']) for l in lineas_de(ins4)] == [(l['num'], l['origen'], l['destino']) for l in ls],
                      'mismas líneas que la primera vez')
+            if rec_e8:
+                chequear((ins4.get('estacion8') or {}).get('recorridos') == rec_e8, 'se conservan la entrada a la lateral y la bisagra de E8')
         contra_golden(t, golden)
 
     print('A8. estáticos')

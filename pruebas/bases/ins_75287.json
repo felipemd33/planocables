@@ -6895,7 +6895,7 @@
   ]
  },
  "estacion8": {
-  "version": 2,
+  "version": 3,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",
@@ -6977,7 +6977,8 @@
           536.0
          ]
         ],
-        "largo_mm": 280
+        "largo_mm": 280,
+        "sale": "entrada"
        },
        {
         "num": "1110",
@@ -7016,7 +7017,8 @@
           536.0
          ]
         ],
-        "largo_mm": 280
+        "largo_mm": 280,
+        "sale": "entrada"
        },
        {
         "num": "1201",
@@ -7054,7 +7056,8 @@
           536.0
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 270,
+        "sale": "entrada"
        },
        {
         "num": "1205",
@@ -7092,7 +7095,8 @@
           536.0
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 270,
+        "sale": "entrada"
        },
        {
         "num": "1206",
@@ -7131,7 +7135,8 @@
           536.0
          ]
         ],
-        "largo_mm": 260
+        "largo_mm": 260,
+        "sale": "entrada"
        },
        {
         "num": "1203",
@@ -7170,7 +7175,8 @@
           536.0
          ]
         ],
-        "largo_mm": 260
+        "largo_mm": 260,
+        "sale": "entrada"
        },
        {
         "num": "2135",
@@ -7209,7 +7215,8 @@
           536.0
          ]
         ],
-        "largo_mm": 250
+        "largo_mm": 250,
+        "sale": "entrada"
        },
        {
         "num": "2135",
@@ -7233,6 +7240,7 @@
         "componente": "12XPS",
         "destino": "21PCB01 35",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           253.6,
@@ -7247,7 +7255,8 @@
           536.0
          ]
         ],
-        "largo_mm": 250
+        "largo_mm": 250,
+        "sale": "entrada"
        },
        {
         "num": "2136",
@@ -7286,7 +7295,8 @@
           536.0
          ]
         ],
-        "largo_mm": 250
+        "largo_mm": 250,
+        "sale": "entrada"
        },
        {
         "num": "2136",
@@ -7310,6 +7320,7 @@
         "componente": "12XPS",
         "destino": "21PCB01 36",
         "otra": "puerta / placa",
+        "a_puerta": true,
         "ruta": [
          [
           257.1,
@@ -7324,7 +7335,8 @@
           536.0
          ]
         ],
-        "largo_mm": 250
+        "largo_mm": 250,
+        "sale": "entrada"
        }
       ],
       "n": 1,
@@ -7370,7 +7382,8 @@
           447.2
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 270,
+        "sale": "entrada"
        },
        {
         "num": "1105",
@@ -7408,7 +7421,8 @@
           447.2
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 270,
+        "sale": "entrada"
        }
       ],
       "n": 2,
@@ -7547,7 +7561,8 @@
           447.2
          ]
         ],
-        "largo_mm": 250
+        "largo_mm": 250,
+        "sale": "entrada"
        }
       ],
       "n": 3,
@@ -7564,7 +7579,15 @@
      745.4
     ],
     "titulo": null,
-    "sin_riel": false
+    "sin_riel": false,
+    "clave_vista": "LI|",
+    "hacia": "der",
+    "bisagra": false,
+    "entrada_propuesta": [
+     383.5,
+     536.0
+    ],
+    "puerta_propuesta": null
    }
   ],
   "afuera": [
@@ -8487,7 +8510,13 @@
   ],
   "campo": 0,
   "avisos": [],
-  "hechos": []
+  "hechos": [],
+  "recorridos": {
+   "preguntar": true,
+   "bisagra": null,
+   "vistas": {}
+  },
+  "bisagra_propuesta": "izq"
  },
  "estaciones": {
   "3141": "E8",
