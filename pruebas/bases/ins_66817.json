@@ -4639,7 +4639,7 @@
   ]
  },
  "estacion8": {
-  "version": 3,
+  "version": 4,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",
@@ -4703,13 +4703,43 @@
         "componente": "12PS1",
         "destino": "11XP 1 ABAJO",
         "otra": "bandeja lateral derecha",
+        "empalme": {
+         "tipo": "wago",
+         "aparato": "12PS1",
+         "pin": "+ panel",
+         "n": 2,
+         "confirmar": false,
+         "pelado": true,
+         "simbolo": "relleno",
+         "texto": "WAGO con el cable propio de 12PS1 · + panel",
+         "fin": [
+          250.45,
+          392.5
+         ],
+         "p": [
+          243.64,
+          382.97
+         ],
+         "entra": [
+          243.64,
+          392.5
+         ]
+        },
         "ruta": [
          [
-          191.7,
-          480.6
+          243.6,
+          383.0
          ],
          [
-          191.7,
+          243.6,
+          392.5
+         ],
+         [
+          250.4,
+          392.5
+         ],
+         [
+          250.4,
           531.4
          ],
          [
@@ -4717,7 +4747,7 @@
           531.4
          ]
         ],
-        "largo_mm": 270,
+        "largo_mm": 350,
         "sale": "entrada"
        },
        {
@@ -4742,13 +4772,43 @@
         "destino": "12F1 ARRIBA",
         "otra": "bandeja principal",
         "viene_de_e6": true,
+        "empalme": {
+         "tipo": "wago",
+         "aparato": "12PS1",
+         "pin": "+ batería",
+         "n": 2,
+         "confirmar": false,
+         "pelado": true,
+         "simbolo": "relleno",
+         "texto": "WAGO con el cable propio de 12PS1 · + batería",
+         "fin": [
+          250.45,
+          392.5
+         ],
+         "p": [
+          252.72,
+          382.97
+         ],
+         "entra": [
+          252.72,
+          392.5
+         ]
+        },
         "ruta": [
          [
-          191.7,
-          480.6
+          252.7,
+          383.0
          ],
          [
-          191.7,
+          252.7,
+          392.5
+         ],
+         [
+          250.4,
+          392.5
+         ],
+         [
+          250.4,
           531.4
          ],
          [
@@ -4756,7 +4816,7 @@
           531.4
          ]
         ],
-        "largo_mm": 270,
+        "largo_mm": 340,
         "sale": "entrada"
        },
        {
@@ -4781,13 +4841,43 @@
         "componente": "12PS1",
         "destino": "11XP 2 ABAJO",
         "otra": "bandeja lateral derecha",
+        "empalme": {
+         "tipo": "wago",
+         "aparato": "12PS1",
+         "pin": "- panel",
+         "n": 2,
+         "confirmar": false,
+         "pelado": true,
+         "simbolo": "relleno",
+         "texto": "WAGO con el cable propio de 12PS1 · - panel",
+         "fin": [
+          250.45,
+          392.5
+         ],
+         "p": [
+          248.18,
+          382.97
+         ],
+         "entra": [
+          248.18,
+          392.5
+         ]
+        },
         "ruta": [
          [
-          191.7,
-          480.6
+          248.2,
+          383.0
          ],
          [
-          191.7,
+          248.2,
+          392.5
+         ],
+         [
+          250.4,
+          392.5
+         ],
+         [
+          250.4,
           531.4
          ],
          [
@@ -4795,7 +4885,7 @@
           531.4
          ]
         ],
-        "largo_mm": 270,
+        "largo_mm": 340,
         "sale": "entrada"
        },
        {
@@ -4820,13 +4910,43 @@
         "destino": "12XP 4.1",
         "otra": "bandeja principal",
         "viene_de_e6": true,
+        "empalme": {
+         "tipo": "wago",
+         "aparato": "12PS1",
+         "pin": "- batería",
+         "n": 2,
+         "confirmar": false,
+         "pelado": true,
+         "simbolo": "relleno",
+         "texto": "WAGO con el cable propio de 12PS1 · - batería",
+         "fin": [
+          250.45,
+          392.5
+         ],
+         "p": [
+          257.26,
+          382.97
+         ],
+         "entra": [
+          257.26,
+          392.5
+         ]
+        },
         "ruta": [
          [
-          191.7,
-          480.6
+          257.3,
+          383.0
          ],
          [
-          191.7,
+          257.3,
+          392.5
+         ],
+         [
+          250.4,
+          392.5
+         ],
+         [
+          250.4,
           531.4
          ],
          [
@@ -4834,7 +4954,7 @@
           531.4
          ]
         ],
-        "largo_mm": 270,
+        "largo_mm": 350,
         "sale": "entrada"
        }
       ],

@@ -33,7 +33,18 @@ ETAPA E8-2 «entrada a las laterales y bisagra» (2026-10-08):
     salen por la propuesta); un GRUPO de cables elegidos manda; la propuesta va a la altura de la salida de E6 solo si
     las vistas estan alineadas;
   - regenerar (web.gen_instructivo sobre una copia del TPT del constructivo) CONSERVA lo elegido (entrada, grupo,
-    bisagra) y las rutas terminan ahi; un topografico nuevo lo BORRA y vuelve a preguntar (rutas a la propuesta)."""
+    bisagra) y las rutas terminan ahi; un topografico nuevo lo BORRA y vuelve a preguntar (rutas a la propuesta).
+
+ETAPA E8-3 «WAGO del cargador» (2026-10-08; regla del taller: manda el dibujo del funcional):
+  - TPT: 1108, 1109, 1201 y 1202 (el cargador 12PS2, con un ⊟ dibujado entre el pin y el cable) llevan «WAGO con el
+    cable propio de 12PS2» con su pin por la regla de los pines repetidos (+ panel, - panel, + bateria, - bateria), la
+    punta pelada (sin pino), el empalme DEBAJO del cargador a la salida de una canaleta (fuera de las canaletas, la
+    ruta sale de ahi y entra a la canaleta), un empalme al lado del otro, y el texto de la punta y la clave de la marca
+    como antes; el RS-485 (8105 / 8106, EMPALME con 12PS2) va en la lateral del cargador como «empalme de 3, a
+    confirmar» y ya no esta en «Puerta y placa» (la fila de 21PCB01 dice que va a la lateral);
+  - 66817: lo mismo con 1101, 1102, 1201 y 1202 (12PS1, con ■ dibujados);
+  - 75287 y PAE: ningun empalme (el cargador va a la bornera 12XPS);
+  - la vista previa (rutear_guardado) rutea los cables con WAGO desde el empalme, igual que lo armado."""
 import os, sys, io, json, glob, math, shutil, tarfile, tempfile, subprocess, concurrent.futures as cf
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -310,6 +321,60 @@ def ruteo_e82(t, ins):
                  f"{t} {L['nombre']}: con la salida de E6 a la altura {p[1]} la entrada propuesta es {a['entrada']}; en otra hoja o a otra altura, la regla {b['entrada']}")
 
 
+# ------------------------------------------------------------------ etapa E8-3: empalmes con el cable propio (WAGO)
+WAGOS = {   # trabajo -> (aparato, {cable: (texto de la punta, pin)})
+    'tpt_constructivo': ('12PS2', {'1108': ('12PS2 +', '+ panel'), '1109': ('12PS2 -', '- panel'), '1201': ('12PS2 +', '+ batería'), '1202': ('12PS2 -', '- batería')}),
+    'tpt': ('12PS2', {'1108': ('12PS2 +', '+ panel'), '1109': ('12PS2 -', '- panel'), '1201': ('12PS2 +', '+ batería'), '1202': ('12PS2 -', '- batería')}),
+    '66817': ('12PS1', {'1101': ('12PS1 +', '+ panel'), '1102': ('12PS1 -', '- panel'), '1201': ('12PS1 +', '+ batería'), '1202': ('12PS1 -', '- batería')}),
+}
+# claves de las marcas de esos cables (antes de la etapa: no cambian, las marcas hechas se conservan)
+CLAVES_WAGO = {'tpt_constructivo': {'1108|11PS1 +|12PS2 +', '1109|11PS1 -|12PS2 -', '1201|12F1|12PS2 +', '1202|12PS2 -|12XP 2.1'},
+               'tpt': {'1108|11PS1 +|12PS2 +', '1109|11PS1 -|12PS2 -', '1201|12F1|12PS2 +', '1202|12PS2 -|12XP 2.1'},
+               '66817': {'1101|11XP 1|12PS1 +', '1102|11XP 2|12PS1 -', '1201|12F1|12PS1 +', '1202|12PS1 -|12XP 4.1'}}
+dentro_de = lambda p, b, m=0.6: b[0] - m <= p[0] <= b[2] + m and b[1] - m <= p[1] <= b[3] + m
+
+
+def esperado_e83(t, e8, ins):
+    con = [(L, l) for L in e8['laterales'] for l in lineas(L) if l.get('empalme') or l.get('empalme_d')]
+    fil = [x for g in e8['afuera'] for x in g['cables'] if x.get('empalme')]
+    if t not in WAGOS:
+        chequear(not con and not fil, f"{t}: ningún empalme con un cable propio ({len(con)} en las laterales, {len(fil)} en la puerta / placa)")
+        return
+    ap, esp = WAGOS[t]
+    ws = [(L, l) for L, l in con if (l.get('empalme') or {}).get('tipo') == 'wago']
+    got = {l['num']: (l['origen'], l['empalme'].get('pin')) for L, l in ws}
+    chequear(got == esp, f"{t}: WAGO con el cable propio de {ap} en {sorted(got)} con su pin {got}")
+    chequear(all(l['empalme'].get('pelado') and l['empalme'].get('aparato') == ap and l['empalme'].get('texto') == f"WAGO con el cable propio de {ap} · {l['empalme']['pin']}"
+                 for L, l in ws), f"{t}: la tarjeta dice «WAGO con el cable propio de {ap} · <pin>» y la punta va pelada (sin pino)")
+    chequear({l['clave'] for L, l in ws if l['num'] in esp} >= CLAVES_WAGO[t], f"{t}: las claves de las marcas no cambian ({sorted(l['clave'] for L, l in ws)})")
+    # el empalme: debajo del aparato, afuera de las canaletas, a la salida de una canaleta; la ruta sale de ahi
+    ok = []
+    for L, l in ws:
+        em, r, mo = l['empalme'], l.get('ruta') or [], l.get('marca_o')
+        bien = (em.get('p') and r and cerca(r[0], em['p'], 0.15) and em['p'][1] < mo[1]
+                and not any(dentro_de(em['p'], d['b'], 0.3) for d in L['ductos'])
+                and any(dentro_de(em['fin'], d['b']) for d in L['ductos']) and any(dentro_de(r[1], d['b']) for d in L['ductos']))
+        ok.append(bien)
+    chequear(ws and all(ok), f"{t}: los {len(ws)} WAGO quedan debajo de {ap}, a la salida de una canaleta, y el cable va por las canaletas hasta ahí ({sum(ok)}/{len(ws)})")
+    ps = {(L['nombre'], tuple(l['empalme']['p'])) for L, l in ws}
+    chequear(len(ps) == len({(L['nombre'], l['num']) for L, l in ws}), f"{t}: un WAGO al lado del otro ({len(ps)} lugares)")
+    if t.startswith('tpt'):
+        rs = [(L, l) for L, l in con if l['origen'].startswith('EMPALME')]
+        chequear(len(rs) == 4 and all(l['empalme'].get('tipo') == 'empalme' and l['empalme'].get('n') == 3 and l['empalme'].get('confirmar')
+                                      and 'empalme de 3, a confirmar' in l['empalme'].get('texto', '').lower() and L['lado'] == 'LI' for L, l in rs),
+                 f"{t}: RS-485 (8105 / 8106) en la lateral del cargador como «empalme de 3, a confirmar» ({[(l['num'], l['destino']) for L, l in rs]})")
+        pcb = [x for g in e8['afuera'] if g['tag'] == '21PCB01' for x in g['cables'] if x['otra'].startswith('EMPALME')]
+        chequear(not any(g['tag'] == 'EMPALME' for g in e8['afuera']) and pcb and all(x['otra_donde'] == 'bandeja lateral izquierda' for x in pcb),
+                 f"{t}: «Puerta y placa» sin EMPALME; 21PCB01 32 / 33 van a la bandeja lateral izquierda ({[x['otra_donde'] for x in pcb]})")
+    # vista previa: los cables con WAGO salen del empalme, igual que lo armado
+    if ins:
+        E8 = e8_modulo()
+        prev = {(x['clave_vista'], y['clave']): y for x in E8.rutear_guardado(ins, {}) for y in x['lineas']}
+        lw = [(L['clave_vista'], l) for L, l in ws if 'marca_d' not in l]
+        chequear(lw and all(prev.get((v, l['clave'])) and prev[(v, l['clave'])]['ruta'] == l['ruta'] for v, l in lw),
+                 f"{t}: vista previa = lo armado para los {len(lw)} cables con WAGO que salen de la lateral")
+
+
 def regenerar_e82(tmp):
     """regenerar conserva lo elegido; un topografico nuevo lo borra (web.gen_instructivo sobre una copia del TPT del
     constructivo, en un historial temporal)"""
@@ -430,6 +495,7 @@ def main():
             ins = cargar(sal, 'ins', t) or (cargar(BASES, 'ins', t) if bases else None)
             if chequear(isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None, f'{t}: hay instructivo armado (ins_{t}.json)'):
                 ruteo_e82(t, ins)
+            esperado_e83(t, e8, ins if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None else None)
             if not bases:
                 e6_igual(t, sal)
         if not bases:

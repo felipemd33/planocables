@@ -392,14 +392,19 @@ class Net:
         return k, ([fin] if fin and math.dist(fin, q) > 0.3 else [])
 
 
-def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='izq', por=None, o_lat=None, d_lat=None):
+def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='izq', por=None, o_lat=None, d_lat=None,
+               o_red=False, d_red=False):
     """polilinea del cable: borne -> canaleta -> ... -> canaleta -> borne (o salida a LI).
     por = recorrido elegido a mano para la salida a LI / LD: puntos por donde pasa el cable, en orden, y el ultimo
     por donde sale de la bandeja (sin por: la regla del taller, li_exit).
     o_lat / d_lat = 'der' | 'izq': la punta es de una bornera en columna al frente y sale en horizontal a la canaleta
-    vertical de ese costado (enganche_lateral)"""
+    vertical de ese costado (enganche_lateral)
+    o_red / d_red = la punta ya esta en el eje de una canaleta (la punta de la canaleta por donde sale el cable hacia un
+    empalme, estacion 8): se engancha ahi mismo (en_red), sin el tramo del borne a la canaleta"""
     a, via_o = net.enganche_lateral(o_pt, o_lat, ex) if o_lat else (None, None)
-    if a is None:
+    if o_red:
+        a, via_o = net.en_red(o_pt)[0], []
+    elif a is None:
         a, via_o = net.enganche(o_pt, o_side, ex)
     paradas = []
     if to_li and por:
@@ -410,7 +415,9 @@ def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='iz
         tail = []
     else:
         b, via_d = net.enganche_lateral(d_pt, d_lat, ex) if d_lat else (None, None)
-        if b is None:
+        if d_red:
+            b, via_d = net.en_red(d_pt)[0], []
+        elif b is None:
             b, via_d = net.enganche(d_pt, d_side, ex)
         tail = via_d[::-1] + [d_pt]
     if a is None or b is None or None in paradas:

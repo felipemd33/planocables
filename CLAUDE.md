@@ -19,7 +19,7 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/core.py`, `wires.py`, `textdec.py`, `pdfvec.py` | Lector del funcional: textos SHX, cables, números, uniones en T y flechas a otras hojas. |
 | `programa/instructivo.py` | Puntas (`describe_end`), conductores (`conductors`), textos (`fmt_terminal`) e instructivo (`build`): orden, pasos, pendientes LI↔LI y estaciones. Además `usos_bandeja` y `materiales_funcional`. |
 | `programa/topo.py`, `ruteo.py` | Topográfico (página de la bandeja, rieles, canaletas, escala, componentes) y ruteo por canaletas (Dijkstra). |
-| `programa/bornes/` | Mapeo automático del **punto exacto de cada borne**: `motor.py` + `catalogo.json` (modelos en mm, con sus códigos SAP) + `primitivas.py`. `aparamenta.json` / `aparamenta.py`: el Excel de SAP «BOMs por estación» con lo que es cada material. Ver `programa/bornes/LEEME.md`. |
+| `programa/bornes/` | Mapeo automático del **punto exacto de cada borne**: `motor.py` + `catalogo.json` (modelos en mm, con sus códigos SAP) + `primitivas.py`. `aparamenta.json` / `aparamenta.py`: el Excel de SAP «BOMs por estación» con lo que es cada material. `pines_repetidos.json`: nombre del n-ésimo pin repetido por familia (cargador: panel, batería, carga; lo usa la E8 para los WAGO). Ver `programa/bornes/LEEME.md`. |
 | `programa/eplan.py` | Planos de **EPLAN** (PDF con texto real): `es_eplan`, `process` (lista de conexiones → conductores y listado, misma interfaz que `core.process`), `layout` (hoja de bandejas: rieles, canaletas, placas, etiquetas → mismo formato que `topo.layout`) y `aplicar_puntos` (mapeo verificado). `core.process` y `topo.layout` derivan solos a este módulo. |
 | `programa/mapeos_verificados/` | **Dato** por producto EPLAN: `<documento>_rev<revisión>.json` con el punto exacto y el texto del taller de cada punta (`'<designación EPLAN>#<cable>'`), los aparatos que se cablean en E8 (zona hidráulica, batería, solenoides) y las canaletas de intrínsecos. Se elige por el documento y la revisión del rótulo. Se arma con `2 - Resultados/76884 mSafe2+ PAE/mapeo/exportar_al_programa.py`. |
 | `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`, `salidas.js` (editor de salidas a LI / LD), `producto.js` (línea «Producto» y su asistente), `wpc.js` (pantalla de la lista WPC). |
@@ -109,6 +109,29 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     «🧭 Entrada / salida» (tecla S, también en el visor) con la bisagra, los grupos y un grupo de cables elegidos. Sin
     elegir, las rutas son las de E8-1 (`e8_*` igual salvo las claves nuevas) y la WPC no cambia; elegir la entrada SÍ
     cambia el largo de la WPC de los cables a esa lateral (canaleta de la lateral).
+  - **Etapa E8-3 «WAGO del cargador» (2026-10-08, decisiones del taller; regla: manda el DIBUJO del funcional, no el
+    aparato):** un cable numerado que llega al pin de un aparato a través de un empalme dibujado se empalma con un
+    **WAGO** con el cable propio del aparato; **la punta va pelada (sin pino)**. Lector (`instructivo.py`): campo nuevo
+    en la punta `'empalme_dibujado': {tipo: 'wago', simbolo: 'relleno' | 'partido', p, orden, de, aparato_txt}` (el
+    TEXTO de la punta y todo E6 no cambian): ■ al final del recorrido (`describe_end` con `_seguir_empalme`, Shell 75206)
+    o atravesado por el recorrido entre el pin y el primer número del cable (`empalme_en_tramo`: ■ = relleno chico como
+    el de `seguir_empalme`, 66817; ⊟ = rectángulo partido por una raya perpendicular al cable, sin texto adentro, TPT;
+    `seguir_empalme` no se agrandó; el punto relleno de una unión en T, cuadrado bajo un círculo, no cuenta). En los
+    planos de `1 - Planos`: TPT (3 versiones), 66817 y Shell = los 4 cables del cargador; 75287, PP, FCS, dFRAC y PAE = 0.
+    E8 (`estacion8.py`, versión 4): línea con `empalme` (`empalme_d` en la otra punta de un cable de la misma lateral) =
+    {tipo, texto, aparato, pin, n, confirmar, pelado, simbolo, p, fin, entra}; tarjeta «WAGO con el cable propio de
+    12PS2 · + panel», terminal «pelado (sin pino)», sin «punto aprox.». El pin, por la regla de los pines repetidos
+    (`instructivo.pin_en_simbolo`: el n-ésimo pin con ese rótulo en la fila de pines del recuadro del aparato) con los
+    nombres de su familia en `programa/bornes/pines_repetidos.json` (cargador: panel, batería, carga; la familia sale del
+    renglón de la lista de materiales o de los textos del recuadro del aparato, con los patrones de `catalogo.json`). El
+    WAGO queda **debajo del aparato, a la salida de la canaleta**: la punta libre de canaleta más cercana por debajo de
+    su etiqueta (`estacion8.punto_empalme`); el recorrido va por las canaletas hasta ahí (`ruteo.route_line` con
+    `o_red`/`d_red`: arranca en la punta de la canaleta) y un trazo punteado del WAGO al aparato es el cable propio. Los
+    empalmes del mismo aparato van uno al lado del otro, en el orden de los pines. La punta EMPALME del RS-485
+    (`empalme_en_rama`, «EMPALME con 12PS2») va junto a su aparato en la lateral; con 3 conductores (2 tramos numerados +
+    el cable propio) queda **«Empalme de 3, a confirmar»** (terminal a confirmar). Los pines sin cable no se muestran;
+    `e8_clave` y las marcas no cambian. WPC: misma regla (la acometida del WAGO es la de un borne, 150); cambian los
+    largos por la E8 bien armada (tabla en `pruebas/bases/wpc/cambios_e8_3.md`).
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -212,8 +235,10 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   (83 líneas, 16 pendientes, 0 sueltos; sacada con el código de d12fa6d). Está en la batería y en los golden de la WPC.
 - E8: `python pruebas/probar_e8.py` (arma la E8 de tpt_constructivo, tpt, 66817, 75287 y PAE y mira lo esperado de cada
   etapa, y que E6 dé igual que `pruebas/bases`; desde E8-2 además la vista previa de la entrada / bisagra / grupos y que
-  regenerar conserve lo elegido y un topográfico nuevo lo borre; `--bases pruebas/bases` solo mira los `e8_*.json` y la
-  vista previa sobre los `ins_*.json`) tiene que dar TODO OK.
+  regenerar conserve lo elegido y un topográfico nuevo lo borre; desde E8-3 los WAGO del cargador y el RS-485 «empalme de
+  3, a confirmar»; `--bases pruebas/bases` solo mira los `e8_*.json` y la vista previa sobre los `ins_*.json`) tiene que
+  dar TODO OK. La pantalla de E8 con los WAGO: `node --test pruebas/js/` (`e8_empalme.test.cjs`, con `vistaE8` de
+  `cargar_visor.cjs`).
   Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.
 
 ## Productos trabajados
@@ -271,12 +296,14 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 ## Pendientes
 
 - **Corrección del lector del funcional con el TPT** (2026-10-02): ver "Estado".
-- **Visor de E8 (2026-10-08), lo que sigue después de la etapa E8-2:** cargador con WAGO (por el empalme dibujado en el
-  funcional, punta pelada; RS-485 de 3 = «empalme de 3, a confirmar»); hoja de la puerta (con ella, «sigue a la puerta»
+- **Visor de E8 (2026-10-08), lo que sigue después de la etapa E8-3:** hoja de la puerta (con ella, «sigue a la puerta»
   pasa a ser «está en la hoja de la puerta»: hoy es «no está dibujado en el topográfico», y en el TPT / 66817 el 1206 /
   1205 a BH-01-M, que no está dibujado, sale hacia la puerta con la bisagra de ese lado; se corrige con un grupo de
   cables elegidos). Para confirmar: en la WPC un cable de una lateral a la otra (66817: 1101 / 1102) toma la canaleta de
-  una sola lateral.
+  una sola lateral (la derecha: su WAGO en la izquierda no suma la vertical); el RS-485 de 3 conductores en un empalme
+  (WAGO de 3 vías, dos WAGO u otra forma); los nombres de los pines del cargador (panel / batería / carga, en
+  `bornes/pines_repetidos.json`); el cable propio punteado llega al punto del aparato (la etiqueta), no a su borde de
+  abajo (el topográfico no da el cuerpo del aparato).
 - **EPLAN (PAE), para confirmar con el usuario:**
   - el neutro es **celeste**: la regla de ruteo «marrón y blanco salen a LI por abajo» separa L (marrón, abajo) de N
     (celeste, arriba); ¿sumar celeste a la regla?;

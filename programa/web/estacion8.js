@@ -6,6 +6,9 @@
    - 🧭 Entrada / salida (tecla S, también desde el visor): por dónde entran a cada lateral los cables del fondo, por
      dónde salen los que siguen a la puerta (en la lateral de la bisagra) y el lado de la bisagra; asistente la primera
      vez (ver «ENTRADA / SALIDA» más abajo).
+   - Empalmes con el cable propio de un aparato (etapa E8-3: el WAGO del cargador, punta pelada; el RS-485 «empalme de 3,
+     a confirmar»): la línea trae l.empalme / l.empalme_d; la tarjeta lo dice, el terminal es «pelado (sin pino)» y el
+     dibujo pone el WAGO a la salida de la canaleta con el cable propio punteado hasta el aparato (empalmeG).
    Los datos vienen en ins.estacion8 (programa/estacion8.py); las marcas de cableado van en ins.estacion8.hechos y lo
    elegido de la entrada / salida en ins.estacion8.recorridos. */
 const E8 = (() => {
@@ -26,16 +29,26 @@ const E8 = (() => {
   /* ---- terminales: pino o doble (otro tramo del mismo cable llega al mismo borne) ---- */
   let TERM = { pino: {}, doble: {}, colores: {} };
   fetch('/static/terminales.json', { cache: 'no-cache' }).then(r => r.json()).then(t => { TERM = t; }).catch(() => { });
+  // empalme con el cable propio de un aparato en la punta (etapa E8-3: WAGO del cargador, RS-485): l.empalme (origen) o
+  // l.empalme_d (destino de un cable de la misma lateral) = {tipo, texto, aparato, pin, n, confirmar, pelado, p, fin, entra}
+  const empDe = (l, which) => (which === 'o' ? l.empalme : l.empalme_d) || null;
   function terminal(l, which) {
     const txt = which === 'o' ? l.origen : l.destino;
     if (!txt || (which === 'd' && !l.marca_d)) return null;
+    const sec = String(l.secc || '').replace(',', '.');
+    const emp = empDe(l, which);
+    if (emp) return emp.pelado
+      ? { tipo: 'pelado', sec, pollera: null, hex: null, txt: `Pelado (sin pino) · ${emp.texto}` }
+      : { tipo: 'confirmar', sec, pollera: null, hex: null, txt: `Terminal a confirmar · ${emp.texto}` };
     const otros = flat(lat()).map(x => x.l).filter(x => x !== l && x.num === l.num && (x.origen === txt || x.destino === txt));
     const tipo = otros.length ? 'doble' : 'pino';
-    const sec = String(l.secc || '').replace(',', '.');
     const pollera = (TERM[tipo] || {})[sec] || null;
     return { tipo, sec, pollera, hex: pollera ? ((TERM.colores || {})[pollera] || '#999') : null,
       txt: `${tipo === 'doble' ? 'Terminal doble' : 'Pino'} ${sec.replace('.', ',')} mm² · ${pollera ? 'pollera ' + pollera : 'color a definir'}` };
   }
+  // chip del terminal: el de E6 (pino / doble) o, en un empalme, «pelado (sin pino)» / «terminal a confirmar»
+  const chip = t => Ins.termChip(t);
+  const empPill = emp => emp ? `<span class="pill e8-wago${emp.confirmar ? ' conf' : ''}" title="${esc(emp.texto)}${emp.pelado ? ' · la punta va pelada (sin pino)' : ''}">${emp.tipo === 'wago' ? 'WAGO' : 'empalme a confirmar'}</span>` : '';
   // adonde va la otra punta, en corto (para el rotulo al final del recorrido)
   const otraCorta = l => l.otra === 'misma bandeja' ? '' : l.otra === 'bandeja principal' ? 'A la bandeja principal' : l.otra === 'puerta / placa' ? 'A la puerta / placa'
     : /^bandeja lateral/.test(l.otra || '') ? 'A la ' + l.otra : l.otra || '';      // (cable a la otra lateral)
@@ -60,16 +73,18 @@ const E8 = (() => {
     const w = (cls === 'sib' ? 1.3 : 1.8) * k, ro = (l.marca_o || [])[2], rd = (l.marca_d || [])[2];
     const st = pts[0], end = pts[n - 1];
     let s = `<g class="rt ${cls}${o.hecho ? ' hecho' : ''}" data-clave="${esc(l.clave)}"><title>${esc(l.num)} (${esc(secTxt(l))}): ${esc(l.origen)} → ${esc(l.destino)}${l.otra && l.otra !== 'misma bandeja' ? ' (' + esc(l.otra) + ')' : ''}${l.largo_mm ? ' · ≈' + l.largo_mm + ' mm' : ''}</title>`;
+    const eo = n > 1 && empDe(l, 'o'), ed = n > 1 && l.marca_d && empDe(l, 'd');
     if (n > 1) {
       const d = 'M' + pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('L');
       if (cls === 'cur') s += `<path d="${d}" class="halo" stroke-width="${6 * k}"/>`;
       if (white) s += `<path d="${d}" stroke="#333" stroke-width="${w + 1 * k}"/>`;
       s += `<path d="${d}" stroke="${col}" stroke-width="${w}"${cls === 'sib' ? ` stroke-dasharray="${f2(4 * k)} ${f2(1.6 * k)}"` : ''}/>`;
-      s += Ins.ferrule(st, [pts[1][0] - st[0], pts[1][1] - st[1]], ro, terminal(l, 'o'), k);
-      if (l.marca_d) s += Ins.ferrule(end, [pts[n - 2][0] - end[0], pts[n - 2][1] - end[1]], rd, terminal(l, 'd'), k);
+      // (en un empalme la punta va pelada: sin terminal)
+      if (!eo) s += Ins.ferrule(st, [pts[1][0] - st[0], pts[1][1] - st[1]], ro, terminal(l, 'o'), k);
+      if (l.marca_d && !ed) s += Ins.ferrule(end, [pts[n - 2][0] - end[0], pts[n - 2][1] - end[1]], rd, terminal(l, 'd'), k);
     }
-    s += Ins.mark(st, ro, 'ori', k, o.pulse);
-    if (l.marca_d) s += Ins.mark(end, rd, 'des', k, o.pulse);
+    s += eo ? empalmeG(st, l.marca_o, eo, k, o.pulse) : Ins.mark(st, ro, 'ori', k, o.pulse);
+    if (l.marca_d) s += ed ? empalmeG(end, l.marca_d, ed, k, o.pulse) : Ins.mark(end, rd, 'des', k, o.pulse);
     else if (n > 1 && o.fin !== false) {
       const der = end[0] >= pts[n - 2][0];
       s += `<text x="${(end[0] + (der ? 3 : -3)).toFixed(1)}" y="${(end[1] + 2.5).toFixed(1)}" class="li" font-size="${f2(6 * Math.min(k, 1.2))}" text-anchor="${der ? 'start' : 'end'}">${esc(otraCorta(l))}</text>`;
@@ -80,8 +95,23 @@ const E8 = (() => {
     }
     return s + '</g>';
   }
+  // empalme en la punta del recorrido (p, ya con la y invertida): el WAGO (o el empalme «a confirmar») y, punteado, el
+  // cable propio del aparato hasta su punto (ap, en puntos del topográfico)
+  function empalmeG(p, ap, emp, k, pulse) {
+    const w = 4.2 * k, h = 2.6 * k, a = ap ? [ap[0], -ap[1]] : null;
+    let s = `<g class="e8-emp${emp.confirmar ? ' conf' : ''}"><title>${esc(emp.texto)}${emp.pelado ? ' · la punta va pelada (sin pino)' : ''}</title>`;
+    if (a && Math.hypot(a[0] - p[0], a[1] - p[1]) > 0.5)
+      s += `<path d="M${f2(p[0])} ${f2(p[1])}L${f2(a[0])} ${f2(a[1])}" class="e8-propio" stroke-width="${f2(0.8 * k)}" stroke-dasharray="${f2(2.2 * k)} ${f2(1.4 * k)}"/>
+        <circle cx="${f2(a[0])}" cy="${f2(a[1])}" r="${f2(1.1 * k)}" class="e8-ap" stroke-width="${f2(0.4 * k)}"/>`;
+    if (pulse) s += `<circle cx="${f2(p[0])}" cy="${f2(p[1])}" r="${f2(4 * k)}" class="ori-p" stroke-width="${f2(0.35 * k)}"/>`;
+    s += `<rect x="${f2(p[0] - w / 2)}" y="${f2(p[1] - h / 2)}" width="${f2(w)}" height="${f2(h)}" rx="${f2(0.5 * k)}" class="e8-wago-i" stroke-width="${f2(0.35 * k)}"/>`;
+    s += emp.confirmar
+      ? `<text x="${f2(p[0])}" y="${f2(p[1])}" font-size="${f2(2.3 * k)}" text-anchor="middle" dominant-baseline="central" class="e8-wago-t">?</text>`
+      : `<path d="M${f2(p[0])} ${f2(p[1] - h / 2)}L${f2(p[0])} ${f2(p[1] + h / 2)}" class="e8-wago-l" stroke-width="${f2(0.3 * k)}"/>`;
+    return s + '</g>';
+  }
   function boxOf(L, lines, pad = 22, minW = 120, minH = 80) {
-    const pts = lines.flatMap(l => puntos(l) || []);
+    const pts = lines.flatMap(l => [...(puntos(l) || []), ...[l.empalme && l.marca_o, l.empalme_d && l.marca_d].filter(Boolean)]);
     if (!pts.length) return L.region.slice();
     let x0 = Math.min(...pts.map(p => p[0])) - pad, x1 = Math.max(...pts.map(p => p[0])) + pad;
     let y0 = Math.min(...pts.map(p => p[1])) - pad, y1 = Math.max(...pts.map(p => p[1])) + pad;
@@ -163,17 +193,20 @@ const E8 = (() => {
         ${p.lineas.map((l, i) => cardLat(L, l, g, i, ++n, H.has(l.clave))).join('')}</div>`).join('')}</div>`;
   }
   function cardLat(L, l, g, i, n, ok) {
-    const aprox = !l.exacto_o || (l.marca_d && !l.exacto_d);
+    // (la punta de un empalme no es un borne: el cable numerado termina en el empalme, el punto no es aproximado)
+    const aprox = (!l.exacto_o && !l.empalme) || (l.marca_d && !l.exacto_d && !l.empalme_d);
     const t = terminal(l, 'o'), td = terminal(l, 'd');
+    const emps = [l.empalme, l.empalme_d].filter(Boolean);
     return `<div class="cab ${ok ? 'ok' : ''}" data-g="${g}" data-i="${i}" data-clave="${esc(l.clave)}">
       <div class="cab-n">${n}</div>
       <div class="cab-topo" title="Cablear desde este cable (visor)">${thumb(L, l)}</div>
       <div class="cab-body">
-        <div class="cab-t mono"><b>${esc(l.num)}</b> ${swatch(l.color)} <span class="secc">${esc(secTxt(l))}</span> ${otraPill(l)}
+        <div class="cab-t mono"><b>${esc(l.num)}</b> ${swatch(l.color)} <span class="secc">${esc(secTxt(l))}</span> ${otraPill(l)} ${emps.map(empPill).join(' ')}
           ${aprox ? '<span class="pill warn" title="Punto del borne aproximado (no está en el mapeo)">punto aprox.</span>' : ''}
           ${l.largo_mm ? `<span class="muted small">≈${l.largo_mm} mm</span>` : ''}</div>
         <div class="cab-od mono"><span>${esc(l.origen)}</span><span class="arr">→</span><span>${esc(l.destino)}</span></div>
-        <div class="cab-term small">${Ins.termChip(t)}${td ? ` <span class="arr">→</span> ${Ins.termChip(td)}` : ` <span class="muted">→ ${esc(l.otra === 'bandeja principal' ? 'ya cableado en E6' : l.otra)}</span>`}</div>
+        ${emps.map(e => `<div class="small e8-emp-t${e.confirmar ? ' conf' : ''}">${esc(e.texto)}</div>`).join('')}
+        <div class="cab-term small">${chip(t)}${td ? ` <span class="arr">→</span> ${chip(td)}` : ` <span class="muted">→ ${esc(l.otra === 'bandeja principal' ? 'ya cableado en E6' : l.otra)}</span>`}</div>
       </div>
       <div class="cab-acts">
         <label class="chk small" title="Marcar como cableado"><input type="checkbox" data-a="ok" ${ok ? 'checked' : ''}> OK</label>
@@ -199,7 +232,7 @@ const E8 = (() => {
         <table class="e8-tab"><thead><tr><th></th><th>Borne</th><th>Cable</th><th>Va a</th><th></th></tr></thead><tbody>
         ${g.cables.map(x => `<tr class="${H.has(x.clave) ? 'ok' : ''}" data-clave="${esc(x.clave)}">
           <td><input type="checkbox" data-a="ok" ${H.has(x.clave) ? 'checked' : ''} aria-label="Cable ${esc(x.num)} cableado"></td>
-          <td class="mono"><b>${esc(x.pin || x.borne)}</b></td>
+          <td class="mono"><b>${esc(x.pin || x.borne)}</b>${x.empalme ? `<div class="small e8-emp-t${x.empalme.confirmar ? ' conf' : ''}">${esc(x.empalme.texto)}${x.empalme.pelado ? ' · pelado (sin pino)' : ''}</div>` : ''}</td>
           <td class="mono">${esc(x.num)} ${swatch(x.color)} <span class="secc">${esc(secTxt(x))}</span></td>
           <td class="mono">${esc(x.otra)} <span class="muted small">· ${esc(x.otra_donde)}</span></td>
           <td><button class="mini" data-a="plano" data-num="${esc(x.num)}" title="Ver en el plano eléctrico">⚡</button></td></tr>`).join('')}
@@ -226,8 +259,8 @@ const E8 = (() => {
     $('#e8vPos').textContent = `${V.k + 1} / ${f.length}`;
     $('#e8vGrp').textContent = `${L.nombre} · ${L.pasos[g].titulo}`;
     $('#e8vNum').innerHTML = `<span class="mono">${esc(l.num)}</span> ${swatch(l.color)} <span class="secc big">${esc(secTxt(l))}</span>`;
-    $('#e8vOrig').textContent = l.origen;
-    $('#e8vDest').innerHTML = esc(l.destino) + ' ' + otraPill(l);
+    $('#e8vOrig').innerHTML = esc(l.origen) + (l.empalme ? ` <span class="e8-emp-t small${l.empalme.confirmar ? ' conf' : ''}">· ${esc(l.empalme.texto)}</span>` : '');
+    $('#e8vDest').innerHTML = esc(l.destino) + ' ' + otraPill(l) + (l.empalme_d ? ` <span class="e8-emp-t small${l.empalme_d.confirmar ? ' conf' : ''}">· ${esc(l.empalme_d.texto)}</span>` : '');
     $('#e8vLen').textContent = l.largo_mm ? `≈ ${l.largo_mm} mm en la lateral` : '';
     $('#e8vOk').checked = H.has(l.clave);
     $('#e8vBar').style.width = (f.filter(x => H.has(x.l.clave)).length / f.length * 100) + '%';
@@ -774,6 +807,9 @@ const E8 = (() => {
     });
   }
 
+  // (el WAGO y el cable propio en la hoja impresa; en la pantalla están en styles.css)
+  const EMP_CSS = `.e8-propio{fill:none;stroke:#555} .e8-ap{fill:#fff;stroke:#555} .e8-wago-i{fill:#ff8c1a;stroke:#5a2d00}
+      .e8-emp.conf .e8-wago-i{fill:#ffd54f} .e8-wago-l{stroke:#5a2d00} .e8-wago-t{font-weight:700;fill:#5a2d00;font-family:Arial}`;
   /* ---- imprimir: la bandeja lateral paso por paso y la puerta / placa en tablas ---- */
   function imprimir() {
     const w = window.open('', '_blank'); if (!w) return toast('El navegador bloqueó la ventana de impresión');
@@ -782,17 +818,17 @@ const E8 = (() => {
     e8.laterales.forEach((L, i) => {
       vista = i; let n = 0;
       html += `<h2>${esc(L.nombre)}</h2>` + L.pasos.map(p => `<h3>${esc(p.titulo)}</h3><div class="g">${p.lineas.map(l => `<div class="c"><div class="n">${++n}</div>${thumb(L, l).replace(/href="\//g, `href="${base}/`)}
-        <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}${l.otra !== 'misma bandeja' ? `<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span>` : ''}</div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
+        <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}${l.otra !== 'misma bandeja' ? `<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span>` : ''}${[l.empalme, l.empalme_d].filter(Boolean).map(e => `<br><b style="color:#b35900">${esc(e.texto)}${e.pelado ? ' · pelado (sin pino)' : ''}</b>`).join('')}</div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
     });
     vista = vSel;
     html += `<h2>Puerta, placa y zona hidráulica</h2><div class="g">` + e8.afuera.map(g => `<table><caption>${esc(g.tag)} <span>(${esc(g.zona)})</span></caption>
-      ${g.cables.map(x => `<tr><td>☐</td><td><b>${esc(x.pin || x.borne)}</b></td><td>${esc(x.num)} · ${esc(secTxt(x))}</td><td>→ ${esc(x.otra)} <span style="color:#666">(${esc(x.otra_donde)})</span></td></tr>`).join('')}</table>`).join('') + '</div>';
+      ${g.cables.map(x => `<tr><td>☐</td><td><b>${esc(x.pin || x.borne)}</b>${x.empalme ? `<br><span style="color:#b35900">${esc(x.empalme.texto)}</span>` : ''}</td><td>${esc(x.num)} · ${esc(secTxt(x))}</td><td>→ ${esc(x.otra)} <span style="color:#666">(${esc(x.otra_donde)})</span></td></tr>`).join('')}</table>`).join('') + '</div>';
     w.document.write(`<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Estación 8 — ${esc(S.res.nombre)}</title>
       <style>body{font:12px/1.35 "Segoe UI",Arial,sans-serif;margin:16px;color:#111} h1{font-size:18px;margin:0 0 4px} h2{font-size:15px;margin:16px 0 6px;color:#1f5fbf} h3{font-size:13px;margin:10px 0 4px}
       .m{color:#555;margin-bottom:10px} .g{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
       .c{display:flex;gap:10px;border:1px solid #ccc;border-radius:8px;padding:6px;page-break-inside:avoid;align-items:center}
       .n{width:26px;height:26px;border-radius:50%;background:#1f5fbf;color:#fff;display:grid;place-items:center;font-weight:700;flex:none;font-size:11px}
-      svg{width:170px;height:115px;border:1px solid #ddd;border-radius:6px;flex:none} ${Ins.PRINT_CSS}
+      svg{width:170px;height:115px;border:1px solid #ddd;border-radius:6px;flex:none} ${Ins.PRINT_CSS} ${EMP_CSS}
       .t{font:12px Consolas,monospace} .t b{font-size:13px} .ok{margin-left:auto;font-size:14px}
       table{border-collapse:collapse;font:12px Consolas,monospace;page-break-inside:avoid;width:100%} caption{text-align:left;font:700 13px "Segoe UI",Arial;padding:4px 0} caption span{font-weight:400;color:#666}
       td{border-bottom:1px solid #ddd;padding:2px 6px}</style></head><body>

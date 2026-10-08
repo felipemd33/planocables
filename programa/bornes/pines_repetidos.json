@@ -1,0 +1,9 @@
+{
+ "descripcion": "Nombre de los pines con el MISMO rótulo de un aparato (regla del taller de los pines repetidos: el n-ésimo pin con ese rótulo en el símbolo del funcional, de izquierda a derecha, o de arriba abajo si están en columna, es el n-ésimo nombre de la lista de su familia). La familia es la de 'familias' en catalogo.json, sacada del renglón de la lista de materiales del funcional o, si el plano no la trae, de los textos del recuadro del aparato en el funcional ('Battery Charger'). Lo usa la estación 8 para decir con qué cable propio del aparato se empalma cada cable con WAGO ('WAGO con el cable propio de 12PS2 · + panel'). No cambia el texto de las puntas de E6 ni el listado. Para agregar una familia: su clave de catalogo.json y los nombres en el orden del símbolo.",
+ "familias": {
+  "cargador": {
+   "nombres": ["panel", "batería", "carga"],
+   "nota": "Cargador solar (EPEVER Tracer BP y otros): + / − del panel solar, de la batería y de la carga, en ese orden en el símbolo del funcional (TPT 72715 y Shell 75206 hoja 12, 66817 hoja 12: íconos de panel, batería y lámpara). En EPLAN (PAE) los pines vienen nombrados: +Pan / +Bat / +Car."
+  }
+ }
+}

@@ -8,6 +8,7 @@
                                                              baja el botón «⭳ Exportar CSV» (solo las que no quedan fuera)
      terminales(ins, {web})               -> [{g, i, num, origen, destino, o, d}]   terminal() de instructivo.js por línea
      terminalesE8(ins, {web})             -> [{lateral, g, i, clave, num, origen, destino, o, d}]   el de estacion8.js
+     vistaE8(ins, {web})                  -> {laterales: [HTML de #e8Lat por lateral], afuera: HTML de #e8Afuera}
      normalizarFila(f)                    -> la fila de wpc.js como JSON simple
    ins no se toca: se trabaja sobre una copia. cfg = lo que el taller cambia en la pantalla (ins.wpc.cfg), se suma encima.
    wpcJson = otro wpc.json en lugar del del disco (para pruebas). web = otra carpeta programa/web (para comparar); la
@@ -180,4 +181,32 @@ async function terminalesE8(ins, op = {}) {
   return json(out);
 }
 
-module.exports = { RAIZ, WEB, CONFIG_WPC, correrWpc, terminales, terminalesE8, normalizarFila, copia };
+// ---- HTML de la pestaña de estacion8.js: las tarjetas de cada bandeja lateral (#e8Lat, con sus miniaturas SVG) y la
+// puerta / placa (#e8Afuera). Ins de mentira: el chip del terminal es ⟦tipo⟧, el terminal dibujado <g class="term"/> y
+// la marca del borne <circle class="ori|des"/> (lo de estacion8.js sale tal cual: empalmes, píldoras, textos)
+async function vistaE8(ins, op = {}) {
+  const web = op.web || WEB;
+  const D = copia(ins);
+  const Ins = {
+    load: async () => D, job: 'prueba', dirty: () => {}, reset: () => {},
+    termChip: t => (t ? `⟦${t.tipo}⟧` : ''), ferrule: (p, d, r, t) => (t ? '<g class="term"/>' : ''), mark: (p, r, cls) => `<circle class="${cls}"/>`,
+    label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '',
+  };
+  const ctx = contexto({ fetch: fetchDe(web), api: async () => ({}), Ins });
+  correr(ctx, web, 'estacion8.js');
+  await esperar();
+  const E8 = vm.runInContext('E8', ctx);
+  const lats = ((D.estacion8 || {}).laterales || []);
+  const clic = v => ctx._elementos.get('#e8Vistas')._eventos.click.forEach(fn => fn({ target: { closest: () => ({ dataset: { v: String(v) } }) } }));
+  await E8.open();
+  const out = { laterales: [], afuera: '' };
+  for (let v = 0; v < lats.length; v++) {
+    if (v > 0) clic(v);
+    out.laterales.push(ctx._elementos.get('#e8Lat').innerHTML);
+  }
+  clic('afuera');
+  out.afuera = ctx._elementos.get('#e8Afuera').innerHTML;
+  return out;
+}
+
+module.exports = { RAIZ, WEB, CONFIG_WPC, correrWpc, terminales, terminalesE8, vistaE8, normalizarFila, copia };

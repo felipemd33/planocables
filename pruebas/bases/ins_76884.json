@@ -8745,7 +8745,7 @@
   "lado_fisico": []
  },
  "estacion8": {
-  "version": 3,
+  "version": 4,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",

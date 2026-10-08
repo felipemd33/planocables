@@ -1,5 +1,5 @@
 {
- "version": 3,
+ "version": 4,
  "laterales": [
   {
    "nombre": "Bandeja lateral derecha",
@@ -2182,13 +2182,43 @@
        "destino": "11PS1 +",
        "otra": "bandeja principal",
        "viene_de_e6": true,
+       "empalme": {
+        "tipo": "wago",
+        "aparato": "12PS2",
+        "pin": "+ panel",
+        "n": 2,
+        "confirmar": false,
+        "pelado": true,
+        "simbolo": "partido",
+        "texto": "WAGO con el cable propio de 12PS2 · + panel",
+        "fin": [
+         250.45,
+         392.5
+        ],
+        "p": [
+         241.37,
+         382.97
+        ],
+        "entra": [
+         241.37,
+         392.5
+        ]
+       },
        "ruta": [
         [
-         195.1,
-         479.6
+         241.4,
+         383.0
         ],
         [
-         195.1,
+         241.4,
+         392.5
+        ],
+        [
+         250.4,
+         392.5
+        ],
+        [
+         250.4,
          531.4
         ],
         [
@@ -2196,7 +2226,7 @@
          531.4
         ]
        ],
-       "largo_mm": 260,
+       "largo_mm": 350,
        "sale": "entrada"
       },
       {
@@ -2221,13 +2251,43 @@
        "destino": "12F1 ARRIBA",
        "otra": "bandeja principal",
        "viene_de_e6": true,
+       "empalme": {
+        "tipo": "wago",
+        "aparato": "12PS2",
+        "pin": "+ batería",
+        "n": 2,
+        "confirmar": false,
+        "pelado": true,
+        "simbolo": "partido",
+        "texto": "WAGO con el cable propio de 12PS2 · + batería",
+        "fin": [
+         250.45,
+         392.5
+        ],
+        "p": [
+         248.63,
+         382.97
+        ],
+        "entra": [
+         248.63,
+         392.5
+        ]
+       },
        "ruta": [
         [
-         195.1,
-         479.6
+         248.6,
+         383.0
         ],
         [
-         195.1,
+         248.6,
+         392.5
+        ],
+        [
+         250.4,
+         392.5
+        ],
+        [
+         250.4,
          531.4
         ],
         [
@@ -2235,7 +2295,7 @@
          531.4
         ]
        ],
-       "largo_mm": 260,
+       "largo_mm": 340,
        "sale": "entrada"
       },
       {
@@ -2261,13 +2321,43 @@
        "destino": "11PS1 -",
        "otra": "bandeja principal",
        "viene_de_e6": true,
+       "empalme": {
+        "tipo": "wago",
+        "aparato": "12PS2",
+        "pin": "- panel",
+        "n": 2,
+        "confirmar": false,
+        "pelado": true,
+        "simbolo": "partido",
+        "texto": "WAGO con el cable propio de 12PS2 · - panel",
+        "fin": [
+         250.45,
+         392.5
+        ],
+        "p": [
+         245.0,
+         382.97
+        ],
+        "entra": [
+         245.0,
+         392.5
+        ]
+       },
        "ruta": [
         [
-         195.1,
-         479.6
+         245.0,
+         383.0
         ],
         [
-         195.1,
+         245.0,
+         392.5
+        ],
+        [
+         250.4,
+         392.5
+        ],
+        [
+         250.4,
          531.4
         ],
         [
@@ -2275,7 +2365,7 @@
          531.4
         ]
        ],
-       "largo_mm": 260,
+       "largo_mm": 340,
        "sale": "entrada"
       },
       {
@@ -2300,13 +2390,43 @@
        "destino": "12XP 2.1",
        "otra": "bandeja principal",
        "viene_de_e6": true,
+       "empalme": {
+        "tipo": "wago",
+        "aparato": "12PS2",
+        "pin": "- batería",
+        "n": 2,
+        "confirmar": false,
+        "pelado": true,
+        "simbolo": "partido",
+        "texto": "WAGO con el cable propio de 12PS2 · - batería",
+        "fin": [
+         250.45,
+         392.5
+        ],
+        "p": [
+         252.27,
+         382.97
+        ],
+        "entra": [
+         252.27,
+         392.5
+        ]
+       },
        "ruta": [
         [
-         195.1,
-         479.6
+         252.3,
+         383.0
         ],
         [
-         195.1,
+         252.3,
+         392.5
+        ],
+        [
+         250.4,
+         392.5
+        ],
+        [
+         250.4,
          531.4
         ],
         [
@@ -2314,12 +2434,290 @@
          531.4
         ]
        ],
-       "largo_mm": 260,
+       "largo_mm": 340,
+       "sale": "entrada"
+      },
+      {
+       "num": "8106",
+       "cable": "B1MM",
+       "color": "Blanco",
+       "secc": "1",
+       "clave": "8106|21PCB01 33|EMPALME con 12PS2",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "EMPALME con 12PS2",
+       "marca_o": [
+        195.1,
+        470.1,
+        null
+       ],
+       "exacto_o": false,
+       "riel": null,
+       "lado": "abajo",
+       "componente": "EMPALME",
+       "destino": "21PCB01 33",
+       "otra": "puerta / placa",
+       "a_puerta": true,
+       "empalme": {
+        "tipo": "empalme",
+        "aparato": "12PS2",
+        "pin": "",
+        "n": 3,
+        "confirmar": true,
+        "pelado": false,
+        "simbolo": "relleno",
+        "texto": "Empalme de 3, a confirmar (con el cable propio de 12PS2)",
+        "fin": [
+         250.45,
+         392.5
+        ],
+        "p": [
+         259.53,
+         382.97
+        ],
+        "entra": [
+         259.53,
+         392.5
+        ]
+       },
+       "ruta": [
+        [
+         259.5,
+         383.0
+        ],
+        [
+         259.5,
+         392.5
+        ],
+        [
+         250.4,
+         392.5
+        ],
+        [
+         250.4,
+         531.4
+        ],
+        [
+         291.2,
+         531.4
+        ]
+       ],
+       "largo_mm": 350,
+       "sale": "entrada"
+      },
+      {
+       "num": "8106",
+       "cable": "B1MM",
+       "color": "Blanco",
+       "secc": "1",
+       "clave": "8106|33MX01 D1-|EMPALME con 12PS2",
+       "hojas": [
+        "81"
+       ],
+       "origen": "EMPALME con 12PS2",
+       "marca_o": [
+        195.1,
+        470.1,
+        null
+       ],
+       "exacto_o": false,
+       "riel": null,
+       "lado": "abajo",
+       "componente": "EMPALME",
+       "destino": "33MX01 D1-",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "empalme": {
+        "tipo": "empalme",
+        "aparato": "12PS2",
+        "pin": "",
+        "n": 3,
+        "confirmar": true,
+        "pelado": false,
+        "simbolo": "relleno",
+        "texto": "Empalme de 3, a confirmar (con el cable propio de 12PS2)",
+        "fin": [
+         250.45,
+         392.5
+        ],
+        "p": [
+         259.53,
+         382.97
+        ],
+        "entra": [
+         259.53,
+         392.5
+        ]
+       },
+       "ruta": [
+        [
+         259.5,
+         383.0
+        ],
+        [
+         259.5,
+         392.5
+        ],
+        [
+         250.4,
+         392.5
+        ],
+        [
+         250.4,
+         531.4
+        ],
+        [
+         291.2,
+         531.4
+        ]
+       ],
+       "largo_mm": 350,
+       "sale": "entrada"
+      },
+      {
+       "num": "8105",
+       "cable": "N1MM",
+       "color": "Negro",
+       "secc": "1",
+       "clave": "8105|21PCB01 32|EMPALME con 12PS2",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "EMPALME con 12PS2",
+       "marca_o": [
+        195.1,
+        470.1,
+        null
+       ],
+       "exacto_o": false,
+       "riel": null,
+       "lado": "abajo",
+       "componente": "EMPALME",
+       "destino": "21PCB01 32",
+       "otra": "puerta / placa",
+       "a_puerta": true,
+       "empalme": {
+        "tipo": "empalme",
+        "aparato": "12PS2",
+        "pin": "",
+        "n": 3,
+        "confirmar": true,
+        "pelado": false,
+        "simbolo": "relleno",
+        "texto": "Empalme de 3, a confirmar (con el cable propio de 12PS2)",
+        "fin": [
+         250.45,
+         392.5
+        ],
+        "p": [
+         255.9,
+         382.97
+        ],
+        "entra": [
+         255.9,
+         392.5
+        ]
+       },
+       "ruta": [
+        [
+         255.9,
+         383.0
+        ],
+        [
+         255.9,
+         392.5
+        ],
+        [
+         250.4,
+         392.5
+        ],
+        [
+         250.4,
+         531.4
+        ],
+        [
+         291.2,
+         531.4
+        ]
+       ],
+       "largo_mm": 340,
+       "sale": "entrada"
+      },
+      {
+       "num": "8105",
+       "cable": "N1MM",
+       "color": "Negro",
+       "secc": "1",
+       "clave": "8105|33MX01 D1+|EMPALME con 12PS2",
+       "hojas": [
+        "81"
+       ],
+       "origen": "EMPALME con 12PS2",
+       "marca_o": [
+        195.1,
+        470.1,
+        null
+       ],
+       "exacto_o": false,
+       "riel": null,
+       "lado": "abajo",
+       "componente": "EMPALME",
+       "destino": "33MX01 D1+",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "empalme": {
+        "tipo": "empalme",
+        "aparato": "12PS2",
+        "pin": "",
+        "n": 3,
+        "confirmar": true,
+        "pelado": false,
+        "simbolo": "relleno",
+        "texto": "Empalme de 3, a confirmar (con el cable propio de 12PS2)",
+        "fin": [
+         250.45,
+         392.5
+        ],
+        "p": [
+         255.9,
+         382.97
+        ],
+        "entra": [
+         255.9,
+         392.5
+        ]
+       },
+       "ruta": [
+        [
+         255.9,
+         383.0
+        ],
+        [
+         255.9,
+         392.5
+        ],
+        [
+         250.4,
+         392.5
+        ],
+        [
+         250.4,
+         531.4
+        ],
+        [
+         291.2,
+         531.4
+        ]
+       ],
+       "largo_mm": 340,
        "sale": "entrada"
       }
      ],
      "n": 1,
-     "titulo": "Aparato 12PS2"
+     "titulo": "Aparato 12PS2, EMPALME"
     },
     {
      "riel": null,
@@ -2493,7 +2891,7 @@
      "titulo": "Aparato 12PB1"
     }
    ],
-   "n": 8,
+   "n": 12,
    "sin_canaletas": false,
    "exactos": 0,
    "placa": [
@@ -2675,7 +3073,7 @@
      "borne": "21PCB01 32",
      "pin": "32",
      "otra": "EMPALME con 12PS2",
-     "otra_donde": "puerta / placa",
+     "otra_donde": "bandeja lateral izquierda",
      "viene_de_e6": false
     },
     {
@@ -2691,7 +3089,7 @@
      "borne": "21PCB01 33",
      "pin": "33",
      "otra": "EMPALME con 12PS2",
-     "otra_donde": "puerta / placa",
+     "otra_donde": "bandeja lateral izquierda",
      "viene_de_e6": false
     },
     {
@@ -2860,75 +3258,6 @@
      "borne": "21PCB01 55",
      "pin": "55",
      "otra": "61KR3 A2",
-     "otra_donde": "bandeja principal",
-     "viene_de_e6": true
-    }
-   ],
-   "nota": null
-  },
-  {
-   "tag": "EMPALME",
-   "zona": "puerta / placa",
-   "cables": [
-    {
-     "num": "8105",
-     "cable": "N1MM",
-     "color": "Negro",
-     "secc": "1",
-     "clave": "8105|21PCB01 32|EMPALME con 12PS2",
-     "hojas": [
-      "21",
-      "81"
-     ],
-     "borne": "EMPALME con 12PS2",
-     "pin": "con 12PS2",
-     "otra": "21PCB01 32",
-     "otra_donde": "puerta / placa",
-     "viene_de_e6": false
-    },
-    {
-     "num": "8105",
-     "cable": "N1MM",
-     "color": "Negro",
-     "secc": "1",
-     "clave": "8105|33MX01 D1+|EMPALME con 12PS2",
-     "hojas": [
-      "81"
-     ],
-     "borne": "EMPALME con 12PS2",
-     "pin": "con 12PS2",
-     "otra": "33MX01 D1+",
-     "otra_donde": "bandeja principal",
-     "viene_de_e6": true
-    },
-    {
-     "num": "8106",
-     "cable": "B1MM",
-     "color": "Blanco",
-     "secc": "1",
-     "clave": "8106|21PCB01 33|EMPALME con 12PS2",
-     "hojas": [
-      "21",
-      "81"
-     ],
-     "borne": "EMPALME con 12PS2",
-     "pin": "con 12PS2",
-     "otra": "21PCB01 33",
-     "otra_donde": "puerta / placa",
-     "viene_de_e6": false
-    },
-    {
-     "num": "8106",
-     "cable": "B1MM",
-     "color": "Blanco",
-     "secc": "1",
-     "clave": "8106|33MX01 D1-|EMPALME con 12PS2",
-     "hojas": [
-      "81"
-     ],
-     "borne": "EMPALME con 12PS2",
-     "pin": "con 12PS2",
-     "otra": "33MX01 D1-",
      "otra_donde": "bandeja principal",
      "viene_de_e6": true
     }

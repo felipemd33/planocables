@@ -197,9 +197,10 @@ def describe_end(pg, sym, p, direction, cable_nums):
         rot = sorted((box_dist(p, l['bbox']), l['text'].strip()) for l in lines if box_dist(p, l['bbox']) < 30 * u
                      and re.fullmatch(r'[A-Z]{1,2}\d?', l['text'].strip()))
         return dict(tipo='flecha', refs=refs, pista=hint[0] if hint else '', rotulo=rot[0][1] if rot else '')
-    q = seguir_empalme(sym, p)
+    q = _seguir_empalme(sym, p)
+    caja_emp = None               # el recorrido termina en un empalme dibujado (■) y del otro lado sigue el cable propio
     if q:
-        p, direction = q
+        p, direction, caja_emp = q
     circ = sym.circle_at(p)
     center = (circ[0], circ[1]) if circ else p
     # polo / pin redondo grande (bateria 12PB1, pines de la placa 21PCB01 del 75287): no es un borne de bornera, pero
@@ -415,8 +416,14 @@ def describe_end(pg, sym, p, direction, cable_nums):
         # hoja de distribucion de una placa ('Electronic Board (21PCB01)'): sus pines numerados (circulos o pines redondos)
         # son de ese aparato aunque haya otro tag a media distancia (la descripcion de un canal, '12PB1 Power Battery')
         tag = tit.group(1)
-    return dict(tipo='borne', tag=tag + modulo, tag_base=tag, borne=borne, borde=borde, punto=punto, lado=lado,
-                vertical=vertical, circulo=bool(circ), p=[round(p[0], 1), round(p[1], 1)])
+    out = dict(tipo='borne', tag=tag + modulo, tag_base=tag, borne=borne, borde=borde, punto=punto, lado=lado,
+               vertical=vertical, circulo=bool(circ), p=[round(p[0], 1), round(p[1], 1)])
+    if caja_emp and tag and any(t == 'relleno' and all(abs(a - b) < 0.05 for a, b in zip(bx, caja_emp)) for bx, t, _ in simbolos_empalme(pg, sym)):
+        # el cable numerado llega al pin a traves de un empalme dibujado: WAGO con el cable propio del aparato (campo
+        # aparte: el texto de la punta no cambia)
+        out['empalme_dibujado'] = dict(tipo='wago', simbolo='relleno', p=[round((caja_emp[0] + caja_emp[2]) / 2, 1), round((caja_emp[1] + caja_emp[3]) / 2, 1)],
+                                       **pin_en_simbolo(pg, sym, p, borne))
+    return out
 
 
 def pistas_de_flecha(lines, sym):
@@ -726,6 +733,13 @@ def pegados(lines):
 
 
 def seguir_empalme(sym, p):
+    q = _seguir_empalme(sym, p)
+    return q[:2] if q else None
+
+
+def _seguir_empalme(sym, p):
+    """la punta p del recorrido llega a un EMPALME dibujado (rectangulo relleno chico) y del otro lado sigue un trazo
+    recto (el cable propio del aparato): -> (punta de ese trazo, direccion hacia el cable, caja del empalme) o None"""
     u = sym.u
     for layer, op, pts in sym._strokes:
         if op not in ('f', 'F', 'f*', 'B', 'B*') or len(pts) not in (4, 5):
@@ -748,8 +762,252 @@ def seguir_empalme(sym, p):
                         best = (a, b)
         if best:
             a, b = best
-            return b, (a[0] - b[0], a[1] - b[1])
+            # (la caja solo si el relleno es un rectangulo: el punto de union relleno de una T no es un empalme)
+            return b, (a[0] - b[0], a[1] - b[1]), ((x0, y0, x1, y1) if _es_rect(pts) else None)
     return None
+
+
+# ------------------------------------------------------------------ empalme dibujado entre el pin y el cable numerado
+# (etapa E8-3, 2026-10-08, regla del taller: manda el dibujo del funcional). Un cable numerado que llega al pin de un
+# aparato a traves de un EMPALME dibujado se empalma con el cable propio del aparato (WAGO 221-412; la punta va pelada,
+# sin pino): TPT 72715 hoja 12, el cargador 12PS2 con un rectangulo partido (⊟) entre cada pin y su cable; 66817 hoja
+# 12, el cargador 12PS1 con un cuadradito relleno (■); Shell 75206, el ■ al final del recorrido (seguir_empalme). Se
+# anota en la punta, en un campo aparte ('empalme_dibujado'): el TEXTO de la punta (fmt_terminal) y E6 no cambian; lo
+# usa la estacion 8. Cuando el aparato va a una bornera (75287, PAE: 12XPS) no hay empalme dibujado y no hay WAGO.
+FILL_EMP = ('f', 'F', 'f*', 'B', 'B*')
+
+
+def _es_rect(pts, tol=0.3):
+    """los puntos son las 4 esquinas de un rectangulo de lados horizontales y verticales (4 puntos, o 5 cerrado)"""
+    if len(pts) not in (4, 5):
+        return False
+    x0, y0, x1, y1 = bbox(pts)
+    if x1 - x0 < 0.5 or y1 - y0 < 0.5:
+        return False
+    esq = set()
+    for p in pts:
+        cx = 0 if abs(p[0] - x0) < tol else 1 if abs(p[0] - x1) < tol else None
+        cy = 0 if abs(p[1] - y0) < tol else 1 if abs(p[1] - y1) < tol else None
+        if cx is None or cy is None:
+            return False
+        esq.add((cx, cy))
+    return len(esq) == 4
+
+
+def simbolos_empalme(pg, sym):
+    """empalmes dibujados de la hoja (en cache, pg['_simb_emp']): [(caja, simbolo, eje del cable)]
+    - 'relleno' (■): rectangulo relleno chico, del tamano que cruza seguir_empalme (4,8u a 16u, lado menor de 3u o mas);
+      el cable pasa por el medio en cualquier sentido (eje None);
+    - 'partido' (⊟): rectangulo (de 3u a 40u de lado) partido por una raya recta que lo cruza de lado a lado por el medio,
+      sin texto adentro; el cable lo atraviesa perpendicular a la raya (eje 'v' = el cable va vertical, raya horizontal).
+      No es el fusible (rectangulo atravesado a lo largo por el cable, sin raya de costado a costado)."""
+    if '_simb_emp' in pg:
+        return pg['_simb_emp']
+    u = sym.u
+    strokes = pg.get('strokes', [])
+    out, vistos = [], set()
+    rects = []
+    for layer, op, p in strokes:
+        if _es_rect(p):
+            b = bbox(p)
+            rects.append((b, op))
+    # punto de union de una T: relleno cuadrado debajo de un circulo dibujado (FCS 75733 hoja 60): no es un empalme
+    redondos = [bbox(p) for layer, op, p in strokes if len(p) >= 8 and dist(p[0], p[-1]) < 0.4 and max(bbox(p)[2] - bbox(p)[0], bbox(p)[3] - bbox(p)[1]) < 16 * u]
+    es_punto = lambda b: any(abs(r[0] - b[0]) < 0.4 and abs(r[1] - b[1]) < 0.4 and abs(r[2] - b[2]) < 0.4 and abs(r[3] - b[3]) < 0.4 for r in redondos)
+    for b, op in rects:
+        w, h = b[2] - b[0], b[3] - b[1]
+        if op in FILL_EMP and 4.8 * u <= max(w, h) <= 16 * u and min(w, h) >= 3 * u and not es_punto(b):
+            k = (round(b[0], 1), round(b[1], 1), round(b[2], 1), round(b[3], 1))
+            if k not in vistos:
+                vistos.add(k); out.append((b, 'relleno', None))
+    # rayas rectas cortas, por celda de 20 pt (para no comparar cada rectangulo con todas)
+    C = 20.0
+    rayas = collections.defaultdict(list)
+    for layer, op, p in strokes:
+        if op in ('S', 's') and len(p) == 2 and 0.5 < dist(p[0], p[1]) < 40 * u:
+            m = ((p[0][0] + p[1][0]) / 2, (p[0][1] + p[1][1]) / 2)
+            rayas[(int(m[0] // C), int(m[1] // C))].append(p)
+    textos = [l for l in pg.get('lines') or [] if l['text'].strip() and not es_simbolo(l, sym)]
+    for b, op in rects:
+        w, h = b[2] - b[0], b[3] - b[1]
+        k = (round(b[0], 1), round(b[1], 1), round(b[2], 1), round(b[3], 1))
+        if k in vistos or min(w, h) < 3 * u or max(w, h) > 40 * u:
+            continue
+        cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
+        eje = None
+        for gx in range(int((b[0] - 1) // C), int((b[2] + 1) // C) + 1):
+            for gy in range(int((b[1] - 1) // C), int((b[3] + 1) // C) + 1):
+                for a, c in rayas.get((gx, gy), []):
+                    if abs(a[1] - c[1]) < 0.2 and abs(min(a[0], c[0]) - b[0]) < 0.4 and abs(max(a[0], c[0]) - b[2]) < 0.4 \
+                            and abs((a[1] + c[1]) / 2 - cy) < 0.2 * h:
+                        eje = 'v'           # raya horizontal de costado a costado: el cable va vertical
+                    elif abs(a[0] - c[0]) < 0.2 and abs(min(a[1], c[1]) - b[1]) < 0.4 and abs(max(a[1], c[1]) - b[3]) < 0.4 \
+                            and abs((a[0] + c[0]) / 2 - cx) < 0.2 * w:
+                        eje = 'h'
+                    if eje:
+                        break
+                if eje:
+                    break
+            if eje:
+                break
+        if not eje:
+            continue
+        if any(b[0] <= (l['bbox'][0] + l['bbox'][2]) / 2 <= b[2] and b[1] <= (l['bbox'][1] + l['bbox'][3]) / 2 <= b[3] for l in textos):
+            continue              # un rotulo adentro: es un pin o una caja con texto, no un empalme
+        vistos.add(k); out.append((b, 'partido', eje))
+    pg['_simb_emp'] = out
+    return out
+
+
+def camino_desde(g, chains, e, largo):
+    """polilinea del recorrido desde la punta e (por sus tramos, siguiendo en cada union el tramo del recorrido que va
+    mas derecho) hasta 'largo' pt -> [puntos], o [] si e no es la punta de un tramo del recorrido"""
+    c0 = k0 = None
+    for c in sorted(chains):
+        for kk in g.chain_end_keys(c):
+            if dist(g.nodes[kk], e) < 0.8:
+                c0, k0 = c, kk
+                break
+        if c0 is not None:
+            break
+    if c0 is None:
+        return []
+    pts, L, usados, node, c = [g.nodes[k0]], 0.0, set(), k0, c0
+    while c is not None and L < largo:
+        usados.add(c)
+        quedan = set(g.chains[c])
+        while quedan and L < largo:
+            s = next((s for s in sorted(quedan) if node in (g.key(g.segs[s][0]), g.key(g.segs[s][1]))), None)
+            if s is None:
+                break
+            a, b, _ = g.segs[s]
+            q = b if g.key(a) == node else a
+            L += dist(pts[-1], q); pts.append(q); node = g.key(q); quedan.discard(s)
+        sig = [x for x in sorted(chains) if x not in usados and node in g.chain_end_keys(x)]
+        if not sig or len(pts) < 2:
+            break
+        v = (pts[-1][0] - pts[-2][0], pts[-1][1] - pts[-2][1])
+        def recto(x):
+            for s in g.chains[x]:
+                a, b, _ = g.segs[s]
+                if g.key(a) == node or g.key(b) == node:
+                    o = b if g.key(a) == node else a
+                    w = (o[0] - pts[-1][0], o[1] - pts[-1][1])
+                    n = math.hypot(*v) * math.hypot(*w)
+                    return (v[0] * w[0] + v[1] * w[1]) / n if n else -1
+            return -1
+        c = max(sig, key=recto)
+    return pts
+
+
+def _sobre_camino(pts, q):
+    """(distancia de q al camino, posicion a lo largo del camino de su punto mas cercano)"""
+    best, s = None, 0.0
+    for a, b in zip(pts, pts[1:]):
+        L = dist(a, b)
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        t = 0.0 if L == 0 else max(0.0, min(1.0, ((q[0] - a[0]) * dx + (q[1] - a[1]) * dy) / (L * L)))
+        d = math.hypot(q[0] - (a[0] + t * dx), q[1] - (a[1] + t * dy))
+        if best is None or d < best[0]:
+            best = (d, s + t * L)
+        s += L
+    return best or (1e9, 0.0)
+
+
+def empalme_en_tramo(pg, sym, g, chains, e, rotulos):
+    """el recorrido del cable, desde la punta e (pin de un aparato), ATRAVIESA un empalme dibujado (■ o ⊟,
+    simbolos_empalme) antes de su primer numero: el cable numerado empieza en el empalme y lo que va del empalme al pin
+    es el cable propio del aparato. rotulos = cajas de los numeros de este cable en la hoja. -> caja del empalme o None"""
+    u = sym.u
+    sims = [s for s in simbolos_empalme(pg, sym) if box_dist(e, s[0]) <= 250 * u]
+    if not sims:
+        return None
+    pts = camino_desde(g, chains, e, 250 * u)
+    if len(pts) < 2:
+        return None
+    labs = [s for d, s in (_sobre_camino(pts, ((b[0] + b[2]) / 2, (b[1] + b[3]) / 2)) for b in rotulos) if d < 30 * u]
+    if not labs:
+        return None
+    best = None
+    for b, tipo, eje in sims:
+        cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
+        for a, c in zip(pts, pts[1:]):
+            if tipo == 'relleno':
+                cruza = seg_dist((cx, cy), a, c) < 0.8
+            elif eje == 'v':
+                cruza = abs(a[0] - c[0]) < 0.3 and abs((a[0] + c[0]) / 2 - cx) < 0.25 * (b[2] - b[0]) \
+                    and min(a[1], c[1]) <= b[1] + 0.3 and max(a[1], c[1]) >= b[3] - 0.3
+            else:
+                cruza = abs(a[1] - c[1]) < 0.3 and abs((a[1] + c[1]) / 2 - cy) < 0.25 * (b[3] - b[1]) \
+                    and min(a[0], c[0]) <= b[0] + 0.3 and max(a[0], c[0]) >= b[2] - 0.3
+            if not cruza:
+                continue
+            s = _sobre_camino(pts, (cx, cy))[1]
+            # entre el pin y el numero: ningun numero del cable antes del empalme, y alguno despues; y separado del pin
+            # (el cable propio del aparato: un relleno en la misma punta es el punto de una union)
+            if s >= 3 * u and all(x > s for x in labs) and (best is None or s < best[0]):
+                best = (s, b, tipo)
+            break
+    return None if best is None else (best[1], best[2])
+
+
+def pin_en_simbolo(pg, sym, p, borne, tol=1.0):
+    """regla del taller de los pines repetidos: el pin del aparato donde termina la punta p (recuadro chico con su rotulo,
+    en una fila o columna de recuadros iguales, dentro del simbolo del aparato) es el n-esimo de los que tienen el mismo
+    rotulo, de izquierda a derecha (o de arriba abajo si estan en columna). -> {orden, de, aparato_txt (los textos del
+    recuadro del aparato, para saber que aparato es)} o {}"""
+    u = sym.u
+    tp = 1.6                    # (la punta puede quedar a 1,2 pt del borde del pin: TPT hoja 12, 1202)
+    sobre = lambda b: (min(abs(p[0] - b[0]), abs(p[0] - b[2])) < tp and b[1] - tp <= p[1] <= b[3] + tp or
+                       min(abs(p[1] - b[1]), abs(p[1] - b[3])) < tp and b[0] - tp <= p[0] <= b[2] + tp)
+    chicos = [b for b in sym.boxes if max(b[2] - b[0], b[3] - b[1]) <= 45 * u]
+    cand = sorted((b for b in chicos if sobre(b)), key=lambda b: (b[2] - b[0]) * (b[3] - b[1]))
+    if not cand:
+        return {}
+    c = cand[0]
+    w, h = c[2] - c[0], c[3] - c[1]
+    nrm = lambda t: re.sub(r'\s+', '', str(t or '')).replace('−', '-').replace('–', '-')
+    txts = [l for l in list(pg.get('lines') or []) + list(pg.get('signos') or ()) if l['text'].strip() and not es_simbolo(l, sym)]
+    centro = lambda l: ((l['bbox'][0] + l['bbox'][2]) / 2, (l['bbox'][1] + l['bbox'][3]) / 2)
+    adentro = lambda b, q: b[0] <= q[0] <= b[2] and b[1] <= q[1] <= b[3]
+    rotulo = lambda b: nrm(''.join(l['text'] for l in sorted(txts, key=lambda l: l['bbox'][0]) if adentro(b, centro(l))))
+    fila = [b for b in chicos if abs(b[1] - c[1]) < 0.6 and abs(b[3] - c[3]) < 0.6 and abs((b[2] - b[0]) - w) < 0.25 * w]
+    col = [b for b in chicos if abs(b[0] - c[0]) < 0.6 and abs(b[2] - c[2]) < 0.6 and abs((b[3] - b[1]) - h) < 0.25 * h]
+    en_fila = len(fila) >= len(col)
+    grupo = fila if en_fila else col
+    pos = (lambda b: b[0]) if en_fila else (lambda b: -b[3])
+    # el recuadro del aparato: el mas chico de los grandes que contiene al pin o lo toca (pines colgando del borde)
+    grandes = sorted((B for B in sym.boxes if max(B[2] - B[0], B[3] - B[1]) > 45 * u and B[0] - tol <= (c[0] + c[2]) / 2 <= B[2] + tol
+                      and B[1] - tol <= (c[1] + c[3]) / 2 <= B[3] + tol or max(B[2] - B[0], B[3] - B[1]) > 45 * u
+                      and B[0] - tol <= (c[0] + c[2]) / 2 <= B[2] + tol and (abs(B[1] - c[3]) < tol or abs(B[3] - c[1]) < tol)),
+                     key=lambda B: (B[2] - B[0]) * (B[3] - B[1]))
+    G = grandes[0] if grandes else None
+    if G:
+        grupo = [b for b in grupo if G[0] - tol <= (b[0] + b[2]) / 2 <= G[2] + tol and G[1] - tol <= (b[1] + b[3]) / 2 <= G[3] + tol
+                 or G[0] - tol <= (b[0] + b[2]) / 2 <= G[2] + tol and (abs(G[1] - b[3]) < tol or abs(G[3] - b[1]) < tol)]
+    else:                       # sin recuadro del aparato: los recuadros seguidos (huecos de menos de 4 pines)
+        grupo = sorted(grupo, key=pos)
+        i = next((j for j, b in enumerate(grupo) if b == c), None)
+        if i is None:
+            return {}
+        paso = w if en_fila else h
+        a_, z_ = i, i
+        while a_ > 0 and abs(pos(grupo[a_]) - pos(grupo[a_ - 1])) <= 5 * paso:
+            a_ -= 1
+        while z_ < len(grupo) - 1 and abs(pos(grupo[z_ + 1]) - pos(grupo[z_])) <= 5 * paso:
+            z_ += 1
+        grupo = grupo[a_:z_ + 1]
+    rb = nrm(borne)
+    mismos = sorted((b for b in grupo if rotulo(b) == rb), key=pos)
+    if c not in mismos:
+        return {}
+    out = dict(orden=mismos.index(c) + 1, de=len(mismos))
+    if G:
+        ap = [l['text'].strip() for l in sorted(txts, key=lambda l: (-l['bbox'][3], l['bbox'][0])) if adentro(G, centro(l))
+              and not any(adentro(b, centro(l)) for b in chicos if b is not G)]
+        if ap:
+            out['aparato_txt'] = ' | '.join(ap)
+    return out
 
 
 def quattro_gemelas(pg, sym, u, tag, num, col, lines):
@@ -1033,6 +1291,10 @@ def conductors(res):
     if pre is not None:           # plano de EPLAN: los conductores salen de la lista de conexiones (eplan.process)
         return {num: dict(c, pares=list(c['pares']), bornes=list(c['bornes'])) for num, c in pre.items()}
     cable_nums = {d['num'] for d in res.detail}
+    rotulos = collections.defaultdict(list)         # (num, hoja) -> cajas de sus numeros (empalme_en_tramo)
+    for d in res.detail:
+        if d.get('bbox') and d.get('pag') is not None:
+            rotulos[(d['num'], d['pag'])].append(d['bbox'])
     by_num = collections.defaultdict(list)          # num -> [(pg, route)]
     for pg in res.pages:
         for num, rt in pg.get('routes', {}).items():
@@ -1062,10 +1324,19 @@ def conductors(res):
                 nid = f'{pg["index"]}:{e[0]:.1f},{e[1]:.1f}'
                 dr = end_direction(g, chains, e)
                 d = describe_end(pg, sym, e, dr, cable_nums)
+                otro = None
                 if d['tipo'] == 'borne' and not d['circulo'] and not d['borde'] and not d['borne']:
                     otro = borne_en_otro_recorrido(pg, sym, g, num, e, dr, cable_nums)
                     if otro:      # union en T con el recorrido de otro numero: el conductor va a ese borne
                         d = otro[1]
+                if not otro and d['tipo'] == 'borne' and d.get('tag_base') and not d.get('empalme') and not d.get('empalme_dibujado'):
+                    # el recorrido atraviesa un empalme dibujado (■ / ⊟) entre el pin y el numero del cable: WAGO con el
+                    # cable propio del aparato (campo aparte: el texto de la punta no cambia)
+                    emp = empalme_en_tramo(pg, sym, g, chains, e, rotulos.get((num, pg['index'])) or [])
+                    if emp:
+                        b_ = emp[0]
+                        d['empalme_dibujado'] = dict(tipo='wago', simbolo=emp[1], p=[round((b_[0] + b_[2]) / 2, 1), round((b_[1] + b_[3]) / 2, 1)],
+                                                     **pin_en_simbolo(pg, sym, e, d.get('borne')))
                 d['hoja'] = pg['meta'].get('sheet', str(pg['index'])); d['pag'] = pg['index']; d['alt'] = alternativa(pg, e)
                 nodes[nid] = d; ids[e] = nid
                 if d['tipo'] == 'flecha':
@@ -1240,6 +1511,10 @@ def conductors(res):
                 same = [m for m in pcb_nodes if nodes[m]['borne'] == d['borne']]
                 if same:
                     canon[n] = canon[same[0]]
+        # el empalme dibujado (WAGO) de un borne dibujado en varias hojas vale para el nodo que lo representa
+        for n in terms:
+            if nodes[n].get('empalme_dibujado') and canon[n] != n and not nodes[canon[n]].get('empalme_dibujado'):
+                nodes[canon[n]]['empalme_dibujado'] = nodes[n]['empalme_dibujado']
         pairs = arbol(nodes, adj, canon, terms)
         # un tramo que se lee igual que otro (el mismo borne dibujado en dos hojas sin unirse en un nodo) es el mismo;
         # uno que se lee igual de los dos lados es un borne consigo mismo, no un conductor, pero solo si las dos puntas

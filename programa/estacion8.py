@@ -35,18 +35,36 @@ Por donde sale cada cable que no queda en la misma lateral (rutear_lineas):
     a la puerta: cruzan el fondo) por 'entrada' (elegida; si no, la propuesta: a la altura de la salida de E6 del mismo
     lado si las vistas estan alineadas en la hoja, si no la regla del taller por el borde del lado del fondo).
   Sin bisagra elegida (todavia no se contesto el asistente) no hay salida a la puerta: todo sale por la entrada.
-  Si el recorrido elegido no llega por las canaletas, el cable sale por la propuesta (no_llega)."""
+  Si el recorrido elegido no llega por las canaletas, el cable sale por la propuesta (no_llega).
+
+EMPALMES CON EL CABLE PROPIO DE UN APARATO (etapa E8-3, 2026-10-08, decision del taller; regla: manda el dibujo del
+funcional). Una punta con 'empalme_dibujado' (instructivo: el cable numerado llega al pin a traves de un ■ / ⊟ dibujado,
+TPT y 66817: el cargador) se empalma con un WAGO con el cable propio del aparato: la punta va PELADA (sin pino) y el
+WAGO queda a la salida de la canaleta mas cercana debajo del aparato (punta libre de una canaleta, por debajo de su
+etiqueta; si no hay ninguna debajo, la mas cercana): el recorrido va por las canaletas hasta el WAGO y del WAGO al
+aparato va el cable propio (marca_o: el punto del aparato). Varios empalmes del mismo aparato van uno al lado del otro,
+en el orden de sus pines. El pin se nombra por la regla de los pines repetidos (n-esimo '+' del simbolo, con los nombres
+de su familia en bornes/pines_repetidos.json: '+ panel', '- bateria'). Una punta EMPALME (empalme_en_rama: el RS-485 del
+cargador, «EMPALME con 12PS2») va junto al aparato con cuyo cable propio se empalma; si junta 3 o mas conductores
+(sus tramos numerados + el cable propio) queda «empalme de N, a confirmar». En la linea: 'empalme' (punta de la
+lateral; 'empalme_d' la otra punta de un cable de la misma lateral) = {tipo: 'wago' | 'empalme', texto, aparato, pin,
+n, confirmar, pelado, simbolo, p (el empalme), fin (la punta de la canaleta, en su eje), entra (por donde entra a la
+canaleta)}. El texto de la punta y la clave de la marca no cambian; los pines sin cable no se muestran."""
 import collections
+import json
 import math
+import os
 import re
 import unicodedata
 
-from instructivo import conductors, fmt_terminal, cable_desc, natk, puntos_salida, sale_abajo
+from instructivo import conductors, fmt_terminal, cable_desc, natk, puntos_salida, sale_abajo, materiales_funcional
 # (movida a planocables.base: sigue siendo estacion8.e8_clave)
 from planocables.base.convenciones import clave_par as e8_clave, sin_lado, side_of, LATERAL_RE
 
-VERSION = 3       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
+VERSION = 4       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
                   # 3 (2026-10-08): entrada a las laterales y bisagra de la puerta (recorridos)
+                  # 4 (2026-10-08): empalmes con el cable propio de un aparato (WAGO del cargador, RS-485)
+AQUI = os.path.dirname(os.path.abspath(__file__))
 MAX_LINEAS = 7
 MARGEN_IMG_H = 0.5    # imagen de la lateral: la placa entera + medio perfil de riel de cada lado
 DONDE = {'BANDEJA': 'bandeja principal', 'LATERAL': 'otra bandeja lateral', 'E8': 'zona hidráulica', 'AFUERA': 'puerta / placa'}
@@ -227,6 +245,106 @@ def _otras_salidas(net, ductos, lado):
     return out
 
 
+# ------------------------------------------------------------------ empalmes con el cable propio de un aparato (WAGO)
+def _leer_json(p):
+    try:
+        with open(p, encoding='utf-8') as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return None
+
+
+def familias_catalogo():
+    """[(familia, patron)] de bornes/catalogo.json (el tipo de aparato por el renglon de la lista de materiales)"""
+    out = []
+    for f in (((_leer_json(os.path.join(AQUI, 'bornes', 'catalogo.json')) or {}).get('general') or {}).get('familias') or []):
+        try:
+            out.append((f['familia'], re.compile(f['patron'])))
+        except (KeyError, TypeError, re.error):
+            pass
+    return out
+
+
+def nombres_pines():
+    """{familia: [nombre del 1.er pin repetido, del 2.o...]} de bornes/pines_repetidos.json"""
+    d = _leer_json(os.path.join(AQUI, 'bornes', 'pines_repetidos.json')) or {}
+    return {k: list(v.get('nombres') or []) for k, v in (d.get('familias') or {}).items() if isinstance(v, dict)}
+
+
+def familia_de(textos, fams):
+    """familia del aparato por el primer texto que la nombra (renglon de la lista de materiales, textos del recuadro del
+    aparato en el funcional); tambien sin los espacios que la fuente SHX mete en las palabras ('Batery Ch arger')"""
+    for t in textos:
+        if not t:
+            continue
+        for fam, rx in fams:        # (en el orden del catalogo: 'Battery Ch arger' es cargador, no bateria)
+            if rx.search(t) or rx.search(re.sub(r'\s+', '', t)):
+                return fam
+    return None
+
+
+def texto_pin(borne, emp, fam, nombres):
+    """'+ panel' (el n-esimo '+' del simbolo con el n-esimo nombre de su familia), '+ (2.º de 3)' sin nombres, o el
+    rotulo solo"""
+    b = str(borne or '').strip()
+    n, de = (emp or {}).get('orden'), (emp or {}).get('de')
+    lista = nombres.get(fam) or []
+    if n and n <= len(lista):
+        return f'{b} {lista[n - 1]}'.strip()
+    if n and de and de > 1:
+        return f'{b} ({n}.º de {de})'.strip()
+    return b
+
+
+def puntas_libres(ductos):
+    """puntas de canaleta por donde puede salir un cable (no siguen en otra canaleta): [(fin, salida, canaleta)] con
+    fin = la punta del eje (el nodo de ruteo.Net, a 0,1 pt del final) y salida = (dx, dy) hacia afuera"""
+    from ruteo import ancho, TOQUE_W
+    W = ancho(ductos); m = TOQUE_W * W
+    out = []
+    for d in ductos:
+        x0, y0, x1, y1 = d['b']
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        ps = [((x0 + 0.1, cy), (-1, 0)), ((x1 - 0.1, cy), (1, 0))] if d['h'] else [((cx, y0 + 0.1), (0, -1)), ((cx, y1 - 0.1), (0, 1))]
+        for fin, dr in ps:
+            q = (fin[0] + dr[0] * (0.1 + 0.3 * W), fin[1] + dr[1] * (0.1 + 0.3 * W))       # justo afuera de la punta
+            if any(o is not d and o['b'][0] - m <= q[0] <= o['b'][2] + m and o['b'][1] - m <= q[1] <= o['b'][3] + m for o in ductos):
+                continue
+            out.append((fin, dr, d))
+    return out
+
+
+def punto_empalme(ductos, xy):
+    """donde queda el empalme (WAGO) del cable propio de un aparato con etiqueta en xy (decision del taller: debajo del
+    aparato, a la salida de la canaleta): la punta libre de canaleta mas cercana por DEBAJO de la etiqueta (si no hay
+    ninguna, la mas cercana); el empalme va afuera de la punta, a la distancia de una salida de cable (ruteo.SALIDA_W).
+    -> {fin, dir, p} o None (sin canaletas)"""
+    from ruteo import ancho, SALIDA_W
+    if not ductos:
+        return None
+    libres = [x for x in puntas_libres(ductos) if not x[2].get('ex')] or puntas_libres(ductos)
+    if not libres:
+        return None
+    abajo = [x for x in libres if x[0][1] < xy[1]]
+    fin, dr, _ = min(abajo or libres, key=lambda x: (math.dist(x[0], xy), x[0]))
+    W = ancho(ductos)
+    return dict(fin=[round(fin[0], 2), round(fin[1], 2)], dir=list(dr),
+                p=[round(fin[0] + dr[0] * SALIDA_W * W, 2), round(fin[1] + dr[1] * SALIDA_W * W, 2)])
+
+
+def con_empalmes(r, eo, ed):
+    """recorrido por las canaletas (desde / hasta la punta de la canaleta) con el tramo hasta el empalme de cada punta"""
+    if not r:
+        return r
+    r = [list(p) for p in r]
+    for emp, al_final in ((eo, False), (ed, True)):
+        if not (emp and emp.get('fin') and emp.get('p')):
+            continue
+        pre = [list(emp['p'])] + ([list(emp['entra'])] if emp.get('entra') and math.dist(emp['entra'], (r[-1] if al_final else r[0])) > 0.3 else [])
+        r = r + pre[::-1] if al_final else pre + r
+    return [[round(x, 1), round(y, 1)] for x, y in r]
+
+
 def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala):
     """recorrido de cada cable de la lateral 'lado' por sus canaletas (net; None = sin canaletas, sin recorrido).
     ls: lineas con _po, _so (y las de la misma lateral, con marca_d, _pd y _sd). vrec: lo elegido en esa vista
@@ -243,7 +361,11 @@ def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala
     no_llegan = 0
 
     def ruta_a(l, por, s):
+        emp = l.get('empalme') or {}
         try:
+            if emp.get('fin'):           # sale del empalme del cable propio de un aparato: por la punta de su canaleta
+                return con_empalmes(route_line(net, tuple(emp['fin']), 0, None, None, False, True, False, lado_li=s,
+                                               por=por or None, o_red=True), emp, None)
             return route_line(net, l['_po'][:2], l['_so'], None, None, False, True, False, lado_li=s, por=por or None)
         except Exception:
             return None
@@ -262,8 +384,11 @@ def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala
         if not net:
             continue
         if not afuera_:
+            eo, ed = l.get('empalme') or {}, l.get('empalme_d') or {}
             try:
-                ruta = route_line(net, l['_po'][:2], l['_so'], l['_pd'][:2], l['_sd'], False, False, False, lado_li=hacia)
+                ruta = con_empalmes(route_line(net, tuple(eo['fin']) if eo.get('fin') else l['_po'][:2], l['_so'],
+                                               tuple(ed['fin']) if ed.get('fin') else l['_pd'][:2], l['_sd'], False, False, False,
+                                               lado_li=hacia, o_red=bool(eo.get('fin')), d_red=bool(ed.get('fin'))), eo, ed)
             except Exception:
                 ruta = None
         else:
@@ -349,6 +474,16 @@ def build(res, lay, ins):
             if t and t not in ('LI', 'LD'):
                 txt_e6.setdefault((l['num'], sin_lado(t)), t)
 
+    def ap_tag(e):
+        """aparato donde esta la punta: su tag; una punta EMPALME ('EMPALME con 12PS2', instructivo.empalme_en_rama) va
+        junto al aparato con cuyo cable propio se empalma"""
+        if e.get('empalme'):
+            m = re.match(r'con\s+(\S+)', e.get('borne') or '')
+            if m:
+                t = m.group(1)
+                return t if t in comp else re.sub(r'\d+$', '', t) if re.sub(r'\d+$', '', t) in comp else t
+        return e.get('tag_base')
+
     def donde(e):
         """('BANDEJA' | 'LATERAL' | 'E8' | 'CAMPO' | 'AFUERA', comp)"""
         if e.get('fuera'):
@@ -357,6 +492,8 @@ def build(res, lay, ins):
         c = comp.get(t)
         if e.get('ubicacion') == 'Campo' or e.get('campo'):
             return 'CAMPO', c
+        if e.get('empalme'):            # el empalme va donde esta su aparato si es de una lateral; si no, afuera (como antes)
+            return ('LATERAL', comp.get(ap_tag(e))) if ap_tag(e) in de_lateral else ('AFUERA', c)
         if c and c.get('ubic') == 'BANDEJA':
             return 'BANDEJA', c
         if t in de_lateral:
@@ -381,8 +518,10 @@ def build(res, lay, ins):
                 v = usuario.get(k) or bornes.get(k)
                 if v and _dentro((float(v[0]), float(v[1])), L['placa']):
                     return float(v[0]), float(v[1]), (float(v[2]) if len(v) > 2 and v[2] else None), True
-        c = comp.get(e.get('tag_base')) or {}
+        c = comp.get(ap_tag(e)) or {}
         x, y = float(c.get('x') or 0), float(c.get('y') or 0)
+        if e.get('empalme'):          # (el empalme no es un borne: el punto del aparato, donde llega su cable propio)
+            return x, y, None, False
         b = e.get('borne') or ''
         if re.fullmatch(r'\d+', b):
             x += min(int(b), 14) * 3.5 * kr      # el tag nombra los bornes que tiene a su derecha
@@ -394,11 +533,44 @@ def build(res, lay, ins):
         (side_of, como E6). Sin rieles: el lado del borne."""
         if not L['rieles']:
             return side_of(e), None
-        y = p[1] if p[3] else float((comp.get(e.get('tag_base')) or {}).get('y') or p[1])
+        y = p[1] if p[3] else float((comp.get(ap_tag(e)) or {}).get('y') or p[1])
         i = min(range(len(L['rieles'])), key=lambda k: abs(L['rieles'][k] - y))
         if not p[3]:
             return side_of(e), i + 1
         return (0 if p[1] >= L['rieles'][i] else 1), i + 1
+
+    # empalmes con el cable propio de un aparato: la familia del aparato (lista de materiales del funcional o textos de
+    # su recuadro) da el nombre de sus pines repetidos ('+ panel')
+    cache_fam = {}
+
+    def fam_de(tag, txt):
+        if 'fams' not in cache_fam:
+            cache_fam['fams'], cache_fam['nombres'] = familias_catalogo(), nombres_pines()
+            try:
+                from bornes.motor import materiales_de_lineas
+                cache_fam['bom'] = materiales_de_lineas(materiales_funcional(res)) or {}
+            except Exception:
+                cache_fam['bom'] = {}
+        return familia_de([cache_fam['bom'].get(tag), txt], cache_fam['fams'])
+
+    def empalme_de(e, nid, c):
+        """lo que hay en la punta e de un empalme con el cable propio de su aparato (sin la posicion), o None"""
+        ap = ap_tag(e)
+        emp = e.get('empalme_dibujado')
+        if emp and emp.get('tipo') == 'wago':
+            pin = texto_pin(e.get('borne'), emp, fam_de(ap, emp.get('aparato_txt')), cache_fam.get('nombres') or {})
+            return dict(tipo='wago', aparato=ap, pin=pin, n=2, confirmar=False, pelado=True, simbolo=emp.get('simbolo'),
+                        texto=f'WAGO con el cable propio de {ap}' + (f' · {pin}' if pin else ''),
+                        _orden=(emp.get('orden') or 99, (emp.get('p') or [0, 0])[0]))
+        if e.get('empalme'):
+            # conductores en el empalme: los tramos numerados que llegan + el cable propio del aparato
+            n = 1 + sum(1 for p_ in c['pares'] if nid in p_)
+            if n <= 2:
+                return dict(tipo='wago', aparato=ap, pin='', n=n, confirmar=False, pelado=True, simbolo='relleno',
+                            texto=f'WAGO con el cable propio de {ap}', _orden=(100, 0))
+            return dict(tipo='empalme', aparato=ap, pin='', n=n, confirmar=True, pelado=False, simbolo='relleno',
+                        texto=f'Empalme de {n}, a confirmar (con el cable propio de {ap})', _orden=(100, 0))
+        return None
 
     cs = conductors(res)
     tramos_lat = collections.defaultdict(list)
@@ -425,46 +597,89 @@ def build(res, lay, ins):
             base = dict(num=num, cable=desc, color=col, secc=sec, clave=k,
                         hojas=sorted({ea.get('hoja'), eb.get('hoja')} - {None}, key=natk))
             # --- bandejas laterales
-            for e, w, t, eo, wo, to in ((ea, wa, ta, eb, wb, tb), (eb, wb, tb, ea, wa, ta)):
+            for e, w, t, eo, wo, to, ne, no in ((ea, wa, ta, eb, wb, tb, a, b), (eb, wb, tb, ea, wa, ta, b, a)):
                 if w != 'LATERAL':
                     continue
-                L = de_lateral[e['tag_base']]
-                otra_lat = wo == 'LATERAL' and de_lateral.get(eo.get('tag_base')) is L
+                L = de_lateral[ap_tag(e)]
+                otra_lat = wo == 'LATERAL' and de_lateral.get(ap_tag(eo)) is L
                 if otra_lat and (num, k) in {(x['num'], x['clave']) for x in tramos_lat[L['i']]}:
                     continue          # (el tramo de lateral a lateral ya se puso desde la otra punta)
                 po = punto(e, num, L)
                 so, riel = lado_de(po, e, L)
-                ce = comp.get(e['tag_base']) or {}
+                ce = comp.get(ap_tag(e)) or {}
                 l = dict(base, origen=t, marca_o=[round(po[0], 2), round(po[1], 2), po[2]], exacto_o=po[3],
                          riel=riel, lado='arriba' if so == 0 else 'abajo', componente=e.get('tag') or e.get('tag_base') or '',
-                         _so=so, _po=po, _x=ce.get('x') or po[0], _y=ce.get('y') or po[1], _tag=e['tag_base'])
+                         _so=so, _po=po, _x=ce.get('x') or po[0], _y=ce.get('y') or po[1], _tag=ap_tag(e))
+                emp = empalme_de(e, ne, c)
+                if emp:
+                    l['_emp'] = emp          # empalme con el cable propio del aparato (su lugar, despues: por aparato)
                 if otra_lat:
                     pd = punto(eo, num, L)
                     sd, _ = lado_de(pd, eo, L)
                     l.update(destino=to, marca_d=[round(pd[0], 2), round(pd[1], 2), pd[2]], exacto_d=pd[3], otra='misma bandeja',
                              _sd=sd, _pd=pd)
+                    emp_d = empalme_de(eo, no, c)
+                    if emp_d:
+                        l['_emp_d'] = emp_d
                 elif wo == 'LATERAL':
                     # a la OTRA lateral: sale en las dos (cada una con su punta); la otra punta dice a cual va
-                    l.update(destino=to, otra=de_lateral[eo['tag_base']]['nombre'].lower())
+                    l.update(destino=to, otra=de_lateral[ap_tag(eo)]['nombre'].lower())
                 else:
                     l.update(destino=to, otra='sin aparato en el plano' if to in ('LI', 'LD') else DONDE[wo])
                     if wo == 'BANDEJA':
                         l['viene_de_e6'] = True     # la punta de la bandeja principal se cableo en E6: el cable ya esta tirado
                     elif (l['otra'] == PUERTA and eo.get('tag_base') and not str(to).startswith('?')
-                          and not _dibujado(comp.get(eo.get('tag_base')))):
+                          and not _dibujado(comp.get(ap_tag(eo)))):
                         # sigue a la puerta: un aparato que no esta dibujado en el topografico (lo que esta dibujado en la
                         # vista del fondo, como la zona hidraulica de AutoCAD, queda en el gabinete: sale por la entrada;
                         # una punta sin aparato, '?', tampoco)
                         l['a_puerta'] = True
                 tramos_lat[L['i']].append(l)
             # --- puerta y placa (y la zona hidraulica): aparato por aparato
-            for e, w, t, eo, wo, to in ((ea, wa, ta, eb, wb, tb), (eb, wb, tb, ea, wa, ta)):
+            for e, w, t, eo, wo, to, ne in ((ea, wa, ta, eb, wb, tb, a), (eb, wb, tb, ea, wa, ta, b)):
                 if w not in ('AFUERA', 'E8') or t in ('LI', 'LD') or not e.get('tag_base'):
                     continue
                 donde_o = ('sin aparato en el plano' if to in ('LI', 'LD') else
-                           de_lateral[eo['tag_base']]['nombre'].lower() if wo == 'LATERAL' else DONDE[wo])
-                afuera[(e['tag_base'], w)].append(dict(base, borne=t, pin=e.get('borne') or '', otra=to, otra_donde=donde_o,
-                                                       viene_de_e6=wo == 'BANDEJA'))
+                           de_lateral[ap_tag(eo)]['nombre'].lower() if wo == 'LATERAL' else DONDE[wo])
+                fila = dict(base, borne=t, pin=e.get('borne') or '', otra=to, otra_donde=donde_o, viene_de_e6=wo == 'BANDEJA')
+                emp = empalme_de(e, ne, c)
+                if emp:
+                    fila['empalme'] = {k_: v_ for k_, v_ in emp.items() if not k_.startswith('_')}
+                afuera[(e['tag_base'], w)].append(fila)
+
+    def ubicar_empalmes(L, ls):
+        """lugar de los empalmes con el cable propio de cada aparato de la lateral L (decision del taller: debajo del
+        aparato, a la salida de la canaleta): uno al lado del otro a lo ancho de la canaleta, en el orden de los pines
+        del aparato (los RS-485 al final). Deja en cada linea 'empalme' / 'empalme_d' con p, fin y entra."""
+        from ruteo import ancho
+        por_ap = collections.defaultdict(dict)          # aparato -> {(num, texto de la punta): orden}
+        for l in ls:
+            for kk, txt in (('_emp', l['origen']), ('_emp_d', l.get('destino'))):
+                if l.get(kk):
+                    por_ap[l[kk]['aparato']].setdefault((l['num'], txt), (l[kk]['_orden'], natk(l['num'])))
+        lugar = {}
+        for ap, ks in por_ap.items():
+            c = comp.get(ap) or {}
+            base = punto_empalme(L['ductos'], (float(c.get('x') or 0), float(c.get('y') or 0))) if L['ductos'] else None
+            if not base:
+                continue
+            W = ancho(L['ductos'])
+            orden = sorted(ks, key=lambda k_: ks[k_])
+            n = len(orden)
+            paso = min(0.2 * W, 0.8 * W / (n - 1)) if n > 1 else 0.0
+            perp = (-base['dir'][1], base['dir'][0])
+            for i, k_ in enumerate(orden):
+                o = (i - (n - 1) / 2) * paso
+                lugar[(ap,) + k_] = dict(fin=base['fin'], p=[round(base['p'][0] + perp[0] * o, 2), round(base['p'][1] + perp[1] * o, 2)],
+                                          entra=[round(base['fin'][0] + perp[0] * o, 2), round(base['fin'][1] + perp[1] * o, 2)])
+        for l in ls:
+            for kk, out_k, txt in (('_emp', 'empalme', l['origen']), ('_emp_d', 'empalme_d', l.get('destino'))):
+                emp = l.get(kk)
+                if not emp:
+                    continue
+                d = {k_: v_ for k_, v_ in emp.items() if not k_.startswith('_')}
+                d.update(lugar.get((emp['aparato'], l['num'], txt)) or {})
+                l[out_k] = d
 
     # ---- orden y pasos de cada bandeja lateral (regla del taller: riel por riel de arriba abajo; en cada riel la parte
     # de arriba de izquierda a derecha y despues la de abajo; aparato por aparato; el de mas afuera del riel primero).
@@ -482,6 +697,7 @@ def build(res, lay, ins):
             else:
                 l['_orden'] = (-round(l['_y']), round(l['_x'], 1), l['_tag'], l['_so'], l['_po'][0], natk(l['origen']))
         ls.sort(key=lambda l: l['_orden'])
+        ubicar_empalmes(L, ls)
         # ruteo por las canaletas de la bandeja lateral; los que salen de la lateral entran / salen por la entrada (del
         # lado del fondo) o, en la lateral de la bisagra, los que siguen a la puerta por el lado de la puerta: elegidas
         # a mano (recorridos) o la propuesta (ver rutear_lineas)
@@ -562,7 +778,7 @@ def rutear_guardado(ins, rec):
                 if 'marca_d' in l or not mo:
                     continue
                 ls.append(dict(num=l.get('num'), otra=l.get('otra'), a_puerta=l.get('a_puerta'), clave=l.get('clave'), _po=(float(mo[0]), float(mo[1])),
-                               _so=0 if l.get('lado') == 'arriba' else 1))
+                               _so=0 if l.get('lado') == 'arriba' else 1, empalme=l.get('empalme')))
         try:
             net = Net(ductos) if ductos else None
         except Exception:

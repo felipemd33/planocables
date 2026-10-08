@@ -269,7 +269,10 @@ const Ins = (() => {
         </div>
       </div></div>`;
   }
-  const termChip = t => t ? `<span class="tchip" title="${esc(t.txt)}"><i style="background:${t.hex || '#fff'}" class="${t.hex ? '' : 'nd'}"></i>${t.tipo === 'doble' ? 'doble ' : 'pino '}${esc(t.sec.replace('.', ','))}${t.pollera ? '' : ' ?'}</span>` : '';
+  // (estación 8: en un empalme con el cable propio de un aparato la punta va «pelado (sin pino)» o «terminal a confirmar»)
+  const termChip = t => !t ? '' : t.tipo === 'pelado' || t.tipo === 'confirmar'
+    ? `<span class="tchip e8-pel${t.tipo === 'confirmar' ? ' conf' : ''}" title="${esc(t.txt)}">${t.tipo === 'pelado' ? 'pelado (sin pino)' : 'terminal a confirmar'}</span>`
+    : `<span class="tchip" title="${esc(t.txt)}"><i style="background:${t.hex || '#fff'}" class="${t.hex ? '' : 'nd'}"></i>${t.tipo === 'doble' ? 'doble ' : 'pino '}${esc(t.sec.replace('.', ','))}${t.pollera ? '' : ' ?'}</span>`;
   function render() {
     show('insMain');
     const F = flat(); const nl = F.length; const hechos = F.filter(x => x.l.hecho).length;
