@@ -44,7 +44,25 @@ ETAPA E8-3 «WAGO del cargador» (2026-10-08; regla del taller: manda el dibujo 
     confirmar» y ya no esta en «Puerta y placa» (la fila de 21PCB01 dice que va a la lateral);
   - 66817: lo mismo con 1101, 1102, 1201 y 1202 (12PS1, con ■ dibujados);
   - 75287 y PAE: ningun empalme (el cargador va a la bornera 12XPS);
-  - la vista previa (rutear_guardado) rutea los cables con WAGO desde el empalme, igual que lo armado."""
+  - la vista previa (rutear_guardado) rutea los cables con WAGO desde el empalme, igual que lo armado.
+
+ETAPA E8-4 «puerta» (2026-10-08; foto 3 del taller):
+  - el topografico trae la vista de la PUERTA (lay['puerta'], clave aparte; hoja con titulo PUERTA y canaletas o
+    etiquetas del funcional, no la exterior): TPT (los dos) y 66817 en la hoja 8 «PUERTA DETALLE DE RIELES Y DUCTOS» con
+    la canaleta 40x40, 21PCB01 (con su cuerpo: la placa) y 13SH1; 75287 (75441) en la hoja 5 «VISTA POSTERIOR PUERTA»
+    con 13SH1 y 46DB1; el PAE (EPLAN) sin puerta (queda para despues);
+  - e8['puerta']: cada cable de un aparato de la puerta (las mismas claves que su tabla en «Puerta y placa», que sigue
+    igual) va de la entrada del lado de la bisagra (vista interior: bisagra izquierda = borde DERECHO del dibujo; sin
+    elegir, la propuesta) por la canaleta hasta la FRANJA de bornes de su aparato (en la placa 21PCB01, el lado de abajo:
+    no se inventan bornes);
+  - vista previa (rutear_guardado_puerta): sin elegir = lo armado; con la bisagra a la derecha entran por el borde
+    izquierdo; con puntos de paso (el perfil de abajo, como la foto 3) todos pasan por ahi y suben a su franja; un grupo
+    de cables elegidos con su punto manda; una entrada elegida;
+  - capa «Pasan hacia la puerta» en la lateral de la bisagra (rutear_guardado con la bisagra): los cables de la bandeja
+    principal y de la otra lateral que siguen a la puerta, con el haz de la entrada a la salida a la puerta; la otra
+    lateral no la tiene;
+  - la lista WPC no usa la puerta: las laterales y las tablas de «Puerta y placa» dan IGUAL con y sin la vista de la
+    puerta (regenerar sin lay['puerta']); regenerar conserva la entrada y los puntos de paso de la puerta."""
 import os, sys, io, json, glob, math, shutil, tarfile, tempfile, subprocess, concurrent.futures as cf
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -375,6 +393,102 @@ def esperado_e83(t, e8, ins):
                  f"{t}: vista previa = lo armado para los {len(lw)} cables con WAGO que salen de la lateral")
 
 
+# ------------------------------------------------------------------ etapa E8-4: puerta
+PUERTAS = {   # trabajo -> (hoja, texto del titulo, {aparato: (cables, con cuerpo)}, canaletas)
+    'tpt_constructivo': (8, 'PUERTA DETALLE DE RIELES Y DUCTOS', {'21PCB01': (22, True), '13SH1': (2, False)}, 1),
+    'tpt': (8, 'PUERTA DETALLE DE RIELES Y DUCTOS', {'21PCB01': (22, True), '13SH1': (2, False)}, 1),
+    '66817': (8, 'PUERTA DETALLE DE RIELES Y DUCTOS', {'21PCB01': (27, True), '13SH1': (2, False)}, 1),
+    '75287': (5, 'VISTA POSTERIOR PUERTA', {'13SH1': (2, False), '46DB1': (2, False)}, 1),
+}
+lineas_p = lambda Pd: [l for p in Pd['pasos'] for l in p['lineas']]
+en_caja = lambda p, b, m=0.6: b[0] - m <= p[0] <= b[2] + m and b[1] - m <= p[1] <= b[3] + m
+
+
+def esperado_e84(t, e8):
+    Pd = e8.get('puerta')
+    if t not in PUERTAS:
+        chequear(Pd is None, f"{t}: sin vista de la puerta (EPLAN: la hoja de la puerta queda para después)")
+        return
+    hoja, titulo, aps, nd = PUERTAS[t]
+    if not chequear(isinstance(Pd, dict), f"{t}: hay vista de la puerta"):
+        return
+    chequear(Pd['pag'] == hoja and Pd.get('titulo') == titulo and len(Pd['ductos']) == nd,
+             f"{t}: puerta en la hoja {Pd['pag']} «{Pd.get('titulo')}» con {len(Pd['ductos'])} canaleta(s)")
+    got = {a['tag']: (a['n'], a['cuerpo']) for a in Pd['aparatos']}
+    chequear(got == aps, f"{t}: aparatos de la puerta {got}")
+    ls = lineas_p(Pd)
+    afu = {x['clave'] for g in e8['afuera'] if g['tag'] in aps for x in g['cables']}
+    chequear({l['clave'] for l in ls} == afu and all(g.get('en_puerta') == (g['tag'] in aps or None) for g in e8['afuera']),
+             f"{t}: los {len(ls)} cables de la puerta son los de las tablas de sus aparatos (misma marca) y las tablas dicen cuáles están en la puerta")
+    caja = {a['tag']: a['caja'] for a in Pd['aparatos']}
+    box, ent = Pd['box'], Pd['entrada_propuesta']
+    bien = [l for l in ls if l.get('ruta') and cerca(l['ruta'][-1], ent, 0.15) and cerca(l['ruta'][0], l['marca_o'], 0.15)
+            and abs(l['ruta'][0][1] - (caja[l['aparato']][1] if l['lado_franja'] == 'abajo' else caja[l['aparato']][3])) <= 0.15
+            and caja[l['aparato']][0] - 0.2 <= l['ruta'][0][0] <= caja[l['aparato']][2] + 0.2]
+    chequear(len(bien) == len(ls) and abs(ent[0] - box[2]) <= 0.15 and Pd['hacia'] == 'der',
+             f"{t}: los {len(bien)}/{len(ls)} cables van de la entrada propuesta {ent} (borde derecho del dibujo: bisagra a la izquierda, vista interior) a la franja de su aparato")
+    por_can = [l for l in ls if any(en_caja(p, d['b']) for p in l['ruta'] for d in Pd['ductos'])]
+    chequear(len(por_can) == len(ls), f"{t}: los {len(por_can)}/{len(ls)} cables pasan por la canaleta de la puerta")
+    cu = [a for a in Pd['aparatos'] if a['cuerpo']]
+    chequear(all(l['lado_franja'] == 'abajo' for l in ls if l['aparato'] in {a['tag'] for a in cu}),
+             f"{t}: a {[a['tag'] for a in cu]} (la placa) los cables llegan por la franja de abajo")
+
+
+def ruteo_e84(t, ins):
+    """vista previa de la puerta (rutear_guardado_puerta) y transito en la lateral de la bisagra (rutear_guardado)"""
+    E8 = e8_modulo()
+    e8 = ins['estacion8']
+    Pd = e8.get('puerta')
+    if Pd:
+        ls = lineas_p(Pd)
+        r = E8.rutear_guardado_puerta(ins, {})
+        chequear(r and [y['ruta'] for y in r['lineas']] == [l['ruta'] for l in ls] and r['entrada_propuesta'] == Pd['entrada_propuesta'],
+                 f"{t} puerta: vista previa sin elegir = lo armado ({len(ls)} rutas)")
+        r = E8.rutear_guardado_puerta(ins, {'bisagra': 'der'})
+        chequear(r['hacia'] == 'izq' and abs(r['entrada_propuesta'][0] - Pd['box'][0]) <= 0.15
+                 and all(cerca(y['ruta'][-1], r['entrada_propuesta'], 0.15) for y in r['lineas']),
+                 f"{t} puerta con la bisagra a la derecha: entran por el borde izquierdo del dibujo {r['entrada_propuesta']}")
+        # puntos de paso por debajo de todos los aparatos (como el perfil de abajo de la foto 3)
+        H = Pd['H']; cajas = [a['caja'] for a in Pd['aparatos']]
+        yp = round(min(c[1] for c in cajas) - 2 * H, 1)
+        d = min(Pd['ductos'], key=lambda d: abs(d['b'][2] - Pd['box'][2]))
+        xs = [round((d['b'][0] + d['b'][2]) / 2, 1), round(min(c[0] for c in cajas) - H, 1)]
+        r = E8.rutear_guardado_puerta(ins, {'vistas': {'PUERTA': {'paso': [[xs[0], yp], [xs[1], yp]]}}})
+        ok = [y for y in r['lineas'] if y['lado_franja'] == 'abajo' and len(y['ruta']) >= 3
+              and abs(y['ruta'][1][1] - yp) <= 0.15 and abs(y['ruta'][1][0] - y['ruta'][0][0]) <= 0.15]
+        chequear(len(ok) == len(r['lineas']) and not r['no_llegan'],
+                 f"{t} puerta con puntos de paso a la altura {yp}: los {len(ok)}/{len(r['lineas'])} pasan por ahí y suben derecho a su franja")
+        q = [round(Pd['box'][2], 1), round((Pd['box'][1] + Pd['box'][3]) / 2, 1)]
+        r = E8.rutear_guardado_puerta(ins, {'vistas': {'PUERTA': {'entrada': [q]}}})
+        chequear(r['entrada'] == q and all(cerca(y['ruta'][-1], q, 0.15) for y in r['lineas']), f"{t} puerta con la entrada elegida en {q}: entran ahí")
+        g = ls[-1]
+        cg = next(a['caja'] for a in Pd['aparatos'] if a['tag'] == g['aparato'])
+        pg = [round((cg[0] + cg[2]) / 2 + 2 * H, 1), round(cg[1] - 3 * H, 1)]       # (debajo de su aparato, al costado)
+        r = E8.rutear_guardado_puerta(ins, {'vistas': {'PUERTA': {'grupos': [{'id': 'g1', 'nombre': 'G', 'cables': [g['num']], 'puntos': [pg]}]}}})
+        x = {y['clave']: y for y in r['lineas']}
+        # (el cable se separa del tramo de su grupo en el punto mas cercano a su aparato: va hacia el punto, a su altura
+        # o en su vertical)
+        chequear(x[g['clave']]['salida'] == 'g1' and x[g['clave']]['ruta'] != g['ruta']
+                 and any(abs(p[1] - pg[1]) <= 0.15 or abs(p[0] - pg[0]) <= 0.15 for p in x[g['clave']]['ruta'])
+                 and all(x[l['clave']]['ruta'] == l['ruta'] for l in ls if l['num'] != g['num']),
+                 f"{t} puerta: un grupo con el cable {g['num']} va por su punto de paso {pg} y el resto no cambia")
+    # capa «Pasan hacia la puerta» en la lateral de la bisagra
+    hp = e8.get('hacia_puerta') or []
+    for bis, lado in (('izq', 'LI'), ('der', 'LD')):
+        L = lateral(e8, lado)
+        if not (L and L['ductos']):
+            continue
+        r = {x['clave_vista']: x for x in E8.rutear_guardado(ins, {'bisagra': bis})}
+        tr = r[L['clave_vista']].get('transito')
+        n = sum(1 for x in hp if x['desde'] != lado)
+        chequear(tr and tr['n'] == n and n and tr['ruta'] and cerca(tr['ruta'][0], r[L['clave_vista']]['entrada_propuesta'], 0.15)
+                 and cerca(tr['ruta'][-1], r[L['clave_vista']]['puerta_propuesta'], 0.15)
+                 and not any(x.get('transito') for k, x in r.items() if k != L['clave_vista']),
+                 f"{t} {L['nombre']} (bisagra a la {'izquierda' if bis == 'izq' else 'derecha'}): pasan hacia la puerta {tr and tr['n']} "
+                 f"(de la bandeja principal {sum(1 for x in hp if x['desde'] == 'E6')}, de la otra lateral {sum(1 for x in hp if x['desde'] not in ('E6', lado))}) "
+                 f"de la entrada a la salida a la puerta; la otra lateral sin capa")
+
+
 def regenerar_e82(tmp):
     """regenerar conserva lo elegido; un topografico nuevo lo borra (web.gen_instructivo sobre una copia del TPT del
     constructivo, en un historial temporal)"""
@@ -409,9 +523,12 @@ def regenerar_e82(tmp):
         return
     g = salen(ld)[0]['num']
     q = ld['entrada_propuesta']
+    Pd = e8.get('puerta') or {}
+    pp = [[round(Pd['box'][2] - 40, 1), 330.0], [round(Pd['box'][0] + 60, 1), 330.0]] if Pd else []     # (la puerta: puntos de paso)
     rec = {'preguntar': False, 'bisagra': 'izq', 'vistas': {
         ld['clave_vista']: {'entrada': [p], 'puerta': [], 'grupos': [{'id': 'g1', 'nombre': 'Grupo 1', 'cables': [g], 'puntos': [q]}]},
-        li['clave_vista']: {'entrada': [], 'puerta': [], 'grupos': []}}}
+        li['clave_vista']: {'entrada': [], 'puerta': [], 'grupos': []},
+        'PUERTA': {'entrada': [], 'puerta': [], 'grupos': [], 'paso': pp}}}
     ins1['estacion8']['recorridos'] = rec          # (como la pestaña: PUT /instructivo con lo elegido)
     with open(pj, 'w', encoding='utf-8') as f:
         json.dump(ins1, f, ensure_ascii=False)
@@ -430,6 +547,27 @@ def regenerar_e82(tmp):
              and all(l.get('sale') == 'entrada' and cerca(fin(l['ruta']), li2['entrada_propuesta']) for l in salen(li2) if not l.get('a_puerta')),
              f"LI (bisagra a la izquierda): {len(ap)} a la puerta salen por el lado de la puerta {li2.get('puerta_propuesta')}, el resto por la entrada")
     chequear(not any('no llega' in a for a in e8b.get('avisos') or []), f"sin avisos de recorridos que no llegan ({e8b.get('avisos')})")
+    # la puerta: regenerar conserva sus puntos de paso (los cables pasan por ahi) y la capa «Pasan hacia la puerta» de la LI
+    P2 = e8b.get('puerta') or {}
+    chequear(Pd and P2 and all(any(abs(x[1] - pp[0][1]) <= 0.15 for x in l['ruta']) for l in lineas_p(P2)),
+             f"regenerar conserva los puntos de paso de la puerta {pp}: los {len(lineas_p(P2)) if P2 else 0} cables pasan por ahí")
+    chequear((li2.get('transito') or {}).get('n') and not ld2.get('transito'),
+             f"la LI (bisagra) muestra los que pasan hacia la puerta ({(li2.get('transito') or {}).get('n')}) y la LD no")
+    # la lista WPC no usa la puerta: sin la vista de la puerta (layout.json sin 'puerta') las laterales y las tablas dan igual
+    pl = os.path.join(hist, jid, 'layout.json')
+    with open(pl, encoding='utf-8') as f:
+        lay = json.load(f)
+    if chequear('puerta' in lay, "el layout.json releído trae la vista de la puerta ('puerta')"):
+        lay.pop('puerta')
+        with open(pl, 'w', encoding='utf-8') as f:
+            json.dump(lay, f, ensure_ascii=False)
+        insS = gen()
+        if insS:
+            e8s = insS['estacion8']
+            sin_ep = lambda gs: [{k: v for k, v in g_.items() if k != 'en_puerta'} for g_ in gs]
+            chequear('puerta' not in e8s and e8s['laterales'] == [{k: v for k, v in L.items()} for L in e8b['laterales']]
+                     and sin_ep(e8s['afuera']) == sin_ep(e8b['afuera']),
+                     'sin la vista de la puerta las laterales (rutas y largos) y las tablas de «Puerta y placa» dan igual: la WPC no la usa')
     ins3 = gen(topo_nuevo=True)
     if not ins3:
         return
@@ -457,12 +595,13 @@ def e6_igual(t, sal):
             chequear(False, f'{t}: no se armó {pre}_{t}.json')
             continue
         if pre == 'layout':
-            a = dict(a, layout={k: v for k, v in a['layout'].items() if k not in ('vistas', 'version_lector')})
-            b = dict(b, layout={k: v for k, v in b['layout'].items() if k not in ('vistas', 'version_lector')})
+            # (la bandeja: sin las vistas de E8, la puerta de E8 ni la version del lector)
+            a = dict(a, layout={k: v for k, v in a['layout'].items() if k not in ('vistas', 'version_lector', 'puerta')})
+            b = dict(b, layout={k: v for k, v in b['layout'].items() if k not in ('vistas', 'version_lector', 'puerta')})
         a = {k: v for k, v in a.items() if k not in sin}; b = {k: v for k, v in b.items() if k not in sin}
         difs = []
         cb.comparar(a, b, '', difs, 0)
-        chequear(not difs, f'{t}: E6 igual: {pre}_{t}.json' + (f" sin {', '.join(sin)}" if sin else '') + (' sin vistas ni version_lector' if pre == 'layout' else '')
+        chequear(not difs, f'{t}: E6 igual: {pre}_{t}.json' + (f" sin {', '.join(sin)}" if sin else '') + (' sin vistas, puerta ni version_lector' if pre == 'layout' else '')
                  + ('' if not difs else f": {len(difs)} diferencia(s), ej. {difs[0][0]} {cb.corto(difs[0][2])} | {cb.corto(difs[0][3])}"))
 
 
@@ -496,6 +635,9 @@ def main():
             if chequear(isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None, f'{t}: hay instructivo armado (ins_{t}.json)'):
                 ruteo_e82(t, ins)
             esperado_e83(t, e8, ins if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None else None)
+            esperado_e84(t, e8)
+            if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None:
+                ruteo_e84(t, ins)
             if not bases:
                 e6_igual(t, sal)
         if not bases:

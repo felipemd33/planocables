@@ -132,6 +132,30 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     el cable propio) queda **«Empalme de 3, a confirmar»** (terminal a confirmar). Los pines sin cable no se muestran;
     `e8_clave` y las marcas no cambian. WPC: misma regla (la acometida del WAGO es la de un borne, 150); cambian los
     largos por la E8 bien armada (tabla en `pruebas/bases/wpc/cambios_e8_3.md`).
+  - **Etapa E8-4 «puerta» (2026-10-08, foto 3 del taller):** lectura general de la vista de la PUERTA
+    (`topo.puerta_e8`, versión del lector `2026.10.08-e8p`): hoja sin rieles (o vista de la hoja de la bandeja que no
+    la toca) con un título `PUERTA` arriba de un rectángulo cerrado (lado corto > 5 perfiles) que tiene canaletas o
+    etiquetas del funcional; la exterior y el índice no cuentan. Los títulos se buscan sin OCR (`_texto_sin_ocr`) y la
+    hoja elegida se relee con OCR. Va en una clave aparte, `lay['puerta'] = {pag, box, titulo, ductos, rieles, comp:
+    {tag: {x, y, leido, etiqueta, cuerpo}}}` (cuerpo = el rectángulo cerrado más chico que contiene la etiqueta; no suma
+    cotas ni compite por la hoja de la bandeja). TPT (los dos) y 66817: hoja 8 «PUERTA DETALLE DE RIELES Y DUCTOS»
+    (canaleta 40x40, 21PCB01 con su placa, 13SH1); 75287 (75441): hoja 5 «VISTA POSTERIOR PUERTA» (13SH1, 46DB1; la
+    placa no tiene etiqueta); PAE: no (EPLAN, después). E8 (`estacion8.py`, versión 5): `e8['puerta']` con la forma de
+    una lateral (pasos por aparato, líneas con las MISMAS claves que su tabla de «Puerta y placa», que sigue igual con
+    `en_puerta`); cada cable entra del lado de la bisagra (vista INTERIOR: bisagra izquierda = borde DERECHO del dibujo,
+    `estacion8.borde_bisagra`; sin elegir la bisagra, la propuesta), por arriba de la punta de la canaleta, y llega a la
+    **franja de bornes** de su aparato (el lado de abajo o de arriba del cuerpo que mira al tramo común; sin cuerpo, la
+    etiqueta): no se inventan bornes, el borne está en la tabla. Elegido a mano en `recorridos['vistas']['PUERTA'] =
+    {entrada: [p], paso: [puntos de paso del tramo común, libres: también fuera de las canaletas], grupos}`; cada cable
+    sale del tramo común en el punto más cercano a su aparato (foto 3: baja por la canaleta, corre por el perfil de abajo
+    y sube a la placa). Vista previa: el mismo `POST /e8/recorridos` devuelve además `puerta`
+    (`estacion8.rutear_guardado_puerta`); imagen `/api/trabajo/<id>/e8/puerta.png`. En la lateral de la bisagra, capa
+    **«Pasan hacia la puerta (N)»** (`L['transito']`, fuera de los pasos): el haz de los que siguen a la puerta desde la
+    bandeja principal o la otra lateral (`e8['hacia_puerta']`), de la entrada a la salida a la puerta. «Sigue a la
+    puerta» = aparato de la vista de la puerta o sin dibujar en el topográfico (con lo que no está dibujado en ninguna
+    hoja, como BH-01-M o ZY, sigue la regla de E8-2). Pantalla: «Puerta y placa» con el dibujo arriba de las tablas,
+    ▶ Cablear de a uno en la puerta y 🧭 Entrada / recorrido (S). **La WPC NO usa la vista de la puerta** (sigue el
+    1850 fijo; con y sin `lay['puerta']` las laterales y las tablas dan igual).
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -236,7 +260,8 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 - E8: `python pruebas/probar_e8.py` (arma la E8 de tpt_constructivo, tpt, 66817, 75287 y PAE y mira lo esperado de cada
   etapa, y que E6 dé igual que `pruebas/bases`; desde E8-2 además la vista previa de la entrada / bisagra / grupos y que
   regenerar conserve lo elegido y un topográfico nuevo lo borre; desde E8-3 los WAGO del cargador y el RS-485 «empalme de
-  3, a confirmar»; `--bases pruebas/bases` solo mira los `e8_*.json` y la vista previa sobre los `ins_*.json`) tiene que
+  3, a confirmar»; desde E8-4 la vista de la puerta, sus recorridos, el tránsito «Pasan hacia la puerta» y que la WPC no
+  la use; `--bases pruebas/bases` solo mira los `e8_*.json` y la vista previa sobre los `ins_*.json`) tiene que
   dar TODO OK. La pantalla de E8 con los WAGO: `node --test pruebas/js/` (`e8_empalme.test.cjs`, con `vistaE8` de
   `cargar_visor.cjs`).
   Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.
@@ -296,10 +321,13 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 ## Pendientes
 
 - **Corrección del lector del funcional con el TPT** (2026-10-02): ver "Estado".
-- **Visor de E8 (2026-10-08), lo que sigue después de la etapa E8-3:** hoja de la puerta (con ella, «sigue a la puerta»
-  pasa a ser «está en la hoja de la puerta»: hoy es «no está dibujado en el topográfico», y en el TPT / 66817 el 1206 /
-  1205 a BH-01-M, que no está dibujado, sale hacia la puerta con la bisagra de ese lado; se corrige con un grupo de
-  cables elegidos). Para confirmar: en la WPC un cable de una lateral a la otra (66817: 1101 / 1102) toma la canaleta de
+- **Visor de E8 (2026-10-08), después de la etapa E8-4 (puerta):** «sigue a la puerta» sigue incluyendo lo que no está
+  dibujado en ninguna hoja (en el 75441 la placa 21PCB01 de la puerta no tiene etiqueta: con «solo lo de la hoja de la
+  puerta» sus 37 cables saldrían por el fondo); por eso en el TPT / 66817 el 1206 / 1205 a BH-01-M (y los de ZY, que el
+  lector no lee) siguen yendo hacia la puerta con la bisagra de ese lado (se corrige con un grupo de cables elegidos).
+  La puerta del PAE (EPLAN, «INTERIOR DE PUERTA», hoja 31) queda para después. Para confirmar: la vista de la puerta se
+  toma como INTERIOR (bisagra izquierda = borde derecho del dibujo; vale en el TPT, el 66817 y el 75441); la franja de
+  bornes es el lado de abajo (o de arriba) del cuerpo del aparato que mira al tramo común. Para confirmar: en la WPC un cable de una lateral a la otra (66817: 1101 / 1102) toma la canaleta de
   una sola lateral (la derecha: su WAGO en la izquierda no suma la vertical); el RS-485 de 3 conductores en un empalme
   (WAGO de 3 vías, dos WAGO u otra forma); los nombres de los pines del cargador (panel / batería / carga, en
   `bornes/pines_repetidos.json`); el cable propio punteado llega al punto del aparato (la etiqueta), no a su borde de

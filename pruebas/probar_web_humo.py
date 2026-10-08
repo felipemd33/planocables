@@ -330,14 +330,35 @@ def parte_a(tmp):
             golden['e8_recorridos'] = normalizar(rl, tmp)
             # una entrada elegida: la de la propuesta corrida un poco hacia afuera; los cables terminan ahi (o no llegan)
             L = next((L for L in lats if L.get('ductos') and sale_e8(L)), None)
+            # (E8-4) la vista de la puerta: imagen, y sin elegir la vista previa da lo armado
+            pu = e8.get('puerta')
+            if chequear(isinstance(pu, dict) and pu.get('pasos'), f"E8 con la vista de la puerta ({(pu or {}).get('titulo')}, {(pu or {}).get('n')} cables)"):
+                rp = get(u + '/e8/puerta.png')
+                chequear(rp.status_code == 200 and rp.mimetype == 'image/png' and rp.data[:4] == b'\x89PNG', f'GET /e8/puerta.png ({len(rp.data) // 1024} KB)')
+                xp = (r.get_json() or {}).get('puerta') or {}
+                chequear([y['ruta'] for y in xp.get('lineas') or []] == [l['ruta'] for p in pu['pasos'] for l in p['lineas']],
+                         f"POST /e8/recorridos sin elegir: la puerta da las mismas rutas que el instructivo ({len(xp.get('lineas') or [])})")
+                golden['e8_puerta'] = normalizar(xp, tmp)
             if L:
                 q = [round(L['entrada_propuesta'][0] + (-4 if L.get('hacia') == 'izq' else 4), 2), L['entrada_propuesta'][1]]
                 rec_e8 = {'preguntar': False, 'bisagra': 'izq', 'vistas': {L['clave_vista']: {'entrada': [q], 'puerta': [], 'grupos': []}}}
+                if isinstance(pu, dict):        # (la puerta: puntos de paso por debajo de sus aparatos, como el perfil de la foto 3)
+                    yp = round(min(a['caja'][1] for a in pu['aparatos']) - 2 * pu['H'], 1)
+                    dp = min(pu['ductos'], key=lambda d: abs(d['b'][2] - pu['box'][2]))
+                    rec_e8['vistas']['PUERTA'] = {'entrada': [], 'puerta': [], 'grupos': [], 'paso': [
+                        [round((dp['b'][0] + dp['b'][2]) / 2, 1), yp], [round(min(a['caja'][0] for a in pu['aparatos']) - pu['H'], 1), yp]]}
                 r = post(u + '/e8/recorridos', json={'recorridos': rec_e8})
                 x = next((x for x in ((r.get_json() or {}).get('laterales') or []) if x['clave_vista'] == L['clave_vista']), None)
                 ok = x is not None and all(y.get('no_llega') or (y['ruta'] and abs(y['ruta'][-1][0] - q[0]) <= 0.6 and abs(y['ruta'][-1][1] - q[1]) <= 0.6)
                                            for y in x['lineas'] if y['sale'] == 'entrada')
                 chequear(ok, f"POST /e8/recorridos con la entrada de la {L['nombre'].lower()} en {q}: los cables terminan ahí")
+                if x is not None and L['lado'] == 'LI':
+                    chequear((x.get('transito') or {}).get('n'), f"con la bisagra a la izquierda la {L['nombre'].lower()} muestra los que pasan hacia la puerta ({(x.get('transito') or {}).get('n')})")
+                if isinstance(pu, dict):
+                    xp = (r.get_json() or {}).get('puerta') or {}
+                    pasan = sum(1 for y in xp.get('lineas') or [] if any(abs(p[1] - yp) <= 0.15 for p in y['ruta']))
+                    chequear(pasan == len(xp.get('lineas') or []) and pasan and not xp.get('no_llegan'),
+                             f"POST /e8/recorridos con un punto de paso en la puerta a la altura {yp}: {pasan} de {len(xp.get('lineas') or [])} cables pasan por ahí")
                 golden['e8_recorridos_elegidos'] = normalizar((r.get_json() or {}).get('laterales'), tmp)
                 ins5 = get(u + '/instructivo').get_json() or {}
                 ins5['estacion8']['recorridos'] = rec_e8        # (como la pestaña: se guarda con el instructivo)

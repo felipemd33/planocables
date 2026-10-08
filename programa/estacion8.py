@@ -49,7 +49,27 @@ cargador, «EMPALME con 12PS2») va junto al aparato con cuyo cable propio se em
 (sus tramos numerados + el cable propio) queda «empalme de N, a confirmar». En la linea: 'empalme' (punta de la
 lateral; 'empalme_d' la otra punta de un cable de la misma lateral) = {tipo: 'wago' | 'empalme', texto, aparato, pin,
 n, confirmar, pelado, simbolo, p (el empalme), fin (la punta de la canaleta, en su eje), entra (por donde entra a la
-canaleta)}. El texto de la punta y la clave de la marca no cambian; los pines sin cable no se muestran."""
+canaleta)}. El texto de la punta y la clave de la marca no cambian; los pines sin cable no se muestran.
+
+PUERTA (etapa E8-4, 2026-10-08, pedido del taller: foto 3). Si el topografico trae la vista de la puerta (topo.puerta_e8:
+lay['puerta'] = {pag, box, titulo, ductos, rieles, comp: {tag: {x, y, etiqueta, cuerpo}}}, la hoja «PUERTA - DETALLE DE
+RIELES Y DUCTOS» del TPT o la «VISTA POSTERIOR PUERTA» del 75441), la pestaña «Puerta y placa» la dibuja con los
+recorridos (e8['puerta'], con la forma de una lateral: pasos por aparato y lineas con ruta) y se cablea de a uno; las
+tablas borne por borne (e8['afuera']) siguen igual. Cada cable de un aparato dibujado en la puerta:
+  - entra por el lado de la BISAGRA (la vista es INTERIOR: la bisagra del lado de la lateral izquierda queda a la
+    DERECHA del dibujo; sin bisagra elegida, la propuesta), por la punta de arriba de la canaleta mas cercana a ese borde
+    (o por la punta de la horizontal del lado de la bisagra); elegida a mano: recorridos['vistas']['PUERTA']['entrada'];
+  - sigue el TRAMO COMUN: la canaleta y los puntos de paso marcados a mano ('paso', tambien fuera de las canaletas, por
+    ejemplo el perfil de abajo; un grupo de cables elegidos con sus propios puntos manda);
+  - y llega a la FRANJA DE BORNES de su aparato (no se inventan puntos de bornes: la tabla dice el borne): el lado de
+    abajo (o de arriba) del cuerpo del aparato (topo: rectangulo cerrado que contiene su etiqueta; si no hay, la
+    etiqueta), el que mira al tramo comun. Sin puntos de paso, el cable sale de la canaleta al costado (o por la punta)
+    hacia abajo del aparato, por debajo de los otros aparatos que cruzaria.
+  La vista de la puerta NO se usa para medir: la lista WPC sigue con el valor fijo de la puerta (e8['puerta'] no la lee).
+En la lateral del lado de la bisagra, la capa «Pasan hacia la puerta (N)» (L['transito']) es el haz de los cables que
+siguen a la puerta y vienen de la bandeja principal o de la otra lateral (e8['hacia_puerta']): entran por la entrada de
+la lateral y salen a la puerta por la salida a la puerta (la de arriba, del lado de la puerta). No esta en los pasos de
+la lateral (no se cablean ahi ni cambian la WPC)."""
 import collections
 import json
 import math
@@ -61,9 +81,10 @@ from instructivo import conductors, fmt_terminal, cable_desc, natk, puntos_salid
 # (movida a planocables.base: sigue siendo estacion8.e8_clave)
 from planocables.base.convenciones import clave_par as e8_clave, sin_lado, side_of, LATERAL_RE
 
-VERSION = 4       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
+VERSION = 5       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
                   # 3 (2026-10-08): entrada a las laterales y bisagra de la puerta (recorridos)
                   # 4 (2026-10-08): empalmes con el cable propio de un aparato (WAGO del cargador, RS-485)
+                  # 5 (2026-10-08): vista de la puerta con recorridos y transito hacia la puerta en la lateral de la bisagra
 AQUI = os.path.dirname(os.path.abspath(__file__))
 MAX_LINEAS = 7
 MARGEN_IMG_H = 0.5    # imagen de la lateral: la placa entera + medio perfil de riel de cada lado
@@ -73,6 +94,10 @@ PUERTA = DONDE['AFUERA']
 # (foto 2 del taller): la puerta abre del lado de la lateral izquierda
 BISAGRA_PROPUESTA = 'izq'
 ALTURA_W = 1.0        # entrada a la altura de la salida de E6: la canaleta horizontal a menos de 1 ancho de esa altura
+CLAVE_PUERTA = 'PUERTA'   # clave de la vista de la puerta en recorridos['vistas'] ({entrada, paso, grupos})
+MARGEN_PUERTA_H = 0.5     # puerta: el cable corre a medio perfil del aparato antes de subir (o bajar) a su franja
+FRANJA_H = 0.5            # franja de bornes dibujada: medio perfil hacia adentro del aparato (o 1/5 de su alto)
+MARGEN_IMG_PUERTA_H = 1.0 # imagen de la puerta: el recuadro con un perfil de aire de cada lado (la flecha de la entrada)
 
 
 def _dentro(p, b):
@@ -130,8 +155,10 @@ def leer_recorridos(rec):
             cab = g.get('cables') if isinstance(g.get('cables'), list) else []
             gs.append({'id': str(g['id']), 'nombre': str(g.get('nombre') or g['id']),
                        'cables': [str(c) for c in cab if isinstance(c, (str, int))], 'puntos': puntos_salida(g)})
-        out['vistas'][str(k)] = {'entrada': puntos_salida({'puntos': v.get('entrada')}),
-                                 'puerta': puntos_salida({'puntos': v.get('puerta')}), 'grupos': gs}
+        d = {'entrada': puntos_salida({'puntos': v.get('entrada')}), 'puerta': puntos_salida({'puntos': v.get('puerta')}), 'grupos': gs}
+        if str(k) == CLAVE_PUERTA:          # (la puerta: ademas los puntos de paso del tramo comun)
+            d['paso'] = puntos_salida({'puntos': v.get('paso')})
+        out['vistas'][str(k)] = d
     return out
 
 
@@ -419,10 +446,248 @@ def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala
     return no_llegan
 
 
+# ------------------------------------------------------------------ puerta (vista de la puerta) y transito hacia la puerta
+def borde_bisagra(bisagra):
+    """borde del DIBUJO de la puerta del lado de la bisagra. La vista de la puerta es INTERIOR (se ve desde adentro del
+    gabinete: «PUERTA - DETALLE DE RIELES Y DUCTOS» del TPT, «VISTA POSTERIOR PUERTA» del 75441, con las bisagras y la
+    canaleta de un lado y las cerraduras del otro): la bisagra del lado de la lateral izquierda ('izq') queda a la
+    DERECHA del dibujo y la del lado de la derecha, a la izquierda"""
+    return 'izq' if bisagra == 'der' else 'der'
+
+
+def _limpiar(pts):
+    """polilinea sin puntos repetidos, alineados ni retrocesos (A -> B -> A: entra a la punta de la canaleta y vuelve),
+    redondeada a 0,1"""
+    def sin_repetidos(ps):
+        out = []
+        for q in ps:
+            q = (float(q[0]), float(q[1]))
+            if not out or math.dist(q, out[-1]) > 0.3:
+                out.append(q)
+        return out
+    clean = sin_repetidos(pts)
+    while len(clean) > 2:
+        out = clean[:1]
+        for i in range(1, len(clean) - 1):
+            a, b, c = out[-1], clean[i], clean[i + 1]
+            if abs((b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])) < 0.5:
+                continue                # alineado (o un retroceso sobre la misma recta): sobra
+            out.append(b)
+        out = sin_repetidos(out + clean[-1:])
+        if len(out) == len(clean):
+            break
+        clean = out
+    return [[round(x, 1), round(y, 1)] for x, y in clean]
+
+
+def _punto_eje(ductos, p):
+    """punto del eje de las canaletas mas cercano a p (la que lo contiene, si cae adentro de una; como ruteo.en_red,
+    sin tocar la red) o None"""
+    best = None
+    for d in ductos or []:
+        x0, y0, x1, y1 = d['b']
+        q = (min(max(p[0], x0 + 0.1), x1 - 0.1), (y0 + y1) / 2) if d['h'] else ((x0 + x1) / 2, min(max(p[1], y0 + 0.1), y1 - 0.1))
+        cost = (0 if x0 <= p[0] <= x1 and y0 <= p[1] <= y1 else 1, math.dist(p, q))
+        if best is None or cost < best[0]:
+            best = (cost, q)
+    return best[1] if best else None
+
+
+def entrada_puerta_propuesta(box, ductos, borde):
+    """entrada propuesta a la puerta por el borde de la bisagra del DIBUJO ('der' / 'izq'): por arriba de la punta de
+    arriba de la canaleta vertical mas cercana a ese borde (foto 3 del taller: entran arriba y bajan por la canaleta), o a
+    la altura del eje de la horizontal que llega mas cerca de el; sin canaletas, a media altura. -> [x, y] en el borde"""
+    from ruteo import ancho
+    xh = box[2] if borde == 'der' else box[0]
+    cs = [d for d in ductos or [] if not d.get('ex')] or list(ductos or [])
+    if not cs:
+        return [round(xh, 1), round((box[1] + box[3]) / 2, 1)]
+    lejos = lambda d: abs((d['b'][2] if borde == 'der' else d['b'][0]) - xh)
+    d = min(cs, key=lambda d: (round(lejos(d), 1), -d['b'][3]))
+    y = (d['b'][1] + d['b'][3]) / 2 if d['h'] else d['b'][3] + 0.5 * ancho(ductos)
+    return [round(xh, 1), round(min(y, box[3]), 1)]
+
+
+def _franja(caja, lado, H):
+    """franja de bornes del aparato (caja = su cuerpo o su etiqueta) del lado 'abajo' / 'arriba' -> (franja, punto
+    donde llega el cable: el medio de ese lado)"""
+    d = min(FRANJA_H * H, 0.2 * (caja[3] - caja[1])) if caja[3] > caja[1] else FRANJA_H * H
+    cx = (caja[0] + caja[2]) / 2
+    if lado == 'arriba':
+        return [caja[0], caja[3] - d, caja[2], caja[3]], (cx, caja[3])
+    return [caja[0], caja[1], caja[2], caja[1] + d], (cx, caja[1])
+
+
+def _ruta_a_aparato(net, ductos, p_in, pasos, caja, obst, H):
+    """recorrido en la puerta de la entrada p_in a la franja de bornes del aparato (caja): por las canaletas (net) y los
+    puntos de paso (pasos, libres: tambien fuera de las canaletas). Sin puntos de paso, sale de la canaleta hacia el lado
+    del aparato que mira a la canaleta (abajo si la canaleta esta mas abajo que su centro) y corre a MARGEN_PUERTA_H
+    perfiles de el, por debajo (o por arriba) de los otros aparatos que cruzaria (obst). -> (puntos de la entrada a la
+    franja, lado 'abajo' | 'arriba', franja, llega: False si los puntos elegidos no llegan por las canaletas)"""
+    m = MARGEN_PUERTA_H * H
+    cx, cy = (caja[0] + caja[2]) / 2, (caja[1] + caja[3]) / 2
+    pts = [tuple(p_in)]
+    k_in, llega = None, True
+    if net:
+        k_in, tail = net.salida_a_mano(p_in)
+        if k_in is not None:
+            pts += [tuple(t) for t in tail] + [net.nodes[k_in]]
+    if pasos or k_in is None:
+        # tramo comun = de la salida de la canaleta (o de la entrada, sin canaletas) por los puntos de paso; cada aparato
+        # se separa del tramo comun en su punto mas cercano (foto 3: los cables suben a la placa desde el perfil)
+        i0 = 0
+        if pasos and k_in is not None:
+            k, tail = net.salida_a_mano(pasos[0])
+            tramo = net.path(k_in, k, False) if k is not None else None
+            if tramo:
+                pts += tramo[1:] + [tuple(t) for t in tail[::-1]]
+            else:
+                llega = False
+            i0 = len(pts) - 1
+        pts += [tuple(p) for p in pasos or []]
+        cad = pts[i0:]
+        segs = [(cad[j], cad[j + 1], i0 + j) for j in range(len(cad) - 1)] or [(cad[0], cad[0], i0)]
+
+        def proyectar(p):
+            best = None
+            for a, b, j in segs:
+                dx, dy = b[0] - a[0], b[1] - a[1]; L2 = dx * dx + dy * dy
+                t = max(0.0, min(1.0, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L2)) if L2 else 0.0
+                q = (a[0] + t * dx, a[1] + t * dy)
+                d = math.dist(p, q)
+                if best is None or d <= best[0] + 1e-6:     # (empate: el mas adelante en el tramo comun)
+                    best = (d, q, j)
+            return best[1], best[2]
+        q, _ = proyectar((cx, cy))
+        lado = 'abajo' if q[1] <= cy else 'arriba'
+        fr, fin = _franja(caja, lado, H)
+        A = (fin[0], fin[1] - m if lado == 'abajo' else fin[1] + m)
+        X, j = proyectar(A)
+        if (X[1] <= A[1]) if lado == 'abajo' else (X[1] >= A[1]):
+            pata = [(fin[0], X[1]), fin]                 # de costado y despues sube (o baja) a la franja
+        else:
+            pata = [(X[0], A[1]), A, fin]                # baja (o sube) hasta pasar el aparato, de costado y sube
+        return pts[:j + 1] + [X] + pata, lado, fr, llega
+    q = _punto_eje(ductos, (cx, cy))
+    lado = 'abajo' if q[1] <= cy else 'arriba'
+    fr, fin = _franja(caja, lado, H)
+    y = caja[1] - m if lado == 'abajo' else caja[3] + m
+    for _ in range(8):          # por debajo (o arriba) de los otros aparatos que cruzaria el tramo horizontal
+        qx = _punto_eje(ductos, (fin[0], y))[0]
+        x0, x1 = sorted((qx, fin[0]))
+        cruza = [o for o in obst if o[0] < x1 and x0 < o[2] and o[1] < y < o[3]]
+        if not cruza:
+            break
+        y = min(o[1] for o in cruza) - m if lado == 'abajo' else max(o[3] for o in cruza) + m
+    T = (fin[0], y)
+    k, tail = net.salida_a_mano(T)
+    tramo = net.path(k_in, k, False) if k is not None else None
+    if not tramo:
+        return pts + [(fin[0], pts[-1][1]), fin], lado, fr, False
+    return pts + tramo[1:] + [tuple(t) for t in tail[::-1]] + [T, fin], lado, fr, True
+
+
+def rutear_puerta(Pd, vrec):
+    """recorridos de los cables de la vista de la puerta Pd (e8['puerta']) con lo elegido vrec ({entrada, paso, grupos};
+    sin elegir, la propuesta). Pone en cada linea ruta (de la franja de bornes de su aparato a la entrada), marca_o,
+    franja, lado_franja, sale ('entrada'), salida (el grupo de cables elegidos que manda) y no_llega; en un cable entre dos
+    aparatos de la puerta, de una franja a la otra (marca_d, franja_d). Deja en Pd 'entrada' (la que se usa). -> cuantos
+    no llegan por las canaletas hasta los puntos elegidos"""
+    from ruteo import Net
+    vrec = vrec or {}
+    ductos = Pd.get('ductos') or []
+    H = Pd.get('H') or 24.8
+    net = None
+    if ductos:
+        try:
+            net = Net(ductos)
+        except Exception:
+            net = None
+    cajas = {a['tag']: a['caja'] for a in Pd.get('aparatos') or []}
+    ent = vrec.get('entrada') or []
+    p_in = ent[-1] if ent else Pd.get('entrada_propuesta')
+    Pd['entrada'] = [round(p_in[0], 2), round(p_in[1], 2)] if p_in else None
+    comun = vrec.get('paso') or []
+    grupos = [g for g in vrec.get('grupos') or [] if g.get('puntos')]
+    no_llegan = 0
+    for p in Pd.get('pasos') or []:
+        for l in p['lineas']:
+            for k in ('ruta', 'sale', 'salida', 'no_llega', 'marca_d', 'franja_d', 'lado_franja_d'):
+                l.pop(k, None)
+            caja = cajas.get(l['aparato'])
+            if not caja:
+                continue
+            if l.get('aparato_d') in cajas:         # entre dos aparatos de la puerta: de una franja a la otra, por abajo
+                cd = cajas[l['aparato_d']]
+                fa, pa = _franja(caja, 'abajo', H); fb, pb = _franja(cd, 'abajo', H)
+                y = min(caja[1], cd[1]) - MARGEN_PUERTA_H * H
+                l.update(ruta=_limpiar([pa, (pa[0], y), (pb[0], y), pb]), marca_o=[round(pa[0], 2), round(pa[1], 2), None],
+                         franja=[round(v, 2) for v in fa], lado_franja='abajo', marca_d=[round(pb[0], 2), round(pb[1], 2), None],
+                         franja_d=[round(v, 2) for v in fb], lado_franja_d='abajo')
+                continue
+            if not p_in:
+                continue
+            g = next((x for x in grupos if l['num'] in x['cables']), None)
+            obst = [c for t, c in cajas.items() if t != l['aparato']]
+            pts, lado, fr, llega = _ruta_a_aparato(net, ductos, p_in, g['puntos'] if g else comun, caja, obst, H)
+            fin = pts[-1]
+            l.update(ruta=_limpiar(pts[::-1]), marca_o=[round(fin[0], 2), round(fin[1], 2), None], franja=[round(v, 2) for v in fr],
+                     lado_franja=lado, sale='entrada')
+            if g:
+                l['salida'] = g['id']
+            if not llega:
+                l['no_llega'] = True
+                no_llegan += 1
+    return no_llegan
+
+
+def ruta_transito(net, entrada, prop_entrada, puerta, al_frente):
+    """haz de los cables que pasan por la lateral de la bisagra hacia la puerta: de la entrada a la lateral (la elegida:
+    su ultimo punto; o la propuesta) por las canaletas hasta la salida a la puerta (la elegida, con sus puntos de paso; o
+    la regla del taller del lado de la puerta, li_exit). -> puntos o None (sin canaletas o si no llega)"""
+    p_in = (entrada or [None])[-1] or prop_entrada
+    if not net or not p_in:
+        return None
+    try:
+        k, tail = net.salida_a_mano(p_in)
+        if k is None:
+            return None
+        pts = [tuple(p_in)] + [tuple(t) for t in tail] + [net.nodes[k]]
+        stops = [net.en_red(p)[0] for p in (puerta or [])[:-1]]
+        if puerta:
+            kf, tf = net.salida_a_mano(puerta[-1])
+            fin = [tuple(t) for t in tf] + [tuple(puerta[-1])]
+        else:
+            kf, fin = net.li_exit(False, False, al_frente), []
+        if kf is None or None in stops:
+            return None
+        for s in stops + [kf]:
+            tramo = net.path(k, s, False)
+            if tramo is None:
+                return None
+            pts += tramo[1:]
+            k = s
+        return _limpiar(pts + fin)
+    except Exception:
+        return None
+
+
+def transito(net, lado, vrec, prop, hacia_puerta, propios):
+    """capa «Pasan hacia la puerta» de la lateral 'lado' de la bisagra: los cables que siguen a la puerta y vienen de la
+    bandeja principal o de la otra lateral (hacia_puerta), con el haz de la entrada a la salida a la puerta; 'propios' =
+    cuantos de esta lateral salen a la puerta (estan en sus pasos)"""
+    al_frente = 'izq' if hacia_fondo(lado) == 'der' else 'der'
+    cs = sorted((dict(x) for x in hacia_puerta if x.get('desde') != lado), key=lambda x: (x.get('desde') != 'E6', natk(x['num'])))
+    vrec = vrec or {}
+    ruta = ruta_transito(net, vrec.get('entrada'), prop.get('entrada'), vrec.get('puerta'), al_frente) if cs else None
+    return dict(n=len(cs), cables=cs, ruta=ruta, propios=propios)
+
+
 def build(res, lay, ins):
     """-> dict(version, laterales=[{nombre, lado, region (la imagen), placa, titulo, pag, escala, ductos, rieles,
-    sin_riel, pasos, n}], afuera=[{tag, donde, cables}], campo=n, avisos). ins = el instructivo de E6 ya armado (para
-    escribir las puntas de la bandeja principal con el mismo texto que E6, con su lado fisico)."""
+    sin_riel, pasos, n, (transito)}], afuera=[{tag, donde, cables, (en_puerta)}], puerta={...} (si el topografico trae la
+    vista de la puerta), hacia_puerta=[...], campo=n, avisos). ins = el instructivo de E6 ya armado (para escribir las
+    puntas de la bandeja principal con el mismo texto que E6, con su lado fisico)."""
     comp = lay.get('comp') or {}
     bornes = lay.get('bornes') or {}
     usuario = lay.get('bornes_usuario') or {}
@@ -466,6 +731,9 @@ def build(res, lay, ins):
         laterales.append(dict(i=i, nombre=_nombre_vista(v, lado), lado=lado, region=region, placa=list(placa), tags=tags,
                               rieles=rieles, ductos=v.get('ductos') or [], titulo=v.get('titulo'), clave=ck))
     de_lateral = {t: L for L in laterales for t in L['tags']}
+    # vista de la PUERTA (topo.puerta_e8; otra hoja del topografico): sus aparatos dibujados
+    P = lay.get('puerta') if isinstance(lay.get('puerta'), dict) and (lay['puerta'].get('box') and lay['puerta'].get('pag')) else None
+    en_puerta = set((P or {}).get('comp') or {})
 
     # textos de las puntas de la bandeja principal como en E6 (lado fisico): (num, texto sin lado) -> texto de E6
     txt_e6 = {}
@@ -507,6 +775,14 @@ def build(res, lay, ins):
         if w == 'BANDEJA':
             return txt_e6.get((num, sin_lado(t)), t)
         return t
+
+    def sigue_puerta(e, t):
+        """la punta e (texto t) es de un aparato que sigue a la puerta: dibujado en la vista de la puerta, o sin dibujar
+        en el topografico (lo dibujado en la vista del fondo, como la zona hidraulica de AutoCAD, queda en el gabinete;
+        una punta sin aparato, '?', tampoco)"""
+        if not e.get('tag_base') or str(t).startswith('?'):
+            return False
+        return ap_tag(e) in en_puerta or not _dibujado(comp.get(ap_tag(e)))
 
     def punto(e, num, L):
         """(x, y, r, exacto) del borne en la vista lateral L. Sin mapeo: aproximado, del lado del borne (side_of, como
@@ -575,6 +851,7 @@ def build(res, lay, ins):
     cs = conductors(res)
     tramos_lat = collections.defaultdict(list)
     afuera = collections.defaultdict(list)
+    hacia_puerta, lineas_puerta, puerta_vistos = [], [], set()
     n_campo = 0
     vistos = set()
     for num, c in cs.items():
@@ -628,13 +905,17 @@ def build(res, lay, ins):
                     l.update(destino=to, otra='sin aparato en el plano' if to in ('LI', 'LD') else DONDE[wo])
                     if wo == 'BANDEJA':
                         l['viene_de_e6'] = True     # la punta de la bandeja principal se cableo en E6: el cable ya esta tirado
-                    elif (l['otra'] == PUERTA and eo.get('tag_base') and not str(to).startswith('?')
-                          and not _dibujado(comp.get(ap_tag(eo)))):
-                        # sigue a la puerta: un aparato que no esta dibujado en el topografico (lo que esta dibujado en la
-                        # vista del fondo, como la zona hidraulica de AutoCAD, queda en el gabinete: sale por la entrada;
-                        # una punta sin aparato, '?', tampoco)
+                    elif l['otra'] == PUERTA and sigue_puerta(eo, to):
+                        # sigue a la puerta: un aparato de la vista de la puerta o que no esta dibujado en el topografico
                         l['a_puerta'] = True
                 tramos_lat[L['i']].append(l)
+            # --- cables que siguen a la puerta desde la bandeja principal o una lateral (el transito por la lateral de la
+            # bisagra: capa «Pasan hacia la puerta»)
+            for e, w, t, eo, wo, to in ((ea, wa, ta, eb, wb, tb), (eb, wb, tb, ea, wa, ta)):
+                if w in ('BANDEJA', 'LATERAL') and wo == 'AFUERA' and sigue_puerta(eo, to):
+                    hacia_puerta.append(dict(num=num, clave=k, cable=desc, color=col, secc=sec, origen=t, destino=to,
+                                             aparato=ap_tag(eo), desde='E6' if w == 'BANDEJA' else de_lateral[ap_tag(e)]['lado'],
+                                             desde_txt=DONDE['BANDEJA'] if w == 'BANDEJA' else de_lateral[ap_tag(e)]['nombre'].lower()))
             # --- puerta y placa (y la zona hidraulica): aparato por aparato
             for e, w, t, eo, wo, to, ne in ((ea, wa, ta, eb, wb, tb, a), (eb, wb, tb, ea, wa, ta, b)):
                 if w not in ('AFUERA', 'E8') or t in ('LI', 'LD') or not e.get('tag_base'):
@@ -646,6 +927,14 @@ def build(res, lay, ins):
                 if emp:
                     fila['empalme'] = {k_: v_ for k_, v_ in emp.items() if not k_.startswith('_')}
                 afuera[(e['tag_base'], w)].append(fila)
+                # --- vista de la puerta: el cable de un aparato dibujado en ella (entre dos aparatos de la puerta, una vez)
+                if ap_tag(e) in en_puerta and k not in puerta_vistos:
+                    puerta_vistos.add(k)
+                    dl = dict(base, origen=t, destino=to, aparato=ap_tag(e), pin=e.get('borne') or '', otra=donde_o,
+                              viene_de_e6=wo == 'BANDEJA', componente=e.get('tag') or e.get('tag_base') or '')
+                    if wo in ('AFUERA', 'E8') and ap_tag(eo) in en_puerta and ap_tag(eo) != ap_tag(e):
+                        dl['aparato_d'] = ap_tag(eo)
+                    lineas_puerta.append(dl)
 
     def ubicar_empalmes(L, ls):
         """lugar de los empalmes con el cable propio de cada aparato de la lateral L (decision del taller: debajo del
@@ -739,6 +1028,10 @@ def build(res, lay, ins):
                             placa=[round(v, 2) for v in L['placa']], titulo=L['titulo'], sin_riel=not L['rieles'],
                             clave_vista=L['clave'], hacia=hacia_fondo(L['lado']), bisagra=bis,
                             entrada_propuesta=prop['entrada'], puerta_propuesta=prop['puerta']))
+        # lateral de la bisagra: los cables que pasan hacia la puerta (de la bandeja principal y de la otra lateral)
+        if bis and net:
+            out_lat[-1]['transito'] = transito(net, L['lado'], rec['vistas'].get(L['clave']), prop, hacia_puerta,
+                                               sum(1 for l in ls if l.get('sale') == 'puerta'))
     if not out_lat:
         avisos.append('el topográfico no tiene una vista de bandeja lateral con aparatos: la vista de la lateral queda vacía')
 
@@ -749,8 +1042,40 @@ def build(res, lay, ins):
         grupos.append(dict(tag=tag, zona='zona hidráulica' if w == 'E8' else 'puerta / placa', cables=xs,
                            nota=(comp.get(tag) or {}).get('nota')))
     grupos.sort(key=lambda g: (g['zona'] != 'puerta / placa', -len(g['cables']), natk(g['tag'])))
-    return dict(version=VERSION, laterales=out_lat, afuera=grupos, campo=n_campo, avisos=avisos, hechos=[],
-                recorridos=rec, bisagra_propuesta=BISAGRA_PROPUESTA)
+    for g in grupos:
+        if g['tag'] in en_puerta:
+            g['en_puerta'] = True               # (dibujado en la vista de la puerta)
+    out = dict(version=VERSION, laterales=out_lat, afuera=grupos, campo=n_campo, avisos=avisos, hechos=[],
+               recorridos=rec, bisagra_propuesta=BISAGRA_PROPUESTA, hacia_puerta=hacia_puerta)
+
+    # ---- vista de la puerta: los cables de sus aparatos con su recorrido, aparato por aparato (como una lateral; las
+    # marcas son las de la tabla: misma clave)
+    if P and lineas_puerta:
+        H = lay.get('perfil_riel_pt') or 24.8
+        box = [float(v) for v in P['box']]
+        mi = MARGEN_IMG_PUERTA_H * H
+        n_ap = collections.Counter(l['aparato'] for l in lineas_puerta)
+        aps = []
+        for tg in sorted(n_ap, key=lambda t: (-n_ap[t], natk(t))):
+            c = P['comp'].get(tg) or {}
+            caja = c.get('cuerpo') or c.get('etiqueta') or [c.get('x', 0) - 1, c.get('y', 0) - 1, c.get('x', 0) + 1, c.get('y', 0) + 1]
+            aps.append(dict(tag=tg, caja=[round(float(v), 2) for v in caja], cuerpo=bool(c.get('cuerpo')), x=c.get('x'), y=c.get('y'), n=n_ap[tg]))
+        pasos_p = []
+        for a in aps:
+            ls_ = sorted((l for l in lineas_puerta if l['aparato'] == a['tag']), key=lambda l: (natk(l['pin']), natk(l['num'])))
+            pasos_p.append(dict(n=len(pasos_p) + 1, aparato=a['tag'], riel=None, titulo=f"Aparato {a['tag']}", lineas=ls_))
+        bis_lado = rec.get('bisagra')
+        borde = borde_bisagra(bis_lado or BISAGRA_PROPUESTA)
+        Pd = dict(nombre='Puerta', titulo=P.get('titulo'), pag=P['pag'], box=box, region=[round(v, 2) for v in (box[0] - mi, box[1] - mi, box[2] + mi, box[3] + mi)],
+                  escala=lay.get('escala'), H=H, ductos=P.get('ductos') or [], rieles=P.get('rieles') or [], aparatos=aps, pasos=pasos_p,
+                  n=len(lineas_puerta), sin_canaletas=not P.get('ductos'), clave_vista=CLAVE_PUERTA, bisagra_lado=bis_lado, hacia=borde,
+                  entrada_propuesta=entrada_puerta_propuesta(box, P.get('ductos') or [], borde))
+        n_no = rutear_puerta(Pd, rec['vistas'].get(CLAVE_PUERTA))
+        if n_no:
+            avisos.append(f"Puerta: {n_no} cable{'s' if n_no > 1 else ''} no llega{'n' if n_no > 1 else ''} por las canaletas "
+                          f"hasta los puntos de paso elegidos")
+        out['puerta'] = Pd
+    return out
 
 
 def rutear_guardado(ins, rec):
@@ -786,4 +1111,29 @@ def rutear_guardado(ins, rec):
         n_no = rutear_lineas(net, ductos, ls, L.get('lado'), rec['vistas'].get(ck), bis, prop['por_entrada'], L.get('escala'))
         out.append(dict(vista=i, clave_vista=ck, bisagra=bis, entrada_propuesta=prop['entrada'], puerta_propuesta=prop['puerta'],
                         no_llegan=n_no, lineas=[{k: l.get(k) for k in ('clave', 'ruta', 'largo_mm', 'sale', 'salida', 'no_llega')} for l in ls]))
+        if bis and net:         # (la capa «Pasan hacia la puerta» de la lateral de la bisagra)
+            out[-1]['transito'] = transito(net, L.get('lado'), rec['vistas'].get(ck), prop,
+                                           ((ins or {}).get('estacion8') or {}).get('hacia_puerta') or [],
+                                           sum(1 for l in ls if l.get('sale') == 'puerta'))
     return out
+
+
+def rutear_guardado_puerta(ins, rec):
+    """vista previa del editor de la web para la PUERTA (POST /e8/recorridos): vuelve a rutear los cables de la vista de
+    la puerta con los recorridos 'rec' (la bisagra, la entrada y los puntos de paso elegidos) SIN rearmar nada, desde lo
+    guardado en ins['estacion8']['puerta']. -> {clave_vista, hacia, bisagra_lado, entrada_propuesta, entrada, no_llegan,
+    lineas: [{clave, ruta, marca_o, franja, lado_franja, marca_d, franja_d, sale, salida, no_llega}]} o None (sin puerta)"""
+    import copy
+    rec = leer_recorridos(rec)
+    P0 = ((ins or {}).get('estacion8') or {}).get('puerta')
+    if not isinstance(P0, dict) or not P0.get('pasos'):
+        return None
+    Pd = copy.deepcopy(P0)
+    Pd['bisagra_lado'] = rec.get('bisagra')
+    Pd['hacia'] = borde_bisagra(rec.get('bisagra') or BISAGRA_PROPUESTA)
+    Pd['entrada_propuesta'] = entrada_puerta_propuesta(Pd['box'], Pd.get('ductos') or [], Pd['hacia'])
+    n_no = rutear_puerta(Pd, rec['vistas'].get(CLAVE_PUERTA))
+    claves = ('clave', 'ruta', 'marca_o', 'franja', 'lado_franja', 'marca_d', 'franja_d', 'sale', 'salida', 'no_llega')
+    return dict(clave_vista=CLAVE_PUERTA, hacia=Pd['hacia'], bisagra_lado=Pd['bisagra_lado'], entrada_propuesta=Pd['entrada_propuesta'],
+                entrada=Pd.get('entrada'), no_llegan=n_no,
+                lineas=[{k: l.get(k) for k in claves} for p in Pd['pasos'] for l in p['lineas']])

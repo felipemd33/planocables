@@ -27,7 +27,8 @@ TAG_TXT = re.compile(r'\d{2}[A-Z][A-Z0-9]{0,7}')
 # eplan.VERSION_LECTOR). Se guarda en layout.json ('version_lector') y, si cambia, web.gen_instructivo vuelve a leer el
 # topografico de un trabajo existente al regenerar (lo del usuario esta en instructivo.json y se conserva).
 # SUBIRLA cada vez que cambie la lectura: rieles, etiquetas, placa, canaletas, escala...
-VERSION_LECTOR = '2026.10.08-e8'      # (2026.10.08: vistas laterales completas para E8: placa, canaletas y titulo)
+VERSION_LECTOR = '2026.10.08-e8p'     # (2026.10.08: vistas laterales completas para E8: placa, canaletas y titulo;
+                                      #  e8p: vista de la PUERTA para E8, lay['puerta'])
 
 # capas por patron
 RX_RIEL = re.compile(r'RIEL|\bDIN\b', re.I)                        # 'RIEL DIN', '_IGV_Riel DIN'
@@ -60,6 +61,12 @@ FILA_ETQ_MIN = 3          # riel tapado por los aparatos: fila de 3 o mas etique
 FILA_ETQ_PASO_H = 0.3     # ...separadas en x de 0.3 a SALTO_H perfiles (etiquetas una debajo de otra no son una fila)
 TITULO_RENGLON_H = 2.0    # titulo en dos renglones ('VISTA LATERAL DERECHA' / 'INTERIOR'): el de abajo, centrado y a
                           # menos de 2 altos de letra
+# vista de la PUERTA para la estacion E8 (puerta_e8; clave aparte lay['puerta'], no cambia la bandeja):
+RX_PUERTA = re.compile(r'\bPUERTA\b', re.I)     # titulo de la vista ('PUERTA', 'VISTA POSTERIOR PUERTA'); no 'sobrepuerta'
+PUERTA_MIN_H = 5.0        # recuadro de la puerta: rectangulo cerrado (cualquier capa) con el lado corto > 5 perfiles
+PUERTA_TITULO_TOL_H = 0.5 # el titulo esta ARRIBA del recuadro (se tolera medio perfil de solape)
+CUERPO_LETRA = 3.0        # cuerpo de un aparato de la puerta: rectangulo cerrado que contiene su etiqueta, con el lado
+CUERPO_MAX = 0.5          # corto >= 3 altos de letra de la etiqueta y menos de la mitad del recuadro de la puerta
 
 
 def norm(t):
@@ -367,6 +374,7 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
     reader = pypdf.PdfReader(pdf_path); names = layer_names(reader)
     dec = dec or Decoder()
     best = None; cotas = []
+    puertas = []        # (estacion E8) hojas sin rieles con un titulo PUERTA: la vista de la puerta (puerta_e8)
     for pi in range(len(reader.pages)):
         st = page_strokes(reader, pi, names)
         bands = rail_bands(st)
@@ -380,6 +388,16 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
             geo = geo_con_etiquetas(geo, hits)
         bands = bands + geo
         if not bands:
+            # (estacion E8) una hoja sin rieles puede ser la de la PUERTA: se buscan los titulos SIN OCR (rapido y sin
+            # tocar la memoria de OCR); la hoja elegida se vuelve a leer al final (puerta_e8). No suma cotas ni compite
+            # por la hoja de la bandeja. E8 nunca frena el layout de E6.
+            try:
+                if lines is None:
+                    lines = _texto_sin_ocr(st, dec)
+                if any(RX_PUERTA.search(l['text']) for l in lines):
+                    puertas.append(dict(pi=pi, st=st, lines=lines))
+            except Exception:                               # noqa: BLE001
+                pass
             continue
         H = perfil(bands)
         if lines is None:
@@ -405,7 +423,9 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
                      if r and min(r[2] - r[0], r[3] - r[1]) > LAT_PLACA_MIN_H * H]
             best = dict(pag=pi + 1, hits=hits, bands=bands, H=H, size=[float(v) for v in reader.pages[pi].mediabox[2:]],
                         plates=plates, titulos=titulos, rects=rects,
-                        renglones=[(l['text'].strip(), tuple(l['bbox'])) for l in lines if l['text'].strip()])
+                        renglones=[(l['text'].strip(), tuple(l['bbox'])) for l in lines if l['text'].strip()],
+                        # (E8: la puerta puede ser una vista de esta misma hoja; puerta_e8)
+                        puerta=dict(pi=pi, st=st, lines=lines) if any(RX_PUERTA.search(l['text']) for l in lines) else None)
     dec.save_cache()
     if not best:
         return dict(pag=None, comp={}, vistas=[], filas=[])
@@ -535,9 +555,20 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
             log(f'Topográfico: {n_lat} bandeja(s) lateral(es) para la estación E8')
     except Exception as ex_:                                   # noqa: BLE001
         log(f'Topográfico: no se pudieron leer las bandejas laterales para E8 ({type(ex_).__name__}: {ex_})')
-    return dict(pag=best['pag'], comp=comp, vistas=vistas, bandeja=tray,
-                size=best['size'], region=region, escala=escala, escala_fuente=fuente, perfil_riel_pt=round(H, 2),
-                ductos=duct_list, filas=views[tray]['rails'] if tray is not None else [])
+    out = dict(pag=best['pag'], comp=comp, vistas=vistas, bandeja=tray,
+               size=best['size'], region=region, escala=escala, escala_fuente=fuente, perfil_riel_pt=round(H, 2),
+               ductos=duct_list, filas=views[tray]['rails'] if tray is not None else [])
+    # vista de la PUERTA para la estacion E8: en una clave aparte (otra hoja; no suma cotas ni toca la bandeja)
+    try:
+        pu = puerta_e8(pdf_path, puertas, best, vistas, region, comp, H, known_tags, dec)
+        if pu:
+            out['puerta'] = pu
+            log(f"Topográfico: puerta en la hoja {pu['pag']} ({pu['titulo']}): {len(pu['ductos'])} cablecanales, "
+                f"{len(pu['comp'])} aparatos")
+        dec.save_cache()
+    except Exception as ex_:                                   # noqa: BLE001
+        log(f'Topográfico: no se pudo leer la vista de la puerta para E8 ({type(ex_).__name__}: {ex_})')
+    return out
 
 
 # --------------------------------------------------------------------------- bandejas laterales (estacion E8)
@@ -701,3 +732,157 @@ def vistas_e8(pdf_path, best, views, vistas, tray, region, comp, H):
         vistas.append(dict(box=list(placa), rails=[], sin_riel=True))
         completar(len(vistas) - 1, placa, None)
     return vistas, n_lat
+
+
+# --------------------------------------------------------------------------- vista de la PUERTA (estacion E8)
+def _texto_sin_ocr(st, dec):
+    """renglones de una hoja leidos solo con el diccionario de letras (sin OCR: rapido y sin tocar la memoria de OCR)"""
+    uso = dec.use_ocr
+    dec.use_ocr = False
+    try:
+        return unir_partidas(page_text(st, dec, ('WATERMARK',)))
+    finally:
+        dec.use_ocr = uso
+
+
+def _rects_hoja(st):
+    """rectangulos cerrados de la hoja (cualquier capa salvo las de canaletas), sin repetidos: [(x0, y0, x1, y1)]"""
+    from ruteo import RX_DUCTO, RX_SEGURA
+    out = []
+    vistos = set()
+    for l, o, p, *_ in st:
+        if RX_DUCTO.search(l) or RX_SEGURA.search(l):
+            continue
+        r = rect_of(p, o)
+        if r:
+            k = tuple(round(v, 1) for v in r)
+            if k not in vistos:
+                vistos.add(k); out.append(k)
+    return out
+
+
+def _titulo_desde(lines, t, caja):
+    """renglones del titulo de una vista que empieza en el renglon t (el que dice PUERTA) con los renglones centrados de
+    abajo ('PUERTA' / 'DETALLE DE RIELES Y DUCTOS'), todos arriba de la caja -> [renglon]"""
+    b = t['bbox']
+    h, cx, y, partes = b[3] - b[1], (b[0] + b[2]) / 2, b[1], [t]
+    for l in sorted(lines, key=lambda l: -l['bbox'][3]):
+        b2 = l['bbox']
+        if l is t or not l['text'].strip():
+            continue
+        if b2[3] <= y and y - b2[3] <= TITULO_RENGLON_H * h and abs((b2[0] + b2[2]) / 2 - cx) <= h and b2[1] >= caja[3] - 0.5:
+            partes.append(l); y = b2[1]
+    return partes
+
+
+def _completar(texto, leido):
+    """texto leido con el diccionario con letras sin reconocer ('?') completado con el OCR del renglon (que viene sin
+    espacios), si coinciden en todo lo demas: 'DETALLE DE RIELES ? DUCTOS' + 'DETALLEDERIELESYDUCTOS' -> '... Y DUCTOS'"""
+    ns = texto.replace(' ', '')
+    if '?' not in ns or len(leido) != len(ns) or any(a != '?' and a.upper() != b.upper() for a, b in zip(ns, leido)):
+        return texto
+    it = iter(leido)
+    return ''.join(ch if ch == ' ' else (next(it) if ch == '?' else (next(it), ch)[1]) for ch in texto)
+
+
+def _cuerpo(rects, et, caja, otras):
+    """cuerpo de un aparato de la puerta: el rectangulo cerrado mas chico que contiene el centro de su etiqueta (et =
+    caja del texto), con el lado corto de al menos CUERPO_LETRA altos de letra (no el fondo de la etiqueta), menos de
+    CUERPO_MAX del recuadro de la puerta y sin otra etiqueta de la puerta adentro. None si no hay (el aparato esta
+    dibujado sin contorno cerrado: el cable llega a la etiqueta)"""
+    cx, cy = (et[0] + et[2]) / 2, (et[1] + et[3]) / 2
+    hl = max(0.5, min(et[2] - et[0], et[3] - et[1]))
+    area = lambda r: (r[2] - r[0]) * (r[3] - r[1])
+    cs = [r for r in rects if _pt_en(cx, cy, r) and min(r[2] - r[0], r[3] - r[1]) >= CUERPO_LETRA * hl
+          and area(r) <= CUERPO_MAX * area(caja) and _caja_en(r, caja, 0.5)
+          and not any(_pt_en(x, y, r) for x, y in otras)]
+    return list(min(cs, key=area)) if cs else None
+
+
+def puerta_e8(pdf_path, cands, best, vistas, region, comp, H, known_tags, dec):
+    """Vista de la PUERTA para la estacion E8 (gabinete), en una clave APARTE del layout (la bandeja, las cotas, la
+    escala y la eleccion de la hoja no cambian; E6 no la lee). Es una hoja sin rieles (cands: las que tienen un titulo
+    PUERTA, leidas sin OCR) o una vista de la hoja de la bandeja con un titulo PUERTA arriba (que no toca la bandeja ni las
+    laterales), con un recuadro (rectangulo cerrado de cualquier capa, el lado corto > PUERTA_MIN_H perfiles) debajo del
+    titulo que tiene canaletas o etiquetas de aparatos del funcional. La vista exterior de la puerta (sin canaletas ni
+    etiquetas) y el indice de hojas ('PUERTA INTERIOR' en una tabla) no cuentan. Si hay varias, la que junta mas
+    canaletas y aparatos. En la hoja elegida, solo las etiquetas de la capa de etiquetas que no se leyeron enteras
+    ('???????' = '21PCB01') y los renglones del titulo con letras sin leer se leen con OCR (recortados, como las
+    etiquetas chicas de la bandeja): la hoja entera no se vuelve a leer con OCR.
+    -> {pag, box, titulo, ductos, rieles, comp: {tag: {x, y, leido, etiqueta, cuerpo}}} o None"""
+    from ruteo import ducts, RX_DUCTO, RX_SEGURA
+    area = lambda r: (r[2] - r[0]) * (r[3] - r[1])
+    md = 0.2 * H
+    opciones = []           # (contenido, -separacion, -pagina, datos)
+
+    def evaluar(pi, st, lines, ds, hits, excluir=()):
+        rects = _rects_hoja(st)
+        grandes = [r for r in rects if min(r[2] - r[0], r[3] - r[1]) > PUERTA_MIN_H * H and not any(_se_tocan(r, e) for e in excluir)]
+        for t in lines:
+            if not RX_PUERTA.search(t['text']):
+                continue
+            tb = t['bbox']; tcx = (tb[0] + tb[2]) / 2
+            for r in grandes:
+                if not (r[0] <= tcx <= r[2] and tb[1] >= r[3] - PUERTA_TITULO_TOL_H * H):
+                    continue
+                n = (sum(1 for dd in ds if _caja_en(dd['b'], r, md)) + len({h['tag'] for h in hits if _pt_en(h['x'], h['y'], r)}))
+                if n:
+                    opciones.append(((n, -(tb[1] - r[3]), -area(r), -pi), dict(pi=pi, st=st, lines=lines, caja=r, titulo=t, ds=ds)))
+
+    for c in cands:
+        st, lines = c['st'], c['lines']
+        if not any(RX_DUCTO.search(l) or RX_SEGURA.search(l) for l, *_ in st) and not any(re.search(r'\d', l['text']) for l in lines):
+            continue
+        ds = ducts(pdf_path, c['pi'], None, H) if any(RX_DUCTO.search(l) or RX_SEGURA.search(l) for l, *_ in st) else []
+        uso = dec.use_ocr; dec.use_ocr = False
+        try:
+            hits = etiquetas_hoja(pdf_path, c['pi'], lines, known_tags, dec)
+        finally:
+            dec.use_ocr = uso
+        evaluar(c['pi'], st, lines, ds, hits)
+    # una vista de la hoja de la bandeja: afuera de la bandeja y de las laterales; aparatos que no son de la bandeja
+    bp = best.get('puerta')
+    if bp:
+        excl = [region] + [v['placa'] for v in vistas if v.get('placa')]
+        ds = ducts(pdf_path, bp['pi'], None, H)
+        fuera = [h for h in best.get('hits') or [] if (comp.get(h['tag']) or {}).get('ubic') != 'BANDEJA']
+        evaluar(bp['pi'], bp['st'], bp['lines'], [dd for dd in ds if not any(_se_tocan(dd['b'], e) for e in excl)], fuera, excl)
+    if not opciones:
+        return None
+    _, el = max(opciones, key=lambda o: o[0])
+    pi, st, caja, t = el['pi'], el['st'], el['caja'], el['titulo']
+    lines = el['lines']
+    # etiquetas de la puerta: las leidas con el diccionario y, con OCR del recorte, las de la capa de etiquetas que
+    # quedaron con letras sin leer (sin digitos, etiquetas_hoja no las intenta)
+    hits = []
+    for l in lines:
+        b = l['bbox']
+        if not _pt_en((b[0] + b[2]) / 2, (b[1] + b[3]) / 2, caja):
+            continue
+        k = match_tag(l['text'], known_tags)
+        if not k and 'ETIQUETA' in l.get('layer', '').upper() and (re.search(r'\d', l['text']) or '?' in l['text']) and dec.use_ocr:
+            k = match_tag(ocr_crop(pdf_path, pi, l['bbox'], l['ang'], dec), known_tags)
+        if k:
+            hits.append(dict(tag=k, leido=l['text'] if match_tag(l['text'], known_tags) else k, x=(b[0] + b[2]) / 2, y=(b[1] + b[3]) / 2,
+                             bbox=tuple(b)))
+    # titulo: los renglones con letras sin leer, completados con el OCR del recorte
+    partes = []
+    for l in _titulo_desde(lines, t, caja):
+        txt = l['text'].strip()
+        if '?' in txt and dec.use_ocr:
+            txt = _completar(txt, ocr_crop(pdf_path, pi, l['bbox'], l['ang'], dec))
+        partes.append(txt)
+    rects = _rects_hoja(st)
+    cpu = {}
+    for h in sorted(hits, key=lambda h: (h['tag'], h['x'], h['y'])):
+        if h['tag'] in cpu:
+            continue
+        et = h['bbox']                                   # (la caja del texto de la etiqueta: para el cuerpo del aparato)
+        otras = [(o['x'], o['y']) for o in hits if o['tag'] != h['tag']]
+        cpu[h['tag']] = dict(x=round(h['x'], 1), y=round(h['y'], 1), leido=h['leido'], etiqueta=[round(v, 1) for v in et],
+                             cuerpo=_cuerpo(rects, et, caja, otras))
+    rieles = sorted({round(b['eje'], 1) for b in (best['bands'] if bp and pi == bp['pi'] else [])
+                     if _caja_en((b['x0'], b['y0'], b['x1'], b['y1']), caja, PLACA_RIEL_H * H)}, reverse=True)
+    # (las canaletas de la hoja ya leidas, las del recuadro: como ruteo.ducts con la caja, +-0.2 perfil)
+    return dict(pag=pi + 1, box=[round(v, 1) for v in caja], titulo=' '.join(partes),
+                ductos=[dict(dd) for dd in el['ds'] if _caja_en(dd['b'], caja, md)], rieles=rieles, comp=cpu)

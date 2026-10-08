@@ -534,7 +534,7 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .seg button.on { background: var(--accent); color: var(--accent-t); }
 .seg button.on .cnt { background: rgba(255,255,255,.25); color: inherit; }
 .e8-lat { display: grid; grid-template-columns: minmax(300px, 44%) 1fr; gap: 16px; align-items: start; margin-top: 8px; }
-.e8-mapa { position: sticky; top: 64px; padding: 12px; }
+.e8-mapa { position: sticky; top: 64px; padding: 12px; max-height: calc(100vh - 76px); overflow-y: auto; }
 .e8-mapa .tsvg { height: min(72vh, 820px); background: #fff; border: 1px solid var(--border); border-radius: 8px; }
 .e8-mapa .card-h h2 { font-size: 15px; margin: 0; }
 .e8-pasos .grp-h { top: 0; }
@@ -562,6 +562,17 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .e8-flecha text { fill: #e0261b; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; }
 .e8-flecha.prop { opacity: .75; }
 .e8-ent { margin: 6px 0 0; }
+/* puerta (etapa E8-4): franja de bornes de cada aparato y su recuadro; capa «Pasan hacia la puerta» de la lateral de la bisagra */
+.e8-franja { fill: rgba(0, 150, 190, .22); stroke: #007a99; }
+.e8-fr.cur .e8-franja { fill: rgba(0, 150, 190, .45); }
+.e8-apu rect { fill: none; stroke: #007a99; stroke-dasharray: 3 2; opacity: .55; }
+.e8-haz path { fill: none; stroke: rgba(224, 38, 27, .28); stroke-linecap: round; stroke-linejoin: round; }
+.e8-haz text { fill: #b3201a; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; }
+.tsvg.sin-haz .e8-haz { display: none; }
+.e8-tr { margin: 6px 0 0; } .e8-tr summary { cursor: pointer; } .e8-tr summary .chk { display: inline-flex; gap: 4px; align-items: center; }
+.e8-tr div { margin: 3px 0 0 18px; }
+.e8-pu { margin-top: 4px; }
+.e8-aps1 { grid-template-columns: 1fr; margin-top: 0; }
 /* empalme con el cable propio de un aparato (WAGO del cargador; «a confirmar»: el RS-485 de 3 conductores) */
 .e8-emp .e8-propio { fill: none; stroke: #555; }
 .e8-emp .e8-ap { fill: #fff; stroke: #555; }

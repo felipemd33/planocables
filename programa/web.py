@@ -1024,8 +1024,9 @@ def rutas_salidas(jid):
 def rutas_e8(jid):
     """vista previa del editor de entradas de la estacion 8 (asistente y boton «Entrada / salida»): el recorrido de los
     cables que salen de cada bandeja lateral con la entrada, la salida a la puerta, los grupos y la bisagra elegidos
-    ({recorridos}), con las canaletas y la escala de cada lateral. No guarda nada: la pestaña guarda el instructivo con
-    las rutas y los recorridos"""
+    ({recorridos}), con las canaletas y la escala de cada lateral (y el transito hacia la puerta de la lateral de la
+    bisagra); y, si el topografico trae la vista de la puerta, los de la puerta (entrada y puntos de paso: 'puerta').
+    No guarda nada: la pestaña guarda el instructivo con las rutas y los recorridos"""
     P = ins_paths(jid)
     if not os.path.exists(P['json']):
         abort(404)
@@ -1035,10 +1036,11 @@ def rutas_e8(jid):
         return jsonify(error='Datos inválidos'), 400
     with open(P['json'], encoding='utf-8') as f:
         ins = json.load(f)
-    if not ((ins.get('estacion8') or {}).get('laterales')):
+    e8 = ins.get('estacion8') or {}
+    if not (e8.get('laterales') or e8.get('puerta')):
         return jsonify(error='El topográfico no tiene bandejas laterales'), 400
     import estacion8
-    return jsonify(laterales=estacion8.rutear_guardado(ins, rec))
+    return jsonify(laterales=estacion8.rutear_guardado(ins, rec), puerta=estacion8.rutear_guardado_puerta(ins, rec))
 
 
 @app.get('/api/trabajo/<jid>/topo.png')
@@ -1063,6 +1065,17 @@ def lateral_png(jid, i):
     if not 0 <= i < len(lats):
         abort(404)
     return region_png(P, lats[i].get('pag'), lats[i].get('region'))
+
+
+@app.get('/api/trabajo/<jid>/e8/puerta.png')
+def puerta_png(jid):
+    """imagen de la vista de la puerta (estacion E8) del topografico, para dibujar sus cables encima"""
+    P = ins_paths(jid)
+    if not os.path.exists(P['json']) or not os.path.exists(P['topo']):
+        abort(404)
+    with open(P['json'], encoding='utf-8') as f:
+        pu = (json.load(f).get('estacion8') or {}).get('puerta') or {}
+    return region_png(P, pu.get('pag'), pu.get('region'))
 
 
 def region_png(P, pag, reg):

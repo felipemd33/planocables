@@ -376,7 +376,56 @@
    530.5,
    402.8
   ],
-  "version_lector": "topo 2026.10.08-e8"
+  "puerta": {
+   "pag": 5,
+   "box": [
+    355.3,
+    147.9,
+    862.4,
+    743.7
+   ],
+   "titulo": "VISTA POSTERIOR PUERTA",
+   "ductos": [
+    {
+     "b": [
+      439.6,
+      335.0,
+      803.4,
+      360.3
+     ],
+     "h": true,
+     "ex": false
+    }
+   ],
+   "rieles": [],
+   "comp": {
+    "46DB1": {
+     "x": 555.7,
+     "y": 314.8,
+     "leido": "46DB1",
+     "etiqueta": [
+      549.1,
+      313.2,
+      562.2,
+      316.4
+     ],
+     "cuerpo": null
+    },
+    "13SH1": {
+     "x": 534.3,
+     "y": 463.7,
+     "leido": "13SH1",
+     "etiqueta": [
+      528.1,
+      462.1,
+      540.6,
+      465.2
+     ],
+     "cuerpo": null
+    }
+   }
+  },
+  "version_lector": "topo 2026.10.08-e8p"
  },
  "en_memoria": {
   "comp": {

@@ -4639,7 +4639,7 @@
   ]
  },
  "estacion8": {
-  "version": 4,
+  "version": 5,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",
@@ -6035,7 +6035,8 @@
       "viene_de_e6": true
      }
     ],
-    "nota": null
+    "nota": null,
+    "en_puerta": true
    },
    {
     "tag": "81TM01",
@@ -6182,7 +6183,8 @@
       "viene_de_e6": true
      }
     ],
-    "nota": null
+    "nota": null,
+    "en_puerta": true
    },
    {
     "tag": "BH-01-ZV",
@@ -6326,7 +6328,1987 @@
    "bisagra": null,
    "vistas": {}
   },
-  "bisagra_propuesta": "izq"
+  "bisagra_propuesta": "izq",
+  "hacia_puerta": [
+   {
+    "num": "1205",
+    "clave": "1205|12PB1 -|BH-01-M",
+    "cable": "N35MM",
+    "color": "Negro",
+    "secc": "35",
+    "origen": "12PB1 -",
+    "destino": "BH-01-M",
+    "aparato": "BH-01-M",
+    "desde": "LI",
+    "desde_txt": "bandeja lateral izquierda"
+   },
+   {
+    "num": "1602",
+    "clave": "1602|13PS2 -Vo|81TM01 6",
+    "cable": "N1MM",
+    "color": "Negro",
+    "secc": "1",
+    "origen": "13PS2 -Vo",
+    "destino": "81TM01 6",
+    "aparato": "81TM01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "1601",
+    "clave": "1601|13PS2 +Vo|81TM01 7",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "secc": "1",
+    "origen": "13PS2 +Vo",
+    "destino": "81TM01 7",
+    "aparato": "81TM01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "1402",
+    "clave": "1402|13XC1 3.4|21PCB01 49",
+    "cable": "N1MM",
+    "color": "Negro",
+    "secc": "1",
+    "origen": "13XC1 3.4",
+    "destino": "21PCB01 49",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "1401",
+    "clave": "1401|13XC1 2.3|21PCB01 48",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "secc": "1",
+    "origen": "13XC1 2.3",
+    "destino": "21PCB01 48",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "1303",
+    "clave": "1303|13SH1|13XC1 2.4",
+    "cable": "R2.5MM",
+    "color": "Rojo",
+    "secc": "2.5",
+    "origen": "13XC1 2.4",
+    "destino": "13SH1 ABAJO",
+    "aparato": "13SH1",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "1301",
+    "clave": "1301|13SH1|13XC1 1.4",
+    "cable": "R2.5MM",
+    "color": "Rojo",
+    "secc": "2.5",
+    "origen": "13XC1 1.4",
+    "destino": "13SH1 ARRIBA",
+    "aparato": "13SH1",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "8103",
+    "clave": "8103|21PCB01 37|81XCM 3",
+    "cable": "N1MM",
+    "color": "Negro",
+    "secc": "1",
+    "origen": "81XCM 3 ARRIBA",
+    "destino": "21PCB01 37",
+    "aparato": "21PCB01",
+    "desde": "LD",
+    "desde_txt": "bandeja lateral derecha"
+   },
+   {
+    "num": "8102",
+    "clave": "8102|21PCB01 36|81XCM 2",
+    "cable": "B1MM",
+    "color": "Blanco",
+    "secc": "1",
+    "origen": "81XCM 2 ARRIBA",
+    "destino": "21PCB01 36",
+    "aparato": "21PCB01",
+    "desde": "LD",
+    "desde_txt": "bandeja lateral derecha"
+   },
+   {
+    "num": "8101",
+    "clave": "8101|21PCB01 35|81XCM 1",
+    "cable": "N1MM",
+    "color": "Negro",
+    "secc": "1",
+    "origen": "81XCM 1 ARRIBA",
+    "destino": "21PCB01 35",
+    "aparato": "21PCB01",
+    "desde": "LD",
+    "desde_txt": "bandeja lateral derecha"
+   },
+   {
+    "num": "2161",
+    "clave": "2161|21PCB01 61|61KR3 A2",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "61KR3 A2",
+    "destino": "21PCB01 61",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2160",
+    "clave": "2160|21PCB01 60|61KR3 A1",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "61KR3 A1",
+    "destino": "21PCB01 60",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2119",
+    "clave": "2119|21PCB01 19|43DIB1 4",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "43DIB1 4",
+    "destino": "21PCB01 19",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2118",
+    "clave": "2118|21PCB01 18|43DIB1 3",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "43DIB1 3",
+    "destino": "21PCB01 18",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2117",
+    "clave": "2117|21PCB01 17|43DIB1 6",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "43DIB1 6",
+    "destino": "21PCB01 17",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2116",
+    "clave": "2116|21PCB01 16|43DIB1 5",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "43DIB1 5",
+    "destino": "21PCB01 16",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2153",
+    "clave": "2153|21PCB01 53|61KR2 A2",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "61KR2 A2",
+    "destino": "21PCB01 53",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2115",
+    "clave": "2115|21PCB01 15|43KR1 12",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "43KR1 12",
+    "destino": "21PCB01 15",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2152",
+    "clave": "2152|21PCB01 52|61KR2 A1",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "61KR2 A1",
+    "destino": "21PCB01 52",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2114",
+    "clave": "2114|21PCB01 14|43KR1 11",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "43KR1 11",
+    "destino": "21PCB01 14",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2151",
+    "clave": "2151|21PCB01 51|61KR1 A2",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "61KR1 A2",
+    "destino": "21PCB01 51",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2150",
+    "clave": "2150|21PCB01 50|61KR1 A1",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "61KR1 A1",
+    "destino": "21PCB01 50",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2106",
+    "clave": "2106|21PCB01 6|32AIB1 4",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "32AIB1 4",
+    "destino": "21PCB01 6",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2105",
+    "clave": "2105|21PCB01 5|32AIB1 3",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "32AIB1 3",
+    "destino": "21PCB01 5",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2142",
+    "clave": "2142|21PCB01 42|31XAI 1",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "31XAI 1 ARRIBA",
+    "destino": "21PCB01 42",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2103",
+    "clave": "2103|21PCB01 3|32AIB1 7",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "32AIB1 7",
+    "destino": "21PCB01 3",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2102",
+    "clave": "2102|21PCB01 2|32AIB1 6",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "32AIB1 6",
+    "destino": "21PCB01 2",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "2139",
+    "clave": "2139|21PCB01 39|31XAI 2",
+    "cable": "N0.75MM",
+    "color": "Negro",
+    "secc": "0.75",
+    "origen": "31XAI 2 ARRIBA",
+    "destino": "21PCB01 39",
+    "aparato": "21PCB01",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "6202",
+    "clave": "6202|XM1 4|ZY",
+    "cable": "N1MM",
+    "color": "Negro",
+    "secc": "1",
+    "origen": "XM1 4 ABAJO",
+    "destino": "ZY",
+    "aparato": "ZY",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   },
+   {
+    "num": "6201",
+    "clave": "6201|XM1 3|ZY",
+    "cable": "R1MM",
+    "color": "Rojo",
+    "secc": "1",
+    "origen": "XM1 3 ABAJO",
+    "destino": "ZY",
+    "aparato": "ZY",
+    "desde": "E6",
+    "desde_txt": "bandeja principal"
+   }
+  ],
+  "puerta": {
+   "nombre": "Puerta",
+   "titulo": "PUERTA DETALLE DE RIELES Y DUCTOS",
+   "pag": 8,
+   "box": [
+    577.4,
+    258.1,
+    912.8,
+    683.8
+   ],
+   "region": [
+    557.84,
+    238.54,
+    932.36,
+    703.36
+   ],
+   "escala": 1.7639,
+   "H": 19.56,
+   "ductos": [
+    {
+     "b": [
+      864.1,
+      365.4,
+      886.7,
+      512.2
+     ],
+     "h": false,
+     "ex": false
+    }
+   ],
+   "rieles": [],
+   "aparatos": [
+    {
+     "tag": "21PCB01",
+     "caja": [
+      721.5,
+      430.6,
+      825.9,
+      537.9
+     ],
+     "cuerpo": true,
+     "x": 743.1,
+     "y": 535.4,
+     "n": 27
+    },
+    {
+     "tag": "13SH1",
+     "caja": [
+      691.8,
+      475.4,
+      702.9,
+      478.3
+     ],
+     "cuerpo": false,
+     "x": 697.4,
+     "y": 476.9,
+     "n": 2
+    }
+   ],
+   "pasos": [
+    {
+     "n": 1,
+     "aparato": "21PCB01",
+     "riel": null,
+     "titulo": "Aparato 21PCB01",
+     "lineas": [
+      {
+       "num": "2102",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2102|21PCB01 2|32AIB1 6",
+       "hojas": [
+        "21",
+        "32"
+       ],
+       "origen": "21PCB01 2",
+       "destino": "32AIB1 6",
+       "aparato": "21PCB01",
+       "pin": "2",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2103",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2103|21PCB01 3|32AIB1 7",
+       "hojas": [
+        "21",
+        "32"
+       ],
+       "origen": "21PCB01 3",
+       "destino": "32AIB1 7",
+       "aparato": "21PCB01",
+       "pin": "3",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2105",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2105|21PCB01 5|32AIB1 3",
+       "hojas": [
+        "21",
+        "32"
+       ],
+       "origen": "21PCB01 5",
+       "destino": "32AIB1 3",
+       "aparato": "21PCB01",
+       "pin": "5",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2106",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2106|21PCB01 6|32AIB1 4",
+       "hojas": [
+        "21",
+        "32"
+       ],
+       "origen": "21PCB01 6",
+       "destino": "32AIB1 4",
+       "aparato": "21PCB01",
+       "pin": "6",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2114",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2114|21PCB01 14|43KR1 11",
+       "hojas": [
+        "21",
+        "43"
+       ],
+       "origen": "21PCB01 14",
+       "destino": "43KR1 11",
+       "aparato": "21PCB01",
+       "pin": "14",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2115",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2115|21PCB01 15|43KR1 12",
+       "hojas": [
+        "21",
+        "43"
+       ],
+       "origen": "21PCB01 15",
+       "destino": "43KR1 12",
+       "aparato": "21PCB01",
+       "pin": "15",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2116",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2116|21PCB01 16|43DIB1 5",
+       "hojas": [
+        "21",
+        "43"
+       ],
+       "origen": "21PCB01 16",
+       "destino": "43DIB1 5",
+       "aparato": "21PCB01",
+       "pin": "16",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2117",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2117|21PCB01 17|43DIB1 6",
+       "hojas": [
+        "21",
+        "43"
+       ],
+       "origen": "21PCB01 17",
+       "destino": "43DIB1 6",
+       "aparato": "21PCB01",
+       "pin": "17",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2118",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2118|21PCB01 18|43DIB1 3",
+       "hojas": [
+        "21",
+        "43"
+       ],
+       "origen": "21PCB01 18",
+       "destino": "43DIB1 3",
+       "aparato": "21PCB01",
+       "pin": "18",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2119",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2119|21PCB01 19|43DIB1 4",
+       "hojas": [
+        "21",
+        "43"
+       ],
+       "origen": "21PCB01 19",
+       "destino": "43DIB1 4",
+       "aparato": "21PCB01",
+       "pin": "19",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "8104",
+       "cable": "B0.3MM",
+       "color": "Blanco",
+       "secc": "0.3",
+       "clave": "8104|12PS2|21PCB01 32",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "21PCB01 32",
+       "destino": "12PS2",
+       "aparato": "21PCB01",
+       "pin": "32",
+       "otra": "puerta / placa",
+       "viene_de_e6": false,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "8105",
+       "cable": "AM0.3MM",
+       "color": "Amarillo",
+       "secc": "0.3",
+       "clave": "8105|12PS2|21PCB01 33",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "21PCB01 33",
+       "destino": "12PS2",
+       "aparato": "21PCB01",
+       "pin": "33",
+       "otra": "puerta / placa",
+       "viene_de_e6": false,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "8101",
+       "cable": "N1MM",
+       "color": "Negro",
+       "secc": "1",
+       "clave": "8101|21PCB01 35|81TM01 1",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "21PCB01 35",
+       "destino": "81TM01 1",
+       "aparato": "21PCB01",
+       "pin": "35",
+       "otra": "puerta / placa",
+       "viene_de_e6": false,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "8101",
+       "cable": "N1MM",
+       "color": "Negro",
+       "secc": "1",
+       "clave": "8101|21PCB01 35|81XCM 1",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "21PCB01 35",
+       "destino": "81XCM 1 ARRIBA",
+       "aparato": "21PCB01",
+       "pin": "35",
+       "otra": "bandeja lateral derecha",
+       "viene_de_e6": false,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "8102",
+       "cable": "B1MM",
+       "color": "Blanco",
+       "secc": "1",
+       "clave": "8102|21PCB01 36|81TM01 15",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "21PCB01 36",
+       "destino": "81TM01 15",
+       "aparato": "21PCB01",
+       "pin": "36",
+       "otra": "puerta / placa",
+       "viene_de_e6": false,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "8102",
+       "cable": "B1MM",
+       "color": "Blanco",
+       "secc": "1",
+       "clave": "8102|21PCB01 36|81XCM 2",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "21PCB01 36",
+       "destino": "81XCM 2 ARRIBA",
+       "aparato": "21PCB01",
+       "pin": "36",
+       "otra": "bandeja lateral derecha",
+       "viene_de_e6": false,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "8103",
+       "cable": "N1MM",
+       "color": "Negro",
+       "secc": "1",
+       "clave": "8103|21PCB01 37|81XCM 3",
+       "hojas": [
+        "21",
+        "81"
+       ],
+       "origen": "21PCB01 37",
+       "destino": "81XCM 3 ARRIBA",
+       "aparato": "21PCB01",
+       "pin": "37",
+       "otra": "bandeja lateral derecha",
+       "viene_de_e6": false,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2139",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2139|21PCB01 39|31XAI 2",
+       "hojas": [
+        "31"
+       ],
+       "origen": "21PCB01 39",
+       "destino": "31XAI 2 ARRIBA",
+       "aparato": "21PCB01",
+       "pin": "39",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2142",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2142|21PCB01 42|31XAI 1",
+       "hojas": [
+        "31"
+       ],
+       "origen": "21PCB01 42",
+       "destino": "31XAI 1 ARRIBA",
+       "aparato": "21PCB01",
+       "pin": "42",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "1401",
+       "cable": "R1MM",
+       "color": "Rojo",
+       "secc": "1",
+       "clave": "1401|13XC1 2.3|21PCB01 48",
+       "hojas": [
+        "13",
+        "14"
+       ],
+       "origen": "21PCB01 48",
+       "destino": "13XC1 2.3",
+       "aparato": "21PCB01",
+       "pin": "48",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "1402",
+       "cable": "N1MM",
+       "color": "Negro",
+       "secc": "1",
+       "clave": "1402|13XC1 3.4|21PCB01 49",
+       "hojas": [
+        "13",
+        "14"
+       ],
+       "origen": "21PCB01 49",
+       "destino": "13XC1 3.4",
+       "aparato": "21PCB01",
+       "pin": "49",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2150",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2150|21PCB01 50|61KR1 A1",
+       "hojas": [
+        "61"
+       ],
+       "origen": "21PCB01 50",
+       "destino": "61KR1 A1",
+       "aparato": "21PCB01",
+       "pin": "50",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2151",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2151|21PCB01 51|61KR1 A2",
+       "hojas": [
+        "61"
+       ],
+       "origen": "21PCB01 51",
+       "destino": "61KR1 A2",
+       "aparato": "21PCB01",
+       "pin": "51",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2152",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2152|21PCB01 52|61KR2 A1",
+       "hojas": [
+        "61"
+       ],
+       "origen": "21PCB01 52",
+       "destino": "61KR2 A1",
+       "aparato": "21PCB01",
+       "pin": "52",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2153",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2153|21PCB01 53|61KR2 A2",
+       "hojas": [
+        "61"
+       ],
+       "origen": "21PCB01 53",
+       "destino": "61KR2 A2",
+       "aparato": "21PCB01",
+       "pin": "53",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2160",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2160|21PCB01 60|61KR3 A1",
+       "hojas": [
+        "61"
+       ],
+       "origen": "21PCB01 60",
+       "destino": "61KR3 A1",
+       "aparato": "21PCB01",
+       "pin": "60",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "2161",
+       "cable": "N0.75MM",
+       "color": "Negro",
+       "secc": "0.75",
+       "clave": "2161|21PCB01 61|61KR3 A2",
+       "hojas": [
+        "61"
+       ],
+       "origen": "21PCB01 61",
+       "destino": "61KR3 A2",
+       "aparato": "21PCB01",
+       "pin": "61",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "21PCB01",
+       "ruta": [
+        [
+         773.7,
+         430.6
+        ],
+        [
+         773.7,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        773.7,
+        430.6,
+        null
+       ],
+       "franja": [
+        721.5,
+        430.6,
+        825.9,
+        440.38
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "aparato": "13SH1",
+     "riel": null,
+     "titulo": "Aparato 13SH1",
+     "lineas": [
+      {
+       "num": "1301",
+       "cable": "R2.5MM",
+       "color": "Rojo",
+       "secc": "2.5",
+       "clave": "1301|13SH1|13XC1 1.4",
+       "hojas": [
+        "13"
+       ],
+       "origen": "13SH1 ARRIBA",
+       "destino": "13XC1 1.4",
+       "aparato": "13SH1",
+       "pin": "",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "13SH1",
+       "ruta": [
+        [
+         697.3,
+         475.4
+        ],
+        [
+         697.3,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        697.35,
+        475.4,
+        null
+       ],
+       "franja": [
+        691.8,
+        475.4,
+        702.9,
+        475.98
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      },
+      {
+       "num": "1303",
+       "cable": "R2.5MM",
+       "color": "Rojo",
+       "secc": "2.5",
+       "clave": "1303|13SH1|13XC1 2.4",
+       "hojas": [
+        "13"
+       ],
+       "origen": "13SH1 ABAJO",
+       "destino": "13XC1 2.4",
+       "aparato": "13SH1",
+       "pin": "",
+       "otra": "bandeja principal",
+       "viene_de_e6": true,
+       "componente": "13SH1",
+       "ruta": [
+        [
+         697.3,
+         475.4
+        ],
+        [
+         697.3,
+         420.8
+        ],
+        [
+         875.4,
+         420.8
+        ],
+        [
+         875.4,
+         523.5
+        ],
+        [
+         912.8,
+         523.5
+        ]
+       ],
+       "marca_o": [
+        697.35,
+        475.4,
+        null
+       ],
+       "franja": [
+        691.8,
+        475.4,
+        702.9,
+        475.98
+       ],
+       "lado_franja": "abajo",
+       "sale": "entrada"
+      }
+     ]
+    }
+   ],
+   "n": 29,
+   "sin_canaletas": false,
+   "clave_vista": "PUERTA",
+   "bisagra_lado": null,
+   "hacia": "der",
+   "entrada_propuesta": [
+    912.8,
+    523.5
+   ],
+   "entrada": [
+    912.8,
+    523.5
+   ]
+  }
  },
  "estaciones": {},
  "estacion": "E6",

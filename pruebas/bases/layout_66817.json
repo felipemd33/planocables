@@ -348,7 +348,61 @@
    577.4,
    456.9
   ],
-  "version_lector": "topo 2026.10.08-e8"
+  "puerta": {
+   "pag": 8,
+   "box": [
+    577.4,
+    258.1,
+    912.8,
+    683.8
+   ],
+   "titulo": "PUERTA DETALLE DE RIELES Y DUCTOS",
+   "ductos": [
+    {
+     "b": [
+      864.1,
+      365.4,
+      886.7,
+      512.2
+     ],
+     "h": false,
+     "ex": false
+    }
+   ],
+   "rieles": [],
+   "comp": {
+    "13SH1": {
+     "x": 697.4,
+     "y": 476.9,
+     "leido": "13SH1",
+     "etiqueta": [
+      691.8,
+      475.4,
+      702.9,
+      478.3
+     ],
+     "cuerpo": null
+    },
+    "21PCB01": {
+     "x": 743.1,
+     "y": 535.4,
+     "leido": "21PCB01",
+     "etiqueta": [
+      736.5,
+      534.3,
+      749.8,
+      536.5
+     ],
+     "cuerpo": [
+      721.5,
+      430.6,
+      825.9,
+      537.9
+     ]
+    }
+   }
+  },
+  "version_lector": "topo 2026.10.08-e8p"
  },
  "en_memoria": {
   "bornes_usuario": {},
