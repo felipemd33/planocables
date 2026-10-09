@@ -93,6 +93,40 @@ test('E8-6: mover un cable de grupo, sacarlo y armar un grupo nuevo de placa', a
     'FALLA: el grupo nuevo de placa (con su cable, su recorrido en una vista que existe, al final de la lista)');
 });
 
+// (pulido 2026-10-09) «＋ Grupo de placa» con otro grupo elegido toma la placa del trabajo (no queda «Placa · grupo N»
+// sin aparato antes del grupo del fixture); un grupo de placa sin aparato (trabajo sin placas) va al final de la lista
+test('E8-6: ＋ Grupo de placa con otro grupo elegido toma la placa y queda al final', async () => {
+  const { E8M, D, ctx } = await C.manoE8(C.leer(C.TRABAJOS.tpt_constructivo));
+  const R = D.estacion8.ruteo_mano;
+  E8M.abrir({ grupo: 'bateria_35' });
+  const clic = a => ctx._elementos.get('#e8mGrupos')._eventos.click.forEach(fn => fn({ target: { closest: s => (s === '[data-a]' ? { dataset: { a } } : null), matches: () => false } }));
+  const antes = R.grupos.map(g => g.id);
+  clic('nuevo');
+  const nuevo = R.grupos.find(g => !antes.includes(g.id));
+  assert.ok(nuevo && nuevo.categoria === 'placa' && nuevo.aparato === '21PCB01' && nuevo.nombre === 'Placa 21PCB01 · grupo 3',
+    `FALLA: el grupo nuevo de placa con «Batería 35 mm²» elegido (${JSON.stringify(nuevo)})`);
+  const ids = R.grupos.map(g => g.id);
+  assert.ok(ids.indexOf('nuevo:fixture1') < ids.indexOf(nuevo.id) && ids[ids.length - 1] === nuevo.id,
+    `FALLA: el grupo nuevo no quedó al final, después del del fixture (${ids.join(', ')})`);
+  assert.ok(ctx._elementos.get('#e8mGrupos').innerHTML.includes('＋ Grupo de placa 21PCB01'), 'FALLA: el botón no dice de qué placa es el grupo nuevo');
+  // sin aparato (un trabajo sin placas): al final, después de los que tienen aparato aunque su id vaya antes
+  R.manual.nuevos.push({ id: 'nuevo:000', nombre: 'Placa · grupo 1', categoria: 'placa', aparato: null });
+  E8M.efectivo(R);
+  assert.equal(R.grupos[R.grupos.length - 1].id, 'nuevo:000', 'FALLA: el grupo de placa sin aparato no va al final');
+});
+
+test('E8-6: el ruteo a mano abierto con un cable sin grupo lo busca en la lista (R desde el visor)', async () => {
+  const { E8M, D, ctx } = await C.manoE8(C.leer(C.TRABAJOS.tpt_constructivo));
+  const R = D.estacion8.ruteo_mano;
+  const k = Object.keys(R.cables).find(x => !R.miembro[x]);
+  let volvio = 0;
+  E8M.abrir({ clave: k, buscar: R.cables[k].num, volver: () => { volvio++; } });
+  assert.equal(ctx._elementos.get('#e8mQ').value, R.cables[k].num, 'FALLA: la lista no busca el cable');
+  assert.ok(E8M.abierto());
+  ctx._elementos.get('#e8mClose')._eventos.click.forEach(fn => fn({}));
+  assert.ok(!E8M.abierto() && volvio === 1, 'FALLA: al cerrar no vuelve al visor');
+});
+
 test('E8-6: 🧲 pegar al eje de la canaleta', async () => {
   const { E8M } = await C.manoE8(C.leer(C.TRABAJOS.tpt_constructivo));
   const ductos = [{ b: [145.6, 520.0, 281.7, 542.7], h: true }, { b: [239.1, 392.4, 261.8, 520.0], h: false }];

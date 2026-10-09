@@ -1711,7 +1711,8 @@
    "destino": "BH-01-ZV",
    "aparato": "BH-01-ZV",
    "desde": "E6",
-   "desde_txt": "bandeja principal"
+   "desde_txt": "bandeja principal",
+   "sin_aparato": true
   },
   {
    "num": "2136",
@@ -2143,7 +2144,8 @@
    "destino": "PT 001 2",
    "aparato": "PT 001",
    "desde": "E6",
-   "desde_txt": "bandeja principal"
+   "desde_txt": "bandeja principal",
+   "sin_aparato": true
   },
   {
    "num": "3141",
@@ -2155,7 +2157,8 @@
    "destino": "PT 001 1",
    "aparato": "PT 001",
    "desde": "E6",
-   "desde_txt": "bandeja principal"
+   "desde_txt": "bandeja principal",
+   "sin_aparato": true
   },
   {
    "num": "6202",
@@ -2167,7 +2170,8 @@
    "destino": "BH-01-ZV",
    "aparato": "BH-01-ZV",
    "desde": "E6",
-   "desde_txt": "bandeja principal"
+   "desde_txt": "bandeja principal",
+   "sin_aparato": true
   }
  ],
  "puerta": {

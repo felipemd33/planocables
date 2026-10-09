@@ -69,7 +69,9 @@ tablas borne por borne (e8['afuera']) siguen igual. Cada cable de un aparato dib
 En la lateral del lado de la bisagra, la capa «Pasan hacia la puerta (N)» (L['transito']) es el haz de los cables que
 siguen a la puerta y vienen de la bandeja principal o de la otra lateral (e8['hacia_puerta']): entran por la entrada de
 la lateral y salen a la puerta por la salida a la puerta (la de arriba, del lado de la puerta). No esta en los pasos de
-la lateral (no se cablean ahi ni cambian la WPC).
+la lateral (no se cablean ahi ni cambian la WPC). Cuenta solo los que van de verdad a la puerta (aparato de la vista de
+la puerta o de una categoria de la puerta de web/e8_grupos.json); los de un aparato sin dibujar en el topografico que no
+es de la puerta (la zona hidraulica que no esta dibujada) se listan aparte, «Sin aparato en el plano» ('sin_aparato').
 
 RUTEO A MANO POR GRUPOS (etapa E8-6, 2026-10-09, pedido del taller): los cables de solenoides, contactora (bobina),
 bateria (35 mm² y 4 / 6 mm²), doorswitch, pulsadores, selectoras, llaves seccionadoras y placas no se rutean solos: el
@@ -723,13 +725,23 @@ def ruta_transito(net, entrada, prop_entrada, puerta, al_frente):
 
 def transito(net, lado, vrec, prop, hacia_puerta, propios):
     """capa «Pasan hacia la puerta» de la lateral 'lado' de la bisagra: los cables que siguen a la puerta y vienen de la
-    bandeja principal o de la otra lateral (hacia_puerta), con el haz de la entrada a la salida a la puerta; 'propios' =
-    cuantos de esta lateral salen a la puerta (estan en sus pasos)"""
+    bandeja principal o de la otra lateral (hacia_puerta), con el haz de la entrada a la salida a la puerta. Cuentan solo
+    los que van DE VERDAD a la puerta (aparato de la vista de la puerta o de una categoria de la puerta de
+    web/e8_grupos.json); los de un aparato sin dibujar en el topografico que no es de la puerta (la zona hidraulica que
+    el topografico no dibuja: 'sin_aparato' en hacia_puerta) salen igual por la salida a la puerta, pero van aparte
+    ('sin_aparato', n_sin). 'propios' = claves de los cables de esta lateral que salen a la puerta (estan en sus pasos):
+    -> propios (los de la puerta) y propios_sin (los sin aparato)"""
     al_frente = 'izq' if hacia_fondo(lado) == 'der' else 'der'
     cs = sorted((dict(x) for x in hacia_puerta if x.get('desde') != lado), key=lambda x: (x.get('desde') != 'E6', natk(x['num'])))
+    pu = [x for x in cs if not x.get('sin_aparato')]
+    sin = [x for x in cs if x.get('sin_aparato')]
+    sin_k = {x.get('clave') for x in hacia_puerta if x.get('sin_aparato')}
+    propios = list(propios or [])
+    n_sin_pro = sum(1 for k in propios if k in sin_k)
     vrec = vrec or {}
     ruta = ruta_transito(net, vrec.get('entrada'), prop.get('entrada'), vrec.get('puerta'), al_frente) if cs else None
-    return dict(n=len(cs), cables=cs, ruta=ruta, propios=propios)
+    return dict(n=len(pu), cables=pu, ruta=ruta, propios=len(propios) - n_sin_pro, n_sin=len(sin), sin_aparato=sin,
+                propios_sin=n_sin_pro)
 
 
 def vistas_laterales(lay):
@@ -1119,12 +1131,17 @@ def build(res, lay, ins):
                         l['a_puerta'] = True
                 tramos_lat[L['i']].append(l)
             # --- cables que siguen a la puerta desde la bandeja principal o una lateral (el transito por la lateral de la
-            # bisagra: capa «Pasan hacia la puerta»)
+            # bisagra: capa «Pasan hacia la puerta»). 'sin_aparato': el aparato no esta dibujado en el topografico y no es
+            # de la puerta (ni en su vista ni de una categoria de la puerta de e8_grupos.json: la zona hidraulica que el
+            # topografico no dibuja): sale igual hacia la puerta (regla de E8-2), pero la capa lo lista aparte
             for e, w, t, eo, wo, to in ((ea, wa, ta, eb, wb, tb), (eb, wb, tb, ea, wa, ta)):
                 if w in ('BANDEJA', 'LATERAL') and wo == 'AFUERA' and sigue_puerta(eo, to):
-                    hacia_puerta.append(dict(num=num, clave=k, cable=desc, color=col, secc=sec, origen=t, destino=to,
-                                             aparato=ap_tag(eo), desde='E6' if w == 'BANDEJA' else de_lateral[ap_tag(e)]['lado'],
-                                             desde_txt=DONDE['BANDEJA'] if w == 'BANDEJA' else de_lateral[ap_tag(e)]['nombre'].lower()))
+                    hp = dict(num=num, clave=k, cable=desc, color=col, secc=sec, origen=t, destino=to,
+                              aparato=ap_tag(eo), desde='E6' if w == 'BANDEJA' else de_lateral[ap_tag(e)]['lado'],
+                              desde_txt=DONDE['BANDEJA'] if w == 'BANDEJA' else de_lateral[ap_tag(e)]['nombre'].lower())
+                    if ap_tag(eo) not in en_puerta and not E8M.aparato_de_puerta(ap_tag(eo), info_de, cfg_mano):
+                        hp['sin_aparato'] = True
+                    hacia_puerta.append(hp)
             # --- puerta y placa (y la zona hidraulica): aparato por aparato
             for e, w, t, eo, wo, to, ne in ((ea, wa, ta, eb, wb, tb, a), (eb, wb, tb, ea, wa, ta, b)):
                 if w not in ('AFUERA', 'E8') or t in ('LI', 'LD') or not e.get('tag_base'):
@@ -1303,7 +1320,7 @@ def build(res, lay, ins):
         # lateral de la bisagra: los cables que pasan hacia la puerta (de la bandeja principal y de la otra lateral)
         if bis and net:
             out_lat[-1]['transito'] = transito(net, L['lado'], rec['vistas'].get(L['clave']), prop, hacia_puerta,
-                                               sum(1 for l in ls if l.get('sale') == 'puerta'))
+                                               [l['clave'] for l in ls if l.get('sale') == 'puerta'])
     if not out_lat:
         avisos.append('el topográfico no tiene una vista de bandeja lateral con aparatos: la vista de la lateral queda vacía')
 
@@ -1479,7 +1496,7 @@ def rutear_guardado(ins, rec):
         if bis and net:         # (la capa «Pasan hacia la puerta» de la lateral de la bisagra)
             out[-1]['transito'] = transito(net, L.get('lado'), rec['vistas'].get(ck), prop,
                                            ((ins or {}).get('estacion8') or {}).get('hacia_puerta') or [],
-                                           sum(1 for l in ls if l.get('sale') == 'puerta'))
+                                           [l['clave'] for l in ls if l.get('sale') == 'puerta'])
     return out
 
 

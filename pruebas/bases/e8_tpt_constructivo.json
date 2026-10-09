@@ -3577,7 +3577,8 @@
    "destino": "BH-01-M",
    "aparato": "BH-01-M",
    "desde": "LI",
-   "desde_txt": "bandeja lateral izquierda"
+   "desde_txt": "bandeja lateral izquierda",
+   "sin_aparato": true
   },
   {
    "num": "2112",
@@ -3877,7 +3878,8 @@
    "destino": "ZY",
    "aparato": "ZY",
    "desde": "E6",
-   "desde_txt": "bandeja principal"
+   "desde_txt": "bandeja principal",
+   "sin_aparato": true
   },
   {
    "num": "6201",
@@ -3889,7 +3891,8 @@
    "destino": "ZY",
    "aparato": "ZY",
    "desde": "E6",
-   "desde_txt": "bandeja principal"
+   "desde_txt": "bandeja principal",
+   "sin_aparato": true
   }
  ],
  "puerta": {

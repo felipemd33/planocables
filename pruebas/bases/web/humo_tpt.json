@@ -941,7 +941,8 @@
      "destino": "BH-01-M",
      "num": "1206",
      "origen": "12PB1 -",
-     "secc": "35"
+     "secc": "35",
+     "sin_aparato": true
     },
     {
      "aparato": "21PCB01",
@@ -1241,7 +1242,8 @@
      "destino": "ZY",
      "num": "6202",
      "origen": "XM1 4 ABAJO",
-     "secc": "1"
+     "secc": "1",
+     "sin_aparato": true
     },
     {
      "aparato": "ZY",
@@ -1253,7 +1255,8 @@
      "destino": "ZY",
      "num": "6201",
      "origen": "XM1 3 ABAJO",
-     "secc": "1"
+     "secc": "1",
+     "sin_aparato": true
     }
    ],
    "hechos": [],
@@ -19182,30 +19185,6 @@
       "secc": "0.75"
      },
      {
-      "aparato": "ZY",
-      "cable": "R1MM",
-      "clave": "6201|XM1 3|ZY",
-      "color": "Rojo",
-      "desde": "E6",
-      "desde_txt": "bandeja principal",
-      "destino": "ZY",
-      "num": "6201",
-      "origen": "XM1 3 ABAJO",
-      "secc": "1"
-     },
-     {
-      "aparato": "ZY",
-      "cable": "N1MM",
-      "clave": "6202|XM1 4|ZY",
-      "color": "Negro",
-      "desde": "E6",
-      "desde_txt": "bandeja principal",
-      "destino": "ZY",
-      "num": "6202",
-      "origen": "XM1 4 ABAJO",
-      "secc": "1"
-     },
-     {
       "aparato": "21PCB01",
       "cable": "N0.75MM",
       "clave": "2105|21PCB01 5|32XAI 1",
@@ -19242,8 +19221,10 @@
       "secc": "1"
      }
     ],
-    "n": 24,
-    "propios": 3,
+    "n": 22,
+    "n_sin": 2,
+    "propios": 2,
+    "propios_sin": 1,
     "ruta": [
      [
       291.2,
@@ -19257,6 +19238,34 @@
       136.1,
       531.4
      ]
+    ],
+    "sin_aparato": [
+     {
+      "aparato": "ZY",
+      "cable": "R1MM",
+      "clave": "6201|XM1 3|ZY",
+      "color": "Rojo",
+      "desde": "E6",
+      "desde_txt": "bandeja principal",
+      "destino": "ZY",
+      "num": "6201",
+      "origen": "XM1 3 ABAJO",
+      "secc": "1",
+      "sin_aparato": true
+     },
+     {
+      "aparato": "ZY",
+      "cable": "N1MM",
+      "clave": "6202|XM1 4|ZY",
+      "color": "Negro",
+      "desde": "E6",
+      "desde_txt": "bandeja principal",
+      "destino": "ZY",
+      "num": "6202",
+      "origen": "XM1 4 ABAJO",
+      "secc": "1",
+      "sin_aparato": true
+     }
     ]
    },
    "vista": 1

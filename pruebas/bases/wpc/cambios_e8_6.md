@@ -19,6 +19,10 @@ Etapa E8-6 (2026-10-09): ruteo a mano por grupos y cables directos del cargador.
     mm): antes la bajada se corría medio punto hacia el punto de la canaleta que había dejado el cable 1223, que ya no
     pasa por ahí.
 - En el 75287 (la Vista) los cables del cargador a 12XPS no son cables numerados del funcional: no hay nada que cambiar.
+- **Pulido del 2026-10-09 (solo el texto):** el «cómo» de los cables directos (1221-1226 y el RS-485) dice «directo al
+  borne 50 + margen 200 + agregado a LI 200» en lugar de «canaleta de la bandeja lateral izquierda 50 + …» (no pasan por
+  la canaleta). El largo y el CSV no cambian; en los goldens solo cambia ese texto en `wpc_76884_pend_otra.json` (las
+  tablas de abajo quedan como se sacaron en la etapa E8-6).
 
 | Trabajo | Filas antes / después | Cambian de largo | Cambia solo el texto | Metros en el CSV (antes → después) |
 |---|---|---:|---:|---|

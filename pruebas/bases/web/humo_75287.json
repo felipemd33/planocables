@@ -1464,7 +1464,8 @@
      "destino": "BH-01-ZV",
      "num": "1204",
      "origen": "12F2",
-     "secc": "35"
+     "secc": "35",
+     "sin_aparato": true
     },
     {
      "aparato": "21PCB01",
@@ -1896,7 +1897,8 @@
      "destino": "PT 001 2",
      "num": "3142",
      "origen": "31XAI 1 ABAJO",
-     "secc": "0.75"
+     "secc": "0.75",
+     "sin_aparato": true
     },
     {
      "aparato": "PT 001",
@@ -1908,7 +1910,8 @@
      "destino": "PT 001 1",
      "num": "3141",
      "origen": "31XAI F1 ABAJO",
-     "secc": "0.75"
+     "secc": "0.75",
+     "sin_aparato": true
     },
     {
      "aparato": "BH-01-ZV",
@@ -1920,7 +1923,8 @@
      "destino": "BH-01-ZV",
      "num": "6202",
      "origen": "62XDO 1 ABAJO",
-     "secc": "1"
+     "secc": "1",
+     "sin_aparato": true
     }
    ],
    "hechos": [],
@@ -14769,18 +14773,6 @@
    "transito": {
     "cables": [
      {
-      "aparato": "BH-01-ZV",
-      "cable": "R35MM",
-      "clave": "1204|12F2|BH-01-ZV",
-      "color": "Rojo",
-      "desde": "E6",
-      "desde_txt": "bandeja principal",
-      "destino": "BH-01-ZV",
-      "num": "1204",
-      "origen": "12F2",
-      "secc": "35"
-     },
-     {
       "aparato": "13SH1",
       "cable": "R2.5MM",
       "clave": "1301|13F3|13SH1",
@@ -15175,46 +15167,12 @@
       "num": "2169",
       "origen": "46KR1 14",
       "secc": "0.75"
-     },
-     {
-      "aparato": "PT 001",
-      "cable": "N0.75MM",
-      "clave": "3141|31XAI F1|PT 001 1",
-      "color": "Negro",
-      "desde": "E6",
-      "desde_txt": "bandeja principal",
-      "destino": "PT 001 1",
-      "num": "3141",
-      "origen": "31XAI F1 ABAJO",
-      "secc": "0.75"
-     },
-     {
-      "aparato": "PT 001",
-      "cable": "N0.75MM",
-      "clave": "3142|31XAI 1|PT 001 2",
-      "color": "Negro",
-      "desde": "E6",
-      "desde_txt": "bandeja principal",
-      "destino": "PT 001 2",
-      "num": "3142",
-      "origen": "31XAI 1 ABAJO",
-      "secc": "0.75"
-     },
-     {
-      "aparato": "BH-01-ZV",
-      "cable": "R1MM",
-      "clave": "6202|62XDO 1|BH-01-ZV",
-      "color": "Rojo",
-      "desde": "E6",
-      "desde_txt": "bandeja principal",
-      "destino": "BH-01-ZV",
-      "num": "6202",
-      "origen": "62XDO 1 ABAJO",
-      "secc": "1"
      }
     ],
-    "n": 37,
+    "n": 33,
+    "n_sin": 4,
     "propios": 2,
+    "propios_sin": 0,
     "ruta": [
      [
       387.5,
@@ -15228,6 +15186,60 @@
       196.2,
       536.0
      ]
+    ],
+    "sin_aparato": [
+     {
+      "aparato": "BH-01-ZV",
+      "cable": "R35MM",
+      "clave": "1204|12F2|BH-01-ZV",
+      "color": "Rojo",
+      "desde": "E6",
+      "desde_txt": "bandeja principal",
+      "destino": "BH-01-ZV",
+      "num": "1204",
+      "origen": "12F2",
+      "secc": "35",
+      "sin_aparato": true
+     },
+     {
+      "aparato": "PT 001",
+      "cable": "N0.75MM",
+      "clave": "3141|31XAI F1|PT 001 1",
+      "color": "Negro",
+      "desde": "E6",
+      "desde_txt": "bandeja principal",
+      "destino": "PT 001 1",
+      "num": "3141",
+      "origen": "31XAI F1 ABAJO",
+      "secc": "0.75",
+      "sin_aparato": true
+     },
+     {
+      "aparato": "PT 001",
+      "cable": "N0.75MM",
+      "clave": "3142|31XAI 1|PT 001 2",
+      "color": "Negro",
+      "desde": "E6",
+      "desde_txt": "bandeja principal",
+      "destino": "PT 001 2",
+      "num": "3142",
+      "origen": "31XAI 1 ABAJO",
+      "secc": "0.75",
+      "sin_aparato": true
+     },
+     {
+      "aparato": "BH-01-ZV",
+      "cable": "R1MM",
+      "clave": "6202|62XDO 1|BH-01-ZV",
+      "color": "Rojo",
+      "desde": "E6",
+      "desde_txt": "bandeja principal",
+      "destino": "BH-01-ZV",
+      "num": "6202",
+      "origen": "62XDO 1 ABAJO",
+      "secc": "1",
+      "sin_aparato": true
+     }
     ]
    },
    "vista": 0

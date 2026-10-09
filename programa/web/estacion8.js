@@ -14,7 +14,9 @@
      desde la entrada del lado de la bisagra hasta la FRANJA de bornes de cada aparato (el borne exacto está en la tabla:
      no se inventan puntos), y se cablea de a uno. 🧭 Entrada / recorrido de la puerta: la entrada y los puntos de paso
      del tramo común (libres: también fuera de las canaletas). En la lateral de la bisagra, la capa «Pasan hacia la
-     puerta (N)» (L.transito): el haz de los cables de la bandeja principal y de la otra lateral que siguen a la puerta.
+     puerta (N)» (L.transito): el haz de los cables de la bandeja principal y de la otra lateral que siguen a la puerta
+     (solo los que van de verdad a la puerta; los de un aparato sin dibujar que no es de la puerta, aparte: «Sin aparato
+     en el plano»). Las flechas de la entrada / salida y sus rótulos entran siempre en el dibujo (cajaVista).
    Los datos vienen en ins.estacion8 (programa/estacion8.py); las marcas de cableado van en ins.estacion8.hechos y lo
    elegido de la entrada / salida en ins.estacion8.recorridos. */
 const E8 = (() => {
@@ -326,13 +328,20 @@ const E8 = (() => {
   /* ---- vista de la bandeja lateral: mapa con todos los cables + pasos ---- */
   // la lateral (o la puerta) tiene entrada para elegir: cables que entran o salen y, en una lateral, canaletas
   const editable = L => !!L && !!salientes(L).length && (esPuerta(L) || !!(L.ductos || []).length);
-  // capa «Pasan hacia la puerta (N)» de la lateral de la bisagra: el haz y la lista de cables
+  // capa «Pasan hacia la puerta (N)» de la lateral de la bisagra: el haz y la lista de los cables que van DE VERDAD a la
+  // puerta (aparato de la vista de la puerta o de una categoría de la puerta); aparte, «Sin aparato en el plano (M)»: los
+  // de un aparato que el topográfico no dibuja y no es de la puerta (salen igual por la salida a la puerta)
   function transitoTxt(L) {
-    const T = L.transito; if (!T || !T.n) return '';
-    const por = {}; T.cables.forEach(c => { const k = c.desde === 'E6' ? 'de la bandeja principal' : 'de la ' + c.desde_txt; (por[k] = por[k] || []).push(c); });
-    return `<details class="small e8-tr"><summary><label class="chk" title="Ver u ocultar el haz en el dibujo"><input type="checkbox" data-a="haz" ${X.haz ? 'checked' : ''}> <b>Pasan hacia la puerta (${T.n})</b></label>
+    const T = L.transito; if (!T || !(T.n || T.n_sin)) return '';
+    const porDesde = cs => { const por = {}; cs.forEach(c => { const k = c.desde === 'E6' ? 'de la bandeja principal' : 'de la ' + c.desde_txt; (por[k] = por[k] || []).push(c); }); return por; };
+    const lista = cs => Object.entries(porDesde(cs)).map(([k, xs]) => `<div><span class="muted">${esc(k)}:</span> ${xs.map(c => `<span class="mono" title="${esc(c.origen)} → ${esc(c.destino)}">${esc(c.num)}</span>`).join(' ')}</div>`).join('');
+    const sin = T.sin_aparato || [], nSin = sin.length + (T.propios_sin || 0);
+    return (T.n ? `<details class="small e8-tr"><summary><label class="chk" title="Ver u ocultar el haz en el dibujo"><input type="checkbox" data-a="haz" ${X.haz ? 'checked' : ''}> <b>Pasan hacia la puerta (${T.n})</b></label>
         <span class="muted">entran por la entrada y salen a la puerta${T.ruta ? '' : ' (sin recorrido por las canaletas)'}${T.propios ? ` · además ${T.propios} de esta lateral salen a la puerta` : ''}</span></summary>
-      ${Object.entries(por).map(([k, cs]) => `<div><span class="muted">${esc(k)}:</span> ${cs.map(c => `<span class="mono" title="${esc(c.origen)} → ${esc(c.destino)}">${esc(c.num)}</span>`).join(' ')}</div>`).join('')}</details>`;
+      ${lista(T.cables || [])}</details>` : '')
+      + (nSin ? `<details class="small e8-tr e8-tr-sin"><summary><b>Sin aparato en el plano (${sin.length})</b>
+        <span class="muted">su aparato no está dibujado en el topográfico y no es de la puerta: por ahora salen por la salida a la puerta; si van por otro lado, armá un grupo de cables elegidos en 🧭${T.propios_sin ? ` · además ${T.propios_sin} de esta lateral` : ''}</span></summary>
+      ${lista(sin)}</details>` : '');
   }
   function renderLat() {
     const L = lat(); if (!L) { $('#e8Lat').innerHTML = '<p class="muted">No hay bandejas laterales en el topográfico.</p>'; return; }
@@ -341,7 +350,7 @@ const E8 = (() => {
     const ent = !L.sin_canaletas && salientes(L).length ? entradaTxt(L) : '';
     $('#e8Lat').innerHTML = `
       <div class="e8-mapa card"><div class="card-h"><h2>${esc(L.nombre)}</h2><span class="muted small">${tot} cables · ${exactos === tot ? 'todos con el punto del borne' : `${exactos} de ${tot} con el punto del borne`}${L.sin_canaletas ? ' · sin canaletas leídas: no hay recorrido' : ''}${L.sin_riel ? ' · sin riel dibujado: aparato por aparato' : ''}</span></div>
-        <svg class="tsvg${X.haz ? '' : ' sin-haz'}" id="e8Mapa" viewBox="${vbOf(L.region).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}
+        <svg class="tsvg${X.haz ? '' : ' sin-haz'}" id="e8Mapa" viewBox="${vbMapa(L, uMapa(L)).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}
           ${transitoG(L, uMapa(L))}${manoG(L, uMapa(L))}${flat(L).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L })).join('')}${flechas(L, uMapa(L))}<g id="e8Sel"></g></svg>
         ${ent ? `<p class="small e8-ent">${ent} <button class="linkbtn" data-a="entrada" title="Elegir por dónde entran y salen los cables de esta bandeja lateral (S)">🧭 Cambiar</button></p>` : ''}
         ${transitoTxt(L)}${mapeoTxt(L)}
@@ -419,7 +428,7 @@ const E8 = (() => {
       const ent = puertaTxt(Pd);
       html += `<h2 class="e8-zona">Puerta</h2><div class="e8-lat e8-pu">
         <div class="e8-mapa card"><div class="card-h"><h2>${esc(Pd.titulo || 'Puerta')}</h2><span class="muted small">${Pd.n} cables · cada uno llega a la franja de bornes de su aparato: el borne está en la tabla${Pd.sin_canaletas ? ' · sin canaletas leídas' : ''}</span></div>
-          <svg class="tsvg" id="e8MapaP" viewBox="${vbOf(Pd.region).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(Pd)}
+          <svg class="tsvg" id="e8MapaP" viewBox="${vbMapa(Pd, uMapa(Pd)).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(Pd)}
             ${manoG(Pd, uMapa(Pd))}${flat(Pd).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L: Pd })).join('')}${flechas(Pd, uMapa(Pd))}${aparatosG(Pd, uMapa(Pd))}<g id="e8SelP"></g></svg>
           <p class="small e8-ent">${ent} <button class="linkbtn" data-a="entrada" title="Elegir por dónde entran a la puerta y por dónde pasan (S)">🧭 Cambiar</button></p>
           <p class="muted small">Pasá el mouse por una fila de la tabla para ver el cable en la puerta. ▶ Cablear de a uno: un cable por vez.</p></div>
@@ -472,7 +481,14 @@ const E8 = (() => {
         : l.largo_mm ? `≈ ${l.largo_mm} mm en la lateral${l.directo ? ' · directo al borne, sin el ducto' : ''}` : '');
     $('#e8vOk').checked = H.has(l.clave);
     $('#e8vBar').style.width = (f.filter(x => H.has(x.l.clave)).length / f.length * 100) + '%';
-    const target = vbOf(roomForLupas(boxOf(L, [l, ...ss], 36, 200, 140)));
+    // (el encuadre con lo que tiene que entrar: el rótulo del final del recorrido, «A la bandeja principal», y las flechas
+    // de la entrada / salida que caen en él)
+    let caja = boxOf(L, [l, ...ss], 36, 200, 140);
+    const uv = 0.7 * uMapa(L);
+    for (const x of [l, ...ss]) { const c = cajaFin(x, x === l ? 1.6 : 1.3); if (c) caja = unir(caja, agrandar(c, 4)); }
+    for (const fl of listaFlechas(L))
+      if (fl.p[0] >= caja[0] && fl.p[0] <= caja[2] && fl.p[1] >= caja[1] && fl.p[1] <= caja[3]) caja = unir(caja, agrandar(cajaFlecha(fl, uv), 2 * uv));
+    const target = vbOf(roomForLupas(caja));
     const fs = Ins.fontFor('#e8vSvg', target, 14);
     $('#e8vSvg').innerHTML = imgTag(L, true) + (X.haz ? transitoG(L, 0.7 * uMapa(L), false) : '') + manoG(L, 0.7 * uMapa(L)) + flechas(L, 0.7 * uMapa(L)) + ss.map(s => routeG(s, 'sib', 1.3, { lab: fs, L })).join('') + routeG(l, 'cur', 1.6, { lab: fs, pulse: true, L }) + '<g id="e8vAdjG"></g>';
     // 📍 ajustar el punto del borne (no en la puerta: llega a la franja; no en un empalme: no es un borne)
@@ -714,19 +730,56 @@ const E8 = (() => {
   }
   // flecha roja como la de la foto del taller: el sentido del cable va del fondo hacia la puerta (la entrada con la punta
   // en el punto, la salida a la puerta con la cola en el punto); la propuesta va punteada
+  const flechaX = (p, dir, Lf, dentro) => (dentro ? [p[0] - dir * Lf, p[0]] : [p[0], p[0] + dir * Lf]);
   function flecha(p, dir, u, txt, dentro, prop) {
     const Lf = 34 * u, h = 7 * u, y = -p[1];
-    const x0 = dentro ? p[0] - dir * Lf : p[0], x1 = dentro ? p[0] : p[0] + dir * Lf, hx = x1 - dir * h * 1.4;
+    const [x0, x1] = flechaX(p, dir, Lf, dentro), hx = x1 - dir * h * 1.4;
     return `<g class="e8-flecha${prop ? ' prop' : ''}"><title>${esc(txt)}${prop ? ' (propuesta)' : ''}</title>
       <path d="M${f2(x0)} ${f2(y)}L${f2(hx)} ${f2(y)}" stroke-width="${f2(2.6 * u)}"${prop ? ` stroke-dasharray="${f2(5 * u)} ${f2(3 * u)}"` : ''}/>
       <path class="punta" d="M${f2(x1)} ${f2(y)}L${f2(hx)} ${f2(y - h)}L${f2(hx)} ${f2(y + h)}Z"/>
       <text x="${f2((x0 + x1) / 2)}" y="${f2(y - h - 3 * u)}" font-size="${f2(10 * u)}" text-anchor="middle" stroke-width="${f2(2.4 * u)}">${esc(txt)}</text></g>`;
   }
   const sentido = L => (L.hacia === 'izq' ? 1 : -1);
-  function flechas(L, u) {
-    if (!L || (L.sin_canaletas && !esPuerta(L)) || !salientes(L).length) return '';
-    return finesDe(L, 'entrada').map(x => flecha(x.p, sentido(L), u, 'Entrada', true, !x.eleg)).join('')
-      + (L.bisagra ? finesDe(L, 'puerta').map(x => flecha(x.p, sentido(L), u, 'A la puerta', false, !x.eleg)).join('') : '');
+  // las flechas de la vista: la entrada (y, en la lateral de la bisagra, la salida a la puerta)
+  function listaFlechas(L) {
+    if (!L || (L.sin_canaletas && !esPuerta(L)) || !salientes(L).length) return [];
+    const dir = sentido(L);
+    return finesDe(L, 'entrada').map(x => ({ p: x.p, dir, txt: 'Entrada', dentro: true, prop: !x.eleg }))
+      .concat(L.bisagra ? finesDe(L, 'puerta').map(x => ({ p: x.p, dir, txt: 'A la puerta', dentro: false, prop: !x.eleg })) : []);
+  }
+  function flechas(L, u) { return listaFlechas(L).map(f => flecha(f.p, f.dir, u, f.txt, f.dentro, f.prop)).join(''); }
+  /* ---- lo que tiene que ENTRAR en el dibujo (en puntos del topográfico, la y para arriba): las flechas con su rótulo
+     (la flecha mide 34·u y sale del borde: el margen de la imagen puede ser menor, la puerta tiene un perfil) y el
+     rótulo del final de un recorrido que sale de la vista («A la bandeja principal»). La vista se agranda para que
+     entren; la imagen sigue siendo la de la región. */
+  const anchoTxt = (txt, fs) => 0.62 * fs * String(txt || '').length;      // (negrita, Segoe UI / Arial: ~0,6 em por letra)
+  const unir = (a, b) => (!a ? b : !b ? a : [Math.min(a[0], b[0]), Math.min(a[1], b[1]), Math.max(a[2], b[2]), Math.max(a[3], b[3])]);
+  const agrandar = (b, m) => [b[0] - m, b[1] - m, b[2] + m, b[3] + m];
+  function cajaFlecha(f, u) {
+    const h = 7 * u, fs = 10 * u, [x0, x1] = flechaX(f.p, f.dir, 34 * u, f.dentro), cx = (x0 + x1) / 2, tw = anchoTxt(f.txt, fs) + 2.4 * u;
+    return [Math.min(x0, x1, cx - tw / 2), f.p[1] - h, Math.max(x0, x1, cx + tw / 2), f.p[1] + h + 3 * u + fs];
+  }
+  // rótulo del final de un recorrido que sale de la vista (routeG: «A la bandeja principal», a la derecha o a la
+  // izquierda de la punta), con el tamaño de letra de routeG para ese k
+  function cajaFin(l, k) {
+    const r = puntos(l); if (l.grupo_mano || l.marca_d || !r || r.length < 2) return null;
+    const t = otraCorta(l); if (!t) return null;
+    const e = r[r.length - 1], der = e[0] >= r[r.length - 2][0], fs = 6 * Math.min(k, 1.2), w = 3 + anchoTxt(t, fs);
+    return [der ? e[0] : e[0] - w, e[1] - fs, der ? e[0] + w : e[0], e[1] + fs];
+  }
+  // la vista entera (mapa, «0», ⤢): la región con las flechas adentro
+  function cajaVista(L, u) {
+    let b = L.region.slice();
+    for (const f of listaFlechas(L)) b = unir(b, agrandar(cajaFlecha(f, u), 2 * u));
+    return b;
+  }
+  const vbMapa = (L, u) => vbOf(cajaVista(L, u));
+  const vbVisor = L => vbMapa(L, 0.7 * uMapa(L));          // (el visor dibuja las flechas a 0,7 del mapa)
+  // el editor 🧭 dibuja las flechas a 34 px de la pantalla: u = puntos por px de la vista entera (con aire: al agrandar
+  // la vista, crecen un poco)
+  function vbEd(L) {
+    const r = $('#e8sSvg').getBoundingClientRect(), b = L.region;
+    return vbMapa(L, r.width && r.height ? 1.15 * Math.max((b[2] - b[0]) / r.width, (b[3] - b[1]) / r.height) : uMapa(L));
   }
   const uMapa = L => Math.max((L.region[2] - L.region[0]) / 480, (L.region[3] - L.region[1]) / 640);
 
@@ -749,7 +802,7 @@ const E8 = (() => {
   function cargarLat() {
     const L = VE(X.li);
     $('#e8sSvg').innerHTML = imgTag(L, true) + '<g id="e8sRutas"></g><g id="e8sMarcas"></g>';
-    X.vb = vbOf(L.region); $('#e8sSvg').setAttribute('viewBox', X.vb.map(f2).join(' '));
+    X.vb = vbEd(L); $('#e8sSvg').setAttribute('viewBox', X.vb.map(f2).join(' '));
     edRender();
   }
   function cerrarEd() {
@@ -1038,7 +1091,7 @@ const E8 = (() => {
     });
     $('#e8sClose').addEventListener('click', cerrarEd);
     $('#e8sVolver').addEventListener('click', cerrarEd);
-    $('#e8sFit').addEventListener('click', () => setVb(vbOf(VE(X.li).region)));
+    $('#e8sFit').addEventListener('click', () => setVb(vbEd(VE(X.li))));
     $('#e8sLats').addEventListener('click', e => {
       const b = e.target.closest('[data-li]'); if (!b || X.asis || b.disabled) return;
       const i = b.dataset.li === 'puerta' ? 'puerta' : +b.dataset.li, L = VE(i);
@@ -1112,7 +1165,7 @@ const E8 = (() => {
       if (e.key === 'Enter' && X.asis) { e.preventDefault(); return sigAsis(); }
       if (e.key === 'Enter' && X.modo) { e.preventDefault(); return setModo(null); }
       if (e.key === 'Backspace' && X.modo === 'recorrido') { e.preventDefault(); return accion('deshacer', X.act); }
-      if (e.key === '0') { e.preventDefault(); setVb(vbOf(VE(X.li).region)); }
+      if (e.key === '0') { e.preventDefault(); setVb(vbEd(VE(X.li))); }
     });
   }
 
@@ -1158,12 +1211,18 @@ const E8 = (() => {
 
   // ✏ Ruteo a mano (e8mano.js): desde la pestaña, una tarjeta, una tabla o el visor
   const mano = o => { if (typeof E8M !== 'undefined' && RM()) E8M.abrir(o || {}); else toast('Este instructivo no tiene los grupos de ruteo a mano: tocá ↻ Regenerar', 5000); };
+  // (desde el visor siempre se cierra el visor y al cerrar el editor se vuelve al mismo cable: un cable con grupo abre el
+  // visor de a uno de su grupo; uno sin grupo, el editor con ese cable buscado en la lista, para moverlo a un grupo)
   function manoDesdeVisor() {
     const f = F(); if (!f.length) return;
+    if (typeof E8M === 'undefined' || !RM()) return mano({});
     const l = f[V.k].l, k = V.k, v = vista;
-    if (!l.grupo_mano) return mano({});
+    if (V.adjust) startAdjust(null);
     $('#e8Viewer').hidden = true; document.body.style.overflow = '';
-    mano({ grupo: l.grupo_mano, clave: l.clave, cablear: true, volver: () => { vista = v; openViewer(k); } });
+    const volver = () => { vista = v; openViewer(k); };
+    if (l.grupo_mano) return mano({ grupo: l.grupo_mano, clave: l.clave, cablear: true, volver });
+    mano({ clave: l.clave, buscar: l.num, volver });
+    toast(`El cable ${l.num} no tiene grupo de ruteo a mano (va con el ruteo automático). Para dibujarlo a mano, elegí su grupo en la lista · Esc: volver al visor`, 6000);
   }
   function init() {
     $('#e8Vistas').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (!b) return; vista = b.dataset.v === 'afuera' ? 'afuera' : +b.dataset.v; render(); });
@@ -1205,7 +1264,7 @@ const E8 = (() => {
     $('#e8vClose').addEventListener('click', closeViewer);
     $('#e8vPrev').addEventListener('click', () => go(-1));
     $('#e8vNext').addEventListener('click', () => go(1));
-    $('#e8vFit').addEventListener('click', () => camera(vbOf(lat().region), 350));
+    $('#e8vFit').addEventListener('click', () => camera(vbVisor(lat()), 350));
     $('#e8vFocus').addEventListener('click', () => draw());
     $('#e8vOk').addEventListener('change', () => toggleOk(true));
     $('#e8vPlano').addEventListener('click', () => aFuncional(F()[V.k].l.num));
@@ -1268,7 +1327,7 @@ const E8 = (() => {
       }
       if (e.key === 'Escape' && V.adjust) { e.preventDefault(); return startAdjust(null); }
       const keys = { ArrowRight: () => go(1), ArrowLeft: () => go(-1), Escape: closeViewer, ' ': () => toggleOk(true), Enter: () => toggleOk(true),
-        '0': () => camera(vbOf(lat().region), 350), f: () => draw(), l: () => setSide($('#e8vSide').hidden), s: entradaDesdeVisor, S: entradaDesdeVisor,
+        '0': () => camera(vbVisor(lat()), 350), f: () => draw(), l: () => setSide($('#e8vSide').hidden), s: entradaDesdeVisor, S: entradaDesdeVisor,
         r: manoDesdeVisor, R: manoDesdeVisor };
       if (keys[e.key]) { e.preventDefault(); keys[e.key](); }
     });

@@ -389,8 +389,9 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
         bands = bands + geo
         if not bands:
             # (estacion E8) una hoja sin rieles puede ser la de la PUERTA: se buscan los titulos SIN OCR (rapido y sin
-            # tocar la memoria de OCR); la hoja elegida se vuelve a leer al final (puerta_e8). No suma cotas ni compite
-            # por la hoja de la bandeja. E8 nunca frena el layout de E6.
+            # tocar la memoria de OCR); en la hoja elegida (puerta_e8) solo pasan por OCR los recortes de las etiquetas y
+            # de los renglones del titulo con letras sin leer. No suma cotas ni compite por la hoja de la bandeja. E8
+            # nunca frena el layout de E6.
             try:
                 if lines is None:
                     lines = _texto_sin_ocr(st, dec)

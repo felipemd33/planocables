@@ -466,6 +466,13 @@ def esperado_e84(t, e8):
              f"{t}: a {[a['tag'] for a in cu]} (la placa) los cables llegan por la franja de abajo")
 
 
+# aparatos de los cables que siguen hacia la puerta pero que la capa «Pasan hacia la puerta» lista aparte, «Sin aparato en
+# el plano» (sin dibujar en el topografico y no son de la puerta: la zona hidraulica). 21PCB01 del 75287 no esta dibujado
+# en la vista de la puerta pero es una placa (categoria de la puerta): pasa hacia la puerta
+SIN_APARATO = {'tpt_constructivo': {'BH-01-M', 'ZY'}, 'tpt': {'BH-01-M', 'ZY'}, '66817': {'81TM01', 'BH-01-M', 'ZY'},
+               '75287': {'BH-01-ZV', 'PT 001'}, '76884': set()}
+
+
 def ruteo_e84(t, ins):
     """vista previa de la puerta (rutear_guardado_puerta) y transito en la lateral de la bisagra (rutear_guardado)"""
     E8 = e8_modulo()
@@ -504,21 +511,34 @@ def ruteo_e84(t, ins):
                  and any(abs(p[1] - pg[1]) <= 0.15 or abs(p[0] - pg[0]) <= 0.15 for p in x[g['clave']]['ruta'])
                  and all(x[l['clave']]['ruta'] == l['ruta'] for l in ls if l['num'] != g['num']),
                  f"{t} puerta: un grupo con el cable {g['num']} va por su punto de paso {pg} y el resto no cambia")
-    # capa «Pasan hacia la puerta» en la lateral de la bisagra
+    # capa «Pasan hacia la puerta» en la lateral de la bisagra: cuenta solo los que van de verdad a la puerta (aparato de
+    # la vista de la puerta o de una categoria de la puerta); los de un aparato sin dibujar que no es de la puerta (la zona
+    # hidraulica que el topografico no dibuja) van aparte, «Sin aparato en el plano» (pulido del 2026-10-09)
     hp = e8.get('hacia_puerta') or []
+    sin_esp = SIN_APARATO.get(t)
+    if sin_esp is not None:
+        sin = {x['aparato'] for x in hp if x.get('sin_aparato')}
+        en_p = {a['tag'] for a in (Pd or {}).get('aparatos') or []}
+        chequear(sin == sin_esp and not (sin & en_p),
+                 f"{t}: hacia la puerta, «sin aparato en el plano» = {sorted(sin)} (se esperaba {sorted(sin_esp)}); los de la puerta: "
+                 f"{sorted({x['aparato'] for x in hp if not x.get('sin_aparato')})}")
     for bis, lado in (('izq', 'LI'), ('der', 'LD')):
         L = lateral(e8, lado)
         if not (L and L['ductos']):
             continue
         r = {x['clave_vista']: x for x in E8.rutear_guardado(ins, {'bisagra': bis})}
         tr = r[L['clave_vista']].get('transito')
-        n = sum(1 for x in hp if x['desde'] != lado)
-        chequear(tr and tr['n'] == n and n and tr['ruta'] and cerca(tr['ruta'][0], r[L['clave_vista']]['entrada_propuesta'], 0.15)
+        n = sum(1 for x in hp if x['desde'] != lado and not x.get('sin_aparato'))
+        n_sin = sum(1 for x in hp if x['desde'] != lado and x.get('sin_aparato'))
+        chequear(tr and tr['n'] == n and n and tr.get('n_sin') == n_sin and len(tr.get('sin_aparato') or []) == n_sin
+                 and not any(x.get('sin_aparato') for x in tr['cables'])
+                 and tr['ruta'] and cerca(tr['ruta'][0], r[L['clave_vista']]['entrada_propuesta'], 0.15)
                  and cerca(tr['ruta'][-1], r[L['clave_vista']]['puerta_propuesta'], 0.15)
                  and not any(x.get('transito') for k, x in r.items() if k != L['clave_vista']),
                  f"{t} {L['nombre']} (bisagra a la {'izquierda' if bis == 'izq' else 'derecha'}): pasan hacia la puerta {tr and tr['n']} "
-                 f"(de la bandeja principal {sum(1 for x in hp if x['desde'] == 'E6')}, de la otra lateral {sum(1 for x in hp if x['desde'] not in ('E6', lado))}) "
-                 f"de la entrada a la salida a la puerta; la otra lateral sin capa")
+                 f"(de la bandeja principal {sum(1 for x in hp if x['desde'] == 'E6' and not x.get('sin_aparato'))}, de la otra lateral "
+                 f"{sum(1 for x in hp if x['desde'] not in ('E6', lado) and not x.get('sin_aparato'))}) de la entrada a la salida a la "
+                 f"puerta y {tr and tr.get('n_sin')} sin aparato en el plano, aparte; la otra lateral sin capa")
 
 
 # ------------------------------------------------------------------ etapa E8-5: puntos exactos en las laterales
@@ -741,6 +761,14 @@ def esperado_e86(t, e8):
         chequear(nums(nu.get('cables') or []) == PLACA_RELES and nums(pl.get('cables') or []) == GRUPOS_TPT['placa:21PCB01'] - PLACA_RELES and not nu.get('auto'),
                  f"{t}: el grupo nuevo de placa del taller con {sorted(nums(nu.get('cables') or []))} (movidos a mano) y «Placa 21PCB01» con {pl.get('n')}")
         chequear(any('ya no está en este trabajo' in a for a in R.get('avisos') or []), f"{t}: aviso del cable movido que no está en el trabajo ({R.get('avisos')})")
+        # (pulido 2026-10-09) un grupo nuevo de placa sin aparato (trabajo sin placas) va al final, después de los que
+        # tienen aparato aunque su id vaya antes (como E8M.efectivo de la pantalla)
+        R2 = json.loads(json.dumps(R))
+        man = json.loads(json.dumps(R2.get('manual') or {}))
+        man.setdefault('nuevos', []).append({'id': 'nuevo:000', 'nombre': 'Placa · grupo 1', 'categoria': 'placa', 'aparato': None})
+        E8M.aplicar(R2, man)
+        chequear([g['id'] for g in R2['grupos']][-2:] == ['nuevo:fixture1', 'nuevo:000'],
+                 f"{t}: un grupo de placa sin aparato va al final ({[g['id'] for g in R2['grupos']][-3:]})")
         # en la lateral izquierda: 1205 (35 mm², bateria) marcado con su grupo, que esta dibujado
         li = lateral(e8, 'LI')
         l35 = [l for l in lineas(li) if l['num'] == '1205'] if li else []

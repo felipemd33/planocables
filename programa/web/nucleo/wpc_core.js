@@ -234,7 +234,8 @@ const WpcCore = (() => {
     (e8.laterales || []).forEach(L => {
       L.pasos.forEach(p => p.lineas.forEach(x => {
         if (x.largo_mm == null) return;
-        const v = { tipo: 'lateral', mm: x.largo_mm, can: canaleta(x.ruta, L.ductos, L.escala), borne: x.origen, donde: L.nombre.toLowerCase(), puerta: x.otra === 'puerta / placa' };
+        const v = { tipo: 'lateral', mm: x.largo_mm, can: canaleta(x.ruta, L.ductos, L.escala), borne: x.origen, donde: L.nombre.toLowerCase(), puerta: x.otra === 'puerta / placa',
+          directo: !!x.directo };      // (del cargador derecho a la bornera de abajo, sin el ducto: E8-6)
         if (x.otra === 'bandeja principal') sale[`${x.num}|${sinLado(x.destino)}`] ??= v;   // de la bandeja (E6) a la lateral
         else par[x.clave] = v;                                                         // misma lateral, o lateral ↔ puerta
       }));
@@ -256,7 +257,8 @@ const WpcCore = (() => {
       const x = e8l.par[claveE8(l.num, l.a, l.b)];
       if (x) {
         const ext = x.puerta ? P('extra_puerta') : P('margen_LI'), k = x.puerta ? 'puerta' : 'LI';
-        return { mm: up(x.mm + ext + AG[k]), como: `canaleta de la ${x.donde} ${x.mm} + ${x.puerta ? 'puerta / placa' : 'margen'} ${ext}${mas(k)}, redondeado a ${r}` };
+        // (un cable directo del cargador a la bornera de abajo no pasa por la canaleta: el largo es el mismo, cambia el texto)
+        return { mm: up(x.mm + ext + AG[k]), como: `${x.directo ? 'directo al borne' : `canaleta de la ${x.donde}`} ${x.mm} + ${x.puerta ? 'puerta / placa' : 'margen'} ${ext}${mas(k)}, redondeado a ${r}` };
       }
       return { mm: P('largo_pendiente'), como: 'pendiente LI↔LI (valor fijo)' };
     }

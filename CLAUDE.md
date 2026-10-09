@@ -16,7 +16,7 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/web.py` | Interfaz web (Flask, `http://127.0.0.1:8765`). `PLANOCABLES_PORT` cambia el puerto; `--no-abrir` no abre el navegador. |
 | `programa/planocables/` | Paquete del **plan modular** (`PLAN_MODULAR.md`, etapas 0-3 hechas): `base/` (geom, hojas, convenciones, colores, escala, pdfium_lock: funciones puras, solo biblioteca estándar; los módulos viejos las reexportan con el mismo nombre) y `producto.py` (código de producto, plano y revisión, sin disco). `pyproject.toml` (en la raíz) instala solo este paquete. |
 | `programa/productos.json` | Catálogo de productos: `{código: {nombre, alias: {planos, documentos, codigo_rotulo}}}`. Lo actualiza la web cuando el taller confirma un producto (✎ en la línea «Producto»). |
-| `programa/estacion8.py`, `estacion8_mano.py`, `web/estacion8.js`, `web/e8mano.js` | **Estación 8** (gabinete): bandejas laterales, puerta y placa (`estacion8.build`), y el **ruteo a mano por grupos** (E8-6): tabla editable `web/e8_grupos.json` y lo dibujado por producto en `recorridos_e8.json` (lo escribe la web; `PLANOCABLES_RECORRIDOS_E8` en las pruebas). |
+| `programa/estacion8.py`, `estacion8_mano.py`, `web/estacion8.js`, `web/e8mano.js` | **Estación 8** (gabinete): bandejas laterales, puerta y placa (`estacion8.build`), y el **ruteo a mano por grupos** (E8-6): tabla editable `web/e8_grupos.json` y lo dibujado por producto en `programa/recorridos_e8.json` (en git vacío; lo escribe la web; `PLANOCABLES_RECORRIDOS_E8` en las pruebas). |
 | `programa/core.py`, `wires.py`, `textdec.py`, `pdfvec.py` | Lector del funcional: textos SHX, cables, números, uniones en T y flechas a otras hojas. |
 | `programa/instructivo.py` | Puntas (`describe_end`), conductores (`conductors`), textos (`fmt_terminal`) e instructivo (`build`): orden, pasos, pendientes LI↔LI y estaciones. Además `usos_bandeja` y `materiales_funcional`. |
 | `programa/topo.py`, `ruteo.py` | Topográfico (página de la bandeja, rieles, canaletas, escala, componentes) y ruteo por canaletas (Dijkstra). |
@@ -136,8 +136,10 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
   - **Etapa E8-4 «puerta» (2026-10-08, foto 3 del taller):** lectura general de la vista de la PUERTA
     (`topo.puerta_e8`, versión del lector `2026.10.08-e8p`): hoja sin rieles (o vista de la hoja de la bandeja que no
     la toca) con un título `PUERTA` arriba de un rectángulo cerrado (lado corto > 5 perfiles) que tiene canaletas o
-    etiquetas del funcional; la exterior y el índice no cuentan. Los títulos se buscan sin OCR (`_texto_sin_ocr`) y la
-    hoja elegida se relee con OCR. Va en una clave aparte, `lay['puerta'] = {pag, box, titulo, ductos, rieles, comp:
+    etiquetas del funcional; la exterior y el índice no cuentan. Los títulos se buscan sin OCR (`_texto_sin_ocr`); en la
+    hoja elegida solo pasan por OCR los recortes de las etiquetas con letras sin leer y los renglones del título con
+    letras sin leer (la hoja entera no se relee con OCR). Va en una clave aparte,
+    `lay['puerta'] = {pag, box, titulo, ductos, rieles, comp:
     {tag: {x, y, leido, etiqueta, cuerpo}}}` (cuerpo = el rectángulo cerrado más chico que contiene la etiqueta; no suma
     cotas ni compite por la hoja de la bandeja). TPT (los dos) y 66817: hoja 8 «PUERTA DETALLE DE RIELES Y DUCTOS»
     (canaleta 40x40, 21PCB01 con su placa, 13SH1); 75287 (75441): hoja 5 «VISTA POSTERIOR PUERTA» (13SH1, 46DB1; la
@@ -150,13 +152,21 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     {entrada: [p], paso: [puntos de paso del tramo común, libres: también fuera de las canaletas], grupos}`; cada cable
     sale del tramo común en el punto más cercano a su aparato (foto 3: baja por la canaleta, corre por el perfil de abajo
     y sube a la placa). Vista previa: el mismo `POST /e8/recorridos` devuelve además `puerta`
-    (`estacion8.rutear_guardado_puerta`); imagen `/api/trabajo/<id>/e8/puerta.png`. En la lateral de la bisagra, capa
+    (`estacion8.rutear_guardado_puerta`); imagen `/api/trabajo/<id>/e8/puerta.png` (las de las laterales:
+    `/e8/lateral/<i>.png`). En la lateral de la bisagra, capa
     **«Pasan hacia la puerta (N)»** (`L['transito']`, fuera de los pasos): el haz de los que siguen a la puerta desde la
     bandeja principal o la otra lateral (`e8['hacia_puerta']`), de la entrada a la salida a la puerta. «Sigue a la
     puerta» = aparato de la vista de la puerta o sin dibujar en el topográfico (con lo que no está dibujado en ninguna
-    hoja, como BH-01-M o ZY, sigue la regla de E8-2). Pantalla: «Puerta y placa» con el dibujo arriba de las tablas,
-    ▶ Cablear de a uno en la puerta y 🧭 Entrada / recorrido (S). **La WPC NO usa la vista de la puerta** (sigue el
-    1850 fijo; con y sin `lay['puerta']` las laterales y las tablas dan igual).
+    hoja, como BH-01-M o ZY, sigue la regla de E8-2). La capa **cuenta solo los que van de verdad a la puerta**
+    (2026-10-09): aparato de la vista de la puerta o de una categoría con `"puerta": true` de `web/e8_grupos.json`
+    (pulsadores, selectoras, doorswitch, seccionadoras, placa; `estacion8_mano.aparato_de_puerta`); los demás sin dibujar
+    (la zona hidráulica que el topográfico no dibuja: BH-01-M, ZY, BH-01-ZV, PT 001, 81TM01) llevan `sin_aparato` en
+    `hacia_puerta` y van aparte, «Sin aparato en el plano (M)» (`transito.sin_aparato` / `n_sin` / `propios_sin`); el
+    ruteo no cambia (siguen saliendo por la salida a la puerta). Las flechas de la entrada / salida y sus rótulos (y el
+    rótulo del final de un recorrido, «A la bandeja principal», en el visor) entran siempre: la vista se agranda
+    (`cajaVista`, `cajaFin` en `estacion8.js`; la imagen sigue siendo la de la región). Pantalla: «Puerta y placa» con
+    el dibujo arriba de las tablas, ▶ Cablear de a uno en la puerta y 🧭 Entrada / recorrido (S). **La WPC NO usa la
+    vista de la puerta** (sigue el 1850 fijo; con y sin `lay['puerta']` las laterales y las tablas dan igual).
   - **Etapa E8-5 «puntos exactos en las laterales» (2026-10-08, propuesta B.4):** el motor de `bornes/` corre por cada
     lateral (`estacion8.mapear_bornes` → `bornes/laterales.py`, `MotorLateral`: region = la PLACA de la lateral; rieles =
     los de la capa del riel o, si no hay, los rectángulos con el perfil del riel de la bandeja en cualquier capa
@@ -200,16 +210,22 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     con 🧲 pegar al eje de la canaleta. Correcciones: `mover` {clave: grupo | '' = sin grupo, ruteo automático} y
     `nuevos` (grupos de placa). **Se guarda POR PRODUCTO** (código + número y revisión del topográfico de
     `ins['producto']`) en `programa/recorridos_e8.json` (`PLANOCABLES_RECORRIDOS_E8` en las pruebas; escritura atómica con
-    `.bak` y `version`: si otro trabajo lo cambió, 409 y la pantalla recarga), `GET / PUT /api/trabajo/<id>/e8/grupos`;
-    con el producto sin confirmar o sin el topográfico, en el trabajo (`estacion8.mano_trabajo`, lo escribe solo
-    /e8/grupos) y pasa al producto al confirmarlo. Pantalla: botón **✏ Ruteo a mano** (tecla R, también desde el visor;
-    `programa/web/e8mano.js`): grupos con su estado y cantidad, dibujar / borrar / listo, mover un cable con la lista,
-    ＋ Grupo de placa, «▶ Cablear de a uno» por grupo; la tarjeta, la tabla y el visor dicen el grupo de cada cable.
-    El tránsito «Pasan hacia la puerta» (E8-4) no cambia. **Cables DIRECTOS** (dato del taller: en el PAE y la Vista,
-    debajo del cargador hay borneras para no usar WAGO): un cable de la misma lateral entre un cargador (`directo` en
-    e8_grupos.json; sin lista de materiales, letras PS) y una bornera a menos de 2 perfiles, sin canaleta en el medio, va
-    derecho al borne (`directo`, sin grupo): PAE 1221-1226 y el RS-485 a 12XPS. Cambia la WPC del PAE (750 → 450 mm,
-    tabla en `pruebas/bases/wpc/cambios_e8_6.md`); el 75287 no tiene esos cables numerados.
+    `.bak` y `version`: si otro trabajo lo cambió, 409 y la pantalla recarga), `GET / PUT /api/trabajo/<id>/e8/grupos`.
+    El archivo está en git VACÍO (`{_nota, version: 1 = formato, productos: {}}`, `estacion8_mano.almacen_vacio`), como
+    `productos.json`: lo que dibuja el taller se ve como cambios del archivo (no como un archivo nuevo). Con el producto
+    sin confirmar o sin el topográfico, en el trabajo (`ins['estacion8']['mano_trabajo']`, lo escribe solo /e8/grupos) y
+    pasa al producto al confirmarlo. Pantalla: botón **✏ Ruteo a mano** (tecla R; `programa/web/e8mano.js`): grupos con
+    su estado y cantidad, dibujar / borrar / listo, mover un cable con la lista, ＋ Grupo de placa (de la placa del grupo
+    elegido, la única del trabajo o la que se elige al lado; sin placas, sin aparato y al final de la lista), «▶ Cablear
+    de a uno» por grupo; la tarjeta, la tabla y el visor dicen el grupo de cada cable. Con R (o ✏ Abrir) desde el visor se
+    cierra el visor y al cerrar el editor (Esc) se vuelve al mismo cable: con grupo, el visor de a uno de su grupo; sin
+    grupo, el editor con ese cable buscado en la lista (para moverlo a un grupo). Teclas del editor: Enter listo,
+    Retroceso saca el último punto, I 🧲, 0 toda la vista, V otra vista (de a uno), Esc. **Cables DIRECTOS** (dato del
+    taller: en el PAE y la Vista, debajo del cargador hay borneras para no usar WAGO): un cable de la misma lateral entre
+    un cargador (`directo` en e8_grupos.json; sin lista de materiales, letras PS) y una bornera a menos de 2 perfiles, sin
+    canaleta en el medio, va derecho al borne (`directo`, sin grupo): PAE 1221-1226 y el RS-485 a 12XPS. Cambia la WPC
+    del PAE (750 → 450 mm, tabla en `pruebas/bases/wpc/cambios_e8_6.md`; el «cómo» dice «directo al borne 50», no
+    «canaleta de la bandeja lateral»); el 75287 no tiene esos cables numerados.
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -276,7 +292,9 @@ propósito, con su generador (`volcar_bases_nuevas.py`, `ab_planos.py`, `probar_
 `node pruebas/js/generar_goldens.cjs`), revisando el diff. Variables: `PLANOCABLES_MEMORIA_OCR=solo-lectura` (no reescribe
 `programa/ocr_cache.json`), `PLANOCABLES_PRODUCTOS` (otro catálogo de productos; las pruebas usan
 `pruebas/fixtures/productos.json`), `PLANOCABLES_CONFIG_WPC` (otro `wpc.json`; las pruebas usan una copia),
-`PLANOCABLES_HISTORIAL` y `PLANOCABLES_PORT` (puertos de prueba, nunca el 8765). Los comandos de siempre siguen valiendo:
+`PLANOCABLES_RECORRIDOS_E8` (otro archivo del ruteo a mano de E8; las pruebas usan una copia de
+`pruebas/fixtures/recorridos_e8.json`), `PLANOCABLES_HISTORIAL` y `PLANOCABLES_PORT` (puertos de prueba, nunca el
+8765). Los comandos de siempre siguen valiendo:
 
 ```
 python pruebas/volcar_trabajo.py "3 - Historial web/ac0f0949510a" salida_75287.json --sin-cache     # 75287
@@ -319,8 +337,9 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   tocar E6; desde E8-6 los grupos de ruteo a mano de cada plano (revisados contra el funcional), lo del fixture
   `pruebas/fixtures/recorridos_e8.json` (el tpt_constructivo, 72887 rev. 8, lo toma; el tpt, rev. 7, no), GET / PUT
   /e8/grupos entre trabajos del mismo producto y topográfico, el conflicto de versión, el producto sin confirmar y los
-  cables directos del PAE; `--bases pruebas/bases` solo mira los `e8_*.json` y la vista previa sobre los `ins_*.json`)
-  tiene que dar TODO OK. Las pruebas usan una COPIA del fixture (`PLANOCABLES_RECORRIDOS_E8`): nunca
+  cables directos del PAE; desde el pulido del 2026-10-09, los «sin aparato en el plano» de la capa «Pasan hacia la
+  puerta» de cada plano (`SIN_APARATO`) y el grupo de placa sin aparato al final; `--bases pruebas/bases` solo mira los
+  `e8_*.json` y la vista previa sobre los `ins_*.json`) tiene que dar TODO OK. Las pruebas usan una COPIA del fixture (`PLANOCABLES_RECORRIDOS_E8`): nunca
   `programa/recorridos_e8.json`. La pantalla de E8: `node --test pruebas/js/` (`e8_empalme`, `e8_puerta`, `e8_puntos`,
   `e8_mano.test.cjs`, con `vistaE8` y `manoE8` de `cargar_visor.cjs`).
   Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.
@@ -383,21 +402,27 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
 - **Visor de E8 (2026-10-08), después de la etapa E8-4 (puerta):** «sigue a la puerta» sigue incluyendo lo que no está
   dibujado en ninguna hoja (en el 75441 la placa 21PCB01 de la puerta no tiene etiqueta: con «solo lo de la hoja de la
   puerta» sus 37 cables saldrían por el fondo); por eso en el TPT / 66817 el 1206 / 1205 a BH-01-M (y los de ZY, que el
-  lector no lee) siguen yendo hacia la puerta con la bisagra de ese lado (se corrige con un grupo de cables elegidos).
-  La puerta del PAE (EPLAN, «INTERIOR DE PUERTA», hoja 31) queda para después. Para confirmar: la vista de la puerta se
-  toma como INTERIOR (bisagra izquierda = borde derecho del dibujo; vale en el TPT, el 66817 y el 75441); la franja de
-  bornes es el lado de abajo (o de arriba) del cuerpo del aparato que mira al tramo común. Para confirmar: en la WPC un cable de una lateral a la otra (66817: 1101 / 1102) toma la canaleta de
-  una sola lateral (la derecha: su WAGO en la izquierda no suma la vertical); el RS-485 de 3 conductores en un empalme
-  (WAGO de 3 vías, dos WAGO u otra forma); los nombres de los pines del cargador (panel / batería / carga, en
-  `bornes/pines_repetidos.json`); el cable propio punteado llega al punto del aparato (la etiqueta), no a su borde de
-  abajo (el topográfico no da el cuerpo del aparato).
+  lector no lee) siguen yendo hacia la puerta con la bisagra de ese lado (se corrige con un grupo de cables elegidos);
+  desde el 2026-10-09 la capa «Pasan hacia la puerta» ya no los cuenta: van aparte, «Sin aparato en el plano».
+  La puerta del PAE (EPLAN, «INTERIOR DE PUERTA», hoja 31) queda para después. Para confirmar:
+  - la vista de la puerta se toma como INTERIOR (bisagra izquierda = borde derecho del dibujo; vale en el TPT, el 66817
+    y el 75441);
+  - la franja de bornes es el lado de abajo (o de arriba) del cuerpo del aparato que mira al tramo común;
+  - en la WPC un cable de una lateral a la otra (66817: 1101 / 1102) toma la canaleta de una sola lateral (la derecha:
+    su WAGO en la izquierda no suma la vertical);
+  - el RS-485 de 3 conductores en un empalme (WAGO de 3 vías, dos WAGO u otra forma);
+  - los nombres de los pines del cargador (panel / batería / carga, en `bornes/pines_repetidos.json`);
+  - el cable propio punteado llega al punto del aparato (la etiqueta), no a su borde de abajo (el topográfico no da el
+    cuerpo del aparato);
+  - qué categorías de `e8_grupos.json` son «de la puerta» para la capa «Pasan hacia la puerta» (`"puerta": true`:
+    pulsadores, selectoras, doorswitch, seccionadoras y placa; el doorswitch va en el marco, junto a la puerta).
 - **Ruteo a mano de E8 (2026-10-09, etapa E8-6), para confirmar con el usuario:** las letras de la tabla
   `programa/web/e8_grupos.json` que no salen de una lista de materiales: **13SH1 (OFF / ON) tomado como selectora** (en
   el 75287 podría ser el seccionador de emergencia VCF01), DB = pulsador (parada de emergencia hongo), DS = doorswitch,
   MS = seccionadora; «Batería 35 mm²» = todos los de 35 mm² (batería, MEGA, contactor y bomba); «Batería 4 / 6 mm²» =
   los que tocan la batería (no los del cargador a 12F1 / 12XP); los cables de una seccionadora que está en la lateral
-  (11MS1 del 75287) también van a mano. La capa «Pasan hacia la puerta» de E8-4 sigue igual aunque esos cables tengan
-  grupo. En el PAE, el cargador sin lista de materiales se reconoce por las letras PS para los cables directos.
+  (11MS1 del 75287) también van a mano. La capa «Pasan hacia la puerta» de E8-4 los sigue mostrando aunque esos cables
+  tengan grupo. En el PAE, el cargador sin lista de materiales se reconoce por las letras PS para los cables directos.
 - **EPLAN (PAE), para confirmar con el usuario:**
   - el neutro es **celeste**: la regla de ruteo «marrón y blanco salen a LI por abajo» separa L (marrón, abajo) de N
     (celeste, arriba); ¿sumar celeste a la regla?;

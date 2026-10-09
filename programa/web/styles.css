@@ -572,6 +572,7 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .tsvg.sin-haz .e8-haz { display: none; }
 .e8-tr { margin: 6px 0 0; } .e8-tr summary { cursor: pointer; } .e8-tr summary .chk { display: inline-flex; gap: 4px; align-items: center; }
 .e8-tr div { margin: 3px 0 0 18px; }
+.e8-tr-sin summary b { color: var(--warn); }
 .e8-pu { margin-top: 4px; }
 .e8-aps1 { grid-template-columns: 1fr; margin-top: 0; }
 /* empalme con el cable propio de un aparato (WAGO del cargador; «a confirmar»: el RS-485 de 3 conductores) */
@@ -614,9 +615,11 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .e8m-g .sal-gh { justify-content: flex-start; }
 .e8m-g .sal-gh .muted { margin-left: auto; }
 .e8m-it { grid-template-columns: 46px 1fr minmax(120px, 44%); }
-.e8m-it select { font: 12px inherit; max-width: 100%; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); padding: 1px 2px; }
+.e8m-it select { font-size: 12px; font-family: inherit; max-width: 100%; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); padding: 1px 2px; }
 .e8m-it select.amano { border-color: var(--mano); color: var(--mano); font-weight: 600; }
 .e8m-it.act { border-left-color: var(--mano); }
+.e8m-nuevo { display: flex; gap: 6px; align-items: center; justify-self: start; }
+.e8m-nuevo select { font-size: 12px; font-family: inherit; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); padding: 2px 4px; }
 .e8m-duct { fill: rgba(21,101,192,.06); stroke: rgba(21,101,192,.45); stroke-dasharray: 3 2; }
 .e8m-halo { fill: none; stroke: rgba(255,106,0,.22); stroke-linecap: round; stroke-linejoin: round; }
 .e8m-ruta { fill: none; stroke-linecap: round; stroke-linejoin: round; }

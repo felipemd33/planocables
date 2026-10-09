@@ -42,6 +42,7 @@ import threading
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(AQUI, 'web', 'e8_grupos.json')
 VERSION = 1
+VERSION_ALMACEN = 1       # formato de programa/recorridos_e8.json ('version' de arriba; cada producto lleva la suya)
 VISTA_PUERTA, VISTA_FONDO = 'PUERTA', 'FONDO'
 MAX_PUNTOS = 400          # por tramo
 MAX_TRAMOS = 60           # por grupo
@@ -75,7 +76,7 @@ def _rx(p):
 
 def leer_config(path=None):
     """la tabla de grupos, validada: {categorias: [{id, nombre, nota, aparato: {familias, texto_re, tag_re,
-    potencia_seccion_min} | None, cable: {seccion_min, seccion_max, secciones}, pines, por_aparato}], directo: {...}}.
+    potencia_seccion_min} | None, cable: {seccion_min, seccion_max, secciones}, pines, por_aparato, puerta}], directo: {...}}.
     Lo roto se descarta (una categoria sin id, una expresion invalida)"""
     try:
         with open(path or CONFIG, encoding='utf-8') as f:
@@ -95,7 +96,7 @@ def leer_config(path=None):
             cable=dict(min=_num(cab.get('seccion_min')), max=_num(cab.get('seccion_max')),
                        secciones=[x for x in (_num(v) for v in cab.get('secciones') or []) if x is not None]),
             pines=[str(p).strip().upper() for p in c.get('pines') or [] if str(p).strip()],
-            por_aparato=bool(c.get('por_aparato'))))
+            por_aparato=bool(c.get('por_aparato')), puerta=c.get('puerta') is True))
     di = d.get('directo') if isinstance(d, dict) and isinstance(d.get('directo'), dict) else {}
     directo = dict(familias=[str(x) for x in di.get('familias') or []], tag_re=_rx(di.get('tag_re')),
                    distancia=_num(di.get('distancia_max_perfiles')) or 2.0)
@@ -151,6 +152,34 @@ def es_bornera(tag):
     return bool(re.match(r'^(\d{2})?X', str(tag or '')))
 
 
+def _cumple(A, tag, txt, fam):
+    """el aparato (tag, su texto y su familia) cumple el criterio 'aparato' A de una categoria: con texto (lista de
+    materiales) manda la familia si la categoria las nombra ('Cargador de baterias' es un cargador, no una bateria) y si
+    no el texto; sin texto, las letras del tag"""
+    if txt:
+        if fam and A['familias']:
+            return fam in A['familias']
+        return bool(A['texto_re'] and A['texto_re'].search(txt))
+    return bool(A['tag_re'] and A['tag_re'].search(tag))
+
+
+def aparato_de_puerta(tag, info_de, cfg=None):
+    """el aparato es de la PUERTA segun la tabla: cumple el aparato de una categoria con 'puerta': true (pulsadores,
+    selectoras, doorswitch, seccionadoras, placa), por su texto o, sin texto, por las letras del tag. Solo lo usa la capa
+    «Pasan hacia la puerta» de E8 para separar los cables que van de verdad a la puerta de los que tienen el aparato sin
+    dibujar en el topografico (no cambia el ruteo, los grupos, E6 ni la WPC). Nunca levanta excepciones."""
+    if not tag or es_bornera(tag):
+        return False
+    try:
+        cfg = cfg or leer_config()
+        txt, fam = info_de(tag) or (None, None)
+    except Exception:                                                      # noqa: BLE001
+        return False
+    if fam == 'bornera':
+        return False
+    return any(c.get('puerta') and c['aparato'] is not None and _cumple(c['aparato'], tag, txt, fam) for c in cfg['categorias'])
+
+
 def clasificar(tramos, info_de, cfg=None):
     """grupo automatico de cada cable de E8. tramos: [{clave, sec (mm² o None), puntas: [(tag, pin), (tag, pin)]}];
     info_de(tag) -> (texto del aparato o None, familia o None). -> ({clave: id_grupo}, {id_grupo: {categoria, aparato}})
@@ -195,13 +224,7 @@ def clasificar(tramos, info_de, cfg=None):
             chico = cat['cable']['max']
             if any(s >= A['potencia'] - 1e-6 for s in secs[tag]) and (chico is None or any(s <= chico + 1e-6 for s in secs[tag])):
                 return True
-        if txt:
-            # con texto (lista de materiales): manda la familia del aparato si la categoria las nombra ('Cargador de
-            # baterias' es un cargador, no una bateria); si no, el texto
-            if fam and A['familias']:
-                return fam in A['familias']
-            return bool(A['texto_re'] and A['texto_re'].search(txt))
-        return bool(A['tag_re'] and A['tag_re'].search(tag))
+        return _cumple(A, tag, txt, fam)
 
     auto, ainfo = {}, {}
     for t in tramos:
@@ -306,7 +329,8 @@ def clave_producto(prod):
 
 
 def leer_almacen(path=None):
-    """{'_nota', 'productos': {clave: entrada}} ({} si no esta o esta roto)"""
+    """{'_nota', 'version' (formato), 'productos': {clave: entrada}} ({} si no esta o esta roto; el de git viene sin
+    productos)"""
     try:
         with open(path or almacen(), encoding='utf-8') as f:
             d = json.load(f)
@@ -327,7 +351,14 @@ def entrada(clave, path=None):
 
 
 NOTA_ALMACEN = ('Ruteo a mano de la estación 8, por producto (código de producto | número del topográfico | rev revisión): '
-                'los recorridos dibujados por grupo y los grupos corregidos por el taller (estacion8_mano.py). Lo escribe la web.')
+                'los recorridos dibujados por grupo y los grupos corregidos por el taller (estacion8_mano.py). Lo escribe la web. '
+                "'version' (arriba) = formato del archivo; la 'version' de cada producto cuenta las veces que se guardó (si otro "
+                'trabajo lo cambió, la web avisa y recarga).')
+
+
+def almacen_vacio():
+    """el archivo sin ningun producto (el que esta en git: lo que dibuja el taller se ve como cambios del archivo)"""
+    return {'_nota': NOTA_ALMACEN, 'version': VERSION_ALMACEN, 'productos': {}}
 
 
 def guardar(clave, manual, trabajo=None, archivo=None, version_base=None, path=None, prod=None):
@@ -352,7 +383,7 @@ def guardar(clave, manual, trabajo=None, archivo=None, version_base=None, path=N
                  trabajos=trabajos[-50:], manual=manual)
         prods = dict(prods)
         prods[clave] = e
-        nuevo = {'_nota': NOTA_ALMACEN, 'productos': {k: prods[k] for k in sorted(prods)}}
+        nuevo = dict(almacen_vacio(), productos={k: prods[k] for k in sorted(prods)})
         os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
         if os.path.exists(path):
             try:
@@ -367,10 +398,13 @@ def guardar(clave, manual, trabajo=None, archivo=None, version_base=None, path=N
 
 # ------------------------------------------------------------------ grupos efectivos (automaticos + lo del taller)
 def _orden_grupo(R):
+    """los automaticos primero, por categoria (en el orden de la tabla) y aparato; en cada categoria, un grupo sin aparato
+    (un grupo nuevo de placa de un trabajo sin placas) va despues de los que lo tienen"""
     pos = {c['id']: i for i, c in enumerate(R.get('categorias') or [])}
 
     def k(g):
-        return (0 if g.get('auto') else 1, pos.get(g.get('categoria'), 99), _natk(g.get('aparato') or ''), _natk(g['id']))
+        return (0 if g.get('auto') else 1, pos.get(g.get('categoria'), 99), 0 if g.get('aparato') else 1,
+                _natk(g.get('aparato') or ''), _natk(g['id']))
     return k
 
 

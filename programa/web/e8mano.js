@@ -17,7 +17,7 @@ const E8M = (() => {
   const I = () => E8.int;
   const R = () => I().RM();
   const M = { abierto: false, modo: 'editar', gi: null, vk: null, dib: false, nuevoTramo: false, iman: true, vb: null, drag: null,
-    k: 0, volver: null, deEditar: false, seq: 0, t: null, guardando: false, pend: false, fantasma: null, estado: '' };
+    k: 0, volver: null, deEditar: false, seq: 0, t: null, guardando: false, pend: false, fantasma: null, estado: '', foco: null, apNuevo: null };
   const f2 = v => (+v).toFixed(2);
   const W = () => $('#e8mViewer');
 
@@ -60,8 +60,10 @@ const E8M = (() => {
         .sort((a, b) => cmpLista(natk((cables[a] || {}).num), natk((cables[b] || {}).num)) || (a < b ? -1 : a > b ? 1 : 0));
       return { ...g, nombre: mg.nombre || g.nombre, cables: cs, n: cs.length, tramos, dibujado: tramos.some(t => t.puntos.length >= 2) };
     });
-    const key = g => [g.auto ? 0 : 1, pos.has(g.categoria) ? pos.get(g.categoria) : 99, natk(g.aparato || ''), natk(g.id)];
-    lista.sort((a, b) => { const x = key(a), y = key(b); return (x[0] - y[0]) || (x[1] - y[1]) || cmpLista(x[2], y[2]) || cmpLista(x[3], y[3]); });
+    // (como estacion8_mano._orden_grupo: los automáticos primero, por categoría; un grupo sin aparato va después de los
+    // que lo tienen)
+    const key = g => [g.auto ? 0 : 1, pos.has(g.categoria) ? pos.get(g.categoria) : 99, g.aparato ? 0 : 1, natk(g.aparato || ''), natk(g.id)];
+    lista.sort((a, b) => { const x = key(a), y = key(b); return (x[0] - y[0]) || (x[1] - y[1]) || (x[2] - y[2]) || cmpLista(x[3], y[3]) || cmpLista(x[4], y[4]); });
     r.grupos = lista; r.miembro = miembro;
     return r;
   }
@@ -88,17 +90,18 @@ const E8M = (() => {
   const ducts = Vv => (Vv && Vv.ductos) || [];
 
   /* ---- abrir / cerrar ---- */
-  // o = {grupo, clave (un cable: se enfoca), cablear (visor de a uno del grupo), volver (al cerrar)}
+  // o = {grupo, clave (un cable: se enfoca), cablear (visor de a uno del grupo), buscar (texto de la búsqueda de la
+  // lista: un cable sin grupo, desde el visor), volver (al cerrar)}
   function abrir(o = {}) {
     const r = R(); if (!r) return;
     efectivo(r);
     const gs = r.grupos || [];
-    if (!gs.length) return toast('No hay cables de E8 con ruteo a mano en este trabajo', 4000);
+    if (!gs.length) { if (o.volver) o.volver(); return toast('No hay cables de E8 con ruteo a mano en este trabajo', 4000); }
     M.gi = (o.grupo && grupo(o.grupo)) ? o.grupo : (grupo(M.gi) ? M.gi : (gs.find(g => g.n && !g.dibujado) || gs.find(g => g.n) || gs[0]).id);
     M.modo = o.cablear ? 'cablear' : 'editar'; M.deEditar = false; M.dib = false; M.volver = o.volver || null;
-    M.k = 0;
+    M.k = 0; M.foco = o.clave || null;
     if (o.clave) { const i = (G().cables || []).indexOf(o.clave); if (i >= 0) M.k = i; }
-    M.q = ''; $('#e8mQ').value = '';
+    M.q = ''; $('#e8mQ').value = o.buscar ? String(o.buscar) : '';
     M.abierto = true; W().hidden = false; document.body.style.overflow = 'hidden';
     if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
     elegirVista(null, true);
@@ -205,7 +208,27 @@ const E8M = (() => {
             ${g.n ? '<button class="btn ghost sm" data-a="cablear" title="Cablear de a uno los cables de este grupo">▶ Cablear de a uno</button>' : ''}
             ${g.auto ? '' : '<button class="btn ghost sm" data-a="del" title="Borrar este grupo: sus cables vuelven a su grupo automático">🗑 Borrar grupo</button>'}</div>` : ''}
         </div>`;
-      }).join('') + (cablear ? '' : '<button class="btn sm sal-nuevo" data-a="nuevo" title="Un grupo más de cables de placa (después movés los cables a este grupo con la lista)">＋ Grupo de placa</button>');
+      }).join('') + (cablear ? '' : nuevoHtml());
+  }
+  // ＋ Grupo de placa: de qué placa (el aparato del grupo de placa elegido; si no, la única placa del trabajo; con varias,
+  // se elige en la lista de al lado). Sin placas en el trabajo queda sin aparato («Placa · grupo N»), al final de la lista
+  function placas() {
+    const r = R() || {}, s = new Set();
+    for (const i of Object.values(r.auto_info || {})) if (i && i.categoria === 'placa' && i.aparato) s.add(i.aparato);
+    for (const x of manual(r).nuevos) if (x.categoria === 'placa' && x.aparato) s.add(x.aparato);
+    return [...s].sort((a, b) => cmpLista(natk(a), natk(b)));
+  }
+  function apNuevo() {
+    const g = G(), aps = placas();
+    if (M.apNuevo && aps.includes(M.apNuevo)) return M.apNuevo;         // (elegida en la lista)
+    if (g && g.categoria === 'placa' && g.aparato) return g.aparato;
+    return aps[0] || null;
+  }
+  function nuevoHtml() {
+    const aps = placas(), ap = apNuevo(), tit = 'Un grupo más de cables de placa (después movés los cables a este grupo con la lista)';
+    if (aps.length < 2) return `<button class="btn sm sal-nuevo" data-a="nuevo" title="${tit}">＋ Grupo de placa${ap ? ' ' + esc(ap) : ''}</button>`;
+    return `<div class="e8m-nuevo"><button class="btn sm sal-nuevo" data-a="nuevo" title="${tit}">＋ Grupo de placa</button>
+      <select data-ap aria-label="Placa del grupo nuevo" title="Placa del grupo nuevo">${aps.map(a => `<option value="${esc(a)}"${a === ap ? ' selected' : ''}>${esc(a)}</option>`).join('')}</select></div>`;
   }
   function opciones(sel) {
     const r = R();
@@ -230,7 +253,7 @@ const E8M = (() => {
     const ks = Object.keys(r.cables || {}).filter(k => { const c = r.cables[k]; return !q || norm(`${c.num} ${c.a} ${c.b} ${c.color} ${c.secc} ${(grupo(r.miembro[k]) || {}).nombre || ''}`).includes(q); });
     const enG = ks.filter(k => r.miembro[k] === g.id), otros = ks.filter(k => r.miembro[k] !== g.id);
     const fila = k => { const c = r.cables[k], gid = r.miembro[k] || '', amano = k in m.mover;
-      return `<div class="vs-it e8m-it${gid === g.id ? ' act' : ''}" data-clave="${esc(k)}" title="${esc(c.a)} → ${esc(c.b)}">
+      return `<div class="vs-it e8m-it${gid === g.id ? ' act' : ''}${k === M.foco ? ' on' : ''}" data-clave="${esc(k)}" title="${esc(c.a)} → ${esc(c.b)}">
         <span class="n">${esc(c.num)}</span><span class="od mono">${esc(c.a)} → ${esc(c.b)}</span>
         <select data-mover aria-label="Grupo del cable ${esc(c.num)}" title="${amano ? 'Movido a mano por el taller' : 'Grupo automático'}" class="${amano ? 'amano' : ''}">${opciones(gid)}</select></div>`; };
     $('#e8mList').innerHTML = (enG.length ? `<div class="cv-gh">En «${esc(g.nombre)}» (${enG.length})</div>` + enG.map(fila).join('') : '')
@@ -385,8 +408,8 @@ const E8M = (() => {
       M.gi = null; M.dib = false; efectivo(R()); M.gi = (R().grupos[0] || {}).id; return cambio();
     }
     if (a === 'nuevo') {
-      const ap = g && g.categoria === 'placa' ? g.aparato : null;
-      const n = R().grupos.filter(x => x.categoria === 'placa').length + 1;
+      const ap = apNuevo();
+      const n = R().grupos.filter(x => x.categoria === 'placa' && (x.aparato || null) === ap).length + 1;
       const id = 'nuevo:' + Date.now().toString(36);
       m.nuevos.push({ id, nombre: `Placa${ap ? ' ' + ap : ''} · grupo ${n}`, categoria: 'placa', aparato: ap || null });
       M.gi = id; M.dib = false;
@@ -447,9 +470,10 @@ const E8M = (() => {
       const b = e.target.closest('[data-a]');
       if (b) return accion(b.dataset.a);
       const c = e.target.closest('.e8m-g');
-      if (c && !e.target.matches('.sal-nom') && c.dataset.g !== M.gi) { M.gi = c.dataset.g; M.dib = false; M.k = 0; elegirVista(null, false); renderTodo(); }
+      if (c && !e.target.matches('.sal-nom') && c.dataset.g !== M.gi) { M.gi = c.dataset.g; M.dib = false; M.k = 0; M.apNuevo = null; elegirVista(null, false); renderTodo(); }
     });
     $('#e8mGrupos').addEventListener('change', e => {
+      if (e.target.matches('[data-ap]')) { M.apNuevo = e.target.value || null; return; }        // (placa del grupo nuevo)
       if (!e.target.matches('.sal-nom')) return;
       const m = manual(), x = m.nuevos.find(y => y.id === e.target.dataset.nom), nom = e.target.value.trim();
       if (x && nom) { x.nombre = nom.slice(0, 80); cambio(); }

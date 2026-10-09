@@ -1,0 +1,5 @@
+{
+ "_nota": "Ruteo a mano de la estación 8, por producto (código de producto | número del topográfico | rev revisión): los recorridos dibujados por grupo y los grupos corregidos por el taller (estacion8_mano.py). Lo escribe la web. 'version' (arriba) = formato del archivo; la 'version' de cada producto cuenta las veces que se guardó (si otro trabajo lo cambió, la web avisa y recarga).",
+ "version": 1,
+ "productos": {}
+}
