@@ -119,12 +119,36 @@ informe: aparatos de la bandeja sin modelo en el catálogo, códigos SAP que fal
 revisar. Sin argumento solo da el informe. Para un código nuevo: identificarlo (hoja de datos), completar su renglón y,
 si tiene bornes en la bandeja, cargar su modelo en `catalogo.json` (con el código en `sap`).
 
+## Bandejas laterales (estación E8)
+
+Desde el 2026-10-08 (etapa E8-5) el mismo motor ubica también los bornes de las **bandejas laterales**, para el visor de
+la estación 8 (`estacion8.mapear_bornes` → `laterales.py`):
+
+- Se corre una vez por lateral, con la **placa** de la lateral como región y sus aparatos (los usos salen de
+  `instructivo.usos_bandeja` con `tags` y `region`; las puntas que llegan a un WAGO no entran: no son un borne).
+- **Rieles:** los de la capa del riel; si en la placa no hay ninguno, los rectángulos con el perfil del riel de la bandeja
+  en cualquier capa (en el TPT, el riel de arriba de la lateral derecha está en la capa `0`); y los ejes que el lector
+  del topográfico da para la vista (`rieles_e8`) sin ningún tramo: el riel **tapado** por los aparatos, a lo ancho de
+  las canaletas horizontales que lo encierran.
+- **No cambia textos:** el resultado va a `lay['bornes_e8']` con el texto del funcional. Un borne que el motor ubica en
+  otro bloque o en otro módulo queda con el punto aproximado y un aviso (en la bandeja el texto se corregiría, pero eso
+  cambiaría E6 y sus pendientes).
+- El cálculo se guarda en `<trabajo>/bornes_e8_auto.json`, una entrada por lateral, aparte de `bornes_auto.json`.
+- Manda, en este orden: el punto ajustado a mano en el visor de E8 con 📍 (`bornes_usuario`, el mismo de E6), los
+  manuales del trabajo (`bornes.json`, `correcciones.json`), el mapeo de la lateral y, por último, el punto aproximado.
+  El aproximado de un borne de una bornera que tiene otros bornes con el punto exacto del mismo lado del riel sale de
+  ellos, con el paso entre bornes (no de la etiqueta), para que el orden de izquierda a derecha cuadre (75287: el 11XP 3,
+  la pieza PE que el motor no ubicó, queda a la derecha del 11XP 2).
+- No cubre (quedan aproximadas, con aviso): un riel **vertical** (la lateral derecha del 66817) y los aparatos que no
+  están en el catálogo (batería 12PB1, seccionador VBF1).
+
 ## Archivos
 
 | archivo | qué es |
 |---|---|
 | `__init__.py` | Lo que usa el programa: `aplicar_al_layout` (todo junto), `mapear_trabajo` (motor con cache), `componer_bornes` (automático + manual). |
 | `motor.py` | El motor (`Motor(pdf, usos, catalogo, materiales).mapear()`). Se puede correr suelto para pruebas. |
+| `laterales.py` | El motor por bandeja lateral para la estación E8 (`MotorLateral`, `mapear_lateral`, con su cache). |
 | `primitivas.py` | Formas genéricas: círculo, contorno, tornillo cortado, caja. |
 | `catalogo.json` | Los modelos de bornes y aparatos (25 hoy), con sus medidas en mm, las reglas de nombres y sus códigos SAP. |
 | `aparamenta.json`, `aparamenta.py` | El Excel «BOMs por estación» de SAP con lo que es cada material y su modelo del catálogo (ver «Aparamenta»). |

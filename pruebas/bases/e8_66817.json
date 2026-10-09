@@ -1,5 +1,5 @@
 {
- "version": 5,
+ "version": 6,
  "laterales": [
   {
    "nombre": "Bandeja lateral izquierda",
@@ -1681,7 +1681,10 @@
   }
  ],
  "campo": 0,
- "avisos": [],
+ "avisos": [
+  "Bandeja lateral izquierda: 4 puntas con el punto aproximado (12PB1): el mapeo automático de bornes no las ubicó; se ajusta en el visor con 📍",
+  "Bandeja lateral derecha: 9 puntas con el punto aproximado (12CB1, 81XCM, 43XDI, 11XP): el mapeo automático de bornes no las ubicó; se ajusta en el visor con 📍"
+ ],
  "hechos": [],
  "recorridos": {
   "preguntar": true,
@@ -3668,5 +3671,57 @@
    912.8,
    523.5
   ]
+ },
+ "mapeo": {
+  "vistas": [
+   {
+    "clave": "LI|vista lateral izquierda interior",
+    "nombre": "Bandeja lateral izquierda",
+    "componentes": [
+     "12PB1",
+     "12PS1"
+    ],
+    "puntos": {
+     "alta": 0,
+     "media": 0,
+     "baja": 2
+    },
+    "usados": 0,
+    "modelos": {},
+    "rieles": [],
+    "rieles_agregados": [],
+    "avisos": [
+     "12PB1: no figura en la lista de materiales y no se encontró en el dibujo ningún modelo del catálogo; sus bornes quedan sin punto exacto"
+    ],
+    "error": null
+   },
+   {
+    "clave": "LD|vista lateral derecha interior",
+    "nombre": "Bandeja lateral derecha",
+    "componentes": [
+     "11XP",
+     "12CB1",
+     "43XDI",
+     "81XCM"
+    ],
+    "puntos": {
+     "alta": 0,
+     "media": 0,
+     "baja": 9
+    },
+    "usados": 0,
+    "modelos": {},
+    "rieles": [],
+    "rieles_agregados": [],
+    "avisos": [
+     "11XP: no figura en la lista de materiales y no se encontró en el dibujo ningún modelo del catálogo; sus bornes quedan sin punto exacto",
+     "43XDI: no figura en la lista de materiales y no se encontró en el dibujo ningún modelo del catálogo; sus bornes quedan sin punto exacto",
+     "81XCM: no figura en la lista de materiales y no se encontró en el dibujo ningún modelo del catálogo; sus bornes quedan sin punto exacto",
+     "12CB1: no figura en la lista de materiales y no se encontró en el dibujo ningún modelo del catálogo; sus bornes quedan sin punto exacto"
+    ],
+    "error": null
+   }
+  ],
+  "avisos": []
  }
 }

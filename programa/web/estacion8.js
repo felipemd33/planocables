@@ -230,15 +230,33 @@ const E8 = (() => {
         <svg class="tsvg${X.haz ? '' : ' sin-haz'}" id="e8Mapa" viewBox="${vbOf(L.region).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}
           ${transitoG(L, uMapa(L))}${flat(L).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false })).join('')}${flechas(L, uMapa(L))}<g id="e8Sel"></g></svg>
         ${ent ? `<p class="small e8-ent">${ent} <button class="linkbtn" data-a="entrada" title="Elegir por dónde entran y salen los cables de esta bandeja lateral (S)">🧭 Cambiar</button></p>` : ''}
-        ${transitoTxt(L)}
+        ${transitoTxt(L)}${mapeoTxt(L)}
         <p class="muted small">Pasá el mouse por un cable de la lista para verlo en la bandeja. Los cables que vienen de la bandeja principal ya están tirados desde E6: acá se conecta la punta de la lateral.</p></div>
       <div class="e8-pasos">${L.pasos.map((p, g) => `<div class="grp"><div class="grp-h"><b class="e8-pt">${esc(p.titulo)}</b>
           <span class="muted small">${p.lineas.filter(l => H.has(l.clave)).length}/${p.lineas.length}</span></div>
         ${p.lineas.map((l, i) => cardLat(L, l, g, i, ++n, H.has(l.clave))).join('')}</div>`).join('')}</div>`;
   }
+  // de dónde sale el punto del borne (etapa E8-5): 'media' = el mapeo automático de la lateral lo ubicó con una medida
+  // del catálogo o una regla de corrección (a confirmar); 'usuario' = ajustado a mano con 📍 en el visor
+  const notaConf = (l, w) => (w === 'o' ? l.nota_o : l.nota_d) || 'punto ubicado por el mapeo automático con confianza media';
+  function confPill(l) {
+    const ws = ['o', 'd'].filter(w => (w === 'o' ? l.conf_o : l.marca_d && l.conf_d) === 'media');
+    return ws.length ? ` <span class="pill conf" title="${esc('A confirmar: ' + ws.map(w => notaConf(l, w)).join(' · ') + '. Si no es ese borne, ajustalo en el visor con 📍')}">a confirmar</span>` : '';
+  }
+  // (la punta de un empalme no es un borne: el cable numerado termina en el empalme, el punto no es aproximado)
+  const aproxDe = l => (!l.exacto_o && !l.empalme) || (l.marca_d && !l.exacto_d && !l.empalme_d);
+  // linea plegable con el mapeo automático de bornes de la lateral (ins.estacion8.mapeo, etapa E8-5): modelos y avisos
+  function mapeoTxt(L) {
+    const m = ((E().mapeo || {}).vistas || []).find(v => v.clave === L.clave_vista); if (!m) return '';
+    const n = m.puntos || {}, av = m.avisos || [], mods = Object.entries(m.modelos || {}).filter(([, v]) => v && v !== '?');
+    const aprox = flat(L).filter(x => aproxDe(x.l)).length;
+    return `<details class="small e8-map"><summary><b>Mapeo automático de bornes</b> <span class="muted">· ${n.alta || 0} ${n.alta === 1 ? 'borne visto' : 'bornes vistos'} en el dibujo${n.media ? ` · ${n.media} a confirmar` : ''}${aprox ? ` · ${aprox} cable${aprox === 1 ? '' : 's'} con alguna punta aproximada` : ''}${av.length ? ` · ver avisos (${av.length})` : ''}</span></summary>
+      ${mods.length ? `<div><span class="muted">Modelos:</span> ${mods.map(([t, v]) => `<span class="mono">${esc(t)}</span> = ${esc(v)}`).join(' · ')}</div>` : ''}
+      ${av.length ? `<ul>${av.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
+      <div class="muted">Mismo mapeo que la bandeja principal, con la placa de la lateral y sus rieles (incluido el que tapan los aparatos). Los textos del funcional no cambian. Un punto mal ubicado se corrige en el visor con 📍 (vale también al regenerar).</div></details>`;
+  }
   function cardLat(L, l, g, i, n, ok) {
-    // (la punta de un empalme no es un borne: el cable numerado termina en el empalme, el punto no es aproximado)
-    const aprox = (!l.exacto_o && !l.empalme) || (l.marca_d && !l.exacto_d && !l.empalme_d);
+    const aprox = aproxDe(l);
     const t = terminal(l, 'o'), td = terminal(l, 'd');
     const emps = [l.empalme, l.empalme_d].filter(Boolean);
     return `<div class="cab ${ok ? 'ok' : ''}" data-g="${g}" data-i="${i}" data-clave="${esc(l.clave)}">
@@ -246,7 +264,7 @@ const E8 = (() => {
       <div class="cab-topo" title="Cablear desde este cable (visor)">${thumb(L, l)}</div>
       <div class="cab-body">
         <div class="cab-t mono"><b>${esc(l.num)}</b> ${swatch(l.color)} <span class="secc">${esc(secTxt(l))}</span> ${otraPill(l)} ${emps.map(empPill).join(' ')}
-          ${aprox ? '<span class="pill warn" title="Punto del borne aproximado (no está en el mapeo)">punto aprox.</span>' : ''}
+          ${aprox ? `<span class="pill warn" title="${esc('Punto del borne aproximado (el mapeo automático no lo ubicó' + (l.aprox_o === 'vecinos' || l.aprox_d === 'vecinos' ? '; sale de los bornes vecinos de la misma bornera' : '') + '): ajustalo en el visor con 📍')}">punto aprox.</span>` : ''}${confPill(l)}
           ${l.largo_mm ? `<span class="muted small">≈${l.largo_mm} mm</span>` : ''}</div>
         <div class="cab-od mono"><span>${esc(l.origen)}</span><span class="arr">→</span><span>${esc(l.destino)}</span></div>
         ${emps.map(e => `<div class="small e8-emp-t${e.confirmar ? ' conf' : ''}">${esc(e.texto)}</div>`).join('')}
@@ -313,7 +331,7 @@ const E8 = (() => {
   }
 
   /* ---- visor "cablear de a uno" de la bandeja lateral ---- */
-  const V = { k: 0, vb: null, anim: null, drag: null };
+  const V = { k: 0, vb: null, anim: null, drag: null, adjust: null };
   const F = () => flat(lat());
   function openViewer(k) {
     const f = F(); if (!f.length) return toast('No hay cables en esta bandeja');
@@ -324,7 +342,7 @@ const E8 = (() => {
     if (document.activeElement) document.activeElement.blur();
     renderList(); draw(true);
   }
-  function closeViewer() { $('#e8Viewer').hidden = true; document.body.style.overflow = ''; if (!W().hidden) render(); }
+  function closeViewer() { if (V.adjust) startAdjust(null); $('#e8Viewer').hidden = true; document.body.style.overflow = ''; if (!W().hidden) render(); }
   function draw(first) {
     const L = lat(), f = F(); if (!f.length) return closeViewer();
     V.k = Math.max(0, Math.min(V.k, f.length - 1));
@@ -340,10 +358,61 @@ const E8 = (() => {
     $('#e8vBar').style.width = (f.filter(x => H.has(x.l.clave)).length / f.length * 100) + '%';
     const target = vbOf(roomForLupas(boxOf(L, [l, ...ss], 36, 200, 140)));
     const fs = Ins.fontFor('#e8vSvg', target, 14);
-    $('#e8vSvg').innerHTML = imgTag(L, true) + (X.haz ? transitoG(L, 0.7 * uMapa(L), false) : '') + flechas(L, 0.7 * uMapa(L)) + ss.map(s => routeG(s, 'sib', 1.3, { lab: fs })).join('') + routeG(l, 'cur', 1.6, { lab: fs, pulse: true });
+    $('#e8vSvg').innerHTML = imgTag(L, true) + (X.haz ? transitoG(L, 0.7 * uMapa(L), false) : '') + flechas(L, 0.7 * uMapa(L)) + ss.map(s => routeG(s, 'sib', 1.3, { lab: fs })).join('') + routeG(l, 'cur', 1.6, { lab: fs, pulse: true }) + '<g id="e8vAdjG"></g>';
+    // 📍 ajustar el punto del borne (no en la puerta: llega a la franja; no en un empalme: no es un borne)
+    $('#e8vAdjO').hidden = esPuerta(L); $('#e8vAdjD').hidden = esPuerta(L) || !l.marca_d;
+    $('#e8vAdjO').disabled = !puedeAjustar(l, 'o'); $('#e8vAdjD').disabled = !puedeAjustar(l, 'd');
+    if (V.adjust && !puedeAjustar(l, V.adjust)) startAdjust(null);
     lupas(L, l, ss);
     camera(target, first ? 0 : 420);
     markList();
+  }
+  /* ---- AJUSTE A MANO del punto de un borne (📍 Origen / 📍 Destino, etapa E8-5), como en E6: clic en el dibujo sobre
+     el borne correcto o arrastrar el punto. Se guarda en ins.bornes_usuario ('texto#cable', el mismo de E6) y manda al
+     regenerar; el recorrido lo recalcula el servidor (POST /e8/punto) con las canaletas y la entrada de la lateral. */
+  const puedeAjustar = (l, w) => !!lat() && !esPuerta(lat()) && (w === 'o' ? !!l.marca_o && !l.empalme : !!l.marca_d && !l.empalme_d);
+  function startAdjust(w) {
+    const f = F(), l = f.length ? f[V.k].l : null;
+    V.adjust = !w || V.adjust === w || !l || !puedeAjustar(l, w) ? null : w;
+    $('#e8vSvg').classList.toggle('pick', !!V.adjust);
+    $('#e8vAdjO').classList.toggle('on', V.adjust === 'o'); $('#e8vAdjD').classList.toggle('on', V.adjust === 'd');
+    const g = $('#e8vAdjG'); if (g) g.innerHTML = '';
+    if (V.adjust) toast('Hacé clic en el dibujo sobre el borne correcto, o arrastrá el punto (Esc para cancelar)', 3500);
+  }
+  // punto fantasma mientras se arrastra (p en puntos del topográfico)
+  function fantasma(p) {
+    const g = $('#e8vAdjG'); if (!g) return;
+    const u = Math.max(0.6, (V.vb ? V.vb[2] : 100) / 160);
+    g.innerHTML = p ? `<circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2(1.6 * u)}" class="e8-adj" stroke-width="${f2(0.5 * u)}"/>
+      <path d="M${f2(p[0] - 3 * u)} ${f2(-p[1])}H${f2(p[0] + 3 * u)}M${f2(p[0])} ${f2(-p[1] - 3 * u)}V${f2(-p[1] + 3 * u)}" class="e8-adj" stroke-width="${f2(0.3 * u)}"/>` : '';
+  }
+  async function setPoint(w, p) {
+    const L = lat(), i = E().laterales.indexOf(L), f = F(); if (i < 0 || !f.length) return;
+    const l = f[V.k].l, texto = w === 'o' ? l.origen : l.destino;
+    const q = [Math.round(p[0] * 100) / 100, Math.round(p[1] * 100) / 100];
+    // el mismo borne de este cable en otras lineas de la lateral (ej. 2135 en 12XPS 7 a dos lugares): todas al punto nuevo
+    const tramos = flat(L).map(x => x.l).flatMap(x => x.num !== l.num ? [] : [x.origen === texto && puedeAjustar(x, 'o') ? [x, 'o'] : null,
+      x.marca_d && x.destino === texto && puedeAjustar(x, 'd') ? [x, 'd'] : null].filter(Boolean));
+    const res = [];
+    try {
+      for (const [x, wx] of tramos) {
+        res.push([x, wx, await api(`/api/trabajo/${Ins.job}/e8/punto`, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ vista: i, clave: x.clave, punta: wx, xy: q, recorridos: REC(),
+            linea: { marca_o: x.marca_o, marca_d: x.marca_d, lado: x.lado, lado_d: x.lado_d } }) })]);
+      }
+    } catch (e) { fantasma(null); return toast('No se pudo ajustar el punto: ' + e.message, 6000); }
+    D.bornes_usuario = D.bornes_usuario || {};
+    D.bornes_usuario[`${texto}#${l.num}`] = q;
+    for (const [x, wx, r] of res) {
+      if (wx === 'o') { x.marca_o = [q[0], q[1], (x.marca_o || [])[2] || null]; x.exacto_o = true; x.conf_o = 'usuario'; delete x.nota_o; delete x.aprox_o; x.lado = r.lado; }
+      else { x.marca_d = [q[0], q[1], (x.marca_d || [])[2] || null]; x.exacto_d = true; x.conf_d = 'usuario'; delete x.nota_d; delete x.aprox_d; x.lado_d = r.lado; }
+      x.ruta = r.ruta; x.largo_mm = r.largo_mm;
+      for (const k of ['sale', 'salida', 'no_llega']) { if (r[k] == null) delete x[k]; else x[k] = r[k]; }
+    }
+    L.exactos = flat(L).filter(x => x.l.exacto_o).length;
+    Ins.dirty();
+    toast(`Punto de «${texto}» ajustado para el cable ${l.num}${res.length > 1 ? ` (${res.length} tramos)` : ''}: vale también al regenerar`, 4000);
+    startAdjust(null); draw();
   }
   function roomForLupas(b) {
     const s = $('#e8vSvg').getBoundingClientRect(); if (!s.width || !s.height) return b;
@@ -384,6 +453,7 @@ const E8 = (() => {
       if (f.every(x => esHecho(x.l.clave))) toast(`¡${lat().nombre} cableada! Los ${f.length} cables están marcados.`, 6000);
     }
     V.k = Math.max(0, Math.min(f.length - 1, V.k + d));
+    if (V.adjust) startAdjust(null);
     draw();
   }
   function toggleOk(adv) {
@@ -1027,10 +1097,32 @@ const E8 = (() => {
       V.vb = [px - (px - V.vb[0]) * f, py - (py - V.vb[1]) * f, V.vb[2] * f, V.vb[3] * f];
       svg.setAttribute('viewBox', V.vb.join(' '));
     }, { passive: false });
-    svg.addEventListener('pointerdown', e => { V.drag = { x: e.clientX, y: e.clientY, vb: V.vb.slice(), s: svgPoint(e)[2] }; svg.setPointerCapture(e.pointerId); svg.classList.add('drag'); });
+    svg.addEventListener('pointerdown', e => {
+      if (!V.vb) return;
+      const s = svgPoint(e);
+      // 📍 con el modo ajuste: agarrar el punto del borne (a menos de 10 px) lo arrastra; si no, se mueve el dibujo
+      let punto = false;
+      if (V.adjust) {
+        const l = F()[V.k].l, m = V.adjust === 'o' ? l.marca_o : l.marca_d;
+        punto = !!m && Math.hypot(s[0] - m[0], s[1] + m[1]) <= 10 * s[2];
+      }
+      V.drag = { x: e.clientX, y: e.clientY, vb: V.vb.slice(), s: s[2], punto };
+      svg.setPointerCapture(e.pointerId); if (!punto) svg.classList.add('drag');
+    });
     svg.addEventListener('pointermove', e => { if (!V.drag) return; const d = V.drag;
+      if (d.punto) { const [x, y] = svgPoint(e); return fantasma([x, -y]); }
       V.vb = [d.vb[0] - (e.clientX - d.x) * d.s, d.vb[1] - (e.clientY - d.y) * d.s, d.vb[2], d.vb[3]]; svg.setAttribute('viewBox', V.vb.join(' ')); });
-    svg.addEventListener('pointerup', () => { V.drag = null; svg.classList.remove('drag'); });
+    svg.addEventListener('pointerup', e => {
+      const d = V.drag; V.drag = null; svg.classList.remove('drag');
+      if (!V.adjust || !d) return;
+      // soltar el punto arrastrado, o clic (sin arrastre) en el dibujo: ese es el borne
+      if (d.punto || Math.hypot(e.clientX - d.x, e.clientY - d.y) < 5) {
+        const [x, y] = svgPoint(e); fantasma([x, -y]);
+        setPoint(V.adjust, [x, -y]);
+      }
+    });
+    $('#e8vAdjO').addEventListener('click', () => startAdjust('o'));
+    $('#e8vAdjD').addEventListener('click', () => startAdjust('d'));
     document.addEventListener('keydown', e => {
       if (!$('#e8sViewer').hidden) return;
       if (e.target.isContentEditable || (e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
@@ -1039,6 +1131,7 @@ const E8 = (() => {
             && $('#viewer').hidden !== false) { e.preventDefault(); abrirEd({}); }
         return;
       }
+      if (e.key === 'Escape' && V.adjust) { e.preventDefault(); return startAdjust(null); }
       const keys = { ArrowRight: () => go(1), ArrowLeft: () => go(-1), Escape: closeViewer, ' ': () => toggleOk(true), Enter: () => toggleOk(true),
         '0': () => camera(vbOf(lat().region), 350), f: () => draw(), l: () => setSide($('#e8vSide').hidden), s: entradaDesdeVisor, S: entradaDesdeVisor };
       if (keys[e.key]) { e.preventDefault(); keys[e.key](); }

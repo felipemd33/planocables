@@ -6895,7 +6895,7 @@
   ]
  },
  "estacion8": {
-  "version": 5,
+  "version": 6,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",
@@ -6952,24 +6952,25 @@
         ],
         "origen": "12XPS 1 ABAJO",
         "marca_o": [
-         232.6,
-         584.11,
-         null
+         235.0,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "11PS1 3 (+)",
         "otra": "bandeja principal",
         "viene_de_e6": true,
         "ruta": [
          [
-          232.6,
-          584.1
+          235.0,
+          581.0
          ],
          [
-          232.6,
+          235.0,
           536.0
          ],
          [
@@ -6977,7 +6978,7 @@
           536.0
          ]
         ],
-        "largo_mm": 280,
+        "largo_mm": 270,
         "sale": "entrada"
        },
        {
@@ -6992,24 +6993,25 @@
         ],
         "origen": "12XPS 2 ABAJO",
         "marca_o": [
-         236.09,
-         584.11,
-         null
+         239.37,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "11PS1 1 (-)",
         "otra": "bandeja principal",
         "viene_de_e6": true,
         "ruta": [
          [
-          236.1,
-          584.1
+          239.4,
+          581.0
          ],
          [
-          236.1,
+          239.4,
           536.0
          ],
          [
@@ -7017,7 +7019,7 @@
           536.0
          ]
         ],
-        "largo_mm": 280,
+        "largo_mm": 270,
         "sale": "entrada"
        },
        {
@@ -7031,24 +7033,25 @@
         ],
         "origen": "12XPS 3 ABAJO",
         "marca_o": [
-         239.59,
-         584.11,
-         null
+         243.73,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "12F1 ARRIBA",
         "otra": "bandeja principal",
         "viene_de_e6": true,
         "ruta": [
          [
-          239.6,
-          584.1
+          243.7,
+          581.0
          ],
          [
-          239.6,
+          243.7,
           536.0
          ],
          [
@@ -7056,7 +7059,7 @@
           536.0
          ]
         ],
-        "largo_mm": 270,
+        "largo_mm": 260,
         "sale": "entrada"
        },
        {
@@ -7070,24 +7073,25 @@
         ],
         "origen": "12XPS 4 ABAJO",
         "marca_o": [
-         243.08,
-         584.11,
-         null
+         248.1,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "12XP 2.1",
         "otra": "bandeja principal",
         "viene_de_e6": true,
         "ruta": [
          [
-          243.1,
-          584.1
+          248.1,
+          581.0
          ],
          [
-          243.1,
+          248.1,
           536.0
          ],
          [
@@ -7095,7 +7099,7 @@
           536.0
          ]
         ],
-        "largo_mm": 270,
+        "largo_mm": 250,
         "sale": "entrada"
        },
        {
@@ -7110,24 +7114,25 @@
         ],
         "origen": "12XPS 5 ABAJO",
         "marca_o": [
-         246.58,
-         584.11,
-         null
+         252.47,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "13F3 ARRIBA",
         "otra": "bandeja principal",
         "viene_de_e6": true,
         "ruta": [
          [
-          246.6,
-          584.1
+          252.5,
+          581.0
          ],
          [
-          246.6,
+          252.5,
           536.0
          ],
          [
@@ -7135,7 +7140,7 @@
           536.0
          ]
         ],
-        "largo_mm": 260,
+        "largo_mm": 250,
         "sale": "entrada"
        },
        {
@@ -7150,24 +7155,25 @@
         ],
         "origen": "12XPS 6 ABAJO",
         "marca_o": [
-         250.07,
-         584.11,
-         null
+         256.83,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "13XC1 3.4",
         "otra": "bandeja principal",
         "viene_de_e6": true,
         "ruta": [
          [
-          250.1,
-          584.1
+          256.8,
+          581.0
          ],
          [
-          250.1,
+          256.8,
           536.0
          ],
          [
@@ -7175,7 +7181,7 @@
           536.0
          ]
         ],
-        "largo_mm": 260,
+        "largo_mm": 240,
         "sale": "entrada"
        },
        {
@@ -7190,24 +7196,25 @@
         ],
         "origen": "12XPS 7 ABAJO",
         "marca_o": [
-         253.57,
-         584.11,
-         null
+         261.2,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "81XCM 11 ARRIBA",
         "otra": "bandeja principal",
         "viene_de_e6": true,
         "ruta": [
          [
-          253.6,
-          584.1
+          261.2,
+          581.0
          ],
          [
-          253.6,
+          261.2,
           536.0
          ],
          [
@@ -7215,7 +7222,7 @@
           536.0
          ]
         ],
-        "largo_mm": 250,
+        "largo_mm": 240,
         "sale": "entrada"
        },
        {
@@ -7230,24 +7237,25 @@
         ],
         "origen": "12XPS 7 ABAJO",
         "marca_o": [
-         253.57,
-         584.11,
-         null
+         261.2,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "21PCB01 35",
         "otra": "puerta / placa",
         "a_puerta": true,
         "ruta": [
          [
-          253.6,
-          584.1
+          261.2,
+          581.0
          ],
          [
-          253.6,
+          261.2,
           536.0
          ],
          [
@@ -7255,7 +7263,7 @@
           536.0
          ]
         ],
-        "largo_mm": 250,
+        "largo_mm": 240,
         "sale": "entrada"
        },
        {
@@ -7270,24 +7278,25 @@
         ],
         "origen": "12XPS 8 ABAJO",
         "marca_o": [
-         257.07,
-         584.11,
-         null
+         265.56,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "81XCM 12 ARRIBA",
         "otra": "bandeja principal",
         "viene_de_e6": true,
         "ruta": [
          [
-          257.1,
-          584.1
+          265.6,
+          581.0
          ],
          [
-          257.1,
+          265.6,
           536.0
          ],
          [
@@ -7295,7 +7304,7 @@
           536.0
          ]
         ],
-        "largo_mm": 250,
+        "largo_mm": 230,
         "sale": "entrada"
        },
        {
@@ -7310,24 +7319,25 @@
         ],
         "origen": "12XPS 8 ABAJO",
         "marca_o": [
-         257.07,
-         584.11,
-         null
+         265.56,
+         581.04,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 1,
         "lado": "abajo",
         "componente": "12XPS",
+        "conf_o": "alta",
         "destino": "21PCB01 36",
         "otra": "puerta / placa",
         "a_puerta": true,
         "ruta": [
          [
-          257.1,
-          584.1
+          265.6,
+          581.0
          ],
          [
-          257.1,
+          265.6,
           536.0
          ],
          [
@@ -7335,7 +7345,7 @@
           536.0
          ]
         ],
-        "largo_mm": 250,
+        "largo_mm": 230,
         "sale": "entrada"
        }
       ],
@@ -7443,14 +7453,15 @@
         ],
         "origen": "11XP 1 ABAJO",
         "marca_o": [
-         280.2,
-         365.41,
-         null
+         282.8,
+         364.34,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 2,
         "lado": "abajo",
         "componente": "11XP",
+        "conf_o": "alta",
         "destino": "11MS1 ABAJO",
         "marca_d": [
          237.9,
@@ -7459,13 +7470,14 @@
         ],
         "exacto_d": false,
         "otra": "misma bandeja",
+        "lado_d": "abajo",
         "ruta": [
          [
-          280.2,
-          365.4
+          282.8,
+          364.3
          ],
          [
-          280.2,
+          282.8,
           447.2
          ],
          [
@@ -7490,14 +7502,15 @@
         ],
         "origen": "11XP 2 ABAJO",
         "marca_o": [
-         283.69,
-         365.41,
-         null
+         288.73,
+         364.33,
+         2.06
         ],
-        "exacto_o": false,
+        "exacto_o": true,
         "riel": 2,
         "lado": "abajo",
         "componente": "11XP",
+        "conf_o": "alta",
         "destino": "11MS1 ABAJO",
         "marca_d": [
          237.9,
@@ -7506,13 +7519,14 @@
         ],
         "exacto_d": false,
         "otra": "misma bandeja",
+        "lado_d": "abajo",
         "ruta": [
          [
-          283.7,
-          365.4
+          288.7,
+          364.3
          ],
          [
-          283.7,
+          288.7,
           447.2
          ],
          [
@@ -7524,7 +7538,7 @@
           380.3
          ]
         ],
-        "largo_mm": 270
+        "largo_mm": 280
        },
        {
         "num": "1103",
@@ -7537,8 +7551,8 @@
         ],
         "origen": "11XP 3 ABAJO",
         "marca_o": [
-         287.19,
-         365.41,
+         294.66,
+         364.32,
          null
         ],
         "exacto_o": false,
@@ -7547,13 +7561,14 @@
         "componente": "11XP",
         "destino": "?",
         "otra": "puerta / placa",
+        "aprox_o": "vecinos",
         "ruta": [
          [
-          287.2,
-          365.4
+          294.7,
+          364.3
          ],
          [
-          287.2,
+          294.7,
           447.2
          ],
          [
@@ -7561,7 +7576,7 @@
           447.2
          ]
         ],
-        "largo_mm": 250,
+        "largo_mm": 240,
         "sale": "entrada"
        }
       ],
@@ -7571,7 +7586,7 @@
     ],
     "n": 15,
     "sin_canaletas": false,
-    "exactos": 0,
+    "exactos": 12,
     "placa": [
      179.8,
      170.4,
@@ -8511,7 +8526,9 @@
    }
   ],
   "campo": 0,
-  "avisos": [],
+  "avisos": [
+   "Bandeja lateral izquierda: 5 puntas con el punto aproximado (11MS1, 11XP): el mapeo automático de bornes no las ubicó; se ajusta en el visor con 📍"
+  ],
   "hechos": [],
   "recorridos": {
    "preguntar": true,
@@ -9255,6 +9272,54 @@
     862.4,
     347.6
    ]
+  },
+  "mapeo": {
+   "vistas": [
+    {
+     "clave": "LI|",
+     "nombre": "Bandeja lateral izquierda",
+     "componentes": [
+      "11MS1",
+      "11XP",
+      "12XPS"
+     ],
+     "puntos": {
+      "alta": 10,
+      "media": 0,
+      "baja": 5
+     },
+     "usados": 10,
+     "modelos": {
+      "11XP": "PT4",
+      "12XPS": "PT4"
+     },
+     "rieles": [
+      {
+       "x0": 208.2,
+       "x1": 371.5,
+       "yc": 596.0
+      },
+      {
+       "x0": 272.1,
+       "x1": 370.8,
+       "yc": 376.3
+      },
+      {
+       "x0": 208.2,
+       "x1": 265.0,
+       "yc": 376.1
+      }
+     ],
+     "rieles_agregados": [],
+     "avisos": [
+      "SCHNEIDER VBF1 (11MS1): no está en el catálogo y no hay ningún modelo de seccionador; sus bornes quedan sin punto (punto aproximado en la etiqueta)",
+      "11XP: la lista de materiales dice PT6 pero el dibujo coincide mejor con PT4",
+      "12XPS: la lista de materiales dice PT6 pero el dibujo coincide mejor con PT4"
+     ],
+     "error": null
+    }
+   ],
+   "avisos": []
   }
  },
  "estaciones": {

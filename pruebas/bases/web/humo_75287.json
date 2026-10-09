@@ -1283,7 +1283,9 @@
      "zona": "puerta / placa"
     }
    ],
-   "avisos": [],
+   "avisos": [
+    "Bandeja lateral izquierda: 5 puntas con el punto aproximado (11MS1, 11XP): el mapeo automático de bornes no las ubicó; se ajusta en el visor con 📍"
+   ],
    "bisagra_propuesta": "izq",
    "campo": 0,
    "hacia_puerta": [
@@ -1788,7 +1790,7 @@
       536.0
      ],
      "escala": 1.4086,
-     "exactos": 0,
+     "exactos": 12,
      "hacia": "der",
      "lado": "LI",
      "n": 15,
@@ -1803,18 +1805,19 @@
          "clave": "1111|11PS1 3 (+)|12XPS 1",
          "color": "Rojo",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "11PS1 3 (+)",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "11",
           "12"
          ],
          "lado": "abajo",
-         "largo_mm": 280,
+         "largo_mm": 270,
          "marca_o": [
-          232.6,
-          584.11,
-          null
+          235.0,
+          581.04,
+          2.06
          ],
          "num": "1111",
          "origen": "12XPS 1 ABAJO",
@@ -1822,11 +1825,11 @@
          "riel": 1,
          "ruta": [
           [
-           232.6,
-           584.1
+           235.0,
+           581.0
           ],
           [
-           232.6,
+           235.0,
            536.0
           ],
           [
@@ -1843,18 +1846,19 @@
          "clave": "1110|11PS1 1 (-)|12XPS 2",
          "color": "Negro",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "11PS1 1 (-)",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "11",
           "12"
          ],
          "lado": "abajo",
-         "largo_mm": 280,
+         "largo_mm": 270,
          "marca_o": [
-          236.09,
-          584.11,
-          null
+          239.37,
+          581.04,
+          2.06
          ],
          "num": "1110",
          "origen": "12XPS 2 ABAJO",
@@ -1862,11 +1866,11 @@
          "riel": 1,
          "ruta": [
           [
-           236.1,
-           584.1
+           239.4,
+           581.0
           ],
           [
-           236.1,
+           239.4,
            536.0
           ],
           [
@@ -1883,17 +1887,18 @@
          "clave": "1201|12F1|12XPS 3",
          "color": "Rojo",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "12F1 ARRIBA",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "12"
          ],
          "lado": "abajo",
-         "largo_mm": 270,
+         "largo_mm": 260,
          "marca_o": [
-          239.59,
-          584.11,
-          null
+          243.73,
+          581.04,
+          2.06
          ],
          "num": "1201",
          "origen": "12XPS 3 ABAJO",
@@ -1901,11 +1906,11 @@
          "riel": 1,
          "ruta": [
           [
-           239.6,
-           584.1
+           243.7,
+           581.0
           ],
           [
-           239.6,
+           243.7,
            536.0
           ],
           [
@@ -1922,17 +1927,18 @@
          "clave": "1205|12XP 2.1|12XPS 4",
          "color": "Negro",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "12XP 2.1",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "12"
          ],
          "lado": "abajo",
-         "largo_mm": 270,
+         "largo_mm": 250,
          "marca_o": [
-          243.08,
-          584.11,
-          null
+          248.1,
+          581.04,
+          2.06
          ],
          "num": "1205",
          "origen": "12XPS 4 ABAJO",
@@ -1940,11 +1946,11 @@
          "riel": 1,
          "ruta": [
           [
-           243.1,
-           584.1
+           248.1,
+           581.0
           ],
           [
-           243.1,
+           248.1,
            536.0
           ],
           [
@@ -1961,18 +1967,19 @@
          "clave": "1206|12XPS 5|13F3",
          "color": "Rojo",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "13F3 ARRIBA",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "12",
           "13"
          ],
          "lado": "abajo",
-         "largo_mm": 260,
+         "largo_mm": 250,
          "marca_o": [
-          246.58,
-          584.11,
-          null
+          252.47,
+          581.04,
+          2.06
          ],
          "num": "1206",
          "origen": "12XPS 5 ABAJO",
@@ -1980,11 +1987,11 @@
          "riel": 1,
          "ruta": [
           [
-           246.6,
-           584.1
+           252.5,
+           581.0
           ],
           [
-           246.6,
+           252.5,
            536.0
           ],
           [
@@ -2001,18 +2008,19 @@
          "clave": "1203|12XPS 6|13XC1 3.4",
          "color": "Negro",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "13XC1 3.4",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "12",
           "13"
          ],
          "lado": "abajo",
-         "largo_mm": 260,
+         "largo_mm": 240,
          "marca_o": [
-          250.07,
-          584.11,
-          null
+          256.83,
+          581.04,
+          2.06
          ],
          "num": "1203",
          "origen": "12XPS 6 ABAJO",
@@ -2020,11 +2028,11 @@
          "riel": 1,
          "ruta": [
           [
-           250.1,
-           584.1
+           256.8,
+           581.0
           ],
           [
-           250.1,
+           256.8,
            536.0
           ],
           [
@@ -2041,18 +2049,19 @@
          "clave": "2135|12XPS 7|81XCM 11",
          "color": "Blanco",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "81XCM 11 ARRIBA",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "12",
           "81"
          ],
          "lado": "abajo",
-         "largo_mm": 250,
+         "largo_mm": 240,
          "marca_o": [
-          253.57,
-          584.11,
-          null
+          261.2,
+          581.04,
+          2.06
          ],
          "num": "2135",
          "origen": "12XPS 7 ABAJO",
@@ -2060,11 +2069,11 @@
          "riel": 1,
          "ruta": [
           [
-           253.6,
-           584.1
+           261.2,
+           581.0
           ],
           [
-           253.6,
+           261.2,
            536.0
           ],
           [
@@ -2082,18 +2091,19 @@
          "clave": "2135|12XPS 7|21PCB01 35",
          "color": "Blanco",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "21PCB01 35",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "12",
           "81"
          ],
          "lado": "abajo",
-         "largo_mm": 250,
+         "largo_mm": 240,
          "marca_o": [
-          253.57,
-          584.11,
-          null
+          261.2,
+          581.04,
+          2.06
          ],
          "num": "2135",
          "origen": "12XPS 7 ABAJO",
@@ -2101,11 +2111,11 @@
          "riel": 1,
          "ruta": [
           [
-           253.6,
-           584.1
+           261.2,
+           581.0
           ],
           [
-           253.6,
+           261.2,
            536.0
           ],
           [
@@ -2121,18 +2131,19 @@
          "clave": "2136|12XPS 8|81XCM 12",
          "color": "Azul",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "81XCM 12 ARRIBA",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "12",
           "81"
          ],
          "lado": "abajo",
-         "largo_mm": 250,
+         "largo_mm": 230,
          "marca_o": [
-          257.07,
-          584.11,
-          null
+          265.56,
+          581.04,
+          2.06
          ],
          "num": "2136",
          "origen": "12XPS 8 ABAJO",
@@ -2140,11 +2151,11 @@
          "riel": 1,
          "ruta": [
           [
-           257.1,
-           584.1
+           265.6,
+           581.0
           ],
           [
-           257.1,
+           265.6,
            536.0
           ],
           [
@@ -2162,18 +2173,19 @@
          "clave": "2136|12XPS 8|21PCB01 36",
          "color": "Azul",
          "componente": "12XPS",
+         "conf_o": "alta",
          "destino": "21PCB01 36",
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "12",
           "81"
          ],
          "lado": "abajo",
-         "largo_mm": 250,
+         "largo_mm": 230,
          "marca_o": [
-          257.07,
-          584.11,
-          null
+          265.56,
+          581.04,
+          2.06
          ],
          "num": "2136",
          "origen": "12XPS 8 ABAJO",
@@ -2181,11 +2193,11 @@
          "riel": 1,
          "ruta": [
           [
-           257.1,
-           584.1
+           265.6,
+           581.0
           ],
           [
-           257.1,
+           265.6,
            536.0
           ],
           [
@@ -2295,13 +2307,15 @@
          "clave": "1101|11MS1|11XP 1",
          "color": "Marrón",
          "componente": "11XP",
+         "conf_o": "alta",
          "destino": "11MS1 ABAJO",
          "exacto_d": false,
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "11"
          ],
          "lado": "abajo",
+         "lado_d": "abajo",
          "largo_mm": 270,
          "marca_d": [
           237.9,
@@ -2309,9 +2323,9 @@
           null
          ],
          "marca_o": [
-          280.2,
-          365.41,
-          null
+          282.8,
+          364.34,
+          2.06
          ],
          "num": "1101",
          "origen": "11XP 1 ABAJO",
@@ -2319,11 +2333,11 @@
          "riel": 2,
          "ruta": [
           [
-           280.2,
-           365.4
+           282.8,
+           364.3
           ],
           [
-           280.2,
+           282.8,
            447.2
           ],
           [
@@ -2342,23 +2356,25 @@
          "clave": "1102|11MS1|11XP 2",
          "color": "Blanco",
          "componente": "11XP",
+         "conf_o": "alta",
          "destino": "11MS1 ABAJO",
          "exacto_d": false,
-         "exacto_o": false,
+         "exacto_o": true,
          "hojas": [
           "11"
          ],
          "lado": "abajo",
-         "largo_mm": 270,
+         "lado_d": "abajo",
+         "largo_mm": 280,
          "marca_d": [
           237.9,
           380.31,
           null
          ],
          "marca_o": [
-          283.69,
-          365.41,
-          null
+          288.73,
+          364.33,
+          2.06
          ],
          "num": "1102",
          "origen": "11XP 2 ABAJO",
@@ -2366,11 +2382,11 @@
          "riel": 2,
          "ruta": [
           [
-           283.7,
-           365.4
+           288.7,
+           364.3
           ],
           [
-           283.7,
+           288.7,
            447.2
           ],
           [
@@ -2385,6 +2401,7 @@
          "secc": "2.5"
         },
         {
+         "aprox_o": "vecinos",
          "cable": "VA2.5MM",
          "clave": "1103|11XP 3|?",
          "color": "Verde-Amarillo",
@@ -2395,10 +2412,10 @@
           "11"
          ],
          "lado": "abajo",
-         "largo_mm": 250,
+         "largo_mm": 240,
          "marca_o": [
-          287.19,
-          365.41,
+          294.66,
+          364.32,
           null
          ],
          "num": "1103",
@@ -2407,11 +2424,11 @@
          "riel": 2,
          "ruta": [
           [
-           287.2,
-           365.4
+           294.7,
+           364.3
           ],
           [
-           287.2,
+           294.7,
            447.2
           ],
           [
@@ -2451,6 +2468,54 @@
      "vista": 1
     }
    ],
+   "mapeo": {
+    "avisos": [],
+    "vistas": [
+     {
+      "avisos": [
+       "SCHNEIDER VBF1 (11MS1): no está en el catálogo y no hay ningún modelo de seccionador; sus bornes quedan sin punto (punto aproximado en la etiqueta)",
+       "11XP: la lista de materiales dice PT6 pero el dibujo coincide mejor con PT4",
+       "12XPS: la lista de materiales dice PT6 pero el dibujo coincide mejor con PT4"
+      ],
+      "clave": "LI|",
+      "componentes": [
+       "11MS1",
+       "11XP",
+       "12XPS"
+      ],
+      "error": null,
+      "modelos": {
+       "11XP": "PT4",
+       "12XPS": "PT4"
+      },
+      "nombre": "Bandeja lateral izquierda",
+      "puntos": {
+       "alta": 10,
+       "baja": 5,
+       "media": 0
+      },
+      "rieles": [
+       {
+        "x0": 208.2,
+        "x1": 371.5,
+        "yc": 596.0
+       },
+       {
+        "x0": 272.1,
+        "x1": 370.8,
+        "yc": 376.3
+       },
+       {
+        "x0": 208.2,
+        "x1": 265.0,
+        "yc": 376.1
+       }
+      ],
+      "rieles_agregados": [],
+      "usados": 10
+     }
+    ]
+   },
    "puerta": {
     "H": 24.77,
     "aparatos": [
@@ -2723,7 +2788,7 @@
     "preguntar": true,
     "vistas": {}
    },
-   "version": 5
+   "version": 6
   },
   "estacion_auto": {
    "estacion": "E8",
@@ -12042,15 +12107,15 @@
    "lineas": [
     {
      "clave": "1111|11PS1 3 (+)|12XPS 1",
-     "largo_mm": 280,
+     "largo_mm": 270,
      "no_llega": null,
      "ruta": [
       [
-       232.6,
-       584.1
+       235.0,
+       581.0
       ],
       [
-       232.6,
+       235.0,
        536.0
       ],
       [
@@ -12063,15 +12128,15 @@
     },
     {
      "clave": "1110|11PS1 1 (-)|12XPS 2",
-     "largo_mm": 280,
+     "largo_mm": 270,
      "no_llega": null,
      "ruta": [
       [
-       236.1,
-       584.1
+       239.4,
+       581.0
       ],
       [
-       236.1,
+       239.4,
        536.0
       ],
       [
@@ -12084,15 +12149,15 @@
     },
     {
      "clave": "1201|12F1|12XPS 3",
-     "largo_mm": 270,
+     "largo_mm": 260,
      "no_llega": null,
      "ruta": [
       [
-       239.6,
-       584.1
+       243.7,
+       581.0
       ],
       [
-       239.6,
+       243.7,
        536.0
       ],
       [
@@ -12105,15 +12170,15 @@
     },
     {
      "clave": "1205|12XP 2.1|12XPS 4",
-     "largo_mm": 270,
+     "largo_mm": 250,
      "no_llega": null,
      "ruta": [
       [
-       243.1,
-       584.1
+       248.1,
+       581.0
       ],
       [
-       243.1,
+       248.1,
        536.0
       ],
       [
@@ -12126,15 +12191,15 @@
     },
     {
      "clave": "1206|12XPS 5|13F3",
-     "largo_mm": 260,
+     "largo_mm": 250,
      "no_llega": null,
      "ruta": [
       [
-       246.6,
-       584.1
+       252.5,
+       581.0
       ],
       [
-       246.6,
+       252.5,
        536.0
       ],
       [
@@ -12147,15 +12212,15 @@
     },
     {
      "clave": "1203|12XPS 6|13XC1 3.4",
-     "largo_mm": 260,
+     "largo_mm": 240,
      "no_llega": null,
      "ruta": [
       [
-       250.1,
-       584.1
+       256.8,
+       581.0
       ],
       [
-       250.1,
+       256.8,
        536.0
       ],
       [
@@ -12168,15 +12233,15 @@
     },
     {
      "clave": "2135|12XPS 7|81XCM 11",
-     "largo_mm": 250,
+     "largo_mm": 240,
      "no_llega": null,
      "ruta": [
       [
-       253.6,
-       584.1
+       261.2,
+       581.0
       ],
       [
-       253.6,
+       261.2,
        536.0
       ],
       [
@@ -12189,15 +12254,15 @@
     },
     {
      "clave": "2135|12XPS 7|21PCB01 35",
-     "largo_mm": 250,
+     "largo_mm": 240,
      "no_llega": null,
      "ruta": [
       [
-       253.6,
-       584.1
+       261.2,
+       581.0
       ],
       [
-       253.6,
+       261.2,
        536.0
       ],
       [
@@ -12210,15 +12275,15 @@
     },
     {
      "clave": "2136|12XPS 8|81XCM 12",
-     "largo_mm": 250,
+     "largo_mm": 230,
      "no_llega": null,
      "ruta": [
       [
-       257.1,
-       584.1
+       265.6,
+       581.0
       ],
       [
-       257.1,
+       265.6,
        536.0
       ],
       [
@@ -12231,15 +12296,15 @@
     },
     {
      "clave": "2136|12XPS 8|21PCB01 36",
-     "largo_mm": 250,
+     "largo_mm": 230,
      "no_llega": null,
      "ruta": [
       [
-       257.1,
-       584.1
+       265.6,
+       581.0
       ],
       [
-       257.1,
+       265.6,
        536.0
       ],
       [
@@ -12294,15 +12359,15 @@
     },
     {
      "clave": "1103|11XP 3|?",
-     "largo_mm": 250,
+     "largo_mm": 240,
      "no_llega": null,
      "ruta": [
       [
-       287.2,
-       365.4
+       294.7,
+       364.3
       ],
       [
-       287.2,
+       294.7,
        447.2
       ],
       [
@@ -12482,15 +12547,15 @@
    "lineas": [
     {
      "clave": "1111|11PS1 3 (+)|12XPS 1",
-     "largo_mm": 290,
+     "largo_mm": 280,
      "no_llega": null,
      "ruta": [
       [
-       232.6,
-       584.1
+       235.0,
+       581.0
       ],
       [
-       232.6,
+       235.0,
        536.0
       ],
       [
@@ -12503,15 +12568,15 @@
     },
     {
      "clave": "1110|11PS1 1 (-)|12XPS 2",
-     "largo_mm": 280,
+     "largo_mm": 270,
      "no_llega": null,
      "ruta": [
       [
-       236.1,
-       584.1
+       239.4,
+       581.0
       ],
       [
-       236.1,
+       239.4,
        536.0
       ],
       [
@@ -12524,15 +12589,15 @@
     },
     {
      "clave": "1201|12F1|12XPS 3",
-     "largo_mm": 280,
+     "largo_mm": 270,
      "no_llega": null,
      "ruta": [
       [
-       239.6,
-       584.1
+       243.7,
+       581.0
       ],
       [
-       239.6,
+       243.7,
        536.0
       ],
       [
@@ -12545,15 +12610,15 @@
     },
     {
      "clave": "1205|12XP 2.1|12XPS 4",
-     "largo_mm": 270,
+     "largo_mm": 260,
      "no_llega": null,
      "ruta": [
       [
-       243.1,
-       584.1
+       248.1,
+       581.0
       ],
       [
-       243.1,
+       248.1,
        536.0
       ],
       [
@@ -12566,15 +12631,15 @@
     },
     {
      "clave": "1206|12XPS 5|13F3",
-     "largo_mm": 270,
+     "largo_mm": 250,
      "no_llega": null,
      "ruta": [
       [
-       246.6,
-       584.1
+       252.5,
+       581.0
       ],
       [
-       246.6,
+       252.5,
        536.0
       ],
       [
@@ -12587,15 +12652,15 @@
     },
     {
      "clave": "1203|12XPS 6|13XC1 3.4",
-     "largo_mm": 260,
+     "largo_mm": 250,
      "no_llega": null,
      "ruta": [
       [
-       250.1,
-       584.1
+       256.8,
+       581.0
       ],
       [
-       250.1,
+       256.8,
        536.0
       ],
       [
@@ -12608,15 +12673,15 @@
     },
     {
      "clave": "2135|12XPS 7|81XCM 11",
-     "largo_mm": 260,
+     "largo_mm": 240,
      "no_llega": null,
      "ruta": [
       [
-       253.6,
-       584.1
+       261.2,
+       581.0
       ],
       [
-       253.6,
+       261.2,
        536.0
       ],
       [
@@ -12633,11 +12698,11 @@
      "no_llega": null,
      "ruta": [
       [
-       253.6,
-       584.1
+       261.2,
+       581.0
       ],
       [
-       253.6,
+       261.2,
        536.0
       ],
       [
@@ -12650,15 +12715,15 @@
     },
     {
      "clave": "2136|12XPS 8|81XCM 12",
-     "largo_mm": 250,
+     "largo_mm": 240,
      "no_llega": null,
      "ruta": [
       [
-       257.1,
-       584.1
+       265.6,
+       581.0
       ],
       [
-       257.1,
+       265.6,
        536.0
       ],
       [
@@ -12671,15 +12736,15 @@
     },
     {
      "clave": "2136|12XPS 8|21PCB01 36",
-     "largo_mm": 150,
+     "largo_mm": 160,
      "no_llega": null,
      "ruta": [
       [
-       257.1,
-       584.1
+       265.6,
+       581.0
       ],
       [
-       257.1,
+       265.6,
        536.0
       ],
       [
@@ -12734,15 +12799,15 @@
     },
     {
      "clave": "1103|11XP 3|?",
-     "largo_mm": 250,
+     "largo_mm": 240,
      "no_llega": true,
      "ruta": [
       [
-       287.2,
-       365.4
+       294.7,
+       364.3
       ],
       [
-       287.2,
+       294.7,
        447.2
       ],
       [
@@ -13226,6 +13291,33 @@
    "vista": 0
   }
  ],
+ "e8_punto": {
+  "clave": "1111|11PS1 3 (+)|12XPS 1",
+  "lado": "abajo",
+  "largo_mm": 280,
+  "marca": [
+   236.5,
+   581.04
+  ],
+  "no_llega": null,
+  "punta": "o",
+  "ruta": [
+   [
+    236.5,
+    581.0
+   ],
+   [
+    236.5,
+    536.0
+   ],
+   [
+    387.5,
+    536.0
+   ]
+  ],
+  "sale": "entrada",
+  "salida": null
+ },
  "proyector": {
   "orificios": {
    "avisos": [],

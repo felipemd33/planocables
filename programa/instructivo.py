@@ -2224,9 +2224,11 @@ def componentes_panel(res, lay):
 
 
 # ------------------------------------------------------------------ mapeo automatico de bornes (paquete bornes/)
-def usos_bandeja(res, lay, topo_pdf=None):
+def usos_bandeja(res, lay, topo_pdf=None, tags=None, region=None, cs=None):
     """Que bornes de cada componente de la BANDEJA usa cada cable, segun el funcional: la entrada del mapeo automatico
-    (bornes.mapear_trabajo). Formato usos_por_componente.json: {topografico, pagina_pdf, region_bandeja,
+    (bornes.mapear_trabajo). 'tags' / 'region' (estacion E8, bornes.laterales): los componentes de una bandeja LATERAL
+    y su placa en vez de los de la bandeja (ubic == 'BANDEJA') y lay['region'].
+    Formato usos_por_componente.json: {topografico, pagina_pdf, region_bandeja,
     escala_mm_por_pt, componentes: {tag_base: {etiqueta_topografico: {x, y, riel, leido}, es_bornera, usos: [{cable,
     texto, tag, borne, punto, lado, parte, hoja_funcional, orden_funcional}]}}}.
     'orden_funcional': posicion del borne entre los del mismo nombre en el SIMBOLO del funcional (1 = el primero, de
@@ -2234,12 +2236,14 @@ def usos_bandeja(res, lay, topo_pdf=None):
     (DDR: -Vo -Vo +Vo +Vo): el n-esimo de ese nombre en el simbolo va al n-esimo tornillo de ese nombre.
     Entran las mismas puntas que cablea build: las de los pares de cada conductor; las de los conductores sin pares con
     una sola punta en la bandeja y otra afuera (build les arma el par); y las de los conductores agregados a mano
-    (lay['agregar'], de correcciones.json) que caen en la bandeja."""
-    cs = conductors(res)
+    (lay['agregar'], de correcciones.json) que caen en la bandeja. Con 'tags' (una lateral) no entran las puntas con un
+    empalme dibujado con el cable propio del aparato (WAGO del cargador: el cable numerado no llega a un borne).
+    'cs': los conductores ya armados (conductors(res)), para no volver a armarlos."""
+    cs = conductors(res) if cs is None else cs
     comp = lay.get('comp') or {}
     comps = {}
     for t, c in comp.items():
-        if c.get('ubic') != 'BANDEJA':
+        if (c.get('ubic') != 'BANDEJA') if tags is None else (t not in tags):
             continue
         comps[t] = dict(etiqueta_topografico=dict(x=c.get('x'), y=c.get('y'), riel=c.get('fila'), leido=c.get('leido')),
                         es_bornera=is_terminal_block(t), usos=[])
@@ -2255,7 +2259,7 @@ def usos_bandeja(res, lay, topo_pdf=None):
             for n in par:
                 e = c['nodes'][n]
                 tb = e.get('tag_base')
-                if tb not in comps:
+                if tb not in comps or (tags is not None and e.get('empalme_dibujado')):
                     continue
                 texto = fmt_terminal(e)
                 if (num, texto) in vistos:
@@ -2313,7 +2317,7 @@ def usos_bandeja(res, lay, topo_pdf=None):
             orden = sorted((u for u in g if id(u) in en), key=lambda u: (en[id(u)][1] if fila else -en[id(u)][2]))
             for i, u in enumerate(orden, 1):
                 u['orden_funcional'] = i
-    return dict(topografico=topo_pdf, pagina_pdf=lay.get('pag'), region_bandeja=lay.get('region'),
+    return dict(topografico=topo_pdf, pagina_pdf=lay.get('pag'), region_bandeja=lay.get('region') if region is None else list(region),
                 escala_mm_por_pt=lay.get('escala'), componentes={t: c for t, c in comps.items() if c['usos']})
 
 

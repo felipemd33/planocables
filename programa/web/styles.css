@@ -390,6 +390,7 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .cabv .cv-od { min-width: 0; flex: 0 1 auto; overflow: hidden; white-space: nowrap; }
 .cabv #cvLen { white-space: nowrap; }
 @media (max-width: 1250px) { .cabv #cvLen { display: none; } .cabv #cvAdjO, .cabv #cvAdjD { font-size: 0; } .cabv #cvAdjO::before { content: "📍O"; font-size: 13px; } .cabv #cvAdjD::before { content: "📍D"; font-size: 13px; } }
+@media (max-width: 1250px) { .cabv #e8vAdjO, .cabv #e8vAdjD { font-size: 0; } .cabv #e8vAdjO::before { content: "📍O"; font-size: 13px; } .cabv #e8vAdjD::before { content: "📍D"; font-size: 13px; } }
 @media (max-width: 900px) { .cabv .v-top, .audv .v-top { flex-wrap: wrap; } }
 .btn.swap { min-width: 122px; justify-content: center; text-align: center; }
 
@@ -583,6 +584,11 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .pill.e8-wago { background: var(--wago-bg); color: var(--wago); } .pill.e8-wago.conf { background: var(--warn-bg); color: var(--warn); border: 1px dashed currentColor; }
 .e8-emp-t { color: var(--wago); font-weight: 600; } .e8-emp-t.conf { color: var(--warn); }
 .tchip.e8-pel { font-family: inherit; } .tchip.e8-pel.conf { color: var(--warn); border-style: dashed; }
+/* puntos de los bornes de las laterales (etapa E8-5): mapeo automático por lateral y ajuste a mano en el visor (📍) */
+.e8-map { margin: 6px 0 0; } .e8-map summary { cursor: pointer; } .e8-map ul { margin: 4px 0 4px 18px; padding-left: 14px; } .e8-map > div { margin: 3px 0 0 18px; }
+#e8vSvg.pick { cursor: crosshair; }
+#e8vAdjO.on, #e8vAdjD.on { background: var(--hl); border-color: var(--hl); color: #fff; }
+.e8-adj { fill: none; stroke: var(--hl); }
 .e8-bisg { padding: 2px 2px 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .seg.e8-bis button { padding: 4px 10px; }
 .sal-asis .seg.e8-bis { justify-self: start; }

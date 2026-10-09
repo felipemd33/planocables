@@ -27,7 +27,7 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/proyector.py`, `web/proyector.html`, `proyector.js`, `proyector.css` | **Pestaña 📽 Proyector** (`/proyector/<id>`, botón 📽 en el instructivo y en el visor, tecla P): proyecta sobre la bandeja REAL solo las canaletas y el cable actual (origen verde lima, destino cian). Sigue al visor «cablear de a uno» por `BroadcastChannel('planocables')` y le devuelve las teclas → ← Espacio. Calibración por homografía (`matrix3d`) con los 4 **orificios de montaje** de la placa: `proyector.orificios` los busca en el dibujo (símbolo de cada esquina; centro = mediana de las mediatrices de sus segmentos), con 🎯 en el visor se marcan a mano. Ventana de texto (puntas, terminal, a dónde va) movible y de tamaño ajustable, que arranca en la parte vacía de la bandeja. Todo se guarda en `ins['proyector']` por `GET/PUT /api/trabajo/<id>/proyector` (la ventana principal no pisa esa sección). |
 | `1 - Planos/` | Planos originales. `Catalogo (referencia)/`: 8 productos con su orden de montaje SAP. `Producto nuevo/`: mSafe2+ PAE (EPLAN). |
 | `2 - Resultados/` | Salidas. `76884 mSafe2+ PAE/`: mapeo verificado del producto EPLAN (ver abajo). |
-| `3 - Historial web/<id>/` | Trabajos de la web (plano, `layout.json`, `instructivo.json` con las marcas del usuario, `bornes.json` manual, `correcciones.json`, `bornes_auto.json`). **No pisar las marcas del usuario.** |
+| `3 - Historial web/<id>/` | Trabajos de la web (plano, `layout.json`, `instructivo.json` con las marcas del usuario, `bornes.json` manual, `correcciones.json`, `bornes_auto.json`, `bornes_e8_auto.json` de las laterales). **No pisar las marcas del usuario.** |
 | `prototipos/` | Los 5 prototipos de mapeo de bornes. `_referencia/` es la referencia del 75286; `_referencia_66817/` la del 66817. |
 | `pruebas/` | Regresión: `volcar_trabajo.py`, `volcar_cables.py`, `evaluar_bornes.py` y `bases/`. Red de seguridad del plan modular: `bateria.py` (corre todo), `comparar_bases.py`, `volcar_bases_nuevas.py`, `ab_planos.py` (A/B sobre todos los planos de `1 - Planos`), `probar_capas.py` (capas de `planocables`), `probar_puentes.py` (los nombres viejos siguen), `probar_producto.py`, `probar_web_humo.py` (la web con Flask y con pythonw), `js/` (`node --test`: WPC, terminal, XML del `.wpc`) y `fixtures/` (copias fijas de solo lectura: el PAE del usuario, el `.wpc` real, `productos.json` y `wpc.json`; ver `fixtures/LEEME.md`). |
 | `PLAN_MODULAR.md` | Plan de la modularización: capas, contratos, producto, WPC por producto, etapas y batería B. |
@@ -156,6 +156,31 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     hoja, como BH-01-M o ZY, sigue la regla de E8-2). Pantalla: «Puerta y placa» con el dibujo arriba de las tablas,
     ▶ Cablear de a uno en la puerta y 🧭 Entrada / recorrido (S). **La WPC NO usa la vista de la puerta** (sigue el
     1850 fijo; con y sin `lay['puerta']` las laterales y las tablas dan igual).
+  - **Etapa E8-5 «puntos exactos en las laterales» (2026-10-08, propuesta B.4):** el motor de `bornes/` corre por cada
+    lateral (`estacion8.mapear_bornes` → `bornes/laterales.py`, `MotorLateral`: region = la PLACA de la lateral; rieles =
+    los de la capa del riel o, si no hay, los rectángulos con el perfil del riel de la bandeja en cualquier capa
+    (`topo.rieles_geometria`: el riel 1 de la LD del TPT en la capa '0'), más los ejes de la vista sin tramo (el riel
+    TAPADO, `rieles_e8`) a lo ancho de las canaletas horizontales que lo encierran). Usos: `instructivo.usos_bandeja(...,
+    tags=<los de la lateral>, region=<placa>)` sin las puntas con WAGO. Resultado en claves aparte, DESPUÉS de
+    `instructivo.build` (no entran al layout de las bases): `lay['bornes_e8']` ('texto del funcional#cable' → [x, y, r]),
+    `bornes_e8_conf` (alta / media), `bornes_e8_nota`; **no renombra textos** (un borne que el motor ubica en otro bloque
+    o módulo queda aproximado con aviso): E6 y sus pendientes no cambian. Caché aparte: `<trabajo>/bornes_e8_auto.json`
+    (una entrada por lateral, con su firma). EPLAN no lo usa (manda su mapeo verificado). `estacion8.punto` (versión 6):
+    `bornes_usuario` (ajustado a mano) > `lay['bornes']` (bornes.json, correcciones, mapeo verificado) > `bornes_e8` >
+    aproximado. El aproximado de un borne de una **bornera** (tag con X, número solo) con otros bornes exactos del mismo
+    lado del riel sale de ellos con su paso (`afinar_aproximados`, `aprox_o` / `aprox_d` = 'vecinos'), no de la
+    etiqueta: el orden de izquierda a derecha cuadra (75287: 11XP 3, la PE, a la derecha del 11XP 2; 1101 → 1102 →
+    1103). La línea lleva `conf_o` / `conf_d` ('usuario', 'alta', 'media') y `nota_o` / `nota_d`, y `lado_d` en
+    los cables de la misma lateral; `e8['mapeo']` = {vistas: [{clave, nombre, puntos: {alta, media, baja}, usados,
+    modelos (solo los aparatos con algún borne ubicado: el plegable «Mapeo automático de bornes» no nombra el modelo que
+    el motor eligió para un aparato sin ningún punto), rieles, rieles_agregados, avisos (con tildes: `_tildes`; el motor
+    no se toca)}]}; aviso por lateral de las puntas que siguen aproximadas. Resultado:
+    TPT LD 0 → 42 de 42 (LI: 12PB1 aproximada, la batería no está en el catálogo; el cargador va con WAGO); 75287 LI
+    0 → 12 de 15 (11MS1, seccionador sin modelo, y 11XP 3, la pieza PE, aproximados); 66817 igual (LD con el riel VERTICAL: el motor no lo cubre,
+    aproximada con aviso); PAE igual. **Ajuste a mano** en el visor de E8: 📍 Origen / 📍 Destino (clic en el borne o
+    arrastrar el punto; Esc cancela), se guarda en `ins['bornes_usuario']` como en E6 y manda al regenerar; el recorrido
+    lo recalcula `POST /api/trabajo/<id>/e8/punto` (`estacion8.rutear_punto`, sin rearmar). La WPC cambia por las rutas
+    nuevas (tabla en `pruebas/bases/wpc/cambios_e8_5.md`).
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -261,7 +286,8 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   etapa, y que E6 dé igual que `pruebas/bases`; desde E8-2 además la vista previa de la entrada / bisagra / grupos y que
   regenerar conserve lo elegido y un topográfico nuevo lo borre; desde E8-3 los WAGO del cargador y el RS-485 «empalme de
   3, a confirmar»; desde E8-4 la vista de la puerta, sus recorridos, el tránsito «Pasan hacia la puerta» y que la WPC no
-  la use; `--bases pruebas/bases` solo mira los `e8_*.json` y la vista previa sobre los `ins_*.json`) tiene que
+  la use; desde E8-5 los puntos exactos de las laterales, el ajuste a mano y que el punto ajustado mande al regenerar sin
+  tocar E6; `--bases pruebas/bases` solo mira los `e8_*.json` y la vista previa sobre los `ins_*.json`) tiene que
   dar TODO OK. La pantalla de E8 con los WAGO: `node --test pruebas/js/` (`e8_empalme.test.cjs`, con `vistaE8` de
   `cargar_visor.cjs`).
   Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.

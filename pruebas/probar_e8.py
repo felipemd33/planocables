@@ -62,7 +62,24 @@ ETAPA E8-4 «puerta» (2026-10-08; foto 3 del taller):
     principal y de la otra lateral que siguen a la puerta, con el haz de la entrada a la salida a la puerta; la otra
     lateral no la tiene;
   - la lista WPC no usa la puerta: las laterales y las tablas de «Puerta y placa» dan IGUAL con y sin la vista de la
-    puerta (regenerar sin lay['puerta']); regenerar conserva la entrada y los puntos de paso de la puerta."""
+    puerta (regenerar sin lay['puerta']); regenerar conserva la entrada y los puntos de paso de la puerta.
+
+ETAPA E8-5 «puntos exactos en las laterales» (2026-10-08; propuesta B.4):
+  - el motor de bornes corre por cada lateral (su placa y sus rieles, incluido el riel tapado por las etiquetas) y deja
+    los puntos en claves aparte (bornes_e8), sin renombrar textos: E6 IGUAL (e6_igual) y los textos de las puntas de E8
+    salen del funcional;
+  - TPT (los dos): la lateral derecha pasa de 0 a 42 de 42 con el punto del borne (el riel 1 por geometria en la capa
+    '0', el riel 2 por la fila de etiquetas), con el lado del borne (33XAI 1 ARRIBA arriba del riel 2, 11XP 1 ABAJO abajo,
+    13XC2 1.1 arriba del riel 1, 16XC 1 ABAJO abajo); la izquierda queda aproximada (12PB1: la bateria no esta en el
+    catalogo; el cargador va con WAGO) con aviso;
+  - 75287: la lateral izquierda pasa de 0 a 12 de 15 (12XPS y 11XP 1 / 2); 11MS1 (seccionador, sin modelo) aproximado;
+    el 11XP 3 (la pieza PE, sin punto del mapeo) aproximado con sus vecinos exactos (aprox_o 'vecinos': a la derecha del
+    11XP 2) y el 11XP en orden 1101 -> 1102 -> 1103, como antes de E8-5;
+  - 66817: igual o mejor (la lateral derecha tiene el riel VERTICAL: el motor no la cubre y queda aproximada con aviso);
+  - PAE (EPLAN): sin mapeo automatico de las laterales (manda su mapeo verificado), 36 de 36 como antes;
+  - cada punto exacto cae dentro de la placa de su lateral y dos bornes distintos no caen en el mismo punto;
+  - ajuste a mano (estacion8.rutear_punto, la de POST /e8/punto): el recorrido sale del punto nuevo; con el mismo punto da
+    lo armado; regenerar con el punto en bornes_usuario lo deja exacto ('usuario') y E6 no cambia."""
 import os, sys, io, json, glob, math, shutil, tarfile, tempfile, subprocess, concurrent.futures as cf
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -489,6 +506,137 @@ def ruteo_e84(t, ins):
                  f"de la entrada a la salida a la puerta; la otra lateral sin capa")
 
 
+# ------------------------------------------------------------------ etapa E8-5: puntos exactos en las laterales
+EXACTOS_E85 = {   # trabajo -> {lado: (minimo de cables con el punto del borne, total)}
+    'tpt_constructivo': {'LD': (42, 42), 'LI': (0, 12)},
+    'tpt': {'LD': (42, 42), 'LI': (0, 12)},
+    '75287': {'LI': (12, 15)},
+    '66817': {'LI': (0, 8), 'LD': (0, 9)},
+    '76884': {'LI': (36, 36)},
+}
+# (cable, texto de la punta) -> (riel, lado del eje): el lado fisico del punto exacto coincide con el texto del funcional
+LADOS_E85 = {('3301', '33XAI 1 ARRIBA'): (2, 'arriba'), ('1104', '11XP 1 ABAJO'): (2, 'abajo'),
+             ('1311', '13XC2 1.1'): (1, 'arriba'), ('1601', '16XC 1 ABAJO'): (1, 'abajo'), ('2105', '32XAI 1 ARRIBA'): (2, 'arriba')}
+
+
+def puntas_e85(L):
+    """[(num, texto, [x, y], exacto, conf)] de las puntas de la lateral que son bornes (sin los empalmes)"""
+    out = []
+    for l in lineas(L):
+        if not l.get('empalme'):
+            out.append((l['num'], l['origen'], l['marca_o'], l['exacto_o'], l.get('conf_o')))
+        if l.get('marca_d') and not l.get('empalme_d'):
+            out.append((l['num'], l['destino'], l['marca_d'], l.get('exacto_d'), l.get('conf_d')))
+    return out
+
+
+def esperado_e85(t, e8):
+    lats = e8.get('laterales') or []
+    m = e8.get('mapeo') or {}
+    for lado, (minimo, tot) in EXACTOS_E85.get(t, {}).items():
+        L = lateral(e8, lado)
+        if chequear(L is not None, f"{t}: hay lateral {lado}"):
+            chequear(L['n'] == tot and L['exactos'] >= minimo and L['exactos'] == sum(1 for l in lineas(L) if l['exacto_o']),
+                     f"{t} {L['nombre']}: {L['exactos']} de {L['n']} con el punto del borne (se esperaba al menos {minimo} de {tot})")
+    if t == '76884':
+        chequear(not m.get('vistas') and all('conf_o' not in l for L in lats for l in lineas(L)),
+                 f"{t}: EPLAN sin mapeo automático de las laterales (manda el mapeo verificado del producto)")
+        return
+    chequear(isinstance(m.get('vistas'), list) and {v['clave'] for v in m['vistas']} == {L['clave_vista'] for L in lats} and not m.get('error'),
+             f"{t}: mapeo automático de bornes de las {len(lats)} laterales ({[(v['nombre'], v['puntos']) for v in m.get('vistas') or []]})")
+    # «Modelos» del plegable: solo los aparatos con algún borne ubicado (no el modelo que el motor eligió para un aparato
+    # sin ningún punto, ej. la batería 12PB1 tomada como portafusible en el 66817), nunca '?'
+    for v in m.get('vistas') or []:
+        mods = v.get('modelos') or {}
+        chequear('?' not in mods.values() and set(mods) <= set(v.get('componentes') or []) and (v.get('usados') or not mods),
+                 f"{t} {v['nombre']}: «Modelos» solo de los aparatos con algún borne ubicado ({mods}; {v.get('usados')} puntas usadas)")
+        sin = [a for a in v.get('avisos') or [] if any(w in a for w in ('catalogo', 'ningun ', 'geometria', 'no esta en', 'se encontro'))]
+        chequear(not sin, f"{t} {v['nombre']}: los avisos del mapeo con tildes ({sin[:1]})")
+    if t == '66817':
+        chequear(all(not v.get('modelos') for v in m.get('vistas') or []),
+                 f"{t}: sin ningún borne ubicado en las laterales, el plegable no nombra modelos ({[v.get('modelos') for v in m.get('vistas') or []]})")
+    if t.startswith('tpt'):
+        v = next((v for v in m.get('vistas') or [] if v['clave'].startswith('LD|')), {})
+        chequear(set(v.get('modelos') or {}) == {'11XP', '13XC2', '16XC', '32XAI', '33XAI', '43XDI', '81XCM'},
+                 f"{t} LD: los modelos de los 7 aparatos con sus bornes ubicados ({sorted(v.get('modelos') or {})})")
+    for L in lats:
+        ps = puntas_e85(L)
+        ex = [p for p in ps if p[3]]
+        chequear(all(dentro_de(p[2], L['placa']) for p in ex), f"{t} {L['nombre']}: los {len(ex)} puntos exactos caen dentro de la placa")
+        por_punto = {}
+        for num, txt, xy, _, _ in ex:
+            por_punto.setdefault((round(xy[0], 1), round(xy[1], 1)), set()).add(txt)
+        dobles = {k: v for k, v in por_punto.items() if len(v) > 1}
+        chequear(not dobles, f"{t} {L['nombre']}: dos bornes distintos no caen en el mismo punto ({dobles})")
+        chequear(all(c in ('alta', 'media', 'usuario') for _, _, _, e, c in ps if e), f"{t} {L['nombre']}: cada punto exacto dice de dónde sale (alta / media)")
+        aprox = [p for p in ps if not p[3]]
+        if aprox:
+            chequear(any(a.startswith(L['nombre'] + ':') and 'punto aproximado' in a for a in e8.get('avisos') or []),
+                     f"{t} {L['nombre']}: aviso de las {len(aprox)} puntas con el punto aproximado")
+    if t.startswith('tpt'):
+        ld = lateral(e8, 'LD')
+        v = next((v for v in m.get('vistas') or [] if ld and v['clave'] == ld['clave_vista']), {})
+        ag = {(r['origen'], round(r['yc'])) for r in v.get('rieles_agregados') or []}
+        chequear({('geometria', 593), ('etiquetas', 504)} <= ag, f"{t} LD: el riel 1 por geometría (capa '0') y el riel 2 por la fila de etiquetas ({sorted(ag)})")
+        for (num, txt), (riel, lado) in LADOS_E85.items():
+            l = next((l for l in lineas(ld) if l['num'] == num and l['origen'] == txt), None) if ld else None
+            ok = l is not None and l['exacto_o'] and l['riel'] == riel and l['lado'] == lado and (
+                (l['marca_o'][1] > ld['rieles'][riel - 1]) == (lado == 'arriba'))
+            chequear(ok, f"{t} LD: {num} {txt}: punto exacto en el riel {riel}, {lado} del eje "
+                         f"({(l or {}).get('marca_o')}, riel {(l or {}).get('riel')}, {(l or {}).get('lado')})")
+    if t == '75287':
+        L = lateral(e8, 'LI')
+        xps = [l for l in lineas(L)] if L else []
+        chequear(xps and all(l['exacto_o'] for l in xps if l['origen'].startswith('12XPS')),
+                 f"{t}: los {sum(1 for l in xps if l['origen'].startswith('12XPS'))} cables de 12XPS con el punto del borne")
+        # el 11XP 3 (la pieza PE, sin punto del mapeo) sale de sus vecinos exactos 11XP 1 y 2: a la derecha del 2, y el orden
+        # de cableado queda 1101 -> 1102 -> 1103 (de izquierda a derecha, como antes de E8-5)
+        x11 = [l for l in xps if l['origen'].startswith('11XP ')]
+        o11 = [l['num'] for l in x11]
+        l2 = next((l for l in x11 if l['origen'].startswith('11XP 2 ')), None)
+        l3 = next((l for l in x11 if l['origen'].startswith('11XP 3 ')), None)
+        chequear(o11 == ['1101', '1102', '1103'] and l2 and l3 and not l3['exacto_o'] and l3.get('aprox_o') == 'vecinos'
+                 and l2['exacto_o'] and l3['marca_o'][0] > l2['marca_o'][0] + 3 and abs(l3['marca_o'][1] - l2['marca_o'][1]) < 1,
+                 f"{t}: 11XP en orden 1101 -> 1102 -> 1103 ({o11}); el 11XP 3 aproximado con los vecinos, a la derecha del 11XP 2 "
+                 f"({(l3 or {}).get('marca_o')} vs {(l2 or {}).get('marca_o')}, {(l3 or {}).get('aprox_o')})")
+    # un aproximado sacado de los vecinos exactos: sigue aproximado (con aviso) y cae dentro de la placa
+    for L in lats:
+        vs = [(l['num'], l['marca_o' if w == 'o' else 'marca_d'], l.get('exacto_' + w)) for l in lineas(L) for w in ('o', 'd') if l.get('aprox_' + w) == 'vecinos']
+        if vs:
+            chequear(all(not ex and dentro_de(m, L['placa']) for _, m, ex in vs),
+                     f"{t} {L['nombre']}: {len(vs)} punta(s) aproximada(s) con los bornes vecinos, dentro de la placa y sin marcarse exactas ({[v[0] for v in vs]})")
+
+
+
+
+def ruteo_e85(t, ins):
+    """ajuste a mano (estacion8.rutear_punto, la de POST /e8/punto): con el mismo punto da lo armado; con otro punto el
+    recorrido sale de ahi (y el destino de un cable de la misma lateral)"""
+    E8 = e8_modulo()
+    for i, L in enumerate(ins['estacion8']['laterales']):
+        ls = [l for l in lineas(L) if l.get('ruta') and not l.get('empalme')]
+        if not ls:
+            continue
+        l = ls[0]
+        r0 = E8.rutear_punto(ins, {}, i, l['clave'], 'o', l['marca_o'][:2])
+        igual = r0 and r0['largo_mm'] == l['largo_mm'] and len(r0['ruta']) == len(l['ruta']) and all(cerca(a, b, 0.5) for a, b in zip(r0['ruta'], l['ruta']))
+        chequear(igual, f"{t} {L['nombre']}: {l['num']} con el mismo punto da el recorrido armado")
+        q = [round(l['marca_o'][0] + 1.5, 2), l['marca_o'][1]]
+        r1 = E8.rutear_punto(ins, {}, i, l['clave'], 'o', q)
+        chequear(r1 and r1['ruta'] and cerca(r1['ruta'][0], q, 0.06) and r1['marca'] == q and r1['largo_mm'],
+                 f"{t} {L['nombre']}: {l['num']} con el punto corrido a {q}: el recorrido sale de ahí ({(r1 or {}).get('ruta', [None])[0]})")
+        ld = next((x for x in lineas(L) if x.get('marca_d') and x.get('ruta') and not x.get('empalme_d')), None)
+        if ld:
+            qd = [round(ld['marca_d'][0] - 1.5, 2), ld['marca_d'][1]]
+            rd = E8.rutear_punto(ins, {}, i, ld['clave'], 'd', qd)
+            chequear(rd and rd['ruta'] and cerca(rd['ruta'][-1], qd, 0.06) and cerca(rd['ruta'][0], ld['marca_o'], 0.06),
+                     f"{t} {L['nombre']}: {ld['num']} (de la misma lateral) con el destino corrido a {qd}: el recorrido termina ahí")
+        emp = next((x for x in lineas(L) if x.get('empalme')), None)
+        if emp:
+            chequear(E8.rutear_punto(ins, {}, i, emp['clave'], 'o', emp['marca_o'][:2]) is None, f"{t} {L['nombre']}: la punta de un empalme no se ajusta ({emp['num']})")
+    chequear(E8.rutear_punto(ins, {}, 99, 'x', 'o', [0, 0]) is None, f"{t}: rutear_punto de una lateral que no existe: None")
+
+
 def regenerar_e82(tmp):
     """regenerar conserva lo elegido; un topografico nuevo lo borra (web.gen_instructivo sobre una copia del TPT del
     constructivo, en un historial temporal)"""
@@ -530,6 +678,11 @@ def regenerar_e82(tmp):
         li['clave_vista']: {'entrada': [], 'puerta': [], 'grupos': []},
         'PUERTA': {'entrada': [], 'puerta': [], 'grupos': [], 'paso': pp}}}
     ins1['estacion8']['recorridos'] = rec          # (como la pestaña: PUT /instructivo con lo elegido)
+    # (E8-5) un punto ajustado a mano con 📍 en el visor de E8: la punta de la bateria (aproximada) de la lateral izquierda
+    lu = next((l for l in lineas(li) if not l['exacto_o'] and not l.get('empalme')), None)
+    pu_ = [round(lu['marca_o'][0] + 2.0, 2), round(lu['marca_o'][1] + 3.0, 2)] if lu else None
+    if lu:
+        ins1['bornes_usuario'] = dict(ins1.get('bornes_usuario') or {}, **{f"{lu['origen']}#{lu['num']}": pu_})
     with open(pj, 'w', encoding='utf-8') as f:
         json.dump(ins1, f, ensure_ascii=False)
     ins2 = gen()
@@ -538,6 +691,12 @@ def regenerar_e82(tmp):
     e8b = ins2['estacion8']
     ld2, li2 = lateral(e8b, 'LD'), lateral(e8b, 'LI')
     chequear(e8b.get('recorridos') == rec, f"regenerar conserva la entrada, el grupo y la bisagra ({e8b.get('recorridos')})")
+    if chequear(lu is not None, 'hay una punta aproximada en la lateral izquierda para ajustar a mano'):
+        lu2 = next((l for l in lineas(li2) if l['clave'] == lu['clave']), None)
+        chequear(lu2 and lu2['exacto_o'] and lu2.get('conf_o') == 'usuario' and lu2['marca_o'][:2] == pu_ and lu2.get('ruta') and cerca(lu2['ruta'][0], pu_, 0.06)
+                 and li2['exactos'] == li['exactos'] + 1,
+                 f"regenerar con el punto ajustado a mano de {lu['origen']} #{lu['num']} en bornes_usuario: exacto ('usuario') en {pu_} "
+                 f"({(lu2 or {}).get('marca_o')}, {(lu2 or {}).get('conf_o')}; {li2['exactos']} con el punto del borne)")
     ok = [l for l in salen(ld2) if (cerca(fin(l.get('ruta')), q) if l['num'] == g else cerca(fin(l.get('ruta')), p))]
     chequear(len(ok) == len(salen(ld2)) and all(l.get('salida') == 'g1' for l in salen(ld2) if l['num'] == g),
              f"LD: {len(ok)} de {len(salen(ld2))} terminan en la entrada elegida {p} (y el {g}, del grupo, en {q})")
@@ -577,8 +736,8 @@ def regenerar_e82(tmp):
     chequear(all(cerca(fin(l.get('ruta')), ld3['entrada_propuesta'], 0.15) for l in salen(ld3)),
              f"y la LD vuelve a la entrada propuesta {ld3['entrada_propuesta']}")
     # (el instructivo de E6 no cambia con lo elegido en E8)
-    sin = lambda d: {k: v for k, v in d.items() if k not in ('estacion8', 'generado', 'mapeo', 'salidas', 'producto')}
-    chequear(sin(ins1) == sin(ins2), 'lo elegido en E8 no cambia el instructivo de E6')
+    sin = lambda d: {k: v for k, v in d.items() if k not in ('estacion8', 'generado', 'mapeo', 'salidas', 'producto', 'bornes_usuario')}
+    chequear(sin(ins1) == sin(ins2), 'lo elegido en E8 (y el punto de una lateral ajustado a mano) no cambia el instructivo de E6')
 
 
 def e6_igual(t, sal):
@@ -638,6 +797,9 @@ def main():
             esperado_e84(t, e8)
             if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None:
                 ruteo_e84(t, ins)
+            esperado_e85(t, e8)
+            if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None:
+                ruteo_e85(t, ins)
             if not bases:
                 e6_igual(t, sal)
         if not bases:

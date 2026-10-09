@@ -69,7 +69,19 @@ tablas borne por borne (e8['afuera']) siguen igual. Cada cable de un aparato dib
 En la lateral del lado de la bisagra, la capa «Pasan hacia la puerta (N)» (L['transito']) es el haz de los cables que
 siguen a la puerta y vienen de la bandeja principal o de la otra lateral (e8['hacia_puerta']): entran por la entrada de
 la lateral y salen a la puerta por la salida a la puerta (la de arriba, del lado de la puerta). No esta en los pasos de
-la lateral (no se cablean ahi ni cambian la WPC)."""
+la lateral (no se cablean ahi ni cambian la WPC).
+
+PUNTOS EXACTOS DE LOS BORNES DE LAS LATERALES (etapa E8-5, 2026-10-08, propuesta B.4). mapear_bornes (web.gen_instructivo,
+despues de instructivo.build) corre el motor de bornes/ por cada lateral (bornes.laterales: la placa como region; los
+rieles de la capa del riel o, si no hay, los rectangulos con el perfil del riel en cualquier capa; y el riel tapado de la
+fila de etiquetas) y deja lay['bornes_e8'] / bornes_e8_conf / bornes_e8_nota con el texto del FUNCIONAL: no renombra
+textos (E6 y sus pendientes no cambian). Cache en <trabajo>/bornes_e8_auto.json. El punto de cada punta: bornes_usuario
+(ajustado a mano con 📍 en el visor de E8, el mismo diccionario de E6) > lay['bornes'] (manuales del trabajo, mapeo
+verificado de EPLAN) > bornes_e8 > aproximado; la linea dice de donde sale (conf_o / conf_d: 'usuario', 'alta', 'media';
+nota_o / nota_d) y las puntas que siguen aproximadas se avisan por lateral. El aproximado de un borne de una bornera
+con otros bornes exactos del mismo lado del riel sale de ellos, con su paso (afinar_aproximados; aprox_o / aprox_d =
+'vecinos'), y no de la etiqueta: el orden de izquierda a derecha cuadra con los exactos. El ajuste a mano se previsualiza con
+rutear_punto (POST /e8/punto) sin rearmar nada."""
 import collections
 import json
 import math
@@ -79,12 +91,13 @@ import unicodedata
 
 from instructivo import conductors, fmt_terminal, cable_desc, natk, puntos_salida, sale_abajo, materiales_funcional
 # (movida a planocables.base: sigue siendo estacion8.e8_clave)
-from planocables.base.convenciones import clave_par as e8_clave, sin_lado, side_of, LATERAL_RE
+from planocables.base.convenciones import clave_par as e8_clave, sin_lado, side_of, LATERAL_RE, is_terminal_block
 
-VERSION = 5       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
+VERSION = 6       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
                   # 3 (2026-10-08): entrada a las laterales y bisagra de la puerta (recorridos)
                   # 4 (2026-10-08): empalmes con el cable propio de un aparato (WAGO del cargador, RS-485)
                   # 5 (2026-10-08): vista de la puerta con recorridos y transito hacia la puerta en la lateral de la bisagra
+                  # 6 (2026-10-08): puntos exactos de los bornes de las laterales (mapear_bornes: bornes_e8; conf_o / conf_d)
 AQUI = os.path.dirname(os.path.abspath(__file__))
 MAX_LINEAS = 7
 MARGEN_IMG_H = 0.5    # imagen de la lateral: la placa entera + medio perfil de riel de cada lado
@@ -683,23 +696,14 @@ def transito(net, lado, vrec, prop, hacia_puerta, propios):
     return dict(n=len(cs), cables=cs, ruta=ruta, propios=propios)
 
 
-def build(res, lay, ins):
-    """-> dict(version, laterales=[{nombre, lado, region (la imagen), placa, titulo, pag, escala, ductos, rieles,
-    sin_riel, pasos, n, (transito)}], afuera=[{tag, donde, cables, (en_puerta)}], puerta={...} (si el topografico trae la
-    vista de la puerta), hacia_puerta=[...], campo=n, avisos). ins = el instructivo de E6 ya armado (para escribir las
-    puntas de la bandeja principal con el mismo texto que E6, con su lado fisico)."""
+def vistas_laterales(lay):
+    """las bandejas laterales del topografico: las vistas de la hoja que no son la bandeja principal y tienen aparatos
+    de un lateral. La vista es la PLACA entera de la lateral (topo.vistas_e8; EPLAN: el recuadro de la vista).
+    -> [{i, nombre, lado, region (la imagen), placa, tags, rieles (ejes, de arriba abajo), ductos, titulo, clave}]"""
     comp = lay.get('comp') or {}
-    bornes = lay.get('bornes') or {}
-    usuario = lay.get('bornes_usuario') or {}
     vistas = lay.get('vistas') or []
     i_band = lay.get('bandeja')
-    kr = (lay.get('perfil_riel_pt') or 24.8) / 24.8      # (como E6: 1.0 en el 75441; las medidas en pt se escalan)
-    avisos = []
-    # entrada a las laterales y bisagra elegidas en la web (se conservan al regenerar; None la primera vez o con un
-    # topografico nuevo: el asistente pregunta)
-    rec = leer_recorridos(lay.get('recorridos_e8'))
-    # vistas laterales: las de la hoja del topografico que no son la bandeja principal y tienen aparatos de un lateral.
-    # La vista es la PLACA entera de la lateral (topo.vistas_e8; EPLAN: el recuadro de la vista)
+    kr = (lay.get('perfil_riel_pt') or 24.8) / 24.8
     lat_comp = {t: c for t, c in comp.items() if c.get('ubic') != 'BANDEJA' and not c.get('estacion')
                 and isinstance(c.get('x'), (int, float)) and isinstance(c.get('y'), (int, float))}
     laterales = []
@@ -730,6 +734,120 @@ def build(res, lay, ins):
             ck += f'#{sum(1 for x in laterales if x["clave"].split("#")[0] == ck) + 1}'
         laterales.append(dict(i=i, nombre=_nombre_vista(v, lado), lado=lado, region=region, placa=list(placa), tags=tags,
                               rieles=rieles, ductos=v.get('ductos') or [], titulo=v.get('titulo'), clave=ck))
+    return laterales
+
+
+# ------------------------------------------------------------------ puntos de los bornes de las laterales (etapa E8-5)
+CACHE_BORNES = 'bornes_e8_auto.json'       # (en la carpeta del trabajo; aparte del bornes_auto.json de la bandeja)
+# los avisos y notas del motor de bornes vienen sin tildes (el motor no se toca: sus textos tambien estan en lo de E6);
+# en la pantalla de E8 se ven, asi que se les ponen. Solo palabras en minuscula y sin ambiguedad: los textos del
+# funcional (en mayuscula, o con sus propias tildes) no se tocan
+_TILDES = [(re.compile(r'\b' + a + r'\b'), b) for a, b in (
+    ('catalogo', 'catálogo'), ('ningun', 'ningún'), ('geometria', 'geometría'), ('encontro', 'encontró'),
+    ('encontre', 'encontré'), ('posicion', 'posición'), ('topografico', 'topográfico'), ('renglon', 'renglón'),
+    ('automatico', 'automático'), ('conexion', 'conexión'), ('numero', 'número'), ('modulo', 'módulo'),
+    ('no esta en', 'no está en'), ('dos o mas', 'dos o más'), ('se tomo', 'se tomó'), ('se paso a', 'se pasó a'),
+    ('se ubico', 'se ubicó'), ('que tipo de', 'qué tipo de'))]
+
+
+def _tildes(txt):
+    for a, b in _TILDES:
+        txt = a.sub(b, txt)
+    return txt
+
+
+def mapear_bornes(res, lay, dir_trabajo, topo_pdf, cache=True):
+    """Punto de cada borne de las bandejas laterales con el motor de bornes/ (bornes.laterales: la placa de cada lateral
+    como region y sus rieles, incluido el riel tapado por las etiquetas). Deja lay['bornes_e8'] ('texto#cable' ->
+    [x, y, r], con el texto del FUNCIONAL), lay['bornes_e8_conf'] ('alta' | 'media') y lay['bornes_e8_nota'] (por que,
+    de los 'media'). NO renombra textos (E6 y sus pendientes no cambian): un borne que el motor ubica en otro bloque o en
+    otro modulo queda con el punto aproximado y un aviso. EPLAN no lo usa (su mapeo verificado ya trae las laterales).
+    Calculo guardado en <trabajo>/bornes_e8_auto.json (una entrada por lateral). Nunca levanta excepciones.
+    -> resumen para ins['estacion8']['mapeo']: {vistas: [{clave, nombre, componentes, puntos: {alta, media, baja},
+       usados, modelos, rieles, rieles_agregados, avisos, error}], avisos}"""
+    for k in ('bornes_e8', 'bornes_e8_conf', 'bornes_e8_nota'):
+        lay.pop(k, None)
+    out = dict(vistas=[], avisos=[])
+    if lay.get('eplan'):
+        return out
+    for k in ('bornes_e8', 'bornes_e8_conf', 'bornes_e8_nota'):
+        lay[k] = {}
+    try:
+        from instructivo import usos_bandeja
+        from bornes import laterales as BL
+        laterales = vistas_laterales(lay)
+        if not laterales:
+            return out
+        mats = materiales_funcional(res)
+        cs = conductors(res)
+        path = os.path.join(dir_trabajo, CACHE_BORNES) if (cache and dir_trabajo) else None
+        cch = BL.leer_cache(path) if path else None
+        vivas = set()
+        for L in laterales:
+            usos = usos_bandeja(res, lay, topo_pdf, tags=L['tags'], region=L['placa'], cs=cs)
+            sal = BL.mapear_lateral(topo_pdf, usos, mats, ejes=L['rieles'], H=lay.get('perfil_riel_pt'), ductos=L['ductos'],
+                                    cache=cch, clave=L['clave'])
+            vivas.add(L['clave'])
+            n = collections.Counter(p.get('confianza') for p in sal.get('puntos') or [])
+            av = [_tildes(a) for a in sal.get('avisos') or [] if not a.startswith('plano monocromo')]
+            usados = 0
+            con_punto = set()          # aparatos con al menos un punto usado (los modelos que se muestran)
+            for p in sal.get('puntos') or []:
+                if p.get('confianza') not in ('alta', 'media') or not p.get('cables'):
+                    continue
+                t0, t1 = p.get('texto'), p.get('texto_ubicado') or p.get('texto')
+                if t1 != t0:          # (el motor lo ubica en otro bloque o modulo: E8 no cambia el texto del funcional)
+                    av.append(f"cable {', '.join(p['cables'])}: el mapeo ubica '{t0}' en '{t1}'; queda con el punto aproximado "
+                              "(en E8 no se cambian los textos del funcional)")
+                    continue
+                for c in p['cables']:
+                    k = f'{t0}#{c}'
+                    lay['bornes_e8'][k] = [round(float(p['x']), 2), round(float(p['y']), 2), p.get('r')]
+                    lay['bornes_e8_conf'][k] = p['confianza']
+                    if p['confianza'] != 'alta':
+                        lay['bornes_e8_nota'][k] = _tildes(p.get('como') or '')
+                    usados += 1
+                    con_punto.add(p.get('componente'))
+            # (solo los modelos con los que el motor ubico algun borne usado: el que eligio para un aparato sin ningun
+            # punto, ej. la bateria tomada como portafusible, no se muestra; su aviso dice que quedo sin punto exacto)
+            modelos = {t: m for t, m in (sal.get('modelos') or {}).items() if t in con_punto and m and m != '?'}
+            out['vistas'].append(dict(clave=L['clave'], nombre=L['nombre'], componentes=sorted(L['tags']),
+                                      puntos=dict(alta=n.get('alta', 0), media=n.get('media', 0), baja=n.get('baja', 0)), usados=usados,
+                                      modelos=modelos, rieles=sal.get('rieles') or [],
+                                      rieles_agregados=sal.get('rieles_agregados') or [], avisos=list(dict.fromkeys(av)),
+                                      error=sal.get('error')))
+            if sal.get('error'):
+                out['avisos'].append(f"{L['nombre']}: el mapeo automático de bornes falló ({sal['error']}); queda el punto aproximado")
+        if cch is not None:
+            BL.escribir_cache(path, {k: v for k, v in cch.items() if k in vivas})
+    except Exception as ex:                                                # noqa: BLE001
+        import traceback
+        for k in ('bornes_e8', 'bornes_e8_conf', 'bornes_e8_nota'):
+            lay[k] = {}
+        out['error'] = f'{type(ex).__name__}: {ex}'
+        out['detalle'] = traceback.format_exc()
+        out['avisos'].append(f'no se pudieron ubicar los bornes de las bandejas laterales ({type(ex).__name__}: {ex}); quedan con el punto aproximado')
+    return out
+
+
+def build(res, lay, ins):
+    """-> dict(version, laterales=[{nombre, lado, region (la imagen), placa, titulo, pag, escala, ductos, rieles,
+    sin_riel, pasos, n, (transito)}], afuera=[{tag, donde, cables, (en_puerta)}], puerta={...} (si el topografico trae la
+    vista de la puerta), hacia_puerta=[...], campo=n, avisos). ins = el instructivo de E6 ya armado (para escribir las
+    puntas de la bandeja principal con el mismo texto que E6, con su lado fisico)."""
+    comp = lay.get('comp') or {}
+    bornes = lay.get('bornes') or {}
+    usuario = lay.get('bornes_usuario') or {}
+    # puntos de los bornes de las laterales del mapeo automatico (mapear_bornes; claves aparte, sin renombrar textos)
+    bornes_e8 = lay.get('bornes_e8') or {}
+    conf_e8 = lay.get('bornes_e8_conf') or {}
+    nota_e8 = lay.get('bornes_e8_nota') or {}
+    kr = (lay.get('perfil_riel_pt') or 24.8) / 24.8      # (como E6: 1.0 en el 75441; las medidas en pt se escalan)
+    avisos = []
+    # entrada a las laterales y bisagra elegidas en la web (se conservan al regenerar; None la primera vez o con un
+    # topografico nuevo: el asistente pregunta)
+    rec = leer_recorridos(lay.get('recorridos_e8'))
+    laterales = vistas_laterales(lay)
     de_lateral = {t: L for L in laterales for t in L['tags']}
     # vista de la PUERTA (topo.puerta_e8; otra hoja del topografico): sus aparatos dibujados
     P = lay.get('puerta') if isinstance(lay.get('puerta'), dict) and (lay['puerta'].get('box') and lay['puerta'].get('pag')) else None
@@ -785,23 +903,39 @@ def build(res, lay, ins):
         return ap_tag(e) in en_puerta or not _dibujado(comp.get(ap_tag(e)))
 
     def punto(e, num, L):
-        """(x, y, r, exacto) del borne en la vista lateral L. Sin mapeo: aproximado, del lado del borne (side_of, como
-        E6: 'parte de arriba' arriba del tag y 'parte de abajo' abajo), con las medidas escaladas con kr"""
-        for t in (fmt_terminal(e), e.get('texto')):
-            if not t:
-                continue
-            for k in (f'{t}#{num}', t):
-                v = usuario.get(k) or bornes.get(k)
-                if v and _dentro((float(v[0]), float(v[1])), L['placa']):
-                    return float(v[0]), float(v[1]), (float(v[2]) if len(v) > 2 and v[2] else None), True
+        """(x, y, r, exacto, conf, nota) del borne en la vista lateral L. En orden: el ajustado a mano en el visor
+        (bornes_usuario, conf 'usuario'), el del mapeo del trabajo (lay['bornes']: bornes.json / correcciones.json, el
+        mapeo verificado de EPLAN), el del mapeo automatico de la lateral (bornes_e8, conf 'alta' | 'media'). Sin
+        ninguno: aproximado, del lado del borne (side_of, como E6: 'parte de arriba' arriba del tag y 'parte de abajo'
+        abajo), con las medidas escaladas con kr"""
+        if not e.get('empalme_dibujado'):          # (el cable numerado de un WAGO no llega al borne del aparato)
+            for fuente in (usuario, bornes, bornes_e8):
+                for t in (fmt_terminal(e), e.get('texto')):
+                    if not t:
+                        continue
+                    for k in (f'{t}#{num}', t):
+                        v = fuente.get(k)
+                        if v and _dentro((float(v[0]), float(v[1])), L['placa']):
+                            conf = 'usuario' if fuente is usuario else conf_e8.get(k, 'alta') if fuente is bornes_e8 else None
+                            return (float(v[0]), float(v[1]), (float(v[2]) if len(v) > 2 and v[2] else None), True, conf,
+                                    nota_e8.get(k) if fuente is bornes_e8 else None)
         c = comp.get(ap_tag(e)) or {}
         x, y = float(c.get('x') or 0), float(c.get('y') or 0)
         if e.get('empalme'):          # (el empalme no es un borne: el punto del aparato, donde llega su cable propio)
-            return x, y, None, False
+            return x, y, None, False, None, None
         b = e.get('borne') or ''
         if re.fullmatch(r'\d+', b):
             x += min(int(b), 14) * 3.5 * kr      # el tag nombra los bornes que tiene a su derecha
-        return x, y + (12 * kr if side_of(e) == 0 else -12 * kr), None, False
+        return x, y + (12 * kr if side_of(e) == 0 else -12 * kr), None, False, None, None
+
+    def num_bornera(e):
+        """numero del borne de una BORNERA (tag con X: el numero es la pieza, de izquierda a derecha) para ubicar su
+        punto aproximado con los bornes vecinos que tienen el punto exacto (afinar_aproximados); None en otro aparato,
+        un empalme o un borne sin numero solo (QUATTRO N.p, A1, +...)"""
+        b = str(e.get('borne') or '').strip()
+        if e.get('empalme') or e.get('empalme_dibujado') or not is_terminal_block(e.get('tag_base')) or not re.fullmatch(r'\d+', b):
+            return None
+        return int(b)
 
     def lado_de(p, e, L):
         """(0 = parte de arriba / 1 = parte de abajo, numero de riel: 1 = el de arriba; None en una vista sin riel).
@@ -886,7 +1020,11 @@ def build(res, lay, ins):
                 ce = comp.get(ap_tag(e)) or {}
                 l = dict(base, origen=t, marca_o=[round(po[0], 2), round(po[1], 2), po[2]], exacto_o=po[3],
                          riel=riel, lado='arriba' if so == 0 else 'abajo', componente=e.get('tag') or e.get('tag_base') or '',
-                         _so=so, _po=po, _x=ce.get('x') or po[0], _y=ce.get('y') or po[1], _tag=ap_tag(e))
+                         _so=so, _po=po, _x=ce.get('x') or po[0], _y=ce.get('y') or po[1], _tag=ap_tag(e), _n_o=num_bornera(e))
+                if po[4]:                    # de donde sale el punto: 'usuario' (visor) o el mapeo de la lateral
+                    l['conf_o'] = po[4]
+                    if po[5]:
+                        l['nota_o'] = po[5]
                 emp = empalme_de(e, ne, c)
                 if emp:
                     l['_emp'] = emp          # empalme con el cable propio del aparato (su lugar, despues: por aparato)
@@ -894,7 +1032,12 @@ def build(res, lay, ins):
                     pd = punto(eo, num, L)
                     sd, _ = lado_de(pd, eo, L)
                     l.update(destino=to, marca_d=[round(pd[0], 2), round(pd[1], 2), pd[2]], exacto_d=pd[3], otra='misma bandeja',
-                             _sd=sd, _pd=pd)
+                             lado_d='arriba' if sd == 0 else 'abajo',
+                             _sd=sd, _pd=pd, _tag_d=eo.get('tag') or eo.get('tag_base') or '', _n_d=num_bornera(eo))
+                    if pd[4]:
+                        l['conf_d'] = pd[4]
+                        if pd[5]:
+                            l['nota_d'] = pd[5]
                     emp_d = empalme_de(eo, no, c)
                     if emp_d:
                         l['_emp_d'] = emp_d
@@ -970,6 +1113,52 @@ def build(res, lay, ins):
                 d.update(lugar.get((emp['aparato'], l['num'], txt)) or {})
                 l[out_k] = d
 
+    def afinar_aproximados(L, ls):
+        """punto aproximado de un borne de una bornera que tiene otros bornes con el punto EXACTO en la lateral L (del
+        mismo lado del riel): sale de ellos y no de la etiqueta, con el paso entre bornes exactos consecutivos (mediana;
+        vale tambien con el riel en otra direccion) desde el exacto de numero mas cercano. Con un solo vecino exacto, en
+        una vista con riel: el paso del aproximado (3,5 pt por borne, escalado), a la derecha (el tag nombra los bornes a
+        su derecha). Asi el orden de cableado (en cada riel, de izquierda a derecha) y el punto del visor cuadran con los
+        exactos (75287: el 11XP 3, la pieza PE, queda a la derecha del 11XP 2 y no entre el 1 y el 2). Sigue siendo
+        aproximado (exacto False, aviso, 📍 en el visor); la linea lo dice con aprox_o / aprox_d = 'vecinos'. Sin vecinos
+        exactos del mismo lado, o si el punto cae fuera de la placa, queda el de la etiqueta."""
+        ref = collections.defaultdict(lambda: collections.defaultdict(list))       # (aparato, lado) -> numero -> [(x, y)]
+        puntas = []
+        for l in ls:
+            for w, k_ap, k_so, k_p, k_emp in (('o', 'componente', '_so', '_po', '_emp'), ('d', '_tag_d', '_sd', '_pd', '_emp_d')):
+                n = l.get('_n_' + w)
+                if n is None or k_p not in l or l.get(k_emp):
+                    continue
+                k = (l[k_ap], l[k_so])
+                if l.get('exacto_' + w):
+                    ref[k][n].append((float(l[k_p][0]), float(l[k_p][1])))
+                else:
+                    puntas.append((l, w, k, n))
+        for l, w, k, n in puntas:
+            r = {m: (sum(p[0] for p in ps) / len(ps), sum(p[1] for p in ps) / len(ps)) for m, ps in (ref.get(k) or {}).items()}
+            if not r:
+                continue
+            ns = sorted(r)
+            if len(ns) >= 2:
+                pasos = [((r[b][0] - r[a][0]) / (b - a), (r[b][1] - r[a][1]) / (b - a)) for a, b in zip(ns, ns[1:])]
+                med = lambda v: sorted(v)[len(v) // 2] if len(v) % 2 else (sorted(v)[len(v) // 2 - 1] + sorted(v)[len(v) // 2]) / 2
+                paso = (med([p[0] for p in pasos]), med([p[1] for p in pasos]))
+            elif L['rieles']:
+                paso = (3.5 * kr, 0.0)
+            else:
+                continue
+            m = min(ns, key=lambda m_: (abs(m_ - n), m_))
+            x, y = r[m][0] + (n - m) * paso[0], r[m][1] + (n - m) * paso[1]
+            if not _dentro((x, y), L['placa']):
+                continue
+            if w == 'o':
+                l['_po'] = (x, y, None, False, None, None)
+                l['marca_o'] = [round(x, 2), round(y, 2), None]
+            else:
+                l['_pd'] = (x, y, None, False, None, None)
+                l['marca_d'] = [round(x, 2), round(y, 2), None]
+            l['aprox_' + w] = 'vecinos'
+
     # ---- orden y pasos de cada bandeja lateral (regla del taller: riel por riel de arriba abajo; en cada riel la parte
     # de arriba de izquierda a derecha y despues la de abajo; aparato por aparato; el de mas afuera del riel primero).
     # Vista SIN riel: aparato por aparato, de arriba abajo y de izquierda a derecha; en cada aparato la parte de arriba
@@ -979,6 +1168,7 @@ def build(res, lay, ins):
         ls = tramos_lat[L['i']]
         if not ls:
             continue
+        afinar_aproximados(L, ls)
         for l in ls:
             if L['rieles']:
                 eje = L['rieles'][l['riel'] - 1]
@@ -987,6 +1177,22 @@ def build(res, lay, ins):
                 l['_orden'] = (-round(l['_y']), round(l['_x'], 1), l['_tag'], l['_so'], l['_po'][0], natk(l['origen']))
         ls.sort(key=lambda l: l['_orden'])
         ubicar_empalmes(L, ls)
+        # (con el mapeo automatico de la lateral, mapear_bornes) las puntas que siguen con el punto aproximado: aviso
+        if 'bornes_e8' in lay:
+            aps = [l['componente'] for l in ls if not l['exacto_o'] and not l.get('_emp')] + \
+                  [l['_tag_d'] for l in ls if 'marca_d' in l and not l['exacto_d'] and not l.get('_emp_d')]
+            if aps:
+                avisos.append(f"{L['nombre']}: {len(aps)} punta{'s' if len(aps) > 1 else ''} con el punto aproximado "
+                              f"({', '.join(dict.fromkeys(aps))}): el mapeo automático de bornes no la{'s' if len(aps) > 1 else ''} ubicó; "
+                              "se ajusta en el visor con 📍")
+        # punto exacto del otro lado del riel que el ARRIBA / ABAJO del funcional (en E8 el texto no se cambia: aviso)
+        if L['rieles']:
+            for l in ls:
+                for txt, ex, lad in ((l['origen'], l['exacto_o'], l['lado']), (l.get('destino'), l.get('exacto_d'), l.get('lado_d'))):
+                    m = re.search(r' (ARRIBA|ABAJO)$', txt or '')
+                    if ex and m and lad and m.group(1).lower() != lad:
+                        avisos.append(f"{L['nombre']}: cable {l['num']}: el funcional dice '{txt}' pero el punto del borne está en la parte "
+                                      f"de {lad} del riel (el texto queda como en el funcional; revisalo en el visor)")
         # ruteo por las canaletas de la bandeja lateral; los que salen de la lateral entran / salen por la entrada (del
         # lado del fondo) o, en la lateral de la bisagra, los que siguen a la puerta por el lado de la puerta: elegidas
         # a mano (recorridos) o la propuesta (ver rutear_lineas)
@@ -1116,6 +1322,69 @@ def rutear_guardado(ins, rec):
                                            ((ins or {}).get('estacion8') or {}).get('hacia_puerta') or [],
                                            sum(1 for l in ls if l.get('sale') == 'puerta'))
     return out
+
+
+def rutear_punto(ins, rec, vista, clave, punta, xy, linea=None):
+    """vista previa del AJUSTE A MANO de un punto en el visor de E8 (POST /e8/punto; etapa E8-5): el recorrido del cable
+    'clave' de la lateral 'vista' con su punta 'o' (origen) o 'd' (destino, cable de la misma lateral) en xy, con los
+    recorridos 'rec' (la entrada elegida...), SIN rearmar nada (como rutear_guardado). El lado de la punta (por donde
+    sale el cable hacia la canaleta) es el del riel mas cercano (arriba o abajo de su eje); sin rieles, el que tenia.
+    El punto se guarda en bornes_usuario (lo guarda la pestaña, como en E6) y al regenerar manda. 'linea': la linea como
+    la tiene la pestaña ({marca_o, marca_d, lado, lado_d}: otra punta ajustada y todavia sin guardar); si no, la guardada.
+    -> {clave, punta, marca, lado, ruta, largo_mm, sale, salida, no_llega} o None (no esta, o la punta es un empalme)"""
+    from ruteo import Net
+    rec = leer_recorridos(rec)
+    topo = (ins or {}).get('topo') or {}
+    lats = ((ins or {}).get('estacion8') or {}).get('laterales') or []
+    if not isinstance(vista, int) or not 0 <= vista < len(lats) or punta not in ('o', 'd'):
+        return None
+    L = lats[vista]
+    l0 = next((l for p in L.get('pasos') or [] for l in p.get('lineas') or [] if l.get('clave') == clave), None)
+    if l0 is None or not l0.get('marca_o') or (punta == 'd' and not l0.get('marca_d')) or l0.get('empalme' if punta == 'o' else 'empalme_d'):
+        return None
+    try:
+        q = (round(float(xy[0]), 2), round(float(xy[1]), 2))
+    except (TypeError, ValueError, IndexError):
+        return None
+    rieles = [float(e) for e in L.get('rieles') or []]
+
+    def lado(p, antes):
+        if not rieles:
+            return antes
+        i = min(range(len(rieles)), key=lambda k: abs(rieles[k] - p[1]))
+        return 0 if p[1] >= rieles[i] else 1
+
+    # (la linea como la tiene la pestaña: la otra punta puede estar ajustada y sin guardar)
+    l0 = dict(l0)
+    for k in ('marca_o', 'marca_d'):
+        v = (linea or {}).get(k) if isinstance(linea, dict) else None
+        if isinstance(v, list) and len(v) >= 2 and all(isinstance(x, (int, float)) for x in v[:2]) and l0.get(k):
+            l0[k] = [float(v[0]), float(v[1])]
+    for k in ('lado', 'lado_d'):
+        v = (linea or {}).get(k) if isinstance(linea, dict) else None
+        if v in ('arriba', 'abajo'):
+            l0[k] = v
+    so = 0 if l0.get('lado') == 'arriba' else 1
+    sd = 0 if l0.get('lado_d', 'arriba') == 'arriba' else 1
+    po = q if punta == 'o' else (float(l0['marca_o'][0]), float(l0['marca_o'][1]))
+    so = lado(po, so) if punta == 'o' else so
+    l = dict(num=l0.get('num'), otra=l0.get('otra'), a_puerta=l0.get('a_puerta'), clave=clave, _po=po, _so=so, empalme=l0.get('empalme'))
+    if l0.get('marca_d'):
+        pd = q if punta == 'd' else (float(l0['marca_d'][0]), float(l0['marca_d'][1]))
+        sd = lado(pd, sd) if punta == 'd' else sd
+        l.update(marca_d=list(pd), _pd=pd, _sd=sd, empalme_d=l0.get('empalme_d'))
+    ductos = L.get('ductos') or []
+    ck = L.get('clave_vista') or clave_vista(L.get('lado'), L.get('titulo'))
+    bis = es_bisagra(rec, L.get('lado'))
+    prop = propuestas(ductos, L.get('lado'), bis, salida_e6(ins, L.get('lado')), L.get('placa') or L.get('region'), L.get('pag'),
+                      topo.get('region'), topo.get('pag'))
+    try:
+        net = Net(ductos) if ductos else None
+    except Exception:
+        net = None
+    rutear_lineas(net, ductos, [l], L.get('lado'), rec['vistas'].get(ck), bis, prop['por_entrada'], L.get('escala'))
+    return dict(clave=clave, punta=punta, marca=list(q), lado='arriba' if (so if punta == 'o' else sd) == 0 else 'abajo',
+                **{k: l.get(k) for k in ('ruta', 'largo_mm', 'sale', 'salida', 'no_llega')})
 
 
 def rutear_guardado_puerta(ins, rec):

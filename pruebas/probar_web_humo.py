@@ -316,6 +316,7 @@ def parte_a(tmp):
         e8 = ins.get('estacion8') or {}
         lats = e8.get('laterales') or []
         rec_e8 = None
+        punto_e8 = None         # (E8-5: el punto ajustado a mano en el visor de E8: clave de la vista, del cable y el punto)
         sale_e8 = lambda L: [l for p in L['pasos'] for l in p['lineas'] if 'marca_d' not in l]
         chequear(e8.get('recorridos') == {'preguntar': True, 'bisagra': None, 'vistas': {}} and all(L.get('clave_vista') for L in lats),
                  f"E8 la primera vez: el asistente pregunta ({e8.get('recorridos')}) y {len(lats)} laterales con su clave")
@@ -362,7 +363,25 @@ def parte_a(tmp):
                 golden['e8_recorridos_elegidos'] = normalizar((r.get_json() or {}).get('laterales'), tmp)
                 ins5 = get(u + '/instructivo').get_json() or {}
                 ins5['estacion8']['recorridos'] = rec_e8        # (como la pestaña: se guarda con el instructivo)
-                chequear(put(u + '/instructivo', json=ins5).status_code == 200, 'PUT /instructivo con la entrada y la bisagra de E8')
+                # (E8-5) el punto de un borne de la lateral ajustado a mano con 📍: vista previa POST /e8/punto y se guarda en
+                # bornes_usuario (como E6); al regenerar (A7) manda
+                il = lats.index(L)
+                lp = next((l for p in L['pasos'] for l in p['lineas'] if l.get('ruta') and not l.get('empalme')), None)
+                if chequear(lp is not None, f"A5c. {L['nombre']}: un cable para ajustar el punto de su borne"):
+                    pp_ = [round(lp['marca_o'][0] + 1.5, 2), lp['marca_o'][1]]
+                    r = post(u + '/e8/punto', json={'vista': il, 'clave': lp['clave'], 'punta': 'o', 'xy': pp_, 'recorridos': rec_e8,
+                                                    'linea': {k: lp.get(k) for k in ('marca_o', 'marca_d', 'lado', 'lado_d')}})
+                    j = r.get_json() or {}
+                    chequear(r.status_code == 200 and j.get('marca') == pp_ and j.get('ruta') and abs(j['ruta'][0][0] - pp_[0]) <= 0.06
+                             and abs(j['ruta'][0][1] - pp_[1]) <= 0.06 and j.get('largo_mm'),
+                             f"POST /e8/punto: {lp['num']} {lp['origen']} con el punto en {pp_}: el recorrido sale de ahí ({j.get('largo_mm')} mm)")
+                    golden['e8_punto'] = normalizar(j, tmp)
+                    ins5['bornes_usuario'] = dict(ins5.get('bornes_usuario') or {}, **{f"{lp['origen']}#{lp['num']}": pp_})
+                    punto_e8 = (L['clave_vista'], lp['clave'], pp_)
+                chequear(post(u + '/e8/punto', json={'vista': il, 'clave': 'no-existe', 'punta': 'o', 'xy': [1, 2]}).status_code == 404,
+                         'POST /e8/punto de un cable que no está: 404')
+                chequear(post(u + '/e8/punto', json={'vista': il, 'clave': 'x', 'punta': 'z', 'xy': [1, 2]}).status_code == 400, 'POST /e8/punto inválido: 400')
+                chequear(put(u + '/instructivo', json=ins5).status_code == 200, 'PUT /instructivo con la entrada y la bisagra de E8 (y el punto ajustado)')
         chequear(post(u + '/e8/recorridos', json={'recorridos': 'no'}).status_code == 400, 'POST /e8/recorridos inválido: 400')
         chequear(post('/api/trabajo/0123456789ab/e8/recorridos', json={'recorridos': {}}).status_code == 404, 'POST /e8/recorridos de un trabajo que no existe: 404')
 
@@ -402,6 +421,15 @@ def parte_a(tmp):
                      'mismas líneas que la primera vez')
             if rec_e8:
                 chequear((ins4.get('estacion8') or {}).get('recorridos') == rec_e8, 'se conservan la entrada a la lateral y la bisagra de E8')
+            if punto_e8:            # (E8-5) el punto ajustado a mano en la lateral manda al regenerar y E6 no cambia
+                vk, ck, pp_ = punto_e8
+                L4 = next((L for L in (ins4.get('estacion8') or {}).get('laterales') or [] if L.get('clave_vista') == vk), {})
+                l4p = next((l for p in L4.get('pasos') or [] for l in p['lineas'] if l['clave'] == ck), None)
+                chequear(l4p and l4p.get('exacto_o') and l4p.get('conf_o') == 'usuario' and l4p['marca_o'][:2] == pp_ and l4p.get('ruta')
+                         and abs(l4p['ruta'][0][0] - pp_[0]) <= 0.06,
+                         f"el punto ajustado a mano en la {L4.get('nombre', '?').lower()} ({(l4p or {}).get('origen')} #{(l4p or {}).get('num')}) manda al regenerar")
+                chequear([(l.get('marca_o'), l.get('marca_d')) for l in lineas_de(ins4)] == [(l.get('marca_o'), l.get('marca_d')) for l in lineas_de(ins3)],
+                         'y los puntos de E6 no cambian')
         contra_golden(t, golden)
 
     print('A8. estáticos')

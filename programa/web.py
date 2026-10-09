@@ -498,7 +498,13 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
             lay['recorridos_e8'] = None if topo_nuevo else (old.get('estacion8') or {}).get('recorridos')
             try:
                 import estacion8
+                # puntos de los bornes de las laterales: el motor de bornes por cada lateral (claves aparte del layout,
+                # bornes_e8; cache en bornes_e8_auto.json; sin renombrar textos: E6 no cambia). Los ajustados a mano en
+                # el visor de E8 van en bornes_usuario, como los de E6, y mandan
+                st.update(mensaje='Ubicando los bornes de las bandejas laterales…', progreso=0.95)
+                mapeo_e8 = estacion8.mapear_bornes(res, lay, P['dir'], P['topo'])
                 e8 = estacion8.build(res, lay, ins)
+                e8['mapeo'] = mapeo_e8
                 vivas = {l['clave'] for L in e8['laterales'] for p in L['pasos'] for l in p['lineas']} | {x['clave'] for g in e8['afuera'] for x in g['cables']}
                 e8['hechos'] = [k for k in ((old.get('estacion8') or {}).get('hechos') or []) if k in vivas]
             except Exception as e:      # E8 nunca frena el instructivo de E6
@@ -1041,6 +1047,36 @@ def rutas_e8(jid):
         return jsonify(error='El topográfico no tiene bandejas laterales'), 400
     import estacion8
     return jsonify(laterales=estacion8.rutear_guardado(ins, rec), puerta=estacion8.rutear_guardado_puerta(ins, rec))
+
+
+@app.post('/api/trabajo/<jid>/e8/punto')
+def punto_e8(jid):
+    """vista previa del ajuste a mano de un punto en el visor de la estacion 8 (📍): el recorrido del cable con su punta
+    en el punto marcado ({vista, clave, punta: 'o' | 'd', xy: [x, y], recorridos, linea: {marca_o, marca_d, lado,
+    lado_d} como la tiene la pestaña}), con las canaletas de la lateral y lo elegido de la entrada. No guarda nada: la
+    pestaña guarda el punto en bornes_usuario (como E6) y el instructivo"""
+    P = ins_paths(jid)
+    if not os.path.exists(P['json']):
+        abort(404)
+    body = request.get_json(silent=True)
+    if not isinstance(body, dict) or not isinstance(body.get('vista'), int) or body.get('punta') not in ('o', 'd') \
+            or not isinstance(body.get('xy'), list) or len(body['xy']) != 2 or not all(isinstance(v, (int, float)) for v in body['xy']) \
+            or not isinstance(body.get('clave'), str):
+        return jsonify(error='Datos inválidos'), 400
+    rec = body.get('recorridos')
+    if rec is not None and (not isinstance(rec, dict) or not isinstance(rec.get('vistas', {}), dict)):
+        return jsonify(error='Datos inválidos'), 400
+    with open(P['json'], encoding='utf-8') as f:
+        ins = json.load(f)
+    import estacion8
+    linea = body.get('linea')
+    if linea is not None and not isinstance(linea, dict):
+        return jsonify(error='Datos inválidos'), 400
+    r = estacion8.rutear_punto(ins, rec if rec is not None else (ins.get('estacion8') or {}).get('recorridos'),
+                               body['vista'], body['clave'], body['punta'], body['xy'], linea=linea)
+    if r is None:
+        return jsonify(error='No está ese cable en la bandeja lateral (o la punta es un empalme)'), 404
+    return jsonify(r)
 
 
 @app.get('/api/trabajo/<jid>/topo.png')

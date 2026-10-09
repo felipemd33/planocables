@@ -8745,7 +8745,7 @@
   "lado_fisico": []
  },
  "estacion8": {
-  "version": 5,
+  "version": 6,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",
@@ -8827,6 +8827,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           246.3,
@@ -8874,6 +8875,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           253.3,
@@ -8921,6 +8923,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           260.3,
@@ -8968,6 +8971,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           267.3,
@@ -9015,6 +9019,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           274.3,
@@ -9062,6 +9067,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           281.3,
@@ -9109,6 +9115,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           291.8,
@@ -9156,6 +9163,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           291.8,
@@ -9203,6 +9211,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           291.8,
@@ -9250,6 +9259,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           291.8,
@@ -10065,6 +10075,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "abajo",
         "ruta": [
          [
           208.3,
@@ -10112,6 +10123,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "abajo",
         "ruta": [
          [
           215.0,
@@ -10159,6 +10171,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "abajo",
         "ruta": [
          [
           221.8,
@@ -10206,6 +10219,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           237.3,
@@ -10261,6 +10275,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "arriba",
         "ruta": [
          [
           249.9,
@@ -10316,6 +10331,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "abajo",
         "ruta": [
          [
           262.5,
@@ -10363,6 +10379,7 @@
         ],
         "exacto_d": true,
         "otra": "misma bandeja",
+        "lado_d": "abajo",
         "ruta": [
          [
           275.1,
@@ -12494,7 +12511,11 @@
     "desde": "E6",
     "desde_txt": "bandeja principal"
    }
-  ]
+  ],
+  "mapeo": {
+   "vistas": [],
+   "avisos": []
+  }
  },
  "estaciones": {},
  "estacion": "E6",
