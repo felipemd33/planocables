@@ -33,6 +33,10 @@
      PT 001...: sin dibujar o dibujados en el fondo): como antes, acometida + canaleta de la bandeja + puerta (a
      confirmar con el taller). Una E8 de antes de E8-4 (sin hacia_puerta) no lo distingue: todo va a la puerta.
    Por producto se editan curva_LI, curva_LD, puerta y extra_puerta (de la lateral a la puerta); las acometidas son fijas.
+   COMUNICACIÓN (2026-10-09): el largo total de cada cable de comunicación lo da el producto, cable por cable
+   (largos_comunicacion = [{cable, mm}], cable = el número solo, para todos sus tramos, o el tramo «número|origen|destino»,
+   que manda); un cable de comunicación que está en la tabla lleva ese largo (sin redondear) y sigue fuera del arnés (se
+   corta a mano). Sin él, el largo calculado de siempre.
    «Canaleta» = la parte de la ruta que corre DENTRO de las canaletas (sin la acometida del borne, que va con el fijo).
    Sin E8 (plano sin la lateral): recorrido + sobrante + lo fijo a LI / LD + agregado. Pendientes de la lateral: canaleta
    de la lateral + margen (o puerta / placa) + agregado. La WPC solo corta (columnas fijas sin pelar ni crimpar).
@@ -51,6 +55,7 @@
      <largos>            margen_bandeja, agregado_bandeja, acometida, curva_LI, curva_LD, acometida_LI, puerta, margen_LI,
                          extra_puerta, extra_LI, extra_LD, agregado_LI, agregado_puerta, redondeo, largo_sin_ruta,
                          largo_pendiente (mm); pendientes / otra (true / false: incluirlos en la lista)
+     largos_comunicacion [{cable, mm}]: el largo total de cada cable de comunicación (se carga por producto)
      fuera               seccion_desde, comunicacion_seccion_hasta (mm²); comunicacion_re, solenoide_re, campo_re (regex,
                          sin distinguir mayúsculas, sobre «origen destino»)
      termos              mixto, abajo_abajo, arriba_arriba, sin_dato ("origen|destino"); opciones (las del menú)
@@ -269,10 +274,26 @@ const WpcCore = (() => {
   }
   // largo = recorrido por las canaletas + margen (pelado, peinado) y, si sale de la bandeja, lo que necesita en LI/LD,
   // más el AGREGADO del taller según adónde va (en bandeja / a LI / a puerta y placa), a más de los márgenes de siempre
+  // largo total de un cable de comunicación cargado en la configuración (por producto), o null. 'cable' = el tramo
+  // («número|origen|destino», la clave de la fila) o el número solo (vale para todos sus tramos); manda el tramo
+  function largoComunicacion(cfg, f) {
+    const t = Array.isArray(cfg.largos_comunicacion) ? cfg.largos_comunicacion : [];
+    const ok = c => c && c.mm !== null && c.mm !== '' && Number.isFinite(+c.mm);
+    const k = key(f.l), n = String(f.l.num ?? '').trim(), es = v => c => ok(c) && String(c.cable ?? '').trim() === v;
+    const x = t.find(es(k)) || t.find(es(n));
+    return x ? +x.mm : null;
+  }
   function largo(f, cfg, e8l, topo) {
     const P = k => num(cfg, k);
     e8l = e8l || { sale: {}, par: {} }; topo = topo || {};
     const l = f.l, r = P('redondeo') || 1, up = v => Math.ceil(v / r) * r;
+    // cable de comunicación con su largo total cargado (por producto): ese largo, en todas sus filas
+    const mot = f.motivo !== undefined ? f.motivo : motivoFuera(f, cfg);
+    const lc = mot && /^comunicación/.test(mot) ? largoComunicacion(cfg, f) : null;
+    if (lc != null) {
+      const de = (cfg._de || {}).largos_comunicacion, nivel = de === 'trabajo' ? 'este trabajo' : de === 'global' ? 'todos los productos' : 'el producto';
+      return { mm: lc, como: `largo total del cable de comunicación ${lc} (cargado en ${nivel})` };
+    }
     const AG = { bandeja: P('agregado_bandeja'), LI: P('agregado_LI'), puerta: P('agregado_puerta') };
     const mas = k => AG[k] ? ` + agregado ${k === 'LI' ? 'a LI' : k === 'puerta' ? 'puerta / placa' : 'en bandeja'} ${AG[k]}` : '';
     if (f.tipo === 'pendiente') {

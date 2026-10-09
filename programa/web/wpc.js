@@ -85,7 +85,7 @@ const Wpc = (() => {
     if (/^termos\.(mixto|sin_dato)$/.test(p.clave)) return '0|0';
     if (p.clave === 'termos.abajo_abajo') return '180|0';
     if (p.clave === 'termos.arriba_arriba') return '0|180';
-    return p.tipo === 'lista' || p.tipo === 'reemplazos' || p.tipo === 'marcador' ? [] : p.tipo === 'colores' ? {} : '';
+    return p.tipo === 'lista' || p.tipo === 'reemplazos' || p.tipo === 'marcador' || p.tipo === 'largos' ? [] : p.tipo === 'colores' ? {} : '';
   }
   const valor = (p, cfg) => { const v = C.leer(cfg, p.clave); return v === undefined ? defecto(p) : v; };
   function opciones(p, cfg) {
@@ -104,6 +104,10 @@ const Wpc = (() => {
     marcador: { cols: ['Desde mm²', 'Hasta mm²', 'Marcador (columna 21)'], nueva: () => ['', '', ''],
       filas: v => (v || []).map(t => [t.desde ?? '', t.hasta ?? '', t.valor ?? '']),
       valor: fs => fs.map(f => ({ desde: numONull(f[0]), hasta: numONull(f[1]), valor: String(f[2]) })) },
+    // largo total de cada cable de comunicación (se carga por producto)
+    largos: { cols: ['Cable (número, o número|origen|destino para un tramo)', 'Largo total (mm)'], nueva: () => ['', ''],
+      filas: v => (v || []).map(t => [t.cable ?? '', t.mm ?? '']),
+      valor: fs => fs.map(f => ({ cable: String(f[0]).trim(), mm: numONull(f[1]) })) },
   };
   function tabla(p, v, cfg) {
     const T = TABLAS[p.tipo], fs = T.filas(v), cod = cfg.codigos || [];
@@ -113,8 +117,9 @@ const Wpc = (() => {
         const ops = cod.includes(f[1]) || !f[1] ? cod : [f[1], ...cod];
         return `<select ${at}>${(f[1] ? [] : ['']).concat(ops).map(o => `<option ${o === f[1] ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select>`;
       }
-      const numero = (p.tipo === 'reemplazos' && (c === 1 || c === 3)) || (p.tipo === 'marcador' && c < 2);
-      const ancho = numero ? 'inputmode="decimal" style="width:60px"' : p.tipo === 'reemplazos' && c !== 4 ? 'list="wpcColoresL" style="width:96px"'
+      const numero = (p.tipo === 'reemplazos' && (c === 1 || c === 3)) || (p.tipo === 'marcador' && c < 2) || (p.tipo === 'largos' && c === 1);
+      const ancho = numero ? 'inputmode="decimal" style="width:60px"' : p.tipo === 'largos' ? 'list="wpcComL" style="width:260px"'
+        : p.tipo === 'reemplazos' && c !== 4 ? 'list="wpcColoresL" style="width:96px"'
         : p.tipo === 'marcador' ? 'style="width:300px"' : p.tipo === 'reemplazos' ? 'style="width:240px"' : '';
       return `<input ${at} value="${esc(f[c])}" ${ancho}>`;
     };
@@ -161,6 +166,8 @@ const Wpc = (() => {
       ${par.error ? `<div class="small wpc-par-err" role="alert">⚠ ${esc(par.error)}</div>` : ''}
       ${ps.length ? '' : '<div class="small">wpc.json no trae la sección «parametros»: no hay nada para mostrar.</div>'}
       <datalist id="wpcColoresL">${Object.keys(cfg.colores || {}).map(c => `<option value="${esc(c)}">`).join('')}</datalist>
+      <datalist id="wpcComL">${(fc => [...new Set(fc.map(f => f.l.num)), ...fc.map(f => f.k)])(C.filas(D, cfg).filter(f => /^comunicación/.test(f.motivo || '')))
+        .map(n => `<option value="${esc(n)}">`).join('')}</datalist>
       ${grupos.map(g => `<fieldset><legend>${esc(g.n)}</legend>${g.ps.map(p => campo(p, cfg, propios)).join('')}</fieldset>`).join('')}
       ${ch.hay ? `<div class="wpc-par-pie"><span class="small"><b>Sin guardar:</b> ${esc([ch.global ? 'todos los productos' : '', ...ch.prods.map(k => 'producto ' + k)].filter(Boolean).join(' · '))}
           (la lista ya lo muestra)</span><span class="grow"></span>

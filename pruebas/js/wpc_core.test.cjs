@@ -265,7 +265,7 @@ test('reemplazo de 4 mm² para todos (2026-10-07): respecto de la etapa 0 cambia
 test('programa/web/wpc.json (el del taller) es válido y el panel ⚙ Parámetros cubre todos sus parámetros', () => {
   const v = C.leer(VIVA), ps = W.parametros(v), claves = new Set(ps.map(p => p.clave));
   assert.ok(ps.length > 0, 'FALLA: wpc.json sin «parametros»');
-  const TIPOS = ['numero', 'si_no', 'texto', 'regex', 'opcion', 'lista', 'colores', 'reemplazos', 'marcador'];
+  const TIPOS = ['numero', 'si_no', 'texto', 'regex', 'opcion', 'lista', 'colores', 'reemplazos', 'marcador', 'largos'];
   for (const p of ps) {
     assert.ok(TIPOS.includes(p.tipo), `FALLA: ${p.clave}: tipo ${p.tipo}`);
     assert.ok(p.etiqueta && p.grupo, `FALLA: ${p.clave} sin etiqueta o grupo`);

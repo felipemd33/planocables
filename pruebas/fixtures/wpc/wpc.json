@@ -19,6 +19,8 @@
   "acometida_LI": 75,
   "puerta": 1850,
   "largo_pendiente": 2000,
+  "_nota_comunicacion": "Cables de comunicación (2026-10-09, el taller): el largo total de cada uno lo da el PRODUCTO, cable por cable (se carga en ⚙ Parámetros → pestaña «Producto»): [{cable, mm}], con cable = el número solo (vale para todos sus tramos) o el tramo «número|origen|destino» (manda). Siguen fuera del arnés (se cortan a mano). Un cable de comunicación que no está en la tabla lleva el largo calculado de siempre.",
+  "largos_comunicacion": [],
   "largo_sin_ruta": 1000,
   "redondeo": 50,
   "_nota_fuera": "No van al arnés de la WPC (quedan en la lista destildados, con el motivo; se pueden tildar a mano): los de 35 mm² o más, los de comunicación (sección fina, o aparato / borne de comunicación), los que van a solenoides y los que van a campo. Las expresiones regulares se aplican a los textos de origen y destino.",
@@ -284,6 +286,14 @@
       "unidad": "mm",
       "paso": 10,
       "minimo": 0
+    },
+    {
+      "clave": "largos_comunicacion",
+      "etiqueta": "Largo total de cada cable de comunicación",
+      "grupo": "Largos: cables de comunicación (por producto)",
+      "tipo": "largos",
+      "unidad": "mm",
+      "ayuda": "Número del cable (todos sus tramos) o «número|origen|destino» (un tramo solo) y su largo total. Se carga en la pestaña «Producto». Siguen fuera del arnés: el largo es para cortarlos a mano"
     },
     {
       "clave": "fuera.seccion_desde",

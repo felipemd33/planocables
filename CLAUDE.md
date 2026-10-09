@@ -305,6 +305,10 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     fondo): **como antes**, 75 + canaleta de la bandeja + `puerta`, **a confirmar con el taller**.
   - Por producto (⚙ Parámetros) se editan solo `curva_LI`, `curva_LD`, `puerta` y `extra_puerta` (de la lateral a la
     puerta); las acometidas de 75 son fijas (fuera del panel). Tabla: `pruebas/bases/wpc/cambios_regla_2026-10-09.md`.
+  - **Cables de comunicación (2026-10-09, el taller):** el largo total lo da el PRODUCTO, **cable por cable**
+    (`largos_comunicacion` = `[{cable, mm}]`, tabla del panel en la pestaña «Producto»; `cable` = el número solo, para
+    todos sus tramos, o el tramo `número|origen|destino`, que manda). Siguen **fuera del arnés** (se cortan a mano); sin
+    estar en la tabla, el largo calculado de siempre (`pruebas/js/wpc_comunicacion.test.cjs`).
   Pendientes de la lateral y planos sin E8 (sin la lateral dibujada): como antes (`margen_LI` / `extra_puerta` / `extra_LI` +
   `agregado_*`). La WPC **solo corta**: columnas fijas sin pelar ni crimpar (`fijos` en 0). **Reemplazos** (solo en la
   lista, el instructivo no cambia): negro 4 mm² → violeta 2,5 y rojo 4 mm² → naranja 2,5 (la WPC no tiene slots de 4 mm²).
