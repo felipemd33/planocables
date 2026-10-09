@@ -79,8 +79,23 @@ ETAPA E8-5 «puntos exactos en las laterales» (2026-10-08; propuesta B.4):
   - PAE (EPLAN): sin mapeo automatico de las laterales (manda su mapeo verificado), 36 de 36 como antes;
   - cada punto exacto cae dentro de la placa de su lateral y dos bornes distintos no caen en el mismo punto;
   - ajuste a mano (estacion8.rutear_punto, la de POST /e8/punto): el recorrido sale del punto nuevo; con el mismo punto da
-    lo armado; regenerar con el punto en bornes_usuario lo deja exacto ('usuario') y E6 no cambia."""
-import os, sys, io, json, glob, math, shutil, tarfile, tempfile, subprocess, concurrent.futures as cf
+    lo armado; regenerar con el punto en bornes_usuario lo deja exacto ('usuario') y E6 no cambia.
+
+ETAPA E8-6 «ruteo a mano por grupos» (2026-10-09, pedido del taller):
+  - grupos automáticos con la tabla programa/web/e8_grupos.json, revisados contra el funcional de cada plano (GRUPOS_AUTO):
+    batería 35 mm², contactora (la bobina del contactor de la bomba: BH-01-ZV / BH_01_ZV por sus cables), batería 4 / 6
+    mm², solenoides (ZY, SP-n, SP_n), doorswitch (DS), pulsadores (DB, hongo), selectoras (13SH1, OFF / ON), llaves
+    seccionadoras (11MS1, 13MS1) y la placa 21PCB01; cada línea de E8 marcada con su grupo (grupo_mano) y cada cable en
+    un solo grupo; las líneas de las laterales con grupo conservan su ruta automática (la usa la WPC, que no cambia);
+  - por producto (código + número y revisión del topográfico) con el fixture pruebas/fixtures/recorridos_e8.json: el
+    tpt_constructivo (72887 rev. 8) toma el recorrido dibujado y el grupo nuevo de placa; el tpt (72887 rev. 7, mismo
+    producto, otro topográfico) NO; ningún otro plano tiene nada dibujado;
+  - GET / PUT /e8/grupos (web_e86): lo guardado en un trabajo aparece en otro del mismo producto y topográfico y no en
+    uno de otro topográfico; 409 con una versión vieja; producto sin confirmar = se guarda en el trabajo; archivo
+    atómico con respaldo; regenerar (y volver a cargar el mismo topográfico) conserva el recorrido y el cable movido;
+  - cables DIRECTOS del cargador a la bornera de abajo (PAE: 1221-1226 y el RS-485 sin número a 12XPS): derecho al
+    borne, sin canaleta en el medio y sin grupo; los demás planos no tienen."""
+import os, sys, io, json, glob, math, shutil, tarfile, tempfile, subprocess, collections, concurrent.futures as cf
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASES = os.path.join(RAIZ, 'pruebas', 'bases')
@@ -637,15 +652,213 @@ def ruteo_e85(t, ins):
     chequear(E8.rutear_punto(ins, {}, 99, 'x', 'o', [0, 0]) is None, f"{t}: rutear_punto de una lateral que no existe: None")
 
 
+# ------------------------------------------------------------------ etapa E8-6: ruteo a mano por grupos
+FIXTURE_REC = os.path.join(RAIZ, 'pruebas', 'fixtures', 'recorridos_e8.json')
+PLACA_RELES = {'2150', '2151', '2152', '2153', '2154', '2155'}        # (fixture: grupo nuevo de placa del tpt_constructivo)
+# grupos automaticos esperados (revisados contra el funcional de cada plano): grupo -> numeros de cable
+GRUPOS_TPT = {'bateria_35': {'1205', '1206'}, 'contactora': {'6102', '6103'}, 'bateria_4_6': {'1204', '1206'}, 'solenoides': {'6201', '6202'},
+              'selectoras': {'1302', '1303'},
+              'placa:21PCB01': {'1306', '1307', '2105', '2111', '2112', '2114', '2115', '2116', '2117', '2118', '2119', '2142', '2150', '2151',
+                                '2152', '2153', '2154', '2155', '8103', '8104', '8105', '8106'}}
+GRUPOS_AUTO = {
+    'tpt': GRUPOS_TPT, 'tpt_constructivo': GRUPOS_TPT,
+    '66817': {'bateria_35': {'1204', '1205'}, 'contactora': {'6102'}, 'bateria_4_6': {'1204', '1205'}, 'solenoides': {'6201', '6202'},
+              'selectoras': {'1301', '1303'},
+              'placa:21PCB01': {'1401', '1402', '2102', '2103', '2105', '2106', '2114', '2115', '2116', '2117', '2118', '2119', '2139', '2142',
+                                '2150', '2151', '2152', '2153', '2160', '2161', '8101', '8102', '8103', '8104', '8105'}},
+    '75287': {'bateria_35': {'1204', '1215', '1216'}, 'contactora': {'6202'}, 'bateria_4_6': {'1217', '1218'},
+              'solenoides': {'6204', '6205', '6207', '6208'}, 'doorswitch': {'2128', '2129'}, 'pulsadores': {'2130', '2131'},
+              'selectoras': {'1301', '1303'}, 'seccionadoras': {'1101', '1102', '1104', '1105'},
+              'placa:21PCB01': {'1306', '1307', '2105', '2106', '2114', '2115', '2116', '2117', '2118', '2119', '2120', '2121', '2122', '2123',
+                                '2132', '2133', '2135', '2136', '2139', '2140', '2142', '2150', '2151', '2152', '2153', '2154', '2155',
+                                '2164', '2165', '2168', '2169'}},
+    '76884': {'bateria_35': {'1208', '1209', '1211', '1218'}, 'contactora': {'1218', '6151'}, 'bateria_4_6': {'1202', '1206'},
+              'solenoides': {'6152', '6153', '6154', '6162', '6163', '6164'}, 'doorswitch': {'2128', '2129'},
+              'pulsadores': {'2130', '2131', '4211', '4212'}, 'seccionadoras': {'1101', '1102', '1154', '1155', '1301', '1302', '1303', '1304'},
+              'placa:21PCB01': {'1254', '1353', '2105', '2106', '2114', '2115', '2116', '2117', '2118', '2119', '2120', '2121', '2122', '2123',
+                                '2124', '2125', '2126', '2127', '2132', '2133', '2135', '2136', '2139', '2140', '2142', '2150', '2151', '2152',
+                                '2153', '2154', '2155', '2156', '2157', '2166', '2167', 'MALLA 21PCB01 34', 'MALLA 21PCB01 34 (2)', 'MALLA 21PCB01 37'}},
+}
+CLAVE_PRODUCTO = {'tpt': '72715-1|72887|rev7', 'tpt_constructivo': '72715-1|72887|rev8', '66817': '66817-1|75775|rev8',
+                  '75287': '75286-1|75441|rev6', '76884': '76857-1|ZPL-76884|rev1'}
+DIRECTOS = {'76884': {'1221', '1222', '1223', '1224', '1225', '1226', 's/n 12PS1 A', 's/n 12PS1 B', 's/n 12PS1 GND', 's/n 12PS1 VCC'}}
+
+
+def lineas_e8(e8):
+    """todas las lineas de E8 (laterales, puerta y tablas de puerta y placa)"""
+    return [l for L in e8['laterales'] for l in lineas(L)] + [l for p in (e8.get('puerta') or {}).get('pasos') or [] for l in p['lineas']] \
+        + [x for g in e8['afuera'] for x in g['cables']]
+
+
+def esperado_e86(t, e8):
+    """grupos automaticos de cada plano, las lineas marcadas con su grupo, lo del fixture (por producto y topografico) y
+    los cables directos del cargador a la bornera de abajo"""
+    R = e8.get('ruteo_mano')
+    if not chequear(isinstance(R, dict) and R.get('version') and e8.get('version', 0) >= 7, f"{t}: E8 versión {e8.get('version')} con el ruteo a mano"):
+        return
+    E8 = e8_modulo()
+    import estacion8_mano as E8M
+    cfg = E8M.leer_config()
+    chequear([c['id'] for c in R['categorias']] == [c['id'] for c in cfg['categorias']],
+             f"{t}: las categorías de la tabla e8_grupos.json ({[c['id'] for c in R['categorias']]})")
+    vs = [v['clave'] for v in R['vistas']]
+    esp = [L['clave_vista'] for L in e8['laterales']] + (['PUERTA'] if e8.get('puerta') else []) + ['FONDO']
+    fo = e8.get('fondo') or {}
+    chequear(vs == esp and fo.get('region') and fo['region'][0] < fo['region'][2] and fo['region'][1] < fo['region'][3],
+             f"{t}: vistas donde se dibuja {vs} (el fondo: {fo.get('region')} con {[a['tag'] for a in fo.get('aparatos') or []]})")
+    # grupos automaticos (sin lo del taller)
+    nums = lambda ks: {R['cables'][k]['num'] for k in ks}
+    auto = collections.defaultdict(set)
+    for k, g in R['auto'].items():
+        auto[g].add(k)
+    got = {g: nums(ks) for g, ks in auto.items()}
+    want = GRUPOS_AUTO.get(t)
+    if want is not None:
+        chequear(got == want, f"{t}: grupos automáticos " + ('como los del funcional: ' + ', '.join(f'{g} {len(v)}' for g, v in got.items()) if got == want else
+                 f"distintos: sobran {[(g, sorted(got.get(g, set()) - want.get(g, set()))) for g in set(got) | set(want) if got.get(g, set()) - want.get(g, set())]}, "
+                 f"faltan {[(g, sorted(want.get(g, set()) - got.get(g, set()))) for g in set(got) | set(want) if want.get(g, set()) - got.get(g, set())]}"))
+    # cada linea de E8 marcada con su grupo (el efectivo) y nada mas
+    ls = lineas_e8(e8)
+    mal = [l['num'] for l in ls if l.get('grupo_mano') != R['miembro'].get(l['clave'])]
+    sin = [k for k in R['miembro'] if not any(l['clave'] == k for l in ls)]
+    chequear(not mal and not sin, f"{t}: {sum(1 for l in ls if l.get('grupo_mano'))} líneas de E8 marcadas con su grupo de ruteo a mano"
+             + (f'; mal: {mal[:6]}' if mal else '') + (f'; sin línea: {sin[:6]}' if sin else ''))
+    chequear(all(set(g['cables']) == {k for k, v in R['miembro'].items() if v == g['id']} and g['n'] == len(g['cables']) for g in R['grupos']),
+             f"{t}: cada cable en un solo grupo ({len(R['grupos'])} grupos, {len(R['miembro'])} cables)")
+    # la WPC no usa estos largos: las lineas de las laterales con grupo siguen con su ruta automatica (la lee la WPC)
+    gl = [l for L in e8['laterales'] for l in lineas(L) if l.get('grupo_mano')]
+    chequear(all(l.get('ruta') and l.get('largo_mm') for l in gl), f"{t}: las {len(gl)} líneas de las laterales con grupo conservan la ruta automática (la usa la WPC)")
+    # por producto: la clave y lo del fixture (solo el tpt_constructivo: producto 72715-1 con el topografico 72887 rev. 8)
+    chequear(R.get('clave_producto') == CLAVE_PRODUCTO[t] and R.get('por_producto'), f"{t}: se guarda por producto ({R.get('clave_producto')})")
+    dib = sorted(g['id'] for g in R['grupos'] if g['dibujado'])
+    if t == 'tpt_constructivo':
+        b35 = next((g for g in R['grupos'] if g['id'] == 'bateria_35'), {})
+        nu = next((g for g in R['grupos'] if g['id'] == 'nuevo:fixture1'), {})
+        pl = next((g for g in R['grupos'] if g['id'] == 'placa:21PCB01'), {})
+        chequear(R.get('version_almacen') == 3 and dib == ['bateria_35', 'nuevo:fixture1']
+                 and [x['vista'] for x in b35.get('tramos') or []] == ['LI|vista lateral izquierda interior', 'FONDO'],
+                 f"{t}: el recorrido dibujado del producto (fixture): {dib}, tramos de «Batería 35 mm²» en {[x['vista'] for x in b35.get('tramos') or []]}")
+        chequear(nums(nu.get('cables') or []) == PLACA_RELES and nums(pl.get('cables') or []) == GRUPOS_TPT['placa:21PCB01'] - PLACA_RELES and not nu.get('auto'),
+                 f"{t}: el grupo nuevo de placa del taller con {sorted(nums(nu.get('cables') or []))} (movidos a mano) y «Placa 21PCB01» con {pl.get('n')}")
+        chequear(any('ya no está en este trabajo' in a for a in R.get('avisos') or []), f"{t}: aviso del cable movido que no está en el trabajo ({R.get('avisos')})")
+        # en la lateral izquierda: 1205 (35 mm², bateria) marcado con su grupo, que esta dibujado
+        li = lateral(e8, 'LI')
+        l35 = [l for l in lineas(li) if l['num'] == '1205'] if li else []
+        chequear(l35 and all(l.get('grupo_mano') == 'bateria_35' for l in l35), f"{t} LI: 1205 (batería 35 mm²) con su grupo dibujado")
+    else:
+        chequear(not dib and not any(g['id'].startswith('nuevo:') for g in R['grupos']) and R.get('version_almacen') == 0,
+                 f"{t}: nada dibujado ni corregido para este producto y topográfico (el fixture es de otro: {dib})")
+    # cables directos del cargador a la bornera de abajo (PAE): derecho al borne, sin canaleta en el medio, sin grupo
+    dl =[(L, l) for L in e8['laterales'] for l in lineas(L) if l.get('directo')]
+    esp_d = DIRECTOS.get(t, set())
+    ok = {l['num'] for _, l in dl} == esp_d and all(
+        l['ruta'] and cerca(l['ruta'][0], l['marca_o'], 0.06) and cerca(l['ruta'][-1], l['marca_d'], 0.06) and len(l['ruta']) <= 4
+        and E8.sin_canaleta_en_medio(L['ductos'], l['marca_o'], l['marca_d']) and l['largo_mm'] <= 100 and not l.get('grupo_mano') for L, l in dl)
+    chequear(ok, f"{t}: {len(dl)} cables directos del cargador al borne, sin el ducto" + (f" ({sorted(l['num'] for _, l in dl)[:4]}…, {sorted({l['largo_mm'] for _, l in dl})} mm)" if dl else ''))
+
+
+class Cliente:
+    """test_client de la web con el Host local (la web responde 403 a otro Host)"""
+    def __init__(self, web):
+        self.c, self.b = web.app.test_client(), f'http://127.0.0.1:{web.PORT}'
+
+    def get(self, u, **kw):
+        return self.c.get(u, base_url=self.b, **kw)
+
+    def put(self, u, **kw):
+        return self.c.put(u, base_url=self.b, **kw)
+
+
+def web_e86(tmp, d=BASES):
+    """GET / PUT /e8/grupos sobre copias de los instructivos (sin rearmar): lo guardado en un trabajo aparece en otro del
+    mismo producto y topografico y NO en uno de otro topografico; conflicto de version; producto sin confirmar = se guarda
+    en el trabajo; archivo atomico con respaldo"""
+    print('\nruteo a mano por producto (GET / PUT /e8/grupos)')
+    import hashlib
+    hist = os.path.join(tmp, 'hist_mano')
+    alm = os.path.join(tmp, 'recorridos_mano.json')
+    shutil.copyfile(FIXTURE_REC, alm)
+    os.environ.update(PLANOCABLES_RECORRIDOS_E8=alm, PLANOCABLES_HISTORIAL=hist, PLANOCABLES_MEMORIA_OCR='solo-lectura', PLANOCABLES_PORT='8796',
+                      PLANOCABLES_PRODUCTOS=os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json'))
+    e8_modulo()
+    import web
+    web.WORK = hist
+    ins_c, ins_t = cargar(d, 'ins', 'tpt_constructivo'), cargar(d, 'ins', 'tpt')
+    if not chequear(ins_c and ins_t and (ins_c.get('estacion8') or {}).get('ruteo_mano'), f'hay instructivos con el ruteo a mano en {d}'):
+        return
+    jobs = {'aaaaaaaaaa01': ins_c, 'aaaaaaaaaa02': ins_c, 'aaaaaaaaaa03': ins_t,
+            'aaaaaaaaaa04': dict(ins_c, producto=dict(ins_c['producto'], confirmado=False, fuente='rotulo'))}
+    for j, ins in jobs.items():
+        os.makedirs(os.path.join(hist, j))
+        with open(os.path.join(hist, j, 'instructivo.json'), 'w', encoding='utf-8') as f:
+            json.dump(ins, f, ensure_ascii=False)
+    cl = Cliente(web)
+    get = lambda j: cl.get(f'/api/trabajo/{j}/e8/grupos')
+    r = get('aaaaaaaaaa01')
+    R = (r.get_json() or {}).get('ruteo_mano') or {}
+    if not chequear(r.status_code == 200 and R.get('version_almacen') == 3, f"GET /e8/grupos: {r.status_code}, versión {R.get('version_almacen')}"):
+        return
+    k1302 = next(k for k, c in R['cables'].items() if c['num'] == '1302')
+    man = json.loads(json.dumps(R['manual']))
+    man['grupos']['solenoides'] = {'tramos': [{'vista': 'FONDO', 'puntos': [[500.0, 511.5], [620.0, 511.5]]}]}
+    man['mover'][k1302] = ''                 # (sacarlo de su grupo: vuelve al ruteo automatico)
+    r = cl.put('/api/trabajo/aaaaaaaaaa01/e8/grupos', json={'manual': man, 'version': 3})
+    R1 = (r.get_json() or {}).get('ruteo_mano') or {}
+    with open(alm, encoding='utf-8') as f:
+        st = json.load(f)
+    e = st['productos'].get('72715-1|72887|rev8') or {}
+    chequear(r.status_code == 200 and R1.get('version_almacen') == 4 and e.get('version') == 4 and os.path.exists(alm + '.bak')
+             and e.get('editado', {}).get('trabajo') == 'aaaaaaaaaa01' and '99999-1|11111|rev1' in st['productos'],
+             f"PUT en un trabajo: guardado para el producto (versión {e.get('version')}, respaldo {os.path.exists(alm + '.bak')}, los otros productos quedan)")
+    with open(os.path.join(hist, 'aaaaaaaaaa01', 'instructivo.json'), encoding='utf-8') as f:
+        e8a = json.load(f)['estacion8']
+    chequear(all(not l.get('grupo_mano') for l in lineas_e8(e8a) if l['clave'] == k1302)
+             and any(l.get('grupo_mano') == 'solenoides' for l in lineas_e8(e8a)),
+             'el instructivo del trabajo queda con las líneas marcadas con su grupo (1302 sin grupo)')
+    RB = (get('aaaaaaaaaa02').get_json() or {}).get('ruteo_mano') or {}
+    gB = {g['id']: g for g in RB.get('grupos') or []}
+    chequear(gB.get('solenoides', {}).get('dibujado') and k1302 not in RB.get('miembro', {}) and (RB.get('editado') or {}).get('trabajo') == 'aaaaaaaaaa01',
+             'otro trabajo del MISMO producto y topográfico ve el recorrido nuevo y el cable movido (y quién lo cambió)')
+    RC = (get('aaaaaaaaaa03').get_json() or {}).get('ruteo_mano') or {}
+    gC = {g['id']: g for g in RC.get('grupos') or []}
+    chequear(not gC.get('solenoides', {}).get('dibujado') and not gC.get('bateria_35', {}).get('dibujado') and RC.get('miembro', {}).get(k1302) == 'selectoras',
+             f"un trabajo del mismo producto con OTRO topográfico ({RC.get('clave_producto')}) no lo toma")
+    r = cl.put('/api/trabajo/aaaaaaaaaa02/e8/grupos', json={'manual': man, 'version': 3})
+    chequear(r.status_code == 409 and (r.get_json() or {}).get('ruteo_mano', {}).get('version_almacen') == 4,
+             f'guardar con una versión vieja (lo cambió otro trabajo): 409 con lo de hoy ({r.status_code})')
+    h0 = hashlib.sha1(open(alm, 'rb').read()).hexdigest()
+    r = cl.put('/api/trabajo/aaaaaaaaaa04/e8/grupos', json={'manual': {'grupos': {'contactora': {'tramos': [{'vista': 'FONDO', 'puntos': [[600, 450], [669, 450]]}]}}}, 'version': None})
+    RD = (r.get_json() or {}).get('ruteo_mano') or {}
+    with open(os.path.join(hist, 'aaaaaaaaaa04', 'instructivo.json'), encoding='utf-8') as f:
+        e8d = json.load(f)['estacion8']
+    chequear(r.status_code == 200 and not RD.get('por_producto') and 'no está confirmado' in (RD.get('aviso') or '')
+             and (e8d.get('mano_trabajo') or {}).get('grupos', {}).get('contactora') and hashlib.sha1(open(alm, 'rb').read()).hexdigest() == h0,
+             'con el producto sin confirmar se guarda en el trabajo (mano_trabajo), con el aviso, sin tocar el archivo del producto')
+    # (PUT /instructivo de la pantalla con una copia vieja: mano_trabajo lo escribe solo /e8/grupos)
+    viejo = json.loads(json.dumps(jobs['aaaaaaaaaa04']))
+    viejo['estacion8'].pop('mano_trabajo', None)
+    cl.put('/api/trabajo/aaaaaaaaaa04/instructivo', json=viejo)
+    with open(os.path.join(hist, 'aaaaaaaaaa04', 'instructivo.json'), encoding='utf-8') as f:
+        chequear((json.load(f)['estacion8'].get('mano_trabajo') or {}).get('grupos', {}).get('contactora'),
+                 'PUT /instructivo con una copia vieja no pisa el ruteo a mano guardado en el trabajo')
+    r1 = cl.put('/api/trabajo/aaaaaaaaaa01/e8/grupos', json={'manual': {'nuevos': [{'id': 'malo id'}]}})
+    r2 = cl.put('/api/trabajo/aaaaaaaaaa01/e8/grupos', json={'x': 1})
+    r3 = cl.get('/api/trabajo/noexiste0000/e8/grupos')
+    chequear(r1.status_code == 400 and r2.status_code == 400 and r3.status_code == 404, f'datos inválidos: 400 / 400; trabajo que no existe: 404 ({r1.status_code}, {r2.status_code}, {r3.status_code})')
+
+
 def regenerar_e82(tmp):
     """regenerar conserva lo elegido; un topografico nuevo lo borra (web.gen_instructivo sobre una copia del TPT del
-    constructivo, en un historial temporal)"""
+    constructivo, en un historial temporal). E8-6: el ruteo a mano (por producto) se conserva al regenerar y con un
+    topografico nuevo del mismo producto"""
     print('\nregenerar y topográfico nuevo (tpt_constructivo)')
     hist = os.path.join(tmp, 'hist_regen')
     jid = 'e8e8e8e8e8e8'
     shutil.copytree(os.path.join(RAIZ, TRABAJOS['tpt_constructivo'][0]), os.path.join(hist, jid), ignore=shutil.ignore_patterns('*.png'))
+    shutil.copyfile(FIXTURE_REC, os.path.join(tmp, 'recorridos_regen.json'))
     os.environ.update(PLANOCABLES_HISTORIAL=hist, PLANOCABLES_MEMORIA_OCR='solo-lectura', PLANOCABLES_PORT='8796',
-                      PLANOCABLES_PRODUCTOS=os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json'))
+                      PLANOCABLES_PRODUCTOS=os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json'),
+                      PLANOCABLES_RECORRIDOS_E8=os.path.join(tmp, 'recorridos_regen.json'))
     if os.path.join(RAIZ, 'programa') not in sys.path:
         sys.path.insert(0, os.path.join(RAIZ, 'programa'))
     import web
@@ -685,9 +898,26 @@ def regenerar_e82(tmp):
         ins1['bornes_usuario'] = dict(ins1.get('bornes_usuario') or {}, **{f"{lu['origen']}#{lu['num']}": pu_})
     with open(pj, 'w', encoding='utf-8') as f:
         json.dump(ins1, f, ensure_ascii=False)
+    # (E8-6) ruteo a mano: el del fixture ya esta; el taller dibuja otro grupo y saca un cable de su grupo (PUT /e8/grupos)
+    R1 = e8.get('ruteo_mano') or {}
+    chequear(sorted(g['id'] for g in R1.get('grupos') or [] if g['dibujado']) == ['bateria_35', 'nuevo:fixture1'],
+             f"regenerar toma el ruteo a mano guardado para el producto ({sorted(g['id'] for g in R1.get('grupos') or [] if g['dibujado'])})")
+    k1303 = next((k for k, c in (R1.get('cables') or {}).items() if c['num'] == '1303'), None)
+    man = json.loads(json.dumps(R1.get('manual') or {}))
+    man.setdefault('grupos', {})['solenoides'] = {'tramos': [{'vista': li['clave_vista'], 'puntos': [[250.0, 531.3], [300.0, 531.3]]},
+                                                            {'vista': 'FONDO', 'puntos': [[480.0, 511.5], [560.0, 511.5]]}]}
+    man.setdefault('mover', {})[k1303] = 'nuevo:fixture1'
+    r = Cliente(web).put(f'/api/trabajo/{jid}/e8/grupos', json={'manual': man, 'version': R1.get('version_almacen')})
+    chequear(r.status_code == 200, f'PUT /e8/grupos antes de regenerar: {r.status_code} {(r.get_json() or {}).get("error") or ""}')
     ins2 = gen()
     if not ins2:
         return
+    R2 = ins2['estacion8'].get('ruteo_mano') or {}
+    g2 = {g['id']: g for g in R2.get('grupos') or []}
+    chequear(g2.get('solenoides', {}).get('dibujado') and [t['vista'] for t in g2['solenoides']['tramos']] == [li['clave_vista'], 'FONDO']
+             and R2.get('miembro', {}).get(k1303) == 'nuevo:fixture1'
+             and all(l.get('grupo_mano') == 'nuevo:fixture1' for l in lineas_e8(ins2['estacion8']) if l['clave'] == k1303),
+             'regenerar conserva el recorrido dibujado (dos tramos: lateral y fondo) y el cable movido de grupo')
     e8b = ins2['estacion8']
     ld2, li2 = lateral(e8b, 'LD'), lateral(e8b, 'LI')
     chequear(e8b.get('recorridos') == rec, f"regenerar conserva la entrada, el grupo y la bisagra ({e8b.get('recorridos')})")
@@ -735,6 +965,9 @@ def regenerar_e82(tmp):
     ld3 = lateral(e8c, 'LD')
     chequear(all(cerca(fin(l.get('ruta')), ld3['entrada_propuesta'], 0.15) for l in salen(ld3)),
              f"y la LD vuelve a la entrada propuesta {ld3['entrada_propuesta']}")
+    R3 = e8c.get('ruteo_mano') or {}
+    chequear(any(g['id'] == 'solenoides' and g['dibujado'] for g in R3.get('grupos') or []) and R3.get('miembro', {}).get(k1303) == 'nuevo:fixture1',
+             'el ruteo a mano es del PRODUCTO (código + topográfico): se conserva al volver a cargar el mismo topográfico')
     # (el instructivo de E6 no cambia con lo elegido en E8)
     sin = lambda d: {k: v for k, v in d.items() if k not in ('estacion8', 'generado', 'mapeo', 'salidas', 'producto', 'bornes_usuario')}
     chequear(sin(ins1) == sin(ins2), 'lo elegido en E8 (y el punto de una lateral ajustado a mano) no cambia el instructivo de E6')
@@ -777,7 +1010,9 @@ def main():
             sal = os.path.join(tmp, 'sal'); os.makedirs(sal)
             env = dict(os.environ, PYTHONIOENCODING='utf-8', PLANOCABLES_MEMORIA_OCR='solo-lectura',
                        PLANOCABLES_PRODUCTOS=os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json'),
-                       PLANOCABLES_HISTORIAL=os.path.join(tmp, 'historial'), PLANOCABLES_PORT='8796')
+                       PLANOCABLES_HISTORIAL=os.path.join(tmp, 'historial'), PLANOCABLES_PORT='8796',
+                       PLANOCABLES_RECORRIDOS_E8=os.path.join(tmp, 'recorridos_armar.json'))
+            shutil.copyfile(FIXTURE_REC, env['PLANOCABLES_RECORRIDOS_E8'])
             print(f'Armando la E8 de {len(TRABAJOS)} trabajos con el código de hoy ({j} a la vez)…', flush=True)
             with cf.ThreadPoolExecutor(j) as ex:
                 for t, cod, out in ex.map(lambda t: armar(t, tmp, env), TRABAJOS):
@@ -800,10 +1035,12 @@ def main():
             esperado_e85(t, e8)
             if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None:
                 ruteo_e85(t, ins)
+            esperado_e86(t, e8)
             if not bases:
                 e6_igual(t, sal)
         if not bases:
             regenerar_e82(tmp)
+        web_e86(tmp, sal)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print('\nTODO OK' if not fallas else f'\nFALLA: {len(fallas)} prueba(s)')

@@ -16,6 +16,7 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/web.py` | Interfaz web (Flask, `http://127.0.0.1:8765`). `PLANOCABLES_PORT` cambia el puerto; `--no-abrir` no abre el navegador. |
 | `programa/planocables/` | Paquete del **plan modular** (`PLAN_MODULAR.md`, etapas 0-3 hechas): `base/` (geom, hojas, convenciones, colores, escala, pdfium_lock: funciones puras, solo biblioteca estándar; los módulos viejos las reexportan con el mismo nombre) y `producto.py` (código de producto, plano y revisión, sin disco). `pyproject.toml` (en la raíz) instala solo este paquete. |
 | `programa/productos.json` | Catálogo de productos: `{código: {nombre, alias: {planos, documentos, codigo_rotulo}}}`. Lo actualiza la web cuando el taller confirma un producto (✎ en la línea «Producto»). |
+| `programa/estacion8.py`, `estacion8_mano.py`, `web/estacion8.js`, `web/e8mano.js` | **Estación 8** (gabinete): bandejas laterales, puerta y placa (`estacion8.build`), y el **ruteo a mano por grupos** (E8-6): tabla editable `web/e8_grupos.json` y lo dibujado por producto en `recorridos_e8.json` (lo escribe la web; `PLANOCABLES_RECORRIDOS_E8` en las pruebas). |
 | `programa/core.py`, `wires.py`, `textdec.py`, `pdfvec.py` | Lector del funcional: textos SHX, cables, números, uniones en T y flechas a otras hojas. |
 | `programa/instructivo.py` | Puntas (`describe_end`), conductores (`conductors`), textos (`fmt_terminal`) e instructivo (`build`): orden, pasos, pendientes LI↔LI y estaciones. Además `usos_bandeja` y `materiales_funcional`. |
 | `programa/topo.py`, `ruteo.py` | Topográfico (página de la bandeja, rieles, canaletas, escala, componentes) y ruteo por canaletas (Dijkstra). |
@@ -181,6 +182,34 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     arrastrar el punto; Esc cancela), se guarda en `ins['bornes_usuario']` como en E6 y manda al regenerar; el recorrido
     lo recalcula `POST /api/trabajo/<id>/e8/punto` (`estacion8.rutear_punto`, sin rearmar). La WPC cambia por las rutas
     nuevas (tabla en `pruebas/bases/wpc/cambios_e8_5.md`).
+  - **Etapa E8-6 «ruteo a mano por grupos» (2026-10-09, pedido del taller):** los cables de **solenoides, contactora
+    (la BOBINA del contactor de la bomba: el cable de 1 mm² que hace de llave de paso), batería 35 mm², batería 4 / 6 mm²,
+    doorswitch, pulsadores, selectoras, llaves seccionadoras y cada placa** NO se rutean solos: el recorrido lo DIBUJA el
+    taller (clics) y hasta entonces el visor dice «falta dibujar el recorrido» (sin ruta inventada; los demás cables de
+    E8 siguen como antes). `programa/estacion8_mano.py` + tabla EDITABLE `programa/web/e8_grupos.json` (categorías en
+    orden: un cable cae en la PRIMERA que le corresponde y en una sola; criterios: sección, pines A1/A2, texto del aparato
+    = renglón de la lista de materiales del funcional + el material de `bornes/aparamenta.json` que nombra su código de
+    fabricante, familias del catálogo y, SIN texto, las letras del tag de la tabla: PB, ZY/ZV/SP-n, DS, DB, SH, MS, PCB;
+    una bornera nunca es el aparato del grupo; la contactora se reconoce por sus cables: 35 mm² + la bobina chica).
+    `estacion8.build` (versión 7) arma `e8['ruteo_mano']` = {categorias, vistas (las laterales por `clave_vista`,
+    'PUERTA', 'FONDO'), auto, auto_info, cables: {clave: {num, a, b, puntos: {vista: [[x, y]]}}}} y `e8['fondo']` (la
+    bandeja principal con lo dibujado alrededor: la zona hidráulica; imagen `/e8/fondo.png`); `web.gen_instructivo` le
+    suma lo del taller (`estacion8_mano.cargar_y_aplicar`: grupos, miembro, manual, avisos) y marca `grupo_mano` en las
+    líneas (laterales, puerta y tablas). **La ruta automática de las laterales queda en la línea (la usa la WPC); el visor
+    no la dibuja para un cable con grupo. La WPC no usa estos largos.** Recorrido = TRAMOS por vista ({vista, puntos}),
+    con 🧲 pegar al eje de la canaleta. Correcciones: `mover` {clave: grupo | '' = sin grupo, ruteo automático} y
+    `nuevos` (grupos de placa). **Se guarda POR PRODUCTO** (código + número y revisión del topográfico de
+    `ins['producto']`) en `programa/recorridos_e8.json` (`PLANOCABLES_RECORRIDOS_E8` en las pruebas; escritura atómica con
+    `.bak` y `version`: si otro trabajo lo cambió, 409 y la pantalla recarga), `GET / PUT /api/trabajo/<id>/e8/grupos`;
+    con el producto sin confirmar o sin el topográfico, en el trabajo (`estacion8.mano_trabajo`, lo escribe solo
+    /e8/grupos) y pasa al producto al confirmarlo. Pantalla: botón **✏ Ruteo a mano** (tecla R, también desde el visor;
+    `programa/web/e8mano.js`): grupos con su estado y cantidad, dibujar / borrar / listo, mover un cable con la lista,
+    ＋ Grupo de placa, «▶ Cablear de a uno» por grupo; la tarjeta, la tabla y el visor dicen el grupo de cada cable.
+    El tránsito «Pasan hacia la puerta» (E8-4) no cambia. **Cables DIRECTOS** (dato del taller: en el PAE y la Vista,
+    debajo del cargador hay borneras para no usar WAGO): un cable de la misma lateral entre un cargador (`directo` en
+    e8_grupos.json; sin lista de materiales, letras PS) y una bornera a menos de 2 perfiles, sin canaleta en el medio, va
+    derecho al borne (`directo`, sin grupo): PAE 1221-1226 y el RS-485 a 12XPS. Cambia la WPC del PAE (750 → 450 mm,
+    tabla en `pruebas/bases/wpc/cambios_e8_6.md`); el 75287 no tiene esos cables numerados.
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -287,9 +316,13 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   regenerar conserve lo elegido y un topográfico nuevo lo borre; desde E8-3 los WAGO del cargador y el RS-485 «empalme de
   3, a confirmar»; desde E8-4 la vista de la puerta, sus recorridos, el tránsito «Pasan hacia la puerta» y que la WPC no
   la use; desde E8-5 los puntos exactos de las laterales, el ajuste a mano y que el punto ajustado mande al regenerar sin
-  tocar E6; `--bases pruebas/bases` solo mira los `e8_*.json` y la vista previa sobre los `ins_*.json`) tiene que
-  dar TODO OK. La pantalla de E8 con los WAGO: `node --test pruebas/js/` (`e8_empalme.test.cjs`, con `vistaE8` de
-  `cargar_visor.cjs`).
+  tocar E6; desde E8-6 los grupos de ruteo a mano de cada plano (revisados contra el funcional), lo del fixture
+  `pruebas/fixtures/recorridos_e8.json` (el tpt_constructivo, 72887 rev. 8, lo toma; el tpt, rev. 7, no), GET / PUT
+  /e8/grupos entre trabajos del mismo producto y topográfico, el conflicto de versión, el producto sin confirmar y los
+  cables directos del PAE; `--bases pruebas/bases` solo mira los `e8_*.json` y la vista previa sobre los `ins_*.json`)
+  tiene que dar TODO OK. Las pruebas usan una COPIA del fixture (`PLANOCABLES_RECORRIDOS_E8`): nunca
+  `programa/recorridos_e8.json`. La pantalla de E8: `node --test pruebas/js/` (`e8_empalme`, `e8_puerta`, `e8_puntos`,
+  `e8_mano.test.cjs`, con `vistaE8` y `manoE8` de `cargar_visor.cjs`).
   Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.
 
 ## Productos trabajados
@@ -358,6 +391,13 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   (WAGO de 3 vías, dos WAGO u otra forma); los nombres de los pines del cargador (panel / batería / carga, en
   `bornes/pines_repetidos.json`); el cable propio punteado llega al punto del aparato (la etiqueta), no a su borde de
   abajo (el topográfico no da el cuerpo del aparato).
+- **Ruteo a mano de E8 (2026-10-09, etapa E8-6), para confirmar con el usuario:** las letras de la tabla
+  `programa/web/e8_grupos.json` que no salen de una lista de materiales: **13SH1 (OFF / ON) tomado como selectora** (en
+  el 75287 podría ser el seccionador de emergencia VCF01), DB = pulsador (parada de emergencia hongo), DS = doorswitch,
+  MS = seccionadora; «Batería 35 mm²» = todos los de 35 mm² (batería, MEGA, contactor y bomba); «Batería 4 / 6 mm²» =
+  los que tocan la batería (no los del cargador a 12F1 / 12XP); los cables de una seccionadora que está en la lateral
+  (11MS1 del 75287) también van a mano. La capa «Pasan hacia la puerta» de E8-4 sigue igual aunque esos cables tengan
+  grupo. En el PAE, el cargador sin lista de materiales se reconoce por las letras PS para los cables directos.
 - **EPLAN (PAE), para confirmar con el usuario:**
   - el neutro es **celeste**: la regla de ruteo «marrón y blanco salen a LI por abajo» separa L (marrón, abajo) de N
     (celeste, arriba); ¿sumar celeste a la regla?;

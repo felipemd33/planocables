@@ -287,6 +287,7 @@
        "cable": "N0.75MM",
        "clave": "2105|21PCB01 5|32XAI 1",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "32"
        ],
@@ -302,6 +303,7 @@
        "cable": "N0.75MM",
        "clave": "2111|12XP 1.3|21PCB01 11",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "12",
         "21"
@@ -318,6 +320,7 @@
        "cable": "N0.75MM",
        "clave": "2112|12XP 2.2|21PCB01 12",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "12",
         "21"
@@ -334,6 +337,7 @@
        "cable": "N0.75MM",
        "clave": "2114|21PCB01 14|43KR1 11",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "43A"
@@ -350,6 +354,7 @@
        "cable": "N0.75MM",
        "clave": "2115|21PCB01 15|43KR1 12",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "43A"
@@ -366,6 +371,7 @@
        "cable": "N0.75MM",
        "clave": "2116|21PCB01 16|43DIB1 3",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "43A"
@@ -382,6 +388,7 @@
        "cable": "N0.75MM",
        "clave": "2117|21PCB01 17|43DIB1 4",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "43A"
@@ -398,6 +405,7 @@
        "cable": "N0.75MM",
        "clave": "2118|21PCB01 18|43DIB1 5",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "43A"
@@ -414,6 +422,7 @@
        "cable": "N0.75MM",
        "clave": "2119|21PCB01 19|43DIB1 6",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "43A"
@@ -430,6 +439,7 @@
        "cable": "N1MM",
        "clave": "8105|21PCB01 32|EMPALME con 12PS2",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "81"
@@ -446,6 +456,7 @@
        "cable": "B1MM",
        "clave": "8106|21PCB01 33|EMPALME con 12PS2",
        "color": "Blanco",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "81"
@@ -462,6 +473,7 @@
        "cable": "N1MM",
        "clave": "8103|21PCB01 35|81XCM 1",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "81"
@@ -478,6 +490,7 @@
        "cable": "B1MM",
        "clave": "8104|21PCB01 36|81XCM 2",
        "color": "Blanco",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "21",
         "81"
@@ -494,6 +507,7 @@
        "cable": "N0.75MM",
        "clave": "2142|21PCB01 42|31XAI 1",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "31"
        ],
@@ -509,6 +523,7 @@
        "cable": "R1MM",
        "clave": "1306|13XC1 2.3|21PCB01 48",
        "color": "Rojo",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "13",
         "14"
@@ -525,6 +540,7 @@
        "cable": "N1MM",
        "clave": "1307|13XC1 3.4|21PCB01 49",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "13",
         "14"
@@ -541,6 +557,7 @@
        "cable": "N0.75MM",
        "clave": "2150|21PCB01 50|61KR1 A1",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "61A"
        ],
@@ -556,6 +573,7 @@
        "cable": "N0.75MM",
        "clave": "2151|21PCB01 51|61KR1 A2",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "61A"
        ],
@@ -571,6 +589,7 @@
        "cable": "N0.75MM",
        "clave": "2152|21PCB01 52|61KR2 A1",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "61A"
        ],
@@ -586,6 +605,7 @@
        "cable": "N0.75MM",
        "clave": "2153|21PCB01 53|61KR2 A2",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "61A"
        ],
@@ -601,6 +621,7 @@
        "cable": "N0.75MM",
        "clave": "2154|21PCB01 54|61KR3 A1",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "61A"
        ],
@@ -616,6 +637,7 @@
        "cable": "N0.75MM",
        "clave": "2155|21PCB01 55|61KR3 A2",
        "color": "Negro",
+       "grupo_mano": "placa:21PCB01",
        "hojas": [
         "61A"
        ],
@@ -639,6 +661,7 @@
        "cable": "R35MM",
        "clave": "1205|12PB1 +|BH-01-ZV",
        "color": "Rojo",
+       "grupo_mano": "bateria_35",
        "hojas": [
         "12"
        ],
@@ -654,6 +677,7 @@
        "cable": "R1MM",
        "clave": "6102|BH-01-ZV|XM1 1",
        "color": "Rojo",
+       "grupo_mano": "contactora",
        "hojas": [
         "61A"
        ],
@@ -669,6 +693,7 @@
        "cable": "N1MM",
        "clave": "6103|BH-01-ZV|XM1 2",
        "color": "Negro",
+       "grupo_mano": "contactora",
        "hojas": [
         "61B"
        ],
@@ -691,6 +716,7 @@
        "cable": "R2.5MM",
        "clave": "1302|13SH1|13XC1 1.4",
        "color": "Rojo",
+       "grupo_mano": "selectoras",
        "hojas": [
         "13"
        ],
@@ -706,6 +732,7 @@
        "cable": "R2.5MM",
        "clave": "1303|13SH1|13XC1 2.4",
        "color": "Rojo",
+       "grupo_mano": "selectoras",
        "hojas": [
         "13"
        ],
@@ -766,6 +793,7 @@
        "cable": "R1MM",
        "clave": "6201|XM1 3|ZY",
        "color": "Rojo",
+       "grupo_mano": "solenoides",
        "hojas": [
         "61A"
        ],
@@ -781,6 +809,7 @@
        "cable": "N1MM",
        "clave": "6202|XM1 4|ZY",
        "color": "Negro",
+       "grupo_mano": "solenoides",
        "hojas": [
         "61A"
        ],
@@ -803,6 +832,7 @@
        "cable": "N35MM",
        "clave": "1206|12PB1 -|BH-01-M",
        "color": "Negro",
+       "grupo_mano": "bateria_35",
        "hojas": [
         "12"
        ],
@@ -824,6 +854,82 @@
    ],
    "bisagra_propuesta": "izq",
    "campo": 3,
+   "fondo": {
+    "aparatos": [
+     {
+      "tag": "BH-01-ZV",
+      "x": 680.5,
+      "y": 447.6
+     },
+     {
+      "tag": "PT 001",
+      "x": 655.7,
+      "y": 415.9
+     }
+    ],
+    "clave_vista": "FONDO",
+    "ductos": [
+     {
+      "b": [
+       473.4,
+       622.0,
+       745.6,
+       644.7
+      ],
+      "ex": false,
+      "h": true
+     },
+     {
+      "b": [
+       589.7,
+       534.2,
+       612.3,
+       622.0
+      ],
+      "ex": false,
+      "h": false
+     },
+     {
+      "b": [
+       499.0,
+       392.4,
+       586.8,
+       415.1
+      ],
+      "ex": true,
+      "h": true
+     },
+     {
+      "b": [
+       564.1,
+       415.1,
+       586.8,
+       511.5
+      ],
+      "ex": true,
+      "h": false
+     },
+     {
+      "b": [
+       473.4,
+       511.5,
+       745.6,
+       534.2
+      ],
+      "ex": false,
+      "h": true
+     }
+    ],
+    "escala": 1.7639,
+    "nombre": "Fondo y bandeja principal",
+    "pag": 4,
+    "region": [
+     436.84,
+     216.94,
+     782.16,
+     664.26
+    ]
+   },
    "hacia_puerta": [
     {
      "aparato": "BH-01-M",
@@ -2481,6 +2587,7 @@
          "conf_o": "alta",
          "destino": "21PCB01 5",
          "exacto_o": true,
+         "grupo_mano": "placa:21PCB01",
          "hojas": [
           "32"
          ],
@@ -3017,6 +3124,7 @@
          "conf_o": "alta",
          "destino": "21PCB01 35",
          "exacto_o": true,
+         "grupo_mano": "placa:21PCB01",
          "hojas": [
           "21",
           "81"
@@ -3114,6 +3222,7 @@
          "conf_o": "alta",
          "destino": "21PCB01 36",
          "exacto_o": true,
+         "grupo_mano": "placa:21PCB01",
          "hojas": [
           "21",
           "81"
@@ -3682,6 +3791,7 @@
           "tipo": "empalme"
          },
          "exacto_o": false,
+         "grupo_mano": "placa:21PCB01",
          "hojas": [
           "21",
           "81"
@@ -3821,6 +3931,7 @@
           "tipo": "empalme"
          },
          "exacto_o": false,
+         "grupo_mano": "placa:21PCB01",
          "hojas": [
           "21",
           "81"
@@ -3945,6 +4056,7 @@
          "componente": "12PB1",
          "destino": "BH-01-ZV",
          "exacto_o": false,
+         "grupo_mano": "bateria_35",
          "hojas": [
           "12"
          ],
@@ -3983,6 +4095,7 @@
          "componente": "12PB1",
          "destino": "12XP 1.4",
          "exacto_o": false,
+         "grupo_mano": "bateria_4_6",
          "hojas": [
           "12"
          ],
@@ -4023,6 +4136,7 @@
          "componente": "12PB1",
          "destino": "BH-01-M",
          "exacto_o": false,
+         "grupo_mano": "bateria_35",
          "hojas": [
           "12"
          ],
@@ -4065,6 +4179,7 @@
          "componente": "12PB1",
          "destino": "12XP 2.4",
          "exacto_o": false,
+         "grupo_mano": "bateria_4_6",
          "hojas": [
           "12"
          ],
@@ -4297,6 +4412,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "32"
         ],
@@ -4349,6 +4465,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "12",
          "21"
@@ -4402,6 +4519,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "12",
          "21"
@@ -4455,6 +4573,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "43A"
@@ -4508,6 +4627,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "43A"
@@ -4561,6 +4681,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "43A"
@@ -4614,6 +4735,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "43A"
@@ -4667,6 +4789,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "43A"
@@ -4720,6 +4843,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "43A"
@@ -4773,6 +4897,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "81"
@@ -4826,6 +4951,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "81"
@@ -4879,6 +5005,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "81"
@@ -4932,6 +5059,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "21",
          "81"
@@ -4985,6 +5113,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "31"
         ],
@@ -5037,6 +5166,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "13",
          "14"
@@ -5090,6 +5220,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "13",
          "14"
@@ -5143,6 +5274,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "61A"
         ],
@@ -5195,6 +5327,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "61A"
         ],
@@ -5247,6 +5380,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "61A"
         ],
@@ -5299,6 +5433,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "61A"
         ],
@@ -5351,6 +5486,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "61A"
         ],
@@ -5403,6 +5539,7 @@
          832.2,
          441.78
         ],
+        "grupo_mano": "placa:21PCB01",
         "hojas": [
          "61A"
         ],
@@ -5463,6 +5600,7 @@
          708.7,
          477.56
         ],
+        "grupo_mano": "selectoras",
         "hojas": [
          "13"
         ],
@@ -5515,6 +5653,7 @@
          708.7,
          477.56
         ],
+        "grupo_mano": "selectoras",
         "hojas": [
          "13"
         ],
@@ -5575,7 +5714,2301 @@
     "preguntar": true,
     "vistas": {}
    },
-   "version": 6
+   "ruteo_mano": {
+    "auto": {
+     "1204|12PB1 +|12XP 1.4": "bateria_4_6",
+     "1205|12PB1 +|BH-01-ZV": "bateria_35",
+     "1206|12PB1 -|12XP 2.4": "bateria_4_6",
+     "1206|12PB1 -|BH-01-M": "bateria_35",
+     "1302|13SH1|13XC1 1.4": "selectoras",
+     "1303|13SH1|13XC1 2.4": "selectoras",
+     "1306|13XC1 2.3|21PCB01 48": "placa:21PCB01",
+     "1307|13XC1 3.4|21PCB01 49": "placa:21PCB01",
+     "2105|21PCB01 5|32XAI 1": "placa:21PCB01",
+     "2111|12XP 1.3|21PCB01 11": "placa:21PCB01",
+     "2112|12XP 2.2|21PCB01 12": "placa:21PCB01",
+     "2114|21PCB01 14|43KR1 11": "placa:21PCB01",
+     "2115|21PCB01 15|43KR1 12": "placa:21PCB01",
+     "2116|21PCB01 16|43DIB1 3": "placa:21PCB01",
+     "2117|21PCB01 17|43DIB1 4": "placa:21PCB01",
+     "2118|21PCB01 18|43DIB1 5": "placa:21PCB01",
+     "2119|21PCB01 19|43DIB1 6": "placa:21PCB01",
+     "2142|21PCB01 42|31XAI 1": "placa:21PCB01",
+     "2150|21PCB01 50|61KR1 A1": "placa:21PCB01",
+     "2151|21PCB01 51|61KR1 A2": "placa:21PCB01",
+     "2152|21PCB01 52|61KR2 A1": "placa:21PCB01",
+     "2153|21PCB01 53|61KR2 A2": "placa:21PCB01",
+     "2154|21PCB01 54|61KR3 A1": "placa:21PCB01",
+     "2155|21PCB01 55|61KR3 A2": "placa:21PCB01",
+     "6102|BH-01-ZV|XM1 1": "contactora",
+     "6103|BH-01-ZV|XM1 2": "contactora",
+     "6201|XM1 3|ZY": "solenoides",
+     "6202|XM1 4|ZY": "solenoides",
+     "8103|21PCB01 35|81XCM 1": "placa:21PCB01",
+     "8104|21PCB01 36|81XCM 2": "placa:21PCB01",
+     "8105|21PCB01 32|EMPALME con 12PS2": "placa:21PCB01",
+     "8106|21PCB01 33|EMPALME con 12PS2": "placa:21PCB01"
+    },
+    "auto_info": {
+     "bateria_35": {
+      "aparato": null,
+      "categoria": "bateria_35"
+     },
+     "bateria_4_6": {
+      "aparato": null,
+      "categoria": "bateria_4_6"
+     },
+     "contactora": {
+      "aparato": null,
+      "categoria": "contactora"
+     },
+     "placa:21PCB01": {
+      "aparato": "21PCB01",
+      "categoria": "placa"
+     },
+     "selectoras": {
+      "aparato": null,
+      "categoria": "selectoras"
+     },
+     "solenoides": {
+      "aparato": null,
+      "categoria": "solenoides"
+     }
+    },
+    "aviso": null,
+    "avisos": [],
+    "cables": {
+     "1104|11Q1 F|11XP 1": {
+      "a": "11XP 1 ABAJO",
+      "aparatos": [
+       "11XP",
+       "11Q1"
+      ],
+      "b": "11Q1 F ARRIBA",
+      "cable": "M2.5MM",
+      "color": "Marrón",
+      "num": "1104",
+      "puntos": {
+       "FONDO": [
+        [
+         486.94,
+         600.21
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1027.73,
+         489.07
+        ]
+       ]
+      },
+      "secc": "2.5"
+     },
+     "1105|11Q1 N|11XP 2": {
+      "a": "11XP 2 ABAJO",
+      "aparatos": [
+       "11XP",
+       "11Q1"
+      ],
+      "b": "11Q1 N ARRIBA",
+      "cable": "B2.5MM",
+      "color": "Blanco",
+      "num": "1105",
+      "puntos": {
+       "FONDO": [
+        [
+         496.86,
+         600.21
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1032.35,
+         489.07
+        ]
+       ]
+      },
+      "secc": "2.5"
+     },
+     "1108|11PS1 +|12PS2 +": {
+      "a": "11PS1 +",
+      "aparatos": [
+       "11PS1",
+       "12PS2"
+      ],
+      "b": "12PS2 +",
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "num": "1108",
+      "puntos": {
+       "FONDO": [
+        [
+         520.17,
+         609.93
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         195.1,
+         479.56
+        ]
+       ]
+      },
+      "secc": "2.5"
+     },
+     "1109|11PS1 -|12PS2 -": {
+      "a": "11PS1 -",
+      "aparatos": [
+       "11PS1",
+       "12PS2"
+      ],
+      "b": "12PS2 -",
+      "cable": "N2.5MM",
+      "color": "Negro",
+      "num": "1109",
+      "puntos": {
+       "FONDO": [
+        [
+         513.18,
+         609.93
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         195.1,
+         479.56
+        ]
+       ]
+      },
+      "secc": "2.5"
+     },
+     "1201|12F1|12PS2 +": {
+      "a": "12F1 ARRIBA",
+      "aparatos": [
+       "12F1",
+       "12PS2"
+      ],
+      "b": "12PS2 +",
+      "cable": "R4MM",
+      "color": "Rojo",
+      "num": "1201",
+      "puntos": {
+       "FONDO": [
+        [
+         622.96,
+         597.12
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         195.1,
+         479.56
+        ]
+       ]
+      },
+      "secc": "4"
+     },
+     "1202|12PS2 -|12XP 2.1": {
+      "a": "12XP 2.1",
+      "aparatos": [
+       "12XP",
+       "12PS2"
+      ],
+      "b": "12PS2 -",
+      "cable": "N4MM",
+      "color": "Negro",
+      "num": "1202",
+      "puntos": {
+       "FONDO": [
+        [
+         700.35,
+         597.35
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         195.1,
+         479.56
+        ]
+       ]
+      },
+      "secc": "4"
+     },
+     "1204|12PB1 +|12XP 1.4": {
+      "a": "12PB1 +",
+      "aparatos": [
+       "12PB1",
+       "12XP"
+      ],
+      "b": "12XP 1.4",
+      "cable": "R4MM",
+      "color": "Rojo",
+      "num": "1204",
+      "puntos": {
+       "FONDO": [
+        [
+         694.49,
+         554.05
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         225.2,
+         306.06
+        ]
+       ]
+      },
+      "secc": "4"
+     },
+     "1205|12PB1 +|BH-01-ZV": {
+      "a": "BH-01-ZV",
+      "aparatos": [
+       "BH-01-ZV",
+       "12PB1"
+      ],
+      "b": "12PB1 +",
+      "cable": "R35MM",
+      "color": "Rojo",
+      "num": "1205",
+      "puntos": {
+       "FONDO": [
+        [
+         680.5,
+         447.6
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         225.2,
+         306.06
+        ]
+       ]
+      },
+      "secc": "35"
+     },
+     "1206|12PB1 -|12XP 2.4": {
+      "a": "12PB1 -",
+      "aparatos": [
+       "12PB1",
+       "12XP"
+      ],
+      "b": "12XP 2.4",
+      "cable": "N4MM",
+      "color": "Negro",
+      "num": "1206",
+      "puntos": {
+       "FONDO": [
+        [
+         700.35,
+         554.05
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         225.2,
+         287.14
+        ]
+       ]
+      },
+      "secc": "4"
+     },
+     "1206|12PB1 -|BH-01-M": {
+      "a": "BH-01-M",
+      "aparatos": [
+       "BH-01-M",
+       "12PB1"
+      ],
+      "b": "12PB1 -",
+      "cable": "N35MM",
+      "color": "Negro",
+      "num": "1206",
+      "puntos": {
+       "LI|vista lateral izquierda interior": [
+        [
+         225.2,
+         287.14
+        ]
+       ]
+      },
+      "secc": "35"
+     },
+     "1302|13SH1|13XC1 1.4": {
+      "a": "13SH1 ARRIBA",
+      "aparatos": [
+       "13SH1",
+       "13XC1"
+      ],
+      "b": "13XC1 1.4",
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "num": "1302",
+      "puntos": {
+       "FONDO": [
+        [
+         711.89,
+         554.28
+        ]
+       ],
+       "PUERTA": [
+        [
+         703.1,
+         478.4
+        ]
+       ]
+      },
+      "secc": "2.5"
+     },
+     "1303|13SH1|13XC1 2.4": {
+      "a": "13SH1 ABAJO",
+      "aparatos": [
+       "13SH1",
+       "13XC1"
+      ],
+      "b": "13XC1 2.4",
+      "cable": "R2.5MM",
+      "color": "Rojo",
+      "num": "1303",
+      "puntos": {
+       "FONDO": [
+        [
+         717.76,
+         554.28
+        ]
+       ],
+       "PUERTA": [
+        [
+         703.1,
+         478.4
+        ]
+       ]
+      },
+      "secc": "2.5"
+     },
+     "1306|13XC1 2.3|21PCB01 48": {
+      "a": "13XC1 2.3",
+      "aparatos": [
+       "13XC1",
+       "21PCB01"
+      ],
+      "b": "21PCB01 48",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1306",
+      "puntos": {
+       "FONDO": [
+        [
+         717.76,
+         563.58
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1307|13XC1 3.4|21PCB01 49": {
+      "a": "13XC1 3.4",
+      "aparatos": [
+       "13XC1",
+       "21PCB01"
+      ],
+      "b": "21PCB01 49",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "1307",
+      "puntos": {
+       "FONDO": [
+        [
+         723.62,
+         554.28
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1311|13PS3 +Vo|13XC2 1.1": {
+      "a": "13PS3 +Vo",
+      "aparatos": [
+       "13PS3",
+       "13XC2"
+      ],
+      "b": "13XC2 1.1",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1311",
+      "puntos": {
+       "FONDO": [
+        [
+         550.56,
+         607.6
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         988.39,
+         613.73
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1312|13PS3 -Vo|13XC2 2.1": {
+      "a": "13XC2 2.1",
+      "aparatos": [
+       "13XC2",
+       "13PS3"
+      ],
+      "b": "13PS3 -Vo",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "1312",
+      "puntos": {
+       "FONDO": [
+        [
+         544.56,
+         607.6
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         994.26,
+         613.73
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1315|13XC2 1.4|33MX01 V+": {
+      "a": "33MX01 V+",
+      "aparatos": [
+       "33MX01",
+       "13XC2"
+      ],
+      "b": "13XC2 1.4",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1315",
+      "puntos": {
+       "FONDO": [
+        [
+         563.67,
+         612.14
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         988.39,
+         570.43
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1316|13XC2 2.4|33MX01 V-": {
+      "a": "33MX01 V-",
+      "aparatos": [
+       "33MX01",
+       "13XC2"
+      ],
+      "b": "13XC2 2.4",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "1316",
+      "puntos": {
+       "FONDO": [
+        [
+         563.67,
+         612.14
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         994.26,
+         570.43
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1317|13XC2 1.3|16XC 1": {
+      "a": "16XC 1 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "13XC2"
+      ],
+      "b": "13XC2 1.3",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1317",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1005.1,
+         607.79
+        ],
+        [
+         988.39,
+         579.72
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1318|13XC2 2.3|16XC 2": {
+      "a": "16XC 2 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "13XC2"
+      ],
+      "b": "13XC2 2.3",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "1318",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1005.1,
+         597.3
+        ],
+        [
+         994.26,
+         579.72
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1319|13XC1 3.3|13XC2 2.2": {
+      "a": "13XC2 2.2",
+      "aparatos": [
+       "13XC2",
+       "13XC1"
+      ],
+      "b": "13XC1 3.3",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "1319",
+      "puntos": {
+       "FONDO": [
+        [
+         723.62,
+         563.58
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         994.26,
+         604.43
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1601|16XC 1|33XAI F1": {
+      "a": "16XC 1 ABAJO",
+      "aparatos": [
+       "16XC",
+       "33XAI"
+      ],
+      "b": "33XAI F1 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1601",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1005.1,
+         574.71
+        ],
+        [
+         965.57,
+         513.13
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1602|16XC 2|33MX01 2": {
+      "a": "16XC 2 ABAJO",
+      "aparatos": [
+       "16XC",
+       "33MX01"
+      ],
+      "b": "33MX01 2",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "1602",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         586.0
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1005.1,
+         583.19
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "1603|16XC 3|33XAI F2": {
+      "a": "16XC 3 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "33XAI"
+      ],
+      "b": "33XAI F2 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1603",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1008.02,
+         607.79
+        ],
+        [
+         969.0,
+         513.13
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1604|16XC 4|33MX01 4": {
+      "a": "16XC 4 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "33MX01"
+      ],
+      "b": "33MX01 4",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "1604",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         581.7
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1008.02,
+         597.3
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "1605|16XC 3|33XAI F3": {
+      "a": "16XC 3 ABAJO",
+      "aparatos": [
+       "16XC",
+       "33XAI"
+      ],
+      "b": "33XAI F3 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1605",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1008.02,
+         574.71
+        ],
+        [
+         972.44,
+         513.13
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1606|16XC 4|33MX01 6": {
+      "a": "16XC 4 ABAJO",
+      "aparatos": [
+       "16XC",
+       "33MX01"
+      ],
+      "b": "33MX01 6",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "1606",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         577.39
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1008.02,
+         583.19
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "1607|16XC 5|33XAI F4": {
+      "a": "16XC 5 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "33XAI"
+      ],
+      "b": "33XAI F4 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1607",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1010.94,
+         607.75
+        ],
+        [
+         975.88,
+         513.13
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1608|16XC 6|33MX01 8": {
+      "a": "16XC 6 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "33MX01"
+      ],
+      "b": "33MX01 8",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "1608",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         573.02
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1010.94,
+         597.26
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "1609|16XC 5|33XAI F5": {
+      "a": "16XC 5 ABAJO",
+      "aparatos": [
+       "16XC",
+       "33XAI"
+      ],
+      "b": "33XAI F5 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1609",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1010.94,
+         574.67
+        ],
+        [
+         979.31,
+         513.13
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1610|16XC 6|33MX01 10": {
+      "a": "16XC 6 ABAJO",
+      "aparatos": [
+       "16XC",
+       "33MX01"
+      ],
+      "b": "33MX01 10",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "1610",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         568.71
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1010.94,
+         583.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "1611|16XC 7|33XAI F6": {
+      "a": "16XC 7 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "33XAI"
+      ],
+      "b": "33XAI F6 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1611",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1013.86,
+         607.75
+        ],
+        [
+         982.75,
+         513.13
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1612|16XC 8|33MX01 12": {
+      "a": "16XC 8 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "33MX01"
+      ],
+      "b": "33MX01 12",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "1612",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         564.4
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1013.86,
+         597.26
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "1613|16XC 7|33XAI F7": {
+      "a": "16XC 7 ABAJO",
+      "aparatos": [
+       "16XC",
+       "33XAI"
+      ],
+      "b": "33XAI F7 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1613",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1013.86,
+         574.67
+        ],
+        [
+         986.19,
+         513.13
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1614|16XC 8|33MX01 14": {
+      "a": "16XC 8 ABAJO",
+      "aparatos": [
+       "16XC",
+       "33MX01"
+      ],
+      "b": "33MX01 14",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "1614",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         559.47
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1013.86,
+         583.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "1615|16XC 9|33XAI F8": {
+      "a": "16XC 9 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "33XAI"
+      ],
+      "b": "33XAI F8 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1615",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1016.78,
+         607.75
+        ],
+        [
+         989.62,
+         513.13
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1616|16XC 10|33MX01 16": {
+      "a": "16XC 10 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "33MX01"
+      ],
+      "b": "33MX01 16",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "1616",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         555.16
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1016.78,
+         597.26
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "1617|16XC 9|31XAI F1": {
+      "a": "16XC 9 ABAJO",
+      "aparatos": [
+       "16XC",
+       "31XAI"
+      ],
+      "b": "31XAI F1 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1617",
+      "puntos": {
+       "FONDO": [
+        [
+         683.7,
+         586.82
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1016.78,
+         574.67
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "1619|16XC 11|32XAI F1": {
+      "a": "16XC 11 ARRIBA",
+      "aparatos": [
+       "16XC",
+       "32XAI"
+      ],
+      "b": "32XAI F1 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "1619",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1019.7,
+         607.75
+        ],
+        [
+         955.22,
+         513.1
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "2105|21PCB01 5|32XAI 1": {
+      "a": "21PCB01 5",
+      "aparatos": [
+       "21PCB01",
+       "32XAI"
+      ],
+      "b": "32XAI 1 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2105",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         955.22,
+         528.12
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2111|12XP 1.3|21PCB01 11": {
+      "a": "21PCB01 11",
+      "aparatos": [
+       "21PCB01",
+       "12XP"
+      ],
+      "b": "12XP 1.3",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2111",
+      "puntos": {
+       "FONDO": [
+        [
+         694.49,
+         563.35
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2112|12XP 2.2|21PCB01 12": {
+      "a": "21PCB01 12",
+      "aparatos": [
+       "21PCB01",
+       "12XP"
+      ],
+      "b": "12XP 2.2",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2112",
+      "puntos": {
+       "FONDO": [
+        [
+         700.35,
+         588.05
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2114|21PCB01 14|43KR1 11": {
+      "a": "21PCB01 14",
+      "aparatos": [
+       "21PCB01",
+       "43KR"
+      ],
+      "b": "43KR1 11",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2114",
+      "puntos": {
+       "FONDO": [
+        [
+         661.29,
+         599.95
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2115|21PCB01 15|43KR1 12": {
+      "a": "21PCB01 15",
+      "aparatos": [
+       "21PCB01",
+       "43KR"
+      ],
+      "b": "43KR1 12",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2115",
+      "puntos": {
+       "FONDO": [
+        [
+         661.28,
+         589.75
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2116|21PCB01 16|43DIB1 3": {
+      "a": "21PCB01 16",
+      "aparatos": [
+       "21PCB01",
+       "43DIB1"
+      ],
+      "b": "43DIB1 3",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2116",
+      "puntos": {
+       "FONDO": [
+        [
+         513.8,
+         486.22
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2117|21PCB01 17|43DIB1 4": {
+      "a": "21PCB01 17",
+      "aparatos": [
+       "21PCB01",
+       "43DIB1"
+      ],
+      "b": "43DIB1 4",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2117",
+      "puntos": {
+       "FONDO": [
+        [
+         516.64,
+         486.22
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2118|21PCB01 18|43DIB1 5": {
+      "a": "21PCB01 18",
+      "aparatos": [
+       "21PCB01",
+       "43DIB1"
+      ],
+      "b": "43DIB1 5",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2118",
+      "puntos": {
+       "FONDO": [
+        [
+         513.8,
+         481.2
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2119|21PCB01 19|43DIB1 6": {
+      "a": "21PCB01 19",
+      "aparatos": [
+       "21PCB01",
+       "43DIB1"
+      ],
+      "b": "43DIB1 6",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2119",
+      "puntos": {
+       "FONDO": [
+        [
+         516.64,
+         481.2
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2142|21PCB01 42|31XAI 1": {
+      "a": "21PCB01 42",
+      "aparatos": [
+       "21PCB01",
+       "31XAI"
+      ],
+      "b": "31XAI 1 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2142",
+      "puntos": {
+       "FONDO": [
+        [
+         683.7,
+         601.84
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2150|21PCB01 50|61KR1 A1": {
+      "a": "21PCB01 50",
+      "aparatos": [
+       "21PCB01",
+       "61KR"
+      ],
+      "b": "61KR1 A1",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2150",
+      "puntos": {
+       "FONDO": [
+        [
+         645.24,
+         558.58
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2151|21PCB01 51|61KR1 A2": {
+      "a": "21PCB01 51",
+      "aparatos": [
+       "21PCB01",
+       "61KR"
+      ],
+      "b": "61KR1 A2",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2151",
+      "puntos": {
+       "FONDO": [
+        [
+         645.24,
+         553.48
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2152|21PCB01 52|61KR2 A1": {
+      "a": "21PCB01 52",
+      "aparatos": [
+       "21PCB01",
+       "61KR"
+      ],
+      "b": "61KR2 A1",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2152",
+      "puntos": {
+       "FONDO": [
+        [
+         648.7,
+         558.58
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2153|21PCB01 53|61KR2 A2": {
+      "a": "21PCB01 53",
+      "aparatos": [
+       "21PCB01",
+       "61KR"
+      ],
+      "b": "61KR2 A2",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2153",
+      "puntos": {
+       "FONDO": [
+        [
+         648.7,
+         553.48
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2154|21PCB01 54|61KR3 A1": {
+      "a": "21PCB01 54",
+      "aparatos": [
+       "21PCB01",
+       "61KR"
+      ],
+      "b": "61KR3 A1",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2154",
+      "puntos": {
+       "FONDO": [
+        [
+         652.16,
+         558.58
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "2155|21PCB01 55|61KR3 A2": {
+      "a": "21PCB01 55",
+      "aparatos": [
+       "21PCB01",
+       "61KR"
+      ],
+      "b": "61KR3 A2",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "2155",
+      "puntos": {
+       "FONDO": [
+        [
+         652.16,
+         553.48
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3101|31XAI F1|PT 001 1": {
+      "a": "PT 001 1",
+      "aparatos": [
+       "PT 001",
+       "31XAI"
+      ],
+      "b": "31XAI F1 ABAJO",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3101",
+      "puntos": {
+       "FONDO": [
+        [
+         655.7,
+         415.9
+        ],
+        [
+         683.69,
+         562.3
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3102|31XAI 1|PT 001 2": {
+      "a": "PT 001 2",
+      "aparatos": [
+       "PT 001",
+       "31XAI"
+      ],
+      "b": "31XAI 1 ABAJO",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3102",
+      "puntos": {
+       "FONDO": [
+        [
+         655.7,
+         415.9
+        ],
+        [
+         683.7,
+         552.49
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3301|33MX01 1|33XAI 1": {
+      "a": "33MX01 1",
+      "aparatos": [
+       "33MX01",
+       "33XAI"
+      ],
+      "b": "33XAI 1 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3301",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         588.16
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         965.57,
+         528.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3303|33MX01 3|33XAI 2": {
+      "a": "33MX01 3",
+      "aparatos": [
+       "33MX01",
+       "33XAI"
+      ],
+      "b": "33XAI 2 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3303",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         583.85
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         969.01,
+         528.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3305|33MX01 5|33XAI 3": {
+      "a": "33MX01 5",
+      "aparatos": [
+       "33MX01",
+       "33XAI"
+      ],
+      "b": "33XAI 3 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3305",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         579.54
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         972.44,
+         528.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3307|33MX01 7|33XAI 4": {
+      "a": "33MX01 7",
+      "aparatos": [
+       "33MX01",
+       "33XAI"
+      ],
+      "b": "33XAI 4 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3307",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         575.18
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         975.88,
+         528.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3309|33MX01 9|33XAI 5": {
+      "a": "33MX01 9",
+      "aparatos": [
+       "33MX01",
+       "33XAI"
+      ],
+      "b": "33XAI 5 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3309",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         570.87
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         979.31,
+         528.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3311|33MX01 11|33XAI 6": {
+      "a": "33MX01 11",
+      "aparatos": [
+       "33MX01",
+       "33XAI"
+      ],
+      "b": "33XAI 6 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3311",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         566.56
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         982.75,
+         528.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3313|33MX01 13|33XAI 7": {
+      "a": "33MX01 13",
+      "aparatos": [
+       "33MX01",
+       "33XAI"
+      ],
+      "b": "33XAI 7 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3313",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         561.63
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         986.19,
+         528.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "3315|33MX01 15|33XAI 8": {
+      "a": "33MX01 15",
+      "aparatos": [
+       "33MX01",
+       "33XAI"
+      ],
+      "b": "33XAI 8 ARRIBA",
+      "cable": "N0.75MM",
+      "color": "Negro",
+      "num": "3315",
+      "puntos": {
+       "FONDO": [
+        [
+         560.95,
+         557.32
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         989.62,
+         528.15
+        ]
+       ]
+      },
+      "secc": "0.75"
+     },
+     "4305|43KR1 A1|43XDI 1": {
+      "a": "43KR1 A1",
+      "aparatos": [
+       "43KR",
+       "43XDI"
+      ],
+      "b": "43XDI 1 ARRIBA",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "4305",
+      "puntos": {
+       "FONDO": [
+        [
+         661.29,
+         558.58
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         999.71,
+         524.68
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "4306|43KR1 A2|43XDI 2": {
+      "a": "43KR1 A2",
+      "aparatos": [
+       "43KR",
+       "43XDI"
+      ],
+      "b": "43XDI 2 ARRIBA",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "4306",
+      "puntos": {
+       "FONDO": [
+        [
+         661.29,
+         553.48
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         999.71,
+         515.68
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "6102|BH-01-ZV|XM1 1": {
+      "a": "XM1 1 ABAJO",
+      "aparatos": [
+       "XM1",
+       "BH-01-ZV"
+      ],
+      "b": "BH-01-ZV",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "6102",
+      "puntos": {
+       "FONDO": [
+        [
+         671.48,
+         551.8
+        ],
+        [
+         680.5,
+         447.6
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "6103|BH-01-ZV|XM1 2": {
+      "a": "XM1 2 ABAJO",
+      "aparatos": [
+       "XM1",
+       "BH-01-ZV"
+      ],
+      "b": "BH-01-ZV",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "6103",
+      "puntos": {
+       "FONDO": [
+        [
+         671.48,
+         560.92
+        ],
+        [
+         680.5,
+         447.6
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "6201|XM1 3|ZY": {
+      "a": "XM1 3 ABAJO",
+      "aparatos": [
+       "XM1",
+       "ZY"
+      ],
+      "b": "ZY",
+      "cable": "R1MM",
+      "color": "Rojo",
+      "num": "6201",
+      "puntos": {
+       "FONDO": [
+        [
+         674.4,
+         551.8
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "6202|XM1 4|ZY": {
+      "a": "XM1 4 ABAJO",
+      "aparatos": [
+       "XM1",
+       "ZY"
+      ],
+      "b": "ZY",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "6202",
+      "puntos": {
+       "FONDO": [
+        [
+         674.4,
+         560.92
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "8101|61KR3 11|81XCM 3": {
+      "a": "61KR3 11",
+      "aparatos": [
+       "61KR",
+       "81XCM"
+      ],
+      "b": "81XCM 3 ARRIBA",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "8101",
+      "puntos": {
+       "FONDO": [
+        [
+         652.16,
+         599.95
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1011.67,
+         524.76
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "8102|61KR3 12|81XCM 4": {
+      "a": "61KR3 12",
+      "aparatos": [
+       "61KR",
+       "81XCM"
+      ],
+      "b": "81XCM 4 ARRIBA",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "8102",
+      "puntos": {
+       "FONDO": [
+        [
+         652.16,
+         589.75
+        ]
+       ],
+       "LD|vista lateral derecha interior": [
+        [
+         1011.67,
+         515.76
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "8103|21PCB01 35|81XCM 1": {
+      "a": "21PCB01 35",
+      "aparatos": [
+       "21PCB01",
+       "81XCM"
+      ],
+      "b": "81XCM 1 ARRIBA",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "8103",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1008.76,
+         524.76
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "8104|21PCB01 36|81XCM 2": {
+      "a": "21PCB01 36",
+      "aparatos": [
+       "21PCB01",
+       "81XCM"
+      ],
+      "b": "81XCM 2 ARRIBA",
+      "cable": "B1MM",
+      "color": "Blanco",
+      "num": "8104",
+      "puntos": {
+       "LD|vista lateral derecha interior": [
+        [
+         1008.76,
+         515.76
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "8105|21PCB01 32|EMPALME con 12PS2": {
+      "a": "21PCB01 32",
+      "aparatos": [
+       "21PCB01",
+       "12PS2"
+      ],
+      "b": "EMPALME con 12PS2",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "8105",
+      "puntos": {
+       "LI|vista lateral izquierda interior": [
+        [
+         195.1,
+         470.1
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "8105|33MX01 D1+|EMPALME con 12PS2": {
+      "a": "33MX01 D1+",
+      "aparatos": [
+       "33MX01",
+       "12PS2"
+      ],
+      "b": "EMPALME con 12PS2",
+      "cable": "N1MM",
+      "color": "Negro",
+      "num": "8105",
+      "puntos": {
+       "FONDO": [
+        [
+         563.67,
+         612.14
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         195.1,
+         470.1
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "8106|21PCB01 33|EMPALME con 12PS2": {
+      "a": "21PCB01 33",
+      "aparatos": [
+       "21PCB01",
+       "12PS2"
+      ],
+      "b": "EMPALME con 12PS2",
+      "cable": "B1MM",
+      "color": "Blanco",
+      "num": "8106",
+      "puntos": {
+       "LI|vista lateral izquierda interior": [
+        [
+         195.1,
+         470.1
+        ]
+       ],
+       "PUERTA": [
+        [
+         779.75,
+         485.85
+        ]
+       ]
+      },
+      "secc": "1"
+     },
+     "8106|33MX01 D1-|EMPALME con 12PS2": {
+      "a": "33MX01 D1-",
+      "aparatos": [
+       "33MX01",
+       "12PS2"
+      ],
+      "b": "EMPALME con 12PS2",
+      "cable": "B1MM",
+      "color": "Blanco",
+      "num": "8106",
+      "puntos": {
+       "FONDO": [
+        [
+         563.67,
+         612.14
+        ]
+       ],
+       "LI|vista lateral izquierda interior": [
+        [
+         195.1,
+         470.1
+        ]
+       ]
+      },
+      "secc": "1"
+     }
+    },
+    "categorias": [
+     {
+      "id": "bateria_35",
+      "nombre": "Batería 35 mm²",
+      "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba)."
+     },
+     {
+      "id": "contactora",
+      "nombre": "Contactora (bobina)",
+      "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines)."
+     },
+     {
+      "id": "bateria_4_6",
+      "nombre": "Batería 4 / 6 mm²",
+      "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete."
+     },
+     {
+      "id": "solenoides",
+      "nombre": "Solenoides",
+      "nota": "Válvulas solenoide de la zona hidráulica."
+     },
+     {
+      "id": "doorswitch",
+      "nombre": "Doorswitch (final de carrera de puerta)",
+      "nota": "El final de carrera que detecta la puerta abierta."
+     },
+     {
+      "id": "pulsadores",
+      "nombre": "Pulsadores",
+      "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo)."
+     },
+     {
+      "id": "selectoras",
+      "nombre": "Selectoras",
+      "nota": "Llaves selectoras de la puerta (OFF / ON)."
+     },
+     {
+      "id": "seccionadoras",
+      "nombre": "Llaves seccionadoras",
+      "nota": "Seccionadores con manija (en la puerta o en el gabinete)."
+     },
+     {
+      "id": "placa",
+      "nombre": "Placa",
+      "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables)."
+     }
+    ],
+    "clave_producto": "72715-1|72887|rev7",
+    "editado": null,
+    "grupos": [
+     {
+      "aparato": null,
+      "auto": true,
+      "cables": [
+       "1205|12PB1 +|BH-01-ZV",
+       "1206|12PB1 -|BH-01-M"
+      ],
+      "categoria": "bateria_35",
+      "dibujado": false,
+      "id": "bateria_35",
+      "n": 2,
+      "nombre": "Batería 35 mm²",
+      "tramos": []
+     },
+     {
+      "aparato": null,
+      "auto": true,
+      "cables": [
+       "6102|BH-01-ZV|XM1 1",
+       "6103|BH-01-ZV|XM1 2"
+      ],
+      "categoria": "contactora",
+      "dibujado": false,
+      "id": "contactora",
+      "n": 2,
+      "nombre": "Contactora (bobina)",
+      "tramos": []
+     },
+     {
+      "aparato": null,
+      "auto": true,
+      "cables": [
+       "1204|12PB1 +|12XP 1.4",
+       "1206|12PB1 -|12XP 2.4"
+      ],
+      "categoria": "bateria_4_6",
+      "dibujado": false,
+      "id": "bateria_4_6",
+      "n": 2,
+      "nombre": "Batería 4 / 6 mm²",
+      "tramos": []
+     },
+     {
+      "aparato": null,
+      "auto": true,
+      "cables": [
+       "6201|XM1 3|ZY",
+       "6202|XM1 4|ZY"
+      ],
+      "categoria": "solenoides",
+      "dibujado": false,
+      "id": "solenoides",
+      "n": 2,
+      "nombre": "Solenoides",
+      "tramos": []
+     },
+     {
+      "aparato": null,
+      "auto": true,
+      "cables": [
+       "1302|13SH1|13XC1 1.4",
+       "1303|13SH1|13XC1 2.4"
+      ],
+      "categoria": "selectoras",
+      "dibujado": false,
+      "id": "selectoras",
+      "n": 2,
+      "nombre": "Selectoras",
+      "tramos": []
+     },
+     {
+      "aparato": "21PCB01",
+      "auto": true,
+      "cables": [
+       "1306|13XC1 2.3|21PCB01 48",
+       "1307|13XC1 3.4|21PCB01 49",
+       "2105|21PCB01 5|32XAI 1",
+       "2111|12XP 1.3|21PCB01 11",
+       "2112|12XP 2.2|21PCB01 12",
+       "2114|21PCB01 14|43KR1 11",
+       "2115|21PCB01 15|43KR1 12",
+       "2116|21PCB01 16|43DIB1 3",
+       "2117|21PCB01 17|43DIB1 4",
+       "2118|21PCB01 18|43DIB1 5",
+       "2119|21PCB01 19|43DIB1 6",
+       "2142|21PCB01 42|31XAI 1",
+       "2150|21PCB01 50|61KR1 A1",
+       "2151|21PCB01 51|61KR1 A2",
+       "2152|21PCB01 52|61KR2 A1",
+       "2153|21PCB01 53|61KR2 A2",
+       "2154|21PCB01 54|61KR3 A1",
+       "2155|21PCB01 55|61KR3 A2",
+       "8103|21PCB01 35|81XCM 1",
+       "8104|21PCB01 36|81XCM 2",
+       "8105|21PCB01 32|EMPALME con 12PS2",
+       "8106|21PCB01 33|EMPALME con 12PS2"
+      ],
+      "categoria": "placa",
+      "dibujado": false,
+      "id": "placa:21PCB01",
+      "n": 22,
+      "nombre": "Placa 21PCB01",
+      "tramos": []
+     }
+    ],
+    "manual": {
+     "grupos": {},
+     "mover": {},
+     "nuevos": []
+    },
+    "miembro": {
+     "1204|12PB1 +|12XP 1.4": "bateria_4_6",
+     "1205|12PB1 +|BH-01-ZV": "bateria_35",
+     "1206|12PB1 -|12XP 2.4": "bateria_4_6",
+     "1206|12PB1 -|BH-01-M": "bateria_35",
+     "1302|13SH1|13XC1 1.4": "selectoras",
+     "1303|13SH1|13XC1 2.4": "selectoras",
+     "1306|13XC1 2.3|21PCB01 48": "placa:21PCB01",
+     "1307|13XC1 3.4|21PCB01 49": "placa:21PCB01",
+     "2105|21PCB01 5|32XAI 1": "placa:21PCB01",
+     "2111|12XP 1.3|21PCB01 11": "placa:21PCB01",
+     "2112|12XP 2.2|21PCB01 12": "placa:21PCB01",
+     "2114|21PCB01 14|43KR1 11": "placa:21PCB01",
+     "2115|21PCB01 15|43KR1 12": "placa:21PCB01",
+     "2116|21PCB01 16|43DIB1 3": "placa:21PCB01",
+     "2117|21PCB01 17|43DIB1 4": "placa:21PCB01",
+     "2118|21PCB01 18|43DIB1 5": "placa:21PCB01",
+     "2119|21PCB01 19|43DIB1 6": "placa:21PCB01",
+     "2142|21PCB01 42|31XAI 1": "placa:21PCB01",
+     "2150|21PCB01 50|61KR1 A1": "placa:21PCB01",
+     "2151|21PCB01 51|61KR1 A2": "placa:21PCB01",
+     "2152|21PCB01 52|61KR2 A1": "placa:21PCB01",
+     "2153|21PCB01 53|61KR2 A2": "placa:21PCB01",
+     "2154|21PCB01 54|61KR3 A1": "placa:21PCB01",
+     "2155|21PCB01 55|61KR3 A2": "placa:21PCB01",
+     "6102|BH-01-ZV|XM1 1": "contactora",
+     "6103|BH-01-ZV|XM1 2": "contactora",
+     "6201|XM1 3|ZY": "solenoides",
+     "6202|XM1 4|ZY": "solenoides",
+     "8103|21PCB01 35|81XCM 1": "placa:21PCB01",
+     "8104|21PCB01 36|81XCM 2": "placa:21PCB01",
+     "8105|21PCB01 32|EMPALME con 12PS2": "placa:21PCB01",
+     "8106|21PCB01 33|EMPALME con 12PS2": "placa:21PCB01"
+    },
+    "por_producto": true,
+    "trabajos": [],
+    "version": 1,
+    "version_almacen": 0,
+    "vistas": [
+     {
+      "clave": "LD|vista lateral derecha interior",
+      "i": 0,
+      "nombre": "Bandeja lateral derecha",
+      "tipo": "lateral"
+     },
+     {
+      "clave": "LI|vista lateral izquierda interior",
+      "i": 1,
+      "nombre": "Bandeja lateral izquierda",
+      "tipo": "lateral"
+     },
+     {
+      "clave": "PUERTA",
+      "nombre": "Puerta",
+      "tipo": "puerta"
+     },
+     {
+      "clave": "FONDO",
+      "nombre": "Fondo y bandeja principal",
+      "tipo": "fondo"
+     }
+    ]
+   },
+   "version": 7
   },
   "estacion_auto": {
    "estacion": "E8",
@@ -16855,6 +19288,280 @@
   ],
   "sale": "entrada",
   "salida": null
+ },
+ "e8_grupos": {
+  "categorias": [
+   {
+    "id": "bateria_35",
+    "nombre": "Batería 35 mm²",
+    "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba)."
+   },
+   {
+    "id": "contactora",
+    "nombre": "Contactora (bobina)",
+    "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines)."
+   },
+   {
+    "id": "bateria_4_6",
+    "nombre": "Batería 4 / 6 mm²",
+    "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete."
+   },
+   {
+    "id": "solenoides",
+    "nombre": "Solenoides",
+    "nota": "Válvulas solenoide de la zona hidráulica."
+   },
+   {
+    "id": "doorswitch",
+    "nombre": "Doorswitch (final de carrera de puerta)",
+    "nota": "El final de carrera que detecta la puerta abierta."
+   },
+   {
+    "id": "pulsadores",
+    "nombre": "Pulsadores",
+    "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo)."
+   },
+   {
+    "id": "selectoras",
+    "nombre": "Selectoras",
+    "nota": "Llaves selectoras de la puerta (OFF / ON)."
+   },
+   {
+    "id": "seccionadoras",
+    "nombre": "Llaves seccionadoras",
+    "nota": "Seccionadores con manija (en la puerta o en el gabinete)."
+   },
+   {
+    "id": "placa",
+    "nombre": "Placa",
+    "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables)."
+   }
+  ],
+  "vistas": [
+   {
+    "clave": "LD|vista lateral derecha interior",
+    "i": 0,
+    "nombre": "Bandeja lateral derecha",
+    "tipo": "lateral"
+   },
+   {
+    "clave": "LI|vista lateral izquierda interior",
+    "i": 1,
+    "nombre": "Bandeja lateral izquierda",
+    "tipo": "lateral"
+   },
+   {
+    "clave": "PUERTA",
+    "nombre": "Puerta",
+    "tipo": "puerta"
+   },
+   {
+    "clave": "FONDO",
+    "nombre": "Fondo y bandeja principal",
+    "tipo": "fondo"
+   }
+  ],
+  "auto": {
+   "1204|12PB1 +|12XP 1.4": "bateria_4_6",
+   "1205|12PB1 +|BH-01-ZV": "bateria_35",
+   "1206|12PB1 -|12XP 2.4": "bateria_4_6",
+   "1206|12PB1 -|BH-01-M": "bateria_35",
+   "1302|13SH1|13XC1 1.4": "selectoras",
+   "1303|13SH1|13XC1 2.4": "selectoras",
+   "1306|13XC1 2.3|21PCB01 48": "placa:21PCB01",
+   "1307|13XC1 3.4|21PCB01 49": "placa:21PCB01",
+   "2105|21PCB01 5|32XAI 1": "placa:21PCB01",
+   "2111|12XP 1.3|21PCB01 11": "placa:21PCB01",
+   "2112|12XP 2.2|21PCB01 12": "placa:21PCB01",
+   "2114|21PCB01 14|43KR1 11": "placa:21PCB01",
+   "2115|21PCB01 15|43KR1 12": "placa:21PCB01",
+   "2116|21PCB01 16|43DIB1 3": "placa:21PCB01",
+   "2117|21PCB01 17|43DIB1 4": "placa:21PCB01",
+   "2118|21PCB01 18|43DIB1 5": "placa:21PCB01",
+   "2119|21PCB01 19|43DIB1 6": "placa:21PCB01",
+   "2142|21PCB01 42|31XAI 1": "placa:21PCB01",
+   "2150|21PCB01 50|61KR1 A1": "placa:21PCB01",
+   "2151|21PCB01 51|61KR1 A2": "placa:21PCB01",
+   "2152|21PCB01 52|61KR2 A1": "placa:21PCB01",
+   "2153|21PCB01 53|61KR2 A2": "placa:21PCB01",
+   "2154|21PCB01 54|61KR3 A1": "placa:21PCB01",
+   "2155|21PCB01 55|61KR3 A2": "placa:21PCB01",
+   "6102|BH-01-ZV|XM1 1": "contactora",
+   "6103|BH-01-ZV|XM1 2": "contactora",
+   "6201|XM1 3|ZY": "solenoides",
+   "6202|XM1 4|ZY": "solenoides",
+   "8103|21PCB01 35|81XCM 1": "placa:21PCB01",
+   "8104|21PCB01 36|81XCM 2": "placa:21PCB01",
+   "8105|21PCB01 32|EMPALME con 12PS2": "placa:21PCB01",
+   "8106|21PCB01 33|EMPALME con 12PS2": "placa:21PCB01"
+  },
+  "auto_info": {
+   "bateria_35": {
+    "aparato": null,
+    "categoria": "bateria_35"
+   },
+   "bateria_4_6": {
+    "aparato": null,
+    "categoria": "bateria_4_6"
+   },
+   "contactora": {
+    "aparato": null,
+    "categoria": "contactora"
+   },
+   "placa:21PCB01": {
+    "aparato": "21PCB01",
+    "categoria": "placa"
+   },
+   "selectoras": {
+    "aparato": null,
+    "categoria": "selectoras"
+   },
+   "solenoides": {
+    "aparato": null,
+    "categoria": "solenoides"
+   }
+  },
+  "grupos": [
+   {
+    "aparato": null,
+    "auto": true,
+    "cables": [
+     "1205|12PB1 +|BH-01-ZV",
+     "1206|12PB1 -|BH-01-M"
+    ],
+    "categoria": "bateria_35",
+    "dibujado": false,
+    "id": "bateria_35",
+    "n": 2,
+    "nombre": "Batería 35 mm²",
+    "tramos": []
+   },
+   {
+    "aparato": null,
+    "auto": true,
+    "cables": [
+     "6102|BH-01-ZV|XM1 1",
+     "6103|BH-01-ZV|XM1 2"
+    ],
+    "categoria": "contactora",
+    "dibujado": false,
+    "id": "contactora",
+    "n": 2,
+    "nombre": "Contactora (bobina)",
+    "tramos": []
+   },
+   {
+    "aparato": null,
+    "auto": true,
+    "cables": [
+     "1204|12PB1 +|12XP 1.4",
+     "1206|12PB1 -|12XP 2.4"
+    ],
+    "categoria": "bateria_4_6",
+    "dibujado": false,
+    "id": "bateria_4_6",
+    "n": 2,
+    "nombre": "Batería 4 / 6 mm²",
+    "tramos": []
+   },
+   {
+    "aparato": null,
+    "auto": true,
+    "cables": [
+     "6201|XM1 3|ZY",
+     "6202|XM1 4|ZY"
+    ],
+    "categoria": "solenoides",
+    "dibujado": false,
+    "id": "solenoides",
+    "n": 2,
+    "nombre": "Solenoides",
+    "tramos": []
+   },
+   {
+    "aparato": null,
+    "auto": true,
+    "cables": [
+     "1302|13SH1|13XC1 1.4",
+     "1303|13SH1|13XC1 2.4"
+    ],
+    "categoria": "selectoras",
+    "dibujado": false,
+    "id": "selectoras",
+    "n": 2,
+    "nombre": "Selectoras",
+    "tramos": []
+   },
+   {
+    "aparato": "21PCB01",
+    "auto": true,
+    "cables": [
+     "1306|13XC1 2.3|21PCB01 48",
+     "1307|13XC1 3.4|21PCB01 49",
+     "2105|21PCB01 5|32XAI 1",
+     "2111|12XP 1.3|21PCB01 11",
+     "2112|12XP 2.2|21PCB01 12",
+     "2114|21PCB01 14|43KR1 11",
+     "2115|21PCB01 15|43KR1 12",
+     "2116|21PCB01 16|43DIB1 3",
+     "2117|21PCB01 17|43DIB1 4",
+     "2118|21PCB01 18|43DIB1 5",
+     "2119|21PCB01 19|43DIB1 6",
+     "2142|21PCB01 42|31XAI 1",
+     "2150|21PCB01 50|61KR1 A1",
+     "2151|21PCB01 51|61KR1 A2",
+     "2152|21PCB01 52|61KR2 A1",
+     "2153|21PCB01 53|61KR2 A2",
+     "2154|21PCB01 54|61KR3 A1",
+     "2155|21PCB01 55|61KR3 A2",
+     "8103|21PCB01 35|81XCM 1",
+     "8104|21PCB01 36|81XCM 2",
+     "8105|21PCB01 32|EMPALME con 12PS2",
+     "8106|21PCB01 33|EMPALME con 12PS2"
+    ],
+    "categoria": "placa",
+    "dibujado": false,
+    "id": "placa:21PCB01",
+    "n": 22,
+    "nombre": "Placa 21PCB01",
+    "tramos": []
+   }
+  ],
+  "miembro": {
+   "1204|12PB1 +|12XP 1.4": "bateria_4_6",
+   "1205|12PB1 +|BH-01-ZV": "bateria_35",
+   "1206|12PB1 -|12XP 2.4": "bateria_4_6",
+   "1206|12PB1 -|BH-01-M": "bateria_35",
+   "1302|13SH1|13XC1 1.4": "selectoras",
+   "1303|13SH1|13XC1 2.4": "selectoras",
+   "1306|13XC1 2.3|21PCB01 48": "placa:21PCB01",
+   "1307|13XC1 3.4|21PCB01 49": "placa:21PCB01",
+   "2105|21PCB01 5|32XAI 1": "placa:21PCB01",
+   "2111|12XP 1.3|21PCB01 11": "placa:21PCB01",
+   "2112|12XP 2.2|21PCB01 12": "placa:21PCB01",
+   "2114|21PCB01 14|43KR1 11": "placa:21PCB01",
+   "2115|21PCB01 15|43KR1 12": "placa:21PCB01",
+   "2116|21PCB01 16|43DIB1 3": "placa:21PCB01",
+   "2117|21PCB01 17|43DIB1 4": "placa:21PCB01",
+   "2118|21PCB01 18|43DIB1 5": "placa:21PCB01",
+   "2119|21PCB01 19|43DIB1 6": "placa:21PCB01",
+   "2142|21PCB01 42|31XAI 1": "placa:21PCB01",
+   "2150|21PCB01 50|61KR1 A1": "placa:21PCB01",
+   "2151|21PCB01 51|61KR1 A2": "placa:21PCB01",
+   "2152|21PCB01 52|61KR2 A1": "placa:21PCB01",
+   "2153|21PCB01 53|61KR2 A2": "placa:21PCB01",
+   "2154|21PCB01 54|61KR3 A1": "placa:21PCB01",
+   "2155|21PCB01 55|61KR3 A2": "placa:21PCB01",
+   "6102|BH-01-ZV|XM1 1": "contactora",
+   "6103|BH-01-ZV|XM1 2": "contactora",
+   "6201|XM1 3|ZY": "solenoides",
+   "6202|XM1 4|ZY": "solenoides",
+   "8103|21PCB01 35|81XCM 1": "placa:21PCB01",
+   "8104|21PCB01 36|81XCM 2": "placa:21PCB01",
+   "8105|21PCB01 32|EMPALME con 12PS2": "placa:21PCB01",
+   "8106|21PCB01 33|EMPALME con 12PS2": "placa:21PCB01"
+  },
+  "clave_producto": "72715-1|72887|rev7"
  },
  "proyector": {
   "orificios": {

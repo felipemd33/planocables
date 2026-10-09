@@ -71,6 +71,17 @@ siguen a la puerta y vienen de la bandeja principal o de la otra lateral (e8['ha
 la lateral y salen a la puerta por la salida a la puerta (la de arriba, del lado de la puerta). No esta en los pasos de
 la lateral (no se cablean ahi ni cambian la WPC).
 
+RUTEO A MANO POR GRUPOS (etapa E8-6, 2026-10-09, pedido del taller): los cables de solenoides, contactora (bobina),
+bateria (35 mm² y 4 / 6 mm²), doorswitch, pulsadores, selectoras, llaves seccionadoras y placas no se rutean solos: el
+recorrido lo dibuja el taller. build arma e8['ruteo_mano'] (estacion8_mano: grupos automaticos con la tabla
+programa/web/e8_grupos.json, los cables de E8 con sus puntos en cada vista y las vistas donde se dibuja: las laterales,
+la puerta y el FONDO = la bandeja principal con la zona del fondo, e8['fondo']); web.gen_instructivo le suma lo dibujado
+y corregido, guardado por producto, y marca 'grupo_mano' en las lineas. La ruta automatica de las laterales queda (la usa
+la WPC); el visor no la dibuja para un cable con grupo.
+CABLES DIRECTOS (2026-10-09, dato del taller: en el PAE y la Vista, debajo del cargador hay borneras para no usar WAGO): un
+cable de la misma lateral entre un cargador (e8_grupos.json -> directo) y una bornera justo debajo o al lado, sin una
+canaleta en el medio, va derecho del aparato al borne ('directo': True), sin pasar por el ducto.
+
 PUNTOS EXACTOS DE LOS BORNES DE LAS LATERALES (etapa E8-5, 2026-10-08, propuesta B.4). mapear_bornes (web.gen_instructivo,
 despues de instructivo.build) corre el motor de bornes/ por cada lateral (bornes.laterales: la placa como region; los
 rieles de la capa del riel o, si no hay, los rectangulos con el perfil del riel en cualquier capa; y el riel tapado de la
@@ -92,12 +103,15 @@ import unicodedata
 from instructivo import conductors, fmt_terminal, cable_desc, natk, puntos_salida, sale_abajo, materiales_funcional
 # (movida a planocables.base: sigue siendo estacion8.e8_clave)
 from planocables.base.convenciones import clave_par as e8_clave, sin_lado, side_of, LATERAL_RE, is_terminal_block
+import estacion8_mano as E8M
 
-VERSION = 6       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
+VERSION = 7       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
                   # 3 (2026-10-08): entrada a las laterales y bisagra de la puerta (recorridos)
                   # 4 (2026-10-08): empalmes con el cable propio de un aparato (WAGO del cargador, RS-485)
                   # 5 (2026-10-08): vista de la puerta con recorridos y transito hacia la puerta en la lateral de la bisagra
                   # 6 (2026-10-08): puntos exactos de los bornes de las laterales (mapear_bornes: bornes_e8; conf_o / conf_d)
+                  # 7 (2026-10-09): ruteo a mano por grupos (ruteo_mano, estacion8_mano.py; vista del fondo) y cables
+                  #                 directos del cargador a la bornera de abajo (directo)
 AQUI = os.path.dirname(os.path.abspath(__file__))
 MAX_LINEAS = 7
 MARGEN_IMG_H = 0.5    # imagen de la lateral: la placa entera + medio perfil de riel de cada lado
@@ -385,6 +399,23 @@ def con_empalmes(r, eo, ed):
     return [[round(x, 1), round(y, 1)] for x, y in r]
 
 
+def sin_canaleta_en_medio(ductos, p, q, m=0.5):
+    """entre los puntos p y q (el rectangulo que forman, por donde va el recorrido directo) no hay ninguna canaleta"""
+    x0, x1 = sorted((float(p[0]), float(q[0])))
+    y0, y1 = sorted((float(p[1]), float(q[1])))
+    return not any(d['b'][0] < x1 + m and x0 - m < d['b'][2] and d['b'][1] < y1 + m and y0 - m < d['b'][3] for d in ductos or [])
+
+
+def ruta_directa(p, q):
+    """recorrido DIRECTO de un aparato al borne de la bornera que tiene justo debajo o al lado, sin pasar por las
+    canaletas (cargador sobre 12XPS en el PAE): derecho y, si no estan alineados, de costado a mitad de camino"""
+    p, q = (float(p[0]), float(p[1])), (float(q[0]), float(q[1]))
+    if abs(p[0] - q[0]) < 0.6 or abs(p[1] - q[1]) < 0.6:
+        return [[round(p[0], 1), round(p[1], 1)], [round(q[0], 1), round(q[1], 1)]]
+    ym = (p[1] + q[1]) / 2
+    return _limpiar([p, (p[0], ym), (q[0], ym), q])
+
+
 def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala):
     """recorrido de cada cable de la lateral 'lado' por sus canaletas (net; None = sin canaletas, sin recorrido).
     ls: lineas con _po, _so (y las de la misma lateral, con marca_d, _pd y _sd). vrec: lo elegido en esa vista
@@ -421,6 +452,11 @@ def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala
             g = next((x for x in grupos if l['num'] in x['cables']), None)
             if g:
                 l['salida'] = g['id']
+        if not afuera_ and l.get('directo'):         # del cargador a la bornera de abajo: derecho, sin las canaletas
+            l['ruta'] = ruta_directa(l['_po'], l['_pd'])
+            if escala:
+                l['largo_mm'] = int(round(length(l['ruta']) * escala / 10.0) * 10)
+            continue
         if not net:
             continue
         if not afuera_:
@@ -982,12 +1018,38 @@ def build(res, lay, ins):
                         texto=f'Empalme de {n}, a confirmar (con el cable propio de {ap})', _orden=(100, 0))
         return None
 
+    # ruteo a mano por grupos (E8-6) y cables directos: la tabla del taller (programa/web/e8_grupos.json)
+    cfg_mano = E8M.leer_config()
+
+    def info_de(tag):
+        """(texto del aparato: su renglon de la lista de materiales + el material de aparamenta que nombra, familia)"""
+        fam_de(tag, None)                       # (carga la lista de materiales y las familias)
+        bom = (cache_fam.get('bom') or {}).get(tag)
+        return E8M.texto_aparato(bom), (familia_de([bom], cache_fam['fams']) if bom else None)
+
+    def es_directo(L, e, eo, po, pd):
+        """cable de la misma lateral entre un cargador (o lo que diga 'directo' en la tabla; sin lista de materiales, por
+        las letras del tag) y una bornera justo debajo o al lado, sin canaleta en el medio: va derecho al borne"""
+        di = cfg_mano['directo']
+        if e.get('empalme') or eo.get('empalme') or e.get('empalme_dibujado') or eo.get('empalme_dibujado'):
+            return False
+        ta, tb = ap_tag(e), ap_tag(eo)
+        if is_terminal_block(ta) == is_terminal_block(tb):
+            return False
+        ap = tb if is_terminal_block(ta) else ta
+        txt, fam = info_de(ap)
+        if not ((fam in di['familias']) if fam else (di['tag_re'] is not None and di['tag_re'].search(ap or ''))):
+            return False
+        H = lay.get('perfil_riel_pt') or 24.8
+        return math.dist(po[:2], pd[:2]) <= di['distancia'] * H and sin_canaleta_en_medio(L['ductos'], po, pd)
+
     cs = conductors(res)
     tramos_lat = collections.defaultdict(list)
     afuera = collections.defaultdict(list)
     hacia_puerta, lineas_puerta, puerta_vistos = [], [], set()
     n_campo = 0
     vistos = set()
+    tramos_e8 = {}          # clave -> el tramo con sus puntas (para los grupos de ruteo a mano)
     for num, c in cs.items():
         nodes = c['nodes']
         for a, b in c['pares']:
@@ -1007,6 +1069,8 @@ def build(res, lay, ins):
             vistos.add(k)
             base = dict(num=num, cable=desc, color=col, secc=sec, clave=k,
                         hojas=sorted({ea.get('hoja'), eb.get('hoja')} - {None}, key=natk))
+            tramos_e8[k] = dict(clave=k, num=num, cable=desc, color=col, secc=sec, a=ta, b=tb,
+                                puntas=[(wa, ap_tag(ea), ea.get('borne'), ta), (wb, ap_tag(eb), eb.get('borne'), tb)])
             # --- bandejas laterales
             for e, w, t, eo, wo, to, ne, no in ((ea, wa, ta, eb, wb, tb, a, b), (eb, wb, tb, ea, wa, ta, b, a)):
                 if w != 'LATERAL':
@@ -1041,6 +1105,8 @@ def build(res, lay, ins):
                     emp_d = empalme_de(eo, no, c)
                     if emp_d:
                         l['_emp_d'] = emp_d
+                    if not emp and not emp_d and es_directo(L, e, eo, po, pd):
+                        l['directo'] = True       # del cargador a la bornera de abajo: derecho, sin el ducto
                 elif wo == 'LATERAL':
                     # a la OTRA lateral: sale en las dos (cada una con su punta); la otra punta dice a cual va
                     l.update(destino=to, otra=de_lateral[ap_tag(eo)]['nombre'].lower())
@@ -1281,7 +1347,100 @@ def build(res, lay, ins):
             avisos.append(f"Puerta: {n_no} cable{'s' if n_no > 1 else ''} no llega{'n' if n_no > 1 else ''} por las canaletas "
                           f"hasta los puntos de paso elegidos")
         out['puerta'] = Pd
+
+    # ---- ruteo a mano por grupos (E8-6): la vista del FONDO (la bandeja principal y lo dibujado alrededor: la zona
+    # hidraulica de AutoCAD, la de EPLAN), los cables de E8 con sus puntos en cada vista y los grupos automaticos
+    try:
+        out['ruteo_mano'] = ruteo_mano(out, lay, ins, tramos_e8, de_lateral, en_puerta, info_de, cfg_mano)
+    except Exception as ex:                                                # noqa: BLE001
+        avisos.append(f'no se pudieron armar los grupos de ruteo a mano ({type(ex).__name__}: {ex})')
     return out
+
+
+MARGEN_FONDO_H = 1.0      # vista del fondo: un perfil de aire alrededor de la bandeja y de lo dibujado afuera
+
+
+def ruteo_mano(out, lay, ins, tramos_e8, de_lateral, en_puerta, info_de, cfg):
+    """e8['ruteo_mano'] (ver estacion8_mano): categorias, vistas donde se dibuja, grupos automaticos y los cables de E8
+    con sus puntos en cada vista (las puntas de las laterales, el aparato de la puerta, el borne de la bandeja principal
+    en el fondo); y e8['fondo'] (la vista del fondo). Aplica los grupos automaticos sin nada del taller (lo guardado se
+    suma en web.gen_instructivo: estacion8_mano.cargar_y_aplicar)."""
+    comp = lay.get('comp') or {}
+    H = lay.get('perfil_riel_pt') or 24.8
+    # claves que estan en algun lado de E8 (lateral, puerta, tablas de puerta y placa)
+    vivas = {l['clave'] for L in out['laterales'] for p in L['pasos'] for l in p['lineas']} \
+        | {x['clave'] for g in out['afuera'] for x in g['cables']} \
+        | {l['clave'] for p in (out.get('puerta') or {}).get('pasos') or [] for l in p['lineas']}
+    tr = {k: t for k, t in tramos_e8.items() if k in vivas}
+    # vista del FONDO: la bandeja principal y los aparatos de E8 dibujados en esa hoja que no estan en una lateral ni en la
+    # puerta (la zona hidraulica)
+    fondo = None
+    if lay.get('region') and lay.get('pag'):
+        x0, y0, x1, y1 = [float(v) for v in lay['region']]
+        aps = []
+        for t in sorted({p[1] for t in tr.values() for p in t['puntas'] if p[0] in ('E8', 'AFUERA') and p[1]}, key=natk):
+            c = comp.get(t)
+            if _dibujado(c) and t not in de_lateral and t not in en_puerta:
+                aps.append(dict(tag=t, x=round(float(c['x']), 2), y=round(float(c['y']), 2)))
+                x0, y0, x1, y1 = min(x0, c['x']), min(y0, c['y']), max(x1, c['x']), max(y1, c['y'])
+        m = MARGEN_FONDO_H * H
+        fondo = dict(nombre='Fondo y bandeja principal', clave_vista=E8M.VISTA_FONDO, pag=lay['pag'],
+                     region=[round(x0 - m, 2), round(y0 - m, 2), round(x1 + m, 2), round(y1 + m, 2)],
+                     ductos=lay.get('ductos') or [], escala=lay.get('escala'), aparatos=aps)
+        out['fondo'] = fondo
+    vistas = [dict(clave=L['clave_vista'], nombre=L['nombre'], tipo='lateral', i=i) for i, L in enumerate(out['laterales'])]
+    if out.get('puerta'):
+        vistas.append(dict(clave=E8M.VISTA_PUERTA, nombre='Puerta', tipo='puerta'))
+    if fondo:
+        vistas.append(dict(clave=E8M.VISTA_FONDO, nombre=fondo['nombre'], tipo='fondo'))
+    # puntos de cada cable en cada vista
+    puntos = collections.defaultdict(lambda: collections.defaultdict(list))
+
+    def sumar(k, v, p):
+        q = [round(float(p[0]), 2), round(float(p[1]), 2)]
+        if q not in puntos[k][v]:
+            puntos[k][v].append(q)
+    for L in out['laterales']:
+        for p in L['pasos']:
+            for l in p['lineas']:
+                sumar(l['clave'], L['clave_vista'], l['marca_o'])
+                if l.get('marca_d'):
+                    sumar(l['clave'], L['clave_vista'], l['marca_d'])
+    Pd = out.get('puerta')
+    if Pd:
+        cajas = {a['tag']: a['caja'] for a in Pd.get('aparatos') or []}
+        for p in Pd['pasos']:
+            for l in p['lineas']:
+                for t in (l.get('aparato'), l.get('aparato_d')):
+                    if t in cajas:
+                        c = cajas[t]
+                        sumar(l['clave'], E8M.VISTA_PUERTA, ((c[0] + c[2]) / 2, (c[1] + c[3]) / 2))
+    if fondo:
+        e6 = {}             # (num, texto sin lado) -> punto del borne en la bandeja principal (instructivo de E6)
+        for l in [x for p in ins.get('pasos') or [] for x in p['lineas']] + list(ins.get('otra_estacion') or []) + list(ins.get('quitados') or []):
+            for t, m in ((l.get('origen'), l.get('marca_o')), (l.get('destino'), l.get('marca_d'))):
+                if t and t not in ('LI', 'LD') and m:
+                    e6.setdefault((l['num'], sin_lado(t)), m)
+        en_fondo = {a['tag']: (a['x'], a['y']) for a in fondo['aparatos']}
+        for k, t in tr.items():
+            for w, tag, _, txt in t['puntas']:
+                if w == 'BANDEJA':
+                    m = e6.get((t['num'], sin_lado(txt))) or (lambda c: [c['x'], c['y']] if _dibujado(c) else None)(comp.get(tag))
+                    if m:
+                        sumar(k, E8M.VISTA_FONDO, m)
+                elif tag in en_fondo:
+                    sumar(k, E8M.VISTA_FONDO, en_fondo[tag])
+    # grupos automaticos (la primera categoria de la tabla que le corresponde a cada cable)
+    lista = [dict(clave=k, sec=E8M._num(t['secc']), puntas=[(p[1], p[2]) for p in t['puntas']]) for k, t in tr.items()]
+    auto, ainfo = E8M.clasificar(lista, info_de, cfg)
+    cables = {k: dict(num=t['num'], cable=t['cable'], color=t['color'], secc=t['secc'], a=t['a'], b=t['b'],
+                      aparatos=[p[1] for p in t['puntas']], puntos={v: ps for v, ps in puntos[k].items()})
+              for k, t in sorted(tr.items(), key=lambda x: (natk(x[1]['num']), x[0]))}
+    R = dict(version=E8M.VERSION, categorias=[dict(id=c['id'], nombre=c['nombre'], nota=c['nota']) for c in cfg['categorias']],
+             vistas=vistas, auto=auto, auto_info=ainfo, cables=cables)
+    E8M.aplicar(R, None, E8M.meta_de(None, 'sin producto'))
+    E8M.anotar(out, R['miembro'])
+    return R
 
 
 def rutear_guardado(ins, rec):
@@ -1369,6 +1528,8 @@ def rutear_punto(ins, rec, vista, clave, punta, xy, linea=None):
     po = q if punta == 'o' else (float(l0['marca_o'][0]), float(l0['marca_o'][1]))
     so = lado(po, so) if punta == 'o' else so
     l = dict(num=l0.get('num'), otra=l0.get('otra'), a_puerta=l0.get('a_puerta'), clave=clave, _po=po, _so=so, empalme=l0.get('empalme'))
+    if l0.get('directo'):
+        l['directo'] = True             # (del cargador a la bornera de abajo: derecho, sin las canaletas)
     if l0.get('marca_d'):
         pd = q if punta == 'd' else (float(l0['marca_d'][0]), float(l0['marca_d'][1]))
         sd = lado(pd, sd) if punta == 'd' else sd

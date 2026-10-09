@@ -496,8 +496,14 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
             # de otro dibujo) y el asistente de la estacion 8 vuelve a preguntar (como las salidas a LI / LD de E6).
             # (despues de instructivo.build: es solo de E8)
             lay['recorridos_e8'] = None if topo_nuevo else (old.get('estacion8') or {}).get('recorridos')
+            # producto (antes de E8: el ruteo a mano de E8 se guarda por producto y topografico; va en ins['producto'] mas abajo)
+            prod_ins = producto_nuevo(P, s, res, lay, old, topo_nuevo)
+            # ruteo a mano de E8 guardado en el trabajo (producto sin confirmar); con un topografico nuevo no sirve (son puntos
+            # de otro dibujo)
+            mano_local = None if topo_nuevo else (old.get('estacion8') or {}).get('mano_trabajo')
             try:
                 import estacion8
+                import estacion8_mano
                 # puntos de los bornes de las laterales: el motor de bornes por cada lateral (claves aparte del layout,
                 # bornes_e8; cache en bornes_e8_auto.json; sin renombrar textos: E6 no cambia). Los ajustados a mano en
                 # el visor de E8 van en bornes_usuario, como los de E6, y mandan
@@ -505,6 +511,8 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
                 mapeo_e8 = estacion8.mapear_bornes(res, lay, P['dir'], P['topo'])
                 e8 = estacion8.build(res, lay, ins)
                 e8['mapeo'] = mapeo_e8
+                # ruteo a mano por grupos (E8-6): lo dibujado y corregido por el taller, guardado por producto
+                estacion8_mano.cargar_y_aplicar(e8, prod_ins, mano_local, trabajo=jid, archivo=s.get('nombre') or s.get('archivo'))
                 vivas = {l['clave'] for L in e8['laterales'] for p in L['pasos'] for l in p['lineas']} | {x['clave'] for g in e8['afuera'] for x in g['cables']}
                 e8['hechos'] = [k for k in ((old.get('estacion8') or {}).get('hechos') or []) if k in vivas]
             except Exception as e:      # E8 nunca frena el instructivo de E6
@@ -512,6 +520,8 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
                 rec = lay['recorridos_e8'] if isinstance(lay['recorridos_e8'], dict) else {'preguntar': True, 'bisagra': None, 'vistas': {}}
                 e8 = dict(version=0, laterales=[], afuera=[], hechos=(old.get('estacion8') or {}).get('hechos') or [], recorridos=rec,
                           avisos=[f'no se pudo armar la estación E8 ({type(e).__name__}: {e})'], detalle=traceback.format_exc())
+                if mano_local:
+                    e8['mano_trabajo'] = mano_local
             ins['estacion8'] = e8
             ins['estaciones'] = lay['estaciones']
             ins['estacion'] = lay['estacion']
@@ -522,7 +532,7 @@ def gen_instructivo(jid, overrides=None, relayout=False, topo_nuevo=False):
             ins['proyector'] = old.get('proyector') or {}   # pestaña 📽 Proyector: orificios marcados, calibración y ventana
             # producto (código SAP, plano y revisión): lo detectado con el catálogo y lo confirmado a mano (producto.json
             # manda: no se pisa al regenerar). 'documento' sigue siendo el de las reglas por producto de la lista WPC
-            ins['producto'] = producto_nuevo(P, s, res, lay, old, topo_nuevo)
+            ins['producto'] = prod_ins
             # conservar las fotos de la version anterior (paso identificado por su primer cable)
             prev = {}
             for p_ in old.get('pasos', []):
@@ -1003,6 +1013,13 @@ def guardar_instructivo(jid):
         # el producto lo escriben solo el servidor (al regenerar) y PUT /producto: se conserva el del disco
         if isinstance(viejo, dict) and isinstance(viejo.get('producto'), dict) and 'funcional' in viejo['producto']:
             data['producto'] = viejo['producto']
+        # el ruteo a mano de E8 guardado en el trabajo (producto sin confirmar) lo escribe solo PUT /e8/grupos
+        e8v = (viejo or {}).get('estacion8') if isinstance(viejo, dict) else None
+        if isinstance(data.get('estacion8'), dict):
+            if isinstance(e8v, dict) and 'mano_trabajo' in e8v:
+                data['estacion8']['mano_trabajo'] = e8v['mano_trabajo']
+            else:
+                data['estacion8'].pop('mano_trabajo', None)
         write_json(P['json'], data)
     return jsonify(ok=True)
 
@@ -1077,6 +1094,101 @@ def punto_e8(jid):
     if r is None:
         return jsonify(error='No está ese cable en la bandeja lateral (o la punta es un empalme)'), 404
     return jsonify(r)
+
+
+def _grupos_e8(P, ins):
+    """(e8, R efectivo, clave del producto, motivo): los grupos de ruteo a mano de la estacion 8 del instructivo con lo
+    guardado HOY para el producto (otro trabajo del mismo producto lo pudo cambiar despues de regenerar este) o, con el
+    producto sin confirmar, lo del trabajo"""
+    import estacion8_mano as E8M
+    e8 = ins.get('estacion8') if isinstance(ins.get('estacion8'), dict) else {}
+    R0 = e8.get('ruteo_mano')
+    if not isinstance(R0, dict):
+        return e8, None, None, None
+    R = E8M.copia(R0)
+    clave, motivo = E8M.clave_producto(ins.get('producto'))
+    if clave:
+        ent = E8M.entrada(clave)
+        loc = e8.get('mano_trabajo') if ent is None and isinstance(e8.get('mano_trabajo'), dict) else None
+        E8M.aplicar(R, (ent or {}).get('manual') if loc is None else loc, E8M.meta_de(clave, None, ent))
+        if loc is not None:     # (se confirmo el producto despues de dibujar: pasa al producto al guardar o al regenerar)
+            R['avisos'] = ['el ruteo a mano de este trabajo pasa al producto la próxima vez que se guarde o se regenere'] + R['avisos']
+    else:
+        E8M.aplicar(R, e8.get('mano_trabajo'), E8M.meta_de(None, motivo))
+    return e8, R, clave, motivo
+
+
+@app.get('/api/trabajo/<jid>/e8/grupos')
+def ver_grupos_e8(jid):
+    """los grupos de RUTEO A MANO de la estacion 8 (etapa E8-6) como estan hoy: los automaticos con lo que dibujo y
+    corrigio el taller, guardado por producto (codigo + topografico) o en el trabajo. No escribe nada"""
+    P = ins_paths(jid)
+    ins = leer_json(P['json'])
+    if not isinstance(ins, dict):
+        abort(404)
+    _, R, _, _ = _grupos_e8(P, ins)
+    if R is None:
+        return jsonify(error='Este instructivo no tiene los grupos de ruteo a mano: tocá ↻ Regenerar'), 400
+    return jsonify(ruteo_mano=R)
+
+
+@app.put('/api/trabajo/<jid>/e8/grupos')
+def guardar_grupos_e8(jid):
+    """guarda lo que dibuja y corrige el taller en el ruteo a mano de la estacion 8: {manual: {grupos: {id: {tramos,
+    nombre}}, nuevos, mover}, version: la version del producto que tenia la pantalla}. Con el producto confirmado va al
+    archivo de recorridos por producto (vale para todos sus trabajos con el mismo topografico); si no, al trabajo.
+    409 si otro trabajo del mismo producto lo cambio mientras tanto (devuelve lo de hoy). -> {ok, ruteo_mano}"""
+    import estacion8_mano as E8M
+    P = ins_paths(jid)
+    body = request.get_json(silent=True)
+    if not isinstance(body, dict) or not isinstance(body.get('manual'), dict):
+        return jsonify(error='Datos inválidos'), 400
+    ver = body.get('version')
+    if ver is not None and (isinstance(ver, bool) or not isinstance(ver, int)):
+        return jsonify(error='Datos inválidos (versión)'), 400
+    with PROY_LOCK:
+        ins = leer_json(P['json'])
+        if not isinstance(ins, dict):
+            abort(404)
+        e8 = ins.get('estacion8') if isinstance(ins.get('estacion8'), dict) else {}
+        R = e8.get('ruteo_mano')
+        if not isinstance(R, dict):
+            return jsonify(error='Este instructivo no tiene los grupos de ruteo a mano: tocá ↻ Regenerar'), 400
+        man, err = E8M.normalizar_manual(body['manual'], [c['id'] for c in R.get('categorias') or []])
+        if err:
+            return jsonify(error='; '.join(err)), 400
+        clave, motivo = E8M.clave_producto(ins.get('producto'))
+        s = load_state(jid) or {}
+        if clave:
+            try:
+                ent, conflicto = E8M.guardar(clave, man, trabajo=jid, archivo=s.get('nombre') or s.get('archivo'),
+                                             version_base=ver, prod=ins.get('producto'))
+            except OSError as e:
+                return jsonify(error=f'No se pudo guardar el archivo de recorridos por producto ({e})'), 500
+            if conflicto:
+                _, Rhoy, _, _ = _grupos_e8(P, ins)
+                return jsonify(error='Otro trabajo del mismo producto cambió el ruteo a mano mientras tanto: se recargó lo de hoy',
+                               conflicto=True, ruteo_mano=Rhoy), 409
+            e8.pop('mano_trabajo', None)
+            miembro = E8M.aplicar(R, man, E8M.meta_de(clave, None, ent))
+        else:
+            e8['mano_trabajo'] = man
+            miembro = E8M.aplicar(R, man, E8M.meta_de(None, motivo))
+        E8M.anotar(e8, miembro)
+        write_json(P['json'], ins)
+    return jsonify(ok=True, ruteo_mano=R)
+
+
+@app.get('/api/trabajo/<jid>/e8/fondo.png')
+def fondo_png(jid):
+    """imagen de la vista del FONDO de la estacion 8 (la bandeja principal con la zona del fondo), para dibujar encima el
+    ruteo a mano"""
+    P = ins_paths(jid)
+    if not os.path.exists(P['json']) or not os.path.exists(P['topo']):
+        abort(404)
+    with open(P['json'], encoding='utf-8') as f:
+        fo = (json.load(f).get('estacion8') or {}).get('fondo') or {}
+    return region_png(P, fo.get('pag'), fo.get('region'))
 
 
 @app.get('/api/trabajo/<jid>/topo.png')

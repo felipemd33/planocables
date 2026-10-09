@@ -64,3 +64,20 @@ git les cambie los fines de línea (así el sha1 de abajo se mantiene).
 |---|---|---|
 | `wpc/wpc.json` | 15 917 | `ecdc0022a7fd04499eb755e6a38e748f3db84a93` |
 | `wpc/wpc_etapa0.json` | 4 471 | `c262b8ab57831fb313ddb3b83fd4580e5605088f` |
+
+## `recorridos_e8.json`: el ruteo a mano de la estación 8 por producto (etapa E8-6, 2026-10-09)
+
+Desde la etapa E8-6 el taller dibuja en la web el recorrido de los grupos de ruteo a mano de E8 y corrige los grupos;
+se guarda por producto en `programa/recorridos_e8.json` (lo escribe la web con `PUT /api/trabajo/<id>/e8/grupos`). Las
+pruebas usan una COPIA de este fixture (`PLANOCABLES_RECORRIDOS_E8`: `volcar_bases_nuevas.py`, la batería,
+`probar_e8.py` y `probar_web_humo.py`), así que las bases no cambian porque el taller dibuje. No es una copia de datos
+del taller: lo armé para las pruebas (2026-10-09):
+- producto 72715-1 con el topográfico 72887 rev. 8 (`pruebas/trabajos/tpt_constructivo`): «Batería 35 mm²» dibujado
+  (un tramo en la bandeja lateral izquierda y otro en el fondo), un grupo nuevo de placa («Placa 21PCB01 · bobinas
+  61KR», con un tramo en el fondo y otro en la puerta) con 2150-2155 movidos a mano, y un cable movido que no existe
+  (aviso). El TPT de `pruebas/trabajos/tpt` es del mismo producto con el topográfico 72887 rev. 7: no lo toma.
+- un producto que no existe en las pruebas (no se tiene que mezclar).
+
+| Archivo | Bytes | sha1 |
+|---|---|---|
+| `recorridos_e8.json` | 2 178 | `4eea9b80e08254fc1264d4bc6ef683e2d032494f` |

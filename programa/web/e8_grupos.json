@@ -1,0 +1,67 @@
+{
+ "_nota": "Grupos de RUTEO A MANO de la estación 8 (pedido del taller del 2026-10-08). Estos cables NO se rutean solos: el recorrido lo dibuja el taller a mano en la pestaña Estación 8 (✏ Ruteo a mano) y hasta que se dibuja el visor dice «falta dibujar el recorrido». Los grupos se arman AUTOMÁTICO con esta tabla y el taller los corrige a mano (mover un cable de grupo, armar grupos nuevos de placa). Lo dibujado y lo corregido se guarda POR PRODUCTO (código de producto + número y revisión del topográfico). No cambia E6, las estaciones ni la lista WPC (la WPC no usa estos largos).",
+ "_nota_como": "Cada cable de E8 (cada tramo de un número) cae en el PRIMER grupo de 'categorias' (en este orden) que le corresponde, y en uno solo; el que no cae en ninguno sigue con el ruteo de siempre. Un grupo corresponde si: el cable cumple 'cable' (sección: 'seccion_min', 'seccion_max' o 'secciones' en mm²) y, si hay 'aparato', alguna de sus dos puntas está en un aparato que lo cumple. El aparato se reconoce por su TEXTO (el renglón de la lista de materiales del funcional, más el texto del material de programa/bornes/aparamenta.json cuyo código de fabricante aparece en ese renglón): 'familias' (las de programa/bornes/catalogo.json) o 'texto_re'. Si el aparato no tiene texto (el plano no trae lista de materiales, como el 66817 o los de EPLAN, o la lista no lo nombra), por las LETRAS de su tag: 'tag_re' (letras del taller, tipo IEC; se cambian acá, nunca en el código). 'potencia_seccion_min' (contactora): el aparato tiene un cable de E8 de esa sección o más (sus contactos de potencia llevan la batería a la bomba) y otro chico (la bobina). 'pines': si el aparato tiene cables en esos pines (A1 / A2), solo esos. 'por_aparato': un grupo por cada aparato (placa: uno por placa, ej. 21PCB01).",
+ "_nota_letras": "Letras de los tags del taller: PB batería, ZY / ZV / SP-n / SP_n / YV solenoides, DS final de carrera de puerta (door switch), DB botón de parada de emergencia (hongo), SH llave selectora (OFF / ON; a confirmar), MS / QS seccionador, PCB placa electrónica. El contactor de la bomba (BH-01-ZV / BH_01_ZV) se reconoce por sus cables (35 mm² y la bobina de 1 mm²), no por las letras: va antes que los solenoides. Una bornera (tag con X: 12XPS, XM1) nunca es el aparato de un grupo: lo es la otra punta.",
+ "categorias": [
+  {
+   "id": "bateria_35",
+   "nombre": "Batería 35 mm²",
+   "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba).",
+   "cable": {"seccion_min": 35}
+  },
+  {
+   "id": "contactora",
+   "nombre": "Contactora (bobina)",
+   "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines).",
+   "aparato": {"familias": ["contactor"], "texto_re": "(?i)contactor", "potencia_seccion_min": 35},
+   "cable": {"seccion_max": 1.5},
+   "pines": ["A1", "A2"]
+  },
+  {
+   "id": "bateria_4_6",
+   "nombre": "Batería 4 / 6 mm²",
+   "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete.",
+   "aparato": {"familias": ["bateria"], "texto_re": "(?i)bater[ií]a|batter(y|ies)", "tag_re": "^\\d*PB\\d*$"},
+   "cable": {"secciones": [4, 6]}
+  },
+  {
+   "id": "solenoides",
+   "nombre": "Solenoides",
+   "nota": "Válvulas solenoide de la zona hidráulica.",
+   "aparato": {"familias": ["valvula"], "texto_re": "(?i)solenoid|v[aá]lvula", "tag_re": "(?i)(^|[-_ ])(ZY|ZV|SP[-_ ]?\\d+|YV\\d*|SOV\\d*)$|SOLEN"}
+  },
+  {
+   "id": "doorswitch",
+   "nombre": "Doorswitch (final de carrera de puerta)",
+   "nota": "El final de carrera que detecta la puerta abierta.",
+   "aparato": {"texto_re": "(?i)fin(al)?\\s+de\\s+carrera|l[ií]mite\\s+de\\s+puerta|door\\s*-?\\s*switch|limit\\s*switch|interruptor\\s+l[ií]mite", "tag_re": "^\\d*DS\\d*$"}
+  },
+  {
+   "id": "pulsadores",
+   "nombre": "Pulsadores",
+   "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo).",
+   "aparato": {"texto_re": "(?i)pulsador|bot[oó]n|push\\s*button|hongo|seta|parada\\s+de\\s+emergencia", "tag_re": "^\\d*(DB|SB)\\d*$"}
+  },
+  {
+   "id": "selectoras",
+   "nombre": "Selectoras",
+   "nota": "Llaves selectoras de la puerta (OFF / ON).",
+   "aparato": {"texto_re": "(?i)selector", "tag_re": "^\\d*(SH|SA)\\d*$"}
+  },
+  {
+   "id": "seccionadoras",
+   "nombre": "Llaves seccionadoras",
+   "nota": "Seccionadores con manija (en la puerta o en el gabinete).",
+   "aparato": {"familias": ["seccionador"], "texto_re": "(?i)seccionador|disconnector|isolator|interruptor\\s+rotativo", "tag_re": "^\\d*(MS|QS)\\d*$"}
+  },
+  {
+   "id": "placa",
+   "nombre": "Placa",
+   "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables).",
+   "aparato": {"familias": ["placa"], "texto_re": "(?i)placa\\s+electr|electronic\\s+board|\\bPCB\\b", "tag_re": "^\\d*PCB\\d*$"},
+   "por_aparato": true
+  }
+ ],
+ "_nota_directo": "Cables DIRECTOS de un cargador a la bornera que tiene justo debajo o al lado (pedido del taller del 2026-10-08: en el PAE y la Vista, 75286 / 75287, debajo del cargador hay borneras para no usar WAGO, y esos cables van conectados directo a los bornes, sin pasar por el ducto). Un cable de la misma bandeja lateral entre un aparato de esta lista (por su familia; sin lista de materiales, por las letras del tag) y una BORNERA, a menos de 'distancia_max_perfiles' perfiles de riel y sin una canaleta en el medio, va derecho del aparato al borne, sin WAGO y sin grupo de ruteo a mano. En el TPT (sin bornera debajo del cargador) siguen con WAGO.",
+ "directo": {"familias": ["cargador"], "tag_re": "^\\d*PS\\d*$", "distancia_max_perfiles": 2.0}
+}

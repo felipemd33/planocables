@@ -11,6 +11,9 @@ uso: python pruebas/probar_web_humo.py [--crear] [--sin-pythonw]
      Parametros de la WPC (etapa 3): GET y PUT /api/config/wpc sobre una COPIA temporal de wpc.json
      (PLANOCABLES_CONFIG_WPC): respaldo con fecha, version (409 si otro guardo), PUT invalido = 400 sin tocar nada, el
      orden de las claves se conserva; programa/web/wpc.json no se toca.
+     Ruteo a mano de la estacion 8 (etapa E8-6, A5d): GET / PUT /e8/grupos y /e8/fondo.png sobre una COPIA del fixture
+     pruebas/fixtures/recorridos_e8.json (PLANOCABLES_RECORRIDOS_E8); 409 con una version vieja; el recorrido dibujado
+     se conserva al regenerar.
   B. Arranque como en el taller (pythonw, sin consola) en el puerto 8791 con un historial temporal; cierre con
      POST /api/salir y el proceso tiene que terminar.
   C. Nada cambio fuera de pruebas/ (git status), ni en '3 - Historial web' ni en pruebas/trabajos.
@@ -164,6 +167,9 @@ def parte_a(tmp):
     os.makedirs(os.path.dirname(cwpc))
     shutil.copyfile(os.path.join(PROG, 'web', 'wpc.json'), cwpc)
     os.environ['PLANOCABLES_CONFIG_WPC'] = cwpc
+    # ruteo a mano de la estacion 8 por producto (E8-6): una copia del fixture (el PUT de A5d la escribe)
+    shutil.copyfile(os.path.join(RAIZ, 'pruebas', 'fixtures', 'recorridos_e8.json'), os.path.join(tmp, 'recorridos_e8.json'))
+    os.environ['PLANOCABLES_RECORRIDOS_E8'] = os.path.join(tmp, 'recorridos_e8.json')
     sys.path.insert(0, PROG)
     import web
     chequear(os.path.normcase(web.CONFIG_WPC) == os.path.normcase(cwpc), f'la web usa la copia de wpc.json ({web.CONFIG_WPC})')
@@ -385,6 +391,31 @@ def parte_a(tmp):
         chequear(post(u + '/e8/recorridos', json={'recorridos': 'no'}).status_code == 400, 'POST /e8/recorridos inválido: 400')
         chequear(post('/api/trabajo/0123456789ab/e8/recorridos', json={'recorridos': {}}).status_code == 404, 'POST /e8/recorridos de un trabajo que no existe: 404')
 
+        print(f'A5d. {t}: estación 8, ruteo a mano por grupos (GET / PUT /e8/grupos, vista del fondo)')
+        mano_e8 = None          # (el grupo y el recorrido dibujado: se conservan al regenerar)
+        r = get(u + '/e8/grupos')
+        Rm = (r.get_json() or {}).get('ruteo_mano') or {}
+        gs = [g for g in Rm.get('grupos') or [] if g.get('n')]
+        if chequear(r.status_code == 200 and gs and Rm.get('por_producto') and Rm.get('clave_producto'),
+                    f"GET /e8/grupos: {len(gs)} grupos ({', '.join(g['id'] for g in gs)}), por producto {Rm.get('clave_producto')}"):
+            golden['e8_grupos'] = normalizar({k: Rm.get(k) for k in ('categorias', 'vistas', 'auto', 'auto_info', 'grupos', 'miembro', 'clave_producto')}, tmp)
+            rf = get(u + '/e8/fondo.png')
+            chequear(rf.status_code == 200 and rf.mimetype == 'image/png' and rf.data[:4] == b'\x89PNG', f'GET /e8/fondo.png ({len(rf.data) // 1024} KB)')
+            g0 = gs[0]
+            man = json.loads(json.dumps(Rm.get('manual') or {}))
+            man.setdefault('grupos', {})[g0['id']] = {'tramos': [{'vista': 'FONDO', 'puntos': [[tp['region'][0] + 20, tp['region'][1] + 20], [tp['region'][0] + 60, tp['region'][1] + 20]]}]}
+            r = put(u + '/e8/grupos', json={'manual': man, 'version': Rm.get('version_almacen')})
+            R2 = (r.get_json() or {}).get('ruteo_mano') or {}
+            chequear(r.status_code == 200 and any(g['id'] == g0['id'] and g['dibujado'] for g in R2.get('grupos') or [])
+                     and R2.get('version_almacen') == (Rm.get('version_almacen') or 0) + 1,
+                     f"PUT /e8/grupos: el recorrido de «{g0['nombre']}» queda dibujado para el producto (versión {R2.get('version_almacen')})")
+            with open(os.environ['PLANOCABLES_RECORRIDOS_E8'], encoding='utf-8') as f:
+                chequear(Rm['clave_producto'] in (json.load(f).get('productos') or {}), 'se guardó en el archivo de recorridos por producto (la copia de las pruebas)')
+            chequear(put(u + '/e8/grupos', json={'manual': man, 'version': Rm.get('version_almacen')}).status_code == 409,
+                     'PUT /e8/grupos con la versión vieja: 409')
+            chequear(put(u + '/e8/grupos', json={'manual': 'no'}).status_code == 400, 'PUT /e8/grupos inválido: 400')
+            mano_e8 = g0['id']
+
         print(f'A6. {t}: proyector y topo.png')
         r = get(f'/proyector/{jid}')
         chequear(r.status_code == 200 and b'proyector.js?v=' in r.data, 'GET /proyector/<id> sirve la pestaña')
@@ -421,6 +452,12 @@ def parte_a(tmp):
                      'mismas líneas que la primera vez')
             if rec_e8:
                 chequear((ins4.get('estacion8') or {}).get('recorridos') == rec_e8, 'se conservan la entrada a la lateral y la bisagra de E8')
+            if mano_e8:             # (E8-6) el recorrido dibujado a mano (por producto) se conserva
+                R4 = (ins4.get('estacion8') or {}).get('ruteo_mano') or {}
+                chequear(any(g['id'] == mano_e8 and g['dibujado'] for g in R4.get('grupos') or [])
+                         and any(l.get('grupo_mano') == mano_e8 for L in (ins4.get('estacion8') or {}).get('laterales') or [] for p in L['pasos'] for l in p['lineas'])
+                         | any(x.get('grupo_mano') == mano_e8 for g in (ins4.get('estacion8') or {}).get('afuera') or [] for x in g['cables']),
+                         f'se conserva el recorrido dibujado a mano de «{mano_e8}» (por producto) y las líneas siguen marcadas con su grupo')
             if punto_e8:            # (E8-5) el punto ajustado a mano en la lateral manda al regenerar y E6 no cambia
                 vk, ck, pp_ = punto_e8
                 L4 = next((L for L in (ins4.get('estacion8') or {}).get('laterales') or [] if L.get('clave_vista') == vk), {})

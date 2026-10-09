@@ -18,8 +18,9 @@ uso: python pruebas/bateria.py [--ab] [--semillas] [--dejar]
   restaura. Tambien verifica que no cambio nada mas en programa/, en 1 - Planos/, en pruebas/fixtures/ ni en las
   carpetas de los trabajos.
   Todo corre con PLANOCABLES_MEMORIA_OCR=solo-lectura, PLANOCABLES_HISTORIAL en la carpeta temporal,
-  PLANOCABLES_PORT=8798 (nunca el 8765 del taller) y PLANOCABLES_PRODUCTOS=pruebas/fixtures/productos.json (el
-  catalogo de productos de las bases; el de programa/ lo cambia el taller al confirmar productos).
+  PLANOCABLES_PORT=8798 (nunca el 8765 del taller), PLANOCABLES_PRODUCTOS=pruebas/fixtures/productos.json (el
+  catalogo de productos de las bases; el de programa/ lo cambia el taller al confirmar productos) y
+  PLANOCABLES_RECORRIDOS_E8 = una copia de pruebas/fixtures/recorridos_e8.json (el ruteo a mano de E8 por producto).
   --dejar: no borra la carpeta temporal (si algo falla no se borra nunca, para mirar las salidas y los logs).
   Resumen final: OK / FALLA / AVISO por paso, y «TODO OK» si todo pasa. Exit 0 / 1."""
 import os, sys, json, time, shutil, tempfile, subprocess, hashlib, glob, io, tarfile
@@ -28,6 +29,7 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PRUEBAS = os.path.join(RAIZ, 'pruebas')
 OCR = os.path.join(RAIZ, 'programa', 'ocr_cache.json')
 PRODUCTOS = os.path.join(PRUEBAS, 'fixtures', 'productos.json')    # catalogo de productos fijo de las pruebas
+RECORRIDOS_E8 = os.path.join(PRUEBAS, 'fixtures', 'recorridos_e8.json')   # ruteo a mano de E8 por producto (fijo)
 J75287 = os.path.join('3 - Historial web', 'ac0f0949510a')
 # (nombre, carpeta del trabajo relativa a la raiz, --relayout)
 TRABAJOS = [('75287', J75287, False), ('66817', os.path.join('pruebas', 'trabajos', '66817'), True),
@@ -125,9 +127,11 @@ def main():
     LOGS = os.path.join(tmp, 'logs'); os.makedirs(LOGS)
     sal = os.path.join(tmp, 'salidas')
     print(f'Batería B  ({RAIZ})\ncarpeta temporal: {tmp}', flush=True)
+    # ruteo a mano de la estacion 8 por producto (E8-6): una copia del fixture (las pruebas que guardan, usan la suya)
+    shutil.copyfile(RECORRIDOS_E8, os.path.join(tmp, 'recorridos_e8.json'))
     env = dict(os.environ, PYTHONIOENCODING='utf-8', PLANOCABLES_MEMORIA_OCR='solo-lectura',
                PLANOCABLES_HISTORIAL=os.path.join(tmp, 'historial'), PLANOCABLES_PORT='8798',
-               PLANOCABLES_PRODUCTOS=PRODUCTOS)
+               PLANOCABLES_PRODUCTOS=PRODUCTOS, PLANOCABLES_RECORRIDOS_E8=os.path.join(tmp, 'recorridos_e8.json'))
     if semillas:
         env['PYTHONHASHSEED'] = '0'
     # copia de la memoria OCR y firma de lo que la bateria no tiene que tocar

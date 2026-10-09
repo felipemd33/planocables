@@ -14,3 +14,6 @@ desktop.ini
 
 # respaldos de los parametros de la lista WPC (PUT /api/config/wpc, panel ⚙ Parametros)
 programa/web/respaldos_wpc/
+
+# respaldo del ruteo a mano de la estacion 8 por producto (PUT /e8/grupos: el archivo anterior)
+programa/recorridos_e8.json.bak

@@ -209,4 +209,23 @@ async function vistaE8(ins, op = {}) {
   return out;
 }
 
-module.exports = { RAIZ, WEB, CONFIG_WPC, correrWpc, terminales, terminalesE8, vistaE8, normalizarFila, copia };
+// ---- ruteo a mano por grupos (etapa E8-6): estacion8.js + e8mano.js con el instructivo abierto en la pestaña. Devuelve
+// {E8, E8M, D} (D = la copia del instructivo que tiene la pestaña: E8M.efectivo y las marcas de las líneas trabajan sobre él)
+async function manoE8(ins, op = {}) {
+  const web = op.web || WEB;
+  const D = copia(ins);
+  const Ins = {
+    load: async () => D, job: 'prueba', dirty: () => {}, reset: () => {},
+    termChip: t => (t ? `⟦${t.tipo}⟧` : ''), ferrule: () => '', mark: (p, r, cls) => `<circle class="${cls}"/>`,
+    label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '',
+  };
+  const ctx = contexto({ fetch: fetchDe(web), api: async () => ({}), Ins });
+  correr(ctx, web, 'estacion8.js');
+  if (fs.existsSync(path.join(web, 'e8mano.js'))) correr(ctx, web, 'e8mano.js');
+  await esperar();
+  const E8 = vm.runInContext('E8', ctx), E8M = vm.runInContext('typeof E8M === "undefined" ? null : E8M', ctx);
+  await E8.open();
+  return { E8, E8M, D, ctx };
+}
+
+module.exports = { RAIZ, WEB, CONFIG_WPC, correrWpc, terminales, terminalesE8, vistaE8, manoE8, normalizarFila, copia };

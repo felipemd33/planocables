@@ -19,13 +19,17 @@ uso: python pruebas/volcar_bases_nuevas.py <trabajo_dir> <dir_salida> --nombre <
   Las rutas de la carpeta temporal y de la raiz del repo se escriben como <trabajo> y <raiz>.
   La memoria OCR (programa/ocr_cache.json) la puede reescribir el lector si lee un renglon nuevo: si pasa, se avisa.
   El producto (listado_ e ins_: clave 'producto', desde la etapa 2) sale con el catalogo fijo de las pruebas,
-  pruebas/fixtures/productos.json, no con programa/productos.json (ese lo cambia el taller al confirmar productos)."""
+  pruebas/fixtures/productos.json, no con programa/productos.json (ese lo cambia el taller al confirmar productos).
+  El ruteo a mano de la estacion 8 por producto (etapa E8-6) sale de una COPIA del fixture fijo
+  pruebas/fixtures/recorridos_e8.json (PLANOCABLES_RECORRIDOS_E8), no de programa/recorridos_e8.json (lo dibuja el taller)."""
 import os, sys, json, copy, shutil, tempfile, threading, hashlib, time
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROGRAMA = os.path.join(RAIZ, 'programa')
 JID = 'b0b0b0b0b0b0'          # fijo: el id del trabajo no tiene que cambiar las bases
 PRODUCTOS = os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json')   # catalogo de productos de las bases (solo se lee)
+# ruteo a mano de E8 por producto de las bases (etapa E8-6): se usa una copia (PLANOCABLES_RECORRIDOS_E8)
+RECORRIDOS_E8 = os.path.join(RAIZ, 'pruebas', 'fixtures', 'recorridos_e8.json')
 
 # campos que cambian solos de una corrida a otra (no van en las bases)
 VOLATILES_LISTADO = ('nombre', 'fecha', 'opciones', 'segundos', 'stats')
@@ -87,6 +91,9 @@ def main():
     os.environ['PLANOCABLES_HISTORIAL'] = historial      # (antes de importar web: nunca el historial del usuario)
     # catalogo de productos fijo (pruebas/fixtures/productos.json): el de programa/ lo cambia el taller al confirmar
     os.environ['PLANOCABLES_PRODUCTOS'] = PRODUCTOS
+    # ruteo a mano de la estacion 8 por producto: una copia del fixture fijo (el de programa/ lo dibuja el taller)
+    shutil.copyfile(RECORRIDOS_E8, os.path.join(tmp, 'recorridos_e8.json'))
+    os.environ['PLANOCABLES_RECORRIDOS_E8'] = os.path.join(tmp, 'recorridos_e8.json')
     sys.path.insert(0, PROGRAMA)
     try:
         d = os.path.join(historial, JID)

@@ -1,0 +1,38 @@
+{
+ "_nota": "Fixture FIJO de las pruebas (PLANOCABLES_RECORRIDOS_E8): ruteo a mano de la estación 8 por producto (estacion8_mano.py). El TPT con el constructivo 72715-1 (topográfico 72887 rev. 8, el de pruebas/trabajos/tpt_constructivo) tiene dibujado el recorrido de «Batería 35 mm²» (un tramo en la bandeja lateral izquierda y otro en el fondo) y un grupo nuevo de placa con los 6 cables de las bobinas de 61KR1..3 movidos a mano. El TPT de pruebas/trabajos/tpt es del mismo producto pero con el topográfico 72887 rev. 7: NO lo toma. El otro producto no existe en las pruebas (no se tiene que mezclar).",
+ "productos": {
+  "72715-1|72887|rev8": {
+   "producto": "72715-1",
+   "nombre": null,
+   "topografico": {"numero": "72887", "revision": "8"},
+   "version": 3,
+   "editado": {"trabajo": "fixture", "archivo": "72715-1 Diagrama eléctrico.pdf", "fecha": "09/10/2026 10:00"},
+   "trabajos": ["fixture"],
+   "manual": {
+    "grupos": {
+     "bateria_35": {"tramos": [
+      {"vista": "LI|vista lateral izquierda interior", "puntos": [[225.2, 300.0], [290.0, 300.0], [318.0, 300.0]]},
+      {"vista": "FONDO", "puntos": [[455.0, 450.0], [600.0, 450.0], [669.1, 450.0]]}
+     ]},
+     "nuevo:fixture1": {"tramos": [
+      {"vista": "FONDO", "puntos": [[645.24, 560.0], [700.0, 560.0], [760.0, 560.0]]},
+      {"vista": "PUERTA", "puntos": [[880.0, 500.0], [800.0, 500.0], [779.75, 485.85]]}
+     ]}
+    },
+    "nuevos": [{"id": "nuevo:fixture1", "nombre": "Placa 21PCB01 · bobinas 61KR", "categoria": "placa", "aparato": "21PCB01"}],
+    "mover": {
+     "2150|21PCB01 50|61KR1 A1": "nuevo:fixture1", "2151|21PCB01 51|61KR1 A2": "nuevo:fixture1",
+     "2152|21PCB01 52|61KR2 A1": "nuevo:fixture1", "2153|21PCB01 53|61KR2 A2": "nuevo:fixture1",
+     "2154|21PCB01 54|61KR3 A1": "nuevo:fixture1", "2155|21PCB01 55|61KR3 A2": "nuevo:fixture1",
+     "9999|NO EXISTE 1|NO EXISTE 2": "solenoides"
+    }
+   }
+  },
+  "99999-1|11111|rev1": {
+   "producto": "99999-1",
+   "topografico": {"numero": "11111", "revision": "1"},
+   "version": 1,
+   "manual": {"grupos": {"bateria_35": {"tramos": [{"vista": "FONDO", "puntos": [[1, 1], [2, 2]]}]}}, "nuevos": [], "mover": {}}
+  }
+ }
+}

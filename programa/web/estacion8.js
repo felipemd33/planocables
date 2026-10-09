@@ -31,6 +31,7 @@ const E8 = (() => {
   // vista de la puerta (si el topográfico la trae): se dibuja en «Puerta y placa» y se cablea de a uno como una lateral
   const P = () => (E() && E().puerta && (E().puerta.pasos || []).length && E().puerta) || null;
   const esPuerta = L => !!L && L === P();
+  const esFondo = L => !!L && !!E() && L === E().fondo;        // (vista del fondo: solo para el ruteo a mano, e8mano.js)
   const VE = i => (i === 'puerta' ? P() : (E() && E().laterales[i])) || null;      // lateral (índice) o 'puerta'
   const lat = () => (typeof vista === 'number' && E() && E().laterales[vista]) || (vista === 'afuera' && P()) || null;
   const flat = L => (L ? L.pasos.flatMap((p, g) => p.lineas.map((l, i) => ({ g, i, l }))) : []);
@@ -69,15 +70,92 @@ const E8 = (() => {
   const vbOf = b => [b[0], -b[3], b[2] - b[0], b[3] - b[1]];
   function imgTag(L, hd) {
     const r = L.region, i = E() ? E().laterales.indexOf(L) : -1;
-    const src = esPuerta(L) ? `/api/trabajo/${Ins.job}/e8/puerta.png` : `/api/trabajo/${Ins.job}/e8/lateral/${i < 0 ? vista : i}.png`;
+    const src = esPuerta(L) || (L && L.clave_vista === 'PUERTA') ? `/api/trabajo/${Ins.job}/e8/puerta.png`
+      : esFondo(L) ? `/api/trabajo/${Ins.job}/e8/fondo.png` : `/api/trabajo/${Ins.job}/e8/lateral/${i < 0 ? vista : i}.png`;
     return `<image href="${src}?v=${encodeURIComponent(D.generado || '')}${hd ? '&hd=1' : ''}" x="${r[0]}" y="${-r[3]}" width="${r[2] - r[0]}" height="${r[3] - r[1]}" preserveAspectRatio="none" opacity=".85"/>`;
   }
   function puntos(l) {
-    if (l.ruta && l.ruta.length > 1) return l.ruta;
+    // (un cable con grupo de ruteo a mano: solo sus puntas; la ruta automática no se dibuja)
+    if (!l.grupo_mano && l.ruta && l.ruta.length > 1) return l.ruta;
     const o = l.marca_o; if (!o) return null;
     return l.marca_d ? [o, l.marca_d] : [o];
   }
+
+  /* ---- RUTEO A MANO POR GRUPOS (etapa E8-6, ins.estacion8.ruteo_mano; el editor y el visor por grupo están en
+     e8mano.js). Un cable con grupo (l.grupo_mano) no muestra la ruta automática: sus puntas y, si el taller ya dibujó el
+     recorrido del grupo en esta vista, ese recorrido con una acometida desde cada punta; si no, «falta dibujar». ---- */
+  const RM = () => (E() && E().ruteo_mano) || null;
+  const grupoMano = id => (RM() && (RM().grupos || []).find(g => g.id === id)) || null;
+  const claveVista = L => !L ? null : esPuerta(L) || L.clave_vista === 'PUERTA' ? 'PUERTA' : esFondo(L) ? 'FONDO' : L.clave_vista;
+  const tramosEn = (g, ck) => (g ? (g.tramos || []).filter(t => t.vista === ck && (t.puntos || []).length) : []);
+  const COLORES_MANO = ['#8e24aa', '#00838f', '#c2185b', '#2e7d32', '#ef6c00', '#3949ab', '#6d4c41', '#00695c', '#ad1457', '#5e35b1', '#9e9d24', '#0277bd'];
+  const colorGrupo = id => { const i = RM() ? (RM().grupos || []).findIndex(g => g.id === id) : -1; return COLORES_MANO[Math.max(0, i) % COLORES_MANO.length]; };
+  // punto más cercano a p sobre los tramos (polilíneas) ts
+  function cercaDe(p, ts) {
+    let best = null;
+    for (const t of ts) {
+      const P_ = t.puntos;
+      if (P_.length === 1) { const d = Math.hypot(p[0] - P_[0][0], p[1] - P_[0][1]); if (!best || d < best.d) best = { d, q: P_[0] }; continue; }
+      for (let i = 1; i < P_.length; i++) {
+        const a = P_[i - 1], b = P_[i], dx = b[0] - a[0], dy = b[1] - a[1], q2 = dx * dx + dy * dy;
+        const tt = q2 ? Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / q2)) : 0;
+        const q = [a[0] + tt * dx, a[1] + tt * dy], d = Math.hypot(p[0] - q[0], p[1] - q[1]);
+        if (!best || d < best.d) best = { d, q };
+      }
+    }
+    return best && best.q;
+  }
+  // los recorridos dibujados en la vista L (todos los grupos, o solo 'solo'): el del grupo 'on' resaltado
+  function manoG(L, u, o = {}) {
+    const R = RM(), ck = claveVista(L); if (!R || !ck) return '';
+    let s = '';
+    for (const g of R.grupos || []) {
+      if ((o.solo && g.id !== o.solo) || (o.excluir && g.id === o.excluir)) continue;
+      const ts = tramosEn(g, ck); if (!ts.length) continue;
+      const col = colorGrupo(g.id), on = o.on === g.id;
+      for (const t of ts) {
+        if (t.puntos.length < 2) { const p = t.puntos[0]; s += `<circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2(2.2 * u)}" fill="${col}" class="e8-mano-p"/>`; continue; }
+        const d = 'M' + t.puntos.map(p => f2(p[0]) + ' ' + f2(-p[1])).join('L');
+        s += `<g class="e8-mano${on ? ' on' : ''}"><title>Ruteo a mano: ${esc(g.nombre)} (${g.n} cable${g.n === 1 ? '' : 's'})</title>${on ? `<path d="${d}" class="halo" stroke-width="${f2(9 * u)}"/>` : ''}<path d="${d}" stroke="${col}" stroke-width="${f2((on ? 3.4 : 2.4) * u)}"/></g>`;
+      }
+    }
+    return s;
+  }
+  // un cable con grupo de ruteo a mano: sus puntas (borne, franja o empalme) y la acometida hasta el recorrido del grupo
+  function routeMano(l, cls, k, o) {
+    const g = grupoMano(l.grupo_mano), ck = claveVista(o.L || lat()), ts = tramosEn(g, ck), col = colorGrupo(l.grupo_mano);
+    const ro = (l.marca_o || [])[2], rd = (l.marca_d || [])[2];
+    const ends = [l.marca_o, l.marca_d].filter(Boolean);
+    if (!ends.length) return '';
+    let s = `<g class="rt ${cls} mano${o.hecho ? ' hecho' : ''}" data-clave="${esc(l.clave)}"><title>${esc(l.num)} (${esc(secTxt(l))}): ${esc(l.origen)} → ${esc(l.destino)} · ruteo a mano: ${esc(g ? g.nombre : l.grupo_mano)}${ts.length ? '' : ' · falta dibujar el recorrido'}</title>`;
+    if (ts.length) {
+      if (cls === 'cur') s += manoG(o.L || lat(), 0.75 * k, { solo: l.grupo_mano, on: l.grupo_mano });
+      for (const e of ends) {
+        const q = cercaDe(e, ts);
+        if (q) s += `<path d="M${f2(e[0])} ${f2(-e[1])}L${f2(q[0])} ${f2(-q[1])}" stroke="${col}" stroke-width="${f2((cls === 'cur' ? 1.4 : 0.9) * k)}" stroke-dasharray="${f2(2 * k)} ${f2(1.2 * k)}" class="e8-mano-a"/>`;
+      }
+    } else if (cls === 'cur' && o.fin !== false) {
+      const e = ends[0];
+      s += `<text x="${f2(e[0] + 3)}" y="${f2(-e[1] - 3)}" class="e8-mano-falta" font-size="${f2(5.5 * Math.min(k, 1.3))}">falta dibujar el recorrido</text>`;
+    }
+    const st = [l.marca_o[0], -l.marca_o[1]];
+    s += l.empalme ? empalmeG(st, l.marca_o, l.empalme, k, o.pulse) : l.franja ? franjaG(l.franja, st, k, o.pulse, cls) : Ins.mark(st, ro, 'ori', k, o.pulse);
+    if (l.marca_d) {
+      const en = [l.marca_d[0], -l.marca_d[1]];
+      s += l.empalme_d ? empalmeG(en, l.marca_d, l.empalme_d, k, o.pulse) : l.franja_d ? franjaG(l.franja_d, en, k, o.pulse, cls) : Ins.mark(en, rd, 'des', k, o.pulse);
+    }
+    return s + '</g>';
+  }
+  // pastilla del grupo de ruteo a mano de un cable (tarjetas, tablas, visor)
+  function manoPill(l) {
+    if (!l.grupo_mano) return '';
+    const g = grupoMano(l.grupo_mano), dib = !!(g && g.dibujado);
+    return `<span class="pill e8-manop${dib ? ' ok' : ''}" data-a="mano" data-grupo="${esc(l.grupo_mano)}" style="--gc:${colorGrupo(l.grupo_mano)}" title="${esc(`Ruteo a mano: grupo «${g ? g.nombre : l.grupo_mano}». ${dib ? 'El taller ya dibujó su recorrido.' : 'Falta dibujar el recorrido (✏ Ruteo a mano).'} Clic para abrirlo`)}">✏ ${esc(g ? g.nombre : l.grupo_mano)}${dib ? '' : ' · falta dibujar'}</span>`;
+  }
+  const dirPill = l => l.directo ? '<span class="pill e8-dir" title="Va derecho del aparato al borne de la bornera de abajo, sin pasar por el ducto (sin WAGO)">directo al borne</span>' : '';
+
   function routeG(l, cls, k = 1, o = {}) {
+    if (l.grupo_mano) return routeMano(l, cls, k, o);
     const ruta = puntos(l); if (!ruta) return '';
     const pts = ruta.map(p => [p[0], -p[1]]), n = pts.length;
     const col = Ins.LC(l.color), white = ['blanco', 'amarillo'].includes(norm(l.color));
@@ -143,7 +221,9 @@ const E8 = (() => {
       <path d="${d}" stroke-width="${f2(7 * u)}"/>${conTexto ? `<text x="${f2(c[0])}" y="${f2(c[1] + 15 * u)}" font-size="${f2(9 * u)}" text-anchor="middle" stroke-width="${f2(2.2 * u)}">Pasan hacia la puerta (${T.n})</text>` : ''}</g>`;
   }
   function boxOf(L, lines, pad = 22, minW = 120, minH = 80) {
-    const pts = lines.flatMap(l => [...(puntos(l) || []), ...[l.empalme && l.marca_o, l.empalme_d && l.marca_d].filter(Boolean)]);
+    const pts = lines.flatMap(l => [...(puntos(l) || []), ...[l.empalme && l.marca_o, l.empalme_d && l.marca_d].filter(Boolean),
+      // (con grupo de ruteo a mano: la parte de su recorrido más cercana, hasta un perfil y medio de la punta)
+      ...(l.grupo_mano ? cercanos(l, L) : [])]);
     if (!pts.length) return L.region.slice();
     let x0 = Math.min(...pts.map(p => p[0])) - pad, x1 = Math.max(...pts.map(p => p[0])) + pad;
     let y0 = Math.min(...pts.map(p => p[1])) - pad, y1 = Math.max(...pts.map(p => p[1])) + pad;
@@ -151,10 +231,15 @@ const E8 = (() => {
     if (y1 - y0 < minH) { const c = (y0 + y1) / 2; y0 = c - minH / 2; y1 = c + minH / 2; }
     return [x0, y0, x1, y1];
   }
+  // (miniatura y visor de un cable con grupo de ruteo a mano: el punto del recorrido del grupo más cercano a cada punta)
+  function cercanos(l, L) {
+    const ts = tramosEn(grupoMano(l.grupo_mano), claveVista(L || lat()));
+    return ts.length ? [l.marca_o, l.marca_d].filter(Boolean).map(e => cercaDe(e, ts)).filter(Boolean) : [];
+  }
   const sibs = (L, l) => flat(L).map(x => x.l).filter(x => x !== l && x.num === l.num);
   function thumb(L, l) {
     const vb = vbOf(boxOf(L, [l, ...sibs(L, l)]));
-    return `<svg class="tsvg" viewBox="${vb.map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}${sibs(L, l).map(s => routeG(s, 'sib', 1.1, { fin: false })).join('')}${routeG(l, 'cur', 1.2)}</svg>`;
+    return `<svg class="tsvg" viewBox="${vb.map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}${sibs(L, l).map(s => routeG(s, 'sib', 1.1, { fin: false, L })).join('')}${routeG(l, 'cur', 1.2, { L })}</svg>`;
   }
 
   /* ---- pestaña ---- */
@@ -167,6 +252,30 @@ const E8 = (() => {
     render();
     // la primera vez (o con un topografico nuevo): el asistente pregunta la bisagra y la entrada de cada lateral
     if (E().recorridos && E().recorridos.preguntar) setTimeout(() => { try { if (!W().hidden) asistente(); } catch (e) { console.error(e); } }, 0);
+    refrescarMano();
+  }
+  // el ruteo a mano se guarda por producto: otro trabajo del mismo producto lo pudo cambiar después de regenerar este
+  // (GET /e8/grupos trae lo de hoy; se vuelven a marcar las líneas con su grupo)
+  async function refrescarMano() {
+    if (!RM()) return;
+    const job = Ins.job;
+    let r; try { r = await api(`/api/trabajo/${job}/e8/grupos`); } catch (e) { return; }
+    if (job !== Ins.job || !E() || !r || !r.ruteo_mano) return;
+    if (aplicarMano(r.ruteo_mano) && !W().hidden && $('#e8sViewer').hidden && $('#e8Viewer').hidden) render();
+  }
+  // los grupos de ruteo a mano que manda el servidor (o el editor): las líneas se marcan con su grupo. -> true si cambió algo
+  function aplicarMano(R) {
+    const e = E(); if (!e || !R) return false;
+    const antes = JSON.stringify([e.ruteo_mano && e.ruteo_mano.miembro, e.ruteo_mano && e.ruteo_mano.grupos]);
+    e.ruteo_mano = R;
+    const m = R.miembro || {};
+    const marcarL = l => { const g = m[l.clave]; if (g) l.grupo_mano = g; else delete l.grupo_mano; };
+    e.laterales.forEach(L => flat(L).forEach(x => marcarL(x.l)));
+    if (e.puerta) (e.puerta.pasos || []).forEach(p => p.lineas.forEach(marcarL));
+    e.afuera.forEach(g => g.cables.forEach(marcarL));
+    const cambio = antes !== JSON.stringify([R.miembro, R.grupos]);
+    if (cambio) Ins.dirty();
+    return cambio;
   }
   function empty(html, regen) {
     $('#e8Main').hidden = true; const el = $('#e8Empty'); el.hidden = false;
@@ -203,6 +312,11 @@ const E8 = (() => {
     $('#e8Entrada').textContent = esPuerta(lat()) ? '🧭 Entrada / recorrido' : '🧭 Entrada / salida';
     $('#e8Info').innerHTML = `Estación <b>E8</b> (gabinete) · ${nLat} cables en ${e8.laterales.length === 1 ? 'la bandeja lateral' : e8.laterales.length + ' bandejas laterales'} · ${nAf} puntas en la puerta, la placa y la zona hidráulica · <b>${hechosN}</b> de ${claves.size} cableados` +
       (e8.campo ? ` · ${e8.campo} cables de campo no van en E8 (los conecta el cliente)` : '');
+    // ruteo a mano por grupos: cuántos grupos y cuántos falta dibujar
+    const gm = ((RM() || {}).grupos || []).filter(g => g.n);
+    const falta = gm.filter(g => !g.dibujado).length;
+    $('#e8Mano').hidden = !RM();
+    $('#e8Mano').innerHTML = `✏ Ruteo a mano${gm.length ? ` <span class="cnt${falta ? ' warn' : ''}">${falta ? `${falta} de ${gm.length} sin dibujar` : `${gm.length} dibujados`}</span>` : ''}`;
     $('#e8Bar').style.width = (claves.size ? hechosN / claves.size * 100 : 0) + '%';
     $('#e8Avisos').innerHTML = (e8.avisos || []).map(a => `<div class="note small">${esc(a)}</div>`).join('');
     $('#e8Lat').hidden = vista === 'afuera'; $('#e8Afuera').hidden = vista !== 'afuera';
@@ -228,7 +342,7 @@ const E8 = (() => {
     $('#e8Lat').innerHTML = `
       <div class="e8-mapa card"><div class="card-h"><h2>${esc(L.nombre)}</h2><span class="muted small">${tot} cables · ${exactos === tot ? 'todos con el punto del borne' : `${exactos} de ${tot} con el punto del borne`}${L.sin_canaletas ? ' · sin canaletas leídas: no hay recorrido' : ''}${L.sin_riel ? ' · sin riel dibujado: aparato por aparato' : ''}</span></div>
         <svg class="tsvg${X.haz ? '' : ' sin-haz'}" id="e8Mapa" viewBox="${vbOf(L.region).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}
-          ${transitoG(L, uMapa(L))}${flat(L).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false })).join('')}${flechas(L, uMapa(L))}<g id="e8Sel"></g></svg>
+          ${transitoG(L, uMapa(L))}${manoG(L, uMapa(L))}${flat(L).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L })).join('')}${flechas(L, uMapa(L))}<g id="e8Sel"></g></svg>
         ${ent ? `<p class="small e8-ent">${ent} <button class="linkbtn" data-a="entrada" title="Elegir por dónde entran y salen los cables de esta bandeja lateral (S)">🧭 Cambiar</button></p>` : ''}
         ${transitoTxt(L)}${mapeoTxt(L)}
         <p class="muted small">Pasá el mouse por un cable de la lista para verlo en la bandeja. Los cables que vienen de la bandeja principal ya están tirados desde E6: acá se conecta la punta de la lateral.</p></div>
@@ -263,9 +377,9 @@ const E8 = (() => {
       <div class="cab-n">${n}</div>
       <div class="cab-topo" title="Cablear desde este cable (visor)">${thumb(L, l)}</div>
       <div class="cab-body">
-        <div class="cab-t mono"><b>${esc(l.num)}</b> ${swatch(l.color)} <span class="secc">${esc(secTxt(l))}</span> ${otraPill(l)} ${emps.map(empPill).join(' ')}
+        <div class="cab-t mono"><b>${esc(l.num)}</b> ${swatch(l.color)} <span class="secc">${esc(secTxt(l))}</span> ${otraPill(l)} ${emps.map(empPill).join(' ')} ${manoPill(l)}${dirPill(l)}
           ${aprox ? `<span class="pill warn" title="${esc('Punto del borne aproximado (el mapeo automático no lo ubicó' + (l.aprox_o === 'vecinos' || l.aprox_d === 'vecinos' ? '; sale de los bornes vecinos de la misma bornera' : '') + '): ajustalo en el visor con 📍')}">punto aprox.</span>` : ''}${confPill(l)}
-          ${l.largo_mm ? `<span class="muted small">≈${l.largo_mm} mm</span>` : ''}</div>
+          ${l.largo_mm && !l.grupo_mano ? `<span class="muted small">≈${l.largo_mm} mm</span>` : ''}</div>
         <div class="cab-od mono"><span>${esc(l.origen)}</span><span class="arr">→</span><span>${esc(l.destino)}</span></div>
         ${emps.map(e => `<div class="small e8-emp-t${e.confirmar ? ' conf' : ''}">${esc(e.texto)}</div>`).join('')}
         <div class="cab-term small">${chip(t)}${td ? ` <span class="arr">→</span> ${chip(td)}` : ` <span class="muted">→ ${esc(l.otra === 'bandeja principal' ? 'ya cableado en E6' : l.otra)}</span>`}</div>
@@ -279,7 +393,7 @@ const E8 = (() => {
   function resaltar(clave) {
     const L = lat(), g = $('#e8Sel'); if (!L || !g) return;
     const l = clave && flat(L).map(x => x.l).find(x => x.clave === clave);
-    g.innerHTML = l ? routeG(l, 'cur', 1.2) : '';
+    g.innerHTML = l ? routeG(l, 'cur', 1.2, { L }) : '';
   }
 
   /* ---- puerta y placa: aparato por aparato (con la vista de la puerta arriba, si el topográfico la trae) ---- */
@@ -291,7 +405,7 @@ const E8 = (() => {
         ${g.cables.map(x => `<tr class="${H.has(x.clave) ? 'ok' : ''}" data-clave="${esc(x.clave)}">
           <td><input type="checkbox" data-a="ok" ${H.has(x.clave) ? 'checked' : ''} aria-label="Cable ${esc(x.num)} cableado"></td>
           <td class="mono"><b>${esc(x.pin || x.borne)}</b>${x.empalme ? `<div class="small e8-emp-t${x.empalme.confirmar ? ' conf' : ''}">${esc(x.empalme.texto)}${x.empalme.pelado ? ' · pelado (sin pino)' : ''}</div>` : ''}</td>
-          <td class="mono">${esc(x.num)} ${swatch(x.color)} <span class="secc">${esc(secTxt(x))}</span></td>
+          <td class="mono">${esc(x.num)} ${swatch(x.color)} <span class="secc">${esc(secTxt(x))}</span>${x.grupo_mano ? '<br>' + manoPill(x) : ''}</td>
           <td class="mono">${esc(x.otra)} <span class="muted small">· ${esc(x.otra_donde)}</span></td>
           <td>${enVista.has(x.clave) ? `<button class="mini" data-a="ver" title="Cablear desde este cable (visor de la puerta)">▶</button> ` : ''}<button class="mini" data-a="plano" data-num="${esc(x.num)}" title="Ver en el plano eléctrico">⚡</button></td></tr>`).join('')}
         </tbody></table></div>`;
@@ -306,7 +420,7 @@ const E8 = (() => {
       html += `<h2 class="e8-zona">Puerta</h2><div class="e8-lat e8-pu">
         <div class="e8-mapa card"><div class="card-h"><h2>${esc(Pd.titulo || 'Puerta')}</h2><span class="muted small">${Pd.n} cables · cada uno llega a la franja de bornes de su aparato: el borne está en la tabla${Pd.sin_canaletas ? ' · sin canaletas leídas' : ''}</span></div>
           <svg class="tsvg" id="e8MapaP" viewBox="${vbOf(Pd.region).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(Pd)}
-            ${flat(Pd).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false })).join('')}${flechas(Pd, uMapa(Pd))}${aparatosG(Pd, uMapa(Pd))}<g id="e8SelP"></g></svg>
+            ${manoG(Pd, uMapa(Pd))}${flat(Pd).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L: Pd })).join('')}${flechas(Pd, uMapa(Pd))}${aparatosG(Pd, uMapa(Pd))}<g id="e8SelP"></g></svg>
           <p class="small e8-ent">${ent} <button class="linkbtn" data-a="entrada" title="Elegir por dónde entran a la puerta y por dónde pasan (S)">🧭 Cambiar</button></p>
           <p class="muted small">Pasá el mouse por una fila de la tabla para ver el cable en la puerta. ▶ Cablear de a uno: un cable por vez.</p></div>
         <div class="e8-aps e8-aps1">${enP.map(g => tablaAp(g, H, true)).join('')}</div></div>`;
@@ -327,7 +441,7 @@ const E8 = (() => {
   function resaltarP(clave) {
     const Pd = P(), g = $('#e8SelP'); if (!Pd || !g) return;
     const l = clave && flat(Pd).map(x => x.l).find(x => x.clave === clave);
-    g.innerHTML = l ? routeG(l, 'cur', 1.2) : '';
+    g.innerHTML = l ? routeG(l, 'cur', 1.2, { L: Pd }) : '';
   }
 
   /* ---- visor "cablear de a uno" de la bandeja lateral ---- */
@@ -352,13 +466,15 @@ const E8 = (() => {
     $('#e8vNum').innerHTML = `<span class="mono">${esc(l.num)}</span> ${swatch(l.color)} <span class="secc big">${esc(secTxt(l))}</span>`;
     $('#e8vOrig').innerHTML = esc(l.origen) + (l.empalme ? ` <span class="e8-emp-t small${l.empalme.confirmar ? ' conf' : ''}">· ${esc(l.empalme.texto)}</span>` : '');
     $('#e8vDest').innerHTML = esc(l.destino) + ' ' + otraPill(l) + (l.empalme_d ? ` <span class="e8-emp-t small${l.empalme_d.confirmar ? ' conf' : ''}">· ${esc(l.empalme_d.texto)}</span>` : '');
-    $('#e8vLen').textContent = esPuerta(L) ? `llega a la franja de bornes de ${l.aparato}: borne ${l.pin || '—'} (está en la tabla)`
-      : l.largo_mm ? `≈ ${l.largo_mm} mm en la lateral` : '';
+    const gm = l.grupo_mano && grupoMano(l.grupo_mano);
+    $('#e8vLen').innerHTML = l.grupo_mano ? `${manoPill(l)}${gm && gm.dibujado && !tramosEn(gm, claveVista(L)).length ? ' <span>(dibujado en otra vista)</span>' : ''} <button class="linkbtn" data-a="mano" title="Ruteo a mano de este grupo: dibujarlo o cablearlo de a uno (R)">✏ Abrir</button>`
+      : esc(esPuerta(L) ? `llega a la franja de bornes de ${l.aparato}: borne ${l.pin || '—'} (está en la tabla)`
+        : l.largo_mm ? `≈ ${l.largo_mm} mm en la lateral${l.directo ? ' · directo al borne, sin el ducto' : ''}` : '');
     $('#e8vOk').checked = H.has(l.clave);
     $('#e8vBar').style.width = (f.filter(x => H.has(x.l.clave)).length / f.length * 100) + '%';
     const target = vbOf(roomForLupas(boxOf(L, [l, ...ss], 36, 200, 140)));
     const fs = Ins.fontFor('#e8vSvg', target, 14);
-    $('#e8vSvg').innerHTML = imgTag(L, true) + (X.haz ? transitoG(L, 0.7 * uMapa(L), false) : '') + flechas(L, 0.7 * uMapa(L)) + ss.map(s => routeG(s, 'sib', 1.3, { lab: fs })).join('') + routeG(l, 'cur', 1.6, { lab: fs, pulse: true }) + '<g id="e8vAdjG"></g>';
+    $('#e8vSvg').innerHTML = imgTag(L, true) + (X.haz ? transitoG(L, 0.7 * uMapa(L), false) : '') + manoG(L, 0.7 * uMapa(L)) + flechas(L, 0.7 * uMapa(L)) + ss.map(s => routeG(s, 'sib', 1.3, { lab: fs, L })).join('') + routeG(l, 'cur', 1.6, { lab: fs, pulse: true, L }) + '<g id="e8vAdjG"></g>';
     // 📍 ajustar el punto del borne (no en la puerta: llega a la franja; no en un empalme: no es un borne)
     $('#e8vAdjO').hidden = esPuerta(L); $('#e8vAdjD').hidden = esPuerta(L) || !l.marca_d;
     $('#e8vAdjO').disabled = !puedeAjustar(l, 'o'); $('#e8vAdjD').disabled = !puedeAjustar(l, 'd');
@@ -427,7 +543,7 @@ const E8 = (() => {
     const set = (id, p, show) => {
       const s = $(id); s.parentElement.hidden = !show; if (!show) return;
       s.setAttribute('viewBox', `${(p[0] - Wd / 2).toFixed(2)} ${(-p[1] - H / 2).toFixed(2)} ${Wd} ${H}`);
-      s.innerHTML = imgTag(L, true) + ss.map(x => routeG(x, 'sib', 0.4, { lab: 1.5, fin: false })).join('') + routeG(l, 'cur', 0.45, { lab: 1.6, fin: false });
+      s.innerHTML = imgTag(L, true) + ss.map(x => routeG(x, 'sib', 0.4, { lab: 1.5, fin: false, L })).join('') + routeG(l, 'cur', 0.45, { lab: 1.6, fin: false, L });
     };
     const to = terminal(l, 'o'), td = terminal(l, 'd');
     set('#e8vLupaO', r[0] || [0, 0], !!r.length); $('#e8vLupaOt').textContent = `${l.num} · ${l.origen} · ${to ? to.txt : secTxt(l)}`;
@@ -777,9 +893,9 @@ const E8 = (() => {
     if ($('#e8sViewer').hidden || !$('#e8sRutas')) return;
     const L = VE(X.li), gs = gruposEd(L), G = gs[X.act], act = new Set(miembros(L, G)), u = ppx(), k = Math.max(0.5, 1.6 * u);
     const ls = salientes(L), foco = ls.find(l => l.num === X.foco);
-    $('#e8sRutas').innerHTML = transitoG(L, u) + ls.filter(l => !act.has(l) && l !== foco).map(l => routeG(l, 'otro', k, { fin: false })).join('')
-      + ls.filter(l => act.has(l) && l !== foco).map(l => routeG(l, 'cur', k, { fin: false })).join('')
-      + (foco ? routeG(foco, 'cur', k * 1.3, { pulse: true }) : '');
+    $('#e8sRutas').innerHTML = transitoG(L, u) + ls.filter(l => !act.has(l) && l !== foco).map(l => routeG(l, 'otro', k, { fin: false, L })).join('')
+      + ls.filter(l => act.has(l) && l !== foco).map(l => routeG(l, 'cur', k, { fin: false, L })).join('')
+      + (foco ? routeG(foco, 'cur', k * 1.3, { pulse: true, L }) : '');
     // la flecha de la entrada (y de la salida a la puerta) y los puntos del grupo activo, numerados (el ultimo = por donde
     // entran o salen); los de los otros grupos, chicos
     let m = flechas(L, u);
@@ -1000,10 +1116,13 @@ const E8 = (() => {
     });
   }
 
+  // (impresión) el grupo de ruteo a mano de un cable
+  const manoTxt = l => { if (!l.grupo_mano) return ''; const g = grupoMano(l.grupo_mano); return `<br><b style="color:#6a1b9a">Ruteo a mano: ${esc(g ? g.nombre : l.grupo_mano)}${g && g.dibujado ? '' : ' (falta dibujar el recorrido)'}</b>`; };
   // (el WAGO y el cable propio en la hoja impresa; en la pantalla están en styles.css)
   const EMP_CSS = `.e8-propio{fill:none;stroke:#555} .e8-ap{fill:#fff;stroke:#555} .e8-wago-i{fill:#ff8c1a;stroke:#5a2d00}
       .e8-emp.conf .e8-wago-i{fill:#ffd54f} .e8-wago-l{stroke:#5a2d00} .e8-wago-t{font-weight:700;fill:#5a2d00;font-family:Arial}
-      .e8-franja{fill:rgba(0,150,190,.25);stroke:#007a99}`;
+      .e8-franja{fill:rgba(0,150,190,.25);stroke:#007a99} .e8-mano path,.e8-mano-a{fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .e8-mano .halo{stroke:rgba(255,106,0,.25)} .e8-mano-falta{fill:#6a1b9a;font:700 5px Arial}`;
   /* ---- imprimir: la bandeja lateral paso por paso y la puerta / placa en tablas ---- */
   function imprimir() {
     const w = window.open('', '_blank'); if (!w) return toast('El navegador bloqueó la ventana de impresión');
@@ -1012,17 +1131,17 @@ const E8 = (() => {
     e8.laterales.forEach((L, i) => {
       vista = i; let n = 0;
       html += `<h2>${esc(L.nombre)}</h2>` + L.pasos.map(p => `<h3>${esc(p.titulo)}</h3><div class="g">${p.lineas.map(l => `<div class="c"><div class="n">${++n}</div>${thumb(L, l).replace(/href="\//g, `href="${base}/`)}
-        <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}${l.otra !== 'misma bandeja' ? `<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span>` : ''}${[l.empalme, l.empalme_d].filter(Boolean).map(e => `<br><b style="color:#b35900">${esc(e.texto)}${e.pelado ? ' · pelado (sin pino)' : ''}</b>`).join('')}</div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
+        <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}${l.otra !== 'misma bandeja' ? `<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span>` : ''}${[l.empalme, l.empalme_d].filter(Boolean).map(e => `<br><b style="color:#b35900">${esc(e.texto)}${e.pelado ? ' · pelado (sin pino)' : ''}</b>`).join('')}${manoTxt(l)}</div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
     });
     vista = vSel;
     const Pd = P();       // la puerta, cable por cable (hasta la franja de bornes; el borne está en la tabla)
     if (Pd) {
       let n = 0;
       html += `<h2>${esc(Pd.titulo || 'Puerta')}</h2>` + Pd.pasos.map(p => `<h3>${esc(p.titulo)}</h3><div class="g">${p.lineas.map(l => `<div class="c"><div class="n">${++n}</div>${thumb(Pd, l).replace(/href="\//g, `href="${base}/`)}
-        <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span></div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
+        <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span>${manoTxt(l)}</div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
     }
     html += `<h2>Puerta, placa y zona hidráulica</h2><div class="g">` + e8.afuera.map(g => `<table><caption>${esc(g.tag)} <span>(${esc(g.zona)})</span></caption>
-      ${g.cables.map(x => `<tr><td>☐</td><td><b>${esc(x.pin || x.borne)}</b>${x.empalme ? `<br><span style="color:#b35900">${esc(x.empalme.texto)}</span>` : ''}</td><td>${esc(x.num)} · ${esc(secTxt(x))}</td><td>→ ${esc(x.otra)} <span style="color:#666">(${esc(x.otra_donde)})</span></td></tr>`).join('')}</table>`).join('') + '</div>';
+      ${g.cables.map(x => `<tr><td>☐</td><td><b>${esc(x.pin || x.borne)}</b>${x.empalme ? `<br><span style="color:#b35900">${esc(x.empalme.texto)}</span>` : ''}</td><td>${esc(x.num)} · ${esc(secTxt(x))}${manoTxt(x)}</td><td>→ ${esc(x.otra)} <span style="color:#666">(${esc(x.otra_donde)})</span></td></tr>`).join('')}</table>`).join('') + '</div>';
     w.document.write(`<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Estación 8 — ${esc(S.res.nombre)}</title>
       <style>body{font:12px/1.35 "Segoe UI",Arial,sans-serif;margin:16px;color:#111} h1{font-size:18px;margin:0 0 4px} h2{font-size:15px;margin:16px 0 6px;color:#1f5fbf} h3{font-size:13px;margin:10px 0 4px}
       .m{color:#555;margin-bottom:10px} .g{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
@@ -1037,10 +1156,20 @@ const E8 = (() => {
     w.document.close();
   }
 
+  // ✏ Ruteo a mano (e8mano.js): desde la pestaña, una tarjeta, una tabla o el visor
+  const mano = o => { if (typeof E8M !== 'undefined' && RM()) E8M.abrir(o || {}); else toast('Este instructivo no tiene los grupos de ruteo a mano: tocá ↻ Regenerar', 5000); };
+  function manoDesdeVisor() {
+    const f = F(); if (!f.length) return;
+    const l = f[V.k].l, k = V.k, v = vista;
+    if (!l.grupo_mano) return mano({});
+    $('#e8Viewer').hidden = true; document.body.style.overflow = '';
+    mano({ grupo: l.grupo_mano, clave: l.clave, cablear: true, volver: () => { vista = v; openViewer(k); } });
+  }
   function init() {
     $('#e8Vistas').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (!b) return; vista = b.dataset.v === 'afuera' ? 'afuera' : +b.dataset.v; render(); });
     $('#e8Cablear').addEventListener('click', () => openViewer(null));
     $('#e8Entrada').addEventListener('click', () => abrirEd({}));
+    $('#e8Mano').addEventListener('click', () => mano({}));
     $('#e8Print').addEventListener('click', imprimir);
     $('#e8Lat').addEventListener('click', e => {
       if (e.target.closest('[data-a="entrada"]')) return abrirEd({});
@@ -1049,6 +1178,8 @@ const E8 = (() => {
       const cab = e.target.closest('.cab'); if (!cab) return;
       const L = lat(), l = L.pasos[+cab.dataset.g].lineas[+cab.dataset.i];
       const k = F().findIndex(x => x.l === l);
+      const bm = e.target.closest('[data-a="mano"]');
+      if (bm) return mano({ grupo: bm.dataset.grupo, clave: l.clave });
       if (e.target.closest('.cab-topo')) return openViewer(k);
       const b = e.target.closest('[data-a]'); if (!b) return;
       if (b.dataset.a === 'ok') { marcar(l.clave, b.checked); render(); }
@@ -1056,8 +1187,10 @@ const E8 = (() => {
       if (b.dataset.a === 'plano') aFuncional(l.num);
     });
     $('#e8Lat').addEventListener('mouseover', e => { const cab = e.target.closest('.cab'); resaltar(cab ? cab.dataset.clave : null); });
+    $('#e8vLen').addEventListener('click', e => { if (e.target.closest('[data-a="mano"]')) manoDesdeVisor(); });
     $('#e8Afuera').addEventListener('click', e => {
       const b = e.target.closest('[data-a]'); if (!b) return;
+      if (b.dataset.a === 'mano') { const tr = b.closest('tr'); return mano({ grupo: b.dataset.grupo, clave: tr ? tr.dataset.clave : null }); }
       if (b.dataset.a === 'entrada') return abrirEd({ li: 'puerta' });
       if (b.dataset.a === 'ok') { marcar(b.closest('tr').dataset.clave, b.checked); render(); }
       if (b.dataset.a === 'plano') aFuncional(b.dataset.num);
@@ -1126,14 +1259,17 @@ const E8 = (() => {
     document.addEventListener('keydown', e => {
       if (!$('#e8sViewer').hidden) return;
       if (e.target.isContentEditable || (e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
-      if ($('#e8Viewer').hidden) {      // pestaña: S = entrada / salida de la lateral que se ve
+      if (typeof E8M !== 'undefined' && E8M.abierto()) return;
+      if ($('#e8Viewer').hidden) {      // pestaña: S = entrada / salida de la lateral que se ve; R = ruteo a mano
         if ((e.key === 's' || e.key === 'S') && !e.ctrlKey && !e.metaKey && !e.altKey && !W().hidden && E() && (typeof vista === 'number' || (vista === 'afuera' && P()))
             && $('#viewer').hidden !== false) { e.preventDefault(); abrirEd({}); }
+        if ((e.key === 'r' || e.key === 'R') && !e.ctrlKey && !e.metaKey && !e.altKey && !W().hidden && RM() && $('#viewer').hidden !== false) { e.preventDefault(); mano({}); }
         return;
       }
       if (e.key === 'Escape' && V.adjust) { e.preventDefault(); return startAdjust(null); }
       const keys = { ArrowRight: () => go(1), ArrowLeft: () => go(-1), Escape: closeViewer, ' ': () => toggleOk(true), Enter: () => toggleOk(true),
-        '0': () => camera(vbOf(lat().region), 350), f: () => draw(), l: () => setSide($('#e8vSide').hidden), s: entradaDesdeVisor, S: entradaDesdeVisor };
+        '0': () => camera(vbOf(lat().region), 350), f: () => draw(), l: () => setSide($('#e8vSide').hidden), s: entradaDesdeVisor, S: entradaDesdeVisor,
+        r: manoDesdeVisor, R: manoDesdeVisor };
       if (keys[e.key]) { e.preventDefault(); keys[e.key](); }
     });
     initEd();
@@ -1146,6 +1282,12 @@ const E8 = (() => {
     abrirEd({ li: vista === 'afuera' ? 'puerta' : vista, volver: k, num: l.marca_d ? null : l.num });
     if ($('#e8sViewer').hidden) openViewer(k);       // (no se pudo abrir: sin canaletas o sin cables que salen)
   }
-  return { open, init, hide: () => { W().hidden = true; }, asistente };
+  // la vista de E8 por su clave (la de recorridos y del ruteo a mano): una lateral, 'PUERTA' o 'FONDO'
+  const vistaDe = ck => !E() ? null : ck === 'PUERTA' ? (E().puerta || null) : ck === 'FONDO' ? (E().fondo || null)
+    : E().laterales.find(L => L.clave_vista === ck) || null;
+  return { open, init, hide: () => { W().hidden = true; }, asistente,
+    // (para e8mano.js: el editor y el visor del ruteo a mano por grupos)
+    int: { E, D: () => D, RM, aplicarMano, vistaDe, imgTag, vbOf, manoG, colorGrupo, cercaDe, tramosEn, claveVista, hechos, esHecho, marcar,
+      render: () => { if (!W().hidden && E()) render(); } } };
 })();
 E8.init();

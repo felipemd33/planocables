@@ -172,6 +172,7 @@
           <div class="seg" id="e8Vistas" role="tablist" aria-label="Vista de la estación 8"></div>
           <button class="btn primary" id="e8Cablear" title="Visor a pantalla completa: un cable por vez (en la bandeja lateral o en la puerta)">▶ Cablear de a uno</button>
           <button class="btn sm" id="e8Entrada" title="Por dónde entran a la bandeja lateral los cables que vienen de la bandeja principal, por dónde salen los que van a la puerta y el lado de la bisagra (S)">🧭 Entrada / salida</button>
+          <button class="btn sm" id="e8Mano" hidden title="Ruteo a mano por grupos: solenoides, contactora, batería, doorswitch, pulsadores, selectoras, seccionadoras y placas. El recorrido lo dibuja el taller y vale para todos los trabajos del mismo producto con el mismo topográfico (R)">✏ Ruteo a mano</button>
           <button class="btn sm" id="e8Print">🖨 Imprimir / PDF</button>
           <span class="grow"></span>
         </div>
@@ -346,6 +347,40 @@
   </div>
 </div>
 
+<!-- ESTACION 8: RUTEO A MANO POR GRUPOS (etapa E8-6): el taller dibuja el recorrido de cada grupo (por producto) y cablea de a uno -->
+<div class="viewer salv" id="e8mViewer" hidden>
+  <div class="v-top">
+    <div class="v-title"><span id="e8mTit">✏ Ruteo a mano</span><span class="muted small" id="e8mSub"></span></div>
+    <div class="cv-od mono" id="e8mCab" hidden><span id="e8mOrig"></span><span class="arr">→</span><span id="e8mDest"></span></div>
+    <div class="v-nav" id="e8mNav" hidden>
+      <button class="icon" id="e8mPrev" aria-label="Cable anterior" title="Cable anterior (←)">‹</button>
+      <span class="mono" id="e8mPos">1 / 1</span>
+      <button class="icon" id="e8mNext" aria-label="Siguiente cable (marca este como cableado)" title="Siguiente (→): marca este cable como cableado">›</button>
+    </div>
+    <label class="chk cv-ok" id="e8mOkW" hidden><input type="checkbox" id="e8mOk"> Cableado</label>
+    <div class="seg" id="e8mVistas" role="tablist" aria-label="Vista donde se dibuja"></div>
+    <button class="btn ghost sm" id="e8mIman" aria-pressed="true" title="Pegar al eje de la canaleta el punto que cae cerca de una canaleta (I)">🧲 Pegar al eje</button>
+    <button class="icon" id="e8mFit" aria-label="Ver toda la vista" title="Toda la vista (0)">⤢</button>
+    <button class="btn ghost sm swap" id="e8mVolver" hidden title="Volver al visor de cablear de a uno">▶ Volver al visor</button>
+    <button class="icon" id="e8mClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="v-body">
+    <aside class="v-side sal-side e8m-side">
+      <div class="e8m-prod small" id="e8mProd"></div>
+      <div class="sal-grupos" id="e8mGrupos"></div>
+      <div class="vs-h">
+        <input id="e8mQ" type="search" placeholder="Buscar cable o aparato…" autocomplete="off" aria-label="Buscar cable">
+        <div class="vs-info muted small"><span id="e8mCnt"></span></div>
+      </div>
+      <div class="vs-list" id="e8mList" aria-label="Cables"></div>
+    </aside>
+    <div class="stage cv-stage"><svg id="e8mSvg" class="tsvg sal-svg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="e8m-falta" id="e8mFalta" hidden></div>
+      <div class="v-hint muted small" id="e8mHint"></div>
+    </div>
+  </div>
+</div>
+
 <!-- AUDITORIA CRUZADA (por secciones de la bandeja) -->
 <div class="viewer audv" id="audViewer" hidden>
   <div class="v-top">
@@ -410,5 +445,6 @@
 <script src="/static/nucleo/wpc_core.js"></script>
 <script src="/static/wpc.js"></script>
 <script src="/static/estacion8.js"></script>
+<script src="/static/e8mano.js"></script>
 </body>
 </html>
