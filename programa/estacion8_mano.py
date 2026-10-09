@@ -392,6 +392,7 @@ def guardar(clave, manual, trabajo=None, archivo=None, version_base=None, path=N
                 pass
         with open(path + '.tmp', 'w', encoding='utf-8') as f:
             json.dump(nuevo, f, ensure_ascii=False, indent=1)
+            f.write('\n')
         os.replace(path + '.tmp', path)
         return e, None
 

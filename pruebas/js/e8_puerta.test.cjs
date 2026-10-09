@@ -56,7 +56,7 @@ test('E8-4 tpt_constructivo: capa «Pasan hacia la puerta (N)» en la lateral de
   assert.ok(h.includes('class="e8-haz"') && h.includes(`Pasan hacia la puerta (${cs.length})`), 'FALLA: no se dibuja el haz que pasa hacia la puerta');
   assert.ok(h.includes('de la bandeja principal:') && h.includes('de la bandeja lateral derecha:') && h.includes('además 3 de esta lateral'),
     'FALLA: la lista de los que pasan no dice de dónde vienen');
-  const i = h.indexOf(`Sin aparato en el plano (${sin.length})`);
+  const i = h.indexOf(`Sin aparato en el plano (${sin.length + 1})`);     // el título cuenta también los de esta lateral (propios_sin)
   assert.ok(i > h.indexOf('Pasan hacia la puerta') && h.includes('además 1 de esta lateral'), 'FALLA: los sin aparato no van aparte con su rótulo');
   const pasan = h.slice(h.indexOf('Pasan hacia la puerta'), i);
   for (const x of sin) assert.ok(!pasan.includes(`>${x.num}</span>`) && h.slice(i).includes(`>${x.num}</span>`), `FALLA: ${x.num} (${x.aparato}) cuenta como que pasa hacia la puerta`);

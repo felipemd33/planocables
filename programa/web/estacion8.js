@@ -339,7 +339,7 @@ const E8 = (() => {
     return (T.n ? `<details class="small e8-tr"><summary><label class="chk" title="Ver u ocultar el haz en el dibujo"><input type="checkbox" data-a="haz" ${X.haz ? 'checked' : ''}> <b>Pasan hacia la puerta (${T.n})</b></label>
         <span class="muted">entran por la entrada y salen a la puerta${T.ruta ? '' : ' (sin recorrido por las canaletas)'}${T.propios ? ` · además ${T.propios} de esta lateral salen a la puerta` : ''}</span></summary>
       ${lista(T.cables || [])}</details>` : '')
-      + (nSin ? `<details class="small e8-tr e8-tr-sin"><summary><b>Sin aparato en el plano (${sin.length})</b>
+      + (nSin ? `<details class="small e8-tr e8-tr-sin"><summary><b>Sin aparato en el plano (${nSin})</b>
         <span class="muted">su aparato no está dibujado en el topográfico y no es de la puerta: por ahora salen por la salida a la puerta; si van por otro lado, armá un grupo de cables elegidos en 🧭${T.propios_sin ? ` · además ${T.propios_sin} de esta lateral` : ''}</span></summary>
       ${lista(sin)}</details>` : '');
   }
