@@ -483,8 +483,8 @@
   }
  },
  "layout": {
-  "huella": "ac4bff26ad91624e",
-  "version_lector": "topo 2026.10.08-e8p",
+  "huella": "ecde729a38b95a3a",
+  "version_lector": "topo 2026.10.08-e8p-r4",
   "pag": 8,
   "size": [
    1190.3,
@@ -554,7 +554,8 @@
   "otras_claves": {
    "escala_fuente": "cotas",
    "perfil_riel_pt": 24.77,
-   "puerta": "huella c2bf81c16f96caf8"
+   "puerta": "huella c2bf81c16f96caf8",
+   "rieles": "huella d8134d6fc9f9e5c2"
   }
  },
  "mapeo": {
@@ -896,7 +897,7 @@
   ],
   "quitados": [],
   "accesorios": [],
-  "topo": "390c92a62c8053c6",
+  "topo": "16dcd01b9dee43cf",
   "componentes": "99f8bc0582138f94"
  },
  "errores": {},
@@ -905,11 +906,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 23.5,
-   "layout": 70.6,
-   "mapeo": 21.3,
-   "instructivo": 4.2,
-   "total": 119.5
+   "listado": 22.7,
+   "layout": 61.8,
+   "mapeo": 17.2,
+   "instructivo": 3.5,
+   "total": 105.2
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

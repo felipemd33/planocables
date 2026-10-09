@@ -3,13 +3,16 @@
    - carga en Node sin DOM (require y un contexto vacío) y no usa document, window ni fetch;
    - la pantalla (wpc.js) y el núcleo dan lo mismo (filas y CSV) en todos los goldens;
    - precedencia de la configuración: todos los productos < producto (por código y, si no hay, por documento) < trabajo;
-   - wpcXml del PAE del usuario, con la configuración de la etapa 0 (reemplazo solo PAE) y con la de hoy, es IDÉNTICO
-     byte a byte al XML del .wpc real (pruebas/fixtures/wpc/), y coincide con la emulación desde el CSV (wpc_xml.cjs);
+   - wpcXml del PAE del usuario, con la configuración de la etapa 0 (reemplazo solo PAE) y con la de hoy: respecto del
+     .wpc real (pruebas/fixtures/wpc/, armado con la regla de largos del 2026-10-06) cambia solo el largo de los que salen
+     a una lateral o a la puerta (regla del 2026-10-09), y con los largos del real es IDÉNTICO byte a byte; coincide con la
+     emulación desde el CSV (wpc_xml.cjs);
    - wpcZip: lo abren el lector de wpc_xml.cjs y Python zipfile, la entrada se llama como el archivo y el CRC da;
-   - nombreArchivo para 75287, PAE, TPT, 66817 y sin código; el 1161 sigue en 900 / 1100;
+   - nombreArchivo para 75287, PAE, TPT, 66817 y sin código; el 1161 en 850 / 1050 (regla del 2026-10-09);
    - el reemplazo de 4 mm² para todos los productos (decidido el 2026-10-07) cambia SOLO las filas negras y rojas de 4 mm²
      (color y sección) respecto de la configuración de la etapa 0;
-   - programa/web/wpc.json (el que cambia el taller) es válido y el panel ⚙ Parámetros cubre todos sus parámetros. */
+   - programa/web/wpc.json (el que cambia el taller) es válido y el panel ⚙ Parámetros cubre todos sus parámetros, salvo
+     los fijos (las acometidas de 75). */
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm'), os = require('node:os');
@@ -113,12 +116,25 @@ test('wpc_core: precedencia de la configuración (todos < producto por código o
   assert.ok(W.filas(ins, CONFIG).some(f => f.tipo === 'pendiente'));
 });
 
+// El .wpc real del PAE del usuario se armó el 2026-10-06, con la regla de largos de entonces (acometida_LI 150 y la puerta
+// sin la curva). Con la regla del 2026-10-09 cambia SOLO la columna 7 (largo) de los cables que salen a una lateral o a
+// la puerta; con los largos del .wpc real puestos a mano (ins.wpc.largo, como en la ventana) el XML es IDÉNTICO.
 for (const [nombre, base] of [['de la etapa 0 (reemplazo solo PAE)', ETAPA0], ['de hoy (reemplazo para todos)', CONFIG]]) {
-  test(`.wpc: wpcXml del PAE del usuario con la configuración ${nombre} es IDÉNTICO byte a byte al .wpc real`, () => {
+  test(`.wpc: wpcXml del PAE del usuario con la configuración ${nombre}: solo cambia el largo de los que salen a una lateral o a la puerta, y con los largos del .wpc real es IDÉNTICO byte a byte`, () => {
     const ins = C.leer(C.TRABAJOS.pae_usuario);
-    const { cfg } = preparar(ins, null, base);
-    const xml = W.wpcXml(W.filas(ins, cfg).filter(f => !f.fuera), cfg, PROYECTO);
-    const real = X.leerWpc(C.WPC_REAL);
+    const { D, cfg } = preparar(ins, null, base);
+    const real = X.leerWpc(C.WPC_REAL), b = X.filasXml(real.xml);
+    const fs0 = W.filas(D, cfg).filter(f => !f.fuera), a = X.filasXml(W.wpcXml(fs0, cfg, PROYECTO));
+    assert.equal(a.length, b.length, 'FALLA: cambió la cantidad de filas');
+    a.forEach((f, i) => {
+      const ks = f.map((v, k) => (v !== b[i][k] ? k + 1 : 0)).filter(Boolean);
+      if (!ks.length) return;
+      assert.deepEqual(ks, [7], `FALLA: fila ${i + 1} (${fs0[i].l.num}): cambian las columnas ${ks}`);
+      assert.match(fs0[i].calc.como, /curva a L[ID] /, `FALLA: fila ${i + 1} (${fs0[i].l.num}): cambia el largo y no sale a una lateral ni a la puerta: ${fs0[i].calc.como}`);
+    });
+    D.wpc = Object.assign({}, D.wpc); D.wpc.largo = Object.assign({}, D.wpc.largo);
+    fs0.forEach((f, i) => { D.wpc.largo[f.k] = +b[i][6]; });
+    const xml = W.wpcXml(W.filas(D, cfg).filter(f => !f.fuera), cfg, PROYECTO);
     if (!Buffer.from(xml, 'utf8').equals(real.bytes)) {
       const a = X.filasXml(xml), b = X.filasXml(real.xml), i = a.findIndex((f, k) => JSON.stringify(f) !== JSON.stringify(b[k]));
       assert.fail(`FALLA: el XML no es igual al del .wpc real (${a.length} / ${b.length} filas; primera distinta: ${i + 1})`);
@@ -202,8 +218,8 @@ test('nombreArchivo: «<código> - <plano> Rev <rev>» en ASCII; sin código, «
   assert.ok(/^[\x20-\x7e]+$/.test(W.nombreArchivo({ codigo: '7528ñ-1', funcional: { numero: 'Ω²', revision: 'é' } }, '.wpc')));
 });
 
-test('1161 con el núcleo: 900 con la salida del taller (PAE regenerado) y 1100 con la salida elegida a mano (PAE del usuario)', () => {
-  for (const [n, mm] of [['76884', 900], ['pae_usuario', 1100]]) {
+test('1161 con el núcleo: 850 con la salida del taller (PAE regenerado) y 1050 con la salida elegida a mano (PAE del usuario)', () => {
+  for (const [n, mm] of [['76884', 850], ['pae_usuario', 1050]]) {
     const ins = C.leer(C.TRABAJOS[n]), { cfg } = preparar(ins, null, CONFIG);
     const f = W.filas(ins, cfg).filter(x => x.l.num === '1161');
     assert.equal(f.length, 1);
@@ -216,7 +232,8 @@ test('reemplazo de 4 mm² para todos (2026-10-07): respecto de la etapa 0 cambia
   const resumen = {};
   for (const [nombre, ins] of C.entradasWpc()) {
     for (const [variante, cfgV] of Object.entries(C.VARIANTES)) {
-      const A = preparar(ins, cfgV, ETAPA0), B = preparar(ins, cfgV, CONFIG);
+      // (B = la etapa 0 con SOLO los reemplazos de hoy: los largos de la regla del 2026-10-09 no entran en esta comparación)
+      const A = preparar(ins, cfgV, ETAPA0), B = preparar(ins, cfgV, Object.assign(C.copia(ETAPA0), { reemplazos: C.copia(CONFIG.reemplazos) }));
       const fa = W.filas(A.D, A.cfg), fb = W.filas(B.D, B.cfg), na = normal(fa), nb = normal(fb);
       assert.equal(fa.length, fb.length);
       const cambian = [], esperadas = [];
@@ -254,17 +271,23 @@ test('programa/web/wpc.json (el del taller) es válido y el panel ⚙ Parámetro
     assert.ok(p.etiqueta && p.grupo, `FALLA: ${p.clave} sin etiqueta o grupo`);
     if (p.tipo === 'regex') for (const nivel of [v, ...Object.values(v.productos || {})]) { const s = W.leer(nivel, p.clave); if (s) new RegExp(s, 'i'); }
   }
-  // todo lo que no es nota ni sección (productos, parametros) está en el panel (entero o clave por clave)
+  // todo lo que no es nota ni sección (productos, parametros) está en el panel (entero o clave por clave), salvo los
+  // FIJOS que el taller no edita (2026-10-09: las acometidas de 75 de los cables a las laterales)
+  const FIJOS = ['acometida', 'acometida_LI'];
   const faltan = [];
   const recorrer = (o, ruta) => Object.entries(o).forEach(([k, x]) => {
     const r = ruta ? ruta + '.' + k : k;
-    if ((!ruta && (k === 'productos' || k === 'parametros')) || k.startsWith('_') || claves.has(r)) return;
+    if ((!ruta && (k === 'productos' || k === 'parametros')) || k.startsWith('_') || claves.has(r) || FIJOS.includes(r)) return;
     if (x && typeof x === 'object' && !Array.isArray(x)) recorrer(x, r); else faltan.push(r);
   });
   recorrer(v, '');
   assert.deepEqual(faltan, [], 'FALLA: parámetros de wpc.json que no aparecen en el panel');
-  // los largos que usa la cuenta, todos en el panel
-  for (const k of ['margen_bandeja', 'agregado_bandeja', 'acometida', 'curva_LI', 'acometida_LI', 'puerta', 'margen_LI', 'extra_puerta', 'extra_LI',
+  for (const k of FIJOS) {
+    assert.ok(!claves.has(k), `FALLA: ${k} es fijo y no va en el panel`);
+    assert.equal(v[k], 75, `FALLA: ${k} tiene que ser 75 (fijo)`);
+  }
+  // los largos que usa la cuenta, todos en el panel (menos los fijos)
+  for (const k of ['margen_bandeja', 'agregado_bandeja', 'curva_LI', 'curva_LD', 'puerta', 'margen_LI', 'extra_puerta', 'extra_LI',
     'extra_LD', 'agregado_LI', 'agregado_puerta', 'redondeo', 'largo_sin_ruta', 'largo_pendiente', 'pendientes', 'otra']) assert.ok(claves.has(k), `FALLA: ${k} no está en el panel`);
   const cfg = W.config(v, { producto: { codigo: '75286-1' } });
   assert.ok(Array.isArray(cfg.reemplazos) && cfg.colores && cfg.fijos && cfg.termos);

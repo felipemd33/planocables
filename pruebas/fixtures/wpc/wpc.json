@@ -8,14 +8,15 @@
   "extra_LD": 400,
   "margen_LI": 200,
   "extra_puerta": 1500,
-  "_nota_agregados": "Agregados del taller (2026-10-05), A MÁS de los márgenes de arriba: 75 mm a los cables que quedan en la bandeja. Los 200 mm a LI / LD y los 350 mm a puerta / placa quedan solo para los pendientes de la bandeja lateral y para los planos sin estación E8 (sin la lateral dibujada): desde el 2026-10-06 los cables que salen de la bandeja a LI van por la regla de abajo (acometida, curva_LI, acometida_LI, puerta).",
+  "_nota_agregados": "Agregados del taller (2026-10-05), A MÁS de los márgenes de arriba: 75 mm a los cables que quedan en la bandeja. Los 200 mm a LI / LD y los 350 mm a puerta / placa quedan solo para los pendientes de la bandeja lateral y para los planos sin estación E8 (sin la lateral dibujada): desde el 2026-10-06 los cables que salen de la bandeja a LI van por la regla de abajo (acometida, curva_LI / curva_LD, acometida_LI, puerta).",
   "agregado_bandeja": 75,
   "agregado_LI": 200,
   "agregado_puerta": 350,
-  "_nota_salen_a_LI": "Regla del taller (2026-10-06) para los cables que salen de la bandeja a LI, con la estación E8 (adónde van de verdad). Muere en la bandeja lateral: acometida (borne → canaleta) + lo que corre DENTRO de las canaletas de la bandeja + curva_LI (curva entre la posterior y LI) + canaleta de la lateral + acometida_LI (canaleta → borne de destino). Sigue a la puerta / placa (pasa por LI): acometida + canaletas de la bandeja + puerta. La acometida real del plano no se mide: va el fijo. Ej. 1161 del PAE: 75 + 297 + 100 + 269 + 150 = 891 → 900.",
+  "_nota_salen_a_LI": "Regla del taller (2026-10-09; antes, 2026-10-06) para los cables que salen de la bandeja a LI / LD, con la estación E8 (adónde van de verdad). Muere en la bandeja lateral: acometida (borne → canaleta, 75 fijo) + lo que corre DENTRO de las canaletas de la bandeja + la curva entre la posterior y esa lateral (curva_LI / curva_LD) + canaleta de la lateral + acometida_LI (canaleta → borne o aparato, 75 fijo). Sigue a la puerta / placa (aparato de la puerta o de la placa, pasa por la lateral de la bisagra): acometida + canaletas de la bandeja + curva + canaleta de la lateral hasta la salida a la puerta (con la bisagra elegida en la E8) + puerta. Lo que no va a la puerta ni a la placa (zona hidráulica, batería, solenoides, PT 001: sin dibujar o dibujados en el fondo): como antes, acometida + canaletas de la bandeja + puerta (a confirmar). Las acometidas reales del plano no se miden: van los fijos. Editables por producto: curva_LI, curva_LD, puerta y extra_puerta. Ej. 1161 del PAE: 75 + 297 + 100 + 269 + 75 = 816 → 850.",
   "acometida": 75,
   "curva_LI": 100,
-  "acometida_LI": 150,
+  "curva_LD": 100,
+  "acometida_LI": 75,
   "puerta": 1850,
   "largo_pendiente": 2000,
   "largo_sin_ruta": 1000,
@@ -171,54 +172,48 @@
       "minimo": 0
     },
     {
-      "clave": "acometida",
-      "etiqueta": "Borne → canaleta",
-      "grupo": "Largos: los que salen a LI (con la estación E8)",
+      "clave": "curva_LI",
+      "etiqueta": "Curva posterior → LI",
+      "grupo": "Largos: los que salen a LI / LD (con la estación E8)",
       "tipo": "numero",
       "unidad": "mm",
       "paso": 10,
       "minimo": 0,
-      "ayuda": "Fijo: la acometida real del plano no se mide"
+      "ayuda": "Borne → canaleta y canaleta → borne o aparato: 75 fijos"
     },
     {
-      "clave": "curva_LI",
-      "etiqueta": "Curva posterior → LI",
-      "grupo": "Largos: los que salen a LI (con la estación E8)",
+      "clave": "curva_LD",
+      "etiqueta": "Curva posterior → LD",
+      "grupo": "Largos: los que salen a LI / LD (con la estación E8)",
       "tipo": "numero",
       "unidad": "mm",
       "paso": 10,
-      "minimo": 0
-    },
-    {
-      "clave": "acometida_LI",
-      "etiqueta": "Canaleta → borne en LI",
-      "grupo": "Largos: los que salen a LI (con la estación E8)",
-      "tipo": "numero",
-      "unidad": "mm",
-      "paso": 10,
-      "minimo": 0
+      "minimo": 0,
+      "ayuda": "Los cables a la lateral derecha mueren siempre ahí"
     },
     {
       "clave": "puerta",
       "etiqueta": "Sigue a puerta / placa",
-      "grupo": "Largos: los que salen a LI (con la estación E8)",
+      "grupo": "Largos: los que salen a LI / LD (con la estación E8)",
       "tipo": "numero",
       "unidad": "mm",
       "paso": 10,
-      "minimo": 0
+      "minimo": 0,
+      "ayuda": "De la lateral a la puerta: se suma a la canaleta de la bandeja, la curva y la canaleta de la lateral hasta la salida a la puerta"
+    },
+    {
+      "clave": "extra_puerta",
+      "etiqueta": "De la lateral a la puerta / placa",
+      "grupo": "Largos: los que salen a LI / LD (con la estación E8)",
+      "tipo": "numero",
+      "unidad": "mm",
+      "paso": 10,
+      "minimo": 0,
+      "ayuda": "Cables de un aparato de la lateral (o pendientes de la lateral) que van a la puerta / placa: canaleta de la lateral + esta medida"
     },
     {
       "clave": "margen_LI",
       "etiqueta": "Pendientes lateral ↔ lateral: margen",
-      "grupo": "Largos: pendientes de la lateral y planos sin E8",
-      "tipo": "numero",
-      "unidad": "mm",
-      "paso": 10,
-      "minimo": 0
-    },
-    {
-      "clave": "extra_puerta",
-      "etiqueta": "Pendientes lateral → puerta",
       "grupo": "Largos: pendientes de la lateral y planos sin E8",
       "tipo": "numero",
       "unidad": "mm",

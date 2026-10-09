@@ -1173,7 +1173,7 @@
   "lado_fisico": [],
   "quitados": [],
   "accesorios": [],
-  "topo": "81e3fc5e06062878",
+  "topo": "18da88f9ca344e16",
   "componentes": "9f20bcf6faeea8a6"
  },
  "errores": {},
@@ -1182,11 +1182,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 9.7,
-   "layout": 8.0,
-   "mapeo": 0.2,
-   "instructivo": 0.4,
-   "total": 18.3
+   "listado": 3.1,
+   "layout": 3.2,
+   "mapeo": 0.0,
+   "instructivo": 0.2,
+   "total": 6.5
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

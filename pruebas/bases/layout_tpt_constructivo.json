@@ -383,6 +383,22 @@
    571.7,
    457.6
   ],
+  "rieles": [
+   {
+    "fila": 1,
+    "eje": 571.7,
+    "x0": 476.3,
+    "x1": 762.6,
+    "perfil": 19.56
+   },
+   {
+    "fila": 2,
+    "eje": 457.6,
+    "x0": 473.4,
+    "x1": 564.1,
+    "perfil": 19.56
+   }
+  ],
   "puerta": {
    "pag": 8,
    "box": [
@@ -437,7 +453,7 @@
     }
    }
   },
-  "version_lector": "topo 2026.10.08-e8p"
+  "version_lector": "topo 2026.10.08-e8p-r4"
  },
  "en_memoria": {
   "bornes_usuario": {},

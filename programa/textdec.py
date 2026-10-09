@@ -164,11 +164,16 @@ class Decoder:
         self._ocr = None; self.use_ocr = use_ocr
         self.stats = collections.Counter()
         # memoria de OCR: un renglon con exactamente los mismos trazos ya leido no se vuelve a leer
-        self.cache_path = os.path.join(HERE, 'ocr_cache.json')
-        try:
-            self.cache = json.load(open(self.cache_path, encoding='utf-8'))
-        except Exception:
-            self.cache = {}
+        # VECTOR: la memoria se ESCRIBE en la carpeta de datos (PLANOCABLES_OCR_CACHE) y la del repo queda
+        # como base de solo lectura, asi el OTA (git reset --hard) no pisa ni ensucia nada.
+        seed = os.path.join(HERE, 'ocr_cache.json')
+        self.cache_path = os.environ.get('PLANOCABLES_OCR_CACHE') or seed
+        self.cache = {}
+        for pth in dict.fromkeys([seed, self.cache_path]):
+            try:
+                self.cache.update(json.load(open(pth, encoding='utf-8')))
+            except Exception:
+                pass
         self._cache_dirty = False
 
     @property

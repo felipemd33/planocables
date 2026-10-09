@@ -6,7 +6,8 @@ from textdec import sub_bbox
 from planocables.base.geom import bbox, DSU, dist as seglen, dist_segmento as point_seg_dist, dist_caja as box_dist, dentro as inside
 from planocables.base.colores import COLORES, norm_color, una_letra as _una_letra
 
-NUM_RE = re.compile(r'(?<![\w/,.])(\d{3,5})(?![\w/,.])')
+# VECTOR: '2132B' = segundo tramo del 2132 (cable de comunicacion, ver comunicacion.py). Solo 4 cifras + B
+NUM_RE = re.compile(r'(?<![\w/,.])(\d{4}B|\d{3,5})(?![\w/,.])')
 # (el parentesis de apertura puede faltar si la etiqueta empieza el renglon o va tras un espacio: 66817 hoja 11 'G-Y/2,5mm2)')
 LABEL_RE = re.compile(r'(?:[\(<{\[]|(?<![^\s]))\s*([A-Za-zÁÉÍÓÚáéíóúñÑ\- ]+?)\s*/\s*([\d]+(?:[.,]\d+)?)\s*mm2?(?:\s+([^\)>}\]\(/]{1,20}?))?\s*[\)>}\]]', re.I)
 NON_WIRE_LAYER_KEYS = ('Texto Rotulo', 'TEXTO', 'Textos', 'WATERMARK', 'VP', '|', 'PDF_Text', '_Equipos')

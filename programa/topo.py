@@ -27,8 +27,9 @@ TAG_TXT = re.compile(r'\d{2}[A-Z][A-Z0-9]{0,7}')
 # eplan.VERSION_LECTOR). Se guarda en layout.json ('version_lector') y, si cambia, web.gen_instructivo vuelve a leer el
 # topografico de un trabajo existente al regenerar (lo del usuario esta en instructivo.json y se conserva).
 # SUBIRLA cada vez que cambie la lectura: rieles, etiquetas, placa, canaletas, escala...
-VERSION_LECTOR = '2026.10.08-e8p'     # (2026.10.08: vistas laterales completas para E8: placa, canaletas y titulo;
-                                      #  e8p: vista de la PUERTA para E8, lay['puerta'])
+VERSION_LECTOR = '2026.10.08-e8p-r4'     # (2026.10.08: vistas laterales completas para E8: placa, canaletas y titulo;
+                                      #  e8p: vista de la PUERTA para E8, lay['puerta'];
+                                      #  r4: lay['rieles'], el tramo de cada riel, de VECTOR, con su mismo numero)
 
 # capas por patron
 RX_RIEL = re.compile(r'RIEL|\bDIN\b', re.I)                        # 'RIEL DIN', '_IGV_Riel DIN'
@@ -487,6 +488,7 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
     # (los aparatos tapan el riel); lo que esta en la vista pero fuera de ese largo (motor, valvula, bateria...) no
     # esta montado en el riel
     largo = []
+    rieles = []     # VECTOR (oct-2026): el tramo de cada riel, para el instructivo de rieles y ductos (y los cortes de E2)
     if tray is not None:
         for i, e in enumerate(views[tray]['rails']):
             tr = views[tray]['tramos'][i]
@@ -497,6 +499,7 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
                     if lo - SALTO_H * H <= x <= hi + SALTO_H * H:
                         lo, hi = min(lo, x), max(hi, x)
             largo.append((lo - SALTO_H * H, hi + SALTO_H * H))
+            rieles.append(dict(fila=i + 1, eje=round(e, 1), x0=round(lo, 1), x1=round(hi, 1), perfil=round(H, 2)))
     comp = {}
     exacta = lambda tag, leido: norm(str(leido or '').replace(' ', '')) == norm(tag.replace(' ', ''))
     for h in best['hits']:
@@ -558,7 +561,7 @@ def _layout(pdf_path, known_tags, log=print, dec=None):
         log(f'Topográfico: no se pudieron leer las bandejas laterales para E8 ({type(ex_).__name__}: {ex_})')
     out = dict(pag=best['pag'], comp=comp, vistas=vistas, bandeja=tray,
                size=best['size'], region=region, escala=escala, escala_fuente=fuente, perfil_riel_pt=round(H, 2),
-               ductos=duct_list, filas=views[tray]['rails'] if tray is not None else [])
+               ductos=duct_list, filas=views[tray]['rails'] if tray is not None else [], rieles=rieles)
     # vista de la PUERTA para la estacion E8: en una clave aparte (otra hoja; no suma cotas ni toca la bandeja)
     try:
         pu = puerta_e8(pdf_path, puertas, best, vistas, region, comp, H, known_tags, dec)

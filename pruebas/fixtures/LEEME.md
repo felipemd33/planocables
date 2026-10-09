@@ -54,15 +54,19 @@ git les cambie los fines de línea (así el sha1 de abajo se mantiene).
 
 - `wpc.json`: copia de `programa/web/wpc.json` tal como sale en la etapa 3: con `parametros` (el panel), `productos`
   vacío, `marcador` por sección, `archivo_wpc` y el reemplazo de 4 mm² para **todos** los productos (decidido el
-  2026-10-07). Es con la que se sacaron los goldens de `pruebas/bases/wpc/`.
+  2026-10-07). Es con la que se sacaron los goldens de `pruebas/bases/wpc/`. **Copiada de nuevo a propósito el
+  2026-10-09** con la regla de largos nueva (decisión del taller): `acometida_LI` 150 → 75, `curva_LD` 100 nueva, las
+  acometidas fuera del panel (fijas), `extra_puerta` junto a `puerta` y la nota `_nota_salen_a_LI` (tabla de antes y
+  después en `pruebas/bases/wpc/cambios_regla_2026-10-09.md`).
 - `wpc_etapa0.json`: `programa/web/wpc.json` de la etapa 0 (`git show 0ba6ee9:programa/web/wpc.json`): la forma vieja,
   sin `parametros`, con el reemplazo solo para el documento ZPL-76884. `wpc_core.test.cjs` la usa para probar que la
-  forma vieja se sigue leyendo, que con ella el XML del PAE del usuario sale idéntico al `.wpc` real, y que pasar el
-  reemplazo a todos los productos cambia **solo** las filas negras y rojas de 4 mm² (color y sección).
+  forma vieja se sigue leyendo, que con ella el XML del PAE del usuario sale como el `.wpc` real (salvo los largos que
+  cambia la regla del 2026-10-09; con los del real puestos a mano, idéntico), y que pasar el reemplazo a todos los
+  productos cambia **solo** las filas negras y rojas de 4 mm² (color y sección).
 
 | Archivo | Bytes | sha1 |
 |---|---|---|
-| `wpc/wpc.json` | 15 917 | `ecdc0022a7fd04499eb755e6a38e748f3db84a93` |
+| `wpc/wpc.json` | 16 603 | `c0e41e2bebc0720d530d4082a06bbf55fbbe3dee` |
 | `wpc/wpc_etapa0.json` | 4 471 | `c262b8ab57831fb313ddb3b83fd4580e5605088f` |
 
 ## `recorridos_e8.json`: el ruteo a mano de la estación 8 por producto (etapa E8-6, 2026-10-09)

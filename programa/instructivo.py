@@ -1935,7 +1935,8 @@ def build(res, lay, max_lineas=7):
             desc_de = (lambda o, d: pdesc) if pdesc else (lambda o, d: cable_desc(res, num, propia) if propia else cable_desc(res, num, o, d))
             if not ta and not tb:
                 desc, col, sec = desc_de(ea, eb)
-                pendientes.append(dict(num=num, cable=desc, color=col, secc=sec, a=fmt_terminal(ea), b=fmt_terminal(eb)))
+                pendientes.append(dict(num=num, cable=desc, color=col, secc=sec, a=fmt_terminal(ea), b=fmt_terminal(eb),
+                                       ta=ea.get('tag') or None, tb=eb.get('tag') or None))   # VECTOR: tags para E8
                 if nota_alt:
                     pendientes[-1]['alternativa'] = nota_alt
                 if confirmar_montaje:
@@ -1953,6 +1954,10 @@ def build(res, lay, max_lineas=7):
             origen = texto(o, num)
             lineas.append(dict(num=num, cable=desc, color=col, secc=sec, origen=origen, _o=o, _d=d,
                                destino=texto(d, num) if bandeja(d) else lateral(d),
+                               # VECTOR: el borne real de la punta que queda fuera de la bandeja (lateral, puerta,
+                               # campo): ahi se cablea en E8. En destino queda 'LI'/'LD' como siempre.
+                               extremo=None if bandeja(d) else fmt_terminal(d),
+                               extremo_tag=None if bandeja(d) else (d.get('tag') or None),
                                componente=origen.split(' ')[0] if base_txt(o, num)[1] != base_txt(o, num)[0] else (o.get('tag') or ''),
                                fila=bandeja(o)['fila'], zona=zona(o.get('tag_base')), lado='arriba' if lado(o, num) == 0 else 'abajo',
                                _lado_paso='arriba' if lado_paso(o, num) == 0 else 'abajo',
@@ -1987,6 +1992,8 @@ def build(res, lay, max_lineas=7):
         num = a['num']
         lineas.append(dict(num=num, cable=a.get('cable', ''), color=a.get('color', ''), secc=a.get('secc', ''), origen=texto(eo, num),
                            _o=eo, _d=ed or dict(fuera=True), destino=texto(ed, num) if ed and bandeja(ed) else (lateral(ed) if ed else a['destino']),
+                           extremo=None if (ed is None or bandeja(ed)) else fmt_terminal(ed),
+                           extremo_tag=None if (ed is None or bandeja(ed)) else (ed.get('tag') or None),
                            componente=eo['tag'], fila=bandeja(eo)['fila'], zona=zona(eo['tag_base']), lado='arriba' if lado(eo, num) == 0 else 'abajo',
                            _lado_paso='arriba' if lado_paso(eo, num) == 0 else 'abajo', orden=key(eo, num), puente=sum(1 for x in lay.get('agregar') or [] if x['num'] == num) > 1,
                            hojas=[a['hoja']] if a.get('hoja') else [], agregado=a.get('nota') or 'agregado a mano', **funcional(eo, ed, num)))
@@ -2188,6 +2195,7 @@ def build(res, lay, max_lineas=7):
         for l in p['lineas']:
             l.pop('orden', None)
     topo = dict(pag=lay.get('pag'), region=lay.get('region'), escala=lay.get('escala'), ductos=lay.get('ductos', []), filas=filas,
+                rieles=lay.get('rieles') or [],      # VECTOR: tramos de riel (instructivo de rieles y ductos)
                 comp={k: dict(x=v['x'], y=v['y'], fila=v.get('fila')) for k, v in comp.items() if en_bandeja(v)})
     # alternativas del plano (hojas / franjas 'ALTERNATIVA n'): cual se tomo para el instructivo y por que
     alts = [dict(hoja=g, elegida=a['elegida'], por=a['por'], opciones={str(n): a['marcas'].get(n, '') for n in a['ns']})
