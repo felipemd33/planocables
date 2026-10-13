@@ -256,8 +256,8 @@
   }
  },
  "layout": {
-  "huella": "79f9c3277a5ab603",
-  "version_lector": "topo 2026.10.08-e8p",
+  "huella": "d53ede13b4129bb2",
+  "version_lector": "topo 2026.10.09-e8b",
   "pag": null,
   "size": null,
   "region": null,
@@ -459,11 +459,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 4.2,
-   "layout": 5.0,
-   "mapeo": 1.2,
-   "instructivo": 2.2,
-   "total": 12.7
+   "listado": 13.6,
+   "layout": 17.6,
+   "mapeo": 3.8,
+   "instructivo": 7.8,
+   "total": 42.8
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

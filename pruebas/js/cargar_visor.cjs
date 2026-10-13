@@ -43,6 +43,7 @@ function elemento(nombre, todos) {
     querySelectorAll: () => [], closest: () => null, matches: () => false, contains: () => false,
     getBoundingClientRect: () => ({ x: 0, y: 0, left: 0, top: 0, width: 0, height: 0, right: 0, bottom: 0 }),
     classList: { add: nada, remove: nada, toggle: nada, contains: () => false },
+    parentElement: { hidden: false, style: {} },     // (el visor de E8 oculta el recuadro de la lupa)
     _eventos: eventos, _nombre: nombre,
   };
   const el = new Proxy(props, {
@@ -190,7 +191,7 @@ async function vistaE8(ins, op = {}) {
   const Ins = {
     load: async () => D, job: 'prueba', dirty: () => {}, reset: () => {},
     termChip: t => (t ? `⟦${t.tipo}⟧` : ''), ferrule: (p, d, r, t) => (t ? '<g class="term"/>' : ''), mark: (p, r, cls) => `<circle class="${cls}"/>`,
-    label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '',
+    label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '', fontFor: () => 10,
   };
   const ctx = contexto({ fetch: fetchDe(web), api: async () => ({}), Ins });
   correr(ctx, web, 'estacion8.js');
@@ -217,7 +218,7 @@ async function manoE8(ins, op = {}) {
   const Ins = {
     load: async () => D, job: 'prueba', dirty: () => {}, reset: () => {},
     termChip: t => (t ? `⟦${t.tipo}⟧` : ''), ferrule: () => '', mark: (p, r, cls) => `<circle class="${cls}"/>`,
-    label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '',
+    label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '', fontFor: () => 10,
   };
   const ctx = contexto({ fetch: fetchDe(web), api: async () => ({}), Ins });
   correr(ctx, web, 'estacion8.js');

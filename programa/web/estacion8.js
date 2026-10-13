@@ -17,6 +17,11 @@
      puerta (N)» (L.transito): el haz de los cables de la bandeja principal y de la otra lateral que siguen a la puerta
      (solo los que van de verdad a la puerta; los de un aparato sin dibujar que no es de la puerta, aparte: «Sin aparato
      en el plano»). Las flechas de la entrada / salida y sus rótulos entran siempre en el dibujo (cajaVista).
+   - Pines de la placa (etapa E8-7): un cable de la puerta con el punto exacto de su pin (l.exacto_o: el mapeo automático
+     de la placa, estacion8.pines_puerta) llega a SU pin (con su terminal) y no a la franja; la punta en el dibujo, la
+     tabla, el visor y la hoja impresa dicen la aclaración del funcional (l.aclaracion: «pin 42 · Signal AI5 · AP Analog
+     Input #5»). Con grupo de ruteo a mano, el cable va del FINAL del tramo común dibujado a su pin; sin dibujar, lo que
+     falta es solo el tramo común.
    Los datos vienen en ins.estacion8 (programa/estacion8.py); las marcas de cableado van en ins.estacion8.hechos y lo
    elegido de la entrada / salida en ins.estacion8.recorridos. */
 const E8 = (() => {
@@ -67,6 +72,27 @@ const E8 = (() => {
     : /^bandeja lateral/.test(l.otra || '') ? 'A la ' + l.otra : l.otra || '';      // (cable a la otra lateral)
   const otraPill = l => l.otra === 'misma bandeja' ? '' :
     `<span class="pill e8-${l.viene_de_e6 ? 'e6' : 'fuera'}" title="${esc(l.viene_de_e6 ? 'La otra punta está en la bandeja principal y se cableó en E6: el cable ya está tirado, acá se conecta esta punta' : 'La otra punta va a ' + l.otra)}">${esc(l.viene_de_e6 ? 'viene de E6 (bandeja principal)' : l.otra)}</span>`;
+
+  /* ---- pines de la placa (etapa E8-7): la aclaración del funcional y el final del tramo común ---- */
+  // la aclaración sin el «pin N» (la tabla y el texto de la punta ya dicen el pin): 'Signal AI5 · AP Analog Input #5'
+  const aclCorta = a => String(a || '').replace(/^pin [^·]*·\s*/, '').trim();
+  const aclDe = (l, w) => (w === 'd' ? l.aclaracion_d : l.aclaracion) || '';
+  // rótulo de la aclaración junto al pin (solo el cable actual: con todos, el dibujo de la placa no se lee)
+  function aclG(p, txt, k) {
+    if (!txt) return '';
+    const fs = 3.4 * Math.min(k, 1.6);
+    return `<text x="${f2(p[0] + 1.8 * k)}" y="${f2(p[1] + 4.6 * k)}" class="e8-acl" font-size="${f2(fs)}" stroke-width="${f2(0.9 * fs / 3.4)}">${esc(txt)}</text>`;
+  }
+  // el FINAL del tramo común dibujado (de las puntas de los tramos de la vista, la más cercana al pin): de ahí sale cada
+  // cable a su pin
+  function finTramo(p, ts) {
+    let best = null;
+    for (const t of ts) {
+      const P_ = t.puntos || []; if (!P_.length) continue;
+      for (const q of [P_[0], P_[P_.length - 1]]) { const d = Math.hypot(p[0] - q[0], p[1] - q[1]); if (!best || d < best.d) best = { d, q }; }
+    }
+    return best && best.q;
+  }
 
   /* ---- dibujo (SVG en puntos del topográfico, con la y invertida, como en E6) ---- */
   const vbOf = b => [b[0], -b[3], b[2] - b[0], b[3] - b[1]];
@@ -129,22 +155,26 @@ const E8 = (() => {
     const ro = (l.marca_o || [])[2], rd = (l.marca_d || [])[2];
     const ends = [l.marca_o, l.marca_d].filter(Boolean);
     if (!ends.length) return '';
-    let s = `<g class="rt ${cls} mano${o.hecho ? ' hecho' : ''}" data-clave="${esc(l.clave)}"><title>${esc(l.num)} (${esc(secTxt(l))}): ${esc(l.origen)} → ${esc(l.destino)} · ruteo a mano: ${esc(g ? g.nombre : l.grupo_mano)}${ts.length ? '' : ' · falta dibujar el recorrido'}</title>`;
+    // (puerta, etapa E8-7) una punta en el pin exacto de la placa sale del FINAL del tramo común dibujado
+    const alPin = (e, w) => esPuerta(o.L || lat()) && (w === 'o' ? l.exacto_o : l.exacto_d);
+    let s = `<g class="rt ${cls} mano${o.hecho ? ' hecho' : ''}" data-clave="${esc(l.clave)}"><title>${esc(l.num)} (${esc(secTxt(l))}): ${esc(l.origen)} → ${esc(l.destino)}${l.aclaracion ? ' · ' + esc(l.aclaracion) : ''} · ruteo a mano: ${esc(g ? g.nombre : l.grupo_mano)}${ts.length ? '' : alPin(null, 'o') ? ' · falta dibujar el tramo común' : ' · falta dibujar el recorrido'}</title>`;
     if (ts.length) {
       if (cls === 'cur') s += manoG(o.L || lat(), 0.75 * k, { solo: l.grupo_mano, on: l.grupo_mano });
-      for (const e of ends) {
-        const q = cercaDe(e, ts);
+      [[l.marca_o, 'o'], [l.marca_d, 'd']].filter(x => x[0]).forEach(([e, w]) => {
+        const q = alPin(e, w) ? finTramo(e, ts) : cercaDe(e, ts);
         if (q) s += `<path d="M${f2(e[0])} ${f2(-e[1])}L${f2(q[0])} ${f2(-q[1])}" stroke="${col}" stroke-width="${f2((cls === 'cur' ? 1.4 : 0.9) * k)}" stroke-dasharray="${f2(2 * k)} ${f2(1.2 * k)}" class="e8-mano-a"/>`;
-      }
+      });
     } else if (cls === 'cur' && o.fin !== false) {
       const e = ends[0];
-      s += `<text x="${f2(e[0] + 3)}" y="${f2(-e[1] - 3)}" class="e8-mano-falta" font-size="${f2(5.5 * Math.min(k, 1.3))}">falta dibujar el recorrido</text>`;
+      s += `<text x="${f2(e[0] + 3)}" y="${f2(-e[1] - 3)}" class="e8-mano-falta" font-size="${f2(5.5 * Math.min(k, 1.3))}">${alPin(e, 'o') ? 'falta dibujar el tramo común' : 'falta dibujar el recorrido'}</text>`;
     }
     const st = [l.marca_o[0], -l.marca_o[1]];
-    s += l.empalme ? empalmeG(st, l.marca_o, l.empalme, k, o.pulse) : l.franja ? franjaG(l.franja, st, k, o.pulse, cls) : Ins.mark(st, ro, 'ori', k, o.pulse);
+    s += l.empalme ? empalmeG(st, l.marca_o, l.empalme, k, o.pulse) : l.franja && !l.exacto_o ? franjaG(l.franja, st, k, o.pulse, cls) : Ins.mark(st, ro, 'ori', k, o.pulse);
+    if (cls === 'cur' && l.exacto_o) s += aclG(st, aclDe(l, 'o'), k);
     if (l.marca_d) {
       const en = [l.marca_d[0], -l.marca_d[1]];
-      s += l.empalme_d ? empalmeG(en, l.marca_d, l.empalme_d, k, o.pulse) : l.franja_d ? franjaG(l.franja_d, en, k, o.pulse, cls) : Ins.mark(en, rd, 'des', k, o.pulse);
+      s += l.empalme_d ? empalmeG(en, l.marca_d, l.empalme_d, k, o.pulse) : l.franja_d && !l.exacto_d ? franjaG(l.franja_d, en, k, o.pulse, cls) : Ins.mark(en, rd, 'des', k, o.pulse);
+      if (cls === 'cur' && l.exacto_d) s += aclG(en, aclDe(l, 'd'), k);
     }
     return s + '</g>';
   }
@@ -152,7 +182,10 @@ const E8 = (() => {
   function manoPill(l) {
     if (!l.grupo_mano) return '';
     const g = grupoMano(l.grupo_mano), dib = !!(g && g.dibujado);
-    return `<span class="pill e8-manop${dib ? ' ok' : ''}" data-a="mano" data-grupo="${esc(l.grupo_mano)}" style="--gc:${colorGrupo(l.grupo_mano)}" title="${esc(`Ruteo a mano: grupo «${g ? g.nombre : l.grupo_mano}». ${dib ? 'El taller ya dibujó su recorrido.' : 'Falta dibujar el recorrido (✏ Ruteo a mano).'} Clic para abrirlo`)}">✏ ${esc(g ? g.nombre : l.grupo_mano)}${dib ? '' : ' · falta dibujar'}</span>`;
+    // (etapa E8-7) un cable de la puerta que llega a su pin de la placa: lo que falta es solo el tramo común (en la vista
+    // de la puerta, la punta en el pin; en la tabla de «Puerta y placa», pin_puerta)
+    const pin = !!(l.pin_puerta || (l.franja && l.exacto_o));
+    return `<span class="pill e8-manop${dib ? ' ok' : ''}" data-a="mano" data-grupo="${esc(l.grupo_mano)}" style="--gc:${colorGrupo(l.grupo_mano)}" title="${esc(`Ruteo a mano: grupo «${g ? g.nombre : l.grupo_mano}». ${dib ? 'El taller ya dibujó su recorrido.' : pin ? 'Falta dibujar el tramo común (✏ Ruteo a mano): de ahí cada cable va a su pin.' : 'Falta dibujar el recorrido (✏ Ruteo a mano).'} Clic para abrirlo`)}">✏ ${esc(g ? g.nombre : l.grupo_mano)}${dib ? '' : pin ? ' · falta el tramo común' : ' · falta dibujar'}</span>`;
   }
   const dirPill = l => l.directo ? '<span class="pill e8-dir" title="Va derecho del aparato al borne de la bornera de abajo, sin pasar por el ducto (sin WAGO)">directo al borne</span>' : '';
 
@@ -165,8 +198,9 @@ const E8 = (() => {
     const st = pts[0], end = pts[n - 1];
     let s = `<g class="rt ${cls}${o.hecho ? ' hecho' : ''}" data-clave="${esc(l.clave)}"><title>${esc(l.num)} (${esc(secTxt(l))}): ${esc(l.origen)} → ${esc(l.destino)}${l.otra && l.otra !== 'misma bandeja' ? ' (' + esc(l.otra) + ')' : ''}${l.largo_mm ? ' · ≈' + l.largo_mm + ' mm' : ''}</title>`;
     const eo = n > 1 && empDe(l, 'o'), ed = n > 1 && l.marca_d && empDe(l, 'd');
-    // puerta: el cable llega a la FRANJA de bornes del aparato (no a un borne dibujado: el borne está en la tabla)
-    const fo = l.franja, fd = l.marca_d && l.franja_d;
+    // puerta: el cable llega a la FRANJA de bornes del aparato (no a un borne dibujado: el borne está en la tabla); con el
+    // punto exacto del pin de la placa (etapa E8-7), a su pin, con su terminal, como un borne
+    const fo = l.franja && !l.exacto_o, fd = l.marca_d && l.franja_d && !l.exacto_d;
     if (n > 1) {
       const d = 'M' + pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('L');
       if (cls === 'cur') s += `<path d="${d}" class="halo" stroke-width="${6 * k}"/>`;
@@ -176,9 +210,12 @@ const E8 = (() => {
       if (!eo && !fo) s += Ins.ferrule(st, [pts[1][0] - st[0], pts[1][1] - st[1]], ro, terminal(l, 'o'), k);
       if (l.marca_d && !ed && !fd) s += Ins.ferrule(end, [pts[n - 2][0] - end[0], pts[n - 2][1] - end[1]], rd, terminal(l, 'd'), k);
     }
-    s += eo ? empalmeG(st, l.marca_o, eo, k, o.pulse) : fo ? franjaG(fo, st, k, o.pulse, cls) : Ins.mark(st, ro, 'ori', k, o.pulse);
-    if (l.marca_d) s += ed ? empalmeG(end, l.marca_d, ed, k, o.pulse) : fd ? franjaG(fd, end, k, o.pulse, cls) : Ins.mark(end, rd, 'des', k, o.pulse);
-    else if (n > 1 && o.fin !== false) {
+    s += eo ? empalmeG(st, l.marca_o, eo, k, o.pulse) : fo ? franjaG(l.franja, st, k, o.pulse, cls) : Ins.mark(st, ro, 'ori', k, o.pulse);
+    if (cls === 'cur' && l.franja && l.exacto_o) s += aclG(st, aclDe(l, 'o'), k);
+    if (l.marca_d) {
+      s += ed ? empalmeG(end, l.marca_d, ed, k, o.pulse) : fd ? franjaG(l.franja_d, end, k, o.pulse, cls) : Ins.mark(end, rd, 'des', k, o.pulse);
+      if (cls === 'cur' && l.franja_d && l.exacto_d) s += aclG(end, aclDe(l, 'd'), k);
+    } else if (n > 1 && o.fin !== false) {
       const der = end[0] >= pts[n - 2][0];
       s += `<text x="${(end[0] + (der ? 3 : -3)).toFixed(1)}" y="${(end[1] + 2.5).toFixed(1)}" class="li" font-size="${f2(6 * Math.min(k, 1.2))}" text-anchor="${der ? 'start' : 'end'}">${esc(otraCorta(l))}</text>`;
     }
@@ -413,7 +450,7 @@ const E8 = (() => {
         <table class="e8-tab"><thead><tr><th></th><th>Borne</th><th>Cable</th><th>Va a</th><th></th></tr></thead><tbody>
         ${g.cables.map(x => `<tr class="${H.has(x.clave) ? 'ok' : ''}" data-clave="${esc(x.clave)}">
           <td><input type="checkbox" data-a="ok" ${H.has(x.clave) ? 'checked' : ''} aria-label="Cable ${esc(x.num)} cableado"></td>
-          <td class="mono"><b>${esc(x.pin || x.borne)}</b>${x.empalme ? `<div class="small e8-emp-t${x.empalme.confirmar ? ' conf' : ''}">${esc(x.empalme.texto)}${x.empalme.pelado ? ' · pelado (sin pino)' : ''}</div>` : ''}</td>
+          <td class="mono"><b>${esc(x.pin || x.borne)}</b>${x.aclaracion ? `<div class="small e8-acl-t" title="${esc(x.aclaracion)} (funcional)">${esc(aclCorta(x.aclaracion))}</div>` : ''}${x.empalme ? `<div class="small e8-emp-t${x.empalme.confirmar ? ' conf' : ''}">${esc(x.empalme.texto)}${x.empalme.pelado ? ' · pelado (sin pino)' : ''}</div>` : ''}</td>
           <td class="mono">${esc(x.num)} ${swatch(x.color)} <span class="secc">${esc(secTxt(x))}</span>${x.grupo_mano ? '<br>' + manoPill(x) : ''}</td>
           <td class="mono">${esc(x.otra)} <span class="muted small">· ${esc(x.otra_donde)}</span></td>
           <td>${enVista.has(x.clave) ? `<button class="mini" data-a="ver" title="Cablear desde este cable (visor de la puerta)">▶</button> ` : ''}<button class="mini" data-a="plano" data-num="${esc(x.num)}" title="Ver en el plano eléctrico">⚡</button></td></tr>`).join('')}
@@ -427,7 +464,7 @@ const E8 = (() => {
       const enP = gs.filter(g => g.en_puerta && g.zona === 'puerta / placa');
       const ent = puertaTxt(Pd);
       html += `<h2 class="e8-zona">Puerta</h2><div class="e8-lat e8-pu">
-        <div class="e8-mapa card"><div class="card-h"><h2>${esc(Pd.titulo || 'Puerta')}</h2><span class="muted small">${Pd.n} cables · cada uno llega a la franja de bornes de su aparato: el borne está en la tabla${Pd.sin_canaletas ? ' · sin canaletas leídas' : ''}</span></div>
+        <div class="e8-mapa card"><div class="card-h"><h2>${esc(Pd.titulo || 'Puerta')}</h2><span class="muted small">${Pd.n} cables · ${puertaPines(Pd)}${Pd.sin_canaletas ? ' · sin canaletas leídas' : ''}</span></div>
           <svg class="tsvg" id="e8MapaP" viewBox="${vbMapa(Pd, uMapa(Pd)).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(Pd)}
             ${manoG(Pd, uMapa(Pd))}${flat(Pd).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L: Pd })).join('')}${flechas(Pd, uMapa(Pd))}${aparatosG(Pd, uMapa(Pd))}<g id="e8SelP"></g></svg>
           <p class="small e8-ent">${ent} <button class="linkbtn" data-a="entrada" title="Elegir por dónde entran a la puerta y por dónde pasan (S)">🧭 Cambiar</button></p>
@@ -442,10 +479,18 @@ const E8 = (() => {
       : (Pd ? '' : '<p class="muted">No hay cables a la puerta ni a la placa.</p>');
     $('#e8Afuera').innerHTML = html;
   }
-  // etiqueta de cada aparato de la puerta sobre su cuerpo (o su etiqueta), para ubicarlo en el dibujo
+  // (etapa E8-7) cuántos cables de la puerta llegan a su pin (mapeo automático de la placa) y cuántos a la franja
+  function puertaPines(Pd) {
+    const ls = flat(Pd).map(x => x.l), ex = ls.filter(l => l.exacto_o).length, conf = ls.filter(l => l.exacto_o && l.conf_o === 'media').length;
+    if (!ex) return 'cada uno llega a la franja de bornes de su aparato: el borne está en la tabla';
+    return `${ex === ls.length ? 'todos llegan' : `${ex} llegan`} a su pin de la placa (mapeo automático con el funcional${conf ? `; ${conf} a confirmar` : ''})`
+      + (ex < ls.length ? '; los demás, a la franja de bornes de su aparato (el borne está en la tabla)' : '');
+  }
+  // etiqueta de cada aparato de la puerta sobre su cuerpo (o su etiqueta), para ubicarlo en el dibujo; una placa sin
+  // etiqueta en el topográfico, reconocida por su bornera (etapa E8-7), lleva su tag escrito
   function aparatosG(Pd, u) {
-    return (Pd.aparatos || []).map(a => { const c = a.caja; return `<g class="e8-apu"><title>${esc(a.tag)}: ${a.n} cable${a.n === 1 ? '' : 's'}</title>
-      <rect x="${f2(c[0])}" y="${f2(-c[3])}" width="${f2(c[2] - c[0])}" height="${f2(c[3] - c[1])}" stroke-width="${f2(0.8 * u)}"/></g>`; }).join('');
+    return (Pd.aparatos || []).map(a => { const c = a.caja; return `<g class="e8-apu"><title>${esc(a.tag)}: ${a.n} cable${a.n === 1 ? '' : 's'}${a.reconocido ? ' (sin etiqueta en el topográfico: reconocida por su bornera, a confirmar)' : ''}</title>
+      <rect x="${f2(c[0])}" y="${f2(-c[3])}" width="${f2(c[2] - c[0])}" height="${f2(c[3] - c[1])}" stroke-width="${f2(0.8 * u)}"/>${a.reconocido ? `<text x="${f2(c[0])}" y="${f2(-c[3] - 2 * u)}" font-size="${f2(9 * u)}" stroke-width="${f2(2.2 * u)}">${esc(a.tag)}?</text>` : ''}</g>`; }).join('');
   }
   function resaltarP(clave) {
     const Pd = P(), g = $('#e8SelP'); if (!Pd || !g) return;
@@ -473,11 +518,13 @@ const E8 = (() => {
     $('#e8vPos').textContent = `${V.k + 1} / ${f.length}`;
     $('#e8vGrp').textContent = `${L.nombre} · ${L.pasos[g].titulo}`;
     $('#e8vNum').innerHTML = `<span class="mono">${esc(l.num)}</span> ${swatch(l.color)} <span class="secc big">${esc(secTxt(l))}</span>`;
-    $('#e8vOrig').innerHTML = esc(l.origen) + (l.empalme ? ` <span class="e8-emp-t small${l.empalme.confirmar ? ' conf' : ''}">· ${esc(l.empalme.texto)}</span>` : '');
-    $('#e8vDest').innerHTML = esc(l.destino) + ' ' + otraPill(l) + (l.empalme_d ? ` <span class="e8-emp-t small${l.empalme_d.confirmar ? ' conf' : ''}">· ${esc(l.empalme_d.texto)}</span>` : '');
+    $('#e8vOrig').innerHTML = esc(l.origen) + (l.aclaracion ? ` <span class="e8-acl-t small" title="Aclaración del pin (funcional)">· ${esc(aclCorta(l.aclaracion))}</span>` : '') + (l.empalme ? ` <span class="e8-emp-t small${l.empalme.confirmar ? ' conf' : ''}">· ${esc(l.empalme.texto)}</span>` : '');
+    $('#e8vDest').innerHTML = esc(l.destino) + (l.aclaracion_d ? ` <span class="e8-acl-t small">· ${esc(aclCorta(l.aclaracion_d))}</span>` : '') + ' ' + otraPill(l) + (l.empalme_d ? ` <span class="e8-emp-t small${l.empalme_d.confirmar ? ' conf' : ''}">· ${esc(l.empalme_d.texto)}</span>` : '');
     const gm = l.grupo_mano && grupoMano(l.grupo_mano);
-    $('#e8vLen').innerHTML = l.grupo_mano ? `${manoPill(l)}${gm && gm.dibujado && !tramosEn(gm, claveVista(L)).length ? ' <span>(dibujado en otra vista)</span>' : ''} <button class="linkbtn" data-a="mano" title="Ruteo a mano de este grupo: dibujarlo o cablearlo de a uno (R)">✏ Abrir</button>`
-      : esc(esPuerta(L) ? `llega a la franja de bornes de ${l.aparato}: borne ${l.pin || '—'} (está en la tabla)`
+    const alPin = esPuerta(L) && l.exacto_o;
+    $('#e8vLen').innerHTML = l.grupo_mano ? `${manoPill(l)}${gm && gm.dibujado && !tramosEn(gm, claveVista(L)).length ? ' <span>(dibujado en otra vista)</span>' : ''}${alPin ? ` <span>· ${gm && tramosEn(gm, claveVista(L)).length ? 'del final del tramo común' : 'de ahí'} va a su pin ${esc(l.pin || '')}${l.conf_o === 'media' ? ' (a confirmar)' : ''}</span>` : ''} <button class="linkbtn" data-a="mano" title="Ruteo a mano de este grupo: dibujarlo o cablearlo de a uno (R)">✏ Abrir</button>`
+      : esc(alPin ? `llega al pin ${l.pin || '—'} de ${l.aparato}${l.aclaracion ? ' · ' + aclCorta(l.aclaracion) : ''}${l.conf_o === 'media' ? ' (a confirmar)' : ''}`
+        : esPuerta(L) ? `llega a la franja de bornes de ${l.aparato}: borne ${l.pin || '—'} (está en la tabla)`
         : l.largo_mm ? `≈ ${l.largo_mm} mm en la lateral${l.directo ? ' · directo al borne, sin el ducto' : ''}` : '');
     $('#e8vOk').checked = H.has(l.clave);
     $('#e8vBar').style.width = (f.filter(x => H.has(x.l.clave)).length / f.length * 100) + '%';
@@ -562,7 +609,7 @@ const E8 = (() => {
       s.innerHTML = imgTag(L, true) + ss.map(x => routeG(x, 'sib', 0.4, { lab: 1.5, fin: false, L })).join('') + routeG(l, 'cur', 0.45, { lab: 1.6, fin: false, L });
     };
     const to = terminal(l, 'o'), td = terminal(l, 'd');
-    set('#e8vLupaO', r[0] || [0, 0], !!r.length); $('#e8vLupaOt').textContent = `${l.num} · ${l.origen} · ${to ? to.txt : secTxt(l)}`;
+    set('#e8vLupaO', r[0] || [0, 0], !!r.length); $('#e8vLupaOt').textContent = `${l.num} · ${l.origen}${l.aclaracion ? ' · ' + aclCorta(l.aclaracion) : ''} · ${to ? to.txt : secTxt(l)}`;
     set('#e8vLupaD', l.marca_d || [0, 0], !!l.marca_d); $('#e8vLupaDt').textContent = `Destino · ${l.num} · ${l.destino} · ${td ? td.txt : secTxt(l)}`;
   }
   function camera(target, ms) {
@@ -1175,7 +1222,8 @@ const E8 = (() => {
   const EMP_CSS = `.e8-propio{fill:none;stroke:#555} .e8-ap{fill:#fff;stroke:#555} .e8-wago-i{fill:#ff8c1a;stroke:#5a2d00}
       .e8-emp.conf .e8-wago-i{fill:#ffd54f} .e8-wago-l{stroke:#5a2d00} .e8-wago-t{font-weight:700;fill:#5a2d00;font-family:Arial}
       .e8-franja{fill:rgba(0,150,190,.25);stroke:#007a99} .e8-mano path,.e8-mano-a{fill:none;stroke-linecap:round;stroke-linejoin:round}
-      .e8-mano .halo{stroke:rgba(255,106,0,.25)} .e8-mano-falta{fill:#6a1b9a;font:700 5px Arial}`;
+      .e8-mano .halo{stroke:rgba(255,106,0,.25)} .e8-mano-falta{fill:#6a1b9a;font:700 5px Arial}
+      .e8-acl{fill:#00566b;font-family:Arial;font-weight:700;paint-order:stroke;stroke:#fff}`;
   /* ---- imprimir: la bandeja lateral paso por paso y la puerta / placa en tablas ---- */
   function imprimir() {
     const w = window.open('', '_blank'); if (!w) return toast('El navegador bloqueó la ventana de impresión');
@@ -1191,10 +1239,10 @@ const E8 = (() => {
     if (Pd) {
       let n = 0;
       html += `<h2>${esc(Pd.titulo || 'Puerta')}</h2>` + Pd.pasos.map(p => `<h3>${esc(p.titulo)}</h3><div class="g">${p.lineas.map(l => `<div class="c"><div class="n">${++n}</div>${thumb(Pd, l).replace(/href="\//g, `href="${base}/`)}
-        <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span>${manoTxt(l)}</div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
+        <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}${l.aclaracion ? `<br><b style="color:#00566b">${esc(l.aclaracion)}</b>` : ''}<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span>${manoTxt(l)}</div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
     }
     html += `<h2>Puerta, placa y zona hidráulica</h2><div class="g">` + e8.afuera.map(g => `<table><caption>${esc(g.tag)} <span>(${esc(g.zona)})</span></caption>
-      ${g.cables.map(x => `<tr><td>☐</td><td><b>${esc(x.pin || x.borne)}</b>${x.empalme ? `<br><span style="color:#b35900">${esc(x.empalme.texto)}</span>` : ''}</td><td>${esc(x.num)} · ${esc(secTxt(x))}${manoTxt(x)}</td><td>→ ${esc(x.otra)} <span style="color:#666">(${esc(x.otra_donde)})</span></td></tr>`).join('')}</table>`).join('') + '</div>';
+      ${g.cables.map(x => `<tr><td>☐</td><td><b>${esc(x.pin || x.borne)}</b>${x.aclaracion ? `<br><span style="color:#00566b">${esc(aclCorta(x.aclaracion))}</span>` : ''}${x.empalme ? `<br><span style="color:#b35900">${esc(x.empalme.texto)}</span>` : ''}</td><td>${esc(x.num)} · ${esc(secTxt(x))}${manoTxt(x)}</td><td>→ ${esc(x.otra)} <span style="color:#666">(${esc(x.otra_donde)})</span></td></tr>`).join('')}</table>`).join('') + '</div>';
     w.document.write(`<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Estación 8 — ${esc(S.res.nombre)}</title>
       <style>body{font:12px/1.35 "Segoe UI",Arial,sans-serif;margin:16px;color:#111} h1{font-size:18px;margin:0 0 4px} h2{font-size:15px;margin:16px 0 6px;color:#1f5fbf} h3{font-size:13px;margin:10px 0 4px}
       .m{color:#555;margin-bottom:10px} .g{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
@@ -1346,7 +1394,7 @@ const E8 = (() => {
     : E().laterales.find(L => L.clave_vista === ck) || null;
   return { open, init, hide: () => { W().hidden = true; }, asistente,
     // (para e8mano.js: el editor y el visor del ruteo a mano por grupos)
-    int: { E, D: () => D, RM, aplicarMano, vistaDe, imgTag, vbOf, manoG, colorGrupo, cercaDe, tramosEn, claveVista, hechos, esHecho, marcar,
+    int: { E, D: () => D, RM, aplicarMano, vistaDe, imgTag, vbOf, manoG, colorGrupo, cercaDe, finTramo, aclCorta, tramosEn, claveVista, hechos, esHecho, marcar,
       render: () => { if (!W().hidden && E()) render(); } } };
 })();
 E8.init();

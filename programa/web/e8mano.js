@@ -10,6 +10,9 @@
    - Se guarda POR PRODUCTO (código + número y revisión del topográfico): vale para todos los trabajos del mismo producto
      con el mismo topográfico (PUT /api/trabajo/<id>/e8/grupos). Si el producto no está confirmado se guarda en el trabajo.
    - «▶ Cablear de a uno» por grupo: cada cable del grupo con el recorrido dibujado (las marcas son las de la estación 8).
+   - Pines de la placa (etapa E8-7): un cable de la placa con su pin exacto en la vista de la puerta (cables[k].pin_puerta)
+     va del FINAL del tramo común dibujado a su pin, y en el visor de a uno su punta dice la aclaración del funcional
+     (cables[k].aclaracion, en la punta cables[k].aclaracion_de). Sin dibujar, lo que falta es solo el tramo común.
    Los datos: ins.estacion8.ruteo_mano (estacion8_mano.py): {categorias, vistas, auto, auto_info, cables, grupos, miembro,
    manual: {grupos: {id: {tramos: [{vista, puntos}], nombre}}, nuevos, mover}, clave_producto, por_producto, aviso,
    version_almacen, editado, avisos}. efectivo() es la copia en JS de estacion8_mano.aplicar (los grupos con lo del taller). */
@@ -72,6 +75,10 @@ const E8M = (() => {
   const vistaNom = ck => (((R() || {}).vistas || []).find(v => v.clave === ck) || {}).nombre || ck;
   const V = () => I().vistaDe(M.vk);
   const cab = k => ((R() || {}).cables || {})[k] || null;
+  // (etapa E8-7) los cables del grupo llegan a su pin de la placa: lo que falta dibujar es solo el tramo común
+  const conPines = g => !!g && (g.cables || []).some(k => (cab(k) || {}).pin_puerta);
+  const faltaTxt = g => conPines(g) ? 'falta dibujar el tramo común (de ahí cada cable va a su pin)' : 'falta dibujar el recorrido';
+  const puntaTxt = (c, w) => (c[w] || '') + (c.aclaracion && c.aclaracion_de === w ? ' · ' + I().aclCorta(c.aclaracion) : '');
 
   /* ---- pegar al eje de la canaleta (🧲): un punto a menos de 0,6 anchos de una canaleta va a su eje ---- */
   function iman(p, ductos) {
@@ -157,8 +164,8 @@ const E8M = (() => {
     if (M.modo === 'cablear' && g.n) {
       const k = g.cables[M.k], c = cab(k) || {}, H = I().hechos();
       $('#e8mTit').innerHTML = `<span class="mono">${esc(c.num)}</span> ${swatch(c.color)} <span class="secc big">${esc(Ins.secTxt(c))}</span>`;
-      $('#e8mSub').textContent = `Ruteo a mano · ${g.nombre}${g.dibujado ? '' : ' · falta dibujar el recorrido'}`;
-      $('#e8mOrig').textContent = c.a || ''; $('#e8mDest').textContent = c.b || '';
+      $('#e8mSub').textContent = `Ruteo a mano · ${g.nombre}${g.dibujado ? '' : ' · ' + faltaTxt(g)}`;
+      $('#e8mOrig').textContent = puntaTxt(c, 'a'); $('#e8mDest').textContent = puntaTxt(c, 'b');
       $('#e8mPos').textContent = `${M.k + 1} / ${g.n}`;
       $('#e8mOk').checked = H.has(k);
     } else {
@@ -199,7 +206,7 @@ const E8M = (() => {
         return `<div class="sal-g e8m-g ${on ? 'on' : ''}" data-g="${esc(g.id)}">
           <div class="sal-gh"><span class="e8m-sw" style="background:${I().colorGrupo(g.id)}"></span>${g.auto ? `<b>${esc(g.nombre)}</b>` : `<input class="sal-nom" data-nom="${esc(g.id)}" value="${esc(g.nombre)}" aria-label="Nombre del grupo" spellcheck="false">`}
             <span class="muted small">${g.n} cable${g.n === 1 ? '' : 's'}${g.n ? ` · ${hechos} cableado${hechos === 1 ? '' : 's'}` : ''}</span></div>
-          <div class="small ${g.dibujado ? 'sal-eleg' : 'warn-t'}">${g.dibujado ? `Dibujado: ${esc(tramosTxt(g))}` : np ? 'Falta terminar el recorrido (un solo punto)' : 'Falta dibujar el recorrido'}</div>
+          <div class="small ${g.dibujado ? 'sal-eleg' : 'warn-t'}">${g.dibujado ? `Dibujado: ${esc(tramosTxt(g))}${conPines(g) ? ' · de su final cada cable va a su pin' : ''}` : np ? 'Falta terminar el recorrido (un solo punto)' : (conPines(g) ? 'Falta dibujar el tramo común: de ahí cada cable va a su pin de la placa' : 'Falta dibujar el recorrido')}</div>
           ${on && !cablear ? `<div class="sal-acts">
             <button class="btn sm ${M.dib ? 'on' : ''}" data-a="dib" title="${M.dib ? 'Terminar de dibujar (Enter)' : 'Clic en el dibujo por donde pasan los cables, en orden; en otra vista sigue con un tramo nuevo'}">${M.dib ? '✓ Listo' : np ? '✏ Seguir dibujando' : '✏ Dibujar recorrido'}</button>
             ${np ? `<button class="btn ghost sm" data-a="deshacer" title="Sacar el último punto (Retroceso)">↶ Último punto</button>
@@ -296,8 +303,11 @@ const E8M = (() => {
       const pts = (c.puntos || {})[ck] || []; if (!pts.length) continue;
       const cur = k === actual, tenue = cablear && !cur;
       for (const p of pts) {
-        const q = enV.length && I().cercaDe(p, enV);
+        // (etapa E8-7) al pin de la placa: del FINAL del tramo común; a otro aparato, del punto más cercano
+        const q = enV.length && (c.pin_puerta && ck === 'PUERTA' ? I().finTramo(p, enV) : I().cercaDe(p, enV));
         if (q && (cur || !cablear)) s += `<path d="M${f2(p[0])} ${f2(-p[1])}L${f2(q[0])} ${f2(-q[1])}" stroke="${col}" stroke-width="${f2((cur ? 2 : 1) * u)}" stroke-dasharray="${f2(3 * u)} ${f2(2 * u)}" class="e8-mano-a"/>`;
+        if (cur && c.aclaracion && c.pin_puerta && ck === 'PUERTA')
+          s += `<text x="${f2(p[0] + 5 * u)}" y="${f2(-p[1] + 13 * u)}" class="e8-acl" font-size="${f2(8 * u)}" stroke-width="${f2(2 * u)}">${esc(I().aclCorta(c.aclaracion))}</text>`;
         s += `<g class="e8m-punta${cur ? ' cur' : ''}${tenue ? ' tenue' : ''}"><title>${esc(c.num)}: ${esc(c.a)} → ${esc(c.b)}</title>
           ${cur ? `<circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2(9 * u)}" class="ori-p" stroke-width="${f2(0.9 * u)}"/>` : ''}
           <circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2((cur ? 4 : 2.6) * u)}" stroke-width="${f2(0.9 * u)}"/>
@@ -313,7 +323,7 @@ const E8M = (() => {
     // aviso grande: este grupo no tiene recorrido (en esta vista o en ninguna)
     const falta = $('#e8mFalta');
     falta.hidden = !(cablear && !g.dibujado) && !(cablear && g.dibujado && !enV.length);
-    falta.innerHTML = !g.dibujado ? `Falta dibujar el recorrido de «${esc(g.nombre)}». <button class="btn sm" data-a="dibujar">✏ Dibujarlo</button>`
+    falta.innerHTML = !g.dibujado ? `${conPines(g) ? `Falta dibujar el tramo común de «${esc(g.nombre)}»: de ahí cada cable va a su pin (ya ubicado en la placa).` : `Falta dibujar el recorrido de «${esc(g.nombre)}».`} <button class="btn sm" data-a="dibujar">✏ Dibujarlo</button>`
       : `El recorrido de este grupo no pasa por esta vista: está en ${esc(tramosTxt(g))}.`;
   }
   function rotulo(p, txt, u, col) {

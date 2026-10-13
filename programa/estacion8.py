@@ -94,7 +94,19 @@ verificado de EPLAN) > bornes_e8 > aproximado; la linea dice de donde sale (conf
 nota_o / nota_d) y las puntas que siguen aproximadas se avisan por lateral. El aproximado de un borne de una bornera
 con otros bornes exactos del mismo lado del riel sale de ellos, con su paso (afinar_aproximados; aprox_o / aprox_d =
 'vecinos'), y no de la etiqueta: el orden de izquierda a derecha cuadra con los exactos. El ajuste a mano se previsualiza con
-rutear_punto (POST /e8/punto) sin rearmar nada."""
+rutear_punto (POST /e8/punto) sin rearmar nada.
+
+PINES DE LA PLACA (etapa E8-7, 2026-10-09, pedido del taller: «las referencias son las mismas; a la punta del cable en la
+vista de la placa agregarle la aclaracion del pin», pagina 21). pines_puerta (con pines_aparato.py): por cada aparato de la
+vista de la puerta con su bornera dibujada (topo.puerta_e8: filas de tornillos en su cuerpo; o una placa SIN etiqueta que
+el funcional reconoce por sus filas, el 75441), las filas de pines numerados de su simbolo en el funcional van a las filas
+de tornillos del dibujo con la misma cantidad (el n-esimo pin al n-esimo tornillo): cada cable de la placa llega a SU pin
+(marca_o = el punto del pin, exacto_o, conf_o 'alta' | 'media'; el recorrido de la franja sube hasta el pin) y lleva la
+aclaracion del funcional ('aclaracion': 'pin 42 · Signal AI5 · AP Analog Input #5'), tambien en la tabla de «Puerta y
+placa» (de cualquier aparato con pines numerados en el funcional) y en los cables del ruteo a mano. Un pin sin fila en el
+dibujo queda en la franja con aviso. e8['pines_aparato'] = {tag: {pag, hoja, reconocido, filas, pines: {pin: {nombre,
+grupo, aclaracion, punto, conf}}, avisos}}. Los textos de E6, del listado y de la tabla (el borne) no cambian; la WPC
+no usa nada de esto."""
 import collections
 import json
 import math
@@ -107,13 +119,15 @@ from instructivo import conductors, fmt_terminal, cable_desc, natk, puntos_salid
 from planocables.base.convenciones import clave_par as e8_clave, sin_lado, side_of, LATERAL_RE, is_terminal_block
 import estacion8_mano as E8M
 
-VERSION = 7       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
+VERSION = 8       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
                   # 3 (2026-10-08): entrada a las laterales y bisagra de la puerta (recorridos)
                   # 4 (2026-10-08): empalmes con el cable propio de un aparato (WAGO del cargador, RS-485)
                   # 5 (2026-10-08): vista de la puerta con recorridos y transito hacia la puerta en la lateral de la bisagra
                   # 6 (2026-10-08): puntos exactos de los bornes de las laterales (mapear_bornes: bornes_e8; conf_o / conf_d)
                   # 7 (2026-10-09): ruteo a mano por grupos (ruteo_mano, estacion8_mano.py; vista del fondo) y cables
                   #                 directos del cargador a la bornera de abajo (directo)
+                  # 8 (2026-10-09): pines de la placa (pines_aparato.py): punto exacto de cada pin en la vista de la
+                  #                 puerta y la aclaracion del pin del funcional ('pin 42 · Signal AI5 · AP Analog Input #5')
 AQUI = os.path.dirname(os.path.abspath(__file__))
 MAX_LINEAS = 7
 MARGEN_IMG_H = 0.5    # imagen de la lateral: la placa entera + medio perfil de riel de cada lado
@@ -569,12 +583,21 @@ def _franja(caja, lado, H):
     return [caja[0], caja[1], caja[2], caja[1] + d], (cx, caja[1])
 
 
-def _ruta_a_aparato(net, ductos, p_in, pasos, caja, obst, H):
+def _al_pin(fr, fin, pin):
+    """con el punto exacto del pin (etapa E8-7): el cable llega a la franja a la altura del pin y sube (o baja) hasta el
+    -> (punto de la franja a la altura del pin, [el pin]); sin pin: (fin, [])"""
+    if not pin:
+        return fin, []
+    return (float(pin[0]), fin[1]), [(float(pin[0]), float(pin[1]))]
+
+
+def _ruta_a_aparato(net, ductos, p_in, pasos, caja, obst, H, pin=None):
     """recorrido en la puerta de la entrada p_in a la franja de bornes del aparato (caja): por las canaletas (net) y los
     puntos de paso (pasos, libres: tambien fuera de las canaletas). Sin puntos de paso, sale de la canaleta hacia el lado
     del aparato que mira a la canaleta (abajo si la canaleta esta mas abajo que su centro) y corre a MARGEN_PUERTA_H
-    perfiles de el, por debajo (o por arriba) de los otros aparatos que cruzaria (obst). -> (puntos de la entrada a la
-    franja, lado 'abajo' | 'arriba', franja, llega: False si los puntos elegidos no llegan por las canaletas)"""
+    perfiles de el, por debajo (o por arriba) de los otros aparatos que cruzaria (obst). Con el punto exacto del pin
+    ('pin', etapa E8-7) llega a la franja a la altura del pin y termina en el. -> (puntos de la entrada a la franja (o
+    al pin), lado 'abajo' | 'arriba', franja, llega: False si los puntos elegidos no llegan por las canaletas)"""
     m = MARGEN_PUERTA_H * H
     cx, cy = (caja[0] + caja[2]) / 2, (caja[1] + caja[3]) / 2
     pts = [tuple(p_in)]
@@ -612,16 +635,18 @@ def _ruta_a_aparato(net, ductos, p_in, pasos, caja, obst, H):
         q, _ = proyectar((cx, cy))
         lado = 'abajo' if q[1] <= cy else 'arriba'
         fr, fin = _franja(caja, lado, H)
+        fin, cola = _al_pin(fr, fin, pin)
         A = (fin[0], fin[1] - m if lado == 'abajo' else fin[1] + m)
         X, j = proyectar(A)
         if (X[1] <= A[1]) if lado == 'abajo' else (X[1] >= A[1]):
             pata = [(fin[0], X[1]), fin]                 # de costado y despues sube (o baja) a la franja
         else:
             pata = [(X[0], A[1]), A, fin]                # baja (o sube) hasta pasar el aparato, de costado y sube
-        return pts[:j + 1] + [X] + pata, lado, fr, llega
+        return pts[:j + 1] + [X] + pata + cola, lado, fr, llega
     q = _punto_eje(ductos, (cx, cy))
     lado = 'abajo' if q[1] <= cy else 'arriba'
     fr, fin = _franja(caja, lado, H)
+    fin, cola = _al_pin(fr, fin, pin)
     y = caja[1] - m if lado == 'abajo' else caja[3] + m
     for _ in range(8):          # por debajo (o arriba) de los otros aparatos que cruzaria el tramo horizontal
         qx = _punto_eje(ductos, (fin[0], y))[0]
@@ -634,8 +659,8 @@ def _ruta_a_aparato(net, ductos, p_in, pasos, caja, obst, H):
     k, tail = net.salida_a_mano(T)
     tramo = net.path(k_in, k, False) if k is not None else None
     if not tramo:
-        return pts + [(fin[0], pts[-1][1]), fin], lado, fr, False
-    return pts + tramo[1:] + [tuple(t) for t in tail[::-1]] + [T, fin], lado, fr, True
+        return pts + [(fin[0], pts[-1][1]), fin] + cola, lado, fr, False
+    return pts + tramo[1:] + [tuple(t) for t in tail[::-1]] + [T, fin] + cola, lado, fr, True
 
 
 def rutear_puerta(Pd, vrec):
@@ -663,7 +688,7 @@ def rutear_puerta(Pd, vrec):
     no_llegan = 0
     for p in Pd.get('pasos') or []:
         for l in p['lineas']:
-            for k in ('ruta', 'sale', 'salida', 'no_llega', 'marca_d', 'franja_d', 'lado_franja_d'):
+            for k in ('ruta', 'sale', 'salida', 'no_llega', 'marca_d', 'franja_d', 'lado_franja_d', 'exacto_o', 'exacto_d', 'conf_o', 'conf_d'):
                 l.pop(k, None)
             caja = cajas.get(l['aparato'])
             if not caja:
@@ -671,19 +696,30 @@ def rutear_puerta(Pd, vrec):
             if l.get('aparato_d') in cajas:         # entre dos aparatos de la puerta: de una franja a la otra, por abajo
                 cd = cajas[l['aparato_d']]
                 fa, pa = _franja(caja, 'abajo', H); fb, pb = _franja(cd, 'abajo', H)
+                pa, ca = _al_pin(fa, pa, l.get('pin_p')); pb, cb = _al_pin(fb, pb, l.get('pin_p_d'))
                 y = min(caja[1], cd[1]) - MARGEN_PUERTA_H * H
-                l.update(ruta=_limpiar([pa, (pa[0], y), (pb[0], y), pb]), marca_o=[round(pa[0], 2), round(pa[1], 2), None],
-                         franja=[round(v, 2) for v in fa], lado_franja='abajo', marca_d=[round(pb[0], 2), round(pb[1], 2), None],
+                ea, eb = (ca or [pa])[-1], (cb or [pb])[-1]
+                l.update(ruta=_limpiar(ca[::-1] + [pa, (pa[0], y), (pb[0], y), pb] + cb), marca_o=[round(ea[0], 2), round(ea[1], 2), None],
+                         franja=[round(v, 2) for v in fa], lado_franja='abajo', marca_d=[round(eb[0], 2), round(eb[1], 2), None],
                          franja_d=[round(v, 2) for v in fb], lado_franja_d='abajo')
+                if ca:
+                    l.update(exacto_o=True, conf_o=l.get('conf_pin') or 'media')
+                if cb:
+                    l.update(exacto_d=True, conf_d=l.get('conf_pin_d') or 'media')
                 continue
             if not p_in:
+                if l.get('pin_p'):
+                    pp = l['pin_p']
+                    l.update(marca_o=[round(pp[0], 2), round(pp[1], 2), None], exacto_o=True, conf_o=l.get('conf_pin') or 'media')
                 continue
             g = next((x for x in grupos if l['num'] in x['cables']), None)
             obst = [c for t, c in cajas.items() if t != l['aparato']]
-            pts, lado, fr, llega = _ruta_a_aparato(net, ductos, p_in, g['puntos'] if g else comun, caja, obst, H)
+            pts, lado, fr, llega = _ruta_a_aparato(net, ductos, p_in, g['puntos'] if g else comun, caja, obst, H, pin=l.get('pin_p'))
             fin = pts[-1]
             l.update(ruta=_limpiar(pts[::-1]), marca_o=[round(fin[0], 2), round(fin[1], 2), None], franja=[round(v, 2) for v in fr],
                      lado_franja=lado, sale='entrada')
+            if l.get('pin_p'):                        # (etapa E8-7) llega al pin exacto de la placa
+                l.update(exacto_o=True, conf_o=l.get('conf_pin') or 'media')
             if g:
                 l['salida'] = g['id']
             if not llega:
@@ -878,6 +914,96 @@ def mapear_bornes(res, lay, dir_trabajo, topo_pdf, cache=True):
     return out
 
 
+SIN_ETIQ_PINES = 8        # placa sin etiqueta: el aparato del funcional tiene al menos 8 cables en pines numerados
+TABLA_PINES = 3           # aclaracion en la tabla de «Puerta y placa»: aparatos con al menos 3 cables en pines numerados
+
+
+def pines_puerta(res, cs, P, comp, tags_afuera):
+    """(etapa E8-7) pines exactos de los aparatos de la vista de la puerta y la aclaracion de los pines del funcional.
+    P = lay['puerta'] (o None); tags_afuera = aparatos de «Puerta y placa» (para la aclaracion de la tabla).
+    -> (P2: la vista de la puerta con las placas sin etiqueta reconocidas en 'comp' (o la misma P), {tag: info}, avisos)
+    info = {pag, hoja, reconocido, filas: [{n, de, a}], pines: {pin: {nombre, grupo, aclaracion, punto, conf}}, avisos}.
+    Nunca levanta excepciones (sin pines: la franja, como antes), tampoco si falta el modulo pines_aparato.py (una copia
+    del motor que no lo trae: VECTOR copia archivo por archivo). Un pin con letras sin leer en su nombre o su grupo (sin
+    OCR de apoyo) lleva 'incompleto' y la aclaracion lo dice; va un aviso por aparato."""
+    info, avisos = {}, []
+    try:
+        import pines_aparato as PA
+        nodos = collections.Counter()          # cables en pines numerados de cada aparato
+        for c in cs.values():
+            for d in c['nodes'].values():
+                if d.get('tipo') == 'borne' and d.get('tag_base') and d.get('p') and PA.NUM_RE.fullmatch(str(d.get('borne') or '').strip()):
+                    nodos[d['tag_base']] += 1
+        ffs = {}
+
+        def ff_de(tag):
+            if tag not in ffs:
+                try:
+                    ffs[tag] = PA.filas_funcional(res, tag, cs)
+                except Exception:                                          # noqa: BLE001
+                    ffs[tag] = None
+            return ffs[tag]
+
+        def guardar(tag, ff, mapa=None, reconocido=False):
+            d = dict(pag=ff['pag'], hoja=ff['hoja'], reconocido=reconocido, pines={}, avisos=[],
+                     filas=[dict(n=len(f['pines']), de=f['pines'][0]['pin'], a=f['pines'][-1]['pin']) for f in ff['filas']])
+            for pin, x in ff['pines'].items():
+                d['pines'][pin] = dict(nombre=x.get('nombre') or '', grupo=x.get('grupo') or '', aclaracion=PA.aclaracion(pin, x))
+                if x.get('incompleto'):
+                    d['pines'][pin]['incompleto'] = True
+                if mapa and pin in mapa['pines']:
+                    d['pines'][pin].update(punto=mapa['pines'][pin], conf='media' if reconocido else mapa['conf'][pin])
+            if mapa:
+                d['avisos'] = list(mapa['avisos'])
+            inc = sorted((p for p, x in d['pines'].items() if x.get('incompleto')), key=natk)
+            if inc:
+                d['avisos'].append(f"el nombre de {'los pines' if len(inc) > 1 else 'el pin'} {', '.join(inc[:12])}{' …' if len(inc) > 12 else ''} "
+                                   f"quedó con letras sin leer (texto incompleto): ver la hoja {ff['hoja']} del funcional")
+            info[tag] = d
+
+        P2 = None
+        if P:
+            P2 = dict(P, comp={t: dict(c) for t, c in (P.get('comp') or {}).items()})
+            for tag, c in P2['comp'].items():
+                if c.get('bornera') and nodos.get(tag):
+                    ff = ff_de(tag)
+                    if ff:
+                        guardar(tag, ff, PA.mapear(ff, c['bornera']))
+            # placas SIN etiqueta (75441): el aparato del funcional con muchos pines numerados, sin dibujar en el
+            # topografico, cuyas filas de pines coinciden con las filas de tornillos de una sola de ellas (y al reves)
+            libres = list(P2.get('sin_etiqueta') or [])
+            if libres:
+                cands = [t for t, n in nodos.items() if n >= SIN_ETIQ_PINES and t not in P2['comp'] and not _dibujado(comp.get(t))
+                         and not is_terminal_block(t)]
+                pares = [(t, i) for t in sorted(cands, key=natk) for i, g in enumerate(libres) if ff_de(t) and PA.coinciden(ff_de(t), g['bornera'])]
+                for t, i in pares:
+                    if sum(1 for x in pares if x[0] == t) != 1 or sum(1 for x in pares if x[1] == i) != 1:
+                        continue
+                    g = libres[i]
+                    cj = [float(v) for v in g['caja']]
+                    P2['comp'][t] = dict(x=round((cj[0] + cj[2]) / 2, 1), y=round(cj[3], 1), leido=None, etiqueta=None, cuerpo=cj,
+                                         bornera=g['bornera'], reconocido='bornera')
+                    ff = ff_de(t)
+                    guardar(t, ff, PA.mapear(ff, g['bornera']), reconocido=True)
+                    n = sum(len(f['pines']) for f in ff['filas'])
+                    avisos.append(f"Puerta: la placa dibujada sin etiqueta es {t}: sus {n} bornes en "
+                                  f"{' y '.join(str(len(f['pines'])) for f in ff['filas'])} coinciden con el funcional (hoja {ff['hoja']}); "
+                                  "pines a confirmar")
+        # aclaracion en la tabla de «Puerta y placa» de los demas aparatos con pines numerados
+        for t in sorted(tags_afuera, key=natk):
+            if t not in info and nodos.get(t, 0) >= TABLA_PINES and not is_terminal_block(t):
+                ff = ff_de(t)
+                if ff:
+                    guardar(t, ff)
+        for t, d in info.items():
+            for a in d['avisos']:
+                avisos.append(f'Puerta, {t}: {a}')
+    except Exception as ex:                                                # noqa: BLE001
+        avisos.append(f'no se pudieron leer los pines de la placa ({type(ex).__name__}: {ex}); quedan en la franja')
+        return P, {}, avisos
+    return (P2 if P2 is not None else P), info, avisos
+
+
 def build(res, lay, ins):
     """-> dict(version, laterales=[{nombre, lado, region (la imagen), placa, titulo, pag, escala, ductos, rieles,
     sin_riel, pasos, n, (transito)}], afuera=[{tag, donde, cables, (en_puerta)}], puerta={...} (si el topografico trae la
@@ -1056,6 +1182,21 @@ def build(res, lay, ins):
         return math.dist(po[:2], pd[:2]) <= di['distancia'] * H and sin_canaleta_en_medio(L['ductos'], po, pd)
 
     cs = conductors(res)
+    # (etapa E8-7) pines de la placa: punto exacto de cada pin en la vista de la puerta y aclaracion del funcional. Una
+    # placa sin etiqueta que el funcional reconoce por sus filas de pines entra a la vista de la puerta
+    tags_afuera = {ap_tag(d) for c_ in cs.values() for d in c_['nodes'].values()
+                   if d.get('tipo') == 'borne' and d.get('tag_base') and donde(d)[0] == 'AFUERA'} - {None}
+    P, pines_ap, av_pines = pines_puerta(res, cs, P, comp, tags_afuera)
+    en_puerta = set((P or {}).get('comp') or {})
+    avisos += av_pines
+
+    def pin_de(tag, borne):
+        """(aclaracion, punto exacto, confianza) del pin 'borne' del aparato (o Nones)"""
+        x = ((pines_ap.get(tag) or {}).get('pines') or {}).get(str(borne or '').strip())
+        if not x:
+            return None, None, None
+        return x.get('aclaracion') or None, x.get('punto'), x.get('conf')
+
     tramos_lat = collections.defaultdict(list)
     afuera = collections.defaultdict(list)
     hacia_puerta, lineas_puerta, puerta_vistos = [], [], set()
@@ -1149,6 +1290,11 @@ def build(res, lay, ins):
                 donde_o = ('sin aparato en el plano' if to in ('LI', 'LD') else
                            de_lateral[ap_tag(eo)]['nombre'].lower() if wo == 'LATERAL' else DONDE[wo])
                 fila = dict(base, borne=t, pin=e.get('borne') or '', otra=to, otra_donde=donde_o, viene_de_e6=wo == 'BANDEJA')
+                acl, pp, pc = pin_de(ap_tag(e), e.get('borne'))
+                if acl:
+                    fila['aclaracion'] = acl          # (etapa E8-7: 'pin 42 · Signal AI5 · AP Analog Input #5')
+                if pp and ap_tag(e) in en_puerta:
+                    fila['pin_puerta'] = True         # llega a su pin en el dibujo de la puerta: falta solo el tramo comun
                 emp = empalme_de(e, ne, c)
                 if emp:
                     fila['empalme'] = {k_: v_ for k_, v_ in emp.items() if not k_.startswith('_')}
@@ -1158,8 +1304,17 @@ def build(res, lay, ins):
                     puerta_vistos.add(k)
                     dl = dict(base, origen=t, destino=to, aparato=ap_tag(e), pin=e.get('borne') or '', otra=donde_o,
                               viene_de_e6=wo == 'BANDEJA', componente=e.get('tag') or e.get('tag_base') or '')
+                    if acl:
+                        dl['aclaracion'] = acl
+                    if pp:                            # el punto del pin en el dibujo de la placa (etapa E8-7)
+                        dl.update(pin_p=[float(pp[0]), float(pp[1])], conf_pin=pc)
                     if wo in ('AFUERA', 'E8') and ap_tag(eo) in en_puerta and ap_tag(eo) != ap_tag(e):
                         dl['aparato_d'] = ap_tag(eo)
+                        acl_d, pp_d, pc_d = pin_de(ap_tag(eo), eo.get('borne'))
+                        if acl_d:
+                            dl['aclaracion_d'] = acl_d
+                        if pp_d:
+                            dl.update(pin_p_d=[float(pp_d[0]), float(pp_d[1])], conf_pin_d=pc_d)
                     lineas_puerta.append(dl)
 
     def ubicar_empalmes(L, ls):
@@ -1336,6 +1491,8 @@ def build(res, lay, ins):
             g['en_puerta'] = True               # (dibujado en la vista de la puerta)
     out = dict(version=VERSION, laterales=out_lat, afuera=grupos, campo=n_campo, avisos=avisos, hechos=[],
                recorridos=rec, bisagra_propuesta=BISAGRA_PROPUESTA, hacia_puerta=hacia_puerta)
+    if pines_ap:
+        out['pines_aparato'] = pines_ap
 
     # ---- vista de la puerta: los cables de sus aparatos con su recorrido, aparato por aparato (como una lateral; las
     # marcas son las de la tabla: misma clave)
@@ -1349,6 +1506,10 @@ def build(res, lay, ins):
             c = P['comp'].get(tg) or {}
             caja = c.get('cuerpo') or c.get('etiqueta') or [c.get('x', 0) - 1, c.get('y', 0) - 1, c.get('x', 0) + 1, c.get('y', 0) + 1]
             aps.append(dict(tag=tg, caja=[round(float(v), 2) for v in caja], cuerpo=bool(c.get('cuerpo')), x=c.get('x'), y=c.get('y'), n=n_ap[tg]))
+            if c.get('reconocido'):
+                aps[-1]['reconocido'] = c['reconocido']          # (placa sin etiqueta, reconocida por su bornera)
+            if tg in pines_ap:
+                aps[-1]['pines'] = sum(1 for l in lineas_puerta if l['aparato'] == tg and l.get('pin_p'))
         pasos_p = []
         for a in aps:
             ls_ = sorted((l for l in lineas_puerta if l['aparato'] == a['tag']), key=lambda l: (natk(l['pin']), natk(l['num'])))
@@ -1424,12 +1585,16 @@ def ruteo_mano(out, lay, ins, tramos_e8, de_lateral, en_puerta, info_de, cfg):
                 if l.get('marca_d'):
                     sumar(l['clave'], L['clave_vista'], l['marca_d'])
     Pd = out.get('puerta')
+    en_pin = set()          # (etapa E8-7) cables con el pin exacto de la placa en la vista de la puerta
     if Pd:
         cajas = {a['tag']: a['caja'] for a in Pd.get('aparatos') or []}
         for p in Pd['pasos']:
             for l in p['lineas']:
-                for t in (l.get('aparato'), l.get('aparato_d')):
-                    if t in cajas:
+                for t, pp in ((l.get('aparato'), l.get('pin_p')), (l.get('aparato_d'), l.get('pin_p_d'))):
+                    if pp:                            # (etapa E8-7) el pin exacto de la placa
+                        sumar(l['clave'], E8M.VISTA_PUERTA, pp)
+                        en_pin.add(l['clave'])
+                    elif t in cajas:
                         c = cajas[t]
                         sumar(l['clave'], E8M.VISTA_PUERTA, ((c[0] + c[2]) / 2, (c[1] + c[3]) / 2))
     if fondo:
@@ -1453,6 +1618,15 @@ def ruteo_mano(out, lay, ins, tramos_e8, de_lateral, en_puerta, info_de, cfg):
     cables = {k: dict(num=t['num'], cable=t['cable'], color=t['color'], secc=t['secc'], a=t['a'], b=t['b'],
                       aparatos=[p[1] for p in t['puntas']], puntos={v: ps for v, ps in puntos[k].items()})
               for k, t in sorted(tr.items(), key=lambda x: (natk(x[1]['num']), x[0]))}
+    # (etapa E8-7) la aclaracion del pin de la placa en la punta que corresponde ('a' o 'b') y si llega a su pin exacto
+    for k in en_pin:
+        if k in cables:
+            cables[k]['pin_puerta'] = True
+    for g in out['afuera']:
+        for x in g['cables']:
+            cb = cables.get(x['clave'])
+            if cb and x.get('aclaracion') and 'aclaracion' not in cb:
+                cb.update(aclaracion=x['aclaracion'], aclaracion_de='a' if cb['a'] == x['borne'] else 'b')
     R = dict(version=E8M.VERSION, categorias=[dict(id=c['id'], nombre=c['nombre'], nota=c['nota']) for c in cfg['categorias']],
              vistas=vistas, auto=auto, auto_info=ainfo, cables=cables)
     E8M.aplicar(R, None, E8M.meta_de(None, 'sin producto'))

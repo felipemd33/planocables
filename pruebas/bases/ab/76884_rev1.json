@@ -1182,11 +1182,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 9.7,
-   "layout": 8.0,
-   "mapeo": 0.2,
-   "instructivo": 0.4,
-   "total": 18.3
+   "listado": 8.1,
+   "layout": 10.3,
+   "mapeo": 0.0,
+   "instructivo": 0.6,
+   "total": 19.1
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

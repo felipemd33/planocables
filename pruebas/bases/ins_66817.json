@@ -4639,7 +4639,7 @@
   ]
  },
  "estacion8": {
-  "version": 7,
+  "version": 8,
   "laterales": [
    {
     "nombre": "Bandeja lateral izquierda",
@@ -5632,6 +5632,8 @@
       "otra": "32AIB1 6",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 2 · Signal AI1 · WP Analog Input #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5649,6 +5651,8 @@
       "otra": "32AIB1 7",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 3 · Return · WP Analog Input #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5666,6 +5670,8 @@
       "otra": "32AIB1 3",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 5 · Signal AI2 · LP Analog Input #2",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5683,6 +5689,8 @@
       "otra": "32AIB1 4",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 6 · Return · LP Analog Input #2",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5700,6 +5708,8 @@
       "otra": "43KR1 11",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 14 · Signal · External Permisive ED#11",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5717,6 +5727,8 @@
       "otra": "43KR1 12",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 15 · Return · External Permisive ED#11",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5734,6 +5746,8 @@
       "otra": "43DIB1 5",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 16 · DI 1+ · Position Sensor #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5751,6 +5765,8 @@
       "otra": "43DIB1 6",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 17 · DI 1- · Position Sensor #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5768,6 +5784,8 @@
       "otra": "43DIB1 3",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 18 · DI 2+ · Position Sensor #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5785,6 +5803,8 @@
       "otra": "43DIB1 4",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 19 · DI 2- · Position Sensor #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5802,6 +5822,8 @@
       "otra": "12PS2",
       "otra_donde": "puerta / placa",
       "viene_de_e6": false,
+      "aclaracion": "pin 32 · RS485 A / RS232 TX(I) · Comunication Port #2",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5819,6 +5841,8 @@
       "otra": "12PS2",
       "otra_donde": "puerta / placa",
       "viene_de_e6": false,
+      "aclaracion": "pin 33 · RS485 B / RS232 RX(O) · Comunication Port #2",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5836,6 +5860,8 @@
       "otra": "81TM01 1",
       "otra_donde": "puerta / placa",
       "viene_de_e6": false,
+      "aclaracion": "pin 35 · RS485 A · Comunication Port #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5853,6 +5879,8 @@
       "otra": "81XCM 1 ARRIBA",
       "otra_donde": "bandeja lateral derecha",
       "viene_de_e6": false,
+      "aclaracion": "pin 35 · RS485 A · Comunication Port #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5870,6 +5898,8 @@
       "otra": "81TM01 15",
       "otra_donde": "puerta / placa",
       "viene_de_e6": false,
+      "aclaracion": "pin 36 · RS485 B · Comunication Port #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5887,6 +5917,8 @@
       "otra": "81XCM 2 ARRIBA",
       "otra_donde": "bandeja lateral derecha",
       "viene_de_e6": false,
+      "aclaracion": "pin 36 · RS485 B · Comunication Port #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5904,6 +5936,8 @@
       "otra": "81XCM 3 ARRIBA",
       "otra_donde": "bandeja lateral derecha",
       "viene_de_e6": false,
+      "aclaracion": "pin 37 · Return · Comunication Port #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5920,6 +5954,8 @@
       "otra": "31XAI 2 ARRIBA",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 39 · Signal AI3 · Analog Input #3",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5936,6 +5972,8 @@
       "otra": "31XAI 1 ARRIBA",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 42 · Signal AI5 · AP Analog Input #5",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5953,6 +5991,8 @@
       "otra": "13XC1 2.3",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 48 · Battery + · Feeder",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5970,6 +6010,8 @@
       "otra": "13XC1 3.4",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 49 · Battery - · Feeder",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -5986,6 +6028,8 @@
       "otra": "61KR1 A1",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 50 · DO 1+ · Solenoid Valve #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -6002,6 +6046,8 @@
       "otra": "61KR1 A2",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 51 · DO 1- · Solenoid Valve #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -6018,6 +6064,8 @@
       "otra": "61KR2 A1",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 52 · DO 2+ · Solenoid Valve #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -6034,6 +6082,8 @@
       "otra": "61KR2 A2",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 53 · DO 2- · Solenoid Valve #1",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -6050,6 +6100,8 @@
       "otra": "61KR3 A1",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 60 · DO 6+ · Solenoid Valve #3",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      },
      {
@@ -6066,6 +6118,8 @@
       "otra": "61KR3 A2",
       "otra_donde": "bandeja principal",
       "viene_de_e6": true,
+      "aclaracion": "pin 61 · DO 6- · Solenoid Valve #3",
+      "pin_puerta": true,
       "grupo_mano": "placa:21PCB01"
      }
     ],
@@ -6744,6 +6798,718 @@
     "sin_aparato": true
    }
   ],
+  "pines_aparato": {
+   "21PCB01": {
+    "pag": 10,
+    "hoja": "21",
+    "reconocido": false,
+    "pines": {
+     "38": {
+      "nombre": "Power Sup.",
+      "grupo": "Analog Input #3",
+      "aclaracion": "pin 38 · Power Sup. · Analog Input #3",
+      "punto": [
+       727.11,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "39": {
+      "nombre": "Signal AI3",
+      "grupo": "Analog Input #3",
+      "aclaracion": "pin 39 · Signal AI3 · Analog Input #3",
+      "punto": [
+       729.93,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "40": {
+      "nombre": "Return",
+      "grupo": "Analog Input #3",
+      "aclaracion": "pin 40 · Return · Analog Input #3",
+      "punto": [
+       732.77,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "41": {
+      "nombre": "Power Sup.",
+      "grupo": "AP Analog Input #5",
+      "aclaracion": "pin 41 · Power Sup. · AP Analog Input #5",
+      "punto": [
+       735.59,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "42": {
+      "nombre": "Signal AI5",
+      "grupo": "AP Analog Input #5",
+      "aclaracion": "pin 42 · Signal AI5 · AP Analog Input #5",
+      "punto": [
+       738.4,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "43": {
+      "nombre": "Return",
+      "grupo": "AP Analog Input #5",
+      "aclaracion": "pin 43 · Return · AP Analog Input #5",
+      "punto": [
+       741.2,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "44": {
+      "nombre": "P.S.",
+      "grupo": "4-20mA Output",
+      "aclaracion": "pin 44 · P.S. · 4-20mA Output",
+      "punto": [
+       744.04,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "45": {
+      "nombre": "Ret.",
+      "grupo": "4-20mA Output",
+      "aclaracion": "pin 45 · Ret. · 4-20mA Output",
+      "punto": [
+       746.87,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "46": {
+      "nombre": "AUX +",
+      "grupo": "Feeder",
+      "aclaracion": "pin 46 · AUX + · Feeder",
+      "punto": [
+       749.69,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "47": {
+      "nombre": "AUX -",
+      "grupo": "Feeder",
+      "aclaracion": "pin 47 · AUX - · Feeder",
+      "punto": [
+       752.51,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "48": {
+      "nombre": "Battery +",
+      "grupo": "Feeder",
+      "aclaracion": "pin 48 · Battery + · Feeder",
+      "punto": [
+       755.32,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "49": {
+      "nombre": "Battery -",
+      "grupo": "Feeder",
+      "aclaracion": "pin 49 · Battery - · Feeder",
+      "punto": [
+       758.15,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "50": {
+      "nombre": "DO 1+",
+      "grupo": "Solenoid Valve #1",
+      "aclaracion": "pin 50 · DO 1+ · Solenoid Valve #1",
+      "punto": [
+       760.97,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "51": {
+      "nombre": "DO 1-",
+      "grupo": "Solenoid Valve #1",
+      "aclaracion": "pin 51 · DO 1- · Solenoid Valve #1",
+      "punto": [
+       763.79,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "52": {
+      "nombre": "DO 2+",
+      "grupo": "Solenoid Valve #1",
+      "aclaracion": "pin 52 · DO 2+ · Solenoid Valve #1",
+      "punto": [
+       766.62,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "53": {
+      "nombre": "DO 2-",
+      "grupo": "Solenoid Valve #1",
+      "aclaracion": "pin 53 · DO 2- · Solenoid Valve #1",
+      "punto": [
+       769.44,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "54": {
+      "nombre": "DO 3+",
+      "grupo": "Solenoid Valve #2",
+      "aclaracion": "pin 54 · DO 3+ · Solenoid Valve #2",
+      "punto": [
+       777.93,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "55": {
+      "nombre": "DO 3-",
+      "grupo": "Solenoid Valve #2",
+      "aclaracion": "pin 55 · DO 3- · Solenoid Valve #2",
+      "punto": [
+       780.75,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "56": {
+      "nombre": "DO 4+",
+      "grupo": "Solenoid Valve #2",
+      "aclaracion": "pin 56 · DO 4+ · Solenoid Valve #2",
+      "punto": [
+       783.58,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "57": {
+      "nombre": "DO 4-",
+      "grupo": "Solenoid Valve #2",
+      "aclaracion": "pin 57 · DO 4- · Solenoid Valve #2",
+      "punto": [
+       786.41,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "58": {
+      "nombre": "DO 5+",
+      "grupo": "Solenoid Valve #3",
+      "aclaracion": "pin 58 · DO 5+ · Solenoid Valve #3",
+      "punto": [
+       789.25,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "59": {
+      "nombre": "DO 5-",
+      "grupo": "Solenoid Valve #3",
+      "aclaracion": "pin 59 · DO 5- · Solenoid Valve #3",
+      "punto": [
+       792.07,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "60": {
+      "nombre": "DO 6+",
+      "grupo": "Solenoid Valve #3",
+      "aclaracion": "pin 60 · DO 6+ · Solenoid Valve #3",
+      "punto": [
+       794.86,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "61": {
+      "nombre": "DO 6-",
+      "grupo": "Solenoid Valve #3",
+      "aclaracion": "pin 61 · DO 6- · Solenoid Valve #3",
+      "punto": [
+       797.68,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "62": {
+      "nombre": "DO 7 (C)",
+      "grupo": "Solenoid Valve #4",
+      "aclaracion": "pin 62 · DO 7 (C) · Solenoid Valve #4",
+      "punto": [
+       800.51,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "63": {
+      "nombre": "DO 7 (NO)",
+      "grupo": "Solenoid Valve #4",
+      "aclaracion": "pin 63 · DO 7 (NO) · Solenoid Valve #4",
+      "punto": [
+       803.32,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "64": {
+      "nombre": "DO 8 (C)",
+      "grupo": "Solenoid Valve #4",
+      "aclaracion": "pin 64 · DO 8 (C) · Solenoid Valve #4",
+      "punto": [
+       806.15,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "65": {
+      "nombre": "DO 8 (NO)",
+      "grupo": "Solenoid Valve #4",
+      "aclaracion": "pin 65 · DO 8 (NO) · Solenoid Valve #4",
+      "punto": [
+       808.97,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "66": {
+      "nombre": "DI 9+",
+      "grupo": "DI#9",
+      "aclaracion": "pin 66 · DI 9+ · DI#9",
+      "punto": [
+       811.79,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "67": {
+      "nombre": "DI 9-",
+      "grupo": "DI#9",
+      "aclaracion": "pin 67 · DI 9- · DI#9",
+      "punto": [
+       814.6,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "68": {
+      "nombre": "DI 10+",
+      "grupo": "DI#10",
+      "aclaracion": "pin 68 · DI 10+ · DI#10",
+      "punto": [
+       817.44,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "69": {
+      "nombre": "DI 10-",
+      "grupo": "DI#10",
+      "aclaracion": "pin 69 · DI 10- · DI#10",
+      "punto": [
+       820.27,
+       452.08
+      ],
+      "conf": "alta"
+     },
+     "1": {
+      "nombre": "Power Sup.",
+      "grupo": "WP Analog Input #1",
+      "aclaracion": "pin 1 · Power Sup. · WP Analog Input #1",
+      "punto": [
+       722.88,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "2": {
+      "nombre": "Signal AI1",
+      "grupo": "WP Analog Input #1",
+      "aclaracion": "pin 2 · Signal AI1 · WP Analog Input #1",
+      "punto": [
+       725.69,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "3": {
+      "nombre": "Return",
+      "grupo": "WP Analog Input #1",
+      "aclaracion": "pin 3 · Return · WP Analog Input #1",
+      "punto": [
+       728.52,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "4": {
+      "nombre": "Power Sup.",
+      "grupo": "LP Analog Input #2",
+      "aclaracion": "pin 4 · Power Sup. · LP Analog Input #2",
+      "punto": [
+       731.35,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "5": {
+      "nombre": "Signal AI2",
+      "grupo": "LP Analog Input #2",
+      "aclaracion": "pin 5 · Signal AI2 · LP Analog Input #2",
+      "punto": [
+       734.17,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "6": {
+      "nombre": "Return",
+      "grupo": "LP Analog Input #2",
+      "aclaracion": "pin 6 · Return · LP Analog Input #2",
+      "punto": [
+       736.98,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "7": {
+      "nombre": "Power Sup.",
+      "grupo": "Analog Input #4",
+      "aclaracion": "pin 7 · Power Sup. · Analog Input #4",
+      "punto": [
+       739.8,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "8": {
+      "nombre": "Signal AI4",
+      "grupo": "Analog Input #4",
+      "aclaracion": "pin 8 · Signal AI4 · Analog Input #4",
+      "punto": [
+       742.62,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "9": {
+      "nombre": "Return",
+      "grupo": "Analog Input #4",
+      "aclaracion": "pin 9 · Return · Analog Input #4",
+      "punto": [
+       745.45,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "10": {
+      "nombre": "Power Sup.",
+      "grupo": "PB *Analog Input #6*",
+      "aclaracion": "pin 10 · Power Sup. · PB *Analog Input #6*",
+      "punto": [
+       748.28,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "11": {
+      "nombre": "Signal AI6",
+      "grupo": "PB *Analog Input #6*",
+      "aclaracion": "pin 11 · Signal AI6 · PB *Analog Input #6*",
+      "punto": [
+       751.1,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "12": {
+      "nombre": "Return",
+      "grupo": "PB *Analog Input #6*",
+      "aclaracion": "pin 12 · Return · PB *Analog Input #6*",
+      "punto": [
+       753.91,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "13": {
+      "nombre": "Power Sup.",
+      "grupo": "External Permisive ED#11",
+      "aclaracion": "pin 13 · Power Sup. · External Permisive ED#11",
+      "punto": [
+       756.75,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "14": {
+      "nombre": "Signal",
+      "grupo": "External Permisive ED#11",
+      "aclaracion": "pin 14 · Signal · External Permisive ED#11",
+      "punto": [
+       759.57,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "15": {
+      "nombre": "Return",
+      "grupo": "External Permisive ED#11",
+      "aclaracion": "pin 15 · Return · External Permisive ED#11",
+      "punto": [
+       762.39,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "16": {
+      "nombre": "DI 1+",
+      "grupo": "Position Sensor #1",
+      "aclaracion": "pin 16 · DI 1+ · Position Sensor #1",
+      "punto": [
+       765.19,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "17": {
+      "nombre": "DI 1-",
+      "grupo": "Position Sensor #1",
+      "aclaracion": "pin 17 · DI 1- · Position Sensor #1",
+      "punto": [
+       768.02,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "18": {
+      "nombre": "DI 2+",
+      "grupo": "Position Sensor #1",
+      "aclaracion": "pin 18 · DI 2+ · Position Sensor #1",
+      "punto": [
+       770.83,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "19": {
+      "nombre": "DI 2-",
+      "grupo": "Position Sensor #1",
+      "aclaracion": "pin 19 · DI 2- · Position Sensor #1",
+      "punto": [
+       773.66,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "20": {
+      "nombre": "DI 3+",
+      "grupo": "Position Sensor #2",
+      "aclaracion": "pin 20 · DI 3+ · Position Sensor #2",
+      "punto": [
+       776.47,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "21": {
+      "nombre": "DI 3-",
+      "grupo": "Position Sensor #2",
+      "aclaracion": "pin 21 · DI 3- · Position Sensor #2",
+      "punto": [
+       779.31,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "22": {
+      "nombre": "DI 4+",
+      "grupo": "Position Sensor #2",
+      "aclaracion": "pin 22 · DI 4+ · Position Sensor #2",
+      "punto": [
+       782.13,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "23": {
+      "nombre": "DI 4-",
+      "grupo": "Position Sensor #2",
+      "aclaracion": "pin 23 · DI 4- · Position Sensor #2",
+      "punto": [
+       784.96,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "24": {
+      "nombre": "DI 5+",
+      "grupo": "Position Sensor #3",
+      "aclaracion": "pin 24 · DI 5+ · Position Sensor #3",
+      "punto": [
+       787.77,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "25": {
+      "nombre": "DI 5-",
+      "grupo": "Position Sensor #3",
+      "aclaracion": "pin 25 · DI 5- · Position Sensor #3",
+      "punto": [
+       790.59,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "26": {
+      "nombre": "DI 6+",
+      "grupo": "Position Sensor #3",
+      "aclaracion": "pin 26 · DI 6+ · Position Sensor #3",
+      "punto": [
+       793.41,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "27": {
+      "nombre": "DI 6-",
+      "grupo": "Position Sensor #3",
+      "aclaracion": "pin 27 · DI 6- · Position Sensor #3",
+      "punto": [
+       796.25,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "28": {
+      "nombre": "DI 7+",
+      "grupo": "Position Sensor #4",
+      "aclaracion": "pin 28 · DI 7+ · Position Sensor #4",
+      "punto": [
+       799.06,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "29": {
+      "nombre": "DI 7-",
+      "grupo": "Position Sensor #4",
+      "aclaracion": "pin 29 · DI 7- · Position Sensor #4",
+      "punto": [
+       801.89,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "30": {
+      "nombre": "DI 8+",
+      "grupo": "Position Sensor #4",
+      "aclaracion": "pin 30 · DI 8+ · Position Sensor #4",
+      "punto": [
+       804.7,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "31": {
+      "nombre": "DI 8-",
+      "grupo": "Position Sensor #4",
+      "aclaracion": "pin 31 · DI 8- · Position Sensor #4",
+      "punto": [
+       807.54,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "32": {
+      "nombre": "RS485 A / RS232 TX(I)",
+      "grupo": "Comunication Port #2",
+      "aclaracion": "pin 32 · RS485 A / RS232 TX(I) · Comunication Port #2",
+      "punto": [
+       810.35,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "33": {
+      "nombre": "RS485 B / RS232 RX(O)",
+      "grupo": "Comunication Port #2",
+      "aclaracion": "pin 33 · RS485 B / RS232 RX(O) · Comunication Port #2",
+      "punto": [
+       813.18,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "34": {
+      "nombre": "Return",
+      "grupo": "Comunication Port #2",
+      "aclaracion": "pin 34 · Return · Comunication Port #2",
+      "punto": [
+       815.99,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "35": {
+      "nombre": "RS485 A",
+      "grupo": "Comunication Port #1",
+      "aclaracion": "pin 35 · RS485 A · Comunication Port #1",
+      "punto": [
+       818.82,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "36": {
+      "nombre": "RS485 B",
+      "grupo": "Comunication Port #1",
+      "aclaracion": "pin 36 · RS485 B · Comunication Port #1",
+      "punto": [
+       821.65,
+       440.88
+      ],
+      "conf": "alta"
+     },
+     "37": {
+      "nombre": "Return",
+      "grupo": "Comunication Port #1",
+      "aclaracion": "pin 37 · Return · Comunication Port #1",
+      "punto": [
+       824.47,
+       440.88
+      ],
+      "conf": "alta"
+     }
+    },
+    "avisos": [],
+    "filas": [
+     {
+      "n": 32,
+      "de": "38",
+      "a": "69"
+     },
+     {
+      "n": 37,
+      "de": "1",
+      "a": "37"
+     }
+    ]
+   }
+  },
   "puerta": {
    "nombre": "Puerta",
    "titulo": "PUERTA DETALLE DE RIELES Y DUCTOS",
@@ -6787,7 +7553,8 @@
      "cuerpo": true,
      "x": 743.1,
      "y": 535.4,
-     "n": 27
+     "n": 27,
+     "pines": 27
     },
     {
      "tag": "13SH1",
@@ -6827,13 +7594,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 2 · Signal AI1 · WP Analog Input #1",
+       "pin_p": [
+        725.69,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         725.7,
+         440.9
         ],
         [
-         773.7,
+         725.7,
          420.8
         ],
         [
@@ -6850,8 +7623,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        725.69,
+        440.88,
         null
        ],
        "franja": [
@@ -6862,6 +7635,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -6881,13 +7656,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 3 · Return · WP Analog Input #1",
+       "pin_p": [
+        728.52,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         728.5,
+         440.9
         ],
         [
-         773.7,
+         728.5,
          420.8
         ],
         [
@@ -6904,8 +7685,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        728.52,
+        440.88,
         null
        ],
        "franja": [
@@ -6916,6 +7697,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -6935,13 +7718,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 5 · Signal AI2 · LP Analog Input #2",
+       "pin_p": [
+        734.17,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         734.2,
+         440.9
         ],
         [
-         773.7,
+         734.2,
          420.8
         ],
         [
@@ -6958,8 +7747,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        734.17,
+        440.88,
         null
        ],
        "franja": [
@@ -6970,6 +7759,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -6989,13 +7780,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 6 · Return · LP Analog Input #2",
+       "pin_p": [
+        736.98,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         737.0,
+         440.9
         ],
         [
-         773.7,
+         737.0,
          420.8
         ],
         [
@@ -7012,8 +7809,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        736.98,
+        440.88,
         null
        ],
        "franja": [
@@ -7024,6 +7821,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7043,13 +7842,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 14 · Signal · External Permisive ED#11",
+       "pin_p": [
+        759.57,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         759.6,
+         440.9
         ],
         [
-         773.7,
+         759.6,
          420.8
         ],
         [
@@ -7066,8 +7871,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        759.57,
+        440.88,
         null
        ],
        "franja": [
@@ -7078,6 +7883,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7097,13 +7904,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 15 · Return · External Permisive ED#11",
+       "pin_p": [
+        762.39,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         762.4,
+         440.9
         ],
         [
-         773.7,
+         762.4,
          420.8
         ],
         [
@@ -7120,8 +7933,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        762.39,
+        440.88,
         null
        ],
        "franja": [
@@ -7132,6 +7945,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7151,13 +7966,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 16 · DI 1+ · Position Sensor #1",
+       "pin_p": [
+        765.19,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         765.2,
+         440.9
         ],
         [
-         773.7,
+         765.2,
          420.8
         ],
         [
@@ -7174,8 +7995,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        765.19,
+        440.88,
         null
        ],
        "franja": [
@@ -7186,6 +8007,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7205,13 +8028,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 17 · DI 1- · Position Sensor #1",
+       "pin_p": [
+        768.02,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         768.0,
+         440.9
         ],
         [
-         773.7,
+         768.0,
          420.8
         ],
         [
@@ -7228,8 +8057,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        768.02,
+        440.88,
         null
        ],
        "franja": [
@@ -7240,6 +8069,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7259,13 +8090,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 18 · DI 2+ · Position Sensor #1",
+       "pin_p": [
+        770.83,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         770.8,
+         440.9
         ],
         [
-         773.7,
+         770.8,
          420.8
         ],
         [
@@ -7282,8 +8119,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        770.83,
+        440.88,
         null
        ],
        "franja": [
@@ -7294,6 +8131,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7313,10 +8152,16 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 19 · DI 2- · Position Sensor #1",
+       "pin_p": [
+        773.66,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
          773.7,
-         430.6
+         440.9
         ],
         [
          773.7,
@@ -7336,8 +8181,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        773.66,
+        440.88,
         null
        ],
        "franja": [
@@ -7348,6 +8193,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7367,13 +8214,19 @@
        "otra": "puerta / placa",
        "viene_de_e6": false,
        "componente": "21PCB01",
+       "aclaracion": "pin 32 · RS485 A / RS232 TX(I) · Comunication Port #2",
+       "pin_p": [
+        810.35,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         810.4,
+         440.9
         ],
         [
-         773.7,
+         810.4,
          420.8
         ],
         [
@@ -7390,8 +8243,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        810.35,
+        440.88,
         null
        ],
        "franja": [
@@ -7402,6 +8255,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7421,13 +8276,19 @@
        "otra": "puerta / placa",
        "viene_de_e6": false,
        "componente": "21PCB01",
+       "aclaracion": "pin 33 · RS485 B / RS232 RX(O) · Comunication Port #2",
+       "pin_p": [
+        813.18,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         813.2,
+         440.9
         ],
         [
-         773.7,
+         813.2,
          420.8
         ],
         [
@@ -7444,8 +8305,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        813.18,
+        440.88,
         null
        ],
        "franja": [
@@ -7456,6 +8317,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7475,13 +8338,19 @@
        "otra": "puerta / placa",
        "viene_de_e6": false,
        "componente": "21PCB01",
+       "aclaracion": "pin 35 · RS485 A · Comunication Port #1",
+       "pin_p": [
+        818.82,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         818.8,
+         440.9
         ],
         [
-         773.7,
+         818.8,
          420.8
         ],
         [
@@ -7498,8 +8367,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        818.82,
+        440.88,
         null
        ],
        "franja": [
@@ -7510,6 +8379,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7529,13 +8400,19 @@
        "otra": "bandeja lateral derecha",
        "viene_de_e6": false,
        "componente": "21PCB01",
+       "aclaracion": "pin 35 · RS485 A · Comunication Port #1",
+       "pin_p": [
+        818.82,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         818.8,
+         440.9
         ],
         [
-         773.7,
+         818.8,
          420.8
         ],
         [
@@ -7552,8 +8429,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        818.82,
+        440.88,
         null
        ],
        "franja": [
@@ -7564,6 +8441,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7583,13 +8462,19 @@
        "otra": "puerta / placa",
        "viene_de_e6": false,
        "componente": "21PCB01",
+       "aclaracion": "pin 36 · RS485 B · Comunication Port #1",
+       "pin_p": [
+        821.65,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         821.6,
+         440.9
         ],
         [
-         773.7,
+         821.6,
          420.8
         ],
         [
@@ -7606,8 +8491,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        821.65,
+        440.88,
         null
        ],
        "franja": [
@@ -7618,6 +8503,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7637,13 +8524,19 @@
        "otra": "bandeja lateral derecha",
        "viene_de_e6": false,
        "componente": "21PCB01",
+       "aclaracion": "pin 36 · RS485 B · Comunication Port #1",
+       "pin_p": [
+        821.65,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         821.6,
+         440.9
         ],
         [
-         773.7,
+         821.6,
          420.8
         ],
         [
@@ -7660,8 +8553,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        821.65,
+        440.88,
         null
        ],
        "franja": [
@@ -7672,6 +8565,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7691,13 +8586,19 @@
        "otra": "bandeja lateral derecha",
        "viene_de_e6": false,
        "componente": "21PCB01",
+       "aclaracion": "pin 37 · Return · Comunication Port #1",
+       "pin_p": [
+        824.47,
+        440.88
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         824.5,
+         440.9
         ],
         [
-         773.7,
+         824.5,
          420.8
         ],
         [
@@ -7714,8 +8615,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        824.47,
+        440.88,
         null
        ],
        "franja": [
@@ -7726,6 +8627,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7744,13 +8647,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 39 · Signal AI3 · Analog Input #3",
+       "pin_p": [
+        729.93,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         729.9,
+         452.1
         ],
         [
-         773.7,
+         729.9,
          420.8
         ],
         [
@@ -7767,8 +8676,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        729.93,
+        452.08,
         null
        ],
        "franja": [
@@ -7779,6 +8688,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7797,13 +8708,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 42 · Signal AI5 · AP Analog Input #5",
+       "pin_p": [
+        738.4,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         738.4,
+         452.1
         ],
         [
-         773.7,
+         738.4,
          420.8
         ],
         [
@@ -7820,8 +8737,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        738.4,
+        452.08,
         null
        ],
        "franja": [
@@ -7832,6 +8749,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7851,13 +8770,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 48 · Battery + · Feeder",
+       "pin_p": [
+        755.32,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         755.3,
+         452.1
         ],
         [
-         773.7,
+         755.3,
          420.8
         ],
         [
@@ -7874,8 +8799,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        755.32,
+        452.08,
         null
        ],
        "franja": [
@@ -7886,6 +8811,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7905,13 +8832,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 49 · Battery - · Feeder",
+       "pin_p": [
+        758.15,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         758.1,
+         452.1
         ],
         [
-         773.7,
+         758.1,
          420.8
         ],
         [
@@ -7928,8 +8861,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        758.15,
+        452.08,
         null
        ],
        "franja": [
@@ -7940,6 +8873,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -7958,13 +8893,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 50 · DO 1+ · Solenoid Valve #1",
+       "pin_p": [
+        760.97,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         761.0,
+         452.1
         ],
         [
-         773.7,
+         761.0,
          420.8
         ],
         [
@@ -7981,8 +8922,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        760.97,
+        452.08,
         null
        ],
        "franja": [
@@ -7993,6 +8934,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -8011,13 +8954,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 51 · DO 1- · Solenoid Valve #1",
+       "pin_p": [
+        763.79,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         763.8,
+         452.1
         ],
         [
-         773.7,
+         763.8,
          420.8
         ],
         [
@@ -8034,8 +8983,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        763.79,
+        452.08,
         null
        ],
        "franja": [
@@ -8046,6 +8995,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -8064,13 +9015,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 52 · DO 2+ · Solenoid Valve #1",
+       "pin_p": [
+        766.62,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         766.6,
+         452.1
         ],
         [
-         773.7,
+         766.6,
          420.8
         ],
         [
@@ -8087,8 +9044,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        766.62,
+        452.08,
         null
        ],
        "franja": [
@@ -8099,6 +9056,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -8117,13 +9076,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 53 · DO 2- · Solenoid Valve #1",
+       "pin_p": [
+        769.44,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         769.4,
+         452.1
         ],
         [
-         773.7,
+         769.4,
          420.8
         ],
         [
@@ -8140,8 +9105,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        769.44,
+        452.08,
         null
        ],
        "franja": [
@@ -8152,6 +9117,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -8170,13 +9137,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 60 · DO 6+ · Solenoid Valve #3",
+       "pin_p": [
+        794.86,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         794.9,
+         452.1
         ],
         [
-         773.7,
+         794.9,
          420.8
         ],
         [
@@ -8193,8 +9166,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        794.86,
+        452.08,
         null
        ],
        "franja": [
@@ -8205,6 +9178,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       },
       {
@@ -8223,13 +9198,19 @@
        "otra": "bandeja principal",
        "viene_de_e6": true,
        "componente": "21PCB01",
+       "aclaracion": "pin 61 · DO 6- · Solenoid Valve #3",
+       "pin_p": [
+        797.68,
+        452.08
+       ],
+       "conf_pin": "alta",
        "ruta": [
         [
-         773.7,
-         430.6
+         797.7,
+         452.1
         ],
         [
-         773.7,
+         797.7,
          420.8
         ],
         [
@@ -8246,8 +9227,8 @@
         ]
        ],
        "marca_o": [
-        773.7,
-        430.6,
+        797.68,
+        452.08,
         null
        ],
        "franja": [
@@ -8258,6 +9239,8 @@
        ],
        "lado_franja": "abajo",
        "sale": "entrada",
+       "exacto_o": true,
+       "conf_o": "alta",
        "grupo_mano": "placa:21PCB01"
       }
      ]
@@ -8925,8 +9908,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        755.32,
+        452.08
        ]
       ],
       "FONDO": [
@@ -8935,7 +9918,10 @@
         565.35
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 48 · Battery + · Feeder",
+     "aclaracion_de": "b"
     },
     "1402|13XC1 3.4|21PCB01 49": {
      "num": "1402",
@@ -8951,8 +9937,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        758.15,
+        452.08
        ]
       ],
       "FONDO": [
@@ -8961,7 +9947,10 @@
         556.05
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 49 · Battery - · Feeder",
+     "aclaracion_de": "b"
     },
     "1601|13PS2 +Vo|81TM01 7": {
      "num": "1601",
@@ -9017,8 +10006,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        725.69,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9027,7 +10016,10 @@
         478.35
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 2 · Signal AI1 · WP Analog Input #1",
+     "aclaracion_de": "a"
     },
     "2103|21PCB01 3|32AIB1 7": {
      "num": "2103",
@@ -9043,8 +10035,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        728.52,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9053,7 +10045,10 @@
         478.35
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 3 · Return · WP Analog Input #1",
+     "aclaracion_de": "a"
     },
     "2105|21PCB01 5|32AIB1 3": {
      "num": "2105",
@@ -9069,8 +10064,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        734.17,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9079,7 +10074,10 @@
         481.61
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 5 · Signal AI2 · LP Analog Input #2",
+     "aclaracion_de": "a"
     },
     "2106|21PCB01 6|32AIB1 4": {
      "num": "2106",
@@ -9095,8 +10093,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        736.98,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9105,7 +10103,10 @@
         481.61
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 6 · Return · LP Analog Input #2",
+     "aclaracion_de": "a"
     },
     "2114|21PCB01 14|43KR1 11": {
      "num": "2114",
@@ -9121,8 +10122,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        759.57,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9131,7 +10132,10 @@
         599.95
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 14 · Signal · External Permisive ED#11",
+     "aclaracion_de": "a"
     },
     "2115|21PCB01 15|43KR1 12": {
      "num": "2115",
@@ -9147,8 +10151,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        762.39,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9157,7 +10161,10 @@
         589.75
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 15 · Return · External Permisive ED#11",
+     "aclaracion_de": "a"
     },
     "2116|21PCB01 16|43DIB1 5": {
      "num": "2116",
@@ -9173,8 +10180,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        765.19,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9183,7 +10190,10 @@
         478.35
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 16 · DI 1+ · Position Sensor #1",
+     "aclaracion_de": "a"
     },
     "2117|21PCB01 17|43DIB1 6": {
      "num": "2117",
@@ -9199,8 +10209,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        768.02,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9209,7 +10219,10 @@
         478.35
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 17 · DI 1- · Position Sensor #1",
+     "aclaracion_de": "a"
     },
     "2118|21PCB01 18|43DIB1 3": {
      "num": "2118",
@@ -9225,8 +10238,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        770.83,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9235,7 +10248,10 @@
         481.61
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 18 · DI 2+ · Position Sensor #1",
+     "aclaracion_de": "a"
     },
     "2119|21PCB01 19|43DIB1 4": {
      "num": "2119",
@@ -9251,8 +10267,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        773.66,
+        440.88
        ]
       ],
       "FONDO": [
@@ -9261,7 +10277,10 @@
         481.61
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 19 · DI 2- · Position Sensor #1",
+     "aclaracion_de": "a"
     },
     "2139|21PCB01 39|31XAI 2": {
      "num": "2139",
@@ -9277,8 +10296,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        729.93,
+        452.08
        ]
       ],
       "FONDO": [
@@ -9287,7 +10306,10 @@
         601.84
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 39 · Signal AI3 · Analog Input #3",
+     "aclaracion_de": "a"
     },
     "2142|21PCB01 42|31XAI 1": {
      "num": "2142",
@@ -9303,8 +10325,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        738.4,
+        452.08
        ]
       ],
       "FONDO": [
@@ -9313,7 +10335,10 @@
         601.84
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 42 · Signal AI5 · AP Analog Input #5",
+     "aclaracion_de": "a"
     },
     "2150|21PCB01 50|61KR1 A1": {
      "num": "2150",
@@ -9329,8 +10354,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        760.97,
+        452.08
        ]
       ],
       "FONDO": [
@@ -9339,7 +10364,10 @@
         558.58
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 50 · DO 1+ · Solenoid Valve #1",
+     "aclaracion_de": "a"
     },
     "2151|21PCB01 51|61KR1 A2": {
      "num": "2151",
@@ -9355,8 +10383,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        763.79,
+        452.08
        ]
       ],
       "FONDO": [
@@ -9365,7 +10393,10 @@
         553.48
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 51 · DO 1- · Solenoid Valve #1",
+     "aclaracion_de": "a"
     },
     "2152|21PCB01 52|61KR2 A1": {
      "num": "2152",
@@ -9381,8 +10412,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        766.62,
+        452.08
        ]
       ],
       "FONDO": [
@@ -9391,7 +10422,10 @@
         558.58
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 52 · DO 2+ · Solenoid Valve #1",
+     "aclaracion_de": "a"
     },
     "2153|21PCB01 53|61KR2 A2": {
      "num": "2153",
@@ -9407,8 +10441,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        769.44,
+        452.08
        ]
       ],
       "FONDO": [
@@ -9417,7 +10451,10 @@
         553.48
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 53 · DO 2- · Solenoid Valve #1",
+     "aclaracion_de": "a"
     },
     "2160|21PCB01 60|61KR3 A1": {
      "num": "2160",
@@ -9433,8 +10470,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        794.86,
+        452.08
        ]
       ],
       "FONDO": [
@@ -9443,7 +10480,10 @@
         558.58
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 60 · DO 6+ · Solenoid Valve #3",
+     "aclaracion_de": "a"
     },
     "2161|21PCB01 61|61KR3 A2": {
      "num": "2161",
@@ -9459,8 +10499,8 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        797.68,
+        452.08
        ]
       ],
       "FONDO": [
@@ -9469,7 +10509,10 @@
         553.48
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 61 · DO 6- · Solenoid Valve #3",
+     "aclaracion_de": "a"
     },
     "3101|31XAI F1|PT 001 2": {
      "num": "3101",
@@ -9649,11 +10692,14 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        818.82,
+        440.88
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 35 · RS485 A · Comunication Port #1",
+     "aclaracion_de": "a"
     },
     "8101|21PCB01 35|81XCM 1": {
      "num": "8101",
@@ -9675,11 +10721,14 @@
       ],
       "PUERTA": [
        [
-        773.7,
-        484.25
+        818.82,
+        440.88
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 35 · RS485 A · Comunication Port #1",
+     "aclaracion_de": "a"
     },
     "8102|21PCB01 36|81TM01 15": {
      "num": "8102",
@@ -9695,11 +10744,14 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        821.65,
+        440.88
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 36 · RS485 B · Comunication Port #1",
+     "aclaracion_de": "a"
     },
     "8102|21PCB01 36|81XCM 2": {
      "num": "8102",
@@ -9721,11 +10773,14 @@
       ],
       "PUERTA": [
        [
-        773.7,
-        484.25
+        821.65,
+        440.88
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 36 · RS485 B · Comunication Port #1",
+     "aclaracion_de": "a"
     },
     "8103|21PCB01 37|81XCM 3": {
      "num": "8103",
@@ -9747,11 +10802,14 @@
       ],
       "PUERTA": [
        [
-        773.7,
-        484.25
+        824.47,
+        440.88
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 37 · Return · Comunication Port #1",
+     "aclaracion_de": "a"
     },
     "8104|12PS2|21PCB01 32": {
      "num": "8104",
@@ -9767,11 +10825,14 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        810.35,
+        440.88
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 32 · RS485 A / RS232 TX(I) · Comunication Port #2",
+     "aclaracion_de": "a"
     },
     "8105|12PS2|21PCB01 33": {
      "num": "8105",
@@ -9787,11 +10848,14 @@
      "puntos": {
       "PUERTA": [
        [
-        773.7,
-        484.25
+        813.18,
+        440.88
        ]
       ]
-     }
+     },
+     "pin_puerta": true,
+     "aclaracion": "pin 33 · RS485 B / RS232 RX(O) · Comunication Port #2",
+     "aclaracion_de": "a"
     }
    },
    "grupos": [

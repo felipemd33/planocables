@@ -16,7 +16,7 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/web.py` | Interfaz web (Flask, `http://127.0.0.1:8765`). `PLANOCABLES_PORT` cambia el puerto; `--no-abrir` no abre el navegador. |
 | `programa/planocables/` | Paquete del **plan modular** (`PLAN_MODULAR.md`, etapas 0-3 hechas): `base/` (geom, hojas, convenciones, colores, escala, pdfium_lock: funciones puras, solo biblioteca estándar; los módulos viejos las reexportan con el mismo nombre) y `producto.py` (código de producto, plano y revisión, sin disco). `pyproject.toml` (en la raíz) instala solo este paquete. |
 | `programa/productos.json` | Catálogo de productos: `{código: {nombre, alias: {planos, documentos, codigo_rotulo}}}`. Lo actualiza la web cuando el taller confirma un producto (✎ en la línea «Producto»). |
-| `programa/estacion8.py`, `estacion8_mano.py`, `web/estacion8.js`, `web/e8mano.js` | **Estación 8** (gabinete): bandejas laterales, puerta y placa (`estacion8.build`), y el **ruteo a mano por grupos** (E8-6): tabla editable `web/e8_grupos.json` y lo dibujado por producto en `programa/recorridos_e8.json` (en git vacío; lo escribe la web; `PLANOCABLES_RECORRIDOS_E8` en las pruebas). |
+| `programa/estacion8.py`, `estacion8_mano.py`, `web/estacion8.js`, `web/e8mano.js` | **Estación 8** (gabinete): bandejas laterales, puerta y placa (`estacion8.build`), y el **ruteo a mano por grupos** (E8-6): tabla editable `web/e8_grupos.json` y lo dibujado por producto en `programa/recorridos_e8.json` (en git vacío; lo escribe la web; `PLANOCABLES_RECORRIDOS_E8` en las pruebas). `programa/pines_aparato.py` (E8-7): filas de pines numerados de un aparato en el funcional con su nombre y grupo, y su mapeo a las filas de tornillos del dibujo de la puerta. |
 | `programa/core.py`, `wires.py`, `textdec.py`, `pdfvec.py` | Lector del funcional: textos SHX, cables, números, uniones en T y flechas a otras hojas. |
 | `programa/instructivo.py` | Puntas (`describe_end`), conductores (`conductors`), textos (`fmt_terminal`) e instructivo (`build`): orden, pasos, pendientes LI↔LI y estaciones. Además `usos_bandeja` y `materiales_funcional`. |
 | `programa/topo.py`, `ruteo.py` | Topográfico (página de la bandeja, rieles, canaletas, escala, componentes) y ruteo por canaletas (Dijkstra). |
@@ -226,6 +226,46 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     canaleta en el medio, va derecho al borne (`directo`, sin grupo): PAE 1221-1226 y el RS-485 a 12XPS. Cambia la WPC
     del PAE (750 → 450 mm, tabla en `pruebas/bases/wpc/cambios_e8_6.md`; el «cómo» dice «directo al borne 50», no
     «canaleta de la bandeja lateral»); el 75287 no tiene esos cables numerados.
+  - **Etapa E8-7 «pines de la placa» (2026-10-09, pedido del usuario: «las referencias son las mismas; a la punta del
+    cable en la vista de la placa agregarle la aclaración del pin», página 21):** el dibujo de la placa en la vista de la
+    puerta NO trae los números de pin: trae las mismas filas de bornes que el símbolo del funcional (TPT / 66817 / 75441:
+    37 abajo y 32 arriba, con el hueco entre el 53 y el 54) y los mismos rótulos. `topo.puerta_e8` (versión del lector
+    `2026.10.09-e8b`) lee las **filas de tornillos** (círculos chicos cerrados o de cuatro arcos, del mismo diámetro,
+    alineados, separación < 6 diámetros y en múltiplos de la normal): en el cuerpo de un aparato → `comp[tag]['bornera'] =
+    [{y, d, xs}]`; sueltas, juntas por cercanía → `lay['puerta']['sin_etiqueta'] = [{caja, bornera}]` (8 o más tornillos).
+    `programa/pines_aparato.py`: en el funcional (la hoja de las puntas del aparato), las **filas de pines numerados** del
+    símbolo (círculos con su número) y, por pin, el **nombre** (la celda pegada al número: 'Signal AI5') y el **grupo** (la
+    celda siguiente: 'AP Analog Input #5'; la de más afuera, 'Analog Input', no se usa); las celdas son los recuadros
+    cerrados del símbolo y su texto se vuelve a leer desde los trazos con el diccionario en el sentido de la celda
+    (vertical / derecho) y, lo que no reconoce, con el OCR del renglón en memoria del proceso (no toca `ocr_cache.json`);
+    I / l y mayúsculas por contexto ('AI6', 'TX(I)'); el '0' que puso el OCR donde va la O, por el contexto
+    (`_cero_o`: '(0)' después de letras o entre mayúsculas sin otras cifras: 'RX(0)' → 'RX(O)'; el que leyó el
+    diccionario, o 'AI0', 'DI 10', queda); un renglón de 10 o más letras sin espacios toma los espacios del OCR si lee las
+    mismas letras ('PlungerArrival' → 'Plunger Arrival' en el 75287); una barra '/' suelta que sube al renglón de arriba
+    va aparte, en el renglón de su centro ('Sensor / ED#11'); un renglón de subgrupos ('DO #1 … DO #2') cede al rótulo
+    único ('Solenoid Valve #1'). Sin OCR (`ocr=False`, o una copia del motor sin rapidocr) las letras que el diccionario
+    no reconoce quedan sin leer: el pin lleva `incompleto`, la aclaración termina en «· (texto incompleto)» y va un aviso
+    por aparato. Mapeo (`mapear`): fila del funcional → fila del dibujo con la MISMA cantidad (de arriba abajo
+    como en el funcional); el n-ésimo pin al n-ésimo tornillo; confianza alta si es la única fila de ese largo y los huecos
+    coinciden. Placa **sin etiqueta** (75441): el aparato del funcional con 8 o más cables en pines numerados, sin dibujar
+    en el topográfico, cuyas filas coinciden con las de una sola placa suelta (`coinciden`) entra a la vista de la puerta
+    (`reconocido: 'bornera'`, confianza media, aviso). `estacion8.pines_puerta` (versión 8): cada cable de la placa llega
+    a **su pin** (`marca_o` = el tornillo, `exacto_o`, `conf_o`; el recorrido sube derecho desde la franja; un pin sin fila
+    queda en la franja con aviso) y lleva `aclaracion` = «pin 42 · Signal AI5 · AP Analog Input #5» (sin grupo, sin esa
+    parte) en la línea de la puerta, en la tabla de «Puerta y placa» (de cualquier aparato con 3 o más cables en pines
+    numerados) y en el cable del ruteo a mano (`aclaracion`, `aclaracion_de`, `pin_puerta`: su punto en la vista de la
+    puerta es el pin); la fila de la tabla de un cable que llega a su pin en el dibujo lleva `pin_puerta`;
+    `e8['pines_aparato'] = {tag: {pag, hoja, reconocido, filas, pines: {pin: {nombre, grupo, aclaracion, punto, conf,
+    (incompleto)}}, avisos}}`. `pines_aparato.py` se importa ADENTRO del try de `pines_puerta`: una copia del motor que no
+    lo trae (VECTOR copia archivo por archivo) arma la E8 igual, con los cables en la franja y un aviso. Pantalla: la
+    punta en el pin con su terminal (no la franja), la aclaración junto al pin del cable actual, en la tabla debajo del
+    pin, en el visor («llega al pin 42 de 21PCB01 · …») y en la hoja impresa; el grupo de placa sigue siendo de ruteo a
+    mano: cada cable va del FINAL del tramo común dibujado a su pin (`finTramo`) y, sin dibujar, la pastilla del grupo
+    (tarjeta, tabla con `pin_puerta`, visor), el dibujo y el editor dicen que falta «solo el tramo común». E6, el listado
+    y la WPC no cambian. TPT:
+    los 22 cables de 21PCB01 con su pin (alta); 66817: los 27; 75287: la placa sin etiqueta es 21PCB01, 35 cables a su
+    pin (a confirmar; 46DB1 → 21PCB01 30 / 31 van de un aparato de la puerta al otro); PAE: sin vista de la puerta (el
+    funcional de EPLAN sí escribe la función del pin, pero el lector de EPLAN no guarda el dibujo del símbolo: queda).
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -338,10 +378,15 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   `pruebas/fixtures/recorridos_e8.json` (el tpt_constructivo, 72887 rev. 8, lo toma; el tpt, rev. 7, no), GET / PUT
   /e8/grupos entre trabajos del mismo producto y topográfico, el conflicto de versión, el producto sin confirmar y los
   cables directos del PAE; desde el pulido del 2026-10-09, los «sin aparato en el plano» de la capa «Pasan hacia la
-  puerta» de cada plano (`SIN_APARATO`) y el grupo de placa sin aparato al final; `--bases pruebas/bases` solo mira los
-  `e8_*.json` y la vista previa sobre los `ins_*.json`) tiene que dar TODO OK. Las pruebas usan una COPIA del fixture (`PLANOCABLES_RECORRIDOS_E8`): nunca
+  puerta» de cada plano (`SIN_APARATO`) y el grupo de placa sin aparato al final; desde E8-7, los pines de la placa:
+  cada cable de 21PCB01 en su tornillo y con la aclaración revisada contra la hoja 21 (`PLACA_TPT`, `PLACA_66817`,
+  `PLACA_75287`; la placa sin etiqueta del 75441 reconocida), letra por letra ('RX(O)'), `pin_puerta` en las filas de
+  la tabla, nombres y grupos de pines sin cable (`FUNCIONAL_E87`), las reglas sueltas (`pines_e87_reglas`: el '0' / 'O',
+  «(texto incompleto)» y la E8 sin `pines_aparato.py`), y la vista previa de la puerta llega a los mismos pines;
+  `--bases pruebas/bases` solo mira los `e8_*.json` (y los `layout_*.json`) y la vista previa sobre los `ins_*.json`)
+  tiene que dar TODO OK. Las pruebas usan una COPIA del fixture (`PLANOCABLES_RECORRIDOS_E8`): nunca
   `programa/recorridos_e8.json`. La pantalla de E8: `node --test pruebas/js/` (`e8_empalme`, `e8_puerta`, `e8_puntos`,
-  `e8_mano.test.cjs`, con `vistaE8` y `manoE8` de `cargar_visor.cjs`).
+  `e8_mano`, `e8_pines.test.cjs`, con `vistaE8` y `manoE8` de `cargar_visor.cjs`).
   Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.
 
 ## Productos trabajados
@@ -423,6 +468,16 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   los que tocan la batería (no los del cargador a 12F1 / 12XP); los cables de una seccionadora que está en la lateral
   (11MS1 del 75287) también van a mano. La capa «Pasan hacia la puerta» de E8-4 los sigue mostrando aunque esos cables
   tengan grupo. En el PAE, el cargador sin lista de materiales se reconoce por las letras PS para los cables directos.
+- **Pines de la placa (2026-10-09, etapa E8-7), para confirmar con el usuario:** el mapeo es por POSICIÓN en cada fila
+  (el dibujo de la placa no trae los números): la vista de la puerta se toma con la placa en el mismo sentido que el
+  símbolo del funcional (pin 1 a la izquierda abajo; coincide con los rótulos de la placa del TPT y del 75441); en el
+  75287 la placa sin etiqueta se reconoce como 21PCB01 por sus filas (a confirmar: conviene ponerle la etiqueta en el
+  topográfico); la punta en el pin lleva su terminal como un borne (pino / doble por sección); los cables a la fila de
+  arriba (38-69) suben derecho cruzando la de abajo en el dibujo. Lectura: las 22 aclaraciones de los cables del TPT
+  coinciden letra por letra con la hoja 21 (desde el arreglo del 2026-10-09: 'RX(O)' con O; en el 75287 el grupo de
+  13-15 es 'Plunger Arrival Sensor / ED#11', como el funcional); sin el OCR de apoyo (VECTOR sin rapidocr) salen
+  incompletas, con «(texto incompleto)» y aviso. EPLAN:
+  falta la aclaración (el lector de EPLAN no guarda el dibujo del símbolo).
 - **EPLAN (PAE), para confirmar con el usuario:**
   - el neutro es **celeste**: la regla de ruteo «marrón y blanco salen a LI por abajo» separa L (marrón, abajo) de N
     (celeste, arriba); ¿sumar celeste a la regla?;

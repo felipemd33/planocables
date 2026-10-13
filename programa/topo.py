@@ -27,8 +27,10 @@ TAG_TXT = re.compile(r'\d{2}[A-Z][A-Z0-9]{0,7}')
 # eplan.VERSION_LECTOR). Se guarda en layout.json ('version_lector') y, si cambia, web.gen_instructivo vuelve a leer el
 # topografico de un trabajo existente al regenerar (lo del usuario esta en instructivo.json y se conserva).
 # SUBIRLA cada vez que cambie la lectura: rieles, etiquetas, placa, canaletas, escala...
-VERSION_LECTOR = '2026.10.08-e8p'     # (2026.10.08: vistas laterales completas para E8: placa, canaletas y titulo;
-                                      #  e8p: vista de la PUERTA para E8, lay['puerta'])
+VERSION_LECTOR = '2026.10.09-e8b'     # (2026.10.08: vistas laterales completas para E8: placa, canaletas y titulo;
+                                      #  e8p: vista de la PUERTA para E8, lay['puerta'];
+                                      #  2026.10.09-e8b: filas de tornillos de las borneras de la puerta, 'bornera' y
+                                      #  'sin_etiqueta' en lay['puerta'])
 
 # capas por patron
 RX_RIEL = re.compile(r'RIEL|\bDIN\b', re.I)                        # 'RIEL DIN', '_IGV_Riel DIN'
@@ -67,6 +69,13 @@ PUERTA_MIN_H = 5.0        # recuadro de la puerta: rectangulo cerrado (cualquier
 PUERTA_TITULO_TOL_H = 0.5 # el titulo esta ARRIBA del recuadro (se tolera medio perfil de solape)
 CUERPO_LETRA = 3.0        # cuerpo de un aparato de la puerta: rectangulo cerrado que contiene su etiqueta, con el lado
 CUERPO_MAX = 0.5          # corto >= 3 altos de letra de la etiqueta y menos de la mitad del recuadro de la puerta
+# bornera dibujada de un aparato de la puerta (etapa E8-7: la placa 21PCB01 con sus dos filas de tornillos)
+TORNILLO_MAX_H = 0.25     # tornillo: circulo (cerrado o de arcos) de diametro menor que 1/4 de perfil
+FILA_TORN_MIN = 4         # fila de tornillos: 4 o mas circulos del mismo diametro alineados
+FILA_TORN_PASO = 0.2      # ...con la separacion en multiplos de la normal (+-20 %: el hueco entre dos borneras)
+FILA_TORN_PASO_D = 6.0    # ...y juntos: la separacion normal es menos de 6 diametros (no los agujeros de la puerta)
+GRUPO_TORN_PASOS = 6.0    # filas de una misma placa sin etiqueta: a menos de 6 separaciones de tornillo una de otra
+SIN_ETIQ_MIN = 8          # placa sin etiqueta: al menos 8 tornillos
 
 
 def norm(t):
@@ -800,6 +809,127 @@ def _cuerpo(rects, et, caja, otras):
     return list(min(cs, key=area)) if cs else None
 
 
+def circulos_chicos(st, caja, rmax):
+    """circulos de radio <= rmax dentro de la caja: cerrados o armados con arcos unidos punta con punta (los tornillos de
+    la placa del TPT son cuatro cuartos de circulo, cada uno un trazo aparte y repetido). -> [(cx, cy, r)]"""
+    vistos, cerr, arcos = set(), [], []
+    for l, o, p, *_ in st:
+        if len(p) < 3 or not all(caja[0] <= x <= caja[2] and caja[1] <= y <= caja[3] for x, y in p):
+            continue
+        k = tuple((round(x, 2), round(y, 2)) for x, y in p)
+        if k in vistos or k[::-1] in vistos:
+            continue
+        vistos.add(k)
+        x0, y0, x1, y1 = bbox(p); w, h = x1 - x0, y1 - y0
+        if max(w, h) > 2 * rmax or max(w, h) <= 0:
+            continue
+        if math.dist(p[0], p[-1]) < 0.05 * max(w, h):
+            if len(p) >= 8 and abs(w - h) < 0.15 * max(w, h):
+                cerr.append(((x0 + x1) / 2, (y0 + y1) / 2, (w + h) / 4))
+            continue
+        a, b = p[0], p[-1]; L = math.dist(a, b)
+        if L and max(abs((b[0] - a[0]) * (a[1] - q[1]) - (a[0] - q[0]) * (b[1] - a[1])) / L for q in p) > 0.08 * L:
+            arcos.append(p)                                  # (no es recto: algun punto lejos de la cuerda)
+    d = DSU(len(arcos))
+    ends = [(p[0], p[-1]) for p in arcos]
+    grid = collections.defaultdict(list)
+    for i, (a, b) in enumerate(ends):
+        for q in (a, b):
+            grid[(round(q[0] * 5), round(q[1] * 5))].append(i)
+    for i, (a, b) in enumerate(ends):
+        tol = 0.03 * max(math.dist(a, b), 0.1) + 0.015
+        for q in (a, b):
+            gx, gy = round(q[0] * 5), round(q[1] * 5)
+            for dx in (-1, 0, 1):
+                for dy in (-1, 0, 1):
+                    for j in grid.get((gx + dx, gy + dy), []):
+                        if j != i and min(math.dist(q, ends[j][0]), math.dist(q, ends[j][1])) < tol:
+                            d.u(i, j)
+    grupos = collections.defaultdict(list)
+    for i in range(len(arcos)):
+        grupos[d.f(i)].append(arcos[i])
+    out = list(cerr)
+    for g in grupos.values():
+        if len(g) < 2:
+            continue
+        pts = [q for p in g for q in p]
+        x0, y0, x1, y1 = bbox(pts); w, h = x1 - x0, y1 - y0
+        if abs(w - h) > 0.15 * max(w, h):
+            continue
+        c = ((x0 + x1) / 2, (y0 + y1) / 2); r = (w + h) / 4
+        if any(abs(math.dist(q, c) - r) > 0.15 * r + 0.01 for q in pts):
+            continue
+        es = [q for p in g for q in (p[0], p[-1])]
+        if all(sum(1 for z in es if math.dist(q, z) < 0.03 * r + 0.02) >= 2 for q in es):      # cerrado
+            out.append((c[0], c[1], r))
+    res = []
+    for c in out:
+        if not any(math.dist(c[:2], e[:2]) < 0.2 * c[2] and abs(c[2] - e[2]) < 0.15 * c[2] for e in res):
+            res.append(c)
+    return res
+
+
+def filas_tornillos(st, caja, H):
+    """filas de tornillos de las borneras dibujadas dentro de la caja: FILA_TORN_MIN o mas circulos chicos del mismo
+    diametro, alineados en horizontal, juntos (separacion normal de menos de FILA_TORN_PASO_D diametros) y con la
+    separacion en multiplos de la normal (un hueco entre dos borneras vale).
+    -> [{y, d, xs}] de arriba abajo, xs de izquierda a derecha"""
+    cs = sorted(circulos_chicos(st, caja, TORNILLO_MAX_H * H / 2), key=lambda c: (c[1], c[0]))
+    filas = []
+    for c in cs:
+        f = next((f for f in filas if abs(f['y'] - c[1]) <= 0.3 * 2 * f['r'] and abs(f['r'] - c[2]) <= 0.12 * f['r']), None)
+        if f is None:
+            filas.append(dict(y=c[1], r=c[2], cs=[c]))
+        else:
+            f['cs'].append(c)
+    out = []
+    for f in filas:
+        xs = sorted(c[0] for c in f['cs'])
+        if len(xs) < FILA_TORN_MIN:
+            continue
+        ds = [b - a for a, b in zip(xs, xs[1:])]
+        paso = sorted(ds)[len(ds) // 2]
+        if paso <= 2 * f['r'] * 0.9 or paso > FILA_TORN_PASO_D * 2 * f['r'] or any(abs(x / paso - round(x / paso)) > FILA_TORN_PASO for x in ds):
+            continue
+        ys = sorted(c[1] for c in f['cs'])
+        out.append(dict(y=round(ys[len(ys) // 2], 2), d=round(2 * sum(c[2] for c in f['cs']) / len(f['cs']), 3), xs=[round(x, 2) for x in xs]))
+    return sorted(out, key=lambda f: -f['y'])
+
+
+def borneras_puerta(st, caja, cpu, H):
+    """(etapa E8-7) las filas de tornillos de la vista de la puerta: las que caen en el cuerpo de un aparato con etiqueta
+    van a ese aparato (cpu[tag]['bornera']); las demas, juntas por cercania y por diametro, son placas SIN etiqueta (el
+    75441 dibuja la placa E2.5 sin el tag 21PCB01): [{caja, bornera}] con al menos SIN_ETIQ_MIN tornillos. El funcional
+    dice que aparato es cada una (estacion8: pines_aparato)."""
+    filas = filas_tornillos(st, caja, H)
+    sueltas = []
+    for f in filas:
+        x0, x1 = f['xs'][0], f['xs'][-1]
+        tag = next((t for t, c in cpu.items() if c.get('cuerpo') and _caja_en((x0, f['y'], x1, f['y']), c['cuerpo'], 0.5)), None)
+        if tag:
+            cpu[tag].setdefault('bornera', []).append(f)
+        else:
+            sueltas.append(f)
+    grupos = []
+    for f in sueltas:
+        paso = min((b - a for a, b in zip(f['xs'], f['xs'][1:])), default=f['d'])
+        g = next((g for g in grupos if abs(g['d'] - f['d']) <= 0.12 * g['d'] and abs(g['y0'] - f['y']) <= GRUPO_TORN_PASOS * paso
+                  and f['xs'][0] < g['x1'] + GRUPO_TORN_PASOS * paso and g['x0'] < f['xs'][-1] + GRUPO_TORN_PASOS * paso), None)
+        if g is None:
+            grupos.append(dict(d=f['d'], y0=f['y'], x0=f['xs'][0], x1=f['xs'][-1], paso=paso, filas=[f]))
+        else:
+            g['filas'].append(f); g['y0'] = f['y']; g['x0'] = min(g['x0'], f['xs'][0]); g['x1'] = max(g['x1'], f['xs'][-1])
+    out = []
+    for g in grupos:
+        if sum(len(f['xs']) for f in g['filas']) < SIN_ETIQ_MIN:
+            continue
+        p = g['paso']
+        ys = [f['y'] for f in g['filas']]
+        out.append(dict(caja=[round(g['x0'] - p, 1), round(min(ys) - p, 1), round(g['x1'] + p, 1), round(max(ys) + p, 1)],
+                        bornera=sorted(g['filas'], key=lambda f: -f['y'])))
+    return out
+
+
 def puerta_e8(pdf_path, cands, best, vistas, region, comp, H, known_tags, dec):
     """Vista de la PUERTA para la estacion E8 (gabinete), en una clave APARTE del layout (la bandeja, las cotas, la
     escala y la eleccion de la hoja no cambian; E6 no la lee). Es una hoja sin rieles (cands: las que tienen un titulo
@@ -884,6 +1014,16 @@ def puerta_e8(pdf_path, cands, best, vistas, region, comp, H, known_tags, dec):
                              cuerpo=_cuerpo(rects, et, caja, otras))
     rieles = sorted({round(b['eje'], 1) for b in (best['bands'] if bp and pi == bp['pi'] else [])
                      if _caja_en((b['x0'], b['y0'], b['x1'], b['y1']), caja, PLACA_RIEL_H * H)}, reverse=True)
+    # (etapa E8-7) filas de tornillos de las borneras dibujadas: las de cada aparato ('bornera' en su comp) y las placas
+    # sin etiqueta ('sin_etiqueta'); el funcional dice que pin es cada tornillo (estacion8 + pines_aparato)
+    sin_etiq = []
+    try:
+        sin_etiq = borneras_puerta(st, caja, cpu, H)
+    except Exception:                                       # noqa: BLE001
+        pass
     # (las canaletas de la hoja ya leidas, las del recuadro: como ruteo.ducts con la caja, +-0.2 perfil)
-    return dict(pag=pi + 1, box=[round(v, 1) for v in caja], titulo=' '.join(partes),
-                ductos=[dict(dd) for dd in el['ds'] if _caja_en(dd['b'], caja, md)], rieles=rieles, comp=cpu)
+    out = dict(pag=pi + 1, box=[round(v, 1) for v in caja], titulo=' '.join(partes),
+               ductos=[dict(dd) for dd in el['ds'] if _caja_en(dd['b'], caja, md)], rieles=rieles, comp=cpu)
+    if sin_etiq:
+        out['sin_etiqueta'] = sin_etiq
+    return out

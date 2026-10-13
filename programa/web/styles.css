@@ -2,7 +2,7 @@
   --bg: #f4f6f9; --surface: #ffffff; --surface2: #f0f3f7; --text: #18202b; --muted: #5f6b7a;
   --border: #dde3ea; --accent: #1f5fbf; --accent-2: #e8f0fc; --accent-t: #ffffff;
   --warn: #b26a00; --warn-bg: #fff4dc; --ok: #1d7a43; --ok-bg: #e4f5ea; --hl: #ff6a00;
-  --wago: #8a4500; --wago-bg: #ffe8cc; --mano: #6a1b9a; --mano-bg: #f3e5f5;
+  --wago: #8a4500; --wago-bg: #ffe8cc; --mano: #6a1b9a; --mano-bg: #f3e5f5; --acl: #00566b;
   --shadow: 0 1px 2px rgba(16,24,40,.06), 0 4px 16px rgba(16,24,40,.06);
   --radius: 12px; --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
@@ -11,7 +11,7 @@
     --bg: #0f141b; --surface: #171e27; --surface2: #1d2631; --text: #e6ebf1; --muted: #93a0b0;
     --border: #2a3542; --accent: #5b9bff; --accent-2: #1b2b44; --accent-t: #0b1220;
     --warn: #ffb74d; --warn-bg: #3a2c12; --ok: #5fd08f; --ok-bg: #143023; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
-    --wago: #ffb066; --wago-bg: #3d2410; --mano: #e1a6f0; --mano-bg: #34183d;
+    --wago: #ffb066; --wago-bg: #3d2410; --mano: #e1a6f0; --mano-bg: #34183d; --acl: #5fd3ec;
   }
 }
 * { box-sizing: border-box; }
@@ -573,6 +573,10 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .e8-tr { margin: 6px 0 0; } .e8-tr summary { cursor: pointer; } .e8-tr summary .chk { display: inline-flex; gap: 4px; align-items: center; }
 .e8-tr div { margin: 3px 0 0 18px; }
 .e8-tr-sin summary b { color: var(--warn); }
+/* pines de la placa (etapa E8-7): la aclaración del pin del funcional, en el dibujo (junto al pin) y en el texto */
+.e8-acl { fill: #00566b; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; }
+.e8-acl-t { color: var(--acl); font-weight: 600; }
+.e8-apu text { fill: #007a99; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; }
 .e8-pu { margin-top: 4px; }
 .e8-aps1 { grid-template-columns: 1fr; margin-top: 0; }
 /* empalme con el cable propio de un aparato (WAGO del cargador; «a confirmar»: el RS-485 de 3 conductores) */

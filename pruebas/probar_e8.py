@@ -94,7 +94,27 @@ ETAPA E8-6 «ruteo a mano por grupos» (2026-10-09, pedido del taller):
     uno de otro topográfico; 409 con una versión vieja; producto sin confirmar = se guarda en el trabajo; archivo
     atómico con respaldo; regenerar (y volver a cargar el mismo topográfico) conserva el recorrido y el cable movido;
   - cables DIRECTOS del cargador a la bornera de abajo (PAE: 1221-1226 y el RS-485 sin número a 12XPS): derecho al
-    borne, sin canaleta en el medio y sin grupo; los demás planos no tienen."""
+    borne, sin canaleta en el medio y sin grupo; los demás planos no tienen.
+
+ETAPA E8-7 «pines de la placa» (2026-10-09, pedido del taller: «las referencias son las mismas; a la punta del cable
+agregarle la aclaración del pin», hoja 21):
+  - el topográfico trae las filas de tornillos de la placa (lay['puerta']['comp']['21PCB01']['bornera']: 37 abajo y 32
+    arriba, con el hueco entre el 53 y el 54) y el funcional las filas de pines numerados con su nombre y su grupo
+    (e8['pines_aparato']);
+  - TPT (los dos): los 22 cables de 21PCB01 llegan a SU pin (el n-ésimo tornillo de la fila del mismo largo, confianza
+    alta) con la aclaración del funcional (PLACA_TPT, revisada contra la hoja 21: 'pin 42 · Signal AI5 · AP Analog Input
+    #5'), en la línea de la puerta, en la tabla y en el cable del ruteo a mano (su punto en la vista de la puerta es el
+    pin); 13SH1 sigue a la franja; 66817: los 27 de 21PCB01 igual (PLACA_66817);
+  - 75287 (75441): la placa sin etiqueta del topográfico se reconoce como 21PCB01 (sus filas de 37 y 32 tornillos) y
+    sus 35 cables de la vista de la puerta llegan a su pin, a confirmar (confianza media), con aviso;
+  - PAE: sin vista de la puerta, sin pines (EPLAN: el funcional no trae pines dibujados);
+  - la vista previa de la puerta (rutear_guardado_puerta) llega a los mismos pines, también con puntos de paso;
+  - la tabla de «Puerta y placa» marca pin_puerta en los cables que llegan a su pin (la pastilla dice «falta el tramo
+    común»), la aclaración se compara letra por letra ('RX(O)', con O: el '0' del OCR pasa a O por el contexto) y el
+    grupo de los pines 13-15 del 75287 es 'Plunger Arrival Sensor / ED#11' (espacio del OCR y la barra suelta);
+  - reglas sueltas (pines_e87_reglas): el '0' / 'O' por el contexto, la aclaración '(texto incompleto)' y que la E8 se
+    arme igual sin el módulo pines_aparato.py (una copia del motor que no lo trae: los cables quedan en la franja, con
+    aviso)."""
 import os, sys, io, json, glob, math, shutil, tarfile, tempfile, subprocess, collections, concurrent.futures as cf
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -430,7 +450,8 @@ PUERTAS = {   # trabajo -> (hoja, texto del titulo, {aparato: (cables, con cuerp
     'tpt_constructivo': (8, 'PUERTA DETALLE DE RIELES Y DUCTOS', {'21PCB01': (22, True), '13SH1': (2, False)}, 1),
     'tpt': (8, 'PUERTA DETALLE DE RIELES Y DUCTOS', {'21PCB01': (22, True), '13SH1': (2, False)}, 1),
     '66817': (8, 'PUERTA DETALLE DE RIELES Y DUCTOS', {'21PCB01': (27, True), '13SH1': (2, False)}, 1),
-    '75287': (5, 'VISTA POSTERIOR PUERTA', {'13SH1': (2, False), '46DB1': (2, False)}, 1),
+    # (etapa E8-7: la placa sin etiqueta del 75441, reconocida por sus filas de tornillos, es 21PCB01)
+    '75287': (5, 'VISTA POSTERIOR PUERTA', {'21PCB01': (35, True), '13SH1': (2, False), '46DB1': (2, False)}, 1),
 }
 lineas_p = lambda Pd: [l for p in Pd['pasos'] for l in p['lineas']]
 en_caja = lambda p, b, m=0.6: b[0] - m <= p[0] <= b[2] + m and b[1] - m <= p[1] <= b[3] + m
@@ -454,11 +475,20 @@ def esperado_e84(t, e8):
              f"{t}: los {len(ls)} cables de la puerta son los de las tablas de sus aparatos (misma marca) y las tablas dicen cuáles están en la puerta")
     caja = {a['tag']: a['caja'] for a in Pd['aparatos']}
     box, ent = Pd['box'], Pd['entrada_propuesta']
+    # (un cable entre dos aparatos de la puerta va de uno al otro, no entra por la entrada: desde E8-7, en el 75287 el
+    # pulsador 46DB1 a la placa 21PCB01 reconocida)
+    adentro = [l for l in ls if l.get('aparato_d')]
+    ls = [l for l in ls if not l.get('aparato_d')]
+    chequear(all(l.get('ruta') and cerca(l['ruta'][0], l['marca_o'], 0.15) and cerca(l['ruta'][-1], l['marca_d'], 0.15) for l in adentro),
+             f"{t}: los {len(adentro)} cables entre dos aparatos de la puerta van de uno al otro")
+    # (desde E8-7 un cable con el pin exacto de la placa llega a su pin, adentro de la placa, subiendo derecho desde la
+    # franja de abajo; los demas terminan en la franja)
+    franja_ok = lambda l, c: (abs(l['ruta'][0][1] - (c[1] if l['lado_franja'] == 'abajo' else c[3])) <= 0.15 if not l.get('exacto_o') else
+                              (en_caja(l['ruta'][0], c, 0.15) and abs(l['ruta'][1][0] - l['ruta'][0][0]) <= 0.15 and l['ruta'][1][1] <= c[1] + 0.15))
     bien = [l for l in ls if l.get('ruta') and cerca(l['ruta'][-1], ent, 0.15) and cerca(l['ruta'][0], l['marca_o'], 0.15)
-            and abs(l['ruta'][0][1] - (caja[l['aparato']][1] if l['lado_franja'] == 'abajo' else caja[l['aparato']][3])) <= 0.15
-            and caja[l['aparato']][0] - 0.2 <= l['ruta'][0][0] <= caja[l['aparato']][2] + 0.2]
+            and franja_ok(l, caja[l['aparato']]) and caja[l['aparato']][0] - 0.2 <= l['ruta'][0][0] <= caja[l['aparato']][2] + 0.2]
     chequear(len(bien) == len(ls) and abs(ent[0] - box[2]) <= 0.15 and Pd['hacia'] == 'der',
-             f"{t}: los {len(bien)}/{len(ls)} cables van de la entrada propuesta {ent} (borde derecho del dibujo: bisagra a la izquierda, vista interior) a la franja de su aparato")
+             f"{t}: los {len(bien)}/{len(ls)} cables van de la entrada propuesta {ent} (borde derecho del dibujo: bisagra a la izquierda, vista interior) a la franja de su aparato (o a su pin)")
     por_can = [l for l in ls if any(en_caja(p, d['b']) for p in l['ruta'] for d in Pd['ductos'])]
     chequear(len(por_can) == len(ls), f"{t}: los {len(por_can)}/{len(ls)} cables pasan por la canaleta de la puerta")
     cu = [a for a in Pd['aparatos'] if a['cuerpo']]
@@ -480,12 +510,13 @@ def ruteo_e84(t, ins):
     Pd = e8.get('puerta')
     if Pd:
         ls = lineas_p(Pd)
+        afuera = {l['clave'] for l in ls if not l.get('aparato_d')}       # (los que entran por la entrada)
         r = E8.rutear_guardado_puerta(ins, {})
         chequear(r and [y['ruta'] for y in r['lineas']] == [l['ruta'] for l in ls] and r['entrada_propuesta'] == Pd['entrada_propuesta'],
                  f"{t} puerta: vista previa sin elegir = lo armado ({len(ls)} rutas)")
         r = E8.rutear_guardado_puerta(ins, {'bisagra': 'der'})
         chequear(r['hacia'] == 'izq' and abs(r['entrada_propuesta'][0] - Pd['box'][0]) <= 0.15
-                 and all(cerca(y['ruta'][-1], r['entrada_propuesta'], 0.15) for y in r['lineas']),
+                 and all(cerca(y['ruta'][-1], r['entrada_propuesta'], 0.15) for y in r['lineas'] if y['clave'] in afuera),
                  f"{t} puerta con la bisagra a la derecha: entran por el borde izquierdo del dibujo {r['entrada_propuesta']}")
         # puntos de paso por debajo de todos los aparatos (como el perfil de abajo de la foto 3)
         H = Pd['H']; cajas = [a['caja'] for a in Pd['aparatos']]
@@ -493,14 +524,15 @@ def ruteo_e84(t, ins):
         d = min(Pd['ductos'], key=lambda d: abs(d['b'][2] - Pd['box'][2]))
         xs = [round((d['b'][0] + d['b'][2]) / 2, 1), round(min(c[0] for c in cajas) - H, 1)]
         r = E8.rutear_guardado_puerta(ins, {'vistas': {'PUERTA': {'paso': [[xs[0], yp], [xs[1], yp]]}}})
-        ok = [y for y in r['lineas'] if y['lado_franja'] == 'abajo' and len(y['ruta']) >= 3
+        # (con el pin exacto de la placa, E8-7, el primer punto es el pin y sube derecho desde la franja: el mismo x)
+        ok = [y for y in r['lineas'] if y['clave'] in afuera and y['lado_franja'] == 'abajo' and len(y['ruta']) >= 3
               and abs(y['ruta'][1][1] - yp) <= 0.15 and abs(y['ruta'][1][0] - y['ruta'][0][0]) <= 0.15]
-        chequear(len(ok) == len(r['lineas']) and not r['no_llegan'],
-                 f"{t} puerta con puntos de paso a la altura {yp}: los {len(ok)}/{len(r['lineas'])} pasan por ahí y suben derecho a su franja")
+        chequear(len(ok) == len(afuera) and not r['no_llegan'],
+                 f"{t} puerta con puntos de paso a la altura {yp}: los {len(ok)}/{len(afuera)} pasan por ahí y suben derecho a su franja (o a su pin)")
         q = [round(Pd['box'][2], 1), round((Pd['box'][1] + Pd['box'][3]) / 2, 1)]
         r = E8.rutear_guardado_puerta(ins, {'vistas': {'PUERTA': {'entrada': [q]}}})
-        chequear(r['entrada'] == q and all(cerca(y['ruta'][-1], q, 0.15) for y in r['lineas']), f"{t} puerta con la entrada elegida en {q}: entran ahí")
-        g = ls[-1]
+        chequear(r['entrada'] == q and all(cerca(y['ruta'][-1], q, 0.15) for y in r['lineas'] if y['clave'] in afuera), f"{t} puerta con la entrada elegida en {q}: entran ahí")
+        g = [l for l in ls if l['clave'] in afuera][-1]
         cg = next(a['caja'] for a in Pd['aparatos'] if a['tag'] == g['aparato'])
         pg = [round((cg[0] + cg[2]) / 2 + 2 * H, 1), round(cg[1] - 3 * H, 1)]       # (debajo de su aparato, al costado)
         r = E8.rutear_guardado_puerta(ins, {'vistas': {'PUERTA': {'grupos': [{'id': 'g1', 'nombre': 'G', 'cables': [g['num']], 'puntos': [pg]}]}}})
@@ -785,6 +817,160 @@ def esperado_e86(t, e8):
     chequear(ok, f"{t}: {len(dl)} cables directos del cargador al borne, sin el ducto" + (f" ({sorted(l['num'] for _, l in dl)[:4]}…, {sorted({l['largo_mm'] for _, l in dl})} mm)" if dl else ''))
 
 
+# ------------------------------------------------------------------ etapa E8-7: pines de la placa
+# cable -> (pin, nombre, grupo) de la placa 21PCB01, revisado contra la hoja 21 de cada funcional (letra por letra: el
+# 'RX(O)' del pin 33 va con O)
+PLACA_TPT = {
+    '2142': ('42', 'Signal AI5', 'AP Analog Input #5'), '1306': ('48', 'Battery +', 'Feeder'), '1307': ('49', 'Battery -', 'Feeder'),
+    '2150': ('50', 'DO 1+', 'Solenoid Valve #1'), '2151': ('51', 'DO 1-', 'Solenoid Valve #1'), '2152': ('52', 'DO 2+', 'Solenoid Valve #1'),
+    '2153': ('53', 'DO 2-', 'Solenoid Valve #1'), '2154': ('54', 'DO 3+', 'Solenoid Valve #2'), '2155': ('55', 'DO 3-', 'Solenoid Valve #2'),
+    '2105': ('5', 'Signal AI2', 'LP Analog Input #2'), '2111': ('11', 'Signal AI6', 'PB *Analog Input #6*'),
+    '2112': ('12', 'Return', 'PB *Analog Input #6*'), '2114': ('14', 'Signal', 'Plunger Arrival Sensor / ED#11'),
+    '2115': ('15', 'Return', 'Plunger Arrival Sensor / ED#11'), '2116': ('16', 'DI 1+', 'Position Sensor #1'),
+    '2117': ('17', 'DI 1-', 'Position Sensor #1'), '2118': ('18', 'DI 2+', 'Position Sensor #1'), '2119': ('19', 'DI 2-', 'Position Sensor #1'),
+    '8105': ('32', 'RS485 A / RS232 TX(I)', 'Comunication Port #2'), '8106': ('33', 'RS485 B / RS232 RX(O)', 'Comunication Port #2'),
+    '8103': ('35', 'RS485 A', 'Comunication Port #1'), '8104': ('36', 'RS485 B', 'Comunication Port #1')}
+PLACA_66817 = {   # (algunos; los 27 llegan a su pin)
+    '2102': ('2', 'Signal AI1', 'WP Analog Input #1'), '2114': ('14', 'Signal', 'External Permisive ED#11'),
+    '2139': ('39', 'Signal AI3', 'Analog Input #3'), '1401': ('48', 'Battery +', 'Feeder'), '2161': ('61', 'DO 6-', 'Solenoid Valve #3'),
+    '8104': ('32', 'RS485 A / RS232 TX(I)', 'Comunication Port #2'), '8103': ('37', 'Return', 'Comunication Port #1')}
+PLACA_75287 = {   # (algunos; la placa sin etiqueta reconocida: los 35 de la vista de la puerta, a confirmar)
+    '2105': ('5', 'Signal AI2', 'LP Analog Input #2'), '2142': ('42', 'Signal AI5', 'AP Analog Input #5'), '1306': ('48', 'Battery +', 'Feeder'),
+    '2128': ('28', 'DI 7+', 'Position Sensor #4'), '2135': ('35', 'RS485 A', 'Comunication Port #1'), '2169': ('69', 'DI 10-', 'DI#10')}
+PINES_E87 = {   # trabajo -> (cables de 21PCB01 en la vista de la puerta con su pin, confianza, reconocida sin etiqueta, esperado)
+    'tpt_constructivo': (22, 'alta', False, PLACA_TPT), 'tpt': (22, 'alta', False, PLACA_TPT),
+    '66817': (27, 'alta', False, PLACA_66817), '75287': (35, 'media', True, PLACA_75287)}
+# pin -> (nombre, grupo) del funcional, con o sin cable (e8['pines_aparato']): el 'RX(O)' con O y el grupo de los pines
+# 13-15 con el espacio y la barra (en el 75287 la barra sube hasta el renglon de arriba y las letras van casi tan
+# separadas como las palabras)
+FUNCIONAL_E87 = {
+    'tpt_constructivo': {'33': ('RS485 B / RS232 RX(O)', 'Comunication Port #2'), '14': ('Signal', 'Plunger Arrival Sensor / ED#11')},
+    'tpt': {'33': ('RS485 B / RS232 RX(O)', 'Comunication Port #2')},
+    '66817': {'33': ('RS485 B / RS232 RX(O)', 'Comunication Port #2')},
+    '75287': {'33': ('RS485 B / RS232 RX(O)', 'Comunication Port #2'), '13': ('Power Sup.', 'Plunger Arrival Sensor / ED#11'),
+              '14': ('Signal', 'Plunger Arrival Sensor / ED#11'), '11': ('Signal AI6', 'PB Analog Input #6')}}
+
+
+def esperado_e87(t, e8, lay):
+    """pines de la placa: el punto de cada pin en el dibujo y la aclaracion del funcional"""
+    if t not in PINES_E87:
+        chequear(not e8.get('pines_aparato') and not e8.get('puerta'), f"{t}: sin vista de la puerta ni pines de la placa (EPLAN)")
+        return
+    n, conf, reco, esp = PINES_E87[t]
+    pa = (e8.get('pines_aparato') or {}).get('21PCB01')
+    if not chequear(isinstance(pa, dict), f"{t}: e8['pines_aparato'] trae la placa 21PCB01"):
+        return
+    chequear(pa['hoja'] == '21' and [f['n'] for f in pa['filas']] == [32, 37] and sum(1 for x in pa['pines'].values() if x.get('punto')) == 69
+             and bool(pa['reconocido']) == reco,
+             f"{t}: el funcional (hoja {pa['hoja']}) da las filas de pines {[(f['n'], f['de'], f['a']) for f in pa['filas']]} y los 69 tienen su punto"
+             + (' (placa sin etiqueta reconocida)' if reco else ''))
+    Pd = e8.get('puerta') or {}
+    ap = next((a for a in Pd.get('aparatos') or [] if a['tag'] == '21PCB01'), None)
+    if not chequear(ap is not None, f"{t}: 21PCB01 está en la vista de la puerta"):
+        return
+    chequear(bool(ap.get('reconocido')) == reco, f"{t}: 21PCB01 {'sin etiqueta, reconocida por su bornera' if reco else 'con su etiqueta'}")
+    if reco:
+        chequear(any('placa dibujada sin etiqueta es 21PCB01' in a for a in e8.get('avisos') or []), f"{t}: aviso de la placa reconocida sin etiqueta")
+    comp = ((lay or {}).get('puerta') or {}).get('comp') or {}
+    bor = (comp.get('21PCB01') or {}).get('bornera') or next((g['bornera'] for g in ((lay or {}).get('puerta') or {}).get('sin_etiqueta') or []
+                                                              if sorted(len(f['xs']) for f in g['bornera']) == [32, 37]), [])
+    filas = {len(f['xs']): f for f in bor}
+    chequear(37 in filas and 32 in filas and filas[32]['y'] > filas[37]['y'],
+             f"{t}: el topográfico trae las filas de tornillos de la placa (37 abajo, 32 arriba): {[(len(f['xs']), f['y']) for f in bor]}")
+    ls = [l for p in Pd['pasos'] for l in p['lineas'] if l['aparato'] == '21PCB01']
+    mal = []
+    for l in ls:
+        pin = str(l.get('pin'))
+        fila, i = (filas.get(37), int(pin) - 1) if int(pin) <= 37 else (filas.get(32), int(pin) - 38)
+        tor = [fila['xs'][i], fila['y']] if fila and 0 <= i < len(fila['xs']) else None
+        if not (l.get('exacto_o') and l.get('conf_o') == conf and tor and cerca(l['marca_o'], tor, 0.06) and cerca(l['ruta'][0], tor, 0.1)
+                and l.get('aclaracion', '').startswith(f'pin {pin} · ')):
+            mal.append(l['num'])
+    chequear(len(ls) == n and not mal, f"{t}: los {len(ls)} cables de 21PCB01 llegan a su tornillo (el n-ésimo de su fila), confianza {conf}, con la aclaración"
+             + (f'; mal: {mal[:6]}' if mal else ''))
+    por_num = {}
+    for l in ls:
+        por_num.setdefault(l['num'], l)
+    tab = {x['num']: x for g in e8['afuera'] if g['tag'] == '21PCB01' for x in g['cables']}
+    R = e8.get('ruteo_mano') or {}
+    for num, (pin, nom, gru) in esp.items():
+        l, x = por_num.get(num), tab.get(num)
+        txt = f'pin {pin} · {nom} · {gru}'
+        cb = next((c for k, c in (R.get('cables') or {}).items() if c['num'] == num and c.get('aclaracion')), None)
+        chequear(l is not None and l.get('aclaracion') == txt and str(l.get('pin')) == pin and x is not None and x.get('aclaracion') == txt
+                 and x.get('pin_puerta') and cb is not None and cb['aclaracion'] == txt and cb.get('pin_puerta')
+                 and cerca((cb['puntos'].get('PUERTA') or [[0, 0]])[0], l['marca_o'], 0.06),
+                 f"{t}: {num} → {txt}" + ('' if l is not None and l.get('aclaracion') == txt else f" (salió {l and l.get('aclaracion')!r})"))
+    # la tabla de «Puerta y placa»: pin_puerta (la pastilla del grupo dice «falta el tramo común») en los cables de la placa
+    # que llegan a su pin, y en ningun otro
+    con_pin = {l['num'] for l in ls if l.get('exacto_o')} | {      # (75287: 46DB1 → 21PCB01 30 / 31, la otra punta)
+        l['num'] for p in Pd['pasos'] for l in p['lineas'] if l.get('aparato_d') == '21PCB01' and l.get('exacto_d')}
+    filas_tab = [x for g in e8['afuera'] for x in g['cables']]
+    mal_t = [x['num'] for x in filas_tab if bool(x.get('pin_puerta')) != (x['num'] in con_pin and any(
+        g['tag'] == '21PCB01' and x in g['cables'] for g in e8['afuera']))]
+    chequear(not mal_t and sum(1 for x in filas_tab if x.get('pin_puerta')) >= len(con_pin),
+             f"{t}: la tabla marca pin_puerta en los {sum(1 for x in filas_tab if x.get('pin_puerta'))} cables de 21PCB01 que llegan a su pin"
+             + (f'; mal: {mal_t[:6]}' if mal_t else ''))
+    for pin, (nom, gru) in FUNCIONAL_E87.get(t, {}).items():
+        x = pa['pines'].get(pin) or {}
+        chequear(x.get('nombre') == nom and x.get('grupo') == gru and not x.get('incompleto'),
+                 f"{t}: el funcional da el pin {pin} = «{nom}» ({gru})" + ('' if x.get('nombre') == nom and x.get('grupo') == gru
+                                                                        else f" (salió «{x.get('nombre')}» ({x.get('grupo')}))"))
+    chequear(not any(x.get('incompleto') for x in pa['pines'].values()), f"{t}: con el OCR de apoyo ningún pin queda con el texto incompleto")
+    otros = [l for p in Pd['pasos'] for l in p['lineas'] if l['aparato'] != '21PCB01']
+    chequear(all(not l.get('exacto_o') and not l.get('aclaracion') and l.get('franja') for l in otros),
+             f"{t}: los {len(otros)} cables de los otros aparatos de la puerta siguen llegando a la franja")
+
+
+def pines_e87_reglas():
+    """reglas sueltas de los pines de la placa: el '0' / 'O' por el contexto, la aclaracion con el texto incompleto y la E8
+    sin el modulo pines_aparato.py (VECTOR copia el motor archivo por archivo)"""
+    print('\npines de la placa: reglas sueltas')
+    E8 = e8_modulo()
+    import pines_aparato as PA
+    casos = {('RX(0)', None): 'RX(O)', ('RS232 RX(0)', None): 'RS232 RX(O)', ('C0M', None): 'COM', ('AI0', None): 'AI0',
+             ('DI 10+', None): 'DI 10+', ('DO 0+', None): 'DO 0+', ('RX(0)', ('R', 'X', '(', '0', ')')): 'RX(0)',
+             ('RX(0)', ('R', None, '(', None, ')')): 'RX(O)'}
+    mal = [(t, labs, PA._cero_o(t, labs)) for (t, labs), esp in casos.items() if PA._cero_o(t, list(labs) if labs else None) != esp]
+    chequear(not mal, "el '0' que puso el OCR es O entre paréntesis después de letras o entre mayúsculas; el que leyó el diccionario, "
+             "o al final o junto a cifras, queda" + (f'; mal: {mal}' if mal else ''))
+    chequear(PA.aclaracion('42', {'nombre': 'Signal AI5', 'grupo': 'AP Analog Input #5'}) == 'pin 42 · Signal AI5 · AP Analog Input #5'
+             and PA.aclaracion('46', {'nombre': 'AUX +', 'grupo': 'Feed', 'incompleto': True}) == 'pin 46 · AUX + · Feed · (texto incompleto)'
+             and PA.aclaracion('3', {'nombre': 'Return'}) == 'pin 3 · Return',
+             "la aclaración: 'pin N · nombre · grupo', sin grupo sin esa parte, y con letras sin leer «(texto incompleto)»")
+    # sin el modulo: la E8 se arma igual, los cables de la placa quedan en la franja, con aviso
+    viejo = sys.modules.get('pines_aparato')
+    sys.modules['pines_aparato'] = None                 # (import pines_aparato -> ModuleNotFoundError)
+    try:
+        P, info, av = E8.pines_puerta(None, {'1': {'nodes': {}}}, {'comp': {'21PCB01': {'bornera': [{'y': 0, 'xs': [1, 2, 3]}]}}}, {}, {'21PCB01'})
+        chequear(P and not info and any('pines_aparato' in a and 'quedan en la franja' in a for a in av),
+                 f"sin pines_aparato.py la E8 no se cae: los cables de la placa quedan en la franja, con aviso ({av[:1]})")
+    except Exception as ex:                                                # noqa: BLE001
+        chequear(False, f'sin pines_aparato.py la E8 no se cae ({type(ex).__name__}: {ex})')
+    finally:
+        if viejo is not None:
+            sys.modules['pines_aparato'] = viejo
+        else:
+            sys.modules.pop('pines_aparato', None)
+
+
+def ruteo_e87(t, ins):
+    """la vista previa de la puerta llega a los mismos pines (sin elegir y con puntos de paso)"""
+    if t not in PINES_E87:
+        return
+    E8 = e8_modulo()
+    Pd = ins['estacion8'].get('puerta') or {}
+    ls = {l['clave']: l for p in Pd.get('pasos') or [] for l in p['lineas'] if l.get('exacto_o')}
+    H = Pd.get('H') or 24.8
+    cajas = [a['caja'] for a in Pd.get('aparatos') or []]
+    yp = round(min(c[1] for c in cajas) - 2 * H, 1)
+    for rec, nom in (({}, 'sin elegir'), ({'vistas': {'PUERTA': {'paso': [[round(Pd['box'][2] - H, 1), yp], [round(min(c[0] for c in cajas) - H, 1), yp]]}}}, 'con puntos de paso')):
+        r = E8.rutear_guardado_puerta(ins, rec)
+        ys = [y for y in r['lineas'] if y['clave'] in ls]
+        chequear(len(ys) == len(ls) and all(cerca(y['ruta'][0], ls[y['clave']]['marca_o'], 0.1) and cerca(y['marca_o'], ls[y['clave']]['marca_o'], 0.06) for y in ys),
+                 f"{t} puerta, vista previa {nom}: los {len(ys)} cables con pin siguen llegando a su pin")
+
+
 class Cliente:
     """test_client de la web con el Host local (la web responde 403 a otro Host)"""
     def __init__(self, web):
@@ -981,7 +1167,9 @@ def regenerar_e82(tmp):
         insS = gen()
         if insS:
             e8s = insS['estacion8']
-            sin_ep = lambda gs: [{k: v for k, v in g_.items() if k != 'en_puerta'} for g_ in gs]
+            # (en_puerta y, desde E8-7, pin_puerta: el cable llega a su pin EN EL DIBUJO de la puerta; la WPC no los usa)
+            sin_ep = lambda gs: [dict({k: v for k, v in g_.items() if k not in ('en_puerta', 'cables')},
+                                      cables=[{k: v for k, v in x.items() if k != 'pin_puerta'} for x in g_['cables']]) for g_ in gs]
             chequear('puerta' not in e8s and e8s['laterales'] == [{k: v for k, v in L.items()} for L in e8b['laterales']]
                      and sin_ep(e8s['afuera']) == sin_ep(e8b['afuera']),
                      'sin la vista de la puerta las laterales (rutas y largos) y las tablas de «Puerta y placa» dan igual: la WPC no la usa')
@@ -1064,11 +1252,16 @@ def main():
             if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None:
                 ruteo_e85(t, ins)
             esperado_e86(t, e8)
+            lay = cargar(sal, 'layout', t) or (cargar(BASES, 'layout', t) if bases else None)
+            esperado_e87(t, e8, (lay or {}).get('layout'))
+            if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None:
+                ruteo_e87(t, ins)
             if not bases:
                 e6_igual(t, sal)
         if not bases:
             regenerar_e82(tmp)
         web_e86(tmp, sal)
+        pines_e87_reglas()
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print('\nTODO OK' if not fallas else f'\nFALLA: {len(fallas)} prueba(s)')

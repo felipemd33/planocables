@@ -21,10 +21,20 @@ for (const t of ['tpt', 'tpt_constructivo', '66817', '75287']) {
     assert.ok(h.includes('id="e8MapaP"') && h.includes('/e8/puerta.png'), 'FALLA: no se dibuja la vista de la puerta');
     const n = P.pasos.reduce((a, p) => a + p.lineas.length, 0);
     assert.equal((h.match(/class="rt sib/g) || []).length, n, `FALLA: no están los ${n} recorridos de la puerta`);
-    assert.ok((h.match(/class="e8-franja"/g) || []).length >= n, 'FALLA: los cables no llegan a la franja de bornes');
-    assert.ok(!h.slice(h.indexOf('id="e8MapaP"'), h.indexOf('id="e8SelP"')).includes('<g class="term"/>'), 'FALLA: se dibuja un terminal en la franja (no hay borne dibujado)');
+    // (desde E8-7 un cable con el pin exacto de la placa llega a su pin, con su terminal, y no a la franja: e8_pines.test.cjs)
+    const ls = P.pasos.flatMap(p => p.lineas);
+    const aFranja = ls.filter(l => !l.exacto_o);
+    assert.ok((h.match(/class="e8-franja"/g) || []).length >= aFranja.length, 'FALLA: los cables sin pin no llegan a la franja de bornes');
+    const terms = ls.filter(l => !l.grupo_mano).reduce((a, l) => a + (l.exacto_o ? 1 : 0) + (l.marca_d && l.exacto_d ? 1 : 0), 0);
+    assert.equal((h.slice(h.indexOf('id="e8MapaP"'), h.indexOf('id="e8SelP"')).match(/<g class="term"\/>/g) || []).length, terms,
+      'FALLA: se dibuja un terminal en la franja (no hay borne dibujado) o falta el de un pin de la placa');
     assert.ok(h.includes('e8-flecha') && h.includes('Entrada'), 'FALLA: falta la flecha de la entrada a la puerta');
-    assert.equal((h.match(/data-a="ver"/g) || []).length, n, 'FALLA: cada cable de la puerta tiene ▶ en su tabla');
+    // (cada fila de la tabla de un aparato de la puerta cuyo cable está en la vista; un cable entre dos aparatos de la puerta,
+    // desde E8-7 el 46DB1 a la placa 21PCB01 del 75287, está en las dos tablas)
+    const enVista = new Set(ls.map(l => l.clave));
+    const filas = ins.estacion8.afuera.filter(g => g.en_puerta && g.zona === 'puerta / placa').reduce((a, g) => a + g.cables.filter(x => enVista.has(x.clave)).length, 0);
+    assert.ok(filas >= n, 'FALLA: no todos los cables de la puerta están en las tablas');
+    assert.equal((h.match(/data-a="ver"/g) || []).length, filas, 'FALLA: cada cable de la puerta tiene ▶ en su tabla');
     for (const a of P.aparatos) assert.ok(h.includes(`<h3 class="mono">${a.tag}</h3>`), `FALLA: falta la tabla de ${a.tag}`);
     const otros = ins.estacion8.afuera.filter(g => !g.en_puerta);
     if (otros.some(g => g.zona === 'puerta / placa')) assert.ok(h.includes('Otros aparatos fuera de las bandejas'), 'FALLA: los otros aparatos no están aparte');

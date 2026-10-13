@@ -363,9 +363,13 @@ def parte_a(tmp):
                     chequear((x.get('transito') or {}).get('n'), f"con la bisagra a la izquierda la {L['nombre'].lower()} muestra los que pasan hacia la puerta ({(x.get('transito') or {}).get('n')})")
                 if isinstance(pu, dict):
                     xp = (r.get_json() or {}).get('puerta') or {}
-                    pasan = sum(1 for y in xp.get('lineas') or [] if any(abs(p[1] - yp) <= 0.15 for p in y['ruta']))
-                    chequear(pasan == len(xp.get('lineas') or []) and pasan and not xp.get('no_llegan'),
-                             f"POST /e8/recorridos con un punto de paso en la puerta a la altura {yp}: {pasan} de {len(xp.get('lineas') or [])} cables pasan por ahí")
+                    # (un cable entre dos aparatos de la puerta va de uno al otro, no entra: desde E8-7, en el 75287 el
+                    # pulsador 46DB1 a la placa 21PCB01 reconocida)
+                    adentro = {l['clave'] for p in pu['pasos'] for l in p['lineas'] if l.get('aparato_d')}
+                    ys = [y for y in xp.get('lineas') or [] if y['clave'] not in adentro]
+                    pasan = sum(1 for y in ys if any(abs(p[1] - yp) <= 0.15 for p in y['ruta']))
+                    chequear(pasan == len(ys) and pasan and not xp.get('no_llegan'),
+                             f"POST /e8/recorridos con un punto de paso en la puerta a la altura {yp}: {pasan} de {len(ys)} cables pasan por ahí")
                 golden['e8_recorridos_elegidos'] = normalizar((r.get_json() or {}).get('laterales'), tmp)
                 ins5 = get(u + '/instructivo').get_json() or {}
                 ins5['estacion8']['recorridos'] = rec_e8        # (como la pestaña: se guarda con el instructivo)
