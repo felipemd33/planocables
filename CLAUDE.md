@@ -353,7 +353,7 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     estar en la tabla, el largo calculado de siempre (`pruebas/js/wpc_comunicacion.test.cjs`).
   - **Cables de una misma bandeja lateral: un `.wpc` aparte (2026-10-13, pedido del usuario):** los que nacen y mueren
     en la misma lateral (en la E8, las líneas de una lateral con `otra = 'misma bandeja'`; en E6 son pendientes LI↔LI:
-    TPT 1317, 1318 y 1601-1619 en la LD; PAE 1221-1226 directos, 1156-1159, 1181, 1182, ⏚11SK1 y los s/n del RS-485 en
+    TPT 1317, 1318, los impares 1601-1615 y 1619 en la LD; PAE 1221-1226 directos, 1156-1159, 1181, 1182, ⏚11SK1 y los s/n del RS-485 en
     la LI; 75287 1101 / 1102; 66817 ninguno) van en **un solo archivo para las dos laterales** (`WpcCore.laterales`;
     `'<código> - <plano> Rev <rev> - Laterales.wpc'`, igual el `ProjectName`; su CSV), en el orden de cableado de la E8
     (lateral por lateral, paso por paso; cada cable una vez). **Largo como la bandeja:** recorrido en la lateral
