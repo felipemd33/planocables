@@ -13,7 +13,8 @@ COLORES = {'rojo': 'Rojo', 'negro': 'Negro', 'azul': 'Azul', 'blanco': 'Blanco',
 COLOR_EN = {'black': 'Negro', 'red': 'Rojo', 'blue': 'Azul', 'white': 'Blanco', 'brown': 'Marrón', 'grey': 'Gris', 'gray': 'Gris'}
 # inicial del color en el texto del cable del instructivo ('N2.5MM')
 COLOR_INI = {'Negro': 'N', 'Rojo': 'R', 'Blanco': 'B', 'Marrón': 'M', 'Azul': 'A', 'Gris': 'G', 'Verde': 'V',
-             'Amarillo': 'AM', 'Verde-Amarillo': 'VA', 'Naranja': 'NA', 'Violeta': 'VI', 'Celeste': 'C', 'Rosa': 'RS'}
+             'Amarillo': 'AM', 'Verde-Amarillo': 'VA', 'Naranja': 'NA', 'Violeta': 'VI', 'Celeste': 'C', 'Rosa': 'RS',
+             'Malla': 'ML'}
 
 
 def una_letra(a, b):

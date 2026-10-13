@@ -87,7 +87,7 @@ def _dentro(p, b, m=0.0):
 
 COLOR_ALIAS = {'verde/amarillo': 'Verde-Amarillo', 'verde-amarillo': 'Verde-Amarillo', 'verdeamarillo': 'Verde-Amarillo',
                'amarillo/verde': 'Verde-Amarillo', 'gn/ye': 'Verde-Amarillo', 'green/yellow': 'Verde-Amarillo',
-               'apantallamiento': '', 'pantalla': '', 'malla': '', 'shield': ''}
+               'apantallamiento': 'Malla', 'pantalla': 'Malla', 'malla': 'Malla', 'shield': 'Malla'}
 
 
 def norm_color(c):

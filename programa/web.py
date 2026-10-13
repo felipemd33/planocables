@@ -820,7 +820,7 @@ def guardar_producto(jid):
 
 
 # ------------------------------------------------------------------ parametros de la lista WPC (wpc.json)
-TIPOS_WPC = {'numero', 'si_no', 'texto', 'regex', 'opcion', 'lista', 'colores', 'reemplazos', 'marcador'}
+TIPOS_WPC = {'numero', 'si_no', 'texto', 'regex', 'opcion', 'lista', 'colores', 'reemplazos', 'marcador', 'largos'}
 _FALTA = object()
 
 
@@ -876,6 +876,10 @@ def _invalido_wpc(p, v, todos):
         if not isinstance(v, list) or not all(isinstance(x, dict) and num_o_nada(x.get('desde')) and num_o_nada(x.get('hasta'))
                                               and isinstance(x.get('valor', ''), str) for x in v):
             return 'cada fila: desde y hasta (números o vacíos) y el marcador'
+    elif t == 'largos':         # largo total de cada cable de comunicacion: [{cable, mm}]
+        if not isinstance(v, list) or not all(isinstance(x, dict) and isinstance(x.get('cable', ''), str) and num_o_nada(x.get('mm'))
+                                              and (x.get('mm') is None or x['mm'] >= 0) for x in v):
+            return 'cada fila: el número del cable y su largo total en mm (0 o más)'
     return None
 
 

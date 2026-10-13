@@ -7909,6 +7909,8 @@
     "destino": "LI",
     "estacion": "E8",
     "exacto_o": true,
+    "extremo": "PT 001 2",
+    "extremo_tag": "PT 001",
     "fila": 1,
     "hojas": [
      "31"
@@ -7952,6 +7954,8 @@
     "destino": "LI",
     "estacion": "E8",
     "exacto_o": true,
+    "extremo": "PT 001 1",
+    "extremo_tag": "PT 001",
     "fila": 1,
     "hojas": [
      "31"
@@ -7995,6 +7999,8 @@
     "destino": "LI",
     "estacion": "E8",
     "exacto_o": true,
+    "extremo": "BH-01-ZV",
+    "extremo_tag": "BH-01-ZV",
     "fila": 3,
     "hojas": [
      "12"
@@ -8046,6 +8052,8 @@
     "destino": "LI",
     "estacion": "E8",
     "exacto_o": true,
+    "extremo": "12PB1 +",
+    "extremo_tag": "12PB1",
     "fila": 3,
     "hojas": [
      "12"
@@ -8121,6 +8129,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12XPS 2 ABAJO",
+      "extremo_tag": "12XPS",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8173,6 +8183,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12XPS 1 ABAJO",
+      "extremo_tag": "12XPS",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8225,6 +8237,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "11MS1 ARRIBA",
+      "extremo_tag": "11MS1",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8276,6 +8290,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "11MS1 ARRIBA",
+      "extremo_tag": "11MS1",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8328,6 +8344,8 @@
       "destino": "11Q1 F ABAJO",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8387,6 +8405,8 @@
       "destino": "11Q1 N ABAJO",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8445,6 +8465,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12XPS 3 ABAJO",
+      "extremo_tag": "12XPS",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8507,6 +8529,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12XPS 5 ABAJO",
+      "extremo_tag": "12XPS",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8559,6 +8583,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 42",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8611,6 +8637,8 @@
       "destino": "13X24 1.2",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8671,6 +8699,8 @@
       "destino": "13X24 2.1",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8730,6 +8760,8 @@
       "destino": "13XC1 4.1",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8789,6 +8821,8 @@
       "destino": "13X24 1.1",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8847,6 +8881,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 16",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8910,6 +8946,8 @@
       "destino": "43XCS 2 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -8968,6 +9006,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 20",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9020,6 +9060,8 @@
       "destino": "43XCS 4 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9078,6 +9120,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 68",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9129,6 +9173,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 14",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9181,6 +9227,8 @@
       "destino": "13XC1 2.1",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9240,6 +9288,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 17",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9303,6 +9353,8 @@
       "destino": "43XCS 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9361,6 +9413,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 21",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9413,6 +9467,8 @@
       "destino": "43XCS 3 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9471,6 +9527,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 69",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9522,6 +9580,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 15",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9574,6 +9634,8 @@
       "destino": "62XDO 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9633,6 +9695,8 @@
       "destino": "62XDO 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_o": "62XDIO 1 ABAJO",
       "hecho": true,
@@ -9696,6 +9760,8 @@
       "destino": "62XDO 3 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9755,6 +9821,8 @@
       "destino": "62XDO 3 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_o": "62XDIO 2 ABAJO",
       "hecho": true,
@@ -9807,6 +9875,8 @@
       "destino": "62XDO 5 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9866,6 +9936,8 @@
       "destino": "62XDO 5 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_o": "62XDIO 3 ABAJO",
       "hecho": true,
@@ -9919,6 +9991,8 @@
       "destino": "11SK1 PE ABAJO",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -9979,6 +10053,8 @@
       "destino": "13PS3 ⏚",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10049,6 +10125,8 @@
       "destino": "11Q2 N ABAJO",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10100,6 +10178,8 @@
       "destino": "11SK1 N ABAJO",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10151,6 +10231,8 @@
       "destino": "11Q2 F ABAJO",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10202,6 +10284,8 @@
       "destino": "11SK1 L ABAJO",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "func_d": "11SK1 L ARRIBA",
       "hecho": true,
@@ -10254,6 +10338,8 @@
       "destino": "12XP 1.1",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10304,6 +10390,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "13SH1 ARRIBA",
+      "extremo_tag": "13SH1",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10348,6 +10436,8 @@
       "destino": "13XC1 3.1",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10399,6 +10489,8 @@
       "destino": "13XC1 1.1",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10461,6 +10553,8 @@
       "destino": "13XC1 4.2",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "func_o": "43KR2 A2",
       "hecho": true,
@@ -10514,6 +10608,8 @@
       "destino": "46XC 2 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "func_o": "46KR A2",
       "hecho": true,
@@ -10574,6 +10670,8 @@
       "destino": "46XC 4 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "func_o": "46KR A2",
       "hecho": true,
@@ -10633,6 +10731,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 51",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10676,6 +10776,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 53",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10719,6 +10821,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 55",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10763,6 +10867,8 @@
       "destino": "43DIB1 4",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10814,6 +10920,8 @@
       "destino": "43DIB1 4",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10876,6 +10984,8 @@
       "destino": "43DIB2 4",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10927,6 +11037,8 @@
       "destino": "43DIB2 4",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -10978,6 +11090,8 @@
       "destino": "46XC 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -11037,6 +11151,8 @@
       "destino": "46XC 3 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -11095,6 +11211,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 50",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -11138,6 +11256,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 52",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -11181,6 +11301,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 54",
+      "extremo_tag": "21PCB01",
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -11237,6 +11359,8 @@
       "destino": "11PS1 ⏚-1",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 1,
       "hecho": true,
       "hojas": [
@@ -11298,6 +11422,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12XPS 4 ABAJO",
+      "extremo_tag": "12XPS",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11342,6 +11468,8 @@
       "destino": "43DIB1 3",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11394,6 +11522,8 @@
       "destino": "62XDO 2 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11456,6 +11586,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12PB1 +",
+      "extremo_tag": "12PB1",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11507,6 +11639,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12PB1 -",
+      "extremo_tag": "12PB1",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11558,6 +11692,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "13SH1 ABAJO",
+      "extremo_tag": "13SH1",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11609,6 +11745,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 48",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11661,6 +11799,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12XPS 6 ABAJO",
+      "extremo_tag": "12XPS",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11714,6 +11854,8 @@
       "destino": "62XDIO 3 ABAJO",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_d": "62XDIO 3 ARRIBA",
       "hecho": true,
@@ -11767,6 +11909,8 @@
       "destino": "43DIB2 3",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11826,6 +11970,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 49",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -11890,6 +12036,8 @@
       "destino": "31AIB1 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_d": "31AIB1 1 ABAJO",
       "hecho": true,
@@ -11951,6 +12099,8 @@
       "destino": "43DIB1 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_d": "43DIB1 1 ABAJO",
       "func_o": "31AIB1 1 ABAJO",
@@ -12004,6 +12154,8 @@
       "destino": "43DIB2 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_d": "43DIB2 1 ABAJO",
       "func_o": "43DIB1 1 ABAJO",
@@ -12057,6 +12209,8 @@
       "destino": "31AIB1 2 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_d": "31AIB1 2 ABAJO",
       "hecho": true,
@@ -12118,6 +12272,8 @@
       "destino": "43DIB1 2 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_d": "43DIB1 2 ABAJO",
       "func_o": "31AIB1 2 ABAJO",
@@ -12171,6 +12327,8 @@
       "destino": "43DIB2 2 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "func_d": "43DIB2 2 ABAJO",
       "func_o": "43DIB1 2 ABAJO",
@@ -12223,6 +12381,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "BH-01-ZV",
+      "extremo_tag": "BH-01-ZV",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12274,6 +12434,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "SP-1",
+      "extremo_tag": "SP-1",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12325,6 +12487,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "SP-2",
+      "extremo_tag": "SP-2",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12376,6 +12540,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "SP-1",
+      "extremo_tag": "SP-1",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12427,6 +12593,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "SP-2",
+      "extremo_tag": "SP-2",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12489,6 +12657,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 39",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12532,6 +12702,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 40",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12575,6 +12747,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 5",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12618,6 +12792,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 6",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12661,6 +12837,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 18",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12704,6 +12882,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 19",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12747,6 +12927,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 22",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12790,6 +12972,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 23",
+      "extremo_tag": "21PCB01",
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12845,6 +13029,8 @@
       "destino": "31XEX 3 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12896,6 +13082,8 @@
       "destino": "31XEX 4 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12947,6 +13135,8 @@
       "destino": "43XDI 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -12998,6 +13188,8 @@
       "destino": "43XDI 2 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13049,6 +13241,8 @@
       "destino": "43XDI 5 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13100,6 +13294,8 @@
       "destino": "43XDI 6 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13147,6 +13343,8 @@
       "destino": "31XEX 1 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13198,6 +13396,8 @@
       "destino": "31XEX 2 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13256,6 +13456,8 @@
       "destino": "43XDI 3 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13307,6 +13509,8 @@
       "destino": "43XDI 4 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13358,6 +13562,8 @@
       "destino": "43XDI 7 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13409,6 +13615,8 @@
       "destino": "43XDI 8 ARRIBA",
       "exacto_d": true,
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 2,
       "hecho": true,
       "hojas": [
@@ -13470,6 +13678,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 32",
+      "extremo_tag": "21PCB01",
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13521,6 +13731,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 32",
+      "extremo_tag": "21PCB01",
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13573,6 +13785,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13625,6 +13839,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13676,6 +13892,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 64",
+      "extremo_tag": "21PCB01",
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13728,6 +13946,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12XPS 7 ABAJO",
+      "extremo_tag": "12XPS",
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13781,6 +14001,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": null,
+      "extremo_tag": null,
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13832,6 +14054,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 33",
+      "extremo_tag": "21PCB01",
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13883,6 +14107,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 33",
+      "extremo_tag": "21PCB01",
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13934,6 +14160,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "21PCB01 65",
+      "extremo_tag": "21PCB01",
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -13986,6 +14214,8 @@
       "conf_o": "manual",
       "destino": "LI",
       "exacto_o": true,
+      "extremo": "12XPS 8 ABAJO",
+      "extremo_tag": "12XPS",
       "fila": 3,
       "hecho": true,
       "hojas": [
@@ -14043,7 +14273,9 @@
     "cable": "M2.5MM",
     "color": "Marrón",
     "num": "1101",
-    "secc": "2.5"
+    "secc": "2.5",
+    "ta": "11XP",
+    "tb": "11MS1"
    },
    {
     "a": "11XP 2 ABAJO",
@@ -14051,7 +14283,9 @@
     "cable": "B2.5MM",
     "color": "Blanco",
     "num": "1102",
-    "secc": "2.5"
+    "secc": "2.5",
+    "ta": "11XP",
+    "tb": "11MS1"
    },
    {
     "a": "11XP 3 ABAJO",
@@ -14059,7 +14293,9 @@
     "cable": "VA2.5MM",
     "color": "Verde-Amarillo",
     "num": "1103",
-    "secc": "2.5"
+    "secc": "2.5",
+    "ta": null,
+    "tb": "11XP"
    },
    {
     "a": "41DS 1",
@@ -14067,7 +14303,9 @@
     "cable": "N0.75MM",
     "color": "Negro",
     "num": "2128",
-    "secc": "0.75"
+    "secc": "0.75",
+    "ta": "41DS",
+    "tb": "21PCB01"
    },
    {
     "a": "41DS 2",
@@ -14075,7 +14313,9 @@
     "cable": "N0.75MM",
     "color": "Negro",
     "num": "2129",
-    "secc": "0.75"
+    "secc": "0.75",
+    "ta": "41DS",
+    "tb": "21PCB01"
    },
    {
     "a": "46DB1 1",
@@ -14083,7 +14323,9 @@
     "cable": "N0.75MM",
     "color": "Negro",
     "num": "2130",
-    "secc": "0.75"
+    "secc": "0.75",
+    "ta": "46DB1",
+    "tb": "21PCB01"
    },
    {
     "a": "46DB1 2",
@@ -14091,7 +14333,9 @@
     "cable": "N0.75MM",
     "color": "Negro",
     "num": "2131",
-    "secc": "0.75"
+    "secc": "0.75",
+    "ta": "46DB1",
+    "tb": "21PCB01"
    },
    {
     "a": "21PCB01 35",
@@ -14408,6 +14652,29 @@
     177.1,
     1045.4,
     759.3
+   ],
+   "rieles": [
+    {
+     "eje": 674.8,
+     "fila": 1,
+     "perfil": 24.77,
+     "x0": 584.0,
+     "x1": 1031.2
+    },
+    {
+     "eje": 530.5,
+     "fila": 2,
+     "perfil": 24.77,
+     "x0": 584.0,
+     "x1": 860.9
+    },
+    {
+     "eje": 402.8,
+     "fila": 3,
+     "perfil": 24.77,
+     "x0": 584.0,
+     "x1": 860.9
+    }
    ]
   },
   "topografico": "75441 TOPOGRAFICO PANEL MSAFE2 - REV.6.pdf",

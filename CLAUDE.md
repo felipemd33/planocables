@@ -9,6 +9,49 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 2. El **instructivo de cableado de la bandeja** (estación E6): cada cable sale del punto exacto del borne en el
    topográfico y va por los cablecanales. Incluye el visor "cablear de a uno" y la auditoría cruzada.
 
+## VECTOR: la producción (2026-10-09)
+
+- **Este programa y su web son el banco de pruebas y de visualización.** Lo que usan los operarios es **VECTOR**
+  (repo `PMFA-BATFER`, `C:\PMFA-BATFER`, `batfer.local:3001`; Node + React, con su propio Claude). VECTOR **copia**
+  el motor de `programa/` en `backend/cableado/` y la lista WPC (`web/nucleo/wpc_core.js`, `zip.js`, `web/wpc.json`).
+  Lo que se valida acá pasa a producción. Lo que copia y cómo: `C:\PMFA-BATFER\backend\cableado\LEEME.md`.
+- **Contrato con VECTOR** (si cambia, VECTOR se rompe, a veces en silencio):
+  - `web.gen_instructivo`: VECTOR lo porta **a mano** a su `vector_cli.py`;
+  - las funciones que llama:
+    - `core`: `process`, `sheet_name`;
+    - `instructivo`: `build`, `componentes_panel`, `known_tags`, `leer_json_trabajo`, `leer_bornes_manuales`,
+      `rutear_salidas`, `conductors`;
+    - `topo`: `layout`, `layout_al_dia`; el lector de `eplan`; el mapeo de `bornes`;
+    - `estacion8`: `build`, `mapear_bornes`; `estacion8_mano.cargar_y_aplicar`;
+  - los campos de la salida:
+    - `instructivo.json`: `pasos` (`titulo`, `lineas`), `pendientes` (con `ta` / `tb`), `otra_estacion`,
+      `accesorios`, `topo` (`region`, `escala`, `ductos`, `rieles`, `comp`, `filas`), `mapeo`, `estacion8`, `salidas`;
+    - cada línea: `num`, `cable`, `color`, `secc`, `origen`, `destino`, `ruta`, `marca_o` / `marca_d`, `exacto_o` /
+      `exacto_d`, `conf_o` / `conf_d`, `largo_mm`, `puente`, `agregado`, `componente`, `func_o` / `func_d`, `extremo`,
+      `extremo_tag`;
+    - `resultado.json`: `cables`, `detalle`, `sin_numero`;
+    - `ins['estacion8']` (VECTOR arma con esto los pasos de su E8, propuesta del 2026-10-09):
+      `laterales[].pasos[].lineas[]` (`num`, `origen`, `destino`, `otra`, `empalme` con su `texto`, `pelado` y
+      `confirmar`, `directo`, `conf_o`) y `afuera[]` (`tag`, `zona`, `cables[]`: `borne`, `pin`, `otra`, `otra_donde`).
+      `empalme`, `directo` y `conf_o` solo están cuando corresponden. Si `version` es 0 (la E8 falló), VECTOR usa
+      `extremo` / `ta` / `tb`;
+    - `num` es la clave de todo en VECTOR (ediciones, WPC, E8): no cambiar cómo se arma, ni el texto de `origen` /
+      `destino`, sin avisar;
+  - los colores con su nombre canónico (`COLORES` / `COLOR_INI`);
+  - el CSV y el `.wpc` de la lista WPC: VECTOR tiene copias de los goldens de `pruebas/bases/wpc/`.
+- **Al commitear** un cambio que toque algo del contrato, el mensaje lleva una línea **«Afecta a VECTOR: …»**.
+  También al subir `topo.VERSION_LECTOR`, `eplan.VERSION_LECTOR` o `bornes.VERSION`: VECTOR relee o recalcula los
+  trabajos al regenerar. Al subir al repo, ofrecer un `.md` para el Claude de VECTOR con lo que le toca
+  (en `2 - Resultados/Para VECTOR/`).
+- **Adoptado de VECTOR (2026-10-09)**: sus parches están acá con el **mismo texto**, así su
+  `aplicar_parches_vector.py` los saltea:
+  - `lay['rieles']` y `ins['topo']['rieles']`: el tramo de cada riel (`fila`, `eje`, `x0`, `x1`, `perfil`);
+  - `extremo` / `extremo_tag`: el borne real de la punta que sale de la bandeja (`destino` sigue siendo LI / LD);
+  - `ta` / `tb`: los tags de las puntas de los pendientes;
+  - `PLANOCABLES_OCR_CACHE`: la memoria de OCR se escribe en otra ruta y la del repo queda de base de solo lectura;
+  - EPLAN: malla / pantalla / apantallamiento / shield = color `Malla` (inicial `ML`; antes, sin color);
+  - `wires.NUM_RE` lee `2132B` entero (4 cifras + B: el segundo tramo de un cable de comunicación).
+
 ## Estructura
 
 | Carpeta / archivo | Qué es |
@@ -84,6 +127,11 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     - la **batería** (12PB1) y las **solenoides** (SP_1/2/3) del PAE (2026-10-06, pedido del usuario): sus cables no se
       cablean en E6 ni van a la lista WPC. Mecanismo: `estaciones_tag` del mapeo verificado (`ZONA_E8` en
       `exportar_al_programa.py`); en los planos de AutoCAD las solenoides `SP-n` ya salen como campo (`FIELD_RE`).
+    - Resumen del taller (2026-10-09): en E8 se cablea siempre placa, comunicación, batería, potencia (35 mm²),
+      cableado entre bandejas, solenoides, contactora, doorswitch, pulsadores y seccionadoras / selectoras. **Los cables
+      de campo no se cablean en fábrica.** Comunicación: si sale de la bandeja lateral derecha (NC, TECPE) va en E8; si
+      sale de la bandeja de atrás (PAE, Vista) se cablea en E6 (por eso las mallas 2134 / 2137 del 75287, de 81XCM en la
+      bandeja, quedan en E6).
   - **Visor de E8, etapa E8-1 «laterales completas» (2026-10-08, pedido del taller):** cada bandeja lateral es su PLACA
     entera (`topo.vistas_e8`, claves aparte de cada vista: `placa`, `ductos`, `titulo`, `rieles_e8`; la bandeja de E6 no
     cambia): rectángulo cerrado de cualquier capa que junta más canaletas y aparatos de afuera de la bandeja; riel
@@ -230,7 +278,7 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     cable en la vista de la placa agregarle la aclaración del pin», página 21):** el dibujo de la placa en la vista de la
     puerta NO trae los números de pin: trae las mismas filas de bornes que el símbolo del funcional (TPT / 66817 / 75441:
     37 abajo y 32 arriba, con el hueco entre el 53 y el 54) y los mismos rótulos. `topo.puerta_e8` (versión del lector
-    `2026.10.09-e8b`) lee las **filas de tornillos** (círculos chicos cerrados o de cuatro arcos, del mismo diámetro,
+    `2026.10.09-e8b-r4`) lee las **filas de tornillos** (círculos chicos cerrados o de cuatro arcos, del mismo diámetro,
     alineados, separación < 6 diámetros y en múltiplos de la normal): en el cuerpo de un aparato → `comp[tag]['bornera'] =
     [{y, d, xs}]`; sueltas, juntas por cercanía → `lay['puerta']['sin_etiqueta'] = [{caja, bornera}]` (8 o más tornillos).
     `programa/pines_aparato.py`: en el funcional (la hoja de las puntas del aparato), las **filas de pines numerados** del
@@ -283,12 +331,25 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
   al catálogo. Si la detección no es segura o las fuentes no coinciden, un asistente pregunta una sola vez.
 - **Lista WPC (2026-10-05 / 06):** los que quedan en la bandeja: recorrido por canaletas + sobrante (`wpc.json`:
   `margen_bandeja` 100) + agregado del taller (`agregado_bandeja` 75; después se ajusta el largo y se suma un factor de
-  corrección). **Los que salen a LI** (regla del taller del 2026-10-06, con la estación E8 para saber adónde van de verdad;
-  «canaleta» = la parte de la ruta que corre DENTRO de las canaletas, sin la acometida del borne: `wpc_core.js canaleta()`):
-  - muere en la bandeja lateral (ej. 1161 → 12XPS 4): `acometida` 75 (borne → canaleta) + canaleta de la bandeja +
-    `curva_LI` 100 (curva posterior → LI) + canaleta de la lateral + `acometida_LI` 150 (canaleta → borne). 1161 = 75 + 297 +
-    100 + 269 + 150 = 891 → 900;
-  - sigue a la puerta / placa (21PCB01, 13MS1, 42DB1…): `acometida` 75 + canaleta de la bandeja + `puerta` 1850.
+  corrección). **Los que salen a LI / LD** (regla del taller del **2026-10-09**, antes la del 2026-10-06; con la estación
+  E8 para saber adónde van de verdad; «canaleta» = la parte de la ruta que corre DENTRO de las canaletas, sin la acometida
+  del borne: `wpc_core.js canaleta()`):
+  - muere en una bandeja lateral (ej. 1161 → 12XPS 4; a la LD los cables mueren siempre ahí): `acometida` 75 (borne →
+    canaleta) + canaleta de la bandeja + la curva de la posterior a ESA lateral (`curva_LI` / `curva_LD`, 100) + canaleta
+    de la lateral + `acometida_LI` **75** (canaleta → borne o aparato; antes 150). 1161 = 75 + 297 + 100 + 269 + 75 = 816
+    → 850;
+  - sigue a la puerta / placa (solo un aparato de la puerta o de la placa: `hacia_puerta` de la E8 sin `sin_aparato`;
+    21PCB01, 13SH1, 13MS1, 42DB1…): `acometida` 75 + canaleta de la bandeja + curva + canaleta de la lateral de la bisagra
+    hasta la salida a la puerta (el tránsito de la E8, solo con la bisagra elegida) + `puerta` 1850;
+  - lo que no va a la puerta ni a la placa (zona hidráulica, batería, solenoides, PT 001: sin dibujar o dibujados en el
+    fondo): **la WPC no lo corta** (fuera del arnés, el taller, 2026-10-09; `fuera.no_puerta`, que un producto puede
+    apagar); se corta a mano y la lista muestra el largo de antes (75 + canaleta de la bandeja + `puerta`) como estimado.
+  - Por producto (⚙ Parámetros) se editan solo `curva_LI`, `curva_LD`, `puerta` y `extra_puerta` (de la lateral a la
+    puerta); las acometidas de 75 son fijas (fuera del panel). Tabla: `pruebas/bases/wpc/cambios_regla_2026-10-09.md`.
+  - **Cables de comunicación (2026-10-09, el taller):** el largo total lo da el PRODUCTO, **cable por cable**
+    (`largos_comunicacion` = `[{cable, mm}]`, tabla del panel en la pestaña «Producto»; `cable` = el número solo, para
+    todos sus tramos, o el tramo `número|origen|destino`, que manda). Siguen **fuera del arnés** (se cortan a mano); sin
+    estar en la tabla, el largo calculado de siempre (`pruebas/js/wpc_comunicacion.test.cjs`).
   Pendientes de la lateral y planos sin E8 (sin la lateral dibujada): como antes (`margen_LI` / `extra_puerta` / `extra_LI` +
   `agregado_*`). La WPC **solo corta**: columnas fijas sin pelar ni crimpar (`fijos` en 0). **Reemplazos** (solo en la
   lista, el instructivo no cambia): negro 4 mm² → violeta 2,5 y rojo 4 mm² → naranja 2,5 (la WPC no tiene slots de 4 mm²).
@@ -307,7 +368,8 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
   aguas arriba → `0|180` (gira el segundo). Lado = arriba / abajo del eje del riel por el punto exacto (`lado`, `marca_*`,
   `topo.comp[tag].fila`), o por el texto; la punta que sale a LI / LD se toma como aguas abajo (coincide con lo que el
   taller puso a mano en los .wpc del 66817). **Fuera del arnés** (destildados, con el motivo, `wpc.json → fuera`): 35 mm²,
-  comunicación (≤ 0,5 mm² o XCM / RS-485), solenoides (SP-n, ZV, YV), campo (CAMPO, ROTORK, PIT, IP_). Formato de la WPC
+  comunicación (≤ 0,5 mm² o XCM / RS-485), solenoides (SP-n, ZV, YV), campo (CAMPO, ROTORK, PIT, IP_) y, por la E8, lo
+  que sale de la bandeja y no va a la puerta ni a la placa (`no_puerta`: el texto de la fila solo dice «→ LI»). Formato de la WPC
   (Weidmüller): plantilla `Template_5.0.11.xlsm` y archivos `.wpc` (zip con XML, `Col1..Col49`) en
   `G:\...\4-Instructivos de montaje de VECTOR\WPC\`; «sin terminal» = pelado, proceso y crimpado en 0 (col. 24-26, 28, 46, 47).
 - **Proyector (2026-10-05, pedido del usuario):** se proyecta sobre la bandeja solo lo necesario (canaletas y el cable, nunca
@@ -483,7 +545,13 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
     (celeste, arriba); ¿sumar celeste a la regla?;
   - los cables de campo (ROTORK, PIT01F, IP_x) y las mallas salen en E6 como «→ LI» (regla del usuario: campo = LI),
     sin color ni sección (EPLAN no los da);
-  - las dudas del mapeo verificado (hoja «Dudas a confirmar» del Excel) salen como avisos en el instructivo.
+  - las dudas del mapeo verificado (hoja «Dudas a confirmar» del Excel) salen como avisos en el instructivo;
+  - ⏚81XCM (81XCM 9 ARRIBA → LI) y ⏚32XEX (32XEX 5.4 → LI): renglones de la lista de conexiones con un solo destino; el
+    usuario cree que son errores del plano (2026-10-09). Siguen en E6; si se confirma, se quitan con 🗑 en el trabajo.
+- **Lista WPC, para confirmar con el usuario (2026-10-09):** los cables que salen de la bandeja y no van a la puerta ni
+  a la placa (zona hidráulica, batería 12PB1, solenoides SP-n, PT 001, ZY, 81TM01) ya no los corta la WPC (el taller);
+  falta saber qué largo mostrar para cortarlos a mano (hoy el estimado de antes, 75 + canaleta de la bandeja + 1850; en
+  E5 de VECTOR, «largo estimado»).
 - **Arreglos del mapeo automático que quedaron a medias** (`pendiente/arreglos_mapeo_parciales/`, sin verificar):
   - diferencial/termomagnética sin lista → confianza media;
   - relé único sin módulo no se renombra;

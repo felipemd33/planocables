@@ -22,17 +22,29 @@
    (filas, csv y wpcXml son las que van al archivo: se les pasan solo las filas que no quedan fuera del arnés.)
 
    LARGO (regla del taller): en la bandeja, recorrido por las canaletas + sobrante + agregado del taller. Los que salen a
-   LI, con la estación E8 (adónde van de verdad), por la regla del 2026-10-06:
-   - muere en la bandeja lateral: acometida (borne → canaleta) + canaleta de la bandeja + curva_LI (curva posterior → LI)
-     + canaleta de la lateral + acometida_LI (canaleta → borne);
-   - sigue a la puerta / placa: acometida + canaleta de la bandeja + puerta.
+   LI / LD, con la estación E8 (adónde van de verdad), por la regla del 2026-10-09 (antes, 2026-10-06):
+   - muere en la bandeja lateral: acometida (borne → canaleta, 75 fijo) + canaleta de la bandeja + la curva de la
+     posterior a ESA lateral (curva_LI / curva_LD; sin curva_LD, la de LI) + canaleta de la lateral + acometida_LI
+     (canaleta → borne o aparato, 75 fijo). A la lateral derecha los cables mueren siempre ahí;
+   - sigue a la puerta / placa (un aparato de la puerta o de la placa: hacia_puerta de la E8 sin 'sin_aparato'):
+     acometida + canaleta de la bandeja + la curva de la lateral por donde pasa + la canaleta de esa lateral hasta la
+     salida a la puerta (el tránsito de la E8, que hay solo con la bisagra elegida; sin él, 0) + puerta;
+   - lo demás de «puerta / placa» de la E8, que no va a la puerta ni a la placa (zona hidráulica, batería, solenoides,
+     PT 001...: sin dibujar o dibujados en el fondo): la WPC NO LO CORTA (fuera del arnés, el taller, 2026-10-09; se
+     apaga con fuera.no_puerta = false). Se corta a mano: el largo que se muestra es el de antes, acometida + canaleta de
+     la bandeja + puerta. Una E8 de antes de E8-4 (sin hacia_puerta) no lo distingue: todo va a la puerta.
+   Por producto se editan curva_LI, curva_LD, puerta y extra_puerta (de la lateral a la puerta); las acometidas son fijas.
+   COMUNICACIÓN (2026-10-09): el largo total de cada cable de comunicación lo da el producto, cable por cable
+   (largos_comunicacion = [{cable, mm}], cable = el número solo, para todos sus tramos, o el tramo «número|origen|destino»,
+   que manda); un cable de comunicación que está en la tabla lleva ese largo (sin redondear) y sigue fuera del arnés (se
+   corta a mano). Sin él, el largo calculado de siempre.
    «Canaleta» = la parte de la ruta que corre DENTRO de las canaletas (sin la acometida del borne, que va con el fijo).
    Sin E8 (plano sin la lateral): recorrido + sobrante + lo fijo a LI / LD + agregado. Pendientes de la lateral: canaleta
    de la lateral + margen (o puerta / placa) + agregado. La WPC solo corta (columnas fijas sin pelar ni crimpar).
    REEMPLAZOS: un color y sección se cortan con otro (la WPC no tiene slots de 4 mm²); solo en esta lista, el
    instructivo no cambia. TERMOS (columna 22, "giro origen|giro destino" en grados) según el lado de cada punta: una
    aguas arriba y otra aguas abajo → 0|0; las dos abajo → 180|0; las dos arriba → 0|180. FUERA del arnés
-   (destildados, con el motivo): 35 mm², comunicación, solenoides y campo.
+   (destildados, con el motivo): 35 mm², comunicación, solenoides, campo y lo que no va a la puerta ni a la placa (E8).
 
    CONFIGURACIÓN (programa/web/wpc.json; la cambia el taller con el panel ⚙ Parámetros, PUT /api/config/wpc)
    NIVELES: wpc.json (todos los productos) < wpc.json → productos[código] < ins.wpc.cfg (este trabajo). Si no hay nada
@@ -41,11 +53,13 @@
    niveles); lo que no está declarado se mezcla clave por clave. cfg._de[clave] = de qué nivel viene cada parámetro
    declarado ('trabajo', 'producto', 'global' o 'defecto') y cfg._producto = {clave, por} (la entrada de productos usada).
    SECCIONES de wpc.json:
-     <largos>            margen_bandeja, agregado_bandeja, acometida, curva_LI, acometida_LI, puerta, margen_LI,
+     <largos>            margen_bandeja, agregado_bandeja, acometida, curva_LI, curva_LD, acometida_LI, puerta, margen_LI,
                          extra_puerta, extra_LI, extra_LD, agregado_LI, agregado_puerta, redondeo, largo_sin_ruta,
                          largo_pendiente (mm); pendientes / otra (true / false: incluirlos en la lista)
+     largos_comunicacion [{cable, mm}]: el largo total de cada cable de comunicación (se carga por producto)
      fuera               seccion_desde, comunicacion_seccion_hasta (mm²); comunicacion_re, solenoide_re, campo_re (regex,
-                         sin distinguir mayúsculas, sobre «origen destino»)
+                         sin distinguir mayúsculas, sobre «origen destino»); no_puerta (true / false, por defecto true:
+                         lo que sale de la bandeja y no va a la puerta ni a la placa, según la E8)
      termos              mixto, abajo_abajo, arriba_arriba, sin_dato ("origen|destino"); opciones (las del menú)
      fijos               pelado_origen, proceso_origen, proceso_destino, crimpado_origen, dimension_origen,
                          crimpado_destino (columnas 24-26, 28, 46 y 47 del CSV)
@@ -65,7 +79,7 @@
    un texto) se redondea a 1 mm; sin fijos, 10/1/1/8/10/8; sin termos, 0|0, 180|0, 0|180 y 0|0; sin marcador, por
    sección con la tabla de abajo (MARCADOR); sin archivo_wpc, UserFilter -1 y pdfFile vacío. */
 const WpcCore = (() => {
-  const VERSION = '2026.10.07';
+  const VERSION = '2026.10.09';
   const NCOL = 49;
   // marcador por sección (decidido el 2026-10-07): ≤ 1 mm² y de 2,5 a 6 mm²; otra sección, vacío
   const MARCADOR = { modo: 'seccion', tabla: [
@@ -147,8 +161,9 @@ const WpcCore = (() => {
     const sec = parseFloat(secNum(l)), col = normC(l.color);
     return (reglas || []).find(r => normC(r.de.color) === col && parseFloat(r.de.secc) === sec) || null;
   }
-  // ---- cables que no van al arnés de la WPC (fuera): el motivo, o null si va
-  function motivoFuera(f, cfg) {
+  // ---- cables que no van al arnés de la WPC (fuera): el motivo, o null si va. e8l (lateralInfo): adónde va de verdad
+  // un cable que sale de la bandeja (estación E8)
+  function motivoFuera(f, cfg, e8l) {
     const FU = cfg.fuera || {}, l = f.l, sec = parseFloat(f.sec), txt = `${l.origen ?? l.a ?? ''} ${l.destino ?? l.b ?? ''}`;
     const re_ = k => { const s = FU[k]; try { return s ? new RegExp(s, 'i') : null; } catch (e) { return null; } };
     if (!f.sec) return 'sin sección (malla, tierra o cable de campo)';
@@ -158,6 +173,12 @@ const WpcCore = (() => {
     if (rc && rc.test(txt)) return 'comunicación';
     if (rs && rs.test(txt)) return 'va a una solenoide';
     if (l.estacion === 'CAMPO' || (rk && rk.test(txt)) || /^s\/n\b/i.test(l.num || '')) return 'va a campo';
+    // sale de la bandeja a un aparato que no es de la puerta ni de la placa (zona hidráulica, batería, solenoides, PT 001:
+    // lo dice la E8; el texto de la fila solo dice «→ LI»): la WPC no lo corta (el taller, 2026-10-09)
+    if (FU.no_puerta !== false && f.tipo !== 'pendiente' && e8l && e8l.sale) {      // (la bandeja y otra estación)
+      const x = e8l.sale[`${l.num}|${sinLado(l.origen)}`];
+      if (x && x.tipo === 'no_puerta') return 'no va a la puerta ni a la placa: no lo corta la WPC';
+    }
     return null;
   }
   // ---- giro de los termos (señalizadores) de las dos puntas, "origen|destino" en grados (columna 22 del CSV)
@@ -206,7 +227,7 @@ const WpcCore = (() => {
       f.rg = reemplazo(f.l, cfg.reemplazos);       // regla: otro color y sección para la WPC
       f.sec = f.rg ? String(f.rg.a.secc).replace(',', '.') : secNum(f.l);
       // no va al arnés (sin sección, 35 mm², comunicación, solenoide, campo) salvo que se tilde a mano
-      f.motivo = motivoFuera(f, cfg);
+      f.motivo = motivoFuera(f, cfg, e8l);
       f.fuera = excl.has(f.k) || (!!f.motivo && !incl.has(f.k));
       f.calc = largo(f, cfg, e8l, topo); f.largo = mLargo[f.k] != null ? +mLargo[f.k] : f.calc.mm;
       f.color = mColor[f.k] || (cfg.colores || {})[f.rg ? f.rg.a.color : f.l.color] || '';
@@ -230,27 +251,58 @@ const WpcCore = (() => {
     return Math.round(mm * escala);
   }
   function lateralInfo(estacion8) {
-    const e8 = estacion8 || {}, sale = {}, par = {};
+    const e8 = estacion8 || {}, sale = {}, par = {}, transito = {};
+    // los que van DE VERDAD a la puerta o a la placa: los de hacia_puerta que no son 'sin_aparato' (aparato de la vista de la
+    // puerta o de una categoría de la puerta de e8_grupos.json). Lo demás de «puerta / placa» (la zona hidráulica, la
+    // batería, las solenoides, sin dibujar o dibujadas en el fondo) no va a la puerta. Una E8 de antes de E8-4 (sin
+    // hacia_puerta) no lo distingue: todo va a la puerta, como entonces.
+    const hp = Array.isArray(e8.hacia_puerta) ? e8.hacia_puerta : null;
+    const aPuerta = hp ? new Set(hp.filter(x => !x.sin_aparato).map(x => x.clave)) : null;
     (e8.laterales || []).forEach(L => {
       L.pasos.forEach(p => p.lineas.forEach(x => {
         if (x.largo_mm == null) return;
         const v = { tipo: 'lateral', mm: x.largo_mm, can: canaleta(x.ruta, L.ductos, L.escala), borne: x.origen, donde: L.nombre.toLowerCase(), puerta: x.otra === 'puerta / placa',
-          directo: !!x.directo };      // (del cargador derecho a la bornera de abajo, sin el ducto: E8-6)
+          directo: !!x.directo, lado: L.lado };      // (directo: del cargador derecho a la bornera de abajo, sin el ducto: E8-6)
         if (x.otra === 'bandeja principal') sale[`${x.num}|${sinLado(x.destino)}`] ??= v;   // de la bandeja (E6) a la lateral
         else par[x.clave] = v;                                                         // misma lateral, o lateral ↔ puerta
       }));
+      // tránsito hacia la puerta por la lateral de la bisagra (E8-4, solo con la bisagra elegida): la canaleta de la
+      // entrada a la lateral hasta la salida a la puerta, para los que vienen de la bandeja principal
+      const T = L.transito;
+      if (T && T.ruta) {
+        const can = canaleta(T.ruta, L.ductos, L.escala);
+        (T.cables || []).forEach(x => { if (x.desde === 'E6') transito[x.clave] = { can, lado: L.lado, donde: L.nombre.toLowerCase() }; });
+      }
     });
     (e8.afuera || []).forEach(g => g.zona === 'puerta / placa' && g.cables.forEach(x => {
-      if (x.otra_donde === 'bandeja principal') sale[`${x.num}|${sinLado(x.otra)}`] ??= { tipo: 'puerta', donde: x.borne };
+      if (x.otra_donde !== 'bandeja principal') return;
+      sale[`${x.num}|${sinLado(x.otra)}`] ??= aPuerta && !aPuerta.has(x.clave) ? { tipo: 'no_puerta', donde: x.borne }
+        : { tipo: 'puerta', donde: x.borne, por: transito[x.clave] || null };
     }));
     return { sale, par };
   }
   // largo = recorrido por las canaletas + margen (pelado, peinado) y, si sale de la bandeja, lo que necesita en LI/LD,
   // más el AGREGADO del taller según adónde va (en bandeja / a LI / a puerta y placa), a más de los márgenes de siempre
+  // largo total de un cable de comunicación cargado en la configuración (por producto), o null. 'cable' = el tramo
+  // («número|origen|destino», la clave de la fila) o el número solo (vale para todos sus tramos); manda el tramo
+  function largoComunicacion(cfg, f) {
+    const t = Array.isArray(cfg.largos_comunicacion) ? cfg.largos_comunicacion : [];
+    const ok = c => c && c.mm !== null && c.mm !== '' && Number.isFinite(+c.mm);
+    const k = key(f.l), n = String(f.l.num ?? '').trim(), es = v => c => ok(c) && String(c.cable ?? '').trim() === v;
+    const x = t.find(es(k)) || t.find(es(n));
+    return x ? +x.mm : null;
+  }
   function largo(f, cfg, e8l, topo) {
     const P = k => num(cfg, k);
     e8l = e8l || { sale: {}, par: {} }; topo = topo || {};
     const l = f.l, r = P('redondeo') || 1, up = v => Math.ceil(v / r) * r;
+    // cable de comunicación con su largo total cargado (por producto): ese largo, en todas sus filas
+    const mot = f.motivo !== undefined ? f.motivo : motivoFuera(f, cfg, e8l);
+    const lc = mot && /^comunicación/.test(mot) ? largoComunicacion(cfg, f) : null;
+    if (lc != null) {
+      const de = (cfg._de || {}).largos_comunicacion, nivel = de === 'trabajo' ? 'este trabajo' : de === 'global' ? 'todos los productos' : 'el producto';
+      return { mm: lc, como: `largo total del cable de comunicación ${lc} (cargado en ${nivel})` };
+    }
     const AG = { bandeja: P('agregado_bandeja'), LI: P('agregado_LI'), puerta: P('agregado_puerta') };
     const mas = k => AG[k] ? ` + agregado ${k === 'LI' ? 'a LI' : k === 'puerta' ? 'puerta / placa' : 'en bandeja'} ${AG[k]}` : '';
     if (f.tipo === 'pendiente') {
@@ -264,17 +316,28 @@ const WpcCore = (() => {
     }
     if (!l.largo_mm) return { mm: P('largo_sin_ruta'), como: 'sin ruta en el topográfico: valor fijo', falta: true };
     const x = e8l.sale[`${l.num}|${sinLado(l.origen)}`];
-    if (x && (x.tipo === 'lateral' || x.tipo === 'puerta')) {
-      // regla del taller (2026-10-06): acometida fija del borne a la canaleta + lo que corre dentro de las canaletas de la bandeja
+    if (x && (x.tipo === 'lateral' || x.tipo === 'puerta' || x.tipo === 'no_puerta')) {
+      // regla del taller (2026-10-09): acometida fija del borne a la canaleta + lo que corre dentro de las canaletas de la bandeja
       const can = canaleta(l.ruta, topo.ductos, topo.escala), canT = can != null ? can : l.largo_mm;
       const b = `${P('acometida')} (borne → canaleta) + canaleta de la bandeja ${canT}${can == null ? ' (ruta entera)' : ''}`;
+      // la curva de la posterior a la lateral por donde pasa (LI / LD; sin curva_LD en la configuración, la de LI)
+      const lado = s => (s === 'LD' || s === 'LI') ? s : (l.destino === 'LD' ? 'LD' : 'LI');
+      const curva = s => s === 'LD' && cfg.curva_LD != null && cfg.curva_LD !== '' ? P('curva_LD') : P('curva_LI');
       if (x.tipo === 'lateral') {
-        const cl = x.can != null ? x.can : x.mm;
-        return { mm: up(P('acometida') + canT + P('curva_LI') + cl + P('acometida_LI')),
-          como: `${b} + curva a ${l.destino} ${P('curva_LI')} + canaleta de la ${x.donde} ${cl} + ${P('acometida_LI')} (canaleta → ${x.borne || 'borne'}), redondeado a ${r}` };
+        const s = lado(x.lado), cl = x.can != null ? x.can : x.mm;
+        return { mm: up(P('acometida') + canT + curva(s) + cl + P('acometida_LI')),
+          como: `${b} + curva a ${s} ${curva(s)} + canaleta de la ${x.donde} ${cl} + ${P('acometida_LI')} (canaleta → ${x.borne || 'borne'}), redondeado a ${r}` };
       }
+      if (x.tipo === 'puerta') {
+        const s = lado(x.por && x.por.lado), cl = x.por && x.por.can != null ? x.por.can : 0;
+        const tr = x.por && x.por.can != null ? ` + canaleta de la ${x.por.donde} hasta la puerta ${cl}` : ' (sin el recorrido por la lateral: falta elegir la bisagra en la E8)';
+        return { mm: up(P('acometida') + canT + curva(s) + cl + P('puerta')),
+          como: `${b} + curva a ${s} ${curva(s)}${tr} + puerta / placa ${P('puerta')} (${x.donde}), redondeado a ${r}` };
+      }
+      // no va a la puerta ni a la placa (zona hidráulica, batería, solenoides...): la WPC no lo corta (fuera del arnés);
+      // el largo para cortarlo a mano, el de antes
       return { mm: up(P('acometida') + canT + P('puerta')),
-        como: `${b} + puerta / placa ${P('puerta')} (${x.donde}), redondeado a ${r}` };
+        como: `${b} + puerta / placa ${P('puerta')} (${x.donde}: no va a la puerta ni a la placa, se corta a mano; largo estimado como antes), redondeado a ${r}` };
     }
     // queda en la bandeja, o sale a LI / LD sin saber adónde (sin estación E8): agregado según el caso
     const ext = l.destino === 'LI' ? P('extra_LI') : l.destino === 'LD' ? P('extra_LD') : 0;

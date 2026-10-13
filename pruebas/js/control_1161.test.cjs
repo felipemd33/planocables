@@ -1,10 +1,11 @@
 'use strict';
 /* Control del cable 1161 del PAE (11PS1 TB2 1 (-V) → LI, muere en 12XPS 4 de la bandeja lateral). Regla del taller del
-   2026-10-06: acometida 75 + canaleta de la bandeja + curva_LI 100 + canaleta de la lateral + acometida_LI 150.
+   2026-10-09: acometida 75 + canaleta de la bandeja + curva_LI 100 + canaleta de la lateral + acometida_LI 75 (canaleta →
+   borne o aparato; hasta el 2026-10-06 eran 150).
    - PAE regenerado (pruebas/bases/ins_76884.json, sin salidas elegidas: sale por la regla del taller, por arriba):
-     75 + 297 + 100 + 269 + 150 = 891 → 900;
+     75 + 297 + 100 + 269 + 75 = 816 → 850 (antes 891 → 900);
    - PAE del usuario (fixtures/pae_usuario, «Todos los LI» elegido a mano por [573.3, 448], más abajo): la canaleta de la
-     bandeja da 490 → 75 + 490 + 100 + 269 + 150 = 1084 → 1100. */
+     bandeja da 490 → 75 + 490 + 100 + 269 + 75 = 1009 → 1050 (antes 1084 → 1100). */
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const C = require('./comun.cjs');
@@ -22,18 +23,18 @@ const fila1161 = async ins => {
   return fs[0];
 };
 
-test('1161 del PAE regenerado (salida del taller) = 75 + 297 + 100 + 269 + 150 = 891 → 900', async () => {
+test('1161 del PAE regenerado (salida del taller) = 75 + 297 + 100 + 269 + 75 = 816 → 850', async () => {
   const ins = C.leer(C.TRABAJOS['76884']);
   assert.deepEqual(ins.salidas.grupos || [], [], 'FALLA: el PAE regenerado no tiene que tener salidas elegidas');
   const f = await fila1161(ins);
   const [ac, can, curva, lat, acLI, red] = partes(f);
-  assert.deepEqual([ac, can, curva, lat, acLI, red], [75, 297, 100, 269, 150, 50]);
-  assert.equal(ac + can + curva + lat + acLI, 891);
-  assert.equal(f.largo, 900);
-  assert.equal(f.largo, Math.ceil(891 / red) * red);
+  assert.deepEqual([ac, can, curva, lat, acLI, red], [75, 297, 100, 269, 75, 50]);
+  assert.equal(ac + can + curva + lat + acLI, 816);
+  assert.equal(f.largo, 850);
+  assert.equal(f.largo, Math.ceil(816 / red) * red);
 });
 
-test('1161 del PAE del usuario (salida a LI elegida a mano) = 75 + 490 + 100 + 269 + 150 = 1084 → 1100', async () => {
+test('1161 del PAE del usuario (salida a LI elegida a mano) = 75 + 490 + 100 + 269 + 75 = 1009 → 1050', async () => {
   const ins = C.leer(C.TRABAJOS.pae_usuario);
   const li = (ins.salidas.grupos || []).find(g => g.aplica === 'LI');
   assert.ok(li && JSON.stringify(li.puntos) === '[[573.3,448]]', 'FALLA: el fixture tiene que tener «Todos los LI» por [573.3, 448]');
@@ -41,6 +42,6 @@ test('1161 del PAE del usuario (salida a LI elegida a mano) = 75 + 490 + 100 + 2
   assert.equal(l.salida, 'li');
   const f = await fila1161(ins);
   const [ac, can, curva, lat, acLI] = partes(f);
-  assert.deepEqual([ac, can, curva, lat, acLI], [75, 490, 100, 269, 150]);
-  assert.equal(f.largo, 1100);
+  assert.deepEqual([ac, can, curva, lat, acLI], [75, 490, 100, 269, 75]);
+  assert.equal(f.largo, 1050);
 });

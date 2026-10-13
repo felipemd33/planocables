@@ -20,9 +20,32 @@ test('.wpc real: zip de una sola entrada, que se llama como el archivo, con CRC 
   assert.ok(r.bytes[0] === 0x3C, 'FALLA: el XML real empieza con BOM o declaración');
 });
 
-test('.wpc: el XML emulado desde el CSV del PAE del usuario es IDÉNTICO al real, byte a byte', async () => {
-  const real = X.leerWpc(C.WPC_REAL);
+// El .wpc real del PAE del usuario se armó el 2026-10-06, con la regla de largos de entonces (acometida_LI 150 y la puerta
+// sin la curva). Con la regla del 2026-10-09 cambia SOLO la columna 7 (largo) de los cables que salen a una lateral o a
+// la puerta; con los largos del .wpc real puestos a mano (ins.wpc.largo, como en la ventana) el XML es IDÉNTICO.
+test('.wpc: el XML emulado desde el CSV del PAE del usuario solo cambia el largo de los que salen a una lateral o a la puerta (regla del 2026-10-09)', async () => {
+  const real = X.leerWpc(C.WPC_REAL), b = X.filasXml(real.xml);
   const r = await C.correrWpc(C.leer(C.TRABAJOS.pae_usuario));
+  const fs_ = r.filas.filter(f => !f.fuera), a = X.filasXml(X.xmlDesdeCsv(r.csv, PROYECTO));
+  assert.equal(a.length, b.length, 'FALLA: cambió la cantidad de filas');
+  let n = 0;
+  a.forEach((f, i) => {
+    const ks = f.map((v, k) => (v !== b[i][k] ? k + 1 : 0)).filter(Boolean);
+    if (!ks.length) return;
+    n++;
+    assert.deepEqual(ks, [7], `FALLA: fila ${i + 1} (${f[11]}): cambian las columnas ${ks}`);
+    assert.match(fs_[i].como, /curva a L[ID] /, `FALLA: fila ${i + 1} (${f[11]}): cambia el largo y no sale a una lateral ni a la puerta: ${fs_[i].como}`);
+  });
+  assert.ok(n > 0, 'FALLA: con la regla del 2026-10-09 tiene que cambiar algún largo');
+});
+
+test('.wpc: el XML emulado desde el CSV del PAE del usuario, con los largos del .wpc real, es IDÉNTICO al real, byte a byte', async () => {
+  const real = X.leerWpc(C.WPC_REAL), b = X.filasXml(real.xml);
+  const ins = C.leer(C.TRABAJOS.pae_usuario);
+  const fs0 = (await C.correrWpc(ins)).filas.filter(f => !f.fuera);
+  ins.wpc = Object.assign({}, ins.wpc); ins.wpc.largo = Object.assign({}, ins.wpc.largo);
+  fs0.forEach((f, i) => { ins.wpc.largo[f.k] = +b[i][6]; });
+  const r = await C.correrWpc(ins);
   const xml = X.xmlDesdeCsv(r.csv, PROYECTO);
   if (!Buffer.from(xml, 'utf8').equals(real.bytes)) {
     const a = X.filasXml(xml), b = X.filasXml(real.xml);
