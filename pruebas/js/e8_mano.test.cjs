@@ -86,11 +86,13 @@ test('E8-6: mover un cable de grupo, sacarlo y armar un grupo nuevo de placa', a
   R.manual.nuevos.push({ id: 'nuevo:prueba', nombre: 'Placa 21PCB01 · otro', categoria: 'placa', aparato: '21PCB01' });
   const k2 = Object.keys(R.cables).find(x => R.cables[x].num === '2111');
   R.manual.mover[k2] = 'nuevo:prueba';
-  R.manual.grupos['nuevo:prueba'] = { tramos: [{ vista: 'FONDO', puntos: [[500, 500], [600, 500]] }, { vista: 'NO EXISTE', puntos: [[1, 1], [2, 2]] }] };
+  // (desde E8-8 la placa se dibuja a mano solo en la PUERTA: el tramo del fondo se conserva pero no se usa)
+  R.manual.grupos['nuevo:prueba'] = { tramos: [{ vista: 'PUERTA', puntos: [[500, 500], [600, 500]] }, { vista: 'FONDO', puntos: [[500, 500], [600, 500]] },
+    { vista: 'NO EXISTE', puntos: [[1, 1], [2, 2]] }] };
   E8M.efectivo(R);
   const g = R.grupos.find(x => x.id === 'nuevo:prueba');
-  assert.ok(g && g.n === 1 && g.dibujado && g.tramos.length === 1 && !g.auto && R.grupos[R.grupos.length - 1] === g,
-    'FALLA: el grupo nuevo de placa (con su cable, su recorrido en una vista que existe, al final de la lista)');
+  assert.ok(g && g.n === 1 && g.dibujado && g.tramos.length === 1 && g.tramos[0].vista === 'PUERTA' && g.tramos_fuera === 1 && !g.auto && R.grupos[R.grupos.length - 1] === g,
+    'FALLA: el grupo nuevo de placa (con su cable, su recorrido en la puerta, el del fondo sin usar, al final de la lista)');
 });
 
 // (pulido 2026-10-09) «＋ Grupo de placa» con otro grupo elegido toma la placa del trabajo (no queda «Placa · grupo N»

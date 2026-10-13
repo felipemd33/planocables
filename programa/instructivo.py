@@ -1627,7 +1627,8 @@ def rutear_salidas(lineas, topo, grupos):
     """vuelve a rutear los cables que salen a LI / LD con las salidas elegidas a mano, sin rearmar el instructivo
     (vista previa del editor de salidas): sale del punto del borne de origen (marca_o) por el lado de su paso, igual
     que en build. lineas: las del instructivo (num, destino o lateral, marca_o, lado, color, secc, intrinseco).
-    -> [{ruta, largo_mm, salida}] en el mismo orden (ruta None si no se pudo)"""
+    -> [{ruta, largo_mm, salida, salteados}] en el mismo orden (ruta None si no se pudo; salteados = los numeros de los
+    puntos de paso del grupo que se saltean porque el cable entraria a una canaleta sin salida y volveria)"""
     from ruteo import Net, route_line, length
     net = Net(topo['ductos']) if topo.get('ductos') else None
     out = []
@@ -1638,11 +1639,12 @@ def rutear_salidas(lineas, topo, grupos):
             out.append(dict(ruta=None, largo_mm=None, salida=None)); continue
         ex = l['intrinseco'] if 'intrinseco' in l else l.get('color') == 'Azul'   # (instructivo viejo: por el color)
         g = grupo_salida(dict(l, lateral=lat, intrinseco=ex), grupos)
+        salt = []
         ruta = route_line(net, (float(po[0]), float(po[1])), 0 if l.get('lado') == 'arriba' else 1, None, None, ex, True,
                           sale_abajo(l), lado_li='der' if lat == 'LD' else 'izq', por=puntos_salida(g) if g else None,
-                          o_lat=l.get('sale_hacia'))
+                          o_lat=l.get('sale_hacia'), salteados=salt)
         largo = int(round(length(ruta) * topo['escala'] / 10.0) * 10) if ruta and topo.get('escala') else None
-        out.append(dict(ruta=ruta, largo_mm=largo, salida=g.get('id') if g else None))
+        out.append(dict(ruta=ruta, largo_mm=largo, salida=g.get('id') if g else None, salteados=salt if ruta else []))
     return out
 
 
@@ -2108,8 +2110,11 @@ def build(res, lay, max_lineas=7):
             g = grupo_salida(l, grupos_sal)            # salida elegida a mano para este cable (o su lateral)
             if g:
                 l['salida'], por = g.get('id'), puntos_salida(g)
+        salt = []           # (puntos de paso en una canaleta sin salida: se saltean, sin ir y volver; la web lo avisa)
         ruta = route_line(net, po[:2], so, None if to_li else pd[:2], sd, tipo[id(l)], to_li, abajo, lado_li='der' if l['destino'] == 'LD' else 'izq', por=por,
-                          o_lat=l.get('sale_hacia'), d_lat=l.get('_entra_d'))
+                          o_lat=l.get('sale_hacia'), d_lat=l.get('_entra_d'), salteados=salt)
+        if ruta and salt:
+            l['salteados'] = salt
         if ruta:
             l['ruta'] = ruta
             if lay.get('escala'):

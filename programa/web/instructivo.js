@@ -237,6 +237,12 @@ const Ins = (() => {
   const salPill = l => { const g = LAT(l.destino) && l.salida && typeof Sal !== 'undefined' ? Sal.grupoDe(l) : null;
     return g ? ` <span class="pill sal" title="${esc(`Sale de la bandeja por el recorrido elegido para «${g.nombre}» (🧭 Salida para cambiarlo)`)}">salida elegida</span>` : ''; };
 
+  // (2026-10-13) puntos de paso de la salida elegida que se saltean: el cable entraría a una canaleta sin salida y volvería
+  // por el mismo camino (instructivo.build: l.salteados, los números de los puntos)
+  const saltTxt = l => { const s = l.salteados || []; if (!s.length) return '';
+    const g = LAT(l.destino) && typeof Sal !== 'undefined' ? Sal.grupoDe(l) : null, de = g ? ` de «${g.nombre}»` : '';
+    return s.length > 1 ? `Los puntos de paso ${s.join(', ')}${de} quedan en una canaleta sin salida: se saltean` : `El punto de paso ${s[0]}${de} queda en una canaleta sin salida: se saltea`; };
+
   /* ---- lista (un cable por paso) ---- */
   function cardHtml(l, g, i, n) {
     const warn = /\?/.test(l.origen + l.destino);
@@ -562,6 +568,10 @@ const Ins = (() => {
     $('#cvOrig').innerHTML = esc(l.origen) + confPill(l, 'o'); $('#cvDest').innerHTML = esc(l.destino) + confPill(l, 'd') + altPill(l, true) + salPill(l);
     $('#cvOrig').title = funcTxt(l, 'o'); $('#cvDest').title = funcTxt(l, 'd');
     $('#cvLen').textContent = l.largo_mm ? `≈ ${l.largo_mm} mm por canaleta` : '';
+    // (2026-10-13) aviso: un punto de paso de la salida elegida se saltea (canaleta sin salida: el cable no va y vuelve)
+    const sa = saltTxt(l);
+    $('#cvAviso').hidden = !sa;
+    $('#cvAviso').innerHTML = sa ? `<b>⚠ ${esc(sa)}</b> <span>(el cable no entra a esa canaleta para volver por el mismo camino; cambialo en 🧭 Salida, tecla S)</span>` : '';
     $('#cvOk').checked = !!l.hecho;
     $('#cvAdjD').disabled = LAT(l.destino);
     $('#cvAdjD').hidden = LAT(l.destino); $('#cvSal').hidden = !LAT(l.destino);   // a LI / LD: en su lugar, la salida

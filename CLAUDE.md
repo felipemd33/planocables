@@ -28,13 +28,18 @@ Lee planos eléctricos vectoriales y hace dos cosas:
       `accesorios`, `topo` (`region`, `escala`, `ductos`, `rieles`, `comp`, `filas`), `mapeo`, `estacion8`, `salidas`;
     - cada línea: `num`, `cable`, `color`, `secc`, `origen`, `destino`, `ruta`, `marca_o` / `marca_d`, `exacto_o` /
       `exacto_d`, `conf_o` / `conf_d`, `largo_mm`, `puente`, `agregado`, `componente`, `func_o` / `func_d`, `extremo`,
-      `extremo_tag`;
+      `extremo_tag`; `salteados` (E8-8, solo cuando hay: los números de los puntos de paso de la salida elegida que se
+      saltean porque el cable entraría a una canaleta sin salida y volvería);
     - `resultado.json`: `cables`, `detalle`, `sin_numero`;
     - `ins['estacion8']` (VECTOR arma con esto los pasos de su E8, propuesta del 2026-10-09):
       `laterales[].pasos[].lineas[]` (`num`, `origen`, `destino`, `otra`, `empalme` con su `texto`, `pelado` y
-      `confirmar`, `directo`, `conf_o`) y `afuera[]` (`tag`, `zona`, `cables[]`: `borne`, `pin`, `otra`, `otra_donde`).
-      `empalme`, `directo` y `conf_o` solo están cuando corresponden. Si `version` es 0 (la E8 falló), VECTOR usa
+      `confirmar`, `directo`, `conf_o`, `salteados`) y `afuera[]` (`tag`, `zona`, `cables[]`: `borne`, `pin`, `otra`,
+      `otra_donde`). `empalme`, `directo`, `conf_o` y `salteados` solo están cuando corresponden. Desde E8-8 las líneas de
+      las laterales de un cable de la placa ya no llevan `grupo_mano` (van por su ruta automática). Si `version` es 0 (la E8 falló), VECTOR usa
       `extremo` / `ta` / `tb`;
+    - `programa/recorridos_e8.json` (lo lee `estacion8_mano.cargar_y_aplicar`): desde E8-8 un tramo puede llevar
+      `curvas` (índices de `puntos`) y `desde: 'entrada'` (el haz de la placa); una copia del motor de antes los descarta
+      al normalizar (el haz queda como un recorrido de antes, sin la entrada);
     - `num` es la clave de todo en VECTOR (ediciones, WPC, E8): no cambiar cómo se arma, ni el texto de `origen` /
       `destino`, sin avisar;
   - los colores con su nombre canónico (`COLORES` / `COLOR_INI`);
@@ -67,7 +72,7 @@ Lee planos eléctricos vectoriales y hace dos cosas:
 | `programa/eplan.py` | Planos de **EPLAN** (PDF con texto real): `es_eplan`, `process` (lista de conexiones → conductores y listado, misma interfaz que `core.process`), `layout` (hoja de bandejas: rieles, canaletas, placas, etiquetas → mismo formato que `topo.layout`) y `aplicar_puntos` (mapeo verificado). `core.process` y `topo.layout` derivan solos a este módulo. |
 | `programa/mapeos_verificados/` | **Dato** por producto EPLAN: `<documento>_rev<revisión>.json` con el punto exacto y el texto del taller de cada punta (`'<designación EPLAN>#<cable>'`), los aparatos que se cablean en E8 (zona hidráulica, batería, solenoides) y las canaletas de intrínsecos. Se elige por el documento y la revisión del rótulo. Se arma con `2 - Resultados/76884 mSafe2+ PAE/mapeo/exportar_al_programa.py`. |
 | `programa/web/*.js` | Interfaz: `app.js` (listado y visor del funcional), `instructivo.js` (pestaña instructivo y visor de cablear), `auditoria.js`, `salidas.js` (editor de salidas a LI / LD), `producto.js` (línea «Producto» y su asistente), `wpc.js` (pantalla de la lista WPC). |
-| `programa/web/nucleo/` | Núcleo JS sin DOM (carga con `<script>` en el navegador y con `require` en Node): `wpc_core.js` (la lógica de la lista WPC: configuración por niveles, filas, largos, `canaleta()`, CSV, XML y nombre del `.wpc`) y `zip.js` (zip mínimo de una entrada para el `.wpc`). |
+| `programa/web/nucleo/` | Núcleo JS sin DOM (carga con `<script>` en el navegador y con `require` en Node): `wpc_core.js` (la lógica de la lista WPC: configuración por niveles, filas, largos, `canaleta()`, CSV, XML y nombre del `.wpc`), `zip.js` (zip mínimo de una entrada para el `.wpc`) y `haz.js` (E8-8: el haz de la placa en la puerta, sus curvas y el abanico de cada cable a su pin). |
 | `programa/proyector.py`, `web/proyector.html`, `proyector.js`, `proyector.css` | **Pestaña 📽 Proyector** (`/proyector/<id>`, botón 📽 en el instructivo y en el visor, tecla P): proyecta sobre la bandeja REAL solo las canaletas y el cable actual (origen verde lima, destino cian). Sigue al visor «cablear de a uno» por `BroadcastChannel('planocables')` y le devuelve las teclas → ← Espacio. Calibración por homografía (`matrix3d`) con los 4 **orificios de montaje** de la placa: `proyector.orificios` los busca en el dibujo (símbolo de cada esquina; centro = mediana de las mediatrices de sus segmentos), con 🎯 en el visor se marcan a mano. Ventana de texto (puntas, terminal, a dónde va) movible y de tamaño ajustable, que arranca en la parte vacía de la bandeja. Todo se guarda en `ins['proyector']` por `GET/PUT /api/trabajo/<id>/proyector` (la ventana principal no pisa esa sección). |
 | `1 - Planos/` | Planos originales. `Catalogo (referencia)/`: 8 productos con su orden de montaje SAP. `Producto nuevo/`: mSafe2+ PAE (EPLAN). |
 | `2 - Resultados/` | Salidas. `76884 mSafe2+ PAE/`: mapeo verificado del producto EPLAN (ver abajo). |
@@ -93,6 +98,10 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     su lateral). Recorrido = puntos por donde pasan y, el último, por donde salen. Se guarda en `ins['salidas']`, se
     conserva al regenerar (`instructivo.grupo_salida`) y la vista previa usa `/instructivo/salidas`
     (`instructivo.rutear_salidas`, sin rearmar). Los intrínsecos no entran en «todos»: se cambian eligiéndolos en un grupo.
+    **Sin idas y vueltas** (2026-10-13, E8-8): un punto de paso que haría que el cable entre a una canaleta y vuelva por
+    el mismo camino (canaleta sin salida, o un clic al costado del camino) se saltea y ese tramo se recorta
+    (`ruteo.Net.por_paradas`; la línea lleva `salteados`); el visor y el editor 🧭 lo avisan («el punto de paso 1 de
+    «Todos los LI» queda en una canaleta sin salida: se saltea»). Un recorrido que da la vuelta por otro camino no se toca.
     Al cargar un topográfico (o las bandejas del mismo PDF de EPLAN) se borran las salidas viejas y queda
     `salidas.preguntar`: la primera vez que se abre el instructivo, un asistente pregunta una sola vez la salida de LI y la de LD.
 - **Un tag nombra los bornes que tiene a su DERECHA** hasta el próximo tag. En el funcional, con la bornera en columna,
@@ -254,7 +263,9 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     bandeja principal con lo dibujado alrededor: la zona hidráulica; imagen `/e8/fondo.png`); `web.gen_instructivo` le
     suma lo del taller (`estacion8_mano.cargar_y_aplicar`: grupos, miembro, manual, avisos) y marca `grupo_mano` en las
     líneas (laterales, puerta y tablas). **La ruta automática de las laterales queda en la línea (la usa la WPC); el visor
-    no la dibuja para un cable con grupo. La WPC no usa estos largos.** Recorrido = TRAMOS por vista ({vista, puntos}),
+    no la dibuja para un cable con grupo. La WPC no usa estos largos.** Desde E8-8 la **placa** se dibuja a mano solo en
+    la PUERTA, como un HAZ que arranca en la entrada y se abre en abanico a los pines: en las laterales sus cables van por
+    la ruta automática (ver E8-8). Recorrido = TRAMOS por vista ({vista, puntos}; el haz además `curvas` y `desde`),
     con 🧲 pegar al eje de la canaleta. Correcciones: `mover` {clave: grupo | '' = sin grupo, ruteo automático} y
     `nuevos` (grupos de placa). **Se guarda POR PRODUCTO** (código + número y revisión del topográfico de
     `ins['producto']`) en `programa/recorridos_e8.json` (`PLANOCABLES_RECORRIDOS_E8` en las pruebas; escritura atómica con
@@ -308,12 +319,70 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     lo trae (VECTOR copia archivo por archivo) arma la E8 igual, con los cables en la franja y un aviso. Pantalla: la
     punta en el pin con su terminal (no la franja), la aclaración junto al pin del cable actual, en la tabla debajo del
     pin, en el visor («llega al pin 42 de 21PCB01 · …») y en la hoja impresa; el grupo de placa sigue siendo de ruteo a
-    mano: cada cable va del FINAL del tramo común dibujado a su pin (`finTramo`) y, sin dibujar, la pastilla del grupo
-    (tarjeta, tabla con `pin_puerta`, visor), el dibujo y el editor dicen que falta «solo el tramo común». E6, el listado
-    y la WPC no cambian. TPT:
+    mano: cada cable va del FINAL del tramo común dibujado a su pin (`finTramo`; desde E8-8, el ABANICO del haz) y, sin
+    dibujar, la pastilla del grupo (tarjeta, tabla con `pin_puerta`, visor), el dibujo y el editor dicen que falta «el
+    haz» (antes «solo el tramo común»). E6, el listado y la WPC no cambian. TPT:
     los 22 cables de 21PCB01 con su pin (alta); 66817: los 27; 75287: la placa sin etiqueta es 21PCB01, 35 cables a su
     pin (a confirmar; 46DB1 → 21PCB01 30 / 31 van de un aparato de la puerta al otro); PAE: sin vista de la puerta (el
     funcional de EPLAN sí escribe la función del pin, pero el lector de EPLAN no guarda el dibujo del símbolo: queda).
+  - **Etapa E8-8 «placa en las laterales y sin idas y vueltas» (2026-10-13, pedido del taller con el PAE 6a5c9cb6a473):**
+    - **Visor:** el visor de a uno de E8 (laterales, puerta; y el de a uno de un grupo en `e8mano.js`) dibuja SOLO el
+      recorrido a mano del grupo del cable actual; los de los otros grupos, nunca (antes se veía, por ejemplo, el de
+      «Batería 4 / 6 mm²» con un cable directo del cargador). En el mapa de la pestaña quedan, tenues (`e8-tenue`); al
+      editar en ✏ Ruteo a mano, finos.
+    - **Sin idas y vueltas:** como en la salida a LI / LD de E6 (ver arriba), en la entrada / salida a la puerta / grupo
+      de cables elegidos de una lateral y en el haz «Pasan hacia la puerta» (`ruta_transito`): un punto de paso en una
+      canaleta sin salida se saltea (`salteados` en la línea y en la vista previa `/e8/recorridos` y `/e8/punto`); el
+      banner del visor (`#e8vDeriv`) y 🧭 lo avisan y marcan el punto en rojo. PAE del taller: el 1161 baja derecho a LI
+      (1140 → 550 mm); con la salida «Todos los LI» del taller cambian 31 cables de E6 y 10 de otra estación (los que
+      volvían); la WPC baja 15,8 m (tabla en `pruebas/bases/wpc/cambios_e8_8.md`). Los planos de las pruebas no tienen
+      salidas con puntos de paso: sus bases de E6 y los goldens de la WPC no cambian.
+    - **La placa en las laterales:** categoría con `"solo_puerta": true` en `web/e8_grupos.json` (la placa): su ruteo a
+      mano es SOLO el de la vista de la PUERTA (el haz, más abajo). En las bandejas laterales (y el fondo) sus cables
+      van por la ruta AUTOMÁTICA, por las canaletas hasta la salida a la puerta (regla de E8-2; sin bisagra elegida, por
+      la entrada), y se dibujan: sus líneas de las laterales no llevan `grupo_mano` (`estacion8_mano.anotar(e8, miembro,
+      R)`); en la puerta y las tablas sí. Lo que el taller dibujó antes para la placa en otra vista se conserva en
+      `recorridos_e8.json` pero no se usa (el grupo lleva `tramos_fuera` y va un aviso; el editor lo dice); sin la vista
+      de la puerta (el PAE) el grupo lleva `sin_puerta` («sin vista de la puerta», no cuenta como «sin dibujar»).
+      Categorías con `solo_puerta`; grupos con `solo_puerta`, `sin_puerta`, `tramos_fuera` (`estacion8.VERSION` 9 y
+      `estacion8_mano.VERSION` 2; con el haz, 10 y 3). La WPC no cambia (ya usaba la ruta automática de las laterales).
+    - **Cable de comunicación** (PAE y 75287: 2135 / 2136; TPT: 8105 / 8106): dos tramos con la misma punta en la
+      lateral izquierda. El que viene de 81XCM entra por la entrada, se EMPALMA en la bornera del cargador (12XPS 10 / 11
+      ABAJO en el PAE, 7 / 8 en el 75287: los dos tramos en el mismo borne, terminal doble; en el TPT, el WAGO de 3 del
+      RS-485 debajo de 12PS2) y el de la placa sale por la salida a la puerta (con la bisagra izquierda) hacia 21PCB01. En
+      el visor de cualquiera de los dos tramos se ve el camino entero: el otro tramo punteado (continuación), la punta
+      marcada como el empalme (`e8-union`, «empalme») y el banner «empalme en el borne: también llega el tramo de 81XCM 7
+      ARRIBA (bandeja principal) · terminal doble — el camino entero: …». 75287 sin bisagra: los dos tramos salen por la
+      entrada (240 mm), igual que antes; con la bisagra izquierda, el de la placa sale a la puerta (150 mm) y el de 81XCM
+      por la entrada (240 mm).
+    - **Haz de la placa en la puerta** (pedido del taller: «algo simple, ir indicando puntos, poder hacer una curva y que
+      al final el ruteo se pueda hacer algo automático, y al final se pueda ver como en la última foto pero con la vista
+      de plano»; foto 9: los cables suben en uno o dos haces con precintos y se abren en abanico, cada uno a su pin con su
+      manga). En ✏ Ruteo a mano, un grupo de placa en la vista de la puerta se dibuja como un **haz**: arranca SOLO en la
+      entrada a la puerta (la flecha «Entrada» de E8-4, punto verde «arranca en la entrada»; no se guarda: el tramo lleva
+      `desde: 'entrada'` y sigue a la entrada / bisagra elegidas); el taller marca puntos (🧲 al eje); **C** o **↪ Curva**
+      redondea la esquina del último punto (radio hasta un perfil, sin pasar de la mitad del tramo de al lado;
+      Mayús+clic en un punto: curva sí / no; el tramo lleva `curvas: [índices de puntos]`); Retroceso saca el último
+      punto; Enter: listo; **Esc: cancelar** (vuelve como estaba antes de dibujar); **«Usar la propuesta»** lo llena con
+      el tramo común automático de E8-4 hasta la base del abanico (`POST /api/trabajo/<id>/e8/haz` →
+      `estacion8.haz_propuesta`: de la entrada por las canaletas hasta debajo del centro de los pines del grupo, a 0,45
+      del ancho de los pines (entre 1 y 3 perfiles) de la fila de afuera, y el último perfil derecho hacia los pines; las
+      esquinas en curva). Un recorrido de antes (sin `desde`) sigue cargando como haz (de la punta más lejos de los pines
+      a la más cerca); empezar a dibujar encima pregunta si se reemplaza. **Final automático** (`web/nucleo/haz.js`,
+      `Haz.abanico`): de la punta del haz cada cable va SOLO a su pin (el de E8-7; sin pin exacto, a la franja), en
+      ABANICO: las ramas salen del haz en el orden de los pines y llegan derechas al pin (curva suave común: no se
+      cruzan); los de la fila de más adentro pasan por el hueco entre dos pines de la fila de más afuera (sin taparla) y
+      se acomodan entre las filas; el haz que llega muy cerca de los pines sigue derecho hasta donde se puede abrir.
+      **Vista final «como la foto»** (`estacion8.js` `hazDe` / `hazG`, sobre la imagen del plano de la puerta): el haz
+      grueso (ancho según la cantidad de cables) con **precintos** cada dos perfiles y uno antes del abanico, cada cable de
+      su color con su terminal (la pollera de `terminales.json`) y la **manga** blanca con el número junto al pin; la
+      aclaración del pin al pasar el mouse. Está en «Puerta y placa» (el mapa con el haz y la línea «Haz …: dibujado /
+      falta dibujarlo ✏», y la tarjeta **«Cómo queda · 21PCB01»** encuadrada en los pines y el abanico; clic en un cable:
+      el visor de a uno), en la hoja impresa, en ✏ Ruteo a mano («👁 Cómo queda») y en el visor de a uno (de la puerta y
+      del grupo: el cable actual resaltado en el haz, con su color y un borde naranja, y en su rama; los demás tenues).
+      PAE: sin vista de la puerta, la pantalla lo dice («el haz de la placa no se puede dibujar acá») y no se puede
+      dibujar ni pedir la propuesta (404). `estacion8.VERSION` 10, `estacion8_mano.VERSION` 3 (`tramo_dibujado`: con
+      `desde`, un punto ya es un recorrido). E6, el listado y la lista WPC no cambian (la WPC no usa el ruteo a mano).
 - **Cables quitados a mano** (2026-10-05, pedido del usuario: se ven en el instructivo pero no se cablean en E6): 🗑 en la
   tarjeta, 🗑 Quitar / tecla Supr en el visor, «quitar» en los pendientes. Van a `ins['quitados']` (la línea entera; los
   pendientes con `pendiente: True`), salen de los pasos, el visor, la auditoría y la WPC, y se vuelven con «volver a E6» a
@@ -448,7 +517,16 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   `--bases pruebas/bases` solo mira los `e8_*.json` (y los `layout_*.json`) y la vista previa sobre los `ins_*.json`)
   tiene que dar TODO OK. Las pruebas usan una COPIA del fixture (`PLANOCABLES_RECORRIDOS_E8`): nunca
   `programa/recorridos_e8.json`. La pantalla de E8: `node --test pruebas/js/` (`e8_empalme`, `e8_puerta`, `e8_puntos`,
-  `e8_mano`, `e8_pines.test.cjs`, con `vistaE8` y `manoE8` de `cargar_visor.cjs`).
+  `e8_mano`, `e8_pines`, `e8_e88.test.cjs`, con `vistaE8`, `manoE8` y `visorE6` de `cargar_visor.cjs`). Desde E8-8,
+  `probar_e8.py` mira además la red de prueba de `ruteo.Net.por_paradas` (canaleta sin salida, punto sobre el camino,
+  ciclo), las salidas del PAE con el recorrido del taller (el 1161), la entrada de E8 con un punto en una canaleta sin
+  salida, la placa por la ruta automática en las laterales y el cable de comunicación con y sin bisagra; y el haz de la
+  placa: «Usar la propuesta» (`haz_e88`: arranca en la entrada, pasa por la canaleta y sube derecho a la base del
+  abanico; con la bisagra a la derecha, por el borde izquierdo; PAE: nada), el formato guardado nuevo y viejo
+  (`formato_haz_e88`) y `POST /e8/haz` + PUT / GET `/e8/grupos` con el haz (`web_haz_e88`). En node,
+  `e8_haz.test.cjs`: el abanico de los 4 planos con puerta (cada rama a su pin, sin cruzarse, en el orden de los pines,
+  la fila de adentro por los huecos) con el haz llegando de abajo, de los costados, muy cerca y de arriba; «Cómo queda»
+  con las mangas y la aclaración; el visor; el editor (puntos, C, Retroceso, Esc, propuesta); el PAE y la WPC igual.
   Tabla de antes y después de la WPC: `node pruebas/js/tabla_wpc.cjs <salida.md> <título> <nombre> <ins_antes> <ins_después>`.
 
 ## Productos trabajados
@@ -530,6 +608,17 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   los que tocan la batería (no los del cargador a 12F1 / 12XP); los cables de una seccionadora que está en la lateral
   (11MS1 del 75287) también van a mano. La capa «Pasan hacia la puerta» de E8-4 los sigue mostrando aunque esos cables
   tengan grupo. En el PAE, el cargador sin lista de materiales se reconoce por las letras PS para los cables directos.
+- **E8-8 (2026-10-13), para confirmar con el usuario:**
+  - un punto de paso que hace ir y volver a algunos cables del grupo se saltea SOLO para esos (los que pasan por ahí de
+    camino lo siguen usando); en el PAE del taller, 31 de los 57 de «Todos los LI» lo saltean;
+  - el cable de comunicación: los dos tramos van en el mismo borne de 12XPS (terminal doble, como un puente en el
+    borne); el visor los muestra en el orden de cableado de siempre (primero el de la placa, después el de 81XCM);
+  - lo que el taller había dibujado a mano para la placa en el PAE (un punto en el fondo y otro en la lateral) queda en
+    `recorridos_e8.json` pero no se usa: ¿se borra?
+  - el haz de la placa: las medidas del dibujo salen del paso de los pines (manga de 0,62 paso de ancho, terminal de
+    0,7 paso, el haz de 0,5 paso × √cables), los precintos cada dos perfiles, el radio de la curva hasta un perfil y el
+    alto del abanico de la propuesta (0,45 del ancho de los pines, entre 1 y 3 perfiles): a confirmar con el taller
+    mirando la vista final; con dos haces a la misma placa (＋ Grupo de placa) cada uno tiene su abanico.
 - **Pines de la placa (2026-10-09, etapa E8-7), para confirmar con el usuario:** el mapeo es por POSICIÓN en cada fila
   (el dibujo de la placa no trae los números): la vista de la puerta se toma con la placa en el mismo sentido que el
   símbolo del funcional (pin 1 a la izquierda abajo; coincide con los rótulos de la placa del TPT y del 75441); en el

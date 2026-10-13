@@ -65,9 +65,11 @@
    "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables).",
    "aparato": {"familias": ["placa"], "texto_re": "(?i)placa\\s+electr|electronic\\s+board|\\bPCB\\b", "tag_re": "^\\d*PCB\\d*$"},
    "por_aparato": true,
-   "puerta": true
+   "puerta": true,
+   "solo_puerta": true
   }
  ],
+ "_nota_solo_puerta": "'solo_puerta': true (pedido del taller del 2026-10-13) = el recorrido a mano de los grupos de esa categoría se dibuja SOLO en la vista de la PUERTA. En las bandejas laterales (y en el fondo) sus cables van por el ruteo automático, por las canaletas hasta la salida a la puerta (como la entrada / salida de 🧭), y el visor los dibuja: no dicen «falta dibujar». Lo que el taller haya dibujado antes para ese grupo en otra vista se conserva en el archivo pero no se usa (el editor lo avisa). Sin vista de la puerta en el topográfico (el PAE) no hay nada que dibujar a mano.",
  "_nota_directo": "Cables DIRECTOS de un cargador a la bornera que tiene justo debajo o al lado (pedido del taller del 2026-10-08: en el PAE y la Vista, 75286 / 75287, debajo del cargador hay borneras para no usar WAGO, y esos cables van conectados directo a los bornes, sin pasar por el ducto). Un cable de la misma bandeja lateral entre un aparato de esta lista (por su familia; sin lista de materiales, por las letras del tag) y una BORNERA, a menos de 'distancia_max_perfiles' perfiles de riel y sin una canaleta en el medio, va derecho del aparato al borne, sin WAGO y sin grupo de ruteo a mano. En el TPT (sin bornera debajo del cargador) siguen con WAGO.",
  "directo": {"familias": ["cargador"], "tag_re": "^\\d*PS\\d*$", "distancia_max_perfiles": 2.0}
 }

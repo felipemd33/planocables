@@ -1100,6 +1100,32 @@ def punto_e8(jid):
     return jsonify(r)
 
 
+@app.post('/api/trabajo/<jid>/e8/haz')
+def haz_e8(jid):
+    """«Usar la propuesta» del haz de un grupo de placa en la vista de la puerta (ruteo a mano, etapa E8-8): el tramo
+    comun automatico de E8-4 hasta la base del abanico de los cables {claves}, con la entrada y la bisagra de
+    {recorridos} (lo que tiene la pantalla). No guarda nada: la pantalla lo guarda como el haz del grupo (PUT /e8/grupos).
+    -> {entrada, puntos, curvas, fin, lado, aparato}"""
+    P = ins_paths(jid)
+    if not os.path.exists(P['json']):
+        abort(404)
+    body = request.get_json(silent=True)
+    claves = body.get('claves') if isinstance(body, dict) else None
+    rec = body.get('recorridos') if isinstance(body, dict) else None
+    if not isinstance(claves, list) or not all(isinstance(k, str) for k in claves) \
+            or (rec is not None and (not isinstance(rec, dict) or not isinstance(rec.get('vistas', {}), dict))):
+        return jsonify(error='Datos inválidos'), 400
+    with open(P['json'], encoding='utf-8') as f:
+        ins = json.load(f)
+    if not ((ins.get('estacion8') or {}).get('puerta') or {}).get('pasos'):
+        return jsonify(error='El topográfico no trae la vista de la puerta: no hay haz para proponer'), 404
+    import estacion8
+    r = estacion8.haz_propuesta(ins, rec if rec is not None else (ins.get('estacion8') or {}).get('recorridos'), claves)
+    if r is None:
+        return jsonify(error='Ninguno de esos cables llega a un aparato de la vista de la puerta'), 404
+    return jsonify(r)
+
+
 def _grupos_e8(P, ins):
     """(e8, R efectivo, clave del producto, motivo): los grupos de ruteo a mano de la estacion 8 del instructivo con lo
     guardado HOY para el producto (otro trabajo del mismo producto lo pudo cambiar despues de regenerar este) o, con el
@@ -1178,7 +1204,7 @@ def guardar_grupos_e8(jid):
         else:
             e8['mano_trabajo'] = man
             miembro = E8M.aplicar(R, man, E8M.meta_de(None, motivo))
-        E8M.anotar(e8, miembro)
+        E8M.anotar(e8, miembro, R)
         write_json(P['json'], ins)
     return jsonify(ok=True, ruteo_mano=R)
 

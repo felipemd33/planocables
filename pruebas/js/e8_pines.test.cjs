@@ -4,11 +4,12 @@
    - «Puerta y placa»: el encabezado dice cuántos cables llegan a su pin; la tabla de 21PCB01 dice, debajo de cada pin, la
      aclaración del funcional ('Signal AI5 · AP Analog Input #5'); la placa sin etiqueta del 75441 (75287) lleva su tag.
    - La punta de un cable de la placa (resaltada con el mouse o en el visor de a uno) está en SU pin, con la aclaración al
-     lado y sin la franja; con el grupo de placa sin dibujar, el texto dice que falta solo el tramo común; con el tramo
-     común dibujado (fixture: «Placa 21PCB01 · bobinas 61KR»), la acometida sale del FINAL del tramo hasta el pin.
+     lado y sin la franja; con el grupo de placa sin dibujar, el texto dice que falta el haz (desde E8-8; antes «el tramo
+     común»); con el recorrido dibujado (fixture: «Placa 21PCB01 · bobinas 61KR», del formato de antes), desde E8-8 el
+     cable sale del haz en abanico y llega a su pin (antes: una acometida recta del final del tramo).
    - El visor de a uno de la puerta y el del grupo (ruteo a mano) dicen la aclaración en la punta.
-   - En la tabla, la pastilla del grupo de un cable que llega a su pin (pin_puerta) dice «falta el tramo común», no
-     «falta dibujar».
+   - En la tabla, la pastilla del grupo de un cable que llega a su pin (pin_puerta) dice «falta el haz» (antes «falta el
+     tramo común»), no «falta dibujar».
    - La lista WPC no usa los pines: sin ellos da IGUAL. */
 const test = require('node:test');
 const assert = require('node:assert/strict');
@@ -46,10 +47,10 @@ for (const t of ['tpt_constructivo', 'tpt', '66817', '75287']) {
   });
 }
 
-// (E8-7) la tabla de «Puerta y placa»: la pastilla del grupo de placa de un cable que llega a su pin dice «falta el tramo
-// común» (no «falta dibujar»); la fila trae pin_puerta
+// (E8-7) la tabla de «Puerta y placa»: la pastilla del grupo de placa de un cable que llega a su pin dice «falta el haz»
+// (E8-8; antes «falta el tramo común», no «falta dibujar»); la fila trae pin_puerta
 for (const t of ['tpt_constructivo', '75287']) {
-  test(`E8-7 ${t}: en la tabla, la pastilla del grupo de placa dice que falta solo el tramo común`, async () => {
+  test(`E8-7 ${t}: en la tabla, la pastilla del grupo de placa dice que falta el haz`, async () => {
     const ins = C.leer(C.TRABAJOS[t]);
     const v = await C.vistaE8(ins);
     const cards = v.afuera.split('<div class="card e8-ap">').slice(1);
@@ -62,15 +63,15 @@ for (const t of ['tpt_constructivo', '75287']) {
     assert.ok(xs.length, `FALLA: ${t}: no hay cables de 21PCB01 con pin_puerta y su grupo sin dibujar en ins_${t}.json`);
     for (const x of xs) {
       const f = fila(h, x.clave);
-      assert.ok(f && f.includes(' · falta el tramo común</span>') && !f.includes(' · falta dibujar</span>') && f.includes('Falta dibujar el tramo común (✏ Ruteo a mano)'),
-        `FALLA: ${t}: la pastilla de ${x.num} en la tabla no dice «falta el tramo común» (${f && f.slice(0, 400)})`);
+      assert.ok(f && f.includes(' · falta el haz</span>') && !f.includes(' · falta dibujar</span>') && f.includes('Falta dibujar el haz (✏ Ruteo a mano)'),
+        `FALLA: ${t}: la pastilla de ${x.num} en la tabla no dice «falta el haz» (${f && f.slice(0, 400)})`);
     }
     // un cable con grupo y SIN pin en la placa sigue diciendo «falta dibujar»
     const gOtro = ins.estacion8.afuera.find(g => g.cables.some(x => x.grupo_mano && !x.pin_puerta && !dib(x.grupo_mano)));
     const otro = gOtro && gOtro.cables.find(x => x.grupo_mano && !x.pin_puerta && !dib(x.grupo_mano));
     if (otro) {
       const f = fila(card(gOtro.tag), otro.clave);
-      assert.ok(f && f.includes(' · falta dibujar</span>') && !f.includes('falta el tramo común'), `FALLA: ${t}: ${otro.num} (sin pin) cambió`);
+      assert.ok(f && f.includes(' · falta dibujar</span>') && !f.includes('falta el haz'), `FALLA: ${t}: ${otro.num} (sin pin) cambió`);
     }
   });
 }
@@ -85,7 +86,7 @@ test('E8-7 tpt_constructivo: la punta del cable resaltado en su pin, con la acla
   const g = ctx._elementos.get('#e8SelP').innerHTML;
   assert.ok(g.includes('class="e8-acl"') && g.includes('>pin 42 · Signal AI5 · AP Analog Input #5</text>'), 'FALLA: no se ve la aclaración junto al pin');
   assert.ok(g.includes('<circle class="ori"/>') && !g.includes('e8-franja'), 'FALLA: la punta no está en el pin (sigue la franja)');
-  assert.ok(g.includes('>falta dibujar el tramo común</text>') && g.includes('falta dibujar el tramo común</title>'), 'FALLA: no dice que falta dibujar solo el tramo común');
+  assert.ok(g.includes('>falta dibujar el haz</text>') && g.includes('falta dibujar el haz (de su final va a su pin)</title>'), 'FALLA: no dice que falta dibujar el haz');
   // 13SH1 (selectora, sin pines numerados) sigue a la franja
   const s = lineasP(ins).find(x => x.aparato === '13SH1');
   hover(ctx, s.clave);
@@ -93,22 +94,24 @@ test('E8-7 tpt_constructivo: la punta del cable resaltado en su pin, con la acla
   assert.ok(g2.includes('e8-franja') && !g2.includes('class="e8-acl"'), 'FALLA: 13SH1 cambió');
 });
 
-test('E8-7 tpt_constructivo: con el tramo común dibujado, cada cable va del FINAL del tramo a su pin', async () => {
+test('E8-7 / E8-8 tpt_constructivo: con el recorrido de antes dibujado, el cable sale del haz en abanico y llega a su pin', async () => {
   const ins = C.leer(C.TRABAJOS.tpt_constructivo);
   const l = lineasP(ins).find(x => x.num === '2150');
   const R = ins.estacion8.ruteo_mano;
   const gr = R.grupos.find(g => g.id === l.grupo_mano);
   const tr = (gr.tramos || []).find(x => x.vista === 'PUERTA');
-  assert.ok(tr && tr.puntos.length > 1, 'FALLA: el fixture no trae el tramo común de «Placa 21PCB01 · bobinas 61KR» en la puerta');
-  const fin = tr.puntos[tr.puntos.length - 1];
+  assert.ok(tr && tr.puntos.length > 1 && !tr.desde, 'FALLA: el fixture no trae el recorrido de antes de «Placa 21PCB01 · bobinas 61KR» en la puerta');
   const { ctx } = await C.manoE8(ins);
   clicVista(ctx, 'afuera');
   hover(ctx, l.clave);
   const g = ctx._elementos.get('#e8SelP').innerHTML;
   const f2 = v => (+v).toFixed(2);
-  assert.ok(g.includes(`M${f2(l.marca_o[0])} ${f2(-l.marca_o[1])}L${f2(fin[0])} ${f2(-fin[1])}`),
-    `FALLA: la acometida de 2150 no sale del final del tramo común ${fin} hasta su pin ${l.marca_o}`);
-  assert.ok(g.includes('>pin 50 · DO 1+ · Solenoid Valve #1</text>') && !g.includes('falta dibujar'), 'FALLA: la aclaración del pin 50 o el texto del tramo');
+  // (E8-8) la rama del abanico del cable actual termina en su pin, resaltada; las de los demás, tenues
+  const rama = g.split('<g class="e8-hzr cur"').slice(1)[0] || '';
+  const ds = [...rama.matchAll(/<path d="([^"]+)"/g)].map(m => m[1]).filter(d => d.split('L').length > 3);     // (sin el terminal)
+  assert.ok(ds.length && ds.every(d => d.endsWith(`L${f2(l.marca_o[0])} ${f2(-l.marca_o[1])}`)), `FALLA: la rama de 2150 no termina en su pin ${l.marca_o}`);
+  assert.ok(g.includes('<g class="e8-hz"') && g.includes(' opacity=".3"'), 'FALLA: no se dibuja el haz con los demás cables tenues');
+  assert.ok(g.includes('>pin 50 · DO 1+ · Solenoid Valve #1</text>') && !g.includes('falta dibujar'), 'FALLA: la aclaración del pin 50 o el texto del haz');
 });
 
 test('E8-7 tpt_constructivo: el visor de a uno de la puerta dice la aclaración y llega al pin', async () => {
@@ -121,7 +124,7 @@ test('E8-7 tpt_constructivo: el visor de a uno de la puerta dice la aclaración 
   assert.ok(!E('#e8Viewer').hidden, 'FALLA: no se abrió el visor de la puerta');
   assert.ok(E('#e8vOrig').innerHTML.includes('21PCB01 42') && E('#e8vOrig').innerHTML.includes('· Signal AI5 · AP Analog Input #5'),
     `FALLA: la punta del visor no dice la aclaración (${E('#e8vOrig').innerHTML})`);
-  assert.ok(E('#e8vLen').innerHTML.includes('· falta el tramo común</span>') && E('#e8vLen').innerHTML.includes('· de ahí va a su pin 42</span>'), `FALLA: ${E('#e8vLen').innerHTML}`);
+  assert.ok(E('#e8vLen').innerHTML.includes('· falta el haz</span>') && E('#e8vLen').innerHTML.includes('· de ahí va a su pin 42</span>'), `FALLA: ${E('#e8vLen').innerHTML}`);
   assert.ok(E('#e8vSvg').innerHTML.includes('>pin 42 · Signal AI5 · AP Analog Input #5</text>'), 'FALLA: el dibujo del visor no tiene la aclaración junto al pin');
   assert.ok(E('#e8vLupaOt').textContent.includes('Signal AI5 · AP Analog Input #5'), 'FALLA: la lupa del origen no dice la aclaración');
 });
@@ -138,7 +141,7 @@ test('E8-7 tpt_constructivo: el visor de a uno del grupo de placa (ruteo a mano)
   const E = s => ctx._elementos.get(s);
   const punta = E(c.aclaracion_de === 'a' ? '#e8mOrig' : '#e8mDest').textContent;
   assert.equal(punta, '21PCB01 42 · Signal AI5 · AP Analog Input #5', 'FALLA: la punta del visor del grupo');
-  assert.ok(E('#e8mFalta').innerHTML.includes('Falta dibujar el tramo común de «Placa 21PCB01»: de ahí cada cable va a su pin'),
+  assert.ok(E('#e8mFalta').innerHTML.includes('Falta dibujar el haz de «Placa 21PCB01»: arranca en la entrada a la puerta y de su final cada cable va solo a su pin'),
     `FALLA: el aviso del visor del grupo (${E('#e8mFalta').innerHTML})`);
   E('#e8mVistas')._eventos.click.forEach(fn => fn({ target: { closest: () => ({ dataset: { vk: 'PUERTA' } }) } }));
   assert.ok(E('#e8mSvg').innerHTML.includes('>Signal AI5 · AP Analog Input #5</text>'), 'FALLA: en la vista de la puerta no se ve la aclaración del cable actual');

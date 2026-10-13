@@ -2339,7 +2339,6 @@
          "conf_o": "alta",
          "destino": "21PCB01 35",
          "exacto_o": true,
-         "grupo_mano": "placa:21PCB01",
          "hojas": [
           "12",
           "81"
@@ -2422,7 +2421,6 @@
          "conf_o": "alta",
          "destino": "21PCB01 36",
          "exacto_o": true,
-         "grupo_mano": "placa:21PCB01",
          "hojas": [
           "12",
           "81"
@@ -7494,47 +7492,56 @@
      {
       "id": "bateria_35",
       "nombre": "Batería 35 mm²",
-      "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba)."
+      "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba).",
+      "solo_puerta": false
      },
      {
       "id": "contactora",
       "nombre": "Contactora (bobina)",
-      "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines)."
+      "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines).",
+      "solo_puerta": false
      },
      {
       "id": "bateria_4_6",
       "nombre": "Batería 4 / 6 mm²",
-      "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete."
+      "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete.",
+      "solo_puerta": false
      },
      {
       "id": "solenoides",
       "nombre": "Solenoides",
-      "nota": "Válvulas solenoide de la zona hidráulica."
+      "nota": "Válvulas solenoide de la zona hidráulica.",
+      "solo_puerta": false
      },
      {
       "id": "doorswitch",
       "nombre": "Doorswitch (final de carrera de puerta)",
-      "nota": "El final de carrera que detecta la puerta abierta."
+      "nota": "El final de carrera que detecta la puerta abierta.",
+      "solo_puerta": false
      },
      {
       "id": "pulsadores",
       "nombre": "Pulsadores",
-      "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo)."
+      "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo).",
+      "solo_puerta": false
      },
      {
       "id": "selectoras",
       "nombre": "Selectoras",
-      "nota": "Llaves selectoras de la puerta (OFF / ON)."
+      "nota": "Llaves selectoras de la puerta (OFF / ON).",
+      "solo_puerta": false
      },
      {
       "id": "seccionadoras",
       "nombre": "Llaves seccionadoras",
-      "nota": "Seccionadores con manija (en la puerta o en el gabinete)."
+      "nota": "Seccionadores con manija (en la puerta o en el gabinete).",
+      "solo_puerta": false
      },
      {
       "id": "placa",
       "nombre": "Placa",
-      "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables)."
+      "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables).",
+      "solo_puerta": true
      }
     ],
     "clave_producto": "75286-1|75441|rev6",
@@ -7699,6 +7706,7 @@
       "id": "placa:21PCB01",
       "n": 33,
       "nombre": "Placa 21PCB01",
+      "solo_puerta": true,
       "tramos": []
      }
     ],
@@ -7764,7 +7772,7 @@
     },
     "por_producto": true,
     "trabajos": [],
-    "version": 1,
+    "version": 3,
     "version_almacen": 0,
     "vistas": [
      {
@@ -7785,7 +7793,7 @@
      }
     ]
    },
-   "version": 8
+   "version": 10
   },
   "estacion_auto": {
    "estacion": "E8",
@@ -14705,7 +14713,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 360,
@@ -14731,7 +14740,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 610,
@@ -14757,7 +14767,8 @@
      461.1
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 630,
@@ -14783,7 +14794,8 @@
      461.1
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 590,
@@ -14809,7 +14821,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 610,
@@ -14835,7 +14848,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 620,
@@ -14861,7 +14875,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 680,
@@ -14887,7 +14902,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 690,
@@ -14913,7 +14929,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 710,
@@ -14939,7 +14956,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 720,
@@ -14965,7 +14983,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 690,
@@ -14991,7 +15010,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 700,
@@ -15017,7 +15037,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 720,
@@ -15043,7 +15064,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 730,
@@ -15069,7 +15091,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 410,
@@ -15087,7 +15110,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 540,
@@ -15105,7 +15129,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 540,
@@ -15123,7 +15148,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 550,
@@ -15141,7 +15167,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 550,
@@ -15159,7 +15186,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 550,
@@ -15177,7 +15205,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 560,
@@ -15195,7 +15224,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 140,
@@ -15213,7 +15243,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 330,
@@ -15239,7 +15270,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 340,
@@ -15265,7 +15297,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 360,
@@ -15291,7 +15324,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 370,
@@ -15317,7 +15351,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 380,
@@ -15343,7 +15378,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 400,
@@ -15369,7 +15405,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 470,
@@ -15395,7 +15432,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 480,
@@ -15421,7 +15459,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 480,
@@ -15447,7 +15486,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 490,
@@ -15473,7 +15513,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 500,
@@ -15499,7 +15540,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 390,
@@ -15517,7 +15559,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 400,
@@ -15535,7 +15578,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 400,
@@ -15553,7 +15597,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 400,
@@ -15571,7 +15616,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 420,
@@ -15589,7 +15635,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 420,
@@ -15607,7 +15654,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 430,
@@ -15625,7 +15673,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 440,
@@ -15643,7 +15692,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 480,
@@ -15669,7 +15719,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 490,
@@ -15695,7 +15746,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 480,
@@ -15721,7 +15773,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 490,
@@ -15747,7 +15800,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 500,
@@ -15773,7 +15827,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 500,
@@ -15799,7 +15854,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 510,
@@ -15825,7 +15881,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 630,
@@ -15851,7 +15908,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 620,
@@ -15877,7 +15935,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 510,
@@ -15903,7 +15962,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 600,
@@ -15929,7 +15989,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 420,
@@ -15947,7 +16008,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 440,
@@ -15965,7 +16027,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 530,
@@ -15991,7 +16054,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 470,
@@ -16017,7 +16081,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   }
  ],
  "salidas_grupo": [
@@ -16045,7 +16110,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 360,
@@ -16071,7 +16137,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 410,
@@ -16097,7 +16164,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 430,
@@ -16123,7 +16191,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 590,
@@ -16149,7 +16218,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 610,
@@ -16175,7 +16245,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 620,
@@ -16201,7 +16272,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 680,
@@ -16227,7 +16299,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 690,
@@ -16253,7 +16326,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 710,
@@ -16279,7 +16353,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 720,
@@ -16305,7 +16380,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 690,
@@ -16331,7 +16407,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 700,
@@ -16357,7 +16434,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 720,
@@ -16383,7 +16461,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 730,
@@ -16409,7 +16488,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 410,
@@ -16427,7 +16507,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 540,
@@ -16445,7 +16526,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 540,
@@ -16463,7 +16545,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 550,
@@ -16481,7 +16564,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 550,
@@ -16499,7 +16583,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 550,
@@ -16517,7 +16602,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 560,
@@ -16535,7 +16621,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 140,
@@ -16553,7 +16640,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 330,
@@ -16579,7 +16667,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 340,
@@ -16605,7 +16694,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 360,
@@ -16631,7 +16721,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 370,
@@ -16657,7 +16748,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 380,
@@ -16683,7 +16775,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 400,
@@ -16709,7 +16802,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 470,
@@ -16735,7 +16829,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 480,
@@ -16761,7 +16856,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 480,
@@ -16787,7 +16883,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 490,
@@ -16813,7 +16910,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 500,
@@ -16839,7 +16937,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 390,
@@ -16857,7 +16956,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 400,
@@ -16875,7 +16975,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 400,
@@ -16893,7 +16994,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 400,
@@ -16911,7 +17013,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 420,
@@ -16929,7 +17032,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 420,
@@ -16947,7 +17051,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 430,
@@ -16965,7 +17070,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 440,
@@ -16983,7 +17089,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 480,
@@ -17009,7 +17116,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 490,
@@ -17035,7 +17143,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 480,
@@ -17061,7 +17170,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 490,
@@ -17087,7 +17197,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 500,
@@ -17113,7 +17224,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 500,
@@ -17139,7 +17251,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 510,
@@ -17165,7 +17278,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 630,
@@ -17191,7 +17305,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 620,
@@ -17217,7 +17332,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 510,
@@ -17243,7 +17359,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 600,
@@ -17269,7 +17386,8 @@
      603.0
     ]
    ],
-   "salida": null
+   "salida": null,
+   "salteados": []
   },
   {
    "largo_mm": 420,
@@ -17287,7 +17405,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 440,
@@ -17305,7 +17424,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 530,
@@ -17331,7 +17451,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   },
   {
    "largo_mm": 470,
@@ -17357,7 +17478,8 @@
      603.0
     ]
    ],
-   "salida": "humo"
+   "salida": "humo",
+   "salteados": []
   }
  ],
  "e8_recorridos": [
@@ -17388,7 +17510,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1110|11PS1 1 (-)|12XPS 2",
@@ -17409,7 +17532,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1201|12F1|12XPS 3",
@@ -17430,7 +17554,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1205|12XP 2.1|12XPS 4",
@@ -17451,7 +17576,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1206|12XPS 5|13F3",
@@ -17472,7 +17598,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1203|12XPS 6|13XC1 3.4",
@@ -17493,7 +17620,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "2135|12XPS 7|81XCM 11",
@@ -17514,7 +17642,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "2135|12XPS 7|21PCB01 35",
@@ -17535,7 +17664,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "2136|12XPS 8|81XCM 12",
@@ -17556,7 +17686,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "2136|12XPS 8|21PCB01 36",
@@ -17577,7 +17708,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1104|11MS1|11Q1 F",
@@ -17598,7 +17730,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1105|11MS1|11Q1 N",
@@ -17619,7 +17752,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1103|11XP 3|?",
@@ -17640,7 +17774,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     }
    ],
    "no_llegan": 0,
@@ -19044,7 +19179,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1110|11PS1 1 (-)|12XPS 2",
@@ -19065,7 +19201,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1201|12F1|12XPS 3",
@@ -19086,7 +19223,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1205|12XP 2.1|12XPS 4",
@@ -19107,7 +19245,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1206|12XPS 5|13F3",
@@ -19128,7 +19267,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1203|12XPS 6|13XC1 3.4",
@@ -19149,7 +19289,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "2135|12XPS 7|81XCM 11",
@@ -19170,7 +19311,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "2135|12XPS 7|21PCB01 35",
@@ -19191,7 +19333,8 @@
       ]
      ],
      "sale": "puerta",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "2136|12XPS 8|81XCM 12",
@@ -19212,7 +19355,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "2136|12XPS 8|21PCB01 36",
@@ -19233,7 +19377,8 @@
       ]
      ],
      "sale": "puerta",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1104|11MS1|11Q1 F",
@@ -19254,7 +19399,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1105|11MS1|11Q1 N",
@@ -19275,7 +19421,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     },
     {
      "clave": "1103|11XP 3|?",
@@ -19296,7 +19443,8 @@
       ]
      ],
      "sale": "entrada",
-     "salida": null
+     "salida": null,
+     "salteados": null
     }
    ],
    "no_llegan": 3,
@@ -19804,54 +19952,64 @@
    ]
   ],
   "sale": "entrada",
-  "salida": null
+  "salida": null,
+  "salteados": null
  },
  "e8_grupos": {
   "categorias": [
    {
     "id": "bateria_35",
     "nombre": "Batería 35 mm²",
-    "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba)."
+    "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba).",
+    "solo_puerta": false
    },
    {
     "id": "contactora",
     "nombre": "Contactora (bobina)",
-    "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines)."
+    "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines).",
+    "solo_puerta": false
    },
    {
     "id": "bateria_4_6",
     "nombre": "Batería 4 / 6 mm²",
-    "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete."
+    "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete.",
+    "solo_puerta": false
    },
    {
     "id": "solenoides",
     "nombre": "Solenoides",
-    "nota": "Válvulas solenoide de la zona hidráulica."
+    "nota": "Válvulas solenoide de la zona hidráulica.",
+    "solo_puerta": false
    },
    {
     "id": "doorswitch",
     "nombre": "Doorswitch (final de carrera de puerta)",
-    "nota": "El final de carrera que detecta la puerta abierta."
+    "nota": "El final de carrera que detecta la puerta abierta.",
+    "solo_puerta": false
    },
    {
     "id": "pulsadores",
     "nombre": "Pulsadores",
-    "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo)."
+    "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo).",
+    "solo_puerta": false
    },
    {
     "id": "selectoras",
     "nombre": "Selectoras",
-    "nota": "Llaves selectoras de la puerta (OFF / ON)."
+    "nota": "Llaves selectoras de la puerta (OFF / ON).",
+    "solo_puerta": false
    },
    {
     "id": "seccionadoras",
     "nombre": "Llaves seccionadoras",
-    "nota": "Seccionadores con manija (en la puerta o en el gabinete)."
+    "nota": "Seccionadores con manija (en la puerta o en el gabinete).",
+    "solo_puerta": false
    },
    {
     "id": "placa",
     "nombre": "Placa",
-    "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables)."
+    "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables).",
+    "solo_puerta": true
    }
   ],
   "vistas": [
@@ -20125,6 +20283,7 @@
     "id": "placa:21PCB01",
     "n": 33,
     "nombre": "Placa 21PCB01",
+    "solo_puerta": true,
     "tramos": []
    }
   ],

@@ -343,6 +343,8 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .cv-deriv { padding: 5px 12px; background: #dbe9ff; color: #1f3f7a; border-bottom: 1px solid var(--border); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .cv-deriv .mono { background: rgba(255,255,255,.7); padding: 1px 6px; border-radius: 6px; }
 .cv-deriv .mono.cur { outline: 2px solid var(--hl); }
+.cv-deriv.cv-aviso { background: var(--warn-bg); color: var(--warn); }      /* (2026-10-13: punto de paso salteado) */
+.cv-deriv .e8-salt-t { color: var(--warn); }
 .cv-gh { position: sticky; top: 0; z-index: 1; background: var(--surface2); color: var(--muted); font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-bottom: 1px solid var(--border); }
 .cv-it { grid-template-columns: 18px 44px 1fr auto; row-gap: 1px; cursor: pointer; text-align: left; }
 .cv-it input { margin: 0; width: 15px; height: 15px; accent-color: var(--ok); cursor: pointer; }
@@ -602,7 +604,15 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .e8-mano path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .e8-mano .halo { stroke: rgba(255,106,0,.25); }
 .e8-mano.otro { opacity: .45; }
+.e8-tenue { opacity: .35; }      /* (mapa de la pestaña: los recorridos a mano de todos los grupos, de referencia) */
 .e8-mano-a { fill: none; stroke-linecap: round; }
+/* empalme en la lateral (2026-10-13): otro tramo del mismo cable llega a la misma punta (terminal doble) */
+.e8-union circle { fill: none; stroke: #7b1fa2; }
+.e8-union text { fill: #7b1fa2; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; }
+.e8-union-t { color: var(--mano); font-weight: 600; }
+/* puntos de paso salteados (2026-10-13): el cable entraría a una canaleta sin salida y volvería por el mismo camino */
+.e8-salt-t, .ins-salt-t, .sal-g:not(.e8m-g) .warn-t { color: var(--warn); font-weight: 600; }
+.sal-pt.salt circle { fill: #c62828; opacity: .9; }
 .e8-mano-falta { fill: #6a1b9a; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; stroke-width: .6px; }
 .pill.e8-manop { background: var(--mano-bg); color: var(--mano); border: 1px dashed var(--gc, currentColor); cursor: pointer; }
 .pill.e8-manop.ok { border-style: solid; }
@@ -636,6 +646,19 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .e8m-fant circle { fill: none; stroke: #1565c0; }
 .e8m-fant.peg circle { stroke: #2e7d32; fill: rgba(46,125,50,.15); }
 .e8m-fant text { fill: #2e7d32; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; }
+/* (etapa E8-8) el haz de la placa: la entrada donde arranca, los puntos en curva, el abanico y «Cómo queda» */
+.e8m-otros { opacity: .45; }
+.e8m-ent circle { fill: #2e7d32; stroke: #fff; }
+.e8m-ent text { fill: #2e7d32; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; paint-order: stroke; stroke: #fff; }
+.e8m-curva { fill: none; stroke: #ff6a00; stroke-dasharray: 3 2; }
+.sal-pt.curva text { font-size: inherit; }
+.e8-hzr { cursor: pointer; }
+.e8-hzr:hover path { filter: drop-shadow(0 0 1px #ff6a00); }
+.e8-final { margin-top: 12px; padding: 12px; }
+.e8-final .card-h h2 { font-size: 15px; margin: 0; }
+.e8-final-svg { width: 100%; height: auto; max-height: 82vh; display: block; background: #fff; border: 1px solid var(--border); border-radius: 8px; }
+.e8-hazt { margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.e8-sinpu { margin: 8px 0; }
 .e8m-falta { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 2; background: var(--surface); color: var(--mano);
   border: 2px solid var(--mano); border-radius: 10px; padding: 8px 14px; font-weight: 600; box-shadow: var(--shadow); display: flex; gap: 10px; align-items: center; }
 .e8m-falta[hidden] { display: none; }

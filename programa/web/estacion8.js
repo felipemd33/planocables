@@ -22,6 +22,16 @@
      tabla, el visor y la hoja impresa dicen la aclaración del funcional (l.aclaracion: «pin 42 · Signal AI5 · AP Analog
      Input #5»). Con grupo de ruteo a mano, el cable va del FINAL del tramo común dibujado a su pin; sin dibujar, lo que
      falta es solo el tramo común.
+   - Etapa E8-8 (2026-10-13): el visor de a uno dibuja SOLO el recorrido a mano del grupo del cable actual (en el mapa,
+     todos tenues); los cables de la placa en las laterales van por su ruta automática (no llevan grupo ahí); el cable
+     de comunicación muestra el camino entero (el otro tramo y la punta marcada como el empalme, banner #e8vDeriv) y
+     los puntos de paso que se saltean (l.salteados: canaleta sin salida) se avisan en el visor y en 🧭.
+   - HAZ DE LA PLACA (etapa E8-8, 2026-10-13): en la puerta, el grupo de placa es un haz que arranca en la entrada, con
+     sus esquinas curvas, y al final se abre en ABANICO, cada cable a su pin (nucleo/haz.js; hazDe / hazG). «Puerta y
+     placa» lo dibuja en el mapa y en «Cómo queda» (como la foto: precintos, cada cable de su color con su terminal y la
+     manga con el número; la aclaración del pin al pasar el mouse; clic: el visor de a uno), en la hoja impresa y en el
+     visor de a uno (el cable actual resaltado en el haz y en su rama; los demás tenues). Se dibuja en ✏ Ruteo a mano
+     (e8mano.js).
    Los datos vienen en ins.estacion8 (programa/estacion8.py); las marcas de cableado van en ins.estacion8.hechos y lo
    elegido de la entrada / salida en ins.estacion8.recorridos. */
 const E8 = (() => {
@@ -133,12 +143,15 @@ const E8 = (() => {
     }
     return best && best.q;
   }
-  // los recorridos dibujados en la vista L (todos los grupos, o solo 'solo'): el del grupo 'on' resaltado
+  // los recorridos dibujados en la vista L (todos los grupos, o solo 'solo'): el del grupo 'on' resaltado. En la puerta,
+  // el HAZ de un grupo de placa (etapa E8-8) se dibuja con su abanico (hazG; o.sinHaz: no, lo dibuja otra capa)
   function manoG(L, u, o = {}) {
     const R = RM(), ck = claveVista(L); if (!R || !ck) return '';
     let s = '';
     for (const g of R.grupos || []) {
       if ((o.solo && g.id !== o.solo) || (o.excluir && g.id === o.excluir)) continue;
+      const hz = ck === 'PUERTA' && hazDe(g);
+      if (hz) { if (!o.sinHaz) s += hazG(hz, { mangas: false }); continue; }
       const ts = tramosEn(g, ck); if (!ts.length) continue;
       const col = colorGrupo(g.id), on = o.on === g.id;
       for (const t of ts) {
@@ -149,15 +162,179 @@ const E8 = (() => {
     }
     return s;
   }
+  // el mapa general de la vista (pestaña): los recorridos a mano de todos los grupos, TENUES (2026-10-13, pedido del
+  // taller: el visor de a uno dibuja solo el del grupo del cable actual; acá quedan de referencia)
+  const manoMapa = (L, u) => { const s = manoG(L, u, { sinHaz: true }); return (s ? `<g class="e8-tenue">${s}</g>` : '') + hazCapa(L, { hechos: hechos() }); };
+
+  /* ---- HAZ DE LA PLACA (etapa E8-8, 2026-10-13, pedido del taller: «ir indicando puntos, poder hacer una curva y que al
+     final el ruteo se pueda hacer algo automático, y al final se pueda ver como en la última foto pero con la vista de
+     plano»; la geometría está en nucleo/haz.js). En la vista de la puerta, el recorrido a mano de un grupo de placa
+     (categoría 'solo_puerta') es un HAZ: arranca en la entrada a la puerta, sigue los puntos que marcó el taller (con
+     sus esquinas curvas) y al final se abre en ABANICO: cada cable va solo a su pin (el de E8-7), ordenados por la
+     posición del pin para que no se crucen; los de la fila de más adentro pasan por el hueco entre dos pines de la de
+     más afuera. Se dibuja «como la foto»: el haz grueso con sus precintos, cada cable de su color con su terminal y la
+     MANGA con el número junto al pin; la aclaración del pin al pasar el mouse. Un cable sin pin exacto va a la franja de
+     su aparato. ---- */
+  const HZ = () => (typeof Haz !== 'undefined' ? Haz : null);
+  const esHazG = g => !!(g && g.solo_puerta && !g.sin_puerta);
+  const hazCache = new Map();
+  const ptxt = q => `${f2(q[0])} ${f2(-q[1])}`;
+  const dPath = pts => 'M' + pts.map(ptxt).join('L');
+  // el haz del grupo g en la puerta, con su abanico: {g, tramo, poly (el haz con las curvas), ab (Haz.abanico), lineas:
+  // {clave: {l, w: 'o' | 'd' (la punta en la placa)}}, ancho, paso, precintos, aparato, desde} o null (no es de placa,
+  // no hay puerta o no está dibujado)
+  function hazDe(g) {
+    const Pd = P(), H = HZ();
+    if (!H || !Pd || !esHazG(g) || !g.dibujado) return null;
+    const ts = tramosEn(g, 'PUERTA'); if (!ts.length) return null;
+    const tr = ts[ts.length - 1];
+    const key = JSON.stringify([g.id, g.cables, tr, Pd.entrada, D && D.generado]);
+    if (hazCache.has(key)) return hazCache.get(key);
+    const ls = new Map(flat(Pd).map(x => [x.l.clave, x.l]));
+    const cuenta = new Map();
+    for (const k of g.cables || []) { const l = ls.get(k); if (l) cuenta.set(l.aparato, (cuenta.get(l.aparato) || 0) + 1); }
+    const ap = g.aparato || [...cuenta.entries()].sort((a, b) => b[1] - a[1]).map(x => x[0])[0] || null;
+    const cables = [], lineas = {};
+    for (const k of g.cables || []) {
+      const l = ls.get(k); if (!l) continue;
+      const enD = !!l.marca_d && (l.aparato_d === ap || (!!l.exacto_d && !l.exacto_o));     // (la punta en la placa)
+      const fin = enD ? l.marca_d : l.marca_o; if (!fin) continue;
+      cables.push({ clave: k, num: l.num, fin: [+fin[0], +fin[1]], exacto: !!(enD ? l.exacto_d : l.exacto_o) });
+      lineas[k] = { l, w: enD ? 'd' : 'o' };
+    }
+    if (!cables.length) return null;
+    const pines = Object.values(((E().pines_aparato || {})[ap] || {}).pines || {}).map(v => v && v.punto).filter(Boolean);
+    const hacia = [cables.reduce((a, c) => a + c.fin[0], 0) / cables.length, cables.reduce((a, c) => a + c.fin[1], 0) / cables.length];
+    const pl = H.polilinea(tr, Pd.entrada, hacia);
+    if (pl.pts.length < 2) return null;
+    const R = Pd.H || 24.8;
+    const poly = H.suave(pl.pts, pl.curvas, R);
+    const fin = poly[poly.length - 1], ant = poly[poly.length - 2];
+    const paso = H.paso([...pines, ...cables.filter(c => c.exacto).map(c => c.fin)]) || 0.12 * R;
+    const ancho = H.ancho(cables.length, paso);
+    const ab = H.abanico(fin, [fin[0] - ant[0], fin[1] - ant[1]], cables, pines, { ancho, paso });
+    const haz = poly.concat(ab.ext);
+    const info = { g, tramo: tr, pl, poly: haz, ab, lineas, ancho, paso, precintos: H.precintos(haz, 2 * R), aparato: ap, desde: pl.desde };
+    hazCache.set(key, info);
+    if (hazCache.size > 60) hazCache.delete(hazCache.keys().next().value);
+    return info;
+  }
+  // color de la pollera del terminal de un cable del haz (pino por sección; en un empalme, pelado: sin terminal)
+  function polleraDe(l, w) {
+    if (empDe(l, w)) return null;
+    const pol = (TERM.pino || {})[String(l.secc || '').replace(',', '.')];
+    return pol ? ((TERM.colores || {})[pol] || '#999') : '#9e9e9e';
+  }
+  // el haz «como la foto»: o = {cur: clave del cable actual (los demás tenues), mangas: con la manga del número junto al
+  // pin; hechos: los ya cableados, tenues}. Atributos en el SVG (no clases): sale igual en la hoja impresa
+  function hazG(info, o = {}) {
+    const { ab, poly, ancho: w, paso: p } = info, med = ab.med, cur = o.cur && info.lineas[o.cur] ? o.cur : null;
+    const d = dPath(poly), RJ = 'stroke-linecap="round" stroke-linejoin="round" fill="none"';
+    let s = `<g class="e8-hz" data-grupo="${esc(info.g.id)}"><title>${esc(info.g.nombre)}: haz de ${ab.orden.length} cable${ab.orden.length === 1 ? '' : 's'}; de su final cada uno va a su pin</title>`;
+    s += `<path d="${d}" stroke="#1b1b1b" stroke-width="${f2(w)}" ${RJ}/><path d="${d}" stroke="#555" stroke-width="${f2(0.5 * w)}" ${RJ} opacity=".75"/>`;
+    if (cur) s += `<path d="${d}" stroke="#ff6a00" stroke-width="${f2(0.46 * w)}" ${RJ}/><path d="${d}" stroke="${Ins.LC(info.lineas[cur].l.color)}" stroke-width="${f2(0.24 * w)}" ${RJ}/>`;      // (el cable actual, adentro del haz)
+    for (const pr of info.precintos) {          // precintos: una banda negra de lado a lado y la cabeza
+      const n = [-pr.t[1], pr.t[0]], L = 0.7 * w, tw = Math.max(0.3 * w, 0.35 * p);
+      const a = [pr.p[0] + n[0] * L, pr.p[1] + n[1] * L], b = [pr.p[0] - n[0] * L, pr.p[1] - n[1] * L];
+      s += `<path d="M${ptxt(a)}L${ptxt(b)}" stroke="#050505" stroke-width="${f2(tw)}"/><circle cx="${f2(a[0])}" cy="${f2(-a[1])}" r="${f2(0.75 * tw)}" fill="#050505"/>`;
+    }
+    const orden = cur ? ab.orden.filter(k => k !== cur).concat([cur]) : ab.orden;       // (el actual, arriba)
+    for (const k of orden) {
+      const r = ab.ramas[k], x = info.lineas[k]; if (!r || !x) continue;
+      const l = x.l, on = k === cur, col = Ins.LC(l.color), claro = ['blanco', 'amarillo'].includes(norm(l.color || ''));
+      const wc = med.wc * (on ? 1.6 : 1), dd = dPath(r.pts);
+      const acl = x.w === 'd' ? l.aclaracion_d : l.aclaracion, punta = x.w === 'd' ? l.destino : l.origen;
+      const op = cur && !on ? '.3' : !cur && o.hechos && o.hechos.has(k) ? '.45' : null;      // (tenue: no es el actual, o ya está cableado)
+      s += `<g class="e8-hzr${on ? ' cur' : ''}" data-clave="${esc(k)}"${op ? ` opacity="${op}"` : ''}><title>${esc(l.num)} · ${esc(punta)}${acl ? ' · ' + esc(acl) : ''}</title>`;
+      if (on) s += `<path d="${dd}" stroke="rgba(255,106,0,.45)" stroke-width="${f2(wc * 3.4)}" ${RJ}/>`;
+      if (claro) s += `<path d="${dd}" stroke="#333" stroke-width="${f2(wc + 0.22 * p)}" ${RJ}/>`;
+      s += `<path d="${dd}" stroke="${col}" stroke-width="${f2(wc)}" ${RJ}/>`;
+      const pol = polleraDe(l, x.w);
+      if (pol) s += `<path d="M${ptxt(r.terminal.a)}L${ptxt(r.terminal.b)}" stroke="${pol}" stroke-width="${f2(0.44 * p)}"/>`;
+      if (o.mangas) {               // la manga con el número, como en la foto (vertical, junto al terminal)
+        const m = r.manga, c = [m.p[0], -m.p[1]];
+        s += `<rect x="${f2(c[0] - m.ancho / 2)}" y="${f2(c[1] - m.largo / 2)}" width="${f2(m.ancho)}" height="${f2(m.largo)}" rx="${f2(0.12 * m.ancho)}" fill="#fff" stroke="${on ? '#ff6a00' : '#222'}" stroke-width="${f2((on ? 0.16 : 0.07) * p)}"/>
+          <text x="${f2(c[0])}" y="${f2(c[1])}" transform="rotate(-90 ${f2(c[0])} ${f2(c[1])})" font-size="${f2(med.fs)}" font-family="Consolas, monospace" font-weight="700" fill="#111" text-anchor="middle" dominant-baseline="central">${esc(l.num)}</text>`;
+      }
+      s += '</g>';
+    }
+    return s + '</g>';
+  }
+  // los haces dibujados de la vista (la puerta): la capa del mapa de «Puerta y placa»
+  function hazCapa(L, o = {}) {
+    if (claveVista(L) !== 'PUERTA') return '';
+    return ((RM() || {}).grupos || []).map(hazDe).filter(Boolean).map(h => hazG(h, o)).join('');
+  }
+  // la caja (pt del topográfico) del final del haz, el abanico y la placa: para la vista «Cómo queda» y el visor
+  function cajaHaz(info, conAparato = true) {
+    let b = null;
+    const add = q => { b = unir(b, [q[0], q[1], q[0], q[1]]); };
+    for (const r of Object.values(info.ab.ramas)) r.pts.forEach(add);
+    add(info.ab.base);
+    const R = (P() || {}).H || 24.8, fin = info.poly[info.poly.length - 1];
+    for (const q of info.poly) if (Math.hypot(q[0] - fin[0], q[1] - fin[1]) < 1.2 * R) add(q);
+    // (con las filas de pines enteras: la placa alrededor de los bornes, no todo su cuerpo)
+    if (conAparato) for (const f of info.ab.filas || []) if (f.xs.length) { add([f.xs[0], f.y]); add([f.xs[f.xs.length - 1], f.y]); }
+    return b;
+  }
+  // «Cómo queda» (pestaña Puerta y placa y hoja impresa): por aparato, la placa con sus haces y abanicos, con las mangas
+  function finalSvg(ap, xs, cls = 'tsvg e8-final-svg') {
+    let b = null; for (const x of xs) b = unir(b, cajaHaz(x));
+    const m = 0.35 * ((P() || {}).H || 24.8);
+    return `<svg class="${cls}" viewBox="${vbOf(agrandar(b, m)).map(v => v.toFixed(2)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(P(), true)}${xs.map(x => hazG(x, { mangas: true })).join('')}</svg>`;
+  }
+  function finales() {
+    const por = new Map();
+    for (const h of ((RM() || {}).grupos || []).map(hazDe).filter(Boolean)) { if (!por.has(h.aparato)) por.set(h.aparato, []); por.get(h.aparato).push(h); }
+    return [...por.entries()];
+  }
+  // la línea del mapa de la puerta: el haz de cada grupo de placa, dibujado o no (con el botón para dibujarlo)
+  function hazTxt() {
+    const gs = ((RM() || {}).grupos || []).filter(g => esHazG(g) && g.n);
+    if (!gs.length) return '';
+    return `<p class="small e8-hazt">${gs.map(g => `<span>Haz «${esc(g.nombre)}»: ${hazDe(g) ? '<b class="sal-eleg">dibujado</b> (abajo, cómo queda)' : '<b class="warn-t">falta dibujarlo</b>'}
+      <button class="linkbtn" data-a="mano" data-grupo="${esc(g.id)}" title="Dibujar el haz: arranca en la entrada a la puerta, marcás por dónde va y de su final cada cable va solo a su pin (R)">✏ ${hazDe(g) ? 'Cambiar' : 'Dibujarlo'}</button></span>`).join(' · ')}</p>`;
+  }
+  function finalHtml() {
+    return finales().map(([ap, xs]) => {
+      const n = xs.reduce((a, x) => a + x.ab.orden.length, 0);
+      return `<div class="card e8-final"><div class="card-h"><h2>Cómo queda · <span class="mono">${esc(ap || 'placa')}</span></h2>
+        <span class="muted small">${n} cable${n === 1 ? '' : 's'} en ${xs.length === 1 ? 'un haz' : xs.length + ' haces'} · cada uno sale del haz a su pin, con su terminal y la manga con el número. Pasá el mouse por un cable: el pin y su aclaración; clic: cablearlo de a uno</span></div>
+        ${finalSvg(ap, xs)}</div>`;
+    }).join('');
+  }
   // un cable con grupo de ruteo a mano: sus puntas (borne, franja o empalme) y la acometida hasta el recorrido del grupo
+  // un cable del HAZ de la placa (etapa E8-8): el actual, con todo el haz y su rama resaltada (las otras tenues), su manga
+  // y la aclaración del pin; en el mapa no se dibuja suelto (lo dibuja la capa del haz, hazCapa)
+  function routeHaz(l, cls, k, o, hz) {
+    const x = hz.lineas[l.clave], w = x.w, m = w === 'd' ? l.marca_d : l.marca_o;
+    let s = `<g class="rt ${cls} mano haz${o.hecho ? ' hecho' : ''}" data-clave="${esc(l.clave)}"><title>${esc(l.num)} (${esc(secTxt(l))}): ${esc(l.origen)} → ${esc(l.destino)}${aclDe(l, w) ? ' · ' + esc(aclDe(l, w)) : ''} · ${esc(hz.g.nombre)}: del haz va a su pin</title>`;
+    if (cls !== 'cur') return s + '</g>';
+    s += hazG(hz, { cur: l.clave, mangas: true });
+    const st = [m[0], -m[1]];
+    if (o.pulse) s += `<circle cx="${f2(st[0])}" cy="${f2(st[1])}" r="${f2(1.2 * hz.paso)}" class="ori-p" stroke-width="${f2(0.14 * hz.paso)}"/>`;
+    if ((w === 'd' ? l.exacto_d : l.exacto_o)) s += aclG(st, aclDe(l, w), k);
+    else if (w === 'd' ? l.franja_d : l.franja) s += franjaG(w === 'd' ? l.franja_d : l.franja, st, k, o.pulse, cls);     // (sin pin: a la franja)
+    // (un cable entre dos aparatos de la puerta: la otra punta, punteada desde la base del abanico)
+    const otra = w === 'd' ? l.marca_o : l.marca_d;
+    if (otra) {
+      const b = hz.ab.base, col = Ins.LC(l.color);
+      s += `<path d="M${ptxt(b)}L${ptxt(otra)}" stroke="${col}" stroke-width="${f2(0.4 * hz.paso)}" stroke-dasharray="${f2(1.2 * hz.paso)} ${f2(0.8 * hz.paso)}" fill="none" class="e8-mano-a"/>`
+        + Ins.mark([otra[0], -otra[1]], (otra || [])[2], w === 'd' ? 'ori' : 'des', k, o.pulse);
+    }
+    return s + '</g>';
+  }
   function routeMano(l, cls, k, o) {
-    const g = grupoMano(l.grupo_mano), ck = claveVista(o.L || lat()), ts = tramosEn(g, ck), col = colorGrupo(l.grupo_mano);
+    const g = grupoMano(l.grupo_mano), ck = claveVista(o.L || lat());
+    const hz = ck === 'PUERTA' && hazDe(g);
+    if (hz && hz.lineas[l.clave]) return routeHaz(l, cls, k, o, hz);
+    const ts = tramosEn(g, ck), col = colorGrupo(l.grupo_mano);
     const ro = (l.marca_o || [])[2], rd = (l.marca_d || [])[2];
     const ends = [l.marca_o, l.marca_d].filter(Boolean);
     if (!ends.length) return '';
     // (puerta, etapa E8-7) una punta en el pin exacto de la placa sale del FINAL del tramo común dibujado
     const alPin = (e, w) => esPuerta(o.L || lat()) && (w === 'o' ? l.exacto_o : l.exacto_d);
-    let s = `<g class="rt ${cls} mano${o.hecho ? ' hecho' : ''}" data-clave="${esc(l.clave)}"><title>${esc(l.num)} (${esc(secTxt(l))}): ${esc(l.origen)} → ${esc(l.destino)}${l.aclaracion ? ' · ' + esc(l.aclaracion) : ''} · ruteo a mano: ${esc(g ? g.nombre : l.grupo_mano)}${ts.length ? '' : alPin(null, 'o') ? ' · falta dibujar el tramo común' : ' · falta dibujar el recorrido'}</title>`;
+    let s = `<g class="rt ${cls} mano${o.hecho ? ' hecho' : ''}" data-clave="${esc(l.clave)}"><title>${esc(l.num)} (${esc(secTxt(l))}): ${esc(l.origen)} → ${esc(l.destino)}${l.aclaracion ? ' · ' + esc(l.aclaracion) : ''} · ruteo a mano: ${esc(g ? g.nombre : l.grupo_mano)}${ts.length ? '' : alPin(null, 'o') ? ' · falta dibujar el haz (de su final va a su pin)' : ' · falta dibujar el recorrido'}</title>`;
     if (ts.length) {
       if (cls === 'cur') s += manoG(o.L || lat(), 0.75 * k, { solo: l.grupo_mano, on: l.grupo_mano });
       [[l.marca_o, 'o'], [l.marca_d, 'd']].filter(x => x[0]).forEach(([e, w]) => {
@@ -166,7 +343,7 @@ const E8 = (() => {
       });
     } else if (cls === 'cur' && o.fin !== false) {
       const e = ends[0];
-      s += `<text x="${f2(e[0] + 3)}" y="${f2(-e[1] - 3)}" class="e8-mano-falta" font-size="${f2(5.5 * Math.min(k, 1.3))}">${alPin(e, 'o') ? 'falta dibujar el tramo común' : 'falta dibujar el recorrido'}</text>`;
+      s += `<text x="${f2(e[0] + 3)}" y="${f2(-e[1] - 3)}" class="e8-mano-falta" font-size="${f2(5.5 * Math.min(k, 1.3))}">${alPin(e, 'o') ? 'falta dibujar el haz' : 'falta dibujar el recorrido'}</text>`;
     }
     const st = [l.marca_o[0], -l.marca_o[1]];
     s += l.empalme ? empalmeG(st, l.marca_o, l.empalme, k, o.pulse) : l.franja && !l.exacto_o ? franjaG(l.franja, st, k, o.pulse, cls) : Ins.mark(st, ro, 'ori', k, o.pulse);
@@ -182,10 +359,13 @@ const E8 = (() => {
   function manoPill(l) {
     if (!l.grupo_mano) return '';
     const g = grupoMano(l.grupo_mano), dib = !!(g && g.dibujado);
-    // (etapa E8-7) un cable de la puerta que llega a su pin de la placa: lo que falta es solo el tramo común (en la vista
+    // (la placa de un trabajo sin la vista de la puerta, el PAE: no hay nada que dibujar a mano; en la lateral va por el
+    // ruteo automático hasta la salida a la puerta)
+    if (g && g.sin_puerta) return `<span class="pill e8-manop" data-a="mano" data-grupo="${esc(l.grupo_mano)}" style="--gc:${colorGrupo(l.grupo_mano)}" title="${esc(`Grupo «${g.nombre}»: el topográfico no trae la vista de la puerta, así que no hay recorrido para dibujar a mano. En la bandeja lateral va por las canaletas (ruteo automático) hasta la salida a la puerta.`)}">${esc(g.nombre)} · sin vista de la puerta</span>`;
+    // (etapa E8-7) un cable de la puerta que llega a su pin de la placa: lo que falta es solo el haz (etapa E8-8; en la vista
     // de la puerta, la punta en el pin; en la tabla de «Puerta y placa», pin_puerta)
     const pin = !!(l.pin_puerta || (l.franja && l.exacto_o));
-    return `<span class="pill e8-manop${dib ? ' ok' : ''}" data-a="mano" data-grupo="${esc(l.grupo_mano)}" style="--gc:${colorGrupo(l.grupo_mano)}" title="${esc(`Ruteo a mano: grupo «${g ? g.nombre : l.grupo_mano}». ${dib ? 'El taller ya dibujó su recorrido.' : pin ? 'Falta dibujar el tramo común (✏ Ruteo a mano): de ahí cada cable va a su pin.' : 'Falta dibujar el recorrido (✏ Ruteo a mano).'} Clic para abrirlo`)}">✏ ${esc(g ? g.nombre : l.grupo_mano)}${dib ? '' : pin ? ' · falta el tramo común' : ' · falta dibujar'}</span>`;
+    return `<span class="pill e8-manop${dib ? ' ok' : ''}" data-a="mano" data-grupo="${esc(l.grupo_mano)}" style="--gc:${colorGrupo(l.grupo_mano)}" title="${esc(`Ruteo a mano: grupo «${g ? g.nombre : l.grupo_mano}». ${dib ? (esHazG(g) && pin ? 'El taller ya dibujó el haz: de su final cada cable va solo a su pin (abanico).' : 'El taller ya dibujó su recorrido.') : pin ? 'Falta dibujar el haz (✏ Ruteo a mano): arranca en la entrada a la puerta y de su final cada cable va solo a su pin.' : 'Falta dibujar el recorrido (✏ Ruteo a mano).'} Clic para abrirlo`)}">✏ ${esc(g ? g.nombre : l.grupo_mano)}${dib ? '' : pin ? ' · falta el haz' : ' · falta dibujar'}</span>`;
   }
   const dirPill = l => l.directo ? '<span class="pill e8-dir" title="Va derecho del aparato al borne de la bornera de abajo, sin pasar por el ducto (sin WAGO)">directo al borne</span>' : '';
 
@@ -272,10 +452,61 @@ const E8 = (() => {
   }
   // (miniatura y visor de un cable con grupo de ruteo a mano: el punto del recorrido del grupo más cercano a cada punta)
   function cercanos(l, L) {
-    const ts = tramosEn(grupoMano(l.grupo_mano), claveVista(L || lat()));
+    // (haz de la placa, etapa E8-8: su rama del abanico y la base del abanico)
+    const ck = claveVista(L || lat()), hz = ck === 'PUERTA' && hazDe(grupoMano(l.grupo_mano));
+    if (hz && hz.ab.ramas[l.clave]) return [...hz.ab.ramas[l.clave].pts, hz.ab.base];
+    const ts = tramosEn(grupoMano(l.grupo_mano), ck);
     return ts.length ? [l.marca_o, l.marca_d].filter(Boolean).map(e => cercaDe(e, ts)).filter(Boolean) : [];
   }
   const sibs = (L, l) => flat(L).map(x => x.l).filter(x => x !== l && x.num === l.num);
+  /* ---- EMPALME EN LA LATERAL (2026-10-13, pedido del taller): otro tramo del MISMO cable llega a la misma punta de la
+     lateral. El cable de comunicación del PAE y del 75287 entra a la lateral (tramo de 81XCM), se empalma en la bornera
+     del cargador (12XPS: los dos tramos en el mismo borne, terminal doble) y sale a la puerta hacia la placa (tramo a
+     21PCB01); en el TPT, el RS-485 se junta en el WAGO de 3 debajo del cargador. En el visor de cualquiera de los tramos
+     se ve el camino entero: el otro tramo como continuación (sibs) y la punta marcada como el empalme. ---- */
+  function uniones(L, l) {
+    const ls = sibs(L, l), en = t => ls.filter(x => x.origen === t || (x.marca_d && x.destino === t));
+    return { o: l.marca_o ? en(l.origen) : [], d: l.marca_d ? en(l.destino) : [] };
+  }
+  function unionTxt(l, w, xs) {
+    if (!xs || !xs.length) return '';
+    const t = w === 'o' ? l.origen : l.destino, emp = w === 'o' ? l.empalme : l.empalme_d;
+    const de = xs.map(x => `${x.origen === t ? x.destino : x.origen}${x.otra && x.otra !== 'misma bandeja' ? ` (${x.otra})` : ''}`).join(' y ');
+    if (emp) return `en el mismo empalme llega${xs.length > 1 ? 'n' : ''} el tramo${xs.length > 1 ? 's' : ''} de ${de}`;
+    return `empalme en el borne: también llega${xs.length > 1 ? 'n' : ''} el tramo${xs.length > 1 ? 's' : ''} de ${de}` + (xs.length === 1 ? ' · terminal doble' : '');
+  }
+  // banner del visor: el empalme con el otro tramo (el camino entero, en orden: el que entra, la punta y el que sale) y
+  // los puntos de paso que se saltean
+  function avisoVisor(l, un, st) {
+    const out = [];
+    for (const w of ['o', 'd']) {
+      const t = unionTxt(l, w, un[w]); if (!t) continue;
+      const pt = w === 'o' ? l.origen : l.destino;
+      // (el camino entero: primero los tramos que vienen de la entrada, después los que salen a la puerta)
+      const orden = s => (s.sale === 'entrada' || s.viene_de_e6 ? 0 : s.sale === 'puerta' ? 2 : 1);
+      const ts = [l, ...un[w]].sort((a, b) => orden(a) - orden(b));
+      const otra = s => (s.origen === pt ? s.destino : s.origen) + (s.otra && s.otra !== 'misma bandeja' ? ` (${s.otra})` : '');
+      out.push(`<b>Cable ${esc(l.num)}: ${esc(pt)} · ${esc(t)}</b> — el camino entero: ` + ts.map((s, i) => `<span class="mono ${s === l ? 'cur' : ''}">${i ? esc(pt) + ' → ' + esc(otra(s)) : esc(otra(s)) + ' → ' + esc(pt)}</span>`).join(' · '));
+    }
+    if (st) out.push(`<b class="e8-salt-t">⚠ ${esc(st[0].toUpperCase() + st.slice(1))}</b> <span>(el cable no entra a esa canaleta para volver por el mismo camino; cambialo en 🧭, tecla S)</span>`);
+    return out.join('<br>');
+  }
+  // la punta marcada como el empalme (p en puntos del topográfico)
+  function unionG(p, k, txt) {
+    if (!p) return '';
+    const x = +p[0], y = -p[1];
+    return `<g class="e8-union"><title>${esc(txt)}</title><circle cx="${f2(x)}" cy="${f2(y)}" r="${f2(4.6 * k)}" stroke-width="${f2(0.55 * k)}" stroke-dasharray="${f2(1.6 * k)} ${f2(1 * k)}"/>
+      <text x="${f2(x + 5.4 * k)}" y="${f2(y + 6.6 * k)}" font-size="${f2(3.4 * k)}" stroke-width="${f2(0.9 * k)}">empalme</text></g>`;
+  }
+  // (2026-10-13) puntos de paso del recorrido que manda que se saltean (el cable entraría a una canaleta sin salida y
+  // volvería por el mismo camino: estacion8.rutear_lineas, l.salteados)
+  function saltTxt(L, l) {
+    const s = l.salteados || []; if (!s.length) return '';
+    const g = l.salida ? ptsOf(vrecVer(L).grupos).find(x => x.id === l.salida) : null;
+    const de = g ? `del grupo «${g.nombre}»` : l.sale === 'puerta' ? 'de la salida a la puerta' : 'de la entrada';
+    return s.length > 1 ? `los puntos de paso ${s.join(', ')} ${de} quedan en una canaleta sin salida: se saltean`
+      : `el punto de paso ${s[0]} ${de} queda en una canaleta sin salida: se saltea`;
+  }
   function thumb(L, l) {
     const vb = vbOf(boxOf(L, [l, ...sibs(L, l)]));
     return `<svg class="tsvg" viewBox="${vb.map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}${sibs(L, l).map(s => routeG(s, 'sib', 1.1, { fin: false, L })).join('')}${routeG(l, 'cur', 1.2, { L })}</svg>`;
@@ -308,10 +539,13 @@ const E8 = (() => {
     const antes = JSON.stringify([e.ruteo_mano && e.ruteo_mano.miembro, e.ruteo_mano && e.ruteo_mano.grupos]);
     e.ruteo_mano = R;
     const m = R.miembro || {};
-    const marcarL = l => { const g = m[l.clave]; if (g) l.grupo_mano = g; else delete l.grupo_mano; };
-    e.laterales.forEach(L => flat(L).forEach(x => marcarL(x.l)));
-    if (e.puerta) (e.puerta.pasos || []).forEach(p => p.lineas.forEach(marcarL));
-    e.afuera.forEach(g => g.cables.forEach(marcarL));
+    // (como estacion8_mano.anotar: en las laterales, un cable de un grupo 'solo_puerta' —la placa— va por el ruteo
+    // automático: no se marca)
+    const solo = new Set((R.grupos || []).filter(g => g.solo_puerta).map(g => g.id));
+    const marcarL = (l, lateral) => { const g = m[l.clave]; if (g && !(lateral && solo.has(g))) l.grupo_mano = g; else delete l.grupo_mano; };
+    e.laterales.forEach(L => flat(L).forEach(x => marcarL(x.l, true)));
+    if (e.puerta) (e.puerta.pasos || []).forEach(p => p.lineas.forEach(l => marcarL(l, false)));
+    e.afuera.forEach(g => g.cables.forEach(l => marcarL(l, false)));
     const cambio = antes !== JSON.stringify([R.miembro, R.grupos]);
     if (cambio) Ins.dirty();
     return cambio;
@@ -351,8 +585,9 @@ const E8 = (() => {
     $('#e8Entrada').textContent = esPuerta(lat()) ? '🧭 Entrada / recorrido' : '🧭 Entrada / salida';
     $('#e8Info').innerHTML = `Estación <b>E8</b> (gabinete) · ${nLat} cables en ${e8.laterales.length === 1 ? 'la bandeja lateral' : e8.laterales.length + ' bandejas laterales'} · ${nAf} puntas en la puerta, la placa y la zona hidráulica · <b>${hechosN}</b> de ${claves.size} cableados` +
       (e8.campo ? ` · ${e8.campo} cables de campo no van en E8 (los conecta el cliente)` : '');
-    // ruteo a mano por grupos: cuántos grupos y cuántos falta dibujar
-    const gm = ((RM() || {}).grupos || []).filter(g => g.n);
+    // ruteo a mano por grupos: cuántos grupos y cuántos falta dibujar (sin los de la placa de un trabajo sin la vista de la
+    // puerta: no hay nada que dibujar a mano)
+    const gm = ((RM() || {}).grupos || []).filter(g => g.n && !g.sin_puerta);
     const falta = gm.filter(g => !g.dibujado).length;
     $('#e8Mano').hidden = !RM();
     $('#e8Mano').innerHTML = `✏ Ruteo a mano${gm.length ? ` <span class="cnt${falta ? ' warn' : ''}">${falta ? `${falta} de ${gm.length} sin dibujar` : `${gm.length} dibujados`}</span>` : ''}`;
@@ -388,7 +623,7 @@ const E8 = (() => {
     $('#e8Lat').innerHTML = `
       <div class="e8-mapa card"><div class="card-h"><h2>${esc(L.nombre)}</h2><span class="muted small">${tot} cables · ${exactos === tot ? 'todos con el punto del borne' : `${exactos} de ${tot} con el punto del borne`}${L.sin_canaletas ? ' · sin canaletas leídas: no hay recorrido' : ''}${L.sin_riel ? ' · sin riel dibujado: aparato por aparato' : ''}</span></div>
         <svg class="tsvg${X.haz ? '' : ' sin-haz'}" id="e8Mapa" viewBox="${vbMapa(L, uMapa(L)).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(L)}
-          ${transitoG(L, uMapa(L))}${manoG(L, uMapa(L))}${flat(L).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L })).join('')}${flechas(L, uMapa(L))}<g id="e8Sel"></g></svg>
+          ${transitoG(L, uMapa(L))}${manoMapa(L, uMapa(L))}${flat(L).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L })).join('')}${flechas(L, uMapa(L))}<g id="e8Sel"></g></svg>
         ${ent ? `<p class="small e8-ent">${ent} <button class="linkbtn" data-a="entrada" title="Elegir por dónde entran y salen los cables de esta bandeja lateral (S)">🧭 Cambiar</button></p>` : ''}
         ${transitoTxt(L)}${mapeoTxt(L)}
         <p class="muted small">Pasá el mouse por un cable de la lista para verlo en la bandeja. Los cables que vienen de la bandeja principal ya están tirados desde E6: acá se conecta la punta de la lateral.</p></div>
@@ -466,10 +701,13 @@ const E8 = (() => {
       html += `<h2 class="e8-zona">Puerta</h2><div class="e8-lat e8-pu">
         <div class="e8-mapa card"><div class="card-h"><h2>${esc(Pd.titulo || 'Puerta')}</h2><span class="muted small">${Pd.n} cables · ${puertaPines(Pd)}${Pd.sin_canaletas ? ' · sin canaletas leídas' : ''}</span></div>
           <svg class="tsvg" id="e8MapaP" viewBox="${vbMapa(Pd, uMapa(Pd)).map(v => v.toFixed(1)).join(' ')}" preserveAspectRatio="xMidYMid meet">${imgTag(Pd)}
-            ${manoG(Pd, uMapa(Pd))}${flat(Pd).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L: Pd })).join('')}${flechas(Pd, uMapa(Pd))}${aparatosG(Pd, uMapa(Pd))}<g id="e8SelP"></g></svg>
+            ${manoMapa(Pd, uMapa(Pd))}${flat(Pd).map(x => routeG(x.l, 'sib', 0.9, { hecho: H.has(x.l.clave), fin: false, L: Pd })).join('')}${flechas(Pd, uMapa(Pd))}${aparatosG(Pd, uMapa(Pd))}<g id="e8SelP"></g></svg>
           <p class="small e8-ent">${ent} <button class="linkbtn" data-a="entrada" title="Elegir por dónde entran a la puerta y por dónde pasan (S)">🧭 Cambiar</button></p>
+          ${hazTxt()}
           <p class="muted small">Pasá el mouse por una fila de la tabla para ver el cable en la puerta. ▶ Cablear de a uno: un cable por vez.</p></div>
-        <div class="e8-aps e8-aps1">${enP.map(g => tablaAp(g, H, true)).join('')}</div></div>`;
+        <div class="e8-aps e8-aps1">${enP.map(g => tablaAp(g, H, true)).join('')}</div></div>${finalHtml()}`;
+    } else if (((RM() || {}).grupos || []).some(g => g.sin_puerta && g.n)) {
+      html += `<p class="small note e8-sinpu">El topográfico no trae la vista de la puerta: el haz de la placa no se puede dibujar acá (en las bandejas laterales sus cables van por las canaletas hasta la salida a la puerta). Cada borne de la placa está en su tabla.</p>`;
     }
     const resto = gs.filter(g => !(Pd && g.en_puerta && g.zona === 'puerta / placa'));
     html += resto.length ? zonas.filter(z => resto.some(g => g.zona === z)).map(z => `<h2 class="e8-zona">${z === 'puerta / placa' ? (Pd ? 'Otros aparatos fuera de las bandejas' : 'Puerta y placa') : 'Zona hidráulica (placa principal)'}</h2>
@@ -518,14 +756,21 @@ const E8 = (() => {
     $('#e8vPos').textContent = `${V.k + 1} / ${f.length}`;
     $('#e8vGrp').textContent = `${L.nombre} · ${L.pasos[g].titulo}`;
     $('#e8vNum').innerHTML = `<span class="mono">${esc(l.num)}</span> ${swatch(l.color)} <span class="secc big">${esc(secTxt(l))}</span>`;
+    // (2026-10-13) otro tramo del mismo cable llega a la misma punta: el empalme en el borne (terminal doble) o en el
+    // mismo empalme; el otro tramo se ve como continuación (sibs)
+    const un = uniones(L, l);
     $('#e8vOrig').innerHTML = esc(l.origen) + (l.aclaracion ? ` <span class="e8-acl-t small" title="Aclaración del pin (funcional)">· ${esc(aclCorta(l.aclaracion))}</span>` : '') + (l.empalme ? ` <span class="e8-emp-t small${l.empalme.confirmar ? ' conf' : ''}">· ${esc(l.empalme.texto)}</span>` : '');
     $('#e8vDest').innerHTML = esc(l.destino) + (l.aclaracion_d ? ` <span class="e8-acl-t small">· ${esc(aclCorta(l.aclaracion_d))}</span>` : '') + ' ' + otraPill(l) + (l.empalme_d ? ` <span class="e8-emp-t small${l.empalme_d.confirmar ? ' conf' : ''}">· ${esc(l.empalme_d.texto)}</span>` : '');
     const gm = l.grupo_mano && grupoMano(l.grupo_mano);
     const alPin = esPuerta(L) && l.exacto_o;
-    $('#e8vLen').innerHTML = l.grupo_mano ? `${manoPill(l)}${gm && gm.dibujado && !tramosEn(gm, claveVista(L)).length ? ' <span>(dibujado en otra vista)</span>' : ''}${alPin ? ` <span>· ${gm && tramosEn(gm, claveVista(L)).length ? 'del final del tramo común' : 'de ahí'} va a su pin ${esc(l.pin || '')}${l.conf_o === 'media' ? ' (a confirmar)' : ''}</span>` : ''} <button class="linkbtn" data-a="mano" title="Ruteo a mano de este grupo: dibujarlo o cablearlo de a uno (R)">✏ Abrir</button>`
+    const st = saltTxt(L, l);
+    $('#e8vLen').innerHTML = l.grupo_mano ? `${manoPill(l)}${gm && gm.dibujado && !tramosEn(gm, claveVista(L)).length ? ' <span>(dibujado en otra vista)</span>' : ''}${alPin ? ` <span>· ${gm && tramosEn(gm, claveVista(L)).length ? 'del haz' : 'de ahí'} va a su pin ${esc(l.pin || '')}${l.conf_o === 'media' ? ' (a confirmar)' : ''}</span>` : ''} <button class="linkbtn" data-a="mano" title="Ruteo a mano de este grupo: dibujarlo o cablearlo de a uno (R)">✏ Abrir</button>`
       : esc(alPin ? `llega al pin ${l.pin || '—'} de ${l.aparato}${l.aclaracion ? ' · ' + aclCorta(l.aclaracion) : ''}${l.conf_o === 'media' ? ' (a confirmar)' : ''}`
         : esPuerta(L) ? `llega a la franja de bornes de ${l.aparato}: borne ${l.pin || '—'} (está en la tabla)`
         : l.largo_mm ? `≈ ${l.largo_mm} mm en la lateral${l.directo ? ' · directo al borne, sin el ducto' : ''}` : '');
+    // banner debajo de la barra: el empalme con el otro tramo (el camino entero) y los puntos de paso salteados
+    const av = avisoVisor(l, un, st);
+    $('#e8vDeriv').hidden = !av; $('#e8vDeriv').innerHTML = av;
     $('#e8vOk').checked = H.has(l.clave);
     $('#e8vBar').style.width = (f.filter(x => H.has(x.l.clave)).length / f.length * 100) + '%';
     // (el encuadre con lo que tiene que entrar: el rótulo del final del recorrido, «A la bandeja principal», y las flechas
@@ -537,7 +782,10 @@ const E8 = (() => {
       if (fl.p[0] >= caja[0] && fl.p[0] <= caja[2] && fl.p[1] >= caja[1] && fl.p[1] <= caja[3]) caja = unir(caja, agrandar(cajaFlecha(fl, uv), 2 * uv));
     const target = vbOf(roomForLupas(caja));
     const fs = Ins.fontFor('#e8vSvg', target, 14);
-    $('#e8vSvg').innerHTML = imgTag(L, true) + (X.haz ? transitoG(L, 0.7 * uMapa(L), false) : '') + manoG(L, 0.7 * uMapa(L)) + flechas(L, 0.7 * uMapa(L)) + ss.map(s => routeG(s, 'sib', 1.3, { lab: fs, L })).join('') + routeG(l, 'cur', 1.6, { lab: fs, pulse: true, L }) + '<g id="e8vAdjG"></g>';
+    // (2026-10-13, pedido del taller: el visor dibuja SOLO el recorrido a mano del grupo del cable actual, que lo pone
+    // routeG; los de los otros grupos no: confunden con el cable que se está cableando)
+    $('#e8vSvg').innerHTML = imgTag(L, true) + (X.haz ? transitoG(L, 0.7 * uMapa(L), false) : '') + flechas(L, 0.7 * uMapa(L)) + ss.map(s => routeG(s, 'sib', 1.3, { lab: fs, L })).join('') + routeG(l, 'cur', 1.6, { lab: fs, pulse: true, L })
+      + (un.o.length && !l.empalme ? unionG(l.marca_o, 1.6, unionTxt(l, 'o', un.o)) : '') + (un.d.length && !l.empalme_d ? unionG(l.marca_d, 1.6, unionTxt(l, 'd', un.d)) : '') + '<g id="e8vAdjG"></g>';
     // 📍 ajustar el punto del borne (no en la puerta: llega a la franja; no en un empalme: no es un borne)
     $('#e8vAdjO').hidden = esPuerta(L); $('#e8vAdjD').hidden = esPuerta(L) || !l.marca_d;
     $('#e8vAdjO').disabled = !puedeAjustar(l, 'o'); $('#e8vAdjD').disabled = !puedeAjustar(l, 'd');
@@ -586,7 +834,7 @@ const E8 = (() => {
       if (wx === 'o') { x.marca_o = [q[0], q[1], (x.marca_o || [])[2] || null]; x.exacto_o = true; x.conf_o = 'usuario'; delete x.nota_o; delete x.aprox_o; x.lado = r.lado; }
       else { x.marca_d = [q[0], q[1], (x.marca_d || [])[2] || null]; x.exacto_d = true; x.conf_d = 'usuario'; delete x.nota_d; delete x.aprox_d; x.lado_d = r.lado; }
       x.ruta = r.ruta; x.largo_mm = r.largo_mm;
-      for (const k of ['sale', 'salida', 'no_llega']) { if (r[k] == null) delete x[k]; else x[k] = r[k]; }
+      for (const k of ['sale', 'salida', 'no_llega', 'salteados']) { if (r[k] == null || (Array.isArray(r[k]) && !r[k].length)) delete x[k]; else x[k] = r[k]; }
     }
     L.exactos = flat(L).filter(x => x.l.exacto_o).length;
     Ins.dirty();
@@ -740,6 +988,16 @@ const E8 = (() => {
     if (esPuerta(L) && G.tipo === 'entrada') return sal;          // (en la puerta todos entran por la misma entrada)
     const tom = new Set(conRec(L).flatMap(g => g.cables || []));
     return sal.filter(l => (esPuerta(L) || (l.sale || 'entrada') === G.tipo) && !tom.has(l.num));
+  }
+  // (2026-10-13) aviso del grupo: sus puntos de paso que se saltean (el cable entraría a una canaleta sin salida y
+  // volvería por el mismo camino), juntando lo de sus cables
+  function saltG(L, G) {
+    if (!G || esPuerta(L)) return '';
+    const ms = miembros(L, G), s = [...new Set(ms.flatMap(l => l.salteados || []))].sort((a, b) => a - b);
+    if (!s.length) return '';
+    const n = ms.filter(l => (l.salteados || []).length).length, de = n < ms.length ? ` para ${n} de sus ${ms.length} cables` : '';
+    return (s.length > 1 ? `Los puntos de paso ${s.join(', ')} quedan en una canaleta sin salida${de}: se saltean` : `El punto de paso ${s[0]} queda en una canaleta sin salida${de}: se saltea`)
+      + ' (el cable no entra para volver por el mismo camino)';
   }
   // por donde entran (o salen): el ultimo punto elegido, o la propuesta
   function finDe(L, tipo) {
@@ -948,6 +1206,7 @@ const E8 = (() => {
           <div class="sal-gh">${sel ? `<input class="sal-nom" data-g="${i}" value="${esc(G.nombre || '')}" aria-label="Nombre del grupo" spellcheck="false">` : `<b>${esc(G.nombre)}</b>`}
             <span class="muted small">${n} cable${n === 1 ? '' : 's'}</span></div>
           <div class="small ${P.length ? 'sal-eleg' : 'muted'}">${esc(rt)}</div>
+          ${saltG(L, G) ? `<div class="small warn-t">⚠ ${esc(saltG(L, G))}</div>` : ''}
           ${ayuda ? `<div class="small muted">${esc(ayuda)}</div>` : ''}
           ${on ? `<div class="sal-acts">
             <button class="btn sm ${X.modo === 'recorrido' ? 'on' : ''}" data-a="rec" title="${pu && G.tipo === 'entrada' ? 'Clic en el dibujo por donde entran a la puerta' : pu ? 'Clic en el dibujo por donde pasan los cables, en orden' : `Clic en el dibujo por donde pasan los cables; el último clic es por donde ${ve}`}">✎ ${pu && G.tipo === 'entrada' ? 'Marcar la entrada' : pu ? 'Marcar puntos de paso' : 'Marcar recorrido'}</button>
@@ -969,7 +1228,7 @@ const E8 = (() => {
       return `<div class="vs-it sal-it ${act.has(l) ? 'act' : ''} ${X.foco === l.num ? 'on' : ''}" data-num="${esc(l.num)}" title="${esc(`${l.origen} → ${l.destino} (${l.otra})${l.largo_mm ? ' · ≈' + l.largo_mm + ' mm en la lateral' : ''}`)}">
         ${sel ? `<input type="checkbox" data-ck ${(G.ref.cables || []).includes(l.num) ? 'checked' : ''} aria-label="Cable ${esc(l.num)} en el grupo">` : '<span></span>'}
         <span class="n">${esc(l.num)}</span><span class="od mono">${esc(l.origen)} → ${esc(l.destino)}</span>
-        <span class="sal-chip ${eleg ? 'eleg' : ''}" title="${l.no_llega ? (esPuerta(L) ? 'No llega por las canaletas hasta los puntos de paso elegidos' : 'No llega por las canaletas hasta el punto elegido: sale por la propuesta') : gg ? esc(gg.nombre) : ''}">${l.no_llega ? '⚠ ' : ''}${esc(gg ? (gg.tipo === 'entrada' ? 'entrada' : gg.tipo === 'puerta' ? 'a la puerta' : gg.tipo === 'paso' ? (l.aparato || 'tramo común') : gg.nombre) : '')}${eleg ? '' : ' (prop.)'}</span></div>`;
+        <span class="sal-chip ${eleg ? 'eleg' : ''}" title="${l.no_llega ? (esPuerta(L) ? 'No llega por las canaletas hasta los puntos de paso elegidos' : 'No llega por las canaletas hasta el punto elegido: sale por la propuesta') : (l.salteados || []).length ? esc(saltTxt(L, l)) : gg ? esc(gg.nombre) : ''}">${l.no_llega || (l.salteados || []).length ? '⚠ ' : ''}${esc(gg ? (gg.tipo === 'entrada' ? 'entrada' : gg.tipo === 'puerta' ? 'a la puerta' : gg.tipo === 'paso' ? (l.aparato || 'tramo común') : gg.nombre) : '')}${eleg ? '' : ' (prop.)'}</span></div>`;
     }).join('') || '<div class="vs-empty muted small">Ningún cable coincide.</div>';
     const n = salientes(L).length;
     $('#e8sCnt').textContent = `${n} cable${n === 1 ? '' : 's'} ${esPuerta(L) ? 'entran a la puerta' : 'entran o salen de la lateral'} · ${salientes(L).filter(l => { const g = grupoDe(L, l); return g && puntosG(g).length; }).length} con recorrido elegido`;
@@ -1007,7 +1266,8 @@ const E8 = (() => {
       const tt = i => esPuerta(L) ? (x.tipo === 'entrada' ? 'entran a la puerta por acá' : 'pasan por acá (' + (i + 1) + ')')
         : i === n - 1 ? (x.tipo === 'puerta' ? 'salen de la lateral por acá' : 'entran a la lateral por acá') : 'pasan por acá (' + (i + 1) + ')';
       if (n > 1) m += `<polyline points="${P.map(p => `${f2(p[0])},${f2(-p[1])}`).join(' ')}" class="sal-orden ${on ? 'on' : ''}" stroke-width="${f2(1.5 * u)}" stroke-dasharray="${f2(5 * u)} ${f2(4 * u)}"/>`;
-      m += P.map((p, i) => `<g class="sal-pt ${fin(i) ? 'fin' : ''} ${on ? 'on' : ''}"><title>${esc(x.nombre)}: ${tt(i)}</title>
+      const salt = new Set(esPuerta(L) ? [] : miembros(L, x).flatMap(l => l.salteados || []));
+      m += P.map((p, i) => `<g class="sal-pt ${fin(i) ? 'fin' : ''} ${on ? 'on' : ''}${salt.has(i + 1) ? ' salt' : ''}"><title>${esc(x.nombre)}: ${tt(i)}${salt.has(i + 1) ? ' · queda en una canaleta sin salida: se saltea' : ''}</title>
         <circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2(r)}" stroke-width="${f2(1.6 * u)}"/>
         ${on ? `<text x="${f2(p[0])}" y="${f2(-p[1])}" font-size="${f2((fin(i) ? 8.5 : 10) * u)}" text-anchor="middle" dominant-baseline="central">${fin(i) ? '⇥' : i + 1}</text>` : ''}</g>`).join('');
     }
@@ -1037,7 +1297,7 @@ const E8 = (() => {
         (x.lineas || []).forEach((y, i) => {
           const l = sal[i]; if (!l || l.clave !== y.clave) return;
           l.ruta = y.ruta; l.largo_mm = y.largo_mm;
-          for (const k of ['sale', 'salida', 'no_llega']) { if (y[k] == null) delete l[k]; else l[k] = y[k]; }
+          for (const k of ['sale', 'salida', 'no_llega', 'salteados']) { if (y[k] == null || (Array.isArray(y[k]) && !y[k].length)) delete l[k]; else l[k] = y[k]; }
         });
         mal += x.no_llegan || 0;
       }
@@ -1217,7 +1477,7 @@ const E8 = (() => {
   }
 
   // (impresión) el grupo de ruteo a mano de un cable
-  const manoTxt = l => { if (!l.grupo_mano) return ''; const g = grupoMano(l.grupo_mano); return `<br><b style="color:#6a1b9a">Ruteo a mano: ${esc(g ? g.nombre : l.grupo_mano)}${g && g.dibujado ? '' : ' (falta dibujar el recorrido)'}</b>`; };
+  const manoTxt = l => { if (!l.grupo_mano) return ''; const g = grupoMano(l.grupo_mano); return `<br><b style="color:#6a1b9a">Ruteo a mano: ${esc(g ? g.nombre : l.grupo_mano)}${g && g.dibujado ? (esHazG(g) ? ' · el haz y su abanico, abajo en «Cómo queda»' : '') : esHazG(g) ? ' (falta dibujar el haz)' : ' (falta dibujar el recorrido)'}</b>`; };
   // (el WAGO y el cable propio en la hoja impresa; en la pantalla están en styles.css)
   const EMP_CSS = `.e8-propio{fill:none;stroke:#555} .e8-ap{fill:#fff;stroke:#555} .e8-wago-i{fill:#ff8c1a;stroke:#5a2d00}
       .e8-emp.conf .e8-wago-i{fill:#ffd54f} .e8-wago-l{stroke:#5a2d00} .e8-wago-t{font-weight:700;fill:#5a2d00;font-family:Arial}
@@ -1240,6 +1500,9 @@ const E8 = (() => {
       let n = 0;
       html += `<h2>${esc(Pd.titulo || 'Puerta')}</h2>` + Pd.pasos.map(p => `<h3>${esc(p.titulo)}</h3><div class="g">${p.lineas.map(l => `<div class="c"><div class="n">${++n}</div>${thumb(Pd, l).replace(/href="\//g, `href="${base}/`)}
         <div class="t"><b>${esc(l.num)}</b>: ${esc(l.cable)} · ${esc(secTxt(l))}<br>${esc(l.origen)} → ${esc(l.destino)}${l.aclaracion ? `<br><b style="color:#00566b">${esc(l.aclaracion)}</b>` : ''}<br><span style="color:#555">${esc(l.viene_de_e6 ? 'viene de la bandeja principal (E6)' : l.otra)}</span>${manoTxt(l)}</div><div class="ok">☐</div></div>`).join('')}</div>`).join('');
+      // (etapa E8-8) cómo queda cada placa: el haz con sus precintos y cada cable a su pin con su manga
+      for (const [ap, xs] of finales())
+        html += `<h3>Cómo queda · ${esc(ap || 'placa')} (${xs.reduce((a, x) => a + x.ab.orden.length, 0)} cables)</h3>` + finalSvg(ap, xs, 'fin').replace(/href="\//g, `href="${base}/`);
     }
     html += `<h2>Puerta, placa y zona hidráulica</h2><div class="g">` + e8.afuera.map(g => `<table><caption>${esc(g.tag)} <span>(${esc(g.zona)})</span></caption>
       ${g.cables.map(x => `<tr><td>☐</td><td><b>${esc(x.pin || x.borne)}</b>${x.aclaracion ? `<br><span style="color:#00566b">${esc(aclCorta(x.aclaracion))}</span>` : ''}${x.empalme ? `<br><span style="color:#b35900">${esc(x.empalme.texto)}</span>` : ''}</td><td>${esc(x.num)} · ${esc(secTxt(x))}${manoTxt(x)}</td><td>→ ${esc(x.otra)} <span style="color:#666">(${esc(x.otra_donde)})</span></td></tr>`).join('')}</table>`).join('') + '</div>';
@@ -1248,7 +1511,7 @@ const E8 = (() => {
       .m{color:#555;margin-bottom:10px} .g{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
       .c{display:flex;gap:10px;border:1px solid #ccc;border-radius:8px;padding:6px;page-break-inside:avoid;align-items:center}
       .n{width:26px;height:26px;border-radius:50%;background:#1f5fbf;color:#fff;display:grid;place-items:center;font-weight:700;flex:none;font-size:11px}
-      svg{width:170px;height:115px;border:1px solid #ddd;border-radius:6px;flex:none} ${Ins.PRINT_CSS} ${EMP_CSS}
+      svg{width:170px;height:115px;border:1px solid #ddd;border-radius:6px;flex:none} svg.fin{width:100%;height:auto;max-height:640px;page-break-inside:avoid} ${Ins.PRINT_CSS} ${EMP_CSS}
       .t{font:12px Consolas,monospace} .t b{font-size:13px} .ok{margin-left:auto;font-size:14px}
       table{border-collapse:collapse;font:12px Consolas,monospace;page-break-inside:avoid;width:100%} caption{text-align:left;font:700 13px "Segoe UI",Arial;padding:4px 0} caption span{font-weight:400;color:#666}
       td{border-bottom:1px solid #ddd;padding:2px 6px}</style></head><body>
@@ -1296,6 +1559,9 @@ const E8 = (() => {
     $('#e8Lat').addEventListener('mouseover', e => { const cab = e.target.closest('.cab'); resaltar(cab ? cab.dataset.clave : null); });
     $('#e8vLen').addEventListener('click', e => { if (e.target.closest('[data-a="mano"]')) manoDesdeVisor(); });
     $('#e8Afuera').addEventListener('click', e => {
+      // («Cómo queda», etapa E8-8) clic en un cable del abanico: el visor de a uno desde ese cable
+      const hr = e.target.closest('.e8-final .e8-hzr[data-clave]');
+      if (hr) { const k = F().findIndex(x => x.l.clave === hr.dataset.clave); if (k >= 0) return openViewer(k); }
       const b = e.target.closest('[data-a]'); if (!b) return;
       if (b.dataset.a === 'mano') { const tr = b.closest('tr'); return mano({ grupo: b.dataset.grupo, clave: tr ? tr.dataset.clave : null }); }
       if (b.dataset.a === 'entrada') return abrirEd({ li: 'puerta' });
@@ -1395,6 +1661,7 @@ const E8 = (() => {
   return { open, init, hide: () => { W().hidden = true; }, asistente,
     // (para e8mano.js: el editor y el visor del ruteo a mano por grupos)
     int: { E, D: () => D, RM, aplicarMano, vistaDe, imgTag, vbOf, manoG, colorGrupo, cercaDe, finTramo, aclCorta, tramosEn, claveVista, hechos, esHecho, marcar,
+      hazDe, hazG, cajaHaz, esHazG, REC: () => REC(), P,
       render: () => { if (!W().hidden && E()) render(); } } };
 })();
 E8.init();

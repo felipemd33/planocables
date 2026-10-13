@@ -9,6 +9,8 @@
      terminales(ins, {web})               -> [{g, i, num, origen, destino, o, d}]   terminal() de instructivo.js por línea
      terminalesE8(ins, {web})             -> [{lateral, g, i, clave, num, origen, destino, o, d}]   el de estacion8.js
      vistaE8(ins, {web})                  -> {laterales: [HTML de #e8Lat por lateral], afuera: HTML de #e8Afuera}
+     manoE8(ins, {web})                   -> {E8, E8M, D, ctx}   estacion8.js + e8mano.js con el instructivo abierto
+     visorE6(ins, {web})                  -> {Ins, Sal, D, ctx}  instructivo.js + salidas.js (visor de cablear y salidas)
      normalizarFila(f)                    -> la fila de wpc.js como JSON simple
    ins no se toca: se trabaja sobre una copia. cfg = lo que el taller cambia en la pantalla (ins.wpc.cfg), se suma encima.
    wpcJson = otro wpc.json en lugar del del disco (para pruebas). web = otra carpeta programa/web (para comparar); la
@@ -93,7 +95,7 @@ function correr(ctx, web, archivo) {
 }
 // el núcleo de la web (programa/web/nucleo/, desde la etapa 3), en el orden de index.html. Una copia vieja de la web
 // (PLANOCABLES_WEB) puede no tenerlo
-const NUCLEO = ['zip.js', 'wpc_core.js'];
+const NUCLEO = ['zip.js', 'wpc_core.js', 'haz.js'];   // (haz.js: el haz de la placa, etapa E8-8)
 function correrNucleo(ctx, web) {
   for (const n of NUCLEO) if (fs.existsSync(path.join(web, 'nucleo', n))) correr(ctx, web, 'nucleo/' + n);
 }
@@ -159,7 +161,8 @@ async function terminalesE8(ins, op = {}) {
     termChip: t => { vistos.push(t); return `⟦T${vistos.length - 1}⟧`; },
     ferrule: () => '', mark: () => '', label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '',
   };
-  const ctx = contexto({ fetch: fetchDe(web), api: async () => ({}), Ins });
+  const ctx = contexto({ fetch: fetchDe(web), api: op.api || (async () => ({})), Ins });
+  correrNucleo(ctx, web);
   correr(ctx, web, 'estacion8.js');
   await esperar();
   const E8 = vm.runInContext('E8', ctx);
@@ -193,7 +196,8 @@ async function vistaE8(ins, op = {}) {
     termChip: t => (t ? `⟦${t.tipo}⟧` : ''), ferrule: (p, d, r, t) => (t ? '<g class="term"/>' : ''), mark: (p, r, cls) => `<circle class="${cls}"/>`,
     label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '', fontFor: () => 10,
   };
-  const ctx = contexto({ fetch: fetchDe(web), api: async () => ({}), Ins });
+  const ctx = contexto({ fetch: fetchDe(web), api: op.api || (async () => ({})), Ins });
+  correrNucleo(ctx, web);
   correr(ctx, web, 'estacion8.js');
   await esperar();
   const E8 = vm.runInContext('E8', ctx);
@@ -220,7 +224,8 @@ async function manoE8(ins, op = {}) {
     termChip: t => (t ? `⟦${t.tipo}⟧` : ''), ferrule: () => '', mark: (p, r, cls) => `<circle class="${cls}"/>`,
     label: () => '', termLen: () => 1, LC: () => '#000', secTxt: () => '', secCorto: () => '', fontFor: () => 10,
   };
-  const ctx = contexto({ fetch: fetchDe(web), api: async () => ({}), Ins });
+  const ctx = contexto({ fetch: fetchDe(web), api: op.api || (async () => ({})), Ins });
+  correrNucleo(ctx, web);
   correr(ctx, web, 'estacion8.js');
   if (fs.existsSync(path.join(web, 'e8mano.js'))) correr(ctx, web, 'e8mano.js');
   await esperar();
@@ -229,4 +234,20 @@ async function manoE8(ins, op = {}) {
   return { E8, E8M, D, ctx };
 }
 
-module.exports = { RAIZ, WEB, CONFIG_WPC, correrWpc, terminales, terminalesE8, vistaE8, manoE8, normalizarFila, copia };
+// ---- el visor de cablear de E6 (instructivo.js) y el editor de salidas a LI / LD (salidas.js), con el instructivo
+// cargado (etapa E8-8: los puntos de paso salteados). Devuelve {Ins, Sal, D, ctx}; Ins.openViewer(k) dibuja el visor
+async function visorE6(ins, op = {}) {
+  const web = op.web || WEB;
+  const D = copia(ins);
+  const api = async p => (String(p).endsWith('/estado') ? { hay_instructivo: true, estado: 'terminado' } : D);
+  const ctx = contexto({ fetch: fetchDe(web), api, window: { addEventListener: () => {} } });     // (salidas.js escucha resize)
+  ctx.S.job = 'prueba' + (++nJob);
+  correr(ctx, web, 'instructivo.js');
+  if (fs.existsSync(path.join(web, 'salidas.js'))) correr(ctx, web, 'salidas.js');
+  await esperar();
+  const Ins = vm.runInContext('Ins', ctx), Sal = vm.runInContext('typeof Sal === "undefined" ? null : Sal', ctx);
+  if (await Ins.load() !== D) throw new Error('instructivo.js no tomó el instructivo de prueba');
+  return { Ins, Sal, D, ctx };
+}
+
+module.exports = { RAIZ, WEB, CONFIG_WPC, correrWpc, terminales, terminalesE8, vistaE8, manoE8, visorE6, normalizarFila, copia };

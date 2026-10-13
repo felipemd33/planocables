@@ -13,6 +13,17 @@
    - Pines de la placa (etapa E8-7): un cable de la placa con su pin exacto en la vista de la puerta (cables[k].pin_puerta)
      va del FINAL del tramo común dibujado a su pin, y en el visor de a uno su punta dice la aclaración del funcional
      (cables[k].aclaracion, en la punta cables[k].aclaracion_de). Sin dibujar, lo que falta es solo el tramo común.
+   - Placa solo en la puerta (etapa E8-8, 2026-10-13): un grupo de una categoría 'solo_puerta' (la placa) se dibuja solo
+     en la vista de la PUERTA; lo dibujado antes en otra vista no se usa (g.tramos_fuera) y sin la vista de la puerta
+     (g.sin_puerta, el PAE) no hay nada que dibujar. El visor de a uno dibuja solo el grupo actual.
+   - HAZ DE LA PLACA (etapa E8-8, 2026-10-13, pedido del taller: «algo simple, ir indicando puntos, poder hacer una curva
+     y que al final el ruteo se pueda hacer algo automático»): en la puerta, el grupo de placa se dibuja como un HAZ que
+     arranca solo en la entrada a la puerta (la flecha «Entrada»; no se guarda: el tramo lleva desde: 'entrada'); el
+     taller marca los puntos por donde va; C o «↪ Curva» redondea la esquina del último punto (Mayús+clic en un punto:
+     curva sí / no; el tramo lleva curvas: [índices]); Retroceso saca el último punto; Enter: listo; Esc: cancelar (vuelve
+     como estaba). «Usar la propuesta» lo llena con el tramo común automático de E8-4 (POST /e8/haz). De su final cada
+     cable va solo a su pin: el ABANICO (nucleo/haz.js, estacion8.js hazDe / hazG), que se ve «como la foto» con
+     «👁 Cómo queda» y en el visor de a uno.
    Los datos: ins.estacion8.ruteo_mano (estacion8_mano.py): {categorias, vistas, auto, auto_info, cables, grupos, miembro,
    manual: {grupos: {id: {tramos: [{vista, puntos}], nombre}}, nuevos, mover}, clave_producto, por_producto, aviso,
    version_almacen, editado, avisos}. efectivo() es la copia en JS de estacion8_mano.aplicar (los grupos con lo del taller). */
@@ -20,9 +31,11 @@ const E8M = (() => {
   const I = () => E8.int;
   const R = () => I().RM();
   const M = { abierto: false, modo: 'editar', gi: null, vk: null, dib: false, nuevoTramo: false, iman: true, vb: null, drag: null,
-    k: 0, volver: null, deEditar: false, seq: 0, t: null, guardando: false, pend: false, fantasma: null, estado: '', foco: null, apNuevo: null };
+    k: 0, volver: null, deEditar: false, seq: 0, t: null, guardando: false, pend: false, fantasma: null, estado: '', foco: null, apNuevo: null,
+    snap: null, final: false };      // (haz de la placa: snap = cómo estaba antes de dibujar, para Esc; final = 👁 Cómo queda)
   const f2 = v => (+v).toFixed(2);
   const W = () => $('#e8mViewer');
+  const VP = 'PUERTA';          // (clave de la vista de la puerta: estacion8_mano.VISTA_PUERTA)
 
   /* ---- grupos efectivos (la misma cuenta que estacion8_mano.aplicar) ---- */
   const natk = s => String(s ?? '').split(/(\d+)/).map((t, i) => (i % 2 ? +t : t));
@@ -56,12 +69,25 @@ const E8M = (() => {
       if (!cables[k] || (gid && !gs.has(gid))) continue;
       if (gid) miembro[k] = gid; else delete miembro[k];
     }
+    // (como estacion8_mano.solo_puerta_de: la placa se dibuja a mano solo en la PUERTA. Un ruteo_mano armado antes, sin
+    // la marca en sus categorías, la toma de los grupos que mandó el servidor, que la sacó de la tabla)
+    const conMarca = (r.categorias || []).some(c => 'solo_puerta' in c);
+    const solo = new Set(conMarca ? (r.categorias || []).filter(c => c.solo_puerta).map(c => c.id)
+      : (r.grupos || []).filter(g => g.solo_puerta).map(g => g.categoria));
     const lista = [...gs.values()].map(g => {
       const mg = m.grupos[g.id] || {};
-      const tramos = (mg.tramos || []).filter(t => vistas.has(t.vista) && (t.puntos || []).length);
+      let tramos = (mg.tramos || []).filter(t => vistas.has(t.vista) && (t.puntos || []).length);
+      const extra = {};
+      if (solo.has(g.categoria)) {
+        const fuera = tramos.filter(t => t.vista !== VP);
+        tramos = tramos.filter(t => t.vista === VP);
+        extra.solo_puerta = true;
+        if (!vistas.has(VP)) extra.sin_puerta = true;
+        if (fuera.length) extra.tramos_fuera = fuera.length;
+      }
       const cs = Object.keys(miembro).filter(k => miembro[k] === g.id)
         .sort((a, b) => cmpLista(natk((cables[a] || {}).num), natk((cables[b] || {}).num)) || (a < b ? -1 : a > b ? 1 : 0));
-      return { ...g, nombre: mg.nombre || g.nombre, cables: cs, n: cs.length, tramos, dibujado: tramos.some(t => t.puntos.length >= 2) };
+      return { ...g, nombre: mg.nombre || g.nombre, cables: cs, n: cs.length, tramos, dibujado: tramos.some(tramoDibujado), ...extra };
     });
     // (como estacion8_mano._orden_grupo: los automáticos primero, por categoría; un grupo sin aparato va después de los
     // que lo tienen)
@@ -70,6 +96,8 @@ const E8M = (() => {
     r.grupos = lista; r.miembro = miembro;
     return r;
   }
+  // (como estacion8_mano.tramo_dibujado: dos puntos, o uno en el haz que arranca en la entrada a la puerta)
+  const tramoDibujado = t => (t.puntos || []).length + (t.desde === 'entrada' ? 1 : 0) >= 2;
   const grupo = id => ((R() || {}).grupos || []).find(g => g.id === id) || null;
   const G = () => grupo(M.gi);
   const vistaNom = ck => (((R() || {}).vistas || []).find(v => v.clave === ck) || {}).nombre || ck;
@@ -77,8 +105,30 @@ const E8M = (() => {
   const cab = k => ((R() || {}).cables || {})[k] || null;
   // (etapa E8-7) los cables del grupo llegan a su pin de la placa: lo que falta dibujar es solo el tramo común
   const conPines = g => !!g && (g.cables || []).some(k => (cab(k) || {}).pin_puerta);
-  const faltaTxt = g => conPines(g) ? 'falta dibujar el tramo común (de ahí cada cable va a su pin)' : 'falta dibujar el recorrido';
+  const faltaTxt = g => conPines(g) ? 'falta dibujar el haz (de su final cada cable va a su pin)' : 'falta dibujar el recorrido';
   const puntaTxt = (c, w) => (c[w] || '') + (c.aclaracion && c.aclaracion_de === w ? ' · ' + I().aclCorta(c.aclaracion) : '');
+
+  /* ---- HAZ DE LA PLACA (etapa E8-8): el grupo de placa en la puerta ---- */
+  const esHaz = g => !!g && I().esHazG(g) && !!I().vistaDe(VP);
+  // el tramo del haz en lo guardado del grupo (el último de la puerta); crear: uno nuevo que arranca en la entrada
+  function tramoHaz(gid, crear) {
+    const m = manual(), mg = m.grupos[gid] = m.grupos[gid] || { tramos: [] };
+    if (!Array.isArray(mg.tramos)) mg.tramos = [];
+    let t = null;
+    for (const x of mg.tramos) if (x.vista === VP) t = x;
+    if (!t && crear) { t = { vista: VP, puntos: [], curvas: [], desde: 'entrada' }; mg.tramos.push(t); }
+    if (t && !Array.isArray(t.curvas)) t.curvas = [];
+    return t;
+  }
+  const entradaP = () => (I().P() || {}).entrada || null;
+  const HAZ_AYUDA = 'El haz arranca solo en la entrada a la puerta (el punto verde). Clic por donde va, en orden; C o ↪ Curva: la esquina del último punto va redondeada (Mayús+clic en un punto: curva sí / no); Retroceso: saca el último punto; Enter: listo; Esc: cancelar. De su final cada cable va solo a su pin (abanico).';
+  function hazEstado(g) {
+    const t = (g.tramos || []).filter(x => x.vista === VP).slice(-1)[0];
+    if (!g.dibujado || !t) return { ok: false, txt: 'Falta dibujar el haz: arranca solo en la entrada a la puerta; marcá por dónde va (o «Usar la propuesta»). De su final cada cable va solo a su pin.' };
+    if (t.desde !== 'entrada') return { ok: true, viejo: true, txt: 'Haz dibujado antes (no arranca en la entrada a la puerta): de su final cada cable va solo a su pin. ✏ para empezarlo de nuevo desde la entrada.' };
+    const np = t.puntos.length, nc = (t.curvas || []).length;
+    return { ok: true, txt: `Haz: arranca en la entrada · ${np} punto${np === 1 ? '' : 's'}${nc ? ` · ${nc} curva${nc === 1 ? '' : 's'}` : ''} · de su final cada cable va solo a su pin (abanico)` };
+  }
 
   /* ---- pegar al eje de la canaleta (🧲): un punto a menos de 0,6 anchos de una canaleta va a su eje ---- */
   function iman(p, ductos) {
@@ -104,19 +154,22 @@ const E8M = (() => {
     efectivo(r);
     const gs = r.grupos || [];
     if (!gs.length) { if (o.volver) o.volver(); return toast('No hay cables de E8 con ruteo a mano en este trabajo', 4000); }
-    M.gi = (o.grupo && grupo(o.grupo)) ? o.grupo : (grupo(M.gi) ? M.gi : (gs.find(g => g.n && !g.dibujado) || gs.find(g => g.n) || gs[0]).id);
+    M.gi = (o.grupo && grupo(o.grupo)) ? o.grupo : (grupo(M.gi) ? M.gi : (gs.find(g => g.n && !g.dibujado && !g.sin_puerta) || gs.find(g => g.n) || gs[0]).id);
     M.modo = o.cablear ? 'cablear' : 'editar'; M.deEditar = false; M.dib = false; M.volver = o.volver || null;
     M.k = 0; M.foco = o.clave || null;
     if (o.clave) { const i = (G().cables || []).indexOf(o.clave); if (i >= 0) M.k = i; }
     M.q = ''; $('#e8mQ').value = o.buscar ? String(o.buscar) : '';
-    M.abierto = true; W().hidden = false; document.body.style.overflow = 'hidden';
+    M.abierto = true; W().hidden = false; document.body.style.overflow = 'hidden'; M.final = false; M.snap = null;
     if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
     elegirVista(null, true);
+    if (M.modo === 'cablear') encuadrarHaz();
     renderTodo();
+    const on = $('#e8mGrupos').querySelector && $('#e8mGrupos').querySelector('.e8m-g.on');      // (el grupo elegido, a la vista)
+    if (on && on.scrollIntoView) on.scrollIntoView({ block: 'nearest' });
   }
   function cerrar() {
     if (!M.abierto) return;
-    if (M.dib) return setDib(false);
+    if (M.dib) return esHaz(G()) ? cancelarHaz() : setDib(false);
     if (M.modo === 'cablear' && M.deEditar) { M.modo = 'editar'; M.deEditar = false; return renderTodo(); }
     M.abierto = false; W().hidden = true; document.body.style.overflow = '';
     clearTimeout(M.t); if (M.pend) guardar();
@@ -127,15 +180,23 @@ const E8M = (() => {
   // la vista a mostrar: la del último tramo del grupo (o del primero en el visor de a uno), o donde están sus cables
   function vistasDelGrupo() {
     const g = G(), r = R(); if (!g || !r) return [];
+    if (g.solo_puerta) return I().vistaDe(VP) ? [VP] : [];     // (la placa: solo la puerta)
     const out = [];
     for (const t of g.tramos || []) if (!out.includes(t.vista)) out.push(t.vista);
     const ks = M.modo === 'cablear' ? [g.cables[M.k]].filter(Boolean) : g.cables;
     for (const k of ks) for (const v of Object.keys((cab(k) || {}).puntos || {})) if (!out.includes(v)) out.push(v);
     return out.filter(v => I().vistaDe(v));
   }
+  // (el haz de la placa en el visor de a uno: encuadrado en el final del haz, el abanico y la placa)
+  function encuadrarHaz() {
+    const g = G(), info = esHaz(g) && M.vk === VP && I().hazDe(g), b = info && I().cajaHaz(info);
+    if (!b) return;
+    const m = 0.5 * ((I().P() || {}).H || 24.8);
+    M.vb = I().vbOf([b[0] - m, b[1] - m, b[2] + m, b[3] + m]); $('#e8mSvg').setAttribute('viewBox', M.vb.map(f2).join(' '));
+  }
   function elegirVista(ck, ajustar) {
     const todas = ((R() || {}).vistas || []).map(v => v.clave).filter(v => I().vistaDe(v));
-    if (!ck) {
+    if (!ck || (G() && G().solo_puerta && ck !== VP && todas.includes(VP))) {
       const g = G(), ts = (g && g.tramos) || [];
       const pref = M.modo === 'cablear' ? (ts[0] && ts[0].vista) : (ts.length ? ts[ts.length - 1].vista : null);
       ck = (pref && todas.includes(pref)) ? pref : (vistasDelGrupo()[0] || (todas.includes(M.vk) ? M.vk : todas[0]));
@@ -164,7 +225,7 @@ const E8M = (() => {
     if (M.modo === 'cablear' && g.n) {
       const k = g.cables[M.k], c = cab(k) || {}, H = I().hechos();
       $('#e8mTit').innerHTML = `<span class="mono">${esc(c.num)}</span> ${swatch(c.color)} <span class="secc big">${esc(Ins.secTxt(c))}</span>`;
-      $('#e8mSub').textContent = `Ruteo a mano · ${g.nombre}${g.dibujado ? '' : ' · ' + faltaTxt(g)}`;
+      $('#e8mSub').textContent = `Ruteo a mano · ${g.nombre}${g.sin_puerta ? ' · sin vista de la puerta' : g.dibujado ? '' : ' · ' + faltaTxt(g)}`;
       $('#e8mOrig').textContent = puntaTxt(c, 'a'); $('#e8mDest').textContent = puntaTxt(c, 'b');
       $('#e8mPos').textContent = `${M.k + 1} / ${g.n}`;
       $('#e8mOk').checked = H.has(k);
@@ -176,7 +237,8 @@ const E8M = (() => {
   function renderVistas() {
     const r = R(), cablear = M.modo === 'cablear';
     const deG = new Set(vistasDelGrupo()), conT = new Set(((G() || {}).tramos || []).map(t => t.vista));
-    const vs = (r.vistas || []).filter(v => I().vistaDe(v.clave) && (!cablear || deG.has(v.clave)));
+    // (un grupo de la placa se dibuja solo en la puerta: las otras vistas no se ofrecen)
+    const vs = (r.vistas || []).filter(v => I().vistaDe(v.clave) && (!cablear || deG.has(v.clave)) && (!(G() || {}).solo_puerta || v.clave === VP));
     $('#e8mVistas').innerHTML = vs.map(v => `<button role="tab" data-vk="${esc(v.clave)}" class="${v.clave === M.vk ? 'on' : ''}" title="${esc(v.nombre)}${conT.has(v.clave) ? ': hay un tramo dibujado' : ''}">${esc(v.nombre)}${conT.has(v.clave) ? ' ✓' : ''}</button>`).join('');
   }
   function renderProd() {
@@ -203,12 +265,16 @@ const E8M = (() => {
     $('#e8mGrupos').innerHTML = (cablear ? `<button class="btn ghost sm" data-a="grupos" title="Volver a la lista de grupos (Esc)">← Todos los grupos</button>` : '') +
       gs.map(g => {
         const on = g.id === M.gi, np = (g.tramos || []).reduce((a, t) => a + t.puntos.length, 0), hechos = g.cables.filter(k => H.has(k)).length;
+        if (esHaz(g)) return grupoHazHtml(g, on, cablear, hechos);
         return `<div class="sal-g e8m-g ${on ? 'on' : ''}" data-g="${esc(g.id)}">
           <div class="sal-gh"><span class="e8m-sw" style="background:${I().colorGrupo(g.id)}"></span>${g.auto ? `<b>${esc(g.nombre)}</b>` : `<input class="sal-nom" data-nom="${esc(g.id)}" value="${esc(g.nombre)}" aria-label="Nombre del grupo" spellcheck="false">`}
             <span class="muted small">${g.n} cable${g.n === 1 ? '' : 's'}${g.n ? ` · ${hechos} cableado${hechos === 1 ? '' : 's'}` : ''}</span></div>
-          <div class="small ${g.dibujado ? 'sal-eleg' : 'warn-t'}">${g.dibujado ? `Dibujado: ${esc(tramosTxt(g))}${conPines(g) ? ' · de su final cada cable va a su pin' : ''}` : np ? 'Falta terminar el recorrido (un solo punto)' : (conPines(g) ? 'Falta dibujar el tramo común: de ahí cada cable va a su pin de la placa' : 'Falta dibujar el recorrido')}</div>
+          ${g.sin_puerta ? `<div class="small muted">${esc(SIN_PUERTA)}</div>`
+            : `<div class="small ${g.dibujado ? 'sal-eleg' : 'warn-t'}">${g.dibujado ? `Dibujado: ${esc(tramosTxt(g))}${conPines(g) ? ' · de su final cada cable va a su pin' : ''}` : np ? 'Falta terminar el recorrido (un solo punto)' : (conPines(g) ? 'Falta dibujar el tramo común: de ahí cada cable va a su pin de la placa' : 'Falta dibujar el recorrido')}</div>`}
+          ${g.solo_puerta && !g.sin_puerta ? `<div class="small muted">${esc(SOLO_PUERTA)}</div>` : ''}
+          ${g.tramos_fuera ? `<div class="small warn-t">${esc(fueraTxt(g))}</div>` : ''}
           ${on && !cablear ? `<div class="sal-acts">
-            <button class="btn sm ${M.dib ? 'on' : ''}" data-a="dib" title="${M.dib ? 'Terminar de dibujar (Enter)' : 'Clic en el dibujo por donde pasan los cables, en orden; en otra vista sigue con un tramo nuevo'}">${M.dib ? '✓ Listo' : np ? '✏ Seguir dibujando' : '✏ Dibujar recorrido'}</button>
+            ${g.sin_puerta ? '' : `<button class="btn sm ${M.dib ? 'on' : ''}" data-a="dib" title="${M.dib ? 'Terminar de dibujar (Enter)' : 'Clic en el dibujo por donde pasan los cables, en orden; en otra vista sigue con un tramo nuevo'}">${M.dib ? '✓ Listo' : np ? '✏ Seguir dibujando' : '✏ Dibujar recorrido'}</button>`}
             ${np ? `<button class="btn ghost sm" data-a="deshacer" title="Sacar el último punto (Retroceso)">↶ Último punto</button>
             <button class="btn ghost sm" data-a="tramo" title="El próximo clic empieza otro tramo (el cable sigue por otro lado)">＋ Tramo nuevo</button>
             <button class="btn ghost sm" data-a="borrar" title="Borrar todo el recorrido de este grupo">🗑 Borrar</button>` : ''}
@@ -217,6 +283,31 @@ const E8M = (() => {
         </div>`;
       }).join('') + (cablear ? '' : nuevoHtml());
   }
+  // (etapa E8-8) la tarjeta de un grupo de placa en la puerta: el haz y sus botones
+  function grupoHazHtml(g, on, cablear, hechos) {
+    const st = hazEstado(g), t = (g.tramos || []).filter(x => x.vista === VP).slice(-1)[0], np = t ? t.puntos.length : 0;
+    return `<div class="sal-g e8m-g ${on ? 'on' : ''}" data-g="${esc(g.id)}">
+      <div class="sal-gh"><span class="e8m-sw" style="background:${I().colorGrupo(g.id)}"></span>${g.auto ? `<b>${esc(g.nombre)}</b>` : `<input class="sal-nom" data-nom="${esc(g.id)}" value="${esc(g.nombre)}" aria-label="Nombre del grupo" spellcheck="false">`}
+        <span class="muted small">${g.n} cable${g.n === 1 ? '' : 's'}${g.n ? ` · ${hechos} cableado${hechos === 1 ? '' : 's'}` : ''}</span></div>
+      <div class="small ${st.ok ? 'sal-eleg' : 'warn-t'}">${esc(st.txt)}</div>
+      ${g.tramos_fuera ? `<div class="small warn-t">${esc(fueraTxt(g))}</div>` : ''}
+      ${on && !cablear ? `<div class="sal-acts">
+        <button class="btn sm ${M.dib ? 'on' : ''}" data-a="dib" title="${M.dib ? 'Terminar (Enter)' : 'Marcar por dónde va el haz: arranca en la entrada a la puerta'}">${M.dib ? '✓ Listo' : np && t.desde === 'entrada' ? '✏ Seguir el haz' : '✏ Dibujar el haz'}</button>
+        ${M.dib ? '<button class="btn ghost sm" data-a="curva" title="La esquina del último punto va redondeada (C); se ve al marcar el siguiente">↪ Curva</button>' : ''}
+        ${np ? '<button class="btn ghost sm" data-a="deshacer" title="Sacar el último punto (Retroceso)">↶ Último punto</button>' : ''}
+        <button class="btn ghost sm" data-a="propuesta" title="Llenar el haz con el tramo común automático: de la entrada baja por la canaleta, corre por el perfil y sube a la placa">Usar la propuesta</button>
+        ${g.dibujado ? `<button class="btn ghost sm ${M.final ? 'on' : ''}" data-a="final" title="Ver cómo queda: el haz con sus precintos y cada cable a su pin con su manga">👁 Cómo queda</button>` : ''}
+        ${np ? '<button class="btn ghost sm" data-a="borrar" title="Borrar el haz de este grupo">🗑 Borrar</button>' : ''}
+        ${g.n ? '<button class="btn ghost sm" data-a="cablear" title="Cablear de a uno los cables de este grupo">▶ Cablear de a uno</button>' : ''}
+        ${g.auto ? '' : '<button class="btn ghost sm" data-a="del" title="Borrar este grupo: sus cables vuelven a su grupo automático">🗑 Borrar grupo</button>'}</div>
+        ${M.dib ? `<div class="small muted">${esc(HAZ_AYUDA)}</div>` : ''}` : ''}
+    </div>`;
+  }
+  // (2026-10-13, pedido del taller) un grupo de la PLACA ('solo_puerta' en e8_grupos.json) se dibuja a mano solo en la
+  // vista de la puerta: en las laterales y el fondo sus cables van por el ruteo automático (hasta la salida a la puerta)
+  const SOLO_PUERTA = 'Se dibuja solo en la puerta: en las bandejas laterales y el fondo estos cables van por el ruteo automático (por las canaletas hasta la salida a la puerta).';
+  const SIN_PUERTA = 'El topográfico no trae la vista de la puerta: no hay recorrido para dibujar a mano. En las bandejas laterales estos cables van por el ruteo automático (por las canaletas hasta la salida a la puerta).';
+  const fueraTxt = g => `${g.tramos_fuera} tramo${g.tramos_fuera > 1 ? 's' : ''} dibujado${g.tramos_fuera > 1 ? 's' : ''} antes fuera de la puerta: se conserva${g.tramos_fuera > 1 ? 'n' : ''} en el archivo pero no se usa${g.tramos_fuera > 1 ? 'n' : ''} (en las laterales y el fondo van por el ruteo automático).`;
   // ＋ Grupo de placa: de qué placa (el aparato del grupo de placa elegido; si no, la única placa del trabajo; con varias,
   // se elige en la lista de al lado). Sin placas en el trabajo queda sin aparato («Placa · grupo N»), al final de la lista
   function placas() {
@@ -278,7 +369,9 @@ const E8M = (() => {
     // las canaletas de la vista, apenas marcadas (adónde se pega el punto)
     if (!cablear && M.dib && M.iman) s += ducts(Vv).map(d => `<rect x="${f2(d.b[0])}" y="${f2(-d.b[3])}" width="${f2(d.b[2] - d.b[0])}" height="${f2(d.b[3] - d.b[1])}" class="e8m-duct" stroke-width="${f2(0.6 * u)}"/>`).join('');
     // los otros grupos, finos; el grupo elegido, grueso con sus puntos numerados
-    s += I().manoG(Vv, u * 0.6, { excluir: g.id }).replace(/<g class="e8-mano"/g, '<g class="e8-mano otro"');
+    // (2026-10-13: en el visor de a uno, solo el recorrido del grupo del cable actual; al editar, los otros quedan finos)
+    if (!cablear) s += `<g class="e8m-otros">${I().manoG(Vv, u * 0.6, { excluir: g.id }).replace(/<g class="e8-mano"/g, '<g class="e8-mano otro"')}</g>`;
+    if (esHaz(g) && ck === VP) return dibujarHaz(s, g, u, cablear);         // (etapa E8-8: el haz de la placa)
     const ts = (g.tramos || []), col = I().colorGrupo(g.id);
     let n = 0;
     ts.forEach((t, ti) => {
@@ -323,8 +416,51 @@ const E8M = (() => {
     // aviso grande: este grupo no tiene recorrido (en esta vista o en ninguna)
     const falta = $('#e8mFalta');
     falta.hidden = !(cablear && !g.dibujado) && !(cablear && g.dibujado && !enV.length);
-    falta.innerHTML = !g.dibujado ? `${conPines(g) ? `Falta dibujar el tramo común de «${esc(g.nombre)}»: de ahí cada cable va a su pin (ya ubicado en la placa).` : `Falta dibujar el recorrido de «${esc(g.nombre)}».`} <button class="btn sm" data-a="dibujar">✏ Dibujarlo</button>`
+    falta.innerHTML = g.sin_puerta ? esc(SIN_PUERTA) : !g.dibujado ? `${conPines(g) ? `Falta dibujar el tramo común de «${esc(g.nombre)}»: de ahí cada cable va a su pin (ya ubicado en la placa).` : `Falta dibujar el recorrido de «${esc(g.nombre)}».`} <button class="btn sm" data-a="dibujar">✏ Dibujarlo</button>`
       : `El recorrido de este grupo no pasa por esta vista: está en ${esc(tramosTxt(g))}.`;
+  }
+  // (etapa E8-8) el haz de un grupo de placa en la puerta: el haz con su abanico (con las mangas en «👁 Cómo queda» y en
+  // el visor de a uno, con el cable actual resaltado) y, al editar, la entrada donde arranca y los puntos marcados
+  function dibujarHaz(s, g, u, cablear) {
+    const info = I().hazDe(g), ent = entradaP(), t = tramoHaz(g.id, false), col = I().colorGrupo(g.id);
+    const actual = cablear ? g.cables[M.k] : null;
+    if (info) s += I().hazG(info, { cur: actual, mangas: M.final || cablear });
+    const desde = !t || t.desde === 'entrada';
+    if (!cablear) {
+      if (ent && desde) s += `<g class="e8m-ent"><title>El haz arranca en la entrada a la puerta (se cambia con 🧭 Entrada / recorrido)</title><circle cx="${f2(ent[0])}" cy="${f2(-ent[1])}" r="${f2(6.5 * u)}" stroke-width="${f2(1.4 * u)}"/>
+        <text x="${f2(ent[0] - 9 * u)}" y="${f2(-ent[1] - 10 * u)}" font-size="${f2(9 * u)}" stroke-width="${f2(2.4 * u)}" text-anchor="end">arranca en la entrada</text></g>`;
+      if (t && !info && t.puntos.length) {      // (un solo punto, o un tramo de antes sin dibujar: la línea)
+        const pts = (desde && ent ? [ent] : []).concat(t.puntos);
+        if (pts.length > 1) s += `<path d="M${pts.map(p => f2(p[0]) + ' ' + f2(-p[1])).join('L')}" stroke="${col}" stroke-width="${f2(3.6 * u)}" class="e8m-ruta"/>`;
+      }
+      if (t) {
+        const cv = new Set(t.curvas || []), n = t.puntos.length;
+        s += t.puntos.map((p, i) => `<g class="sal-pt on${i === n - 1 ? ' fin' : ''}${cv.has(i) ? ' curva' : ''}"><title>Punto ${i + 1}${cv.has(i) ? ' · esquina redondeada (curva)' : ''}${M.dib ? ' · Mayús+clic: curva sí / no' : ''}</title>
+          ${cv.has(i) ? `<circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2(10 * u)}" class="e8m-curva" stroke-width="${f2(1.6 * u)}"/>` : ''}
+          <circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2(6.5 * u)}" stroke-width="${f2(1.4 * u)}" style="fill:${col}"/>
+          <text x="${f2(p[0])}" y="${f2(-p[1])}" font-size="${f2(7.5 * u)}" text-anchor="middle" dominant-baseline="central">${cv.has(i) ? '↪' : i + 1}</text></g>`).join('');
+      }
+      if (M.fantasma && M.dib) {
+        const last = t && t.puntos.length ? t.puntos[t.puntos.length - 1] : (desde ? ent : null), q = M.fantasma.q;
+        if (last) s += `<path d="M${f2(last[0])} ${f2(-last[1])}L${f2(q[0])} ${f2(-q[1])}" stroke="${col}" stroke-width="${f2(2 * u)}" stroke-dasharray="${f2(5 * u)} ${f2(4 * u)}" class="e8-mano-a"/>`;
+        s += `<g class="e8m-fant${M.fantasma.pegado ? ' peg' : ''}"><circle cx="${f2(q[0])}" cy="${f2(-q[1])}" r="${f2(5 * u)}" stroke-width="${f2(1.2 * u)}"/>${M.fantasma.pegado ? `<text x="${f2(q[0] + 7 * u)}" y="${f2(-q[1] + 3 * u)}" font-size="${f2(8 * u)}" stroke-width="${f2(2 * u)}">al eje</text>` : ''}</g>`;
+      }
+    }
+    // los pines de los cables del grupo (sin el haz dibujado) y, en el visor de a uno, el del cable actual con su aclaración
+    for (const k of g.cables) {
+      const c = cab(k); if (!c) continue;
+      const cur = k === actual, p = ((c.puntos || {})[VP] || [])[0]; if (!p || (info && !cur)) continue;
+      if (cur && c.aclaracion && c.pin_puerta)
+        s += `<text x="${f2(p[0] + 5 * u)}" y="${f2(-p[1] + 13 * u)}" class="e8-acl" font-size="${f2(8 * u)}" stroke-width="${f2(2 * u)}">${esc(I().aclCorta(c.aclaracion))}</text>`;
+      s += `<g class="e8m-punta${cur ? ' cur' : ''}${cablear && !cur ? ' tenue' : ''}"><title>${esc(c.num)}: ${esc(c.a)} → ${esc(c.b)}</title>
+        ${cur ? `<circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2(9 * u)}" class="ori-p" stroke-width="${f2(0.9 * u)}"/>` : ''}
+        ${info ? '' : `<circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2((cur ? 4 : 2.6) * u)}" stroke-width="${f2(0.9 * u)}"/>`}</g>`;
+    }
+    $('#e8mSvg').innerHTML = s;
+    $('#e8mSvg').classList.toggle('pick', M.dib);
+    const falta = $('#e8mFalta');
+    falta.hidden = !(cablear && !g.dibujado);
+    falta.innerHTML = `Falta dibujar el haz de «${esc(g.nombre)}»: arranca en la entrada a la puerta y de su final cada cable va solo a su pin (ya ubicado en la placa). <button class="btn sm" data-a="dibujar">✏ Dibujarlo</button>`;
   }
   function rotulo(p, txt, u, col) {
     return `<text x="${f2(p[0] + 8 * u)}" y="${f2(-p[1] + 12 * u)}" font-size="${f2(9 * u)}" class="e8m-rot" stroke-width="${f2(2.4 * u)}" style="fill:${col}">${esc(txt)}</text>`;
@@ -332,7 +468,9 @@ const E8M = (() => {
   function hint() {
     $('#e8mHint').textContent = M.modo === 'cablear'
       ? '→ siguiente (marca el cable como cableado) · ← anterior · Espacio: marcar/desmarcar · V: otra vista · Rueda: zoom · Arrastrar: mover · 0: toda la vista · Esc: volver'
+      : M.dib && esHaz(G()) ? `Haz de «${G().nombre}»: arranca en la entrada a la puerta (el punto verde) · clic por donde va, en orden · C: curva en el último punto (Mayús+clic en un punto: curva sí / no)${M.iman ? ' · cerca de una canaleta el punto se pega a su eje (I: apagar)' : ''} · Retroceso: sacar el último punto · Enter: listo · Esc: cancelar`
       : M.dib ? `Dibujando «${(G() || {}).nombre}»: clic por donde pasan los cables, en orden; en otra vista sigue con un tramo nuevo${M.iman ? ' · cerca de una canaleta el punto se pega a su eje (I: apagar)' : ''} · Retroceso: sacar el último punto · Enter: listo`
+        : esHaz(G()) ? 'Grupo de placa: ✏ Dibujar el haz (arranca en la entrada a la puerta y de su final cada cable va solo a su pin) o «Usar la propuesta» · 👁 Cómo queda · cambiá un cable de grupo con la lista · Rueda: zoom · Arrastrar: mover · 0: toda la vista · Esc: cerrar'
         : 'Elegí un grupo y ✏ Dibujar recorrido · cambiá un cable de grupo con la lista · Rueda: zoom · Arrastrar: mover · 0: toda la vista · Esc: cerrar';
   }
   const redibujar = () => { cancelAnimationFrame(M.raf); M.raf = requestAnimationFrame(dibujar); };
@@ -376,11 +514,75 @@ const E8M = (() => {
   }
 
   function setDib(on) {
+    const g = G();
+    if (on && g && g.sin_puerta) return toast(SIN_PUERTA, 6000);
+    if (on && esHaz(g)) {               // (etapa E8-8) el haz de la placa: en la puerta, arranca en la entrada
+      if (M.vk !== VP) elegirVista(VP, true);
+      const snap = JSON.stringify(manual().grupos[g.id] || null), t = tramoHaz(g.id, false);
+      if (t && t.puntos.length && t.desde !== 'entrada') {
+        if (!confirm(`El haz de «${g.nombre}» se dibujó antes, sin arrancar en la entrada a la puerta. ¿Lo empezás de nuevo desde la entrada?
+
+Aceptar: empezás de nuevo · Cancelar: queda como está`)) return;
+        const mg = manual().grupos[g.id];
+        mg.tramos = mg.tramos.filter(x => x.vista !== VP);
+      }
+      if (!M.dib) M.snap = snap;
+      tramoHaz(g.id, true);
+      M.dib = true; M.fantasma = null; M.final = false;
+      return cambio();
+    }
+    if (!on) M.snap = null;
     M.dib = !!on; M.fantasma = null;
     if (M.dib) { const ts = (G().tramos || []); M.nuevoTramo = !ts.length || ts[ts.length - 1].vista !== M.vk; }
     renderTodo();
   }
+  // (etapa E8-8) Esc mientras se dibuja el haz: vuelve a como estaba antes de empezar a dibujar
+  function cancelarHaz() {
+    const m = manual(), g = G(), snap = M.snap != null ? JSON.parse(M.snap) : null;
+    if (snap) m.grupos[g.id] = snap; else delete m.grupos[g.id];
+    M.snap = null; M.dib = false; M.fantasma = null;
+    toast('Cancelado: el haz quedó como estaba', 3000);
+    cambio();
+  }
+  // C / ↪ Curva: la esquina del punto i (por defecto el último) va redondeada, o deja de ir
+  function curva(i) {
+    const g = G(); if (!esHaz(g)) return;
+    const t = tramoHaz(g.id, false);
+    if (!t || !t.puntos.length) return toast('Primero marcá un punto: la curva redondea la esquina de ese punto', 4000);
+    if (i == null) i = t.puntos.length - 1;
+    const cv = new Set(t.curvas || []), on = !cv.has(i);
+    if (on) cv.add(i); else cv.delete(i);
+    t.curvas = [...cv].sort((a, b) => a - b);
+    toast(on ? `Punto ${i + 1}: la esquina va en curva${i === t.puntos.length - 1 ? ' (se ve al marcar el siguiente punto)' : ''}` : `Punto ${i + 1}: esquina recta`, 3000);
+    cambio();
+  }
+  // «Usar la propuesta»: el tramo común automático de E8-4 (de la entrada baja por la canaleta, corre por el perfil y
+  // sube a la placa) hasta la base del abanico (el servidor, POST /e8/haz, con la entrada y la bisagra de la pantalla)
+  async function propuestaHaz() {
+    const g = G(); if (!esHaz(g)) return;
+    const t0 = tramoHaz(g.id, false);
+    if (t0 && t0.puntos.length && !confirm(`¿Reemplazar el haz dibujado de «${g.nombre}» por la propuesta?`)) return;
+    let r = null;
+    try {
+      r = await api(`/api/trabajo/${Ins.job}/e8/haz`, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ claves: g.cables, recorridos: I().REC() }) });
+    } catch (e) { return toast('No se pudo armar la propuesta: ' + e.message, 6000); }
+    if (!r || !Array.isArray(r.puntos) || !r.puntos.length || G() !== g) return toast('No hay propuesta para este grupo', 4000);
+    if (!M.dib) M.snap = JSON.stringify(manual().grupos[g.id] || null);
+    const mg = manual().grupos[g.id] = manual().grupos[g.id] || { tramos: [] };
+    mg.tramos = (Array.isArray(mg.tramos) ? mg.tramos : []).filter(x => x.vista !== VP)
+      .concat([{ vista: VP, puntos: r.puntos.map(p => [+p[0], +p[1]]), curvas: (r.curvas || []).filter(Number.isInteger), desde: 'entrada' }]);
+    if (M.vk !== VP) elegirVista(VP, true);
+    toast('Listo: el haz sigue el tramo común automático (baja por la canaleta, corre por el perfil y sube a la placa). Podés seguir marcando puntos o sacarlos con Retroceso', 6000);
+    cambio();
+  }
   function agregarPunto(p) {
+    if (G().solo_puerta && M.vk !== VP) return toast(G().sin_puerta ? SIN_PUERTA : SOLO_PUERTA, 5000);
+    if (esHaz(G())) {
+      const t = tramoHaz(G().id, true);
+      t.puntos.push([Math.round(p[0] * 100) / 100, Math.round(p[1] * 100) / 100]);
+      return cambio();
+    }
     const m = manual(), g = G(), mg = m.grupos[g.id] = m.grupos[g.id] || { tramos: [] };
     if (!Array.isArray(mg.tramos)) mg.tramos = [];
     const last = mg.tramos[mg.tramos.length - 1];
@@ -391,6 +593,11 @@ const E8M = (() => {
     cambio();
   }
   function deshacer() {
+    if (esHaz(G())) {                    // (el haz: el último punto marcado y su curva)
+      const t = tramoHaz(G().id, false); if (!t || !t.puntos.length) return;
+      t.puntos.pop(); t.curvas = (t.curvas || []).filter(i => i < t.puntos.length);
+      return cambio();
+    }
     const m = manual(), mg = m.grupos[M.gi]; if (!mg || !(mg.tramos || []).length) return;
     const t = mg.tramos[mg.tramos.length - 1]; t.puntos.pop();
     if (!t.puntos.length) mg.tramos.pop();
@@ -404,11 +611,20 @@ const E8M = (() => {
     if (a === 'deshacer') return deshacer();
     if (a === 'tramo') { M.nuevoTramo = true; if (!M.dib) setDib(true); return toast('El próximo clic empieza otro tramo del recorrido', 3000); }
     if (a === 'borrar') {
-      if (!confirm(`¿Borrar todo el recorrido dibujado de «${g.nombre}»?${R().por_producto ? ' Se borra para todos los trabajos del producto.' : ''}`)) return;
-      if (m.grupos[g.id]) { m.grupos[g.id].tramos = []; if (!m.grupos[g.id].nombre) delete m.grupos[g.id]; }
-      M.dib = false; return cambio();
+      if (!confirm(`¿Borrar ${esHaz(g) ? 'el haz' : 'todo el recorrido'} dibujado de «${g.nombre}»?${R().por_producto ? ' Se borra para todos los trabajos del producto.' : ''}`)) return;
+      // (el haz: solo el de la puerta; lo dibujado antes en otra vista se conserva, como en estacion8_mano.aplicar)
+      if (m.grupos[g.id]) { m.grupos[g.id].tramos = esHaz(g) ? (m.grupos[g.id].tramos || []).filter(x => x.vista !== VP) : []; if (!m.grupos[g.id].tramos.length && !m.grupos[g.id].nombre) delete m.grupos[g.id]; }
+      M.dib = false; M.snap = null; M.final = false; return cambio();
     }
-    if (a === 'cablear') { M.modo = 'cablear'; M.deEditar = true; M.dib = false; M.k = 0; elegirVista(null, true); return renderTodo(); }
+    if (a === 'curva') return curva();
+    if (a === 'propuesta') return propuestaHaz();
+    if (a === 'final') {               // 👁 Cómo queda: con las mangas, encuadrado en la placa
+      M.final = !M.final;
+      const info = M.final && I().hazDe(g), b = info && I().cajaHaz(info);
+      if (b) { const mg = 0.35 * ((I().P() || {}).H || 24.8); setVb(I().vbOf([b[0] - mg, b[1] - mg, b[2] + mg, b[3] + mg])); }
+      return renderTodo();
+    }
+    if (a === 'cablear') { M.modo = 'cablear'; M.deEditar = true; M.dib = false; M.k = 0; elegirVista(null, true); encuadrarHaz(); return renderTodo(); }
     if (a === 'grupos') { M.modo = 'editar'; M.deEditar = false; return renderTodo(); }
     if (a === 'dibujar') { M.modo = 'editar'; M.deEditar = false; return setDib(true); }
     if (a === 'del') {
@@ -522,7 +738,14 @@ const E8M = (() => {
     svg.addEventListener('pointerup', e => {
       const d = M.drag; M.drag = null; svg.classList.remove('drag');
       if (!d || Math.hypot(e.clientX - d.x, e.clientY - d.y) >= 5) return;      // (fue un arrastre)
-      if (M.dib && M.modo === 'editar') agregarPunto(punto(e).q);
+      if (!(M.dib && M.modo === 'editar')) return;
+      if (e.shiftKey && esHaz(G())) {        // (el haz) Mayús+clic en un punto marcado: su esquina en curva sí / no
+        const t = tramoHaz(G().id, false), [x, y, sc] = svgPt(e);
+        let best = -1, bd = 12 * sc;
+        ((t && t.puntos) || []).forEach((q, i) => { const d = Math.hypot(q[0] - x, q[1] + y); if (d < bd) { bd = d; best = i; } });
+        if (best >= 0) return curva(best);
+      }
+      agregarPunto(punto(e).q);
     });
     window.addEventListener && window.addEventListener('resize', () => { if (M.abierto) redibujar(); });
     document.addEventListener('keydown', e => {
@@ -538,9 +761,12 @@ const E8M = (() => {
       }
       if (k === 'Enter' && M.dib) { e.preventDefault(); return setDib(false); }
       if (k === 'Backspace' && M.dib) { e.preventDefault(); return deshacer(); }
+      if ((k === 'c' || k === 'C') && M.dib && esHaz(G())) { e.preventDefault(); return curva(); }
       if (k === 'i' || k === 'I') { e.preventDefault(); M.iman = !M.iman; return renderTodo(); }
     });
   }
-  return { abrir, init, abierto: () => M.abierto, efectivo, iman };
+  // (pruebas de node: lo que hacen los botones y las teclas del haz de la placa)
+  const prueba = { setDib, agregarPunto, deshacer, curva, propuestaHaz, cancelarHaz, accion, estado: () => M };
+  return { abrir, init, abierto: () => M.abierto, efectivo, iman, prueba };
 })();
 E8M.init();

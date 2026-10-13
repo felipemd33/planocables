@@ -5136,7 +5136,7 @@
   ]
  },
  "estacion8": {
-  "version": 8,
+  "version": 10,
   "laterales": [
    {
     "nombre": "Bandeja lateral derecha",
@@ -6507,8 +6507,7 @@
          ]
         ],
         "largo_mm": 590,
-        "sale": "entrada",
-        "grupo_mano": "placa:21PCB01"
+        "sale": "entrada"
        },
        {
         "num": "3301",
@@ -7045,8 +7044,7 @@
          ]
         ],
         "largo_mm": 500,
-        "sale": "entrada",
-        "grupo_mano": "placa:21PCB01"
+        "sale": "entrada"
        },
        {
         "num": "8101",
@@ -7143,8 +7141,7 @@
          ]
         ],
         "largo_mm": 520,
-        "sale": "entrada",
-        "grupo_mano": "placa:21PCB01"
+        "sale": "entrada"
        },
        {
         "num": "8102",
@@ -7709,8 +7706,7 @@
          ]
         ],
         "largo_mm": 350,
-        "sale": "entrada",
-        "grupo_mano": "placa:21PCB01"
+        "sale": "entrada"
        },
        {
         "num": "8106",
@@ -7849,8 +7845,7 @@
          ]
         ],
         "largo_mm": 340,
-        "sale": "entrada",
-        "grupo_mano": "placa:21PCB01"
+        "sale": "entrada"
        },
        {
         "num": "8105",
@@ -11419,52 +11414,61 @@
    ]
   },
   "ruteo_mano": {
-   "version": 1,
+   "version": 3,
    "categorias": [
     {
      "id": "bateria_35",
      "nombre": "Batería 35 mm²",
-     "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba)."
+     "nota": "Los cables de 35 mm² o más: el circuito de potencia de la batería (batería, fusible MEGA, contactor y bomba).",
+     "solo_puerta": false
     },
     {
      "id": "contactora",
      "nombre": "Contactora (bobina)",
-     "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines)."
+     "nota": "La bobina del contactor que deja pasar la corriente de la batería a la bomba: el cable de 1 mm² que funciona como llave de paso de la bomba (A1 / A2 si el plano nombra los pines).",
+     "solo_puerta": false
     },
     {
      "id": "bateria_4_6",
      "nombre": "Batería 4 / 6 mm²",
-     "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete."
+     "nota": "Los cables de 4 o 6 mm² de la batería (a la bornera, al fusible o al cargador). Siguen en E6 y en la lista WPC como siempre: acá solo se dibuja su recorrido en el gabinete.",
+     "solo_puerta": false
     },
     {
      "id": "solenoides",
      "nombre": "Solenoides",
-     "nota": "Válvulas solenoide de la zona hidráulica."
+     "nota": "Válvulas solenoide de la zona hidráulica.",
+     "solo_puerta": false
     },
     {
      "id": "doorswitch",
      "nombre": "Doorswitch (final de carrera de puerta)",
-     "nota": "El final de carrera que detecta la puerta abierta."
+     "nota": "El final de carrera que detecta la puerta abierta.",
+     "solo_puerta": false
     },
     {
      "id": "pulsadores",
      "nombre": "Pulsadores",
-     "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo)."
+     "nota": "Pulsadores y botones de la puerta (la parada de emergencia tipo hongo).",
+     "solo_puerta": false
     },
     {
      "id": "selectoras",
      "nombre": "Selectoras",
-     "nota": "Llaves selectoras de la puerta (OFF / ON)."
+     "nota": "Llaves selectoras de la puerta (OFF / ON).",
+     "solo_puerta": false
     },
     {
      "id": "seccionadoras",
      "nombre": "Llaves seccionadoras",
-     "nota": "Seccionadores con manija (en la puerta o en el gabinete)."
+     "nota": "Seccionadores con manija (en la puerta o en el gabinete).",
+     "solo_puerta": false
     },
     {
      "id": "placa",
      "nombre": "Placa",
-     "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables)."
+     "nota": "Los cables de cada placa electrónica (un grupo por placa; el taller puede armar más grupos de placa y repartir los cables).",
+     "solo_puerta": true
     }
    ],
    "vistas": [
@@ -13757,7 +13761,8 @@
      ],
      "n": 16,
      "tramos": [],
-     "dibujado": false
+     "dibujado": false,
+     "solo_puerta": true
     },
     {
      "id": "nuevo:fixture1",
@@ -13776,23 +13781,6 @@
      "n": 6,
      "tramos": [
       {
-       "vista": "FONDO",
-       "puntos": [
-        [
-         645.24,
-         560.0
-        ],
-        [
-         700.0,
-         560.0
-        ],
-        [
-         760.0,
-         560.0
-        ]
-       ]
-      },
-      {
        "vista": "PUERTA",
        "puntos": [
         [
@@ -13810,7 +13798,9 @@
        ]
       }
      ],
-     "dibujado": true
+     "dibujado": true,
+     "solo_puerta": true,
+     "tramos_fuera": 1
     }
    ],
    "miembro": {
@@ -13945,7 +13935,8 @@
     }
    },
    "avisos": [
-    "1 cable movido a mano ya no está en este trabajo (otro plano del mismo producto): se ignora"
+    "1 cable movido a mano ya no está en este trabajo (otro plano del mismo producto): se ignora",
+    "«Placa 21PCB01 · bobinas 61KR»: 1 tramo dibujado fuera de la puerta (fondo y bandeja principal) se conserva en el archivo pero no se usa: en las bandejas laterales y el fondo los cables de la placa van por el ruteo automático (hasta la salida a la puerta)"
    ],
    "clave_producto": "72715-1|72887|rev8",
    "por_producto": true,

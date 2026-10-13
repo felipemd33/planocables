@@ -106,7 +106,27 @@ aclaracion del funcional ('aclaracion': 'pin 42 · Signal AI5 · AP Analog Input
 placa» (de cualquier aparato con pines numerados en el funcional) y en los cables del ruteo a mano. Un pin sin fila en el
 dibujo queda en la franja con aviso. e8['pines_aparato'] = {tag: {pag, hoja, reconocido, filas, pines: {pin: {nombre,
 grupo, aclaracion, punto, conf}}, avisos}}. Los textos de E6, del listado y de la tabla (el borne) no cambian; la WPC
-no usa nada de esto."""
+no usa nada de esto.
+
+PLACA EN LAS LATERALES Y SIN IDAS Y VUELTAS (etapa E8-8, 2026-10-13, pedido del taller):
+  - los cables de un grupo de la PLACA ('solo_puerta' en web/e8_grupos.json) van en las bandejas laterales (y el fondo)
+    por su ruta AUTOMATICA, por las canaletas hasta la salida a la puerta (la regla de E8-2), y el visor la dibuja: en las
+    lineas de las laterales no llevan grupo_mano (estacion8_mano.anotar). El ruteo a mano de la placa es solo el de la
+    vista de la PUERTA; lo dibujado antes en otra vista se conserva en el archivo pero no se usa (aviso). Asi el cable de
+    comunicacion del PAE y del 75287 entra a la lateral (tramo de 81XCM), se empalma en la bornera del cargador (los dos
+    tramos en el mismo borne de 12XPS: terminal doble) y sale por la salida a la puerta hacia la placa (tramo a
+    21PCB01); el visor muestra los dos tramos y marca el borne como el empalme. En el TPT, igual con el WAGO de 3 del
+    RS-485 debajo del cargador.
+  - un punto de paso elegido (entrada, salida a la puerta, grupo de cables elegidos) que haria que el cable entre a una
+    canaleta y vuelva por el mismo camino se saltea (ruteo.Net.por_paradas): la linea lleva 'salteados' (los numeros de
+    los puntos) y la web lo avisa.
+  - HAZ DE LA PLACA en la vista de la puerta (2026-10-13, pedido del taller: «ir indicando puntos, poder hacer una curva y
+    que al final el ruteo se pueda hacer algo automatico»): el recorrido a mano de un grupo de placa es un haz que arranca
+    en la entrada a la puerta ('desde': 'entrada') con sus esquinas curvas ('curvas'), guardado por producto como los
+    demas (estacion8_mano); de su final cada cable va solo a su pin en ABANICO (lo arma la pantalla, web/nucleo/haz.js:
+    ordenados por la posicion del pin, sin cruzarse; los de la fila de mas adentro por el hueco entre dos pines de la de
+    mas afuera). haz_propuesta (POST /e8/haz, «Usar la propuesta») = el tramo comun automatico de E8-4 hasta la base del
+    abanico. La lista WPC no usa nada de esto."""
 import collections
 import json
 import math
@@ -119,7 +139,7 @@ from instructivo import conductors, fmt_terminal, cable_desc, natk, puntos_salid
 from planocables.base.convenciones import clave_par as e8_clave, sin_lado, side_of, LATERAL_RE, is_terminal_block
 import estacion8_mano as E8M
 
-VERSION = 8       # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
+VERSION = 10      # 2 (2026-10-08): laterales completas (placa, canaletas, riel tapado, vistas sin riel) y lado con side_of
                   # 3 (2026-10-08): entrada a las laterales y bisagra de la puerta (recorridos)
                   # 4 (2026-10-08): empalmes con el cable propio de un aparato (WAGO del cargador, RS-485)
                   # 5 (2026-10-08): vista de la puerta con recorridos y transito hacia la puerta en la lateral de la bisagra
@@ -128,6 +148,11 @@ VERSION = 8       # 2 (2026-10-08): laterales completas (placa, canaletas, riel 
                   #                 directos del cargador a la bornera de abajo (directo)
                   # 8 (2026-10-09): pines de la placa (pines_aparato.py): punto exacto de cada pin en la vista de la
                   #                 puerta y la aclaracion del pin del funcional ('pin 42 · Signal AI5 · AP Analog Input #5')
+                  # 9 (2026-10-13): la placa (grupo 'solo_puerta') va por el ruteo automatico en las laterales (sin
+                  #                 grupo_mano ahi; el ruteo a mano de la placa es solo el de la puerta) y 'salteados' (puntos de
+                  #                 paso en una canaleta sin salida: el cable no va y vuelve)
+                  # 10 (2026-10-13): el haz de la placa en la puerta (ruteo_mano version 3: tramos con 'curvas' y
+                  #                 'desde'; la propuesta del haz, haz_propuesta, y el abanico en la pantalla)
 AQUI = os.path.dirname(os.path.abspath(__file__))
 MAX_LINEAS = 7
 MARGEN_IMG_H = 0.5    # imagen de la lateral: la placa entera + medio perfil de riel de cada lado
@@ -437,7 +462,9 @@ def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala
     ls: lineas con _po, _so (y las de la misma lateral, con marca_d, _pd y _sd). vrec: lo elegido en esa vista
     ({entrada, puerta, grupos}). Pone en cada linea ruta y largo_mm; en las que salen de la lateral, 'sale' ('puerta'
     si la lateral es la de la bisagra y la linea sigue a la puerta, 'a_puerta'; si no 'entrada'), 'salida' (id del grupo
-    de cables elegidos que manda) y 'no_llega' (el recorrido elegido no llega por las canaletas: sale por la propuesta).
+    de cables elegidos que manda), 'no_llega' (el recorrido elegido no llega por las canaletas: sale por la propuesta) y
+    'salteados' (los numeros de los puntos de paso del recorrido que manda que se saltean porque el cable entraria a una
+    canaleta sin salida y volveria por el mismo camino: ruteo.Net.por_paradas).
     -> cuantas no llegan"""
     from ruteo import route_line, length
     vrec = vrec or {}
@@ -447,19 +474,19 @@ def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala
     otras = {s: _otras_salidas(net, ductos, s) for s in (hacia, al_frente)} if net else {}
     no_llegan = 0
 
-    def ruta_a(l, por, s):
+    def ruta_a(l, por, s, salt=None):
         emp = l.get('empalme') or {}
         try:
             if emp.get('fin'):           # sale del empalme del cable propio de un aparato: por la punta de su canaleta
                 return con_empalmes(route_line(net, tuple(emp['fin']), 0, None, None, False, True, False, lado_li=s,
-                                               por=por or None, o_red=True), emp, None)
-            return route_line(net, l['_po'][:2], l['_so'], None, None, False, True, False, lado_li=s, por=por or None)
+                                               por=por or None, o_red=True, salteados=salt), emp, None)
+            return route_line(net, l['_po'][:2], l['_so'], None, None, False, True, False, lado_li=s, por=por or None, salteados=salt)
         except Exception:
             return None
 
     for l in ls:
         l['ruta'] = None; l['largo_mm'] = None
-        for k in ('sale', 'salida', 'no_llega'):
+        for k in ('sale', 'salida', 'no_llega', 'salteados'):
             l.pop(k, None)
         afuera_ = 'marca_d' not in l
         g = None
@@ -493,9 +520,12 @@ def rutear_lineas(net, ductos, ls, lado, vrec, bisagra_aqui, por_entrada, escala
                 + ([por_entrada] if por_entrada and l['sale'] == 'entrada' else []) + [None]
             ruta, por_ok = None, None
             for por in pruebas:
-                ruta = ruta_a(l, por, s)
+                salt = []          # (puntos de paso en una canaleta sin salida: se saltean, sin ir y volver)
+                ruta = ruta_a(l, por, s, salt)
                 if ruta:
                     por_ok = por
+                    if salt and por is elegido:      # (los numeros de los puntos del recorrido que manda)
+                        l['salteados'] = salt
                     break
             for p in (otras.get(s, []) if not ruta else []):
                 ruta = ruta_a(l, [p], s)
@@ -748,12 +778,11 @@ def ruta_transito(net, entrada, prop_entrada, puerta, al_frente):
             kf, fin = net.li_exit(False, False, al_frente), []
         if kf is None or None in stops:
             return None
-        for s in stops + [kf]:
-            tramo = net.path(k, s, False)
-            if tramo is None:
-                return None
-            pts += tramo[1:]
-            k = s
+        # (sin idas y vueltas: un punto de paso en una canaleta sin salida se saltea, como en route_line)
+        mid, _ = net.por_paradas(k, stops, kf, False)
+        if mid is None:
+            return None
+        pts += mid[1:]
         return _limpiar(pts + fin)
     except Exception:
         return None
@@ -1627,10 +1656,12 @@ def ruteo_mano(out, lay, ins, tramos_e8, de_lateral, en_puerta, info_de, cfg):
             cb = cables.get(x['clave'])
             if cb and x.get('aclaracion') and 'aclaracion' not in cb:
                 cb.update(aclaracion=x['aclaracion'], aclaracion_de='a' if cb['a'] == x['borne'] else 'b')
-    R = dict(version=E8M.VERSION, categorias=[dict(id=c['id'], nombre=c['nombre'], nota=c['nota']) for c in cfg['categorias']],
+    # (solo_puerta, 2026-10-13: la placa se dibuja a mano solo en la puerta; en las laterales va por el ruteo automatico)
+    R = dict(version=E8M.VERSION, categorias=[dict(id=c['id'], nombre=c['nombre'], nota=c['nota'], solo_puerta=c['solo_puerta'])
+                                              for c in cfg['categorias']],
              vistas=vistas, auto=auto, auto_info=ainfo, cables=cables)
     E8M.aplicar(R, None, E8M.meta_de(None, 'sin producto'))
-    E8M.anotar(out, R['miembro'])
+    E8M.anotar(out, R['miembro'], R)
     return R
 
 
@@ -1641,7 +1672,8 @@ def rutear_guardado(ins, rec):
     ins['topo']). Como la vista previa de salidas de E6, rutea desde marca_o (redondeado a 0,01): puede haber una decima
     de diferencia con build en algun vertice.
     -> [{vista, clave_vista, bisagra, entrada_propuesta, puerta_propuesta, no_llegan,
-         lineas: [{clave, ruta, largo_mm, sale, salida, no_llega}]}]   (lineas = las que salen de la lateral, en orden)"""
+         lineas: [{clave, ruta, largo_mm, sale, salida, no_llega, salteados}]}]   (lineas = las que salen de la lateral, en
+         orden)"""
     from ruteo import Net
     rec = leer_recorridos(rec)
     topo = (ins or {}).get('topo') or {}
@@ -1666,7 +1698,7 @@ def rutear_guardado(ins, rec):
             net = None
         n_no = rutear_lineas(net, ductos, ls, L.get('lado'), rec['vistas'].get(ck), bis, prop['por_entrada'], L.get('escala'))
         out.append(dict(vista=i, clave_vista=ck, bisagra=bis, entrada_propuesta=prop['entrada'], puerta_propuesta=prop['puerta'],
-                        no_llegan=n_no, lineas=[{k: l.get(k) for k in ('clave', 'ruta', 'largo_mm', 'sale', 'salida', 'no_llega')} for l in ls]))
+                        no_llegan=n_no, lineas=[{k: l.get(k) for k in ('clave', 'ruta', 'largo_mm', 'sale', 'salida', 'no_llega', 'salteados')} for l in ls]))
         if bis and net:         # (la capa «Pasan hacia la puerta» de la lateral de la bisagra)
             out[-1]['transito'] = transito(net, L.get('lado'), rec['vistas'].get(ck), prop,
                                            ((ins or {}).get('estacion8') or {}).get('hacia_puerta') or [],
@@ -1681,7 +1713,8 @@ def rutear_punto(ins, rec, vista, clave, punta, xy, linea=None):
     sale el cable hacia la canaleta) es el del riel mas cercano (arriba o abajo de su eje); sin rieles, el que tenia.
     El punto se guarda en bornes_usuario (lo guarda la pestaña, como en E6) y al regenerar manda. 'linea': la linea como
     la tiene la pestaña ({marca_o, marca_d, lado, lado_d}: otra punta ajustada y todavia sin guardar); si no, la guardada.
-    -> {clave, punta, marca, lado, ruta, largo_mm, sale, salida, no_llega} o None (no esta, o la punta es un empalme)"""
+    -> {clave, punta, marca, lado, ruta, largo_mm, sale, salida, no_llega, salteados} o None (no esta, o la punta es un
+    empalme)"""
     from ruteo import Net
     rec = leer_recorridos(rec)
     topo = (ins or {}).get('topo') or {}
@@ -1736,7 +1769,7 @@ def rutear_punto(ins, rec, vista, clave, punta, xy, linea=None):
         net = None
     rutear_lineas(net, ductos, [l], L.get('lado'), rec['vistas'].get(ck), bis, prop['por_entrada'], L.get('escala'))
     return dict(clave=clave, punta=punta, marca=list(q), lado='arriba' if (so if punta == 'o' else sd) == 0 else 'abajo',
-                **{k: l.get(k) for k in ('ruta', 'largo_mm', 'sale', 'salida', 'no_llega')})
+                **{k: l.get(k) for k in ('ruta', 'largo_mm', 'sale', 'salida', 'no_llega', 'salteados')})
 
 
 def rutear_guardado_puerta(ins, rec):
@@ -1758,3 +1791,110 @@ def rutear_guardado_puerta(ins, rec):
     return dict(clave_vista=CLAVE_PUERTA, hacia=Pd['hacia'], bisagra_lado=Pd['bisagra_lado'], entrada_propuesta=Pd['entrada_propuesta'],
                 entrada=Pd.get('entrada'), no_llegan=n_no,
                 lineas=[{k: l.get(k) for k in claves} for p in Pd['pasos'] for l in p['lineas']])
+
+
+# ------------------------------------------------------------------ haz de la placa (etapa E8-8, «Usar la propuesta»)
+HAZ_ALTO_MIN_H, HAZ_ALTO_MAX_H = 1.0, 3.0    # alto del abanico: 0,45 del ancho de los pines, entre 1 y 3 perfiles
+HAZ_SUBIDA_H = 1.0                          # el haz llega a la base del abanico derecho, despues de un perfil de subida
+
+
+def paso_pines(pts):
+    """separacion de los pines de una fila (la mediana de las distancias entre pines vecinos de la misma altura) o None"""
+    filas = collections.defaultdict(list)
+    for p in pts or []:
+        filas[round(float(p[1]) * 2) / 2].append(float(p[0]))
+    ds = []
+    for xs in filas.values():
+        xs.sort()
+        ds += [b - a for a, b in zip(xs, xs[1:]) if b - a > 0.05]
+    ds.sort()
+    return ds[len(ds) // 2] if ds else None
+
+
+def haz_propuesta(ins, rec, claves):
+    """«Usar la propuesta» del haz de un grupo de placa en la vista de la puerta (etapa E8-8, ruteo a mano): el tramo
+    comun automatico de E8-4 (de la entrada a la puerta por las canaletas: baja por la canaleta, corre por el perfil y
+    sube a la placa) hasta la BASE DEL ABANICO, debajo (o arriba, segun de que lado de la placa estan los pines) del
+    centro de los pines de los cables 'claves', a una altura que deja abrirse el abanico (0,45 del ancho de los pines,
+    entre 1 y 3 perfiles), y el ultimo perfil derecho hacia los pines. Con la entrada y la bisagra de 'rec' (lo que tiene
+    la pantalla). El haz se guarda como lo dibuja el taller: sin la entrada (desde: 'entrada') y con las esquinas como
+    curvas. -> {entrada, puntos, curvas (indices de 'puntos'), fin, lado (1: los cables suben a los pines; -1: bajan)} o
+    None (sin vista de la puerta, sin entrada o sin cables de 'claves' en la puerta)"""
+    import copy
+    from ruteo import Net
+    rec = leer_recorridos(rec)
+    P0 = ((ins or {}).get('estacion8') or {}).get('puerta')
+    if not isinstance(P0, dict) or not P0.get('pasos') or not P0.get('box'):
+        return None
+    Pd = copy.deepcopy(P0)
+    borde = borde_bisagra(rec.get('bisagra') or BISAGRA_PROPUESTA)
+    vrec = rec['vistas'].get(CLAVE_PUERTA) or {}
+    ent = (vrec.get('entrada') or [None])[-1] or entrada_puerta_propuesta(Pd['box'], Pd.get('ductos') or [], borde)
+    if not ent:
+        return None
+    ent = (float(ent[0]), float(ent[1]))
+    quiero = set(claves or [])
+    fins, aps = [], collections.Counter()
+    for p in Pd['pasos']:
+        for l in p['lineas']:
+            if l.get('clave') not in quiero:
+                continue
+            if l.get('exacto_d') and not l.get('exacto_o') and l.get('marca_d'):
+                fins.append(l['marca_d']); aps[l.get('aparato_d')] += 1
+            elif l.get('marca_o'):
+                fins.append(l['marca_o']); aps[l.get('aparato')] += 1
+    if not fins:
+        return None
+    ap = aps.most_common(1)[0][0]
+    caja = next((a['caja'] for a in Pd.get('aparatos') or [] if a['tag'] == ap), None)
+    H = float(Pd.get('H') or 24.8)
+    ductos = Pd.get('ductos') or []
+    pines = [v['punto'] for v in ((((ins.get('estacion8') or {}).get('pines_aparato') or {}).get(ap) or {}).get('pines') or {}).values()
+             if isinstance(v, dict) and v.get('punto')]
+    paso = paso_pines(pines + [f[:2] for f in fins]) or 0.12 * H
+    ys = [float(f[1]) for f in fins]
+    # de que lado llegan: del lado del borde de la placa mas cercano a los pines (foto del taller: los pines abajo, los
+    # cables suben); con los pines en el medio, del lado de la canaleta (como E8-4)
+    lado = 1
+    if caja:
+        cy, alto = (caja[1] + caja[3]) / 2, caja[3] - caja[1]
+        ym = sum(ys) / len(ys)
+        if abs(ym - cy) > 0.15 * alto:
+            lado = 1 if ym < cy else -1
+        else:
+            q = _punto_eje(ductos, ((caja[0] + caja[2]) / 2, cy))
+            lado = 1 if q is None or q[1] <= cy else -1
+    xs = [float(f[0]) for f in fins]
+    cx, ancho = (min(xs) + max(xs)) / 2, max(xs) - min(xs)
+    y_cerca = min(ys) if lado == 1 else max(ys)
+    y_a = y_cerca - lado * 3.0 * paso
+    alto_ab = min(max(0.45 * ancho, HAZ_ALTO_MIN_H * H), HAZ_ALTO_MAX_H * H)
+    F = (cx, y_a - lado * alto_ab)                   # base del abanico (el final del haz)
+    T0 = (cx, F[1] - lado * HAZ_SUBIDA_H * H)        # de ahi sube derecho a la base
+    pts = [ent]
+    net = None
+    if ductos:
+        try:
+            net = Net(ductos)
+        except Exception:
+            net = None
+    if net:
+        k_in, tail_in = net.salida_a_mano(ent)
+        k, tail = net.salida_a_mano(T0)
+        tramo = net.path(k_in, k, False) if k_in is not None and k is not None else None
+        if tramo:
+            pts += [tuple(t) for t in tail_in] + [tuple(q) for q in tramo] + [tuple(t) for t in tail[::-1]]
+    pts += [T0, F]
+    pts = _limpiar(pts)
+    # (sin los vertices casi alineados: la entrada y el eje de la canaleta pueden diferir en una centesima)
+    i = 1
+    while i < len(pts) - 1:
+        a, b, c = pts[i - 1], pts[i], pts[i + 1]
+        la, lb = math.dist(a, b), math.dist(b, c)
+        if la < 0.3 or lb < 0.3 or abs((b[0] - a[0]) * (c[1] - b[1]) - (b[1] - a[1]) * (c[0] - b[0])) < 0.05 * la * lb:
+            pts.pop(i)
+        else:
+            i += 1
+    puntos = [[round(x, 2), round(y, 2)] for x, y in pts[1:]]
+    return dict(entrada=[round(ent[0], 2), round(ent[1], 2)], puntos=puntos, curvas=list(range(max(0, len(puntos) - 1))),
+                fin=[round(F[0], 2), round(F[1], 2)], lado=lado, aparato=ap)

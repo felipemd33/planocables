@@ -43,6 +43,16 @@ const Sal = (() => {
     const otros = new Set(conRec().filter(s => s.aplica === 'seleccion').flatMap(s => s.cables || []));
     return cables().filter(l => lat(l) === g.aplica && !intr(l) && !otros.has(l.num));
   }
+  // (2026-10-13) puntos de paso del grupo que se saltean: el cable entraría a una canaleta sin salida y volvería por el
+  // mismo camino (instructivo.build / rutear_salidas: l.salteados, los números de los puntos)
+  const salteados = g => [...new Set(miembros(g).flatMap(l => l.salteados || []))].sort((a, b) => a - b);
+  function saltTxt(g) {
+    const s = salteados(g); if (!s.length) return '';
+    const ms = miembros(g), n = ms.filter(l => (l.salteados || []).length).length;
+    const de = n < ms.length ? ` para ${n} de sus ${ms.length} cables` : '';
+    return (s.length > 1 ? `Los puntos de paso ${s.join(', ')} quedan en una canaleta sin salida${de}: se saltean` : `El punto de paso ${s[0]} queda en una canaleta sin salida${de}: se saltea`)
+      + ' (el cable no entra para volver por el mismo camino)';
+  }
   const latDe = g => g.aplica !== 'seleccion' ? g.aplica : (s => s.size === 1 ? [...s][0] : 'salida')(new Set(miembros(g).map(lat)));
   function recTxt(g) {
     const n = pts(g).length;
@@ -144,6 +154,7 @@ const Sal = (() => {
         <div class="sal-gh">${sel ? `<input class="sal-nom" data-g="${i}" value="${esc(g.nombre || '')}" aria-label="Nombre del grupo" spellcheck="false">` : `<b>${esc(g.nombre)}</b>`}
           <span class="muted small">${n} cable${n === 1 ? '' : 's'}</span></div>
         <div class="small ${pts(g).length ? 'sal-eleg' : 'muted'}">${esc(recTxt(g))}</div>
+        ${saltTxt(g) ? `<div class="small warn-t">⚠ ${esc(saltTxt(g))}</div>` : ''}
         ${nIntr ? `<div class="small muted">${nIntr === 1 ? 'El intrínseco (azul) sale' : `Los ${nIntr} intrínsecos (azules) salen`} por su canaleta: para cambiar${nIntr === 1 ? 'lo' : 'los'}, elegi${nIntr === 1 ? 'lo' : 'los'} en un grupo.</div>` : ''}
         ${on ? `<div class="sal-acts">
           <button class="btn sm ${E.modo === 'recorrido' ? 'on' : ''}" data-a="rec" title="Clic en el dibujo por donde pasan los cables; el último clic es por donde salen de la bandeja">✎ Marcar recorrido</button>
@@ -165,7 +176,7 @@ const Sal = (() => {
       return `<div class="vs-it sal-it ${act.has(l) ? 'act' : ''} ${E.foco === l.num ? 'on' : ''}" data-num="${esc(l.num)}" title="${esc(`${l.origen} → ${l.destino}${l.largo_mm ? ' · ≈' + l.largo_mm + ' mm' : ''}`)}">
         ${sel ? `<input type="checkbox" data-ck ${(g.cables || []).includes(l.num) ? 'checked' : ''} aria-label="Cable ${esc(l.num)} en el grupo">` : '<span></span>'}
         <span class="n">${esc(l.num)}</span><span class="od mono">${esc(l.origen)} → ${esc(l.destino)}</span>
-        <span class="sal-chip ${gg ? 'eleg' : ''}" title="${gg ? 'Recorrido del grupo «' + esc(gg.nombre) + '»' : 'Regla del taller'}">${esc(gg ? gg.nombre : 'automático')}</span></div>`;
+        <span class="sal-chip ${gg ? 'eleg' : ''}" title="${gg ? 'Recorrido del grupo «' + esc(gg.nombre) + '»' + ((l.salteados || []).length ? ': el punto de paso ' + l.salteados.join(', ') + ' se saltea (canaleta sin salida)' : '') : 'Regla del taller'}">${gg && (l.salteados || []).length ? '⚠ ' : ''}${esc(gg ? gg.nombre : 'automático')}</span></div>`;
     }).join('') || '<div class="vs-empty muted small">Ningún cable coincide.</div>';
     const n = cables().length;
     $('#salCnt').textContent = `${n} cable${n === 1 ? '' : 's'} a LI / LD · ${cables().filter(grupoDe).length} con salida elegida`;
@@ -196,7 +207,8 @@ const Sal = (() => {
       const P = pts(x); if (!P.length) continue;
       const on = x === g, r = (on ? 9 : 5) * u, n = P.length;
       if (n > 1) m += `<polyline points="${P.map(p => `${f2(p[0])},${f2(-p[1])}`).join(' ')}" class="sal-orden ${on ? 'on' : ''}" stroke-width="${f2(1.5 * u)}" stroke-dasharray="${f2(5 * u)} ${f2(4 * u)}"/>`;
-      m += P.map((p, i) => `<g class="sal-pt ${i === n - 1 ? 'fin' : ''} ${on ? 'on' : ''}"><title>${esc(x.nombre)}: ${i === n - 1 ? 'salen de la bandeja por acá' : 'pasan por acá (' + (i + 1) + ')'}</title>
+      const salt = new Set(salteados(x));
+      m += P.map((p, i) => `<g class="sal-pt ${i === n - 1 ? 'fin' : ''} ${on ? 'on' : ''}${salt.has(i + 1) ? ' salt' : ''}"><title>${esc(x.nombre)}: ${i === n - 1 ? 'salen de la bandeja por acá' : 'pasan por acá (' + (i + 1) + ')'}${salt.has(i + 1) ? ' · queda en una canaleta sin salida: se saltea' : ''}</title>
         <circle cx="${f2(p[0])}" cy="${f2(-p[1])}" r="${f2(r)}" stroke-width="${f2(1.6 * u)}"/>
         ${on ? `<text x="${f2(p[0])}" y="${f2(-p[1])}" font-size="${f2((i === n - 1 ? 8.5 : 10) * u)}" text-anchor="middle" dominant-baseline="central">${i === n - 1 ? esc(latDe(x) === 'salida' ? '⇥' : latDe(x)) : i + 1}</text>` : ''}</g>`).join('');
     }
@@ -227,6 +239,7 @@ const Sal = (() => {
         const x = (r.rutas || [])[i]; if (!x) return;
         if (x.ruta) { l.ruta = x.ruta; l.largo_mm = x.largo_mm; } else mal++;
         if (x.salida) l.salida = x.salida; else delete l.salida;
+        if (x.ruta) { if ((x.salteados || []).length) l.salteados = x.salteados; else delete l.salteados; }
       });
       if (mal) toast(`${mal} cable${mal > 1 ? 's' : ''} no encuentra${mal > 1 ? 'n' : ''} camino por las canaletas hasta ese punto: queda${mal > 1 ? 'n' : ''} como estaba${mal > 1 ? 'n' : ''}`, 5000);
       Ins.dirty(); renderList(); renderAsis(); draw();

@@ -114,7 +114,28 @@ agregarle la aclaración del pin», hoja 21):
     grupo de los pines 13-15 del 75287 es 'Plunger Arrival Sensor / ED#11' (espacio del OCR y la barra suelta);
   - reglas sueltas (pines_e87_reglas): el '0' / 'O' por el contexto, la aclaración '(texto incompleto)' y que la E8 se
     arme igual sin el módulo pines_aparato.py (una copia del motor que no lo trae: los cables quedan en la franja, con
-    aviso)."""
+    aviso).
+
+ETAPA E8-8 «placa en las laterales y sin idas y vueltas» (2026-10-13, pedido del taller):
+  - ruteo.Net.por_paradas en una red de prueba (red_e88): un punto de paso en una canaleta sin salida se saltea (la ruta
+    queda igual que sin el punto y se avisa su número), uno sobre el camino no cambia nada y un recorrido que da la
+    vuelta por otro camino (un ciclo) no se toca;
+  - las salidas a LI del PAE con el recorrido que dibujó el taller (punto de paso al costado de la canaleta del medio):
+    el 1161 baja derecho a LI (550 mm, antes 1140, sin el tramo de ida y vuelta) con el punto 1 salteado; ninguna ruta
+    va y vuelve; los que pasan por ese punto de camino no cambian (salidas_e88);
+  - E8, entrada elegida con un punto de paso en una canaleta sin salida: se saltea en la vista previa (entrada_e88);
+  - los cables de la placa (grupo 'solo_puerta' de e8_grupos.json) van en las laterales por su ruta automática (sin
+    grupo_mano, con ruta y largo) y siguen con su grupo en la puerta y las tablas; sin vista de la puerta (PAE) el grupo
+    lleva sin_puerta (esperado_e88);
+  - el cable de comunicación (75287 y PAE: 2135 / 2136 de 12XPS; TPT: 8105 / 8106 del empalme de 12PS2): dos tramos
+    con la misma punta en la lateral; sin bisagra los dos salen por la entrada; con la bisagra izquierda el de la placa
+    sale por la salida a la puerta y el del fondo por la entrada (comunicacion_e88);
+  - lo dibujado antes para la placa fuera de la puerta se conserva pero no se usa, con aviso (mano_fuera_e88);
+  - HAZ DE LA PLACA en la puerta: «Usar la propuesta» (estacion8.haz_propuesta) arranca en la entrada a la puerta (con la
+    bisagra a la derecha, por el borde izquierdo), pasa por la canaleta y sube derecho a la base del abanico, debajo de
+    los pines (haz_e88); sin vista de la puerta (PAE), nada; el formato guardado (curvas, desde: 'entrada') se conserva,
+    lo roto se descarta y lo de antes carga igual (formato_haz_e88); POST /e8/haz y PUT / GET /e8/grupos con el haz
+    nuevo (web_haz_e88). El abanico (cada cable a su pin, sin cruzarse) lo prueban las de node (e8_haz.test.cjs)."""
 import os, sys, io, json, glob, math, shutil, tarfile, tempfile, subprocess, collections, concurrent.futures as cf
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -771,7 +792,11 @@ def esperado_e86(t, e8):
                  f"faltan {[(g, sorted(want.get(g, set()) - got.get(g, set()))) for g in set(got) | set(want) if want.get(g, set()) - got.get(g, set())]}"))
     # cada linea de E8 marcada con su grupo (el efectivo) y nada mas
     ls = lineas_e8(e8)
-    mal = [l['num'] for l in ls if l.get('grupo_mano') != R['miembro'].get(l['clave'])]
+    # (desde E8-8: en las laterales, un cable de un grupo 'solo_puerta' —la placa— va por el ruteo automatico, sin grupo)
+    solo = {g['id'] for g in R['grupos'] if g.get('solo_puerta')}
+    en_lat = {id(l) for L in e8['laterales'] for l in lineas(L)}
+    esp_g = lambda l: None if id(l) in en_lat and R['miembro'].get(l['clave']) in solo else R['miembro'].get(l['clave'])
+    mal = [l['num'] for l in ls if l.get('grupo_mano') != esp_g(l)]
     sin = [k for k in R['miembro'] if not any(l['clave'] == k for l in ls)]
     chequear(not mal and not sin, f"{t}: {sum(1 for l in ls if l.get('grupo_mano'))} líneas de E8 marcadas con su grupo de ruteo a mano"
              + (f'; mal: {mal[:6]}' if mal else '') + (f'; sin línea: {sin[:6]}' if sin else ''))
@@ -969,6 +994,330 @@ def ruteo_e87(t, ins):
         ys = [y for y in r['lineas'] if y['clave'] in ls]
         chequear(len(ys) == len(ls) and all(cerca(y['ruta'][0], ls[y['clave']]['marca_o'], 0.1) and cerca(y['marca_o'], ls[y['clave']]['marca_o'], 0.06) for y in ys),
                  f"{t} puerta, vista previa {nom}: los {len(ys)} cables con pin siguen llegando a su pin")
+
+
+# ------------------------------------------------------------------ etapa E8-8: placa en las laterales y sin idas y vueltas
+def retroceso(r):
+    """la ruta va y vuelve por el mismo camino en algun vertice (A -> B -> A: un tramo vuelve sobre el anterior)"""
+    for a, b, c in zip(r or [], (r or [])[1:], (r or [])[2:]):
+        u, v = (b[0] - a[0], b[1] - a[1]), (c[0] - b[0], c[1] - b[1])
+        if abs(u[0] * v[1] - u[1] * v[0]) < 0.5 and u[0] * v[0] + u[1] * v[1] < 0:
+            return True
+    return False
+
+
+def sobre(r, q, tol=0.15):
+    """el punto q esta sobre la polilinea r (en algun tramo)"""
+    for a, b in zip(r or [], (r or [])[1:]):
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        L2 = dx * dx + dy * dy
+        t = max(0.0, min(1.0, ((q[0] - a[0]) * dx + (q[1] - a[1]) * dy) / L2)) if L2 else 0.0
+        if math.dist(q, (a[0] + t * dx, a[1] + t * dy)) <= tol:
+            return True
+    return False
+
+
+def red_e88():
+    """ruteo.Net.por_paradas en una red de prueba: V (vertical, de y 0 a 200), H (horizontal a la altura 100, con la punta
+    derecha SIN SALIDA) y B (horizontal abajo, a la altura 10). El cable sale de arriba de V y sale de la red por la
+    izquierda de abajo"""
+    print('\nsin idas y vueltas: ruteo.Net.por_paradas (red de prueba)')
+    e8_modulo()
+    from ruteo import Net, route_line
+    V = dict(b=[0, 0, 20, 200], h=False, ex=False)
+    H = dict(b=[20, 90, 200, 110], h=True, ex=False)
+    B = dict(b=[20, 0, 200, 20], h=True, ex=False)
+
+    def ruta(ductos, por):
+        sal = []
+        r = route_line(Net(ductos), (10, 190), 0, None, None, False, True, False, por=por, o_red=True, salteados=sal)
+        return r, sal
+    r0, s0 = ruta([V, H, B], [[-30, 10]])
+    chequear(r0 == [[10.0, 190.0], [10.0, 10.0], [-30.0, 10.0]] and s0 == [], f'sin puntos de paso: baja derecho por V y sale ({r0})')
+    r1, s1 = ruta([V, H, B], [[180, 100], [-30, 10]])
+    chequear(r1 == r0 and s1 == [1] and not retroceso(r1),
+             f'un punto de paso en la punta sin salida de H: se saltea (punto {s1}) y la ruta queda como sin el punto, sin ir y volver ({r1})')
+    r2, s2 = ruta([V, H, B], [[185, 130], [-30, 10]])
+    chequear(r2 == r0 and s2 == [1], f'un punto al costado de H (fuera de la canaleta): igual, se saltea ({s2})')
+    r3, s3 = ruta([V, H, B], [[10, 50], [-30, 10]])
+    chequear(r3 == r0 and s3 == [], f'un punto de paso sobre el camino no cambia nada ({s3})')
+    r4, s4 = ruta([V, H, B], [[180, 100], [10, 50], [-30, 10]])
+    chequear(r4 == r0 and s4 == [1], f'dos puntos: el de la canaleta sin salida se saltea y el del camino queda ({s4})')
+    # con una vertical a la derecha que une H y B, H ya no es sin salida: un punto en esa vertical hace dar la vuelta (un
+    # ciclo por otro camino, no ida y vuelta): no se toca
+    V2 = dict(b=[180, 0, 200, 110], h=False, ex=False)
+    r5, s5 = ruta([V, H, B, V2], [[190, 50], [-30, 10]])
+    chequear(s5 == [] and [190.0, 50.0] not in (r5 or []) and r5 and any(p[0] == 190.0 for p in r5) and not retroceso(r5),
+             f'un recorrido que da la vuelta por otra canaleta (ciclo) no se recorta ({r5})')
+
+
+# el recorrido de «Todos los LI» que dibujo el taller en el PAE (trabajo 6a5c9cb6a473, 2026-10-13): el primer punto cae al
+# costado de la canaleta horizontal del medio; el 1161 iba hasta (807,8; 582,8) y volvia (1140 mm)
+SALIDA_PAE_TALLER = [{'aplica': 'LI', 'id': 'li', 'nombre': 'Todos los LI', 'puntos': [[807.82, 650.42], [566.33, 444.81]]},
+                     {'aplica': 'LD', 'id': 'ld', 'nombre': 'Todos los LD', 'puntos': []}]
+RUTA_1161 = [[637.3, 696.4], [637.3, 731.7], [601.8, 731.7], [601.8, 444.8], [566.3, 444.8]]
+
+
+def salidas_e88(d=BASES):
+    """las salidas a LI del PAE con el recorrido del taller (instructivo.rutear_salidas sobre las lineas del PAE de las
+    bases, el mismo topografico)"""
+    print('\nsin idas y vueltas: salidas a LI del PAE con el recorrido del taller')
+    e8_modulo()
+    from instructivo import rutear_salidas
+    from ruteo import Net
+    ins = cargar(d, 'ins', '76884')
+    if not chequear(isinstance(ins, dict), 'hay ins_76884.json'):
+        return
+    ls = [l for p in ins['pasos'] for l in p['lineas'] if l['destino'] in ('LI', 'LD')]
+    r = rutear_salidas(ls, ins['topo'], SALIDA_PAE_TALLER)
+    x = next((y for l, y in zip(ls, r) if l['num'] == '1161'), None)
+    chequear(x and x['ruta'] == RUTA_1161 and x['salteados'] == [1] and x['largo_mm'] == 550,
+             f"1161: baja derecho a LI, sin el tramo de ida y vuelta en la canaleta del medio ({x and x['largo_mm']} mm, punto salteado {x and x['salteados']})")
+    malas = [l['num'] for l, y in zip(ls, r) if retroceso(y['ruta'])]
+    chequear(not malas, f'ninguna de las {len(ls)} rutas a LI / LD va y vuelve por el mismo camino ({malas[:6]})')
+    # los que pasan por el punto de camino (vienen de la derecha de la canaleta del medio) no lo saltean y pasan por ahi
+    net = Net(ins['topo']['ductos'])
+    q = net.nodes[net.en_red(SALIDA_PAE_TALLER[0]['puntos'][0])[0]]
+    pasan = [l['num'] for l, y in zip(ls, r) if y['salida'] == 'li' and not y['salteados']]
+    por_ahi = [n for n, y in zip([l['num'] for l in ls], r) if y['salida'] == 'li' and not y['salteados'] and sobre(y['ruta'], q)]
+    salt = [l['num'] for l, y in zip(ls, r) if y['salteados']]
+    chequear(salt and pasan and len(por_ahi) == len(pasan),
+             f'{len(salt)} saltean el punto 1 y los otros {len(pasan)} de «Todos los LI» pasan por él de camino ({por_ahi[:4]}…)')
+    # sin el punto de paso: los que lo saltean dan IGUAL que con la salida sola
+    r0 = rutear_salidas(ls, ins['topo'], [dict(SALIDA_PAE_TALLER[0], puntos=SALIDA_PAE_TALLER[0]['puntos'][-1:]), SALIDA_PAE_TALLER[1]])
+    dif = [l['num'] for l, y, y0 in zip(ls, r, r0) if y['salteados'] and y['ruta'] != y0['ruta']]
+    chequear(not dif, f'los que saltean el punto quedan igual que con la salida sola ({dif[:6]})')
+
+
+def entrada_e88(t, ins):
+    """E8: una entrada elegida con un punto de paso en una canaleta sin salida (la punta libre de una canaleta de la
+    lateral, antes de la entrada propuesta): se saltea, ninguna ruta va y vuelve y la vista previa dice los salteados"""
+    E8 = e8_modulo()
+    for L in ins['estacion8']['laterales']:
+        ss = salen(L)
+        if not (L['ductos'] and ss and L.get('entrada_propuesta')):
+            continue
+        ok = None
+        for fin_, dr, _ in E8.puntas_libres(L['ductos']):
+            rec = {'vistas': {L['clave_vista']: {'entrada': [list(fin_), L['entrada_propuesta']]}}}
+            r = [x for x in E8.rutear_guardado(ins, rec) if x['clave_vista'] == L['clave_vista']][0]
+            if any(y.get('salteados') for y in r['lineas']):
+                ok = (fin_, r)
+                break
+        if not chequear(ok, f"{t} {L['nombre']}: hay una punta de canaleta que hace ir y volver a algún cable"):
+            continue
+        fin_, r = ok
+        salt = [y for y in r['lineas'] if y.get('salteados')]
+        chequear(all(y['salteados'] == [1] for y in salt) and not any(retroceso(y['ruta']) for y in r['lineas']),
+                 f"{t} {L['nombre']}: entrada elegida con un punto en la punta sin salida {[round(v, 1) for v in fin_]}: "
+                 f"{len(salt)} de {len(r['lineas'])} lo saltean (punto 1) y ninguna ruta va y vuelve")
+
+
+def esperado_e88(t, e8):
+    """los cables de la placa (grupo 'solo_puerta') en las laterales van por su ruta automatica (sin grupo_mano); en la
+    puerta y las tablas siguen con su grupo; sin la vista de la puerta, el grupo lleva sin_puerta"""
+    R = e8.get('ruteo_mano') or {}
+    cats = {c['id']: c for c in R.get('categorias') or []}
+    chequear(cats.get('placa', {}).get('solo_puerta') is True and all(not c.get('solo_puerta') for k, c in cats.items() if k != 'placa'),
+             f"{t}: la categoría placa es 'solo_puerta' (y ninguna otra)")
+    gs = {g['id']: g for g in R.get('grupos') or []}
+    pl = [g for g in gs.values() if g.get('categoria') == 'placa']
+    chequear(pl and all(g.get('solo_puerta') and bool(g.get('sin_puerta')) == (not e8.get('puerta')) and all(x['vista'] == 'PUERTA' for x in g['tramos']) for g in pl),
+             f"{t}: los grupos de placa ({[g['id'] for g in pl]}) solo con tramos en la puerta"
+             + (' y sin_puerta (el topográfico no trae la vista de la puerta)' if not e8.get('puerta') else ''))
+    solo = {g['id'] for g in pl}
+    lat = [l for L in e8['laterales'] for l in lineas(L) if R.get('miembro', {}).get(l['clave']) in solo]
+    chequear(lat and all(not l.get('grupo_mano') and l.get('ruta') and len(l['ruta']) > 1 and l.get('largo_mm') for l in lat),
+             f"{t}: los {len(lat)} cables de la placa en las laterales van por su ruta automática (sin grupo, con ruta y largo: {sorted({l['num'] for l in lat})[:6]}…)")
+    resto = [l for p in (e8.get('puerta') or {}).get('pasos') or [] for l in p['lineas']] + [x for g in e8['afuera'] for x in g['cables']]
+    mal = [l['num'] for l in resto if l.get('grupo_mano') != R.get('miembro', {}).get(l['clave'])]
+    chequear(not mal, f"{t}: en la puerta y las tablas de «Puerta y placa» cada cable sigue con su grupo ({mal[:6]})")
+
+
+# cable de comunicacion: dos tramos con la misma punta en la lateral (el del fondo y el de la placa)
+COMUNICACION = {'75287': ('2135', '2136'), '76884': ('2135', '2136'), 'tpt': ('8105', '8106'), 'tpt_constructivo': ('8105', '8106')}
+
+
+def comunicacion_e88(t, ins):
+    """el cable de comunicacion entra a la lateral izquierda, se empalma en la punta de la lateral (la bornera del
+    cargador o el empalme de 12PS2) y sigue a la placa: sin bisagra los dos tramos salen por la entrada; con la bisagra
+    izquierda el de la placa sale por la salida a la puerta (del lado de la puerta) y el del fondo por la entrada"""
+    if t not in COMUNICACION:
+        return
+    E8 = e8_modulo()
+    i, L = next(((i, L) for i, L in enumerate(ins['estacion8']['laterales']) if L['lado'] == 'LI'), (None, None))
+    if not chequear(L, f'{t}: hay lateral izquierda'):
+        return
+    for num in COMUNICACION[t]:
+        ts = [l for l in salen(L) if l['num'] == num]
+        pl = [l for l in ts if l.get('a_puerta')]
+        fo = [l for l in ts if l.get('viene_de_e6')]
+        if not chequear(len(ts) == 2 and len(pl) == 1 and len(fo) == 1 and ts[0]['origen'] == ts[1]['origen'] and not pl[0].get('grupo_mano'),
+                        f"{t}: {num} tiene dos tramos con la misma punta en la lateral ({ts[0]['origen'] if ts else '—'}): a la placa y a la bandeja principal"):
+            continue
+        borde = min(d['b'][0] for d in L['ductos'])
+        b0 = None
+        for bis in (None, 'izq'):
+            r = E8.rutear_guardado(ins, {'bisagra': bis})[i]
+            y = {x['clave']: x for x in r['lineas']}
+            a, b = y[pl[0]['clave']], y[fo[0]['clave']]
+            if bis:     # (el del fondo, igual que sin bisagra)
+                ok = a['sale'] == 'puerta' and fin(a['ruta'])[0] < borde and b['sale'] == 'entrada' and b['ruta'] == b0
+            else:       # (los dos por la entrada: el mismo recorrido; 75287: canaletas partidas, no siempre la propuesta)
+                ok = a['sale'] == 'entrada' and b['sale'] == 'entrada' and a['ruta'] == b['ruta']
+                b0 = b['ruta']
+            chequear(ok and cerca(a['ruta'][0], b['ruta'][0], 0.15),
+                     f"{t}: {num} {'con la bisagra a la izquierda: entra por la entrada, se empalma en ' + ts[0]['origen'] + ' y sale por la salida a la puerta' if bis else 'sin bisagra: los dos tramos por la entrada (regla de E8-2)'}"
+                     f" ({a['largo_mm']} / {b['largo_mm']} mm)")
+
+
+def mano_fuera_e88(d=BASES):
+    """lo dibujado antes para la placa fuera de la puerta (el PAE del taller: un punto en el fondo y otro en la lateral)
+    se conserva pero no se usa, con aviso; en la puerta (tpt_constructivo) se usa"""
+    print('\nruteo a mano de la placa: solo en la puerta')
+    e8_modulo()
+    import estacion8_mano as E8M
+    for t in ('76884', 'tpt_constructivo'):
+        ins = cargar(d, 'ins', t)
+        R = json.loads(json.dumps(((ins or {}).get('estacion8') or {}).get('ruteo_mano') or {}))
+        if not chequear(R.get('grupos'), f'{t}: hay ruteo a mano'):
+            continue
+        lat = next(v['clave'] for v in R['vistas'] if v['tipo'] == 'lateral')
+        man = {'grupos': {'placa:21PCB01': {'tramos': [{'vista': 'FONDO', 'puntos': [[564.8, 446.55]]}, {'vista': lat, 'puntos': [[172.8, 454.55]]}]
+                                            + ([{'vista': 'PUERTA', 'puntos': [[400.0, 300.0], [420.0, 300.0]]}] if t != '76884' else [])}}}
+        E8M.aplicar(R, man)
+        g = next(x for x in R['grupos'] if x['id'] == 'placa:21PCB01')
+        guardado = R['manual']['grupos']['placa:21PCB01']['tramos']
+        if t == '76884':
+            ok = g['tramos'] == [] and g.get('sin_puerta') and not g['dibujado']
+        else:
+            ok = [x['vista'] for x in g['tramos']] == ['PUERTA'] and g['dibujado'] and not g.get('sin_puerta')
+        chequear(ok and g.get('tramos_fuera') == 2 and len(guardado) == len(man['grupos']['placa:21PCB01']['tramos'])
+                 and any('fuera de la puerta' in a and 'no se usa' in a for a in R.get('avisos') or []),
+                 f"{t}: los 2 tramos de la placa fuera de la puerta se conservan en lo guardado pero no se usan, con aviso"
+                 + (' (sin vista de la puerta: nada para dibujar)' if t == '76884' else ' (el de la puerta sí)'))
+        # el resumen de lo que falta dibujar no cuenta la placa de un trabajo sin la vista de la puerta
+        gs, falta = E8M.resumen(R)
+        chequear(all(not x.get('sin_puerta') for x in gs), f'{t}: el resumen de lo que falta dibujar no cuenta los grupos sin vista de la puerta')
+
+
+# ------------------------------------------------------------------ etapa E8-8: el haz de la placa en la puerta
+def dentro_canaleta(p, ductos, tol=0.6):
+    return any(d['b'][0] - tol <= p[0] <= d['b'][2] + tol and d['b'][1] - tol <= p[1] <= d['b'][3] + tol for d in ductos or [])
+
+
+def haz_e88(t, ins):
+    """«Usar la propuesta» del haz de la placa (estacion8.haz_propuesta, la de POST /e8/haz): arranca en la entrada a la
+    puerta (la que se usa; con la bisagra a la derecha, por el borde izquierdo del dibujo), pasa por la canaleta y termina
+    en la base del abanico, debajo de los pines y entre el primero y el ultimo, llegando derecho (el ultimo tramo
+    vertical); las esquinas son curvas. Sin vista de la puerta (PAE) o sin cables de la puerta: None"""
+    E8 = e8_modulo()
+    e8 = ins['estacion8']
+    R = e8.get('ruteo_mano') or {}
+    pl = [g for g in R.get('grupos') or [] if g.get('categoria') == 'placa' and g.get('n')]
+    if not e8.get('puerta'):
+        chequear(pl and all(E8.haz_propuesta(ins, e8.get('recorridos'), g['cables']) is None for g in pl),
+                 f'{t}: sin vista de la puerta no hay propuesta del haz de la placa')
+        return
+    Pd = e8['puerta']
+    ls = {l['clave']: l for l in lineas_p(Pd)}
+    for g in pl:
+        r = E8.haz_propuesta(ins, e8.get('recorridos'), g['cables'])
+        fins = [ls[k]['marca_o'] for k in g['cables'] if k in ls and ls[k].get('exacto_o')]
+        if not chequear(r and fins, f"{t}: «{g['nombre']}»: hay propuesta del haz ({len(fins)} cables con su pin en la puerta)"):
+            continue
+        pts = [r['entrada']] + r['puntos']
+        xs = [f[0] for f in fins]
+        ult = (pts[-2], pts[-1])
+        chequear(cerca(r['entrada'], Pd['entrada'], 0.06) and any(dentro_canaleta(p, Pd['ductos']) for p in r['puntos'])
+                 and r['lado'] == 1 and r['fin'][1] < min(f[1] for f in fins) and min(xs) <= r['fin'][0] <= max(xs)
+                 and abs(ult[0][0] - ult[1][0]) < 0.05 and ult[1][1] > ult[0][1]
+                 and r['curvas'] == list(range(len(r['puntos']) - 1)),
+                 f"{t}: «{g['nombre']}»: la propuesta arranca en la entrada {Pd['entrada']}, pasa por la canaleta y sube derecho a la base "
+                 f"del abanico {r['fin']} (debajo de los pines, entre {min(xs):.1f} y {max(xs):.1f}), con las {len(r['curvas'])} esquinas en curva")
+        r2 = E8.haz_propuesta(ins, {'bisagra': 'der'}, g['cables'])
+        chequear(r2 and abs(r2['entrada'][0] - Pd['box'][0]) < 0.06 and cerca(r2['fin'], r['fin'], 0.06),
+                 f"{t}: con la bisagra a la derecha la propuesta entra por el borde izquierdo del dibujo ({r2 and r2['entrada']}) y llega a la misma base")
+    chequear(E8.haz_propuesta(ins, e8.get('recorridos'), ['no existe']) is None, f'{t}: sin cables de la puerta: sin propuesta')
+
+
+def formato_haz_e88():
+    """el formato del haz en programa/recorridos_e8.json: 'curvas' (indices de 'puntos') y 'desde': 'entrada' se
+    conservan; lo roto se descarta (curvas que no son de un punto valido; los indices se corren si se descarta un punto);
+    lo de antes (sin curvas ni desde) carga igual; con 'desde' un punto ya es un recorrido"""
+    print('\nhaz de la placa: el formato guardado (nuevo y viejo)')
+    e8_modulo()
+    import estacion8_mano as E8M
+    nuevo = {'vista': 'PUERTA', 'puntos': [[881.8, 451.0], [881.8, 379.94], [784.72, 379.94], [784.72, 405.97]], 'curvas': [1, 2], 'desde': 'entrada'}
+    viejo = {'vista': 'PUERTA', 'puntos': [[880.0, 500.0], [800.0, 500.0], [779.75, 485.85]]}
+    man, err = E8M.normalizar_manual({'grupos': {'placa:21PCB01': {'tramos': [nuevo]}, 'nuevo:fixture1': {'tramos': [viejo]}}})
+    chequear(not err and man['grupos']['placa:21PCB01']['tramos'] == [nuevo] and man['grupos']['nuevo:fixture1']['tramos'] == [viejo],
+             'el haz nuevo (curvas, desde) y el recorrido de antes se guardan tal cual')
+    roto = {'vista': 'PUERTA', 'puntos': [[1, 1], 'x', [3, 3], [4, 4]], 'curvas': [0, 1, 2, True, 'a', 9, 2, -1], 'desde': 'otra'}
+    man, _ = E8M.normalizar_manual({'grupos': {'g': {'tramos': [roto]}}})
+    t = man['grupos']['g']['tramos'][0]
+    chequear(t == {'vista': 'PUERTA', 'puntos': [[1, 1], [3, 3], [4, 4]], 'curvas': [0, 1]},
+             f'lo roto se descarta: el punto inválido, las curvas que no son de un punto (y se corren), un desde desconocido ({t})')
+    for desde, n, dib in (('entrada', 1, True), (None, 1, False), (None, 2, True)):
+        tr = dict({'vista': 'PUERTA', 'puntos': [[1.0, 1.0], [2.0, 2.0]][:n]}, **({'desde': desde} if desde else {}))
+        chequear(E8M.tramo_dibujado(tr) == dib, f"{n} punto{'s' if n > 1 else ''}{' con desde: entrada' if desde else ''}: {'dibujado' if dib else 'sin dibujar'}")
+    # aplicar: el haz con desde y un solo punto cuenta como dibujado; en el PAE (sin puerta) no se usa
+    for t in ('tpt_constructivo', '76884'):
+        ins = cargar(BASES, 'ins', t)
+        R = json.loads(json.dumps(((ins or {}).get('estacion8') or {}).get('ruteo_mano') or {}))
+        if not chequear(R.get('grupos'), f'{t}: hay ruteo a mano en pruebas/bases'):
+            continue
+        E8M.aplicar(R, {'grupos': {'placa:21PCB01': {'tramos': [{'vista': 'PUERTA', 'puntos': [[784.0, 400.0]], 'curvas': [0], 'desde': 'entrada'}]}}})
+        g = next(x for x in R['grupos'] if x['id'] == 'placa:21PCB01')
+        ok = (g['dibujado'] and g['tramos'][0].get('desde') == 'entrada' and g['tramos'][0].get('curvas') == [0]) if t != '76884' else (not g['dibujado'] and g.get('sin_puerta'))
+        chequear(ok, f"{t}: aplicar con el haz nuevo ({'dibujado, con desde y curvas' if t != '76884' else 'sin vista de la puerta: no se usa'})")
+
+
+def web_haz_e88(tmp, d=BASES):
+    """POST /e8/haz («Usar la propuesta») y el haz nuevo guardado por PUT /e8/grupos vuelve tal cual en GET; el de antes
+    (fixture) sigue cargando; sin vista de la puerta (PAE): 404; datos invalidos: 400"""
+    print('\nhaz de la placa: POST /e8/haz y PUT / GET /e8/grupos con el formato nuevo')
+    hist = os.path.join(tmp, 'hist_haz')
+    alm = os.path.join(tmp, 'recorridos_haz.json')
+    shutil.copyfile(FIXTURE_REC, alm)
+    os.environ.update(PLANOCABLES_RECORRIDOS_E8=alm, PLANOCABLES_HISTORIAL=hist, PLANOCABLES_MEMORIA_OCR='solo-lectura', PLANOCABLES_PORT='8796',
+                      PLANOCABLES_PRODUCTOS=os.path.join(RAIZ, 'pruebas', 'fixtures', 'productos.json'))
+    e8_modulo()
+    import web
+    web.WORK = hist
+    ins_c, ins_p = cargar(d, 'ins', 'tpt_constructivo'), cargar(d, 'ins', '76884')
+    if not chequear(ins_c and ins_p, f'hay instructivos en {d}'):
+        return
+    for j, ins in (('bbbbbbbbbb01', ins_c), ('bbbbbbbbbb02', ins_p)):
+        os.makedirs(os.path.join(hist, j))
+        with open(os.path.join(hist, j, 'instructivo.json'), 'w', encoding='utf-8') as f:
+            json.dump(ins, f, ensure_ascii=False)
+    cl = Cliente(web)
+    R = ins_c['estacion8']['ruteo_mano']
+    g = next(x for x in R['grupos'] if x['id'] == 'placa:21PCB01')
+    r = cl.c.post('/api/trabajo/bbbbbbbbbb01/e8/haz', base_url=cl.b, json={'claves': g['cables'], 'recorridos': ins_c['estacion8']['recorridos']})
+    p = r.get_json() or {}
+    chequear(r.status_code == 200 and p.get('puntos') and p.get('entrada') and isinstance(p.get('curvas'), list),
+             f"POST /e8/haz: {r.status_code}, {len(p.get('puntos') or [])} puntos desde la entrada {p.get('entrada')}")
+    r1 = cl.c.post('/api/trabajo/bbbbbbbbbb01/e8/haz', base_url=cl.b, json={'claves': 'x'})
+    r2 = cl.c.post('/api/trabajo/bbbbbbbbbb02/e8/haz', base_url=cl.b, json={'claves': g['cables']})
+    chequear(r1.status_code == 400 and r2.status_code == 404 and 'vista de la puerta' in ((r2.get_json() or {}).get('error') or ''),
+             f'datos inválidos: 400; PAE sin vista de la puerta: 404 con el motivo ({r1.status_code}, {r2.status_code})')
+    get = lambda: (cl.get('/api/trabajo/bbbbbbbbbb01/e8/grupos').get_json() or {}).get('ruteo_mano') or {}
+    R0 = get()
+    man = json.loads(json.dumps(R0['manual']))
+    haz = {'vista': 'PUERTA', 'puntos': p.get('puntos') or [], 'curvas': p.get('curvas') or [], 'desde': 'entrada'}
+    man['grupos']['placa:21PCB01'] = {'tramos': [haz]}
+    r = cl.put('/api/trabajo/bbbbbbbbbb01/e8/grupos', json={'manual': man, 'version': R0.get('version_almacen')})
+    R1 = get()
+    g1 = {x['id']: x for x in R1.get('grupos') or []}
+    chequear(r.status_code == 200 and g1['placa:21PCB01']['dibujado'] and g1['placa:21PCB01']['tramos'] == [haz]
+             and g1.get('nuevo:fixture1', {}).get('dibujado') and 'desde' not in g1['nuevo:fixture1']['tramos'][0],
+             'PUT /e8/grupos con el haz nuevo (curvas, desde) y GET lo devuelve tal cual; el recorrido de antes del fixture sigue cargando')
+    with open(alm, encoding='utf-8') as f:
+        e = json.load(f)['productos'].get('72715-1|72887|rev8') or {}
+    chequear(((e.get('manual') or {}).get('grupos') or {}).get('placa:21PCB01', {}).get('tramos') == [haz],
+             'en programa/recorridos_e8.json (la copia) el haz queda con sus curvas y desde: entrada')
 
 
 class Cliente:
@@ -1256,12 +1605,22 @@ def main():
             esperado_e87(t, e8, (lay or {}).get('layout'))
             if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None:
                 ruteo_e87(t, ins)
+            esperado_e88(t, e8)
+            if isinstance(ins, dict) and (ins.get('estacion8') or {}).get('laterales') is not None:
+                entrada_e88(t, ins)
+                comunicacion_e88(t, ins)
+                haz_e88(t, ins)
             if not bases:
                 e6_igual(t, sal)
         if not bases:
             regenerar_e82(tmp)
         web_e86(tmp, sal)
         pines_e87_reglas()
+        red_e88()
+        salidas_e88(sal)
+        mano_fuera_e88(sal)
+        formato_haz_e88()
+        web_haz_e88(tmp, sal)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print('\nTODO OK' if not fallas else f'\nFALLA: {len(fallas)} prueba(s)')

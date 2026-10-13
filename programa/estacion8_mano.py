@@ -21,12 +21,24 @@ se dibuja el visor dice «falta dibujar el recorrido» (no se inventa una ruta).
   se guarda en el trabajo (ins['estacion8']['mano_trabajo']) con un aviso, y al confirmarlo pasa al producto.
 - NO cambia E6, las estaciones ni la lista WPC: en las lineas de E8 solo se agrega 'grupo_mano' (la ruta automatica
   'ruta' / 'largo_mm' de las laterales queda: la usa la WPC; el visor no la dibuja para un cable con grupo).
+- PLACA SOLO EN LA PUERTA (etapa E8-8, 2026-10-13, pedido del taller): una categoria con 'solo_puerta' (la placa) se
+  dibuja a mano solo en la vista de la PUERTA. En las bandejas laterales sus cables van por el ruteo automatico (las
+  lineas de las laterales no llevan grupo_mano: anotar) y el visor los dibuja; los tramos que el taller dibujo antes en
+  otra vista se conservan en lo guardado pero no se usan (el grupo lleva tramos_fuera y va un aviso). Sin la vista de la
+  puerta (el PAE) el grupo lleva sin_puerta: no hay nada que dibujar a mano.
+- HAZ DE LA PLACA (etapa E8-8, 2026-10-13, pedido del taller): en la puerta, el recorrido de un grupo de placa es un HAZ
+  que arranca en la entrada a la puerta y sigue los puntos que marca el taller; el tramo guardado lleva 'desde':
+  'entrada' (la entrada no se guarda: si cambia, el haz la sigue) y 'curvas' (indices de 'puntos' cuya esquina va
+  redondeada). Del final del haz cada cable va solo a su pin (el abanico lo arma la pantalla: web/nucleo/haz.js). Un
+  tramo de antes (sin 'desde' ni 'curvas') sigue cargando tal cual. Con 'desde', un punto ya es un recorrido.
 
 Estructura en ins['estacion8']['ruteo_mano'] (la arma estacion8.build; aplicar() le suma lo del taller):
-  {version, categorias: [{id, nombre, nota}], vistas: [{clave, nombre, tipo: 'lateral' | 'puerta' | 'fondo', i}],
+  {version, categorias: [{id, nombre, nota, solo_puerta}], vistas: [{clave, nombre, tipo: 'lateral' | 'puerta' | 'fondo', i}],
    auto: {clave_cable: id_grupo}, auto_info: {id_grupo: {categoria, aparato}},
    cables: {clave_cable: {num, cable, color, secc, a, b, aparatos, puntos: {clave_vista: [[x, y], ...]}}},
-   -- de aplicar(): grupos: [{id, nombre, categoria, aparato, auto, cables: [clave...], n, tramos, dibujado}],
+   -- de aplicar(): grupos: [{id, nombre, categoria, aparato, auto, cables: [clave...], n, tramos ({vista, puntos,
+               curvas?, desde?}), dibujado,
+               (solo_puerta, sin_puerta, tramos_fuera)}],
    miembro: {clave_cable: id_grupo}, manual (lo guardado, normalizado), clave_producto, por_producto, aviso,
    version_almacen, editado: {trabajo, archivo, fecha}, avisos}"""
 import collections
@@ -41,7 +53,8 @@ import threading
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(AQUI, 'web', 'e8_grupos.json')
-VERSION = 1
+VERSION = 3               # 2 (2026-10-13): categorias con solo_puerta; grupos con solo_puerta, sin_puerta y tramos_fuera
+                          # 3 (2026-10-13): tramos con 'curvas' y 'desde': 'entrada' (el haz de la placa)
 VERSION_ALMACEN = 1       # formato de programa/recorridos_e8.json ('version' de arriba; cada producto lleva la suya)
 VISTA_PUERTA, VISTA_FONDO = 'PUERTA', 'FONDO'
 MAX_PUNTOS = 400          # por tramo
@@ -76,8 +89,8 @@ def _rx(p):
 
 def leer_config(path=None):
     """la tabla de grupos, validada: {categorias: [{id, nombre, nota, aparato: {familias, texto_re, tag_re,
-    potencia_seccion_min} | None, cable: {seccion_min, seccion_max, secciones}, pines, por_aparato, puerta}], directo: {...}}.
-    Lo roto se descarta (una categoria sin id, una expresion invalida)"""
+    potencia_seccion_min} | None, cable: {seccion_min, seccion_max, secciones}, pines, por_aparato, puerta, solo_puerta}],
+    directo: {...}}. Lo roto se descarta (una categoria sin id, una expresion invalida)"""
     try:
         with open(path or CONFIG, encoding='utf-8') as f:
             d = json.load(f)
@@ -96,7 +109,7 @@ def leer_config(path=None):
             cable=dict(min=_num(cab.get('seccion_min')), max=_num(cab.get('seccion_max')),
                        secciones=[x for x in (_num(v) for v in cab.get('secciones') or []) if x is not None]),
             pines=[str(p).strip().upper() for p in c.get('pines') or [] if str(p).strip()],
-            por_aparato=bool(c.get('por_aparato')), puerta=c.get('puerta') is True))
+            por_aparato=bool(c.get('por_aparato')), puerta=c.get('puerta') is True, solo_puerta=c.get('solo_puerta') is True))
     di = d.get('directo') if isinstance(d, dict) and isinstance(d.get('directo'), dict) else {}
     directo = dict(familias=[str(x) for x in di.get('familias') or []], tag_re=_rx(di.get('tag_re')),
                    distancia=_num(di.get('distancia_max_perfiles')) or 2.0)
@@ -263,9 +276,10 @@ def _texto(v, n=80):
 
 
 def normalizar_manual(m, categorias=None):
-    """lo que guarda el taller, validado: {grupos: {id: {tramos: [{vista, puntos: [[x, y], ...]}], nombre?}}, nuevos:
-    [{id, nombre, categoria, aparato}], mover: {clave_cable: id_grupo | '' (sin grupo: ruteo automatico)}}.
-    -> (manual, errores). Un tramo sin puntos se descarta; los numeros se redondean a 0,01 pt."""
+    """lo que guarda el taller, validado: {grupos: {id: {tramos: [{vista, puntos: [[x, y], ...], curvas?: [i, ...],
+    desde?: 'entrada'}], nombre?}}, nuevos: [{id, nombre, categoria, aparato}], mover: {clave_cable: id_grupo | ''
+    (sin grupo: ruteo automatico)}}. -> (manual, errores). Un tramo sin puntos se descarta; los numeros se redondean a
+    0,01 pt; las curvas que no son de un punto valido se descartan (etapa E8-8)."""
     out, err = manual_vacio(), []
     if m is None:
         return out, err
@@ -281,12 +295,23 @@ def normalizar_manual(m, categorias=None):
         for t in (g.get('tramos') if isinstance(g.get('tramos'), list) else [])[:MAX_TRAMOS]:
             if not isinstance(t, dict) or not _texto(t.get('vista'), 200):
                 continue
-            pts = []
-            for p in (t.get('puntos') if isinstance(t.get('puntos'), list) else [])[:MAX_PUNTOS]:
+            pts, idx = [], []           # (idx: el indice de cada punto valido en lo que mando la web, para las curvas)
+            for j, p in enumerate((t.get('puntos') if isinstance(t.get('puntos'), list) else [])[:MAX_PUNTOS]):
                 if isinstance(p, (list, tuple)) and len(p) >= 2 and _num(p[0]) is not None and _num(p[1]) is not None:
                     pts.append([round(_num(p[0]), 2), round(_num(p[1]), 2)])
+                    idx.append(j)
             if pts:
-                tramos.append({'vista': _texto(t['vista'], 200), 'puntos': pts})
+                d = {'vista': _texto(t['vista'], 200), 'puntos': pts}
+                # (etapa E8-8, el haz de la placa) las esquinas curvas (indices de 'puntos') y el haz que arranca en la
+                # entrada a la puerta (la entrada no se guarda: la sigue si cambia)
+                pos = {j: i for i, j in enumerate(idx)}
+                cv = sorted({pos[c] for c in (t.get('curvas') if isinstance(t.get('curvas'), list) else [])
+                             if isinstance(c, int) and not isinstance(c, bool) and c in pos})
+                if cv:
+                    d['curvas'] = cv
+                if t.get('desde') == 'entrada':
+                    d['desde'] = 'entrada'
+                tramos.append(d)
         d = {'tramos': tramos}
         if _texto(g.get('nombre')):
             d['nombre'] = _texto(g.get('nombre'))
@@ -409,9 +434,30 @@ def _orden_grupo(R):
     return k
 
 
+def tramo_dibujado(t):
+    """el tramo tiene recorrido: dos puntos o mas; el haz de la placa que arranca en la entrada (desde: 'entrada',
+    etapa E8-8), un punto o mas"""
+    return len(t.get('puntos') or []) + (1 if t.get('desde') == 'entrada' else 0) >= 2
+
+
+def solo_puerta_de(R):
+    """ids de las categorias cuyo recorrido a mano es SOLO el de la vista de la puerta ('solo_puerta' en e8_grupos.json:
+    la placa). Un ruteo_mano armado antes del 2026-10-13 (sin la marca en sus categorias) la toma de la tabla"""
+    cats = (R or {}).get('categorias') or []
+    if cats and not any('solo_puerta' in c for c in cats):
+        try:
+            return {c['id'] for c in leer_config()['categorias'] if c.get('solo_puerta')}
+        except Exception:                                                  # noqa: BLE001
+            return set()
+    return {c['id'] for c in cats if c.get('solo_puerta')}
+
+
 def aplicar(R, manual=None, meta=None):
     """grupos efectivos en R (= e8['ruteo_mano']): los automaticos con lo que corrigio el taller (mover, nuevos) y su
-    recorrido dibujado (solo los tramos de vistas que tiene este trabajo). -> {clave_cable: id_grupo} (miembro)"""
+    recorrido dibujado (solo los tramos de vistas que tiene este trabajo; en un grupo 'solo_puerta', la placa, solo los
+    de la PUERTA: los de otras vistas se conservan en lo guardado pero no se usan, con un aviso; el grupo lleva
+    solo_puerta, sin_puerta si el trabajo no tiene la vista de la puerta y tramos_fuera). -> {clave_cable: id_grupo}
+    (miembro)"""
     if not isinstance(R, dict):
         return {}
     cats = {c['id']: c for c in R.get('categorias') or []}
@@ -443,14 +489,32 @@ def aplicar(R, manual=None, meta=None):
         avisos.append(f'{viejos} cable{"s" if viejos > 1 else ""} movido{"s" if viejos > 1 else ""} a mano ya no '
                       f'{"están" if viejos > 1 else "está"} en este trabajo (otro plano del mismo producto): se {"ignoran" if viejos > 1 else "ignora"}')
     sin_vista = 0
+    solo = solo_puerta_de(R)
+    nom_vista = {v['clave']: v.get('nombre') or v['clave'] for v in R.get('vistas') or []}
     lista = []
     for gid, g in grupos.items():
         mg = man['grupos'].get(gid) or {}
         tramos = [t for t in mg.get('tramos') or [] if t['vista'] in vistas]
         sin_vista += len(mg.get('tramos') or []) - len(tramos)
         cs = sorted((k for k, v in miembro.items() if v == gid), key=lambda k: (_natk(cables.get(k, {}).get('num')), k))
+        extra = {}
+        if g.get('categoria') in solo:
+            # (la placa, 2026-10-13: su recorrido a mano es solo el de la PUERTA; lo dibujado antes en otra vista se
+            # conserva en el archivo pero no se usa: en las laterales y el fondo sus cables van por el ruteo automatico)
+            fuera = [t for t in tramos if t['vista'] != VISTA_PUERTA]
+            tramos = [t for t in tramos if t['vista'] == VISTA_PUERTA]
+            extra['solo_puerta'] = True
+            if VISTA_PUERTA not in vistas:
+                extra['sin_puerta'] = True
+            if fuera:
+                extra['tramos_fuera'] = len(fuera)
+                vs = ', '.join(dict.fromkeys(nom_vista.get(t['vista'], t['vista']).lower() for t in fuera))
+                n = len(fuera)
+                avisos.append(f'«{mg.get("nombre") or g["nombre"]}»: {n} tramo{"s" if n > 1 else ""} dibujado{"s" if n > 1 else ""} fuera de la puerta '
+                              f'({vs}) se conserva{"n" if n > 1 else ""} en el archivo pero no se usa{"n" if n > 1 else ""}: en las bandejas '
+                              'laterales y el fondo los cables de la placa van por el ruteo automático (hasta la salida a la puerta)')
         lista.append(dict(g, nombre=mg.get('nombre') or g['nombre'], cables=cs, n=len(cs), tramos=tramos,
-                          dibujado=any(len(t['puntos']) >= 2 for t in tramos)))
+                          dibujado=any(tramo_dibujado(t) for t in tramos), **extra))
     if sin_vista:
         avisos.append(f'{sin_vista} tramo{"s" if sin_vista > 1 else ""} dibujado{"s" if sin_vista > 1 else ""} en una vista que este trabajo no tiene: no se muestra{"n" if sin_vista > 1 else ""}')
     lista.sort(key=_orden_grupo(R))
@@ -459,19 +523,24 @@ def aplicar(R, manual=None, meta=None):
     return miembro
 
 
-def anotar(e8, miembro):
+def anotar(e8, miembro, R=None):
     """'grupo_mano' en cada linea de E8 (laterales, puerta, tablas de puerta y placa) de un cable con grupo de ruteo a
-    mano; se saca de las demas"""
-    def marcar(l):
+    mano; se saca de las demas. En las bandejas LATERALES no se marca un cable de un grupo 'solo_puerta' (la placa: su
+    recorrido a mano es solo el de la puerta; en la lateral va por el ruteo automatico y el visor lo dibuja). R = los
+    grupos efectivos (despues de aplicar; por defecto e8['ruteo_mano'])"""
+    R = R if isinstance(R, dict) else (e8.get('ruteo_mano') if isinstance(e8.get('ruteo_mano'), dict) else {})
+    solo = {g['id'] for g in R.get('grupos') or [] if g.get('solo_puerta')}
+
+    def marcar(l, lateral=False):
         g = (miembro or {}).get(l.get('clave'))
-        if g:
+        if g and not (lateral and g in solo):
             l['grupo_mano'] = g
         else:
             l.pop('grupo_mano', None)
     for L in e8.get('laterales') or []:
         for p in L.get('pasos') or []:
             for l in p.get('lineas') or []:
-                marcar(l)
+                marcar(l, True)
     for p in (e8.get('puerta') or {}).get('pasos') or []:
         for l in p.get('lineas') or []:
             marcar(l)
@@ -513,19 +582,19 @@ def cargar_y_aplicar(e8, prod, local=None, trabajo=None, archivo=None):
             aplicar(R, loc, meta_de(None, motivo))
             if loc:
                 e8['mano_trabajo'] = loc
-        anotar(e8, R.get('miembro'))
+        anotar(e8, R.get('miembro'), R)
     except Exception as ex:                                                # noqa: BLE001
         R.setdefault('avisos', []).append(f'no se pudo cargar el ruteo a mano ({type(ex).__name__}: {ex})')
         try:
             aplicar(R, None, meta_de(None, 'error'))
-            anotar(e8, R.get('miembro'))
+            anotar(e8, R.get('miembro'), R)
         except Exception:                                                  # noqa: BLE001
             pass
 
 
 def resumen(R):
     """'N grupos de ruteo a mano (M sin dibujar)' para los avisos"""
-    gs = [g for g in (R or {}).get('grupos') or [] if g.get('n')]
+    gs = [g for g in (R or {}).get('grupos') or [] if g.get('n') and not g.get('sin_puerta')]
     falta = sum(1 for g in gs if not g.get('dibujado'))
     return gs, falta
 

@@ -13,7 +13,9 @@
 - Salida a LI (regla del taller): por el lateral, arriba; los marrones y blancos (220 VAC) por abajo; los
   intrinsecos por su canaleta si llega al borde.
 - Salida elegida a mano (editor de salidas de la web, por grupo de cables): puntos por donde pasa el cable y, el
-  ultimo, por donde sale de la bandeja (salida_a_mano).
+  ultimo, por donde sale de la bandeja (salida_a_mano). Sin idas y vueltas (2026-10-13, pedido del taller): un punto de
+  paso que haria que el cable entre a una canaleta y vuelva por el mismo camino (una canaleta sin salida, o un punto al
+  costado del camino) se saltea y el tramo de ida y vuelta se recorta (Net.por_paradas); la web lo avisa.
 - Bornera en columna al frente (modelo del catalogo con 'columna_frente', ej. MOXA ioLogik R1240): el cable sale del
   borne en HORIZONTAL hacia el costado ('der' / 'izq') y entra a la canaleta vertical que pasa a esa altura, si esta a
   menos de LATERAL_W anchos de canaleta (enganche_lateral); si no hay, se engancha como siempre.
@@ -286,7 +288,39 @@ class Net:
         return best or horizontal(todas) or cercana(todas)
 
     def path(self, a, b, ex):
-        """camino mas corto; penaliza canaletas del tipo equivocado (azul/intrinseco vs normal)"""
+        """camino mas corto; penaliza canaletas del tipo equivocado (azul/intrinseco vs normal) -> [(x, y)] o None"""
+        ks = self._camino(a, b, ex)
+        return None if ks is None else [self.nodes[k] for k in ks]
+
+    def por_paradas(self, a, paradas, b, ex):
+        """camino mas corto de a a b pasando en orden por las paradas (nodos de los puntos de paso elegidos a mano) SIN
+        IDAS Y VUELTAS: si para llegar a una parada el cable entra a una canaleta y vuelve por el mismo camino (A -> B ->
+        A, por los mismos tramos: la parada quedo en una canaleta sin salida o al costado del camino), ese tramo se
+        recorta y la parada se saltea (el cable no va y vuelve). Un recorrido que da la vuelta por OTRO camino (un ciclo)
+        no se toca. -> (puntos, salteadas: indices de las paradas salteadas, 0 = la primera) o (None, [])"""
+        seq = []                                     # [[nodo, {paradas que caen en ese nodo}]]
+        for i, (u, v) in enumerate(zip([a] + list(paradas), list(paradas) + [b])):
+            ks = self._camino(u, v, ex)
+            if ks is None:
+                return None, []
+            for k in (ks[1:] if seq else ks):
+                seq.append([k, set()])
+            if i < len(paradas):
+                seq[-1][1].add(i)
+        pila, salteadas = [], set()
+        for k, tags in seq:
+            if pila and pila[-1][0] == k:            # (el mismo nodo dos veces: una parada sobre el camino)
+                pila[-1][1] |= tags
+            elif len(pila) >= 2 and pila[-2][0] == k:
+                salteadas |= pila.pop()[1]           # A -> B -> A: el tramo hasta B sobra (y la parada de B se saltea)
+                pila[-1][1] |= tags
+            else:
+                pila.append([k, set(tags)])
+        quedan = set().union(*(t for _, t in pila)) if pila else set()
+        return [self.nodes[k] for k, _ in pila], sorted(salteadas - quedan)
+
+    def _camino(self, a, b, ex):
+        """camino mas corto de a a b en nodos -> [nodo] o None"""
         dist = {a: 0.0}; prev = {}; pq = [(0.0, a)]
         while pq:
             dd, u = heapq.heappop(pq)
@@ -303,7 +337,7 @@ class Net:
         out = [b]
         while out[-1] != a:
             out.append(prev[out[-1]])
-        return [self.nodes[k] for k in reversed(out)]
+        return list(reversed(out))
 
     def _stub(self, j, e, L):
         """tramo fijo j -> e (sale de la canaleta hacia el lateral) de largo L"""
@@ -393,10 +427,12 @@ class Net:
 
 
 def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='izq', por=None, o_lat=None, d_lat=None,
-               o_red=False, d_red=False):
+               o_red=False, d_red=False, salteados=None):
     """polilinea del cable: borne -> canaleta -> ... -> canaleta -> borne (o salida a LI).
     por = recorrido elegido a mano para la salida a LI / LD: puntos por donde pasa el cable, en orden, y el ultimo
-    por donde sale de la bandeja (sin por: la regla del taller, li_exit).
+    por donde sale de la bandeja (sin por: la regla del taller, li_exit). Un punto de paso que haria que el cable entre a
+    una canaleta y vuelva por el mismo camino (canaleta sin salida) se saltea (Net.por_paradas): si se pasa la lista
+    'salteados', se le agregan los numeros de esos puntos (1 = el primero de 'por').
     o_lat / d_lat = 'der' | 'izq': la punta es de una bornera en columna al frente y sale en horizontal a la canaleta
     vertical de ese costado (enganche_lateral)
     o_red / d_red = la punta ya esta en el eje de una canaleta (la punta de la canaleta por donde sale el cable hacia un
@@ -422,12 +458,11 @@ def route_line(net, o_pt, o_side, d_pt, d_side, ex, to_li, abajo_li, lado_li='iz
         tail = via_d[::-1] + [d_pt]
     if a is None or b is None or None in paradas:
         return None
-    mid = []
-    for u, v in zip([a] + paradas, paradas + [b]):
-        tramo = net.path(u, v, ex)
-        if tramo is None:
-            return None
-        mid += tramo[1:] if mid else tramo
+    mid, salt = net.por_paradas(a, paradas, b, ex)
+    if mid is None:
+        return None
+    if salteados is not None:
+        salteados.extend(i + 1 for i in salt)
     pts = [o_pt] + via_o + mid + tail
     clean = [pts[0]]
     for q in pts[1:]:
