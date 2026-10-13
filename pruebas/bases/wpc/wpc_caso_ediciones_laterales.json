@@ -1,0 +1,10 @@
+{
+ "archivo": "prueba - WPC - Laterales.wpc",
+ "filas_total": 3,
+ "filas_csv": 3,
+ "filas": [
+  {"n":1,"tipo":"lateral","grupo":"Bandeja lateral izquierda · Riel 1","k":"1101|12L1 1|12L1 2","num":"1101","origen":"12L1 1","destino":"12L1 2","color_plano":"Marrón","secc_plano":"2.5","regla":null,"sec":"2.5","color":"BN","largo":0,"calculado":400,"como":"recorrido en la bandeja lateral izquierda 180 + sobrante 100 + agregado 75, redondeado a 50","falta":false,"giro":"0|0","giro_calc":"0|0","lado_o":"abajo","lado_d":null,"giro_como":"origen aguas abajo · destino sin dato → no se sabe el lado de una punta","motivo":null,"fuera":false},
+  {"n":2,"tipo":"lateral","grupo":"Bandeja lateral izquierda · Riel 1","k":"1105|12L1 5|12L1 6","num":"1105","origen":"12L1 5","destino":"12L1 6","color_plano":"Rojo","secc_plano":"1","regla":null,"sec":"1","color":"RD","largo":300,"calculado":300,"como":"recorrido en la bandeja lateral izquierda 90 + sobrante 100 + agregado 75, redondeado a 50","falta":false,"giro":"0|0","giro_calc":"0|0","lado_o":"abajo","lado_d":null,"giro_como":"origen aguas abajo · destino sin dato → no se sabe el lado de una punta","motivo":null,"fuera":false},
+  {"n":3,"tipo":"lateral","grupo":"Bandeja lateral izquierda · Riel 1","k":"1105|12L1 6|12L1 7","num":"1105","origen":"12L1 6","destino":"12L1 7","color_plano":"Rojo","secc_plano":"1","regla":null,"sec":"1","color":"RD","largo":300,"calculado":300,"como":"recorrido en la bandeja lateral izquierda 90 + sobrante 100 + agregado 75, redondeado a 50","falta":false,"giro":"0|0","giro_calc":"0|0","lado_o":"abajo","lado_d":null,"giro_como":"origen aguas abajo · destino sin dato → no se sabe el lado de una punta","motivo":null,"fuera":false}
+ ]
+}

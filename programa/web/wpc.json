@@ -146,7 +146,7 @@
       "etiqueta": "Pendientes LI ↔ LI",
       "tipo": "si_no",
       "grupo": "Qué entra en la lista",
-      "ayuda": "Los cables lateral ↔ lateral que se cablean al montar, al final de la lista"
+      "ayuda": "Los cables lateral ↔ lateral que se cablean al montar, al final de la lista (los que nacen y mueren en una misma bandeja lateral van siempre en el .wpc de laterales)"
     },
     {
       "clave": "otra",
@@ -163,7 +163,7 @@
       "unidad": "mm",
       "paso": 10,
       "minimo": 0,
-      "ayuda": "Se suma al recorrido por las canaletas (también a LI / LD sin E8)"
+      "ayuda": "Se suma al recorrido por las canaletas (también a LI / LD sin E8 y a los cables de una misma bandeja lateral, en el .wpc de laterales)"
     },
     {
       "clave": "agregado_bandeja",

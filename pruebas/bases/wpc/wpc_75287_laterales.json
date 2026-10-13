@@ -1,0 +1,9 @@
+{
+ "archivo": "75286-1 - 75287 Rev 6 - Laterales.wpc",
+ "filas_total": 2,
+ "filas_csv": 2,
+ "filas": [
+  {"n":1,"tipo":"lateral","grupo":"Bandeja lateral izquierda · Riel 2 · parte de abajo · 11XP","k":"1101|11XP 1 ABAJO|11MS1 ABAJO","num":"1101","origen":"11XP 1 ABAJO","destino":"11MS1 ABAJO","color_plano":"Marrón","secc_plano":"2.5","regla":null,"sec":"2.5","color":"BN","largo":450,"calculado":450,"como":"recorrido en la bandeja lateral izquierda 270 + sobrante 100 + agregado 75, redondeado a 50","falta":false,"giro":"180|0","giro_calc":"180|0","lado_o":"abajo","lado_d":"abajo","giro_como":"origen aguas abajo · destino aguas abajo → las dos puntas aguas abajo: gira el primer termo","motivo":null,"fuera":false},
+  {"n":2,"tipo":"lateral","grupo":"Bandeja lateral izquierda · Riel 2 · parte de abajo · 11XP","k":"1102|11XP 2 ABAJO|11MS1 ABAJO","num":"1102","origen":"11XP 2 ABAJO","destino":"11MS1 ABAJO","color_plano":"Blanco","secc_plano":"2.5","regla":null,"sec":"2.5","color":"WH","largo":500,"calculado":500,"como":"recorrido en la bandeja lateral izquierda 280 + sobrante 100 + agregado 75, redondeado a 50","falta":false,"giro":"180|0","giro_calc":"180|0","lado_o":"abajo","lado_d":"abajo","giro_como":"origen aguas abajo · destino aguas abajo → las dos puntas aguas abajo: gira el primer termo","motivo":null,"fuera":false}
+ ]
+}

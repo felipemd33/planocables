@@ -37,7 +37,7 @@ function preparar(ins, variante, base) {
 const normal = fs => C.copia(fs.map(C.normalizarFila).map(f => JSON.parse(JSON.stringify(f, (k, v) => (typeof v === 'number' && !Number.isFinite(v) ? String(v) : v)))));
 
 test('wpc_core: carga en Node sin DOM (require y un contexto vacío) y no usa document, window ni fetch', () => {
-  for (const f of ['config', 'filas', 'largo', 'lateralInfo', 'canaleta', 'csv', 'wpcXml', 'wpcZip', 'nombreArchivo']) assert.equal(typeof W[f], 'function', `FALLA: falta ${f}`);
+  for (const f of ['config', 'filas', 'laterales', 'clavesLaterales', 'largo', 'lateralInfo', 'canaleta', 'csv', 'wpcXml', 'wpcZip', 'nombreArchivo']) assert.equal(typeof W[f], 'function', `FALLA: falta ${f}`);
   assert.equal(typeof Z.zipUno, 'function');
   for (const n of fs.readdirSync(NUCLEO).filter(n => n.endsWith('.js'))) {
     const src = fs.readFileSync(path.join(NUCLEO, n), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '').replace(/ \/\/ .*$/gm, '');

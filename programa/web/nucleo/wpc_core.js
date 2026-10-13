@@ -9,8 +9,11 @@
    API
      config(base, {producto, trabajo}) -> cfg     la configuración que vale para un trabajo (ver NIVELES)
      filas(ins, cfg)                   -> [fila]  en el orden de cableado: la bandeja (pasos) y, si se piden, pendientes
-                                                  LI↔LI y otra estación al final. fila = {l, tipo, grupo, k, rg, sec,
-                                                  motivo, fuera, calc, largo, color, giroCalc, giro}
+                                                  LI↔LI y otra estación al final (sin los de laterales()). fila = {l, tipo,
+                                                  grupo, k, rg, sec, motivo, fuera, calc, largo, color, giroCalc, giro}
+     laterales(ins, cfg)               -> [fila]  los cables que nacen y mueren en la MISMA bandeja lateral (E8), para su
+                                                  .wpc aparte (ver LATERALES); tipo 'lateral', con f.donde (la lateral)
+     clavesLaterales(ins)              -> Set     sus claves de la E8 ('num|punta|punta', sin ARRIBA / ABAJO y en orden)
      lateralInfo(estacion8)            -> e8l     adónde va de verdad un cable que sale a LI / LD (estación E8)
      largo(fila, cfg, e8l, topo)       -> {mm, como, falta?}
      canaleta(ruta, ductos, escala)    -> mm      la parte de la ruta que corre DENTRO de las canaletas
@@ -18,7 +21,8 @@
                                                   encabezado, 49 columnas, CRLF), igual que la macro
      wpcXml(filas, cfg, nombre)        -> texto   el XML de adentro del .wpc (como lo guarda la máquina al importar)
      wpcZip(nombre, xml, fecha?)       -> Promise<Uint8Array>   el .wpc: zip de una entrada que se llama como el archivo
-     nombreArchivo(producto, ext, respaldo) -> '75286-1 - 75287 Rev 6.wpc' ('<respaldo> - WPC.wpc' sin código)
+     nombreArchivo(producto, ext, respaldo, parte) -> '75286-1 - 75287 Rev 6.wpc' ('<respaldo> - WPC.wpc' sin código);
+                                                  con parte 'Laterales': '75286-1 - 75287 Rev 6 - Laterales.wpc'
    (filas, csv y wpcXml son las que van al archivo: se les pasan solo las filas que no quedan fuera del arnés.)
 
    LARGO (regla del taller): en la bandeja, recorrido por las canaletas + sobrante + agregado del taller. Los que salen a
@@ -45,6 +49,17 @@
    instructivo no cambia. TERMOS (columna 22, "giro origen|giro destino" en grados) según el lado de cada punta: una
    aguas arriba y otra aguas abajo → 0|0; las dos abajo → 180|0; las dos arriba → 0|180. FUERA del arnés
    (destildados, con el motivo): 35 mm², comunicación, solenoides, campo y lo que no va a la puerta ni a la placa (E8).
+   LATERALES (2026-10-13, pedido del usuario): los cables que nacen y mueren en la MISMA bandeja lateral (en la E8, las
+   líneas de una lateral con otra = 'misma bandeja'; en E6 son pendientes LI↔LI) van en un .wpc APARTE, uno solo para las
+   dos laterales (laterales(), '<nombre> - Laterales.wpc'), y no van en la lista principal aunque se tilden los
+   pendientes. Orden: el de cableado de la E8 (lateral por lateral, paso por paso); cada cable una vez. Largo como en la
+   bandeja: recorrido por las canaletas de la lateral (largo_mm de la línea de la E8, en mm con la escala de la lateral;
+   un cable directo, su largo directo) + margen_bandeja (sobrante) + agregado_bandeja, redondeado; sin recorrido,
+   largo_sin_ruta. Valen las mismas reglas y niveles de la configuración: fuera del arnés, reemplazos, colores, marcador,
+   fijos, largo de comunicación por producto y las ediciones a mano de ins.wpc (por la clave de la fila). Termos: el lado
+   del riel de cada punta en la lateral (lado / lado_d de la línea); sin él, sin_dato. Un cable quitado a mano del
+   instructivo (ins.quitados) no va. Sin E8, o sin lateral dibujada, no hay cables de laterales: los pendientes siguen
+   como antes.
 
    CONFIGURACIÓN (programa/web/wpc.json; la cambia el taller con el panel ⚙ Parámetros, PUT /api/config/wpc)
    NIVELES: wpc.json (todos los productos) < wpc.json → productos[código] < ins.wpc.cfg (este trabajo). Si no hay nada
@@ -79,7 +94,7 @@
    un texto) se redondea a 1 mm; sin fijos, 10/1/1/8/10/8; sin termos, 0|0, 180|0, 0|180 y 0|0; sin marcador, por
    sección con la tabla de abajo (MARCADOR); sin archivo_wpc, UserFilter -1 y pdfFile vacío. */
 const WpcCore = (() => {
-  const VERSION = '2026.10.09';
+  const VERSION = '2026.10.13';
   const NCOL = 49;
   // marcador por sección (decidido el 2026-10-07): ≤ 1 mm² y de 2,5 a 6 mm²; otra sección, vacío
   const MARCADOR = { modo: 'seccion', tabla: [
@@ -175,7 +190,7 @@ const WpcCore = (() => {
     if (l.estacion === 'CAMPO' || (rk && rk.test(txt)) || /^s\/n\b/i.test(l.num || '')) return 'va a campo';
     // sale de la bandeja a un aparato que no es de la puerta ni de la placa (zona hidráulica, batería, solenoides, PT 001:
     // lo dice la E8; el texto de la fila solo dice «→ LI»): la WPC no lo corta (el taller, 2026-10-09)
-    if (FU.no_puerta !== false && f.tipo !== 'pendiente' && e8l && e8l.sale) {      // (la bandeja y otra estación)
+    if (FU.no_puerta !== false && (f.tipo === 'bandeja' || f.tipo === 'otra') && e8l && e8l.sale) {
       const x = e8l.sale[`${l.num}|${sinLado(l.origen)}`];
       if (x && x.tipo === 'no_puerta') return 'no va a la puerta ni a la placa: no lo corta la WPC';
     }
@@ -199,6 +214,8 @@ const WpcCore = (() => {
   function lados(f, topo) {
     const l = f.l;
     if (f.tipo === 'pendiente') return { o: null, d: null };
+    // misma bandeja lateral: el lado del riel de la lateral de cada punta, como lo da la E8 (sin él, sin dato)
+    if (f.tipo === 'lateral') return { o: l.lado === 'arriba' || l.lado === 'abajo' ? l.lado : null, d: l.lado_d === 'arriba' || l.lado_d === 'abajo' ? l.lado_d : null };
     const o = l.lado || ladoPunto(l.marca_o, tagDe(l.origen), topo) || ladoTexto(l.origen);
     const d = LAT(l.destino) ? 'abajo' : (ladoPunto(l.marca_d, tagDe(l.destino), topo) || ladoTexto(l.destino));
     return { o, d };
@@ -214,13 +231,51 @@ const WpcCore = (() => {
   }
 
   // ---- filas en el orden de cableado: la bandeja (pasos) y, si se piden, pendientes LI↔LI y otra estación al final.
-  // Las ediciones a mano (ins.wpc: largo, color, giro, excluir, incluir) mandan; ins no se cambia.
+  // Los pendientes que nacen y mueren en la misma bandeja lateral no: van en el .wpc de laterales (laterales())
   function filas(ins, cfg) {
     ins = ins || {}; cfg = resuelta(cfg, ins);
-    const w = ins.wpc || {}, out = [], topo = ins.topo || {}, e8l = lateralInfo(ins.estacion8);
+    const out = [];
     (ins.pasos || []).forEach(p => p.lineas.forEach(l => out.push({ l, tipo: 'bandeja', grupo: p.titulo })));
-    if (cfg.pendientes) (ins.pendientes || []).forEach(l => out.push({ l, tipo: 'pendiente', grupo: 'Pendientes LI ↔ LI' }));
+    if (cfg.pendientes) {
+      const deLat = clavesLaterales(ins);
+      (ins.pendientes || []).forEach(l => {
+        if (!deLat.has(claveE8(l.num, l.a ?? l.origen, l.b ?? l.destino))) out.push({ l, tipo: 'pendiente', grupo: 'Pendientes LI ↔ LI' });
+      });
+    }
     if (cfg.otra) (ins.otra_estacion || []).forEach(l => out.push({ l, tipo: 'otra', grupo: 'Otra estación (' + (l.estacion || '') + ')' }));
+    return completar(out, ins, cfg);
+  }
+  // ---- LATERALES: las líneas de la E8 con las dos puntas en la misma bandeja lateral (otra = 'misma bandeja'), en el
+  // orden de cableado de la E8 (lateral por lateral, paso por paso), una vez cada cable y sin los quitados a mano del
+  // instructivo. -> [{l, L, p}] (L = la lateral, p = el paso)
+  function lineasLaterales(ins) {
+    ins = ins || {};
+    const e8 = ins.estacion8 || {}, out = [], vistos = new Set();
+    const quitados = new Set((Array.isArray(ins.quitados) ? ins.quitados : []).filter(q => q && q.num != null)
+      .map(q => claveE8(q.num, q.a ?? q.origen, q.b ?? q.destino)));
+    (Array.isArray(e8.laterales) ? e8.laterales : []).forEach(L => (L.pasos || []).forEach(p => (p.lineas || []).forEach(l => {
+      if (!l || l.otra !== 'misma bandeja') return;
+      const k = claveE8(l.num, l.origen, l.destino);
+      if (vistos.has(k) || quitados.has(k)) return;
+      vistos.add(k);
+      out.push({ l, L, p });
+    })));
+    return out;
+  }
+  const clavesLaterales = ins => new Set(lineasLaterales(ins).map(x => claveE8(x.l.num, x.l.origen, x.l.destino)));
+  // las filas del .wpc de laterales (tipo 'lateral'): las mismas reglas que filas(), con el largo como en la bandeja
+  function laterales(ins, cfg) {
+    ins = ins || {}; cfg = resuelta(cfg, ins);
+    const out = lineasLaterales(ins).map(({ l, L, p }) => {
+      const donde = String(L.nombre || (L.lado === 'LD' ? 'Bandeja lateral derecha' : 'Bandeja lateral izquierda'));
+      return { l, tipo: 'lateral', grupo: `${donde} · ${p.titulo || ''}`.replace(/ · $/, ''), donde: donde.toLowerCase(), lado: L.lado };
+    });
+    return completar(out, ins, cfg);
+  }
+  // clave, reemplazo, fuera, largo, color y giro de cada fila. Las ediciones a mano (ins.wpc: largo, color, giro, excluir,
+  // incluir) mandan; ins no se cambia
+  function completar(out, ins, cfg) {
+    const w = ins.wpc || {}, topo = ins.topo || {}, e8l = lateralInfo(ins.estacion8);
     const excl = new Set(w.excluir || []), incl = new Set(w.incluir || []), mLargo = w.largo || {}, mColor = w.color || {}, mGiro = w.giro || {};
     out.forEach(f => {
       f.k = key(f.l);
@@ -305,6 +360,14 @@ const WpcCore = (() => {
     }
     const AG = { bandeja: P('agregado_bandeja'), LI: P('agregado_LI'), puerta: P('agregado_puerta') };
     const mas = k => AG[k] ? ` + agregado ${k === 'LI' ? 'a LI' : k === 'puerta' ? 'puerta / placa' : 'en bandeja'} ${AG[k]}` : '';
+    // nace y muere en la misma bandeja lateral (.wpc de laterales): como en la bandeja, con el recorrido de la lateral
+    if (f.tipo === 'lateral') {
+      const donde = f.donde || 'bandeja lateral';
+      if (!l.largo_mm) return { mm: P('largo_sin_ruta'), como: `sin recorrido en la ${donde}: valor fijo`, falta: true };
+      const rec = l.directo ? `directo al borne ${l.largo_mm} (${donde}, sin la canaleta)` : `recorrido en la ${donde} ${l.largo_mm}`;
+      return { mm: up(l.largo_mm + P('margen_bandeja') + AG.bandeja),
+        como: `${rec} + sobrante ${P('margen_bandeja')}${AG.bandeja ? ` + agregado ${AG.bandeja}` : ''}, redondeado a ${r}` };
+    }
     if (f.tipo === 'pendiente') {
       const x = e8l.par[claveE8(l.num, l.a, l.b)];
       if (x) {
@@ -403,16 +466,17 @@ const WpcCore = (() => {
   // producto, el de antes: '<respaldo> - WPC' (respaldo = el nombre del PDF sin .pdf)
   const ascii = s => String(s ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^\x20-\x7e]/g, '')
     .replace(/[\\/:*?"<>|]/g, '-').replace(/\s+/g, ' ').trim();
-  function nombreArchivo(producto, ext = '', respaldo = 'plano') {
+  // parte: la del archivo aparte ('Laterales' → '75286-1 - 75287 Rev 6 - Laterales.wpc', también el ProjectName)
+  function nombreArchivo(producto, ext = '', respaldo = 'plano', parte = '') {
     const p = producto || {}, fun = p.funcional || {};
-    const cod = ascii(p.codigo);
-    if (!cod) return `${String(respaldo ?? 'plano').replace(/[\\/:*?"<>|]/g, '-')} - WPC${ext}`;
+    const cod = ascii(p.codigo), pt = ascii(parte) ? ' - ' + ascii(parte) : '';
+    if (!cod) return `${String(respaldo ?? 'plano').replace(/[\\/:*?"<>|]/g, '-')} - WPC${pt}${ext}`;
     const plano = ascii(fun.numero ?? p.documento), rev = ascii(fun.numero != null ? fun.revision : p.revision);
-    return [cod, plano ? plano + (rev ? ' Rev ' + rev : '') : ''].filter(Boolean).join(' - ').replace(/[ .]+$/, '') + ext;
+    return [cod, plano ? plano + (rev ? ' Rev ' + rev : '') : ''].filter(Boolean).join(' - ').replace(/[ .]+$/, '') + pt + ext;
   }
 
   return {
-    VERSION, NCOL, MARCADOR, config, filas, lateralInfo, largo, canaleta, csv, wpcXml, wpcZip, nombreArchivo,
+    VERSION, NCOL, MARCADOR, config, filas, laterales, clavesLaterales, lateralInfo, largo, canaleta, csv, wpcXml, wpcZip, nombreArchivo,
     // (ayudantes para la pantalla y las pruebas)
     parametros, productoDe, leer, poner, quitar, hay, key, secNum, coma, marcador, reglasReemplazo,
   };
