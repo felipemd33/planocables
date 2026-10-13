@@ -320,8 +320,8 @@
   }
  },
  "layout": {
-  "huella": "4506f675aaf05812",
-  "version_lector": "topo 2026.10.08-e8p-r4",
+  "huella": "c8e6f3fb30661c87",
+  "version_lector": "topo 2026.10.09-e8b-r4",
   "pag": 4,
   "size": [
    1190.3,
@@ -381,7 +381,7 @@
   "otras_claves": {
    "escala_fuente": "riel DIN 35 mm",
    "perfil_riel_pt": 19.55,
-   "puerta": "huella 2b80998e48e804b4",
+   "puerta": "huella a5f4ab0d4fc39dc6",
    "rieles": "huella b2c84e4871f85a7d"
   }
  },
@@ -626,11 +626,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 10.5,
-   "layout": 25.7,
-   "mapeo": 8.6,
-   "instructivo": 1.9,
-   "total": 46.7
+   "listado": 20.9,
+   "layout": 45.3,
+   "mapeo": 15.7,
+   "instructivo": 5.0,
+   "total": 86.8
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

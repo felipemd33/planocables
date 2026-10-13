@@ -1271,11 +1271,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 2.9,
-   "layout": 3.8,
+   "listado": 4.4,
+   "layout": 9.6,
    "mapeo": 0.0,
-   "instructivo": 0.1,
-   "total": 6.7
+   "instructivo": 0.2,
+   "total": 14.2
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,

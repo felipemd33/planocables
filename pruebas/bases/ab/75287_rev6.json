@@ -483,8 +483,8 @@
   }
  },
  "layout": {
-  "huella": "ecde729a38b95a3a",
-  "version_lector": "topo 2026.10.08-e8p-r4",
+  "huella": "3026659cf1405e6a",
+  "version_lector": "topo 2026.10.09-e8b-r4",
   "pag": 8,
   "size": [
    1190.3,
@@ -554,7 +554,7 @@
   "otras_claves": {
    "escala_fuente": "cotas",
    "perfil_riel_pt": 24.77,
-   "puerta": "huella c2bf81c16f96caf8",
+   "puerta": "huella 1cb18af4359a9a8a",
    "rieles": "huella d8134d6fc9f9e5c2"
   }
  },
@@ -906,11 +906,11 @@
   "python": "3.14.6",
   "semilla": "0",
   "segundos": {
-   "listado": 22.7,
-   "layout": 61.8,
-   "mapeo": 17.2,
-   "instructivo": 3.5,
-   "total": 105.2
+   "listado": 40.2,
+   "layout": 137.0,
+   "mapeo": 39.6,
+   "instructivo": 8.6,
+   "total": 225.4
   },
   "resultado_json": "web.result_json",
   "ocr_en_vivo": 0,
