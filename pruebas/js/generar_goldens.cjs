@@ -7,6 +7,8 @@
    Escribe:
      wpc_<nombre>_<variante>.csv   el CSV que baja «⭳ Exportar CSV», byte a byte (BOM, ';', CRLF)
      wpc_<nombre>_<variante>.json  las filas de la ventana WPC (también las que quedan fuera del arnés, con el motivo)
+     wpc_<nombre>_laterales.csv    el CSV de «⭳ CSV laterales» (los cables que nacen y mueren en una misma bandeja lateral,
+     wpc_<nombre>_laterales.json   2026-10-13) y sus filas, con el nombre del .wpc; solo los trabajos que los tienen
      terminal_<nombre>.json        terminal() de las dos puntas: e6 (instructivo.js) y e8 (estacion8.js, bandeja lateral)
      xml_76884_vs_real.json        qué cambia entre el XML emulado del PAE regenerado (salida del taller) y el .wpc real
    <nombre> = 75287, 66817, 76884, tpt, pae_usuario o caso_<archivo de pruebas/js/casos>; <variante> = tal_cual, pend_otra. */
@@ -28,6 +30,16 @@ const X = require('./wpc_xml.cjs');
       const enCsv = r.filas.filter(f => !f.fuera).length;
       fs.writeFileSync(en(C.archivoWpc(nombre, variante, 'json')), C.texto({ variante, cfg, filas_total: r.filas.length, filas_csv: enCsv, filas: r.filas }), 'utf8');
       resumen.push(`${nombre} ${variante}: ${r.filas.length} filas, ${enCsv} en el CSV (${Buffer.byteLength(r.csv, 'utf8')} bytes)`);
+      n += 2;
+    }
+    // el .wpc de laterales: con la configuración tal cual (no depende de «Pendientes» ni de «Otra estación»)
+    const r = await C.correrWpc(ins);
+    for (const ext of ['csv', 'json']) fs.rmSync(en(C.archivoLat(nombre, ext)), { force: true });
+    if (r.laterales.length) {
+      const enCsv = r.laterales.filter(f => !f.fuera).length;
+      fs.writeFileSync(en(C.archivoLat(nombre, 'csv')), r.csvLat, 'utf8');
+      fs.writeFileSync(en(C.archivoLat(nombre, 'json')), C.texto({ archivo: C.nombreLat(ins), filas_total: r.laterales.length, filas_csv: enCsv, filas: r.laterales }), 'utf8');
+      resumen.push(`${nombre} laterales: ${r.laterales.length} filas, ${enCsv} en el CSV (${Buffer.byteLength(r.csvLat, 'utf8')} bytes) -> ${C.nombreLat(ins)}`);
       n += 2;
     }
   }

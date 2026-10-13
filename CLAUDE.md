@@ -38,7 +38,8 @@ Lee planos eléctricos vectoriales y hace dos cosas:
     - `num` es la clave de todo en VECTOR (ediciones, WPC, E8): no cambiar cómo se arma, ni el texto de `origen` /
       `destino`, sin avisar;
   - los colores con su nombre canónico (`COLORES` / `COLOR_INI`);
-  - el CSV y el `.wpc` de la lista WPC: VECTOR tiene copias de los goldens de `pruebas/bases/wpc/`.
+  - el CSV y el `.wpc` de la lista WPC (y, desde el 2026-10-13, el `.wpc` de laterales): VECTOR tiene copias de los
+    goldens de `pruebas/bases/wpc/`.
 - **Al commitear** un cambio que toque algo del contrato, el mensaje lleva una línea **«Afecta a VECTOR: …»**.
   También al subir `topo.VERSION_LECTOR`, `eplan.VERSION_LECTOR` o `bornes.VERSION`: VECTOR relee o recalcula los
   trabajos al regenerar. Al subir al repo, ofrecer un `.md` para el Claude de VECTOR con lo que le toca
@@ -350,8 +351,24 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     (`largos_comunicacion` = `[{cable, mm}]`, tabla del panel en la pestaña «Producto»; `cable` = el número solo, para
     todos sus tramos, o el tramo `número|origen|destino`, que manda). Siguen **fuera del arnés** (se cortan a mano); sin
     estar en la tabla, el largo calculado de siempre (`pruebas/js/wpc_comunicacion.test.cjs`).
-  Pendientes de la lateral y planos sin E8 (sin la lateral dibujada): como antes (`margen_LI` / `extra_puerta` / `extra_LI` +
-  `agregado_*`). La WPC **solo corta**: columnas fijas sin pelar ni crimpar (`fijos` en 0). **Reemplazos** (solo en la
+  - **Cables de una misma bandeja lateral: un `.wpc` aparte (2026-10-13, pedido del usuario):** los que nacen y mueren
+    en la misma lateral (en la E8, las líneas de una lateral con `otra = 'misma bandeja'`; en E6 son pendientes LI↔LI:
+    TPT 1317, 1318 y 1601-1619 en la LD; PAE 1221-1226 directos, 1156-1159, 1181, 1182, ⏚11SK1 y los s/n del RS-485 en
+    la LI; 75287 1101 / 1102; 66817 ninguno) van en **un solo archivo para las dos laterales** (`WpcCore.laterales`;
+    `'<código> - <plano> Rev <rev> - Laterales.wpc'`, igual el `ProjectName`; su CSV), en el orden de cableado de la E8
+    (lateral por lateral, paso por paso; cada cable una vez). **Largo como la bandeja:** recorrido en la lateral
+    (`largo_mm` de la línea de la E8; un cable directo, su largo directo; nunca los largos dibujados a mano de E8-6) +
+    `margen_bandeja` (100) + `agregado_bandeja` (75), redondeado (50), con los parámetros por niveles de siempre. Mismas
+    reglas: fuera del arnés (los s/n de 0,32 del PAE quedan fuera), reemplazos, colores, marcador, fijos, termos con el
+    lado del riel de la lateral (`lado` / `lado_d`; sin él, `sin_dato`) y las ediciones de `ins.wpc` (por la clave de la
+    fila); un cable quitado a mano (`ins.quitados`) no va. La lista **principal ya no los lleva**, aunque se tilden los
+    pendientes (los demás pendientes siguen como antes). Pantalla: pestañas «Lista principal» / «Laterales» (con el
+    aviso «N cables nacen y mueren en una bandeja lateral: van en el .wpc de laterales») y «⭳ CSV laterales» /
+    «⭳ .wpc laterales», solo si los hay. Sin E8 o sin lateral dibujada, no hay archivo de laterales. Goldens:
+    `pruebas/bases/wpc/wpc_<trabajo>_laterales.csv` / `.json`; tabla: `pruebas/bases/wpc/cambios_laterales.md`; pruebas:
+    `pruebas/js/wpc_laterales.test.cjs`.
+  Los demás pendientes de la lateral y los planos sin E8 (sin la lateral dibujada): como antes (`margen_LI` /
+  `extra_puerta` / `extra_LI` + `agregado_*`). La WPC **solo corta**: columnas fijas sin pelar ni crimpar (`fijos` en 0). **Reemplazos** (solo en la
   lista, el instructivo no cambia): negro 4 mm² → violeta 2,5 y rojo 4 mm² → naranja 2,5 (la WPC no tiene slots de 4 mm²).
   Al principio solo en el PAE (ZPL-76884, donde la rev 1 no tiene cables de 4 mm²); desde el 2026-10-07 valen para **TODOS
   los productos** (`wpc.json → reemplazos`; se pueden apagar en un producto desde el panel de parámetros).

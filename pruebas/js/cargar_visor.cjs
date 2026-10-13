@@ -4,8 +4,10 @@
    del disco). Es la base de las pruebas de la WPC y del terminal (etapa 0 del plan modular).
 
    API:
-     correrWpc(ins, {cfg, wpcJson, web})  -> {filas, csv}   filas = las de Wpc.filas() normalizadas; csv = el texto que
-                                                             baja el botón «⭳ Exportar CSV» (solo las que no quedan fuera)
+     correrWpc(ins, {cfg, wpcJson, web})  -> {filas, csv, laterales, csvLat}   filas = las de Wpc.filas() normalizadas;
+                                                             csv = el texto que baja el botón «⭳ Exportar CSV» (solo las
+                                                             que no quedan fuera); laterales / csvLat = lo mismo del .wpc
+                                                             de laterales (Wpc.laterales(), «⭳ CSV laterales»)
      terminales(ins, {web})               -> [{g, i, num, origen, destino, o, d}]   terminal() de instructivo.js por línea
      terminalesE8(ins, {web})             -> [{lateral, g, i, clave, num, origen, destino, o, d}]   el de estacion8.js
      vistaE8(ins, {web})                  -> {laterales: [HTML de #e8Lat por lateral], afuera: HTML de #e8Afuera}
@@ -123,7 +125,11 @@ async function correrWpc(ins, op = {}) {
   await Wpc.abrir(D, () => { guardado++; });           // arma la ventana (DOM falso) y deja el instructivo cargado
   const todas = Wpc.filas();
   const csv = Wpc.csv(todas.filter(f => !f.fuera));     // lo mismo que el botón «⭳ Exportar CSV»
-  return { filas: json(todas.map(normalizarFila)), csv, guardado };
+  // el .wpc de laterales (2026-10-13): los cables que nacen y mueren en una misma bandeja lateral (una copia vieja de la
+  // web no lo tiene)
+  const lat = typeof Wpc.laterales === 'function' ? Wpc.laterales() : [];
+  const csvLat = Wpc.csv(lat.filter(f => !f.fuera));    // lo mismo que «⭳ CSV laterales»
+  return { filas: json(todas.map(normalizarFila)), csv, laterales: json(lat.map(normalizarFila)), csvLat, guardado };
 }
 
 // ---- terminal() de instructivo.js: pino o doble y la pollera de cada punta de las líneas de la bandeja (E6)

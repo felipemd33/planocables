@@ -459,6 +459,12 @@ mark { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; 
 .wpc-cfg .btn.on{background:var(--accent-2);border-color:var(--accent);color:var(--accent)}
 .wpc-nom{color:var(--muted)} .wpc-nom .mono{color:var(--text)}
 .wpc-aviso{flex-basis:100%;text-align:right;color:var(--warn)}
+/* pestañas: la lista principal y el .wpc aparte de los cables de una misma bandeja lateral */
+.wpc-vistas{display:flex;gap:2px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.wpc-vistas[hidden]{display:none}
+.wpc-vistas button[data-vista]{border:0;background:none;color:var(--muted);font:inherit;font-weight:600;padding:6px 12px;cursor:pointer;border-bottom:2px solid transparent}
+.wpc-vistas button[data-vista].on{color:var(--accent);border-bottom-color:var(--accent)}
+.wpc-lat-aviso{color:var(--warn);margin-left:8px}
 /* panel ⚙ Parámetros: tres niveles (este trabajo / producto / todos los productos) */
 .wpc-par{max-height:46vh;overflow:auto;border:1px solid var(--border);border-radius:8px;padding:0 10px 10px;background:var(--surface2);flex:none}
 .wpc-par-tabs{display:flex;gap:2px;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface2);z-index:2;margin:0 -10px;padding:0 10px}

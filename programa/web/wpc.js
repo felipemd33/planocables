@@ -9,10 +9,15 @@
    archivo). Cada campo dice de qué nivel sale su valor y tiene «volver al de arriba». Lo de «Producto» y «Todos» queda
    como borrador (la lista ya lo muestra) hasta «Guardar»: confirmación y PUT /api/config/wpc (con respaldo).
    Archivos: «⭳ CSV» (la entrada documentada de la WPC) y «⭳ .wpc» (el archivo de la máquina), con el nombre
-   '<código> - <plano> Rev <rev>' (sin código de producto, '<plano> - WPC'). */
+   '<código> - <plano> Rev <rev>' (sin código de producto, '<plano> - WPC').
+   LATERALES (2026-10-13, pedido del usuario): los cables que nacen y mueren en la misma bandeja lateral (E8) van en un
+   .wpc aparte, uno para las dos laterales (WpcCore.laterales): pestaña «Laterales» con su tabla (se tildan y editan como
+   en la principal) y «⭳ CSV laterales» / «⭳ .wpc laterales», '<nombre> - Laterales'. Solo si hay cables así; la lista
+   principal no los lleva aunque se tilden los pendientes (lo avisa la barra de las pestañas). */
 const Wpc = (() => {
   const C = WpcCore;
   let D = null, guardar = null, BASE = null, VERSION = null, borrador = null;
+  let vista = 'principal';                              // la pestaña: 'principal' o 'laterales'
   const par = { abierto: false, nivel: 'trabajo', error: '' };
   // configuración: GET /api/config/wpc (con su versión, para no pisar lo que otro guardó); si falla, el archivo estático
   async function leerConfig() {
@@ -36,6 +41,7 @@ const Wpc = (() => {
   const baseAct = () => borrador || BASE || {};        // con un borrador sin guardar, la lista ya lo muestra
   const CFG = () => C.config(baseAct(), { producto: D.producto, trabajo: W().cfg });
   const filas = () => C.filas(D, CFG());
+  const laterales = cfg => C.laterales(D, cfg || CFG());       // los de una misma bandeja lateral (su .wpc aparte)
   const nombrePlano = () => (S.res?.nombre || 'plano').replace(/\.pdf$/i, '');
   const coma = C.coma, secNum = C.secNum;
   function bajar(nombre, datos, tipo) {
@@ -166,7 +172,7 @@ const Wpc = (() => {
       ${par.error ? `<div class="small wpc-par-err" role="alert">⚠ ${esc(par.error)}</div>` : ''}
       ${ps.length ? '' : '<div class="small">wpc.json no trae la sección «parametros»: no hay nada para mostrar.</div>'}
       <datalist id="wpcColoresL">${Object.keys(cfg.colores || {}).map(c => `<option value="${esc(c)}">`).join('')}</datalist>
-      <datalist id="wpcComL">${(fc => [...new Set(fc.map(f => f.l.num)), ...fc.map(f => f.k)])(C.filas(D, cfg).filter(f => /^comunicación/.test(f.motivo || '')))
+      <datalist id="wpcComL">${(fc => [...new Set(fc.map(f => f.l.num)), ...fc.map(f => f.k)])([...C.filas(D, cfg), ...laterales(cfg)].filter(f => /^comunicación/.test(f.motivo || '')))
         .map(n => `<option value="${esc(n)}">`).join('')}</datalist>
       ${grupos.map(g => `<fieldset><legend>${esc(g.n)}</legend>${g.ps.map(p => campo(p, cfg, propios)).join('')}</fieldset>`).join('')}
       ${ch.hay ? `<div class="wpc-par-pie"><span class="small"><b>Sin guardar:</b> ${esc([ch.global ? 'todos los productos' : '', ...ch.prods.map(k => 'producto ' + k)].filter(Boolean).join(' · '))}
@@ -236,13 +242,24 @@ const Wpc = (() => {
 
   /* ---------------- la ventana ---------------- */
   function render() {
-    const cfg = CFG(), fs = C.filas(D, cfg), w = W(), M = $('#wpcModal');
+    const cfg = CFG(), fp = C.filas(D, cfg), fl = laterales(cfg), w = W(), M = $('#wpcModal');
+    if (!fl.length) vista = 'principal';
+    const lat = vista === 'laterales', fs = lat ? fl : fp;
     if (typeof Prod !== 'undefined') Prod.mostrarEn('#wpcProd', D.producto);     // línea «Producto» (web/producto.js)
     const faltan = fs.filter(f => !f.fuera && (f.calc.falta || !f.color || !f.sec)).length;
     const nT = Object.values(cfg._de).filter(x => x === 'trabajo').length, nP = Object.values(cfg._de).filter(x => x === 'producto').length;
     const ch = cambios();
-    M.querySelector('.wpc-cfg').innerHTML = `<label class="small"><input type="checkbox" data-cfg="pendientes" ${cfg.pendientes ? 'checked' : ''}> Pendientes LI↔LI</label>
-       <label class="small"><input type="checkbox" data-cfg="otra" ${cfg.otra ? 'checked' : ''}> Otra estación</label>
+    // pestañas: la lista principal y, si hay cables que nacen y mueren en una bandeja lateral, su .wpc aparte
+    const V = M.querySelector('.wpc-vistas');
+    V.hidden = !fl.length;
+    const nCorte = xs => xs.filter(f => !f.fuera).length, uno = n => `${n} cable${n === 1 ? '' : 's'}`;
+    V.innerHTML = fl.length ? `<button data-vista="principal" class="${lat ? '' : 'on'}" title="La bandeja (E6), sus salidas a LI / LD y, si se tildan, los pendientes y otra estación">Lista principal · ${uno(nCorte(fp))}</button>
+       <button data-vista="laterales" class="${lat ? 'on' : ''}" title="Los cables que nacen y mueren en una misma bandeja lateral (E8): un .wpc aparte para las dos laterales">Laterales · ${uno(nCorte(fl))}</button>
+       <span class="small wpc-lat-aviso">${fl.length} cable${fl.length === 1 ? ' nace y muere' : 's nacen y mueren'} en una bandeja lateral: van en el .wpc de laterales${(n => (n ? ` (${n} fuera del arnés)` : ''))(fl.length - nCorte(fl))}${lat ? '' : '; no van en la lista principal, aunque tildes los pendientes'}</span>` : '';
+    M.querySelector('.wpc-cfg').innerHTML = (lat
+      ? `<span class="small muted">Cables de una misma bandeja lateral, en el orden de cableado de la E8 (lateral por lateral). Largo como en la bandeja: recorrido en la lateral + sobrante ${esc(cfg.margen_bandeja ?? 0)}${+(cfg.agregado_bandeja ?? 0) ? ` + agregado ${esc(cfg.agregado_bandeja)}` : ''}, redondeado.</span>`
+      : `<label class="small"><input type="checkbox" data-cfg="pendientes" ${cfg.pendientes ? 'checked' : ''}> Pendientes LI↔LI</label>
+       <label class="small"><input type="checkbox" data-cfg="otra" ${cfg.otra ? 'checked' : ''}> Otra estación</label>`) + `
        <span class="grow"></span>
        <span class="small muted">${nT ? `${nT} parámetro${nT > 1 ? 's' : ''} de este trabajo` : ''}${nT && nP ? ' · ' : ''}${nP ? `${nP} del producto ${esc(claveProducto() || '')}` : ''}${ch.hay ? ` · <b style="color:var(--warn)">parámetros sin guardar</b>` : ''}</span>
        <button class="btn sm${par.abierto ? ' on' : ''}" data-par-abrir title="Largos, fuera del arnés, termos, colores, reemplazos y el archivo .wpc: de este trabajo, del producto o de todos">⚙ Parámetros</button>`;
@@ -251,12 +268,13 @@ const Wpc = (() => {
     if (par.abierto) Pn.innerHTML = panel();
     const nRg = fs.filter(f => !f.fuera && f.rg).length, nFuera = fs.filter(f => f.fuera && f.motivo && !w.excluir.includes(f.k)).length;
     const nGiro = fs.filter(f => !f.fuera && f.giro !== '0|0').length, nSin = fs.filter(f => !f.fuera && (!f.giroCalc.o || !f.giroCalc.d)).length;
-    const nom = C.nombreArchivo(D.producto, '', nombrePlano());
+    const nom = C.nombreArchivo(D.producto, '', nombrePlano(), lat ? 'Laterales' : '');
+    const sfx = lat ? ' laterales' : '', ex = lat ? '-lat' : '';
     M.querySelector('.wpc-exp').innerHTML = `<span class="muted small">${fs.filter(f => !f.fuera).length} cables${faltan ? ` · <b style="color:#c0392b">${faltan} a revisar</b>` : ''}${nRg ? ` · <b>${nRg}</b> con otro color y sección por la regla de reemplazos (${esc(txtDe(cfg._de.reemplazos || 'global'))})` : ''}${nFuera ? ` · ${nFuera} fuera del arnés por regla (35 mm², comunicación, solenoides, campo, no van a la puerta ni a la placa)` : ''} · termos: ${nGiro} con giro${nSin ? ` (${nSin} sin el lado de una punta)` : ''} · la WPC solo corta (sin pelar ni crimpar)</span>
       <span class="grow"></span>
       <span class="small wpc-nom" title="Nombre del archivo y del proyecto (ProjectName del .wpc)"><span class="mono">${esc(nom)}</span>${D.producto && D.producto.codigo ? '' : ' <span class="muted">(sin código de producto)</span>'}</span>
-      <button class="btn sm" data-exp="csv" title="El .csv para importar en el programa de la WPC">⭳ CSV</button>
-      <button class="btn primary sm" data-exp="wpc" title="El archivo de la máquina: se abre directo en la WPC">⭳ .wpc</button>
+      <button class="btn sm" data-exp="csv${ex}" title="El .csv para importar en el programa de la WPC${lat ? ' (los cables de las bandejas laterales)' : ''}">⭳ CSV${sfx}</button>
+      <button class="btn primary sm" data-exp="wpc${ex}" title="El archivo de la máquina: se abre directo en la WPC${lat ? ' (los cables de las bandejas laterales)' : ''}">⭳ .wpc${sfx}</button>
       <span class="small wpc-aviso">No renombres el .wpc: la máquina lo abre por el nombre de adentro${ch.hay ? ' · ⚠ con parámetros sin guardar' : ''}</span>`;
     let g = null;
     const giros = (cfg.termos || {}).opciones || ['0|0', '180|0', '0|180', '180|180'], cods = cfg.codigos || [];
@@ -276,9 +294,12 @@ const Wpc = (() => {
         <td class="small muted">${f.l.largo_mm ? f.l.largo_mm : '—'}</td></tr>`;
     }).join('');
   }
+  // tipo: 'csv' / 'wpc' (la lista principal) o 'csv-lat' / 'wpc-lat' (el archivo de laterales)
   function exportar(tipo) {
-    const cfg = CFG(), fs = C.filas(D, cfg).filter(f => !f.fuera), nom = C.nombreArchivo(D.producto, '', nombrePlano());
-    if (tipo === 'csv') return bajar(nom + '.csv', C.csv(fs, cfg), 'text/csv;charset=utf-8');
+    const lat = /-lat$/.test(tipo), cfg = CFG();
+    const fs = (lat ? laterales(cfg) : C.filas(D, cfg)).filter(f => !f.fuera), nom = C.nombreArchivo(D.producto, '', nombrePlano(), lat ? 'Laterales' : '');
+    if (lat && !fs.length) return toast('No hay cables de las bandejas laterales para cortar (todos fuera del arnés)', 4000);
+    if (/^csv/.test(tipo)) return bajar(nom + '.csv', C.csv(fs, cfg), 'text/csv;charset=utf-8');
     C.wpcZip(nom + '.wpc', C.wpcXml(fs, cfg, nom)).then(z => bajar(nom + '.wpc', z, 'application/octet-stream'))
       .catch(e => toast('No se pudo armar el .wpc: ' + e.message, 4500));
   }
@@ -307,6 +328,8 @@ const Wpc = (() => {
     }
     const exp = t.closest('[data-exp]');
     if (exp && clic) return exportar(exp.dataset.exp);
+    const vb = t.closest('[data-vista]');
+    if (vb && clic) { vista = vb.dataset.vista === 'laterales' ? 'laterales' : 'principal'; return render(); }
     const tr = t.closest('tr[data-k]'); if (!tr) return;
     const k = tr.dataset.k, a = (t.closest('[data-a]') || {}).dataset?.a;
     if (a === 'usar' && cambio) {
@@ -315,7 +338,7 @@ const Wpc = (() => {
       (t.checked ? w.incluir : w.excluir).push(k);
     }
     else if (a === 'color' && cambio) { w.color[k] = t.value; }
-    else if (a === 'giro' && cambio) { const f = filas().find(x => x.k === k); if (f && t.value === f.giroCalc.v) delete w.giro[k]; else w.giro[k] = t.value; }
+    else if (a === 'giro' && cambio) { const f = [...filas(), ...laterales()].find(x => x.k === k); if (f && t.value === f.giroCalc.v) delete w.giro[k]; else w.giro[k] = t.value; }
     else if (a === 'largo' && cambio) { if (t.value === '') delete w.largo[k]; else w.largo[k] = Math.max(0, Math.round(+t.value)); }
     else return;
     guardar(); render();
@@ -332,9 +355,10 @@ const Wpc = (() => {
     if (!M) {
       M = document.createElement('div'); M.id = 'wpcModal'; M.className = 'wpc-modal';
       M.innerHTML = `<div class="wpc-box" role="dialog" aria-label="Lista de cables para WPC">
-        <div class="wpc-h"><h2>Lista de cables para WPC</h2><span class="muted small">En el orden del instructivo. Todo en un solo archivo. El largo editado a mano queda en negrita.</span>
+        <div class="wpc-h"><h2>Lista de cables para WPC</h2><span class="muted small">En el orden del instructivo (los de una misma bandeja lateral, en el de la E8). El largo editado a mano queda en negrita.</span>
           <span class="grow"></span><button class="btn ghost sm" data-cerrar>✕ Cerrar</button></div>
         <div class="small prod-linea" id="wpcProd" hidden></div>
+        <div class="wpc-vistas" hidden></div>
         <div class="wpc-cfg"></div><div class="wpc-par" hidden></div><div class="wpc-exp"></div>
         <div class="wpc-t"><table><thead><tr><th></th><th>#</th><th>Cable</th><th>Color</th><th>mm²</th><th>Largo</th><th>Origen → destino</th><th title="Giro de los termos (señalizadores): origen|destino en grados. Una punta arriba y otra abajo: 0|0 · las dos abajo: 180|0 · las dos arriba: 0|180">Termos</th><th title="Recorrido por las canaletas">Canaleta</th></tr></thead><tbody></tbody></table></div></div>`;
       document.body.appendChild(M);
@@ -348,5 +372,5 @@ const Wpc = (() => {
   }
   // el producto cambió (✎ en la línea «Producto»): la configuración y el nombre del archivo dependen del código
   function refrescar() { const M = $('#wpcModal'); if (D && M && !M.hidden) render(); }
-  return { abrir, refrescar, csv: fs => C.csv(fs, CFG()), filas: () => filas() };
+  return { abrir, refrescar, csv: fs => C.csv(fs, CFG()), filas: () => filas(), laterales: () => laterales() };
 })();

@@ -48,6 +48,11 @@ function entradasTerminal() {
 
 const archivoWpc = (nombre, variante, ext) => path.join(GOLDENS, `wpc_${nombre}_${variante}.${ext}`);
 const archivoTerminal = nombre => path.join(GOLDENS, `terminal_${nombre}.json`);
+// el .wpc de laterales (2026-10-13): los cables que nacen y mueren en una misma bandeja lateral; uno por trabajo (no
+// depende de «Pendientes» ni de «Otra estación») y solo si los hay
+const archivoLat = (nombre, ext) => path.join(GOLDENS, `wpc_${nombre}_laterales.${ext}`);
+// el nombre de ese .wpc ('<código> - <plano> Rev <rev> - Laterales.wpc'; sin código, el del PDF de prueba de la pantalla)
+const nombreLat = ins => require(path.join(V.WEB, 'nucleo', 'wpc_core.js')).nombreArchivo((ins || {}).producto, '.wpc', 'prueba', 'Laterales');
 const ARCHIVO_XML_76884 = path.join(GOLDENS, 'xml_76884_vs_real.json');
 
 // el JSON de un golden: estable (claves en el orden en que se arman) y una fila por línea, para que el diff de git se lea
@@ -82,5 +87,5 @@ function difLista(a, b, id = x => x.num) {
 
 module.exports = {
   ...V, PRUEBAS, GOLDENS, CASOS, WPC_REAL, TRABAJOS, VARIANTES, leer, cargarCaso, casos, entradasWpc, entradasTerminal,
-  archivoWpc, archivoTerminal, ARCHIVO_XML_76884, texto, difCsv, difLista,
+  archivoWpc, archivoLat, nombreLat, archivoTerminal, ARCHIVO_XML_76884, texto, difCsv, difLista,
 };
