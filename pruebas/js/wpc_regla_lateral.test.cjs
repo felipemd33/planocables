@@ -53,7 +53,7 @@ test('a la puerta / placa: sin bisagra elegida, 75 + canaleta de la bandeja + cu
   assert.equal(desp.largo - antes.largo, can);
 });
 
-test('no va a la puerta ni a la placa (sin dibujar o dibujado en el fondo): como antes, 75 + canaleta de la bandeja + puerta', () => {
+test('no va a la puerta ni a la placa (sin dibujar o dibujado en el fondo): fuera del arnés (la WPC no lo corta), largo estimado como antes', () => {
   // TPT: un aparato sin dibujar (BH-01-ZV, ZY, PT 001: 'sin_aparato' en hacia_puerta); 75287: la batería 12PB1 y las
   // solenoides SP-n, dibujadas en el fondo (no están en hacia_puerta)
   const tpt = C.leer(C.TRABAJOS.tpt_constructivo);
@@ -63,11 +63,33 @@ test('no va a la puerta ni a la placa (sin dibujar o dibujado en el fondo): como
   const casos = [filaDe(filas(tpt), x), ...['1217', '6204'].map(num => fs75.find(f => f.tipo === 'bandeja' && f.l.num === num))];
   for (const f of casos) {
     assert.ok(f);
-    assert.match(f.calc.como, / \+ puerta \/ placa 1850 \(.*: no va a la puerta ni a la placa, como antes\)/, `FALLA: ${f.l.num}: ${f.calc.como}`);
+    assert.match(f.calc.como, / \+ puerta \/ placa 1850 \(.*: no va a la puerta ni a la placa, se corta a mano; largo estimado como antes\)/, `FALLA: ${f.l.num}: ${f.calc.como}`);
     assert.doesNotMatch(f.calc.como, /curva/);
     assert.equal(f.largo, 75 + n(f.calc.como, /canaleta de la bandeja (\d+)/) + 1850);
+    assert.ok(f.fuera, `FALLA: ${f.l.num}: la WPC no lo corta (fuera del arnés)`);
+    assert.equal(f.motivo, 'no va a la puerta ni a la placa: no lo corta la WPC');
   }
-  // la placa del 75287 (21PCB01, sin etiqueta en el topográfico) sí va a la puerta
-  const placa = fs75.find(f => f.tipo === 'bandeja' && /\(21PCB01 /.test(f.calc.como));
+  // la placa del 75287 (21PCB01, sin etiqueta en el topográfico) sí va a la puerta y la corta la WPC
+  const placa = fs75.find(f => f.tipo === 'bandeja' && /\(21PCB01 /.test(f.calc.como) && !f.motivo);
   assert.ok(placa && /curva a LI 100/.test(placa.calc.como), `FALLA: la placa del 75287 va a la puerta: ${placa && placa.calc.como}`);
+  assert.ok(!placa.fuera, `FALLA: ${placa.l.num} va a la placa: lo corta la WPC`);
+  // un producto lo puede apagar (fuera.no_puerta = false): vuelven al arnés
+  const ins75 = C.leer(C.TRABAJOS['75287']);
+  const otra = W.filas(ins75, W.config(CONFIG, { producto: ins75.producto, trabajo: { redondeo: 1, fuera: { no_puerta: false } } }));
+  assert.ok(otra.find(f => f.tipo === 'bandeja' && f.l.num === '1217').fuera === false, 'FALLA: con no_puerta = false el 1217 vuelve al arnés');
+});
+
+test('las 28 filas que la WPC dejaba de más (las que listó VECTOR): fuera del arnés', () => {
+  const esperadas = {
+    '75287': ['1217', '1218', '6202', '6204', '6205', '6207', '6208', '3141', '3142'],
+    '66817': ['1601', '1602', '6102', '6201', '6202', '3101', '3102'],
+    tpt: ['6102', '6103', '6201', '6202', '3101', '3102'],
+    tpt_constructivo: ['6102', '6103', '6201', '6202', '3101', '3102'],
+    '76884': [],
+  };
+  for (const [t, nums] of Object.entries(esperadas)) {
+    const fs = filas(C.leer(C.TRABAJOS[t]), { pendientes: true, otra: true });      // (el 3141 / 3142 del 75287 son de otra estación)
+    const np = fs.filter(f => f.motivo === 'no va a la puerta ni a la placa: no lo corta la WPC').map(f => f.l.num);
+    assert.deepEqual([...new Set(np)].sort(), [...nums].sort(), `FALLA: ${t}: ${np}`);
+  }
 });

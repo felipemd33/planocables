@@ -23,13 +23,14 @@
   "largos_comunicacion": [],
   "largo_sin_ruta": 1000,
   "redondeo": 50,
-  "_nota_fuera": "No van al arnés de la WPC (quedan en la lista destildados, con el motivo; se pueden tildar a mano): los de 35 mm² o más, los de comunicación (sección fina, o aparato / borne de comunicación), los que van a solenoides y los que van a campo. Las expresiones regulares se aplican a los textos de origen y destino.",
+  "_nota_fuera": "No van al arnés de la WPC (quedan en la lista destildados, con el motivo; se pueden tildar a mano): los de 35 mm² o más, los de comunicación (sección fina, o aparato / borne de comunicación), los que van a solenoides, los que van a campo y (no_puerta, 2026-10-09) los que salen de la bandeja a un aparato que no es de la puerta ni de la placa según la estación E8 (zona hidráulica, batería, solenoides, PT 001): se cortan a mano. Las expresiones regulares se aplican a los textos de origen y destino.",
   "fuera": {
     "seccion_desde": 35,
     "comunicacion_seccion_hasta": 0.5,
     "comunicacion_re": "\\bXCM\\b|RS-?485|MODBUS|\\bCOM\\b",
     "solenoide_re": "\\bSP-?\\d|_ZV\\b|\\bZV\\b|SOLEN|\\bYV\\d",
-    "campo_re": "\\bCAMPO\\b|\\bROTORK\\b|\\bPIT ?\\d|\\bIP_\\d"
+    "campo_re": "\\bCAMPO\\b|\\bROTORK\\b|\\bPIT ?\\d|\\bIP_\\d",
+    "no_puerta": true
   },
   "_nota_termos": "Giro de los termos (señalizadores) de cada punta, columna 22 del CSV («Labeling Position», en el .wpc Col22 = \"giro origen|giro destino\" en grados). Regla del taller (2026-10-05): una punta aguas arriba y otra aguas abajo → ninguno gira (0|0); las dos aguas abajo → gira el primero (180|0); las dos aguas arriba → gira el segundo (0|180). La punta que sale a LI / LD se toma como aguas abajo.",
   "termos": {
@@ -330,6 +331,13 @@
       "etiqueta": "Campo (expresión)",
       "tipo": "regex",
       "grupo": "Fuera del arnés"
+    },
+    {
+      "clave": "fuera.no_puerta",
+      "etiqueta": "No van a la puerta ni a la placa (zona hidráulica, batería, solenoides…)",
+      "grupo": "Fuera del arnés",
+      "tipo": "si_no",
+      "ayuda": "Con la estación E8: los cables que salen de la bandeja a un aparato que no es de la puerta ni de la placa no los corta la WPC (se cortan a mano)"
     },
     {
       "clave": "termos.mixto",

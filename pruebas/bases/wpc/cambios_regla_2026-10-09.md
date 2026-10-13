@@ -350,3 +350,20 @@ Regla del taller del 2026-10-09 (antes, la del 2026-10-06), para los cables que 
 | 2133 | 81XCM 6 ARRIBA → LI | sí | 2150 | 2250 | +100 | 75 (borne → canaleta) + canaleta de la bandeja 225 + curva a LI 100 (sin el recorrido por la lateral: falta elegir la bisagra en la E8) + puerta / placa 1850 (21PCB01 33), redondeado a 50 |
 | MALLA 21PCB01 34 | 81XCM 4 ARRIBA → LI | sí | 2150 | 2250 | +100 | 75 (borne → canaleta) + canaleta de la bandeja 220 + curva a LI 100 (sin el recorrido por la lateral: falta elegir la bisagra en la E8) + puerta / placa 1850 (21PCB01 34), redondeado a 50 |
 | 2136 | 81XCM 8 ARRIBA → LI | sí | 800 | 700 | -100 | 75 (borne → canaleta) + canaleta de la bandeja 230 + curva a LI 100 + canaleta de la bandeja lateral izquierda 212 + 75 (canaleta → 12XPS 11 ABAJO), redondeado a 50 |
+
+## Después: lo que no va a la puerta ni a la placa queda fuera del arnés (2026-10-09, el taller)
+
+«La WPC no corta esos cables» (dicho por el taller a VECTOR y confirmado): los que salen de la bandeja a un aparato que no es
+de la puerta ni de la placa según la E8 (zona hidráulica, batería, solenoides, PT 001, ZY, 81TM01) quedan **fuera del
+arnés**, con el motivo «no va a la puerta ni a la placa: no lo corta la WPC» (`wpc.json → fuera.no_puerta`, que un producto
+puede apagar). El largo no cambia: es el estimado de antes, para cortarlos a mano. Son las 28 filas que listó VECTOR (el
+1204 y el 1215 del 75287 ya estaban fuera, por 35 mm²); el PAE no cambia. Filas que salen del CSV (variante con
+«Pendientes» y «Otra estación»):
+
+| Trabajo | Cables que salen del CSV |
+|---|---|
+| 75287 | 1217 (bandeja) · 1218 (bandeja) · 6202 (bandeja) · 6204 (bandeja) · 6207 (bandeja) · 6205 (bandeja) · 6208 (bandeja) · 3142 (otra) · 3141 (otra) |
+| 66817 | 1602 (bandeja) · 1601 (bandeja) · 6102 (bandeja) · 6201 (bandeja) · 6202 (bandeja) · 3102 (bandeja) · 3101 (bandeja) |
+| 76884 | (ninguno) |
+| tpt | 6102 (bandeja) · 6201 (bandeja) · 6103 (bandeja) · 6202 (bandeja) · 3102 (bandeja) · 3101 (bandeja) |
+| tpt_constructivo | 6102 (bandeja) · 6201 (bandeja) · 6103 (bandeja) · 6202 (bandeja) · 3102 (bandeja) · 3101 (bandeja) |

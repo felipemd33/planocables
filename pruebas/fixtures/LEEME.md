@@ -59,7 +59,8 @@ git les cambie los fines de línea (así el sha1 de abajo se mantiene).
   acometidas fuera del panel (fijas), `extra_puerta` junto a `puerta` y la nota `_nota_salen_a_LI` (tabla de antes y
   después en `pruebas/bases/wpc/cambios_regla_2026-10-09.md`). Y otra vez el mismo día con `largos_comunicacion` (el
   largo total de cada cable de comunicación, por producto): vacía en «todos los productos», así que los goldens no
-  cambian.
+  cambian. Y otra vez con `fuera.no_puerta` (lo que no va a la puerta ni a la placa no lo corta la WPC: cambian los
+  goldens del 75287, el 66817 y los dos TPT; tabla al final de `cambios_regla_2026-10-09.md`).
 - `wpc_etapa0.json`: `programa/web/wpc.json` de la etapa 0 (`git show 0ba6ee9:programa/web/wpc.json`): la forma vieja,
   sin `parametros`, con el reemplazo solo para el documento ZPL-76884. `wpc_core.test.cjs` la usa para probar que la
   forma vieja se sigue leyendo, que con ella el XML del PAE del usuario sale como el `.wpc` real (salvo los largos que
@@ -68,7 +69,7 @@ git les cambie los fines de línea (así el sha1 de abajo se mantiene).
 
 | Archivo | Bytes | sha1 |
 |---|---|---|
-| `wpc/wpc.json` | 17 518 | `5446b551d665a55b0270d93abe2f5140a9f9a26c` |
+| `wpc/wpc.json` | 18 101 | `cb09ec8515eb47f1cf5d671e128c8f24d27f9c2d` |
 | `wpc/wpc_etapa0.json` | 4 471 | `c262b8ab57831fb313ddb3b83fd4580e5605088f` |
 
 ## `recorridos_e8.json`: el ruteo a mano de la estación 8 por producto (etapa E8-6, 2026-10-09)

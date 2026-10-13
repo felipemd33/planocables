@@ -30,8 +30,9 @@
      acometida + canaleta de la bandeja + la curva de la lateral por donde pasa + la canaleta de esa lateral hasta la
      salida a la puerta (el tránsito de la E8, que hay solo con la bisagra elegida; sin él, 0) + puerta;
    - lo demás de «puerta / placa» de la E8, que no va a la puerta ni a la placa (zona hidráulica, batería, solenoides,
-     PT 001...: sin dibujar o dibujados en el fondo): como antes, acometida + canaleta de la bandeja + puerta (a
-     confirmar con el taller). Una E8 de antes de E8-4 (sin hacia_puerta) no lo distingue: todo va a la puerta.
+     PT 001...: sin dibujar o dibujados en el fondo): la WPC NO LO CORTA (fuera del arnés, el taller, 2026-10-09; se
+     apaga con fuera.no_puerta = false). Se corta a mano: el largo que se muestra es el de antes, acometida + canaleta de
+     la bandeja + puerta. Una E8 de antes de E8-4 (sin hacia_puerta) no lo distingue: todo va a la puerta.
    Por producto se editan curva_LI, curva_LD, puerta y extra_puerta (de la lateral a la puerta); las acometidas son fijas.
    COMUNICACIÓN (2026-10-09): el largo total de cada cable de comunicación lo da el producto, cable por cable
    (largos_comunicacion = [{cable, mm}], cable = el número solo, para todos sus tramos, o el tramo «número|origen|destino»,
@@ -43,7 +44,7 @@
    REEMPLAZOS: un color y sección se cortan con otro (la WPC no tiene slots de 4 mm²); solo en esta lista, el
    instructivo no cambia. TERMOS (columna 22, "giro origen|giro destino" en grados) según el lado de cada punta: una
    aguas arriba y otra aguas abajo → 0|0; las dos abajo → 180|0; las dos arriba → 0|180. FUERA del arnés
-   (destildados, con el motivo): 35 mm², comunicación, solenoides y campo.
+   (destildados, con el motivo): 35 mm², comunicación, solenoides, campo y lo que no va a la puerta ni a la placa (E8).
 
    CONFIGURACIÓN (programa/web/wpc.json; la cambia el taller con el panel ⚙ Parámetros, PUT /api/config/wpc)
    NIVELES: wpc.json (todos los productos) < wpc.json → productos[código] < ins.wpc.cfg (este trabajo). Si no hay nada
@@ -57,7 +58,8 @@
                          largo_pendiente (mm); pendientes / otra (true / false: incluirlos en la lista)
      largos_comunicacion [{cable, mm}]: el largo total de cada cable de comunicación (se carga por producto)
      fuera               seccion_desde, comunicacion_seccion_hasta (mm²); comunicacion_re, solenoide_re, campo_re (regex,
-                         sin distinguir mayúsculas, sobre «origen destino»)
+                         sin distinguir mayúsculas, sobre «origen destino»); no_puerta (true / false, por defecto true:
+                         lo que sale de la bandeja y no va a la puerta ni a la placa, según la E8)
      termos              mixto, abajo_abajo, arriba_arriba, sin_dato ("origen|destino"); opciones (las del menú)
      fijos               pelado_origen, proceso_origen, proceso_destino, crimpado_origen, dimension_origen,
                          crimpado_destino (columnas 24-26, 28, 46 y 47 del CSV)
@@ -159,8 +161,9 @@ const WpcCore = (() => {
     const sec = parseFloat(secNum(l)), col = normC(l.color);
     return (reglas || []).find(r => normC(r.de.color) === col && parseFloat(r.de.secc) === sec) || null;
   }
-  // ---- cables que no van al arnés de la WPC (fuera): el motivo, o null si va
-  function motivoFuera(f, cfg) {
+  // ---- cables que no van al arnés de la WPC (fuera): el motivo, o null si va. e8l (lateralInfo): adónde va de verdad
+  // un cable que sale de la bandeja (estación E8)
+  function motivoFuera(f, cfg, e8l) {
     const FU = cfg.fuera || {}, l = f.l, sec = parseFloat(f.sec), txt = `${l.origen ?? l.a ?? ''} ${l.destino ?? l.b ?? ''}`;
     const re_ = k => { const s = FU[k]; try { return s ? new RegExp(s, 'i') : null; } catch (e) { return null; } };
     if (!f.sec) return 'sin sección (malla, tierra o cable de campo)';
@@ -170,6 +173,12 @@ const WpcCore = (() => {
     if (rc && rc.test(txt)) return 'comunicación';
     if (rs && rs.test(txt)) return 'va a una solenoide';
     if (l.estacion === 'CAMPO' || (rk && rk.test(txt)) || /^s\/n\b/i.test(l.num || '')) return 'va a campo';
+    // sale de la bandeja a un aparato que no es de la puerta ni de la placa (zona hidráulica, batería, solenoides, PT 001:
+    // lo dice la E8; el texto de la fila solo dice «→ LI»): la WPC no lo corta (el taller, 2026-10-09)
+    if (FU.no_puerta !== false && f.tipo !== 'pendiente' && e8l && e8l.sale) {      // (la bandeja y otra estación)
+      const x = e8l.sale[`${l.num}|${sinLado(l.origen)}`];
+      if (x && x.tipo === 'no_puerta') return 'no va a la puerta ni a la placa: no lo corta la WPC';
+    }
     return null;
   }
   // ---- giro de los termos (señalizadores) de las dos puntas, "origen|destino" en grados (columna 22 del CSV)
@@ -218,7 +227,7 @@ const WpcCore = (() => {
       f.rg = reemplazo(f.l, cfg.reemplazos);       // regla: otro color y sección para la WPC
       f.sec = f.rg ? String(f.rg.a.secc).replace(',', '.') : secNum(f.l);
       // no va al arnés (sin sección, 35 mm², comunicación, solenoide, campo) salvo que se tilde a mano
-      f.motivo = motivoFuera(f, cfg);
+      f.motivo = motivoFuera(f, cfg, e8l);
       f.fuera = excl.has(f.k) || (!!f.motivo && !incl.has(f.k));
       f.calc = largo(f, cfg, e8l, topo); f.largo = mLargo[f.k] != null ? +mLargo[f.k] : f.calc.mm;
       f.color = mColor[f.k] || (cfg.colores || {})[f.rg ? f.rg.a.color : f.l.color] || '';
@@ -288,7 +297,7 @@ const WpcCore = (() => {
     e8l = e8l || { sale: {}, par: {} }; topo = topo || {};
     const l = f.l, r = P('redondeo') || 1, up = v => Math.ceil(v / r) * r;
     // cable de comunicación con su largo total cargado (por producto): ese largo, en todas sus filas
-    const mot = f.motivo !== undefined ? f.motivo : motivoFuera(f, cfg);
+    const mot = f.motivo !== undefined ? f.motivo : motivoFuera(f, cfg, e8l);
     const lc = mot && /^comunicación/.test(mot) ? largoComunicacion(cfg, f) : null;
     if (lc != null) {
       const de = (cfg._de || {}).largos_comunicacion, nivel = de === 'trabajo' ? 'este trabajo' : de === 'global' ? 'todos los productos' : 'el producto';
@@ -325,9 +334,10 @@ const WpcCore = (() => {
         return { mm: up(P('acometida') + canT + curva(s) + cl + P('puerta')),
           como: `${b} + curva a ${s} ${curva(s)}${tr} + puerta / placa ${P('puerta')} (${x.donde}), redondeado a ${r}` };
       }
-      // no va a la puerta ni a la placa (zona hidráulica, batería, solenoides...): como antes (a confirmar con el taller)
+      // no va a la puerta ni a la placa (zona hidráulica, batería, solenoides...): la WPC no lo corta (fuera del arnés);
+      // el largo para cortarlo a mano, el de antes
       return { mm: up(P('acometida') + canT + P('puerta')),
-        como: `${b} + puerta / placa ${P('puerta')} (${x.donde}: no va a la puerta ni a la placa, como antes), redondeado a ${r}` };
+        como: `${b} + puerta / placa ${P('puerta')} (${x.donde}: no va a la puerta ni a la placa, se corta a mano; largo estimado como antes), redondeado a ${r}` };
     }
     // queda en la bandeja, o sale a LI / LD sin saber adónde (sin estación E8): agregado según el caso
     const ext = l.destino === 'LI' ? P('extra_LI') : l.destino === 'LD' ? P('extra_LD') : 0;

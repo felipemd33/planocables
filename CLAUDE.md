@@ -302,7 +302,8 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
     21PCB01, 13SH1, 13MS1, 42DB1…): `acometida` 75 + canaleta de la bandeja + curva + canaleta de la lateral de la bisagra
     hasta la salida a la puerta (el tránsito de la E8, solo con la bisagra elegida) + `puerta` 1850;
   - lo que no va a la puerta ni a la placa (zona hidráulica, batería, solenoides, PT 001: sin dibujar o dibujados en el
-    fondo): **como antes**, 75 + canaleta de la bandeja + `puerta`, **a confirmar con el taller**.
+    fondo): **la WPC no lo corta** (fuera del arnés, el taller, 2026-10-09; `fuera.no_puerta`, que un producto puede
+    apagar); se corta a mano y la lista muestra el largo de antes (75 + canaleta de la bandeja + `puerta`) como estimado.
   - Por producto (⚙ Parámetros) se editan solo `curva_LI`, `curva_LD`, `puerta` y `extra_puerta` (de la lateral a la
     puerta); las acometidas de 75 son fijas (fuera del panel). Tabla: `pruebas/bases/wpc/cambios_regla_2026-10-09.md`.
   - **Cables de comunicación (2026-10-09, el taller):** el largo total lo da el PRODUCTO, **cable por cable**
@@ -327,7 +328,8 @@ Correr la web: `python programa/web.py --no-abrir` (requisitos en `requirements.
   aguas arriba → `0|180` (gira el segundo). Lado = arriba / abajo del eje del riel por el punto exacto (`lado`, `marca_*`,
   `topo.comp[tag].fila`), o por el texto; la punta que sale a LI / LD se toma como aguas abajo (coincide con lo que el
   taller puso a mano en los .wpc del 66817). **Fuera del arnés** (destildados, con el motivo, `wpc.json → fuera`): 35 mm²,
-  comunicación (≤ 0,5 mm² o XCM / RS-485), solenoides (SP-n, ZV, YV), campo (CAMPO, ROTORK, PIT, IP_). Formato de la WPC
+  comunicación (≤ 0,5 mm² o XCM / RS-485), solenoides (SP-n, ZV, YV), campo (CAMPO, ROTORK, PIT, IP_) y, por la E8, lo
+  que sale de la bandeja y no va a la puerta ni a la placa (`no_puerta`: el texto de la fila solo dice «→ LI»). Formato de la WPC
   (Weidmüller): plantilla `Template_5.0.11.xlsm` y archivos `.wpc` (zip con XML, `Col1..Col49`) en
   `G:\...\4-Instructivos de montaje de VECTOR\WPC\`; «sin terminal» = pelado, proceso y crimpado en 0 (col. 24-26, 28, 46, 47).
 - **Proyector (2026-10-05, pedido del usuario):** se proyecta sobre la bandeja solo lo necesario (canaletas y el cable, nunca
@@ -491,11 +493,10 @@ python pruebas/volcar_trabajo.py pruebas/trabajos/76884 salida_76884.json --sin-
   - las dudas del mapeo verificado (hoja «Dudas a confirmar» del Excel) salen como avisos en el instructivo;
   - ⏚81XCM (81XCM 9 ARRIBA → LI) y ⏚32XEX (32XEX 5.4 → LI): renglones de la lista de conexiones con un solo destino; el
     usuario cree que son errores del plano (2026-10-09). Siguen en E6; si se confirma, se quitan con 🗑 en el trabajo.
-- **Lista WPC, para confirmar con el usuario (2026-10-09):** el largo de los cables que salen de la bandeja y no van a
-  la puerta ni a la placa (zona hidráulica, batería 12PB1, solenoides SP-n, PT 001, ZY, 81TM01): siguen como antes
-  (75 + canaleta de la bandeja + `puerta` 1850 = 2100-2550 mm). Con la regla nueva de la LI sin la canaleta de la
-  lateral (no tienen recorrido dibujado) darían 550-1000 mm, que a VECTOR le parece corto; VECTOR usa hoy su `puerta_re`
-  (los deja en la lateral sin extra).
+- **Lista WPC, para confirmar con el usuario (2026-10-09):** los cables que salen de la bandeja y no van a la puerta ni
+  a la placa (zona hidráulica, batería 12PB1, solenoides SP-n, PT 001, ZY, 81TM01) ya no los corta la WPC (el taller);
+  falta saber qué largo mostrar para cortarlos a mano (hoy el estimado de antes, 75 + canaleta de la bandeja + 1850; en
+  E5 de VECTOR, «largo estimado»).
 - **Arreglos del mapeo automático que quedaron a medias** (`pendiente/arreglos_mapeo_parciales/`, sin verificar):
   - diferencial/termomagnética sin lista → confianza media;
   - relé único sin módulo no se renombra;
